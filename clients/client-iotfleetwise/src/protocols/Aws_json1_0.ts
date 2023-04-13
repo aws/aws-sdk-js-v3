@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -12,7 +13,8 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -142,12 +144,9 @@ import {
   AccessDeniedException,
   Actuator,
   AssociateVehicleFleetRequest,
-  AssociateVehicleFleetResponse,
   Attribute,
   BatchCreateVehicleRequest,
-  BatchCreateVehicleResponse,
   BatchUpdateVehicleRequest,
-  BatchUpdateVehicleResponse,
   Branch,
   CampaignSummary,
   CanDbcDefinition,
@@ -158,36 +157,21 @@ import {
   ConditionBasedCollectionScheme,
   ConflictException,
   CreateCampaignRequest,
-  CreateCampaignResponse,
   CreateDecoderManifestRequest,
-  CreateDecoderManifestResponse,
   CreateFleetRequest,
-  CreateFleetResponse,
   CreateModelManifestRequest,
-  CreateModelManifestResponse,
   CreateSignalCatalogRequest,
-  CreateSignalCatalogResponse,
-  CreateVehicleError,
   CreateVehicleRequest,
   CreateVehicleRequestItem,
-  CreateVehicleResponse,
-  CreateVehicleResponseItem,
   DecoderManifestSummary,
   DecoderManifestValidationException,
   DeleteCampaignRequest,
-  DeleteCampaignResponse,
   DeleteDecoderManifestRequest,
-  DeleteDecoderManifestResponse,
   DeleteFleetRequest,
-  DeleteFleetResponse,
   DeleteModelManifestRequest,
-  DeleteModelManifestResponse,
   DeleteSignalCatalogRequest,
-  DeleteSignalCatalogResponse,
   DeleteVehicleRequest,
-  DeleteVehicleResponse,
   DisassociateVehicleFleetRequest,
-  DisassociateVehicleFleetResponse,
   FleetSummary,
   FormattedVss,
   GetCampaignRequest,
@@ -197,7 +181,6 @@ import {
   GetFleetRequest,
   GetFleetResponse,
   GetLoggingOptionsRequest,
-  GetLoggingOptionsResponse,
   GetModelManifestRequest,
   GetModelManifestResponse,
   GetRegisterAccountStatusRequest,
@@ -207,30 +190,21 @@ import {
   GetVehicleRequest,
   GetVehicleResponse,
   GetVehicleStatusRequest,
-  GetVehicleStatusResponse,
-  IamRegistrationResponse,
   IamResources,
   ImportDecoderManifestRequest,
-  ImportDecoderManifestResponse,
   ImportSignalCatalogRequest,
-  ImportSignalCatalogResponse,
   InternalServerException,
-  InvalidNetworkInterface,
   InvalidNodeException,
-  InvalidSignal,
-  InvalidSignalDecoder,
   InvalidSignalsException,
   LimitExceededException,
   ListCampaignsRequest,
   ListCampaignsResponse,
   ListDecoderManifestNetworkInterfacesRequest,
-  ListDecoderManifestNetworkInterfacesResponse,
   ListDecoderManifestSignalsRequest,
   ListDecoderManifestSignalsResponse,
   ListDecoderManifestsRequest,
   ListDecoderManifestsResponse,
   ListFleetsForVehicleRequest,
-  ListFleetsForVehicleResponse,
   ListFleetsRequest,
   ListFleetsResponse,
   ListModelManifestNodesRequest,
@@ -242,20 +216,16 @@ import {
   ListSignalCatalogsRequest,
   ListSignalCatalogsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListVehiclesInFleetRequest,
-  ListVehiclesInFleetResponse,
   ListVehiclesRequest,
   ListVehiclesResponse,
   ModelManifestSummary,
   NetworkFileDefinition,
   NetworkInterface,
   Node,
-  NodeCounts,
   ObdInterface,
   ObdSignal,
   PutLoggingOptionsRequest,
-  PutLoggingOptionsResponse,
   RegisterAccountRequest,
   RegisterAccountResponse,
   ResourceNotFoundException,
@@ -265,31 +235,18 @@ import {
   SignalInformation,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   ThrottlingException,
   TimeBasedCollectionScheme,
-  TimestreamRegistrationResponse,
   TimestreamResources,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateCampaignRequest,
-  UpdateCampaignResponse,
   UpdateDecoderManifestRequest,
-  UpdateDecoderManifestResponse,
   UpdateFleetRequest,
-  UpdateFleetResponse,
   UpdateModelManifestRequest,
-  UpdateModelManifestResponse,
   UpdateSignalCatalogRequest,
-  UpdateSignalCatalogResponse,
-  UpdateVehicleError,
   UpdateVehicleRequest,
   UpdateVehicleRequestItem,
-  UpdateVehicleResponse,
-  UpdateVehicleResponseItem,
   ValidationException,
-  ValidationExceptionField,
-  VehicleStatus,
   VehicleSummary,
 } from "../models/models_0";
 
@@ -302,7 +259,7 @@ export const se_AssociateVehicleFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateVehicleFleet");
   let body: any;
-  body = JSON.stringify(se_AssociateVehicleFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -315,7 +272,7 @@ export const se_BatchCreateVehicleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchCreateVehicle");
   let body: any;
-  body = JSON.stringify(se_BatchCreateVehicleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -328,7 +285,7 @@ export const se_BatchUpdateVehicleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchUpdateVehicle");
   let body: any;
-  body = JSON.stringify(se_BatchUpdateVehicleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -367,7 +324,7 @@ export const se_CreateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateFleet");
   let body: any;
-  body = JSON.stringify(se_CreateFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -380,7 +337,7 @@ export const se_CreateModelManifestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateModelManifest");
   let body: any;
-  body = JSON.stringify(se_CreateModelManifestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -406,7 +363,7 @@ export const se_CreateVehicleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateVehicle");
   let body: any;
-  body = JSON.stringify(se_CreateVehicleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -419,7 +376,7 @@ export const se_DeleteCampaignCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCampaign");
   let body: any;
-  body = JSON.stringify(se_DeleteCampaignRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -432,7 +389,7 @@ export const se_DeleteDecoderManifestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDecoderManifest");
   let body: any;
-  body = JSON.stringify(se_DeleteDecoderManifestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -445,7 +402,7 @@ export const se_DeleteFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFleet");
   let body: any;
-  body = JSON.stringify(se_DeleteFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -458,7 +415,7 @@ export const se_DeleteModelManifestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteModelManifest");
   let body: any;
-  body = JSON.stringify(se_DeleteModelManifestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -471,7 +428,7 @@ export const se_DeleteSignalCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSignalCatalog");
   let body: any;
-  body = JSON.stringify(se_DeleteSignalCatalogRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -484,7 +441,7 @@ export const se_DeleteVehicleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteVehicle");
   let body: any;
-  body = JSON.stringify(se_DeleteVehicleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -497,7 +454,7 @@ export const se_DisassociateVehicleFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateVehicleFleet");
   let body: any;
-  body = JSON.stringify(se_DisassociateVehicleFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -510,7 +467,7 @@ export const se_GetCampaignCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCampaign");
   let body: any;
-  body = JSON.stringify(se_GetCampaignRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -523,7 +480,7 @@ export const se_GetDecoderManifestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDecoderManifest");
   let body: any;
-  body = JSON.stringify(se_GetDecoderManifestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -536,7 +493,7 @@ export const se_GetFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFleet");
   let body: any;
-  body = JSON.stringify(se_GetFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -549,7 +506,7 @@ export const se_GetLoggingOptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLoggingOptions");
   let body: any;
-  body = JSON.stringify(se_GetLoggingOptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -562,7 +519,7 @@ export const se_GetModelManifestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetModelManifest");
   let body: any;
-  body = JSON.stringify(se_GetModelManifestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -575,7 +532,7 @@ export const se_GetRegisterAccountStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRegisterAccountStatus");
   let body: any;
-  body = JSON.stringify(se_GetRegisterAccountStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -588,7 +545,7 @@ export const se_GetSignalCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSignalCatalog");
   let body: any;
-  body = JSON.stringify(se_GetSignalCatalogRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -601,7 +558,7 @@ export const se_GetVehicleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetVehicle");
   let body: any;
-  body = JSON.stringify(se_GetVehicleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -614,7 +571,7 @@ export const se_GetVehicleStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetVehicleStatus");
   let body: any;
-  body = JSON.stringify(se_GetVehicleStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -640,7 +597,7 @@ export const se_ImportSignalCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportSignalCatalog");
   let body: any;
-  body = JSON.stringify(se_ImportSignalCatalogRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -653,7 +610,7 @@ export const se_ListCampaignsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCampaigns");
   let body: any;
-  body = JSON.stringify(se_ListCampaignsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -666,7 +623,7 @@ export const se_ListDecoderManifestNetworkInterfacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDecoderManifestNetworkInterfaces");
   let body: any;
-  body = JSON.stringify(se_ListDecoderManifestNetworkInterfacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -679,7 +636,7 @@ export const se_ListDecoderManifestsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDecoderManifests");
   let body: any;
-  body = JSON.stringify(se_ListDecoderManifestsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -692,7 +649,7 @@ export const se_ListDecoderManifestSignalsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDecoderManifestSignals");
   let body: any;
-  body = JSON.stringify(se_ListDecoderManifestSignalsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -705,7 +662,7 @@ export const se_ListFleetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFleets");
   let body: any;
-  body = JSON.stringify(se_ListFleetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -718,7 +675,7 @@ export const se_ListFleetsForVehicleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFleetsForVehicle");
   let body: any;
-  body = JSON.stringify(se_ListFleetsForVehicleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -731,7 +688,7 @@ export const se_ListModelManifestNodesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListModelManifestNodes");
   let body: any;
-  body = JSON.stringify(se_ListModelManifestNodesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -744,7 +701,7 @@ export const se_ListModelManifestsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListModelManifests");
   let body: any;
-  body = JSON.stringify(se_ListModelManifestsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -757,7 +714,7 @@ export const se_ListSignalCatalogNodesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSignalCatalogNodes");
   let body: any;
-  body = JSON.stringify(se_ListSignalCatalogNodesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -770,7 +727,7 @@ export const se_ListSignalCatalogsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSignalCatalogs");
   let body: any;
-  body = JSON.stringify(se_ListSignalCatalogsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -783,7 +740,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -796,7 +753,7 @@ export const se_ListVehiclesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVehicles");
   let body: any;
-  body = JSON.stringify(se_ListVehiclesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -809,7 +766,7 @@ export const se_ListVehiclesInFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVehiclesInFleet");
   let body: any;
-  body = JSON.stringify(se_ListVehiclesInFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -822,7 +779,7 @@ export const se_PutLoggingOptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutLoggingOptions");
   let body: any;
-  body = JSON.stringify(se_PutLoggingOptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -835,7 +792,7 @@ export const se_RegisterAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterAccount");
   let body: any;
-  body = JSON.stringify(se_RegisterAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -848,7 +805,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -861,7 +818,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -874,7 +831,7 @@ export const se_UpdateCampaignCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCampaign");
   let body: any;
-  body = JSON.stringify(se_UpdateCampaignRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -900,7 +857,7 @@ export const se_UpdateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateFleet");
   let body: any;
-  body = JSON.stringify(se_UpdateFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -913,7 +870,7 @@ export const se_UpdateModelManifestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateModelManifest");
   let body: any;
-  body = JSON.stringify(se_UpdateModelManifestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -939,7 +896,7 @@ export const se_UpdateVehicleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateVehicle");
   let body: any;
-  body = JSON.stringify(se_UpdateVehicleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -955,12 +912,12 @@ export const de_AssociateVehicleFleetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateVehicleFleetResponse(data, context);
+  contents = _json(data);
   const response: AssociateVehicleFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -993,10 +950,9 @@ const de_AssociateVehicleFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1014,12 +970,12 @@ export const de_BatchCreateVehicleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchCreateVehicleResponse(data, context);
+  contents = _json(data);
   const response: BatchCreateVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1052,10 +1008,9 @@ const de_BatchCreateVehicleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1073,12 +1028,12 @@ export const de_BatchUpdateVehicleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchUpdateVehicleResponse(data, context);
+  contents = _json(data);
   const response: BatchUpdateVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1108,10 +1063,9 @@ const de_BatchUpdateVehicleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1129,12 +1083,12 @@ export const de_CreateCampaignCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateCampaignResponse(data, context);
+  contents = _json(data);
   const response: CreateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1173,10 +1127,9 @@ const de_CreateCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1194,12 +1147,12 @@ export const de_CreateDecoderManifestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDecoderManifestResponse(data, context);
+  contents = _json(data);
   const response: CreateDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1241,10 +1194,9 @@ const de_CreateDecoderManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1262,12 +1214,12 @@ export const de_CreateFleetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateFleetResponse(data, context);
+  contents = _json(data);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1306,10 +1258,9 @@ const de_CreateFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1327,12 +1278,12 @@ export const de_CreateModelManifestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateModelManifestResponse(data, context);
+  contents = _json(data);
   const response: CreateModelManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1374,10 +1325,9 @@ const de_CreateModelManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1395,12 +1345,12 @@ export const de_CreateSignalCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateSignalCatalogResponse(data, context);
+  contents = _json(data);
   const response: CreateSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1442,10 +1392,9 @@ const de_CreateSignalCatalogCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1463,12 +1412,12 @@ export const de_CreateVehicleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateVehicleResponse(data, context);
+  contents = _json(data);
   const response: CreateVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1507,10 +1456,9 @@ const de_CreateVehicleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1528,12 +1476,12 @@ export const de_DeleteCampaignCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteCampaignResponse(data, context);
+  contents = _json(data);
   const response: DeleteCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1566,10 +1514,9 @@ const de_DeleteCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1587,12 +1534,12 @@ export const de_DeleteDecoderManifestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDecoderManifestResponse(data, context);
+  contents = _json(data);
   const response: DeleteDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1625,10 +1572,9 @@ const de_DeleteDecoderManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1646,12 +1592,12 @@ export const de_DeleteFleetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteFleetResponse(data, context);
+  contents = _json(data);
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1681,10 +1627,9 @@ const de_DeleteFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1702,12 +1647,12 @@ export const de_DeleteModelManifestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteModelManifestResponse(data, context);
+  contents = _json(data);
   const response: DeleteModelManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1740,10 +1685,9 @@ const de_DeleteModelManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1761,12 +1705,12 @@ export const de_DeleteSignalCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSignalCatalogResponse(data, context);
+  contents = _json(data);
   const response: DeleteSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1799,10 +1743,9 @@ const de_DeleteSignalCatalogCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1820,12 +1763,12 @@ export const de_DeleteVehicleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteVehicleResponse(data, context);
+  contents = _json(data);
   const response: DeleteVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1855,10 +1798,9 @@ const de_DeleteVehicleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1876,12 +1818,12 @@ export const de_DisassociateVehicleFleetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateVehicleFleetResponse(data, context);
+  contents = _json(data);
   const response: DisassociateVehicleFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1914,10 +1856,9 @@ const de_DisassociateVehicleFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1940,7 +1881,7 @@ export const de_GetCampaignCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1973,10 +1914,9 @@ const de_GetCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1999,7 +1939,7 @@ export const de_GetDecoderManifestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2032,10 +1972,9 @@ const de_GetDecoderManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2058,7 +1997,7 @@ export const de_GetFleetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2091,10 +2030,9 @@ const de_GetFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2112,12 +2050,12 @@ export const de_GetLoggingOptionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetLoggingOptionsResponse(data, context);
+  contents = _json(data);
   const response: GetLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2144,10 +2082,9 @@ const de_GetLoggingOptionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2170,7 +2107,7 @@ export const de_GetModelManifestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2203,10 +2140,9 @@ const de_GetModelManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2229,7 +2165,7 @@ export const de_GetRegisterAccountStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2262,10 +2198,9 @@ const de_GetRegisterAccountStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2288,7 +2223,7 @@ export const de_GetSignalCatalogCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2321,10 +2256,9 @@ const de_GetSignalCatalogCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2347,7 +2281,7 @@ export const de_GetVehicleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2380,10 +2314,9 @@ const de_GetVehicleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2401,12 +2334,12 @@ export const de_GetVehicleStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetVehicleStatusResponse(data, context);
+  contents = _json(data);
   const response: GetVehicleStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2439,10 +2372,9 @@ const de_GetVehicleStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2460,12 +2392,12 @@ export const de_ImportDecoderManifestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportDecoderManifestResponse(data, context);
+  contents = _json(data);
   const response: ImportDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2507,10 +2439,9 @@ const de_ImportDecoderManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2528,12 +2459,12 @@ export const de_ImportSignalCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportSignalCatalogResponse(data, context);
+  contents = _json(data);
   const response: ImportSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2575,10 +2506,9 @@ const de_ImportSignalCatalogCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2601,7 +2531,7 @@ export const de_ListCampaignsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2631,10 +2561,9 @@ const de_ListCampaignsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2652,12 +2581,12 @@ export const de_ListDecoderManifestNetworkInterfacesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDecoderManifestNetworkInterfacesResponse(data, context);
+  contents = _json(data);
   const response: ListDecoderManifestNetworkInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2690,10 +2619,9 @@ const de_ListDecoderManifestNetworkInterfacesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2716,7 +2644,7 @@ export const de_ListDecoderManifestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2746,10 +2674,9 @@ const de_ListDecoderManifestsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2772,7 +2699,7 @@ export const de_ListDecoderManifestSignalsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2805,10 +2732,9 @@ const de_ListDecoderManifestSignalsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2831,7 +2757,7 @@ export const de_ListFleetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2864,10 +2790,9 @@ const de_ListFleetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2885,12 +2810,12 @@ export const de_ListFleetsForVehicleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListFleetsForVehicleResponse(data, context);
+  contents = _json(data);
   const response: ListFleetsForVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2923,10 +2848,9 @@ const de_ListFleetsForVehicleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2949,7 +2873,7 @@ export const de_ListModelManifestNodesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2985,10 +2909,9 @@ const de_ListModelManifestNodesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3011,7 +2934,7 @@ export const de_ListModelManifestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3041,10 +2964,9 @@ const de_ListModelManifestsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3067,7 +2989,7 @@ export const de_ListSignalCatalogNodesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3103,10 +3025,9 @@ const de_ListSignalCatalogNodesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3129,7 +3050,7 @@ export const de_ListSignalCatalogsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3159,10 +3080,9 @@ const de_ListSignalCatalogsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3180,12 +3100,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3218,10 +3138,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3244,7 +3163,7 @@ export const de_ListVehiclesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3274,10 +3193,9 @@ const de_ListVehiclesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3295,12 +3213,12 @@ export const de_ListVehiclesInFleetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListVehiclesInFleetResponse(data, context);
+  contents = _json(data);
   const response: ListVehiclesInFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3333,10 +3251,9 @@ const de_ListVehiclesInFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3354,12 +3271,12 @@ export const de_PutLoggingOptionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutLoggingOptionsResponse(data, context);
+  contents = _json(data);
   const response: PutLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3395,10 +3312,9 @@ const de_PutLoggingOptionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3421,7 +3337,7 @@ export const de_RegisterAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3457,10 +3373,9 @@ const de_RegisterAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3478,12 +3393,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3516,10 +3431,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3537,12 +3451,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3575,10 +3489,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3596,12 +3509,12 @@ export const de_UpdateCampaignCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateCampaignResponse(data, context);
+  contents = _json(data);
   const response: UpdateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3637,10 +3550,9 @@ const de_UpdateCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3658,12 +3570,12 @@ export const de_UpdateDecoderManifestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDecoderManifestResponse(data, context);
+  contents = _json(data);
   const response: UpdateDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3705,10 +3617,9 @@ const de_UpdateDecoderManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3726,12 +3637,12 @@ export const de_UpdateFleetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateFleetResponse(data, context);
+  contents = _json(data);
   const response: UpdateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3767,10 +3678,9 @@ const de_UpdateFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3788,12 +3698,12 @@ export const de_UpdateModelManifestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateModelManifestResponse(data, context);
+  contents = _json(data);
   const response: UpdateModelManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3832,10 +3742,9 @@ const de_UpdateModelManifestCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3853,12 +3762,12 @@ export const de_UpdateSignalCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateSignalCatalogResponse(data, context);
+  contents = _json(data);
   const response: UpdateSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3903,10 +3812,9 @@ const de_UpdateSignalCatalogCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3924,12 +3832,12 @@ export const de_UpdateVehicleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateVehicleResponse(data, context);
+  contents = _json(data);
   const response: UpdateVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3965,10 +3873,9 @@ const de_UpdateVehicleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3982,7 +3889,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3995,7 +3902,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4011,7 +3918,7 @@ const de_DecoderManifestValidationExceptionRes = async (
   context: __SerdeContext
 ): Promise<DecoderManifestValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DecoderManifestValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DecoderManifestValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4027,7 +3934,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4059,7 +3966,7 @@ const de_InvalidSignalsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidSignalsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidSignalsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSignalsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4075,7 +3982,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4091,7 +3998,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4104,7 +4011,7 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4117,7 +4024,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4129,667 +4036,222 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_json1_0Actuator
  */
 const se_Actuator = (input: Actuator, context: __SerdeContext): any => {
-  return {
-    ...(input.allowedValues != null && { allowedValues: se_listOfStrings(input.allowedValues, context) }),
-    ...(input.assignedValue != null && { assignedValue: input.assignedValue }),
-    ...(input.dataType != null && { dataType: input.dataType }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.fullyQualifiedName != null && { fullyQualifiedName: input.fullyQualifiedName }),
-    ...(input.max != null && { max: __serializeFloat(input.max) }),
-    ...(input.min != null && { min: __serializeFloat(input.min) }),
-    ...(input.unit != null && { unit: input.unit }),
-  };
+  return take(input, {
+    allowedValues: (_) => _json(_),
+    assignedValue: [],
+    dataType: [],
+    description: [],
+    fullyQualifiedName: [],
+    max: (_) => __serializeFloat(_),
+    min: (_) => __serializeFloat(_),
+    unit: [],
+  });
 };
 
-/**
- * serializeAws_json1_0AssociateVehicleFleetRequest
- */
-const se_AssociateVehicleFleetRequest = (input: AssociateVehicleFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.fleetId != null && { fleetId: input.fleetId }),
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
+// se_AssociateVehicleFleetRequest omitted.
 
 /**
  * serializeAws_json1_0Attribute
  */
 const se_Attribute = (input: Attribute, context: __SerdeContext): any => {
-  return {
-    ...(input.allowedValues != null && { allowedValues: se_listOfStrings(input.allowedValues, context) }),
-    ...(input.assignedValue != null && { assignedValue: input.assignedValue }),
-    ...(input.dataType != null && { dataType: input.dataType }),
-    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.fullyQualifiedName != null && { fullyQualifiedName: input.fullyQualifiedName }),
-    ...(input.max != null && { max: __serializeFloat(input.max) }),
-    ...(input.min != null && { min: __serializeFloat(input.min) }),
-    ...(input.unit != null && { unit: input.unit }),
-  };
+  return take(input, {
+    allowedValues: (_) => _json(_),
+    assignedValue: [],
+    dataType: [],
+    defaultValue: [],
+    description: [],
+    fullyQualifiedName: [],
+    max: (_) => __serializeFloat(_),
+    min: (_) => __serializeFloat(_),
+    unit: [],
+  });
 };
 
-/**
- * serializeAws_json1_0attributesMap
- */
-const se_attributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_attributesMap omitted.
 
-/**
- * serializeAws_json1_0BatchCreateVehicleRequest
- */
-const se_BatchCreateVehicleRequest = (input: BatchCreateVehicleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.vehicles != null && { vehicles: se_createVehicleRequestItems(input.vehicles, context) }),
-  };
-};
+// se_BatchCreateVehicleRequest omitted.
 
-/**
- * serializeAws_json1_0BatchUpdateVehicleRequest
- */
-const se_BatchUpdateVehicleRequest = (input: BatchUpdateVehicleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.vehicles != null && { vehicles: se_updateVehicleRequestItems(input.vehicles, context) }),
-  };
-};
+// se_BatchUpdateVehicleRequest omitted.
 
-/**
- * serializeAws_json1_0Branch
- */
-const se_Branch = (input: Branch, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.fullyQualifiedName != null && { fullyQualifiedName: input.fullyQualifiedName }),
-  };
-};
+// se_Branch omitted.
 
 /**
  * serializeAws_json1_0CanDbcDefinition
  */
 const se_CanDbcDefinition = (input: CanDbcDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.canDbcFiles != null && { canDbcFiles: se_NetworkFilesList(input.canDbcFiles, context) }),
-    ...(input.networkInterface != null && { networkInterface: input.networkInterface }),
-    ...(input.signalsMap != null && { signalsMap: se_ModelSignalsMap(input.signalsMap, context) }),
-  };
+  return take(input, {
+    canDbcFiles: (_) => se_NetworkFilesList(_, context),
+    networkInterface: [],
+    signalsMap: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_0CanInterface
- */
-const se_CanInterface = (input: CanInterface, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.protocolName != null && { protocolName: input.protocolName }),
-    ...(input.protocolVersion != null && { protocolVersion: input.protocolVersion }),
-  };
-};
+// se_CanInterface omitted.
 
 /**
  * serializeAws_json1_0CanSignal
  */
 const se_CanSignal = (input: CanSignal, context: __SerdeContext): any => {
-  return {
-    ...(input.factor != null && { factor: __serializeFloat(input.factor) }),
-    ...(input.isBigEndian != null && { isBigEndian: input.isBigEndian }),
-    ...(input.isSigned != null && { isSigned: input.isSigned }),
-    ...(input.length != null && { length: input.length }),
-    ...(input.messageId != null && { messageId: input.messageId }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.offset != null && { offset: __serializeFloat(input.offset) }),
-    ...(input.startBit != null && { startBit: input.startBit }),
-  };
-};
-
-/**
- * serializeAws_json1_0CloudWatchLogDeliveryOptions
- */
-const se_CloudWatchLogDeliveryOptions = (input: CloudWatchLogDeliveryOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
-    ...(input.logType != null && { logType: input.logType }),
-  };
-};
-
-/**
- * serializeAws_json1_0CollectionScheme
- */
-const se_CollectionScheme = (input: CollectionScheme, context: __SerdeContext): any => {
-  return CollectionScheme.visit(input, {
-    conditionBasedCollectionScheme: (value) => ({
-      conditionBasedCollectionScheme: se_ConditionBasedCollectionScheme(value, context),
-    }),
-    timeBasedCollectionScheme: (value) => ({ timeBasedCollectionScheme: se_TimeBasedCollectionScheme(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    factor: (_) => __serializeFloat(_),
+    isBigEndian: [],
+    isSigned: [],
+    length: [],
+    messageId: [],
+    name: [],
+    offset: (_) => __serializeFloat(_),
+    startBit: [],
   });
 };
 
-/**
- * serializeAws_json1_0ConditionBasedCollectionScheme
- */
-const se_ConditionBasedCollectionScheme = (input: ConditionBasedCollectionScheme, context: __SerdeContext): any => {
-  return {
-    ...(input.conditionLanguageVersion != null && { conditionLanguageVersion: input.conditionLanguageVersion }),
-    ...(input.expression != null && { expression: input.expression }),
-    ...(input.minimumTriggerIntervalMs != null && { minimumTriggerIntervalMs: input.minimumTriggerIntervalMs }),
-    ...(input.triggerMode != null && { triggerMode: input.triggerMode }),
-  };
-};
+// se_CloudWatchLogDeliveryOptions omitted.
+
+// se_CollectionScheme omitted.
+
+// se_ConditionBasedCollectionScheme omitted.
 
 /**
  * serializeAws_json1_0CreateCampaignRequest
  */
 const se_CreateCampaignRequest = (input: CreateCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.collectionScheme != null && { collectionScheme: se_CollectionScheme(input.collectionScheme, context) }),
-    ...(input.compression != null && { compression: input.compression }),
-    ...(input.dataExtraDimensions != null && {
-      dataExtraDimensions: se_DataExtraDimensionNodePathList(input.dataExtraDimensions, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.diagnosticsMode != null && { diagnosticsMode: input.diagnosticsMode }),
-    ...(input.expiryTime != null && { expiryTime: Math.round(input.expiryTime.getTime() / 1000) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.postTriggerCollectionDuration != null && {
-      postTriggerCollectionDuration: input.postTriggerCollectionDuration,
-    }),
-    ...(input.priority != null && { priority: input.priority }),
-    ...(input.signalCatalogArn != null && { signalCatalogArn: input.signalCatalogArn }),
-    ...(input.signalsToCollect != null && {
-      signalsToCollect: se_SignalInformationList(input.signalsToCollect, context),
-    }),
-    ...(input.spoolingMode != null && { spoolingMode: input.spoolingMode }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.targetArn != null && { targetArn: input.targetArn }),
-  };
+  return take(input, {
+    collectionScheme: (_) => _json(_),
+    compression: [],
+    dataExtraDimensions: (_) => _json(_),
+    description: [],
+    diagnosticsMode: [],
+    expiryTime: (_) => Math.round(_.getTime() / 1000),
+    name: [],
+    postTriggerCollectionDuration: [],
+    priority: [],
+    signalCatalogArn: [],
+    signalsToCollect: (_) => _json(_),
+    spoolingMode: [],
+    startTime: (_) => Math.round(_.getTime() / 1000),
+    tags: (_) => _json(_),
+    targetArn: [],
+  });
 };
 
 /**
  * serializeAws_json1_0CreateDecoderManifestRequest
  */
 const se_CreateDecoderManifestRequest = (input: CreateDecoderManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.networkInterfaces != null && {
-      networkInterfaces: se_NetworkInterfaces(input.networkInterfaces, context),
-    }),
-    ...(input.signalDecoders != null && { signalDecoders: se_SignalDecoders(input.signalDecoders, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
+  return take(input, {
+    description: [],
+    modelManifestArn: [],
+    name: [],
+    networkInterfaces: (_) => _json(_),
+    signalDecoders: (_) => se_SignalDecoders(_, context),
+    tags: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_0CreateFleetRequest
- */
-const se_CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.fleetId != null && { fleetId: input.fleetId }),
-    ...(input.signalCatalogArn != null && { signalCatalogArn: input.signalCatalogArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_CreateFleetRequest omitted.
 
-/**
- * serializeAws_json1_0CreateModelManifestRequest
- */
-const se_CreateModelManifestRequest = (input: CreateModelManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nodes != null && { nodes: se_listOfStrings(input.nodes, context) }),
-    ...(input.signalCatalogArn != null && { signalCatalogArn: input.signalCatalogArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_CreateModelManifestRequest omitted.
 
 /**
  * serializeAws_json1_0CreateSignalCatalogRequest
  */
 const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nodes != null && { nodes: se_Nodes(input.nodes, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_0CreateVehicleRequest
- */
-const se_CreateVehicleRequest = (input: CreateVehicleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.associationBehavior != null && { associationBehavior: input.associationBehavior }),
-    ...(input.attributes != null && { attributes: se_attributesMap(input.attributes, context) }),
-    ...(input.decoderManifestArn != null && { decoderManifestArn: input.decoderManifestArn }),
-    ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
-
-/**
- * serializeAws_json1_0CreateVehicleRequestItem
- */
-const se_CreateVehicleRequestItem = (input: CreateVehicleRequestItem, context: __SerdeContext): any => {
-  return {
-    ...(input.associationBehavior != null && { associationBehavior: input.associationBehavior }),
-    ...(input.attributes != null && { attributes: se_attributesMap(input.attributes, context) }),
-    ...(input.decoderManifestArn != null && { decoderManifestArn: input.decoderManifestArn }),
-    ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
-
-/**
- * serializeAws_json1_0createVehicleRequestItems
- */
-const se_createVehicleRequestItems = (input: CreateVehicleRequestItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateVehicleRequestItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_0DataExtraDimensionNodePathList
- */
-const se_DataExtraDimensionNodePathList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_0DeleteCampaignRequest
- */
-const se_DeleteCampaignRequest = (input: DeleteCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteDecoderManifestRequest
- */
-const se_DeleteDecoderManifestRequest = (input: DeleteDecoderManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteFleetRequest
- */
-const se_DeleteFleetRequest = (input: DeleteFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.fleetId != null && { fleetId: input.fleetId }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteModelManifestRequest
- */
-const se_DeleteModelManifestRequest = (input: DeleteModelManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteSignalCatalogRequest
- */
-const se_DeleteSignalCatalogRequest = (input: DeleteSignalCatalogRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteVehicleRequest
- */
-const se_DeleteVehicleRequest = (input: DeleteVehicleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
-
-/**
- * serializeAws_json1_0DisassociateVehicleFleetRequest
- */
-const se_DisassociateVehicleFleetRequest = (input: DisassociateVehicleFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.fleetId != null && { fleetId: input.fleetId }),
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
-
-/**
- * serializeAws_json1_0FormattedVss
- */
-const se_FormattedVss = (input: FormattedVss, context: __SerdeContext): any => {
-  return FormattedVss.visit(input, {
-    vssJson: (value) => ({ vssJson: value }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    description: [],
+    name: [],
+    nodes: (_) => se_Nodes(_, context),
+    tags: (_) => _json(_),
   });
 };
 
-/**
- * serializeAws_json1_0Fqns
- */
-const se_Fqns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CreateVehicleRequest omitted.
 
-/**
- * serializeAws_json1_0GetCampaignRequest
- */
-const se_GetCampaignRequest = (input: GetCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_CreateVehicleRequestItem omitted.
 
-/**
- * serializeAws_json1_0GetDecoderManifestRequest
- */
-const se_GetDecoderManifestRequest = (input: GetDecoderManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_createVehicleRequestItems omitted.
 
-/**
- * serializeAws_json1_0GetFleetRequest
- */
-const se_GetFleetRequest = (input: GetFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.fleetId != null && { fleetId: input.fleetId }),
-  };
-};
+// se_DataExtraDimensionNodePathList omitted.
 
-/**
- * serializeAws_json1_0GetLoggingOptionsRequest
- */
-const se_GetLoggingOptionsRequest = (input: GetLoggingOptionsRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_DeleteCampaignRequest omitted.
 
-/**
- * serializeAws_json1_0GetModelManifestRequest
- */
-const se_GetModelManifestRequest = (input: GetModelManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_DeleteDecoderManifestRequest omitted.
 
-/**
- * serializeAws_json1_0GetRegisterAccountStatusRequest
- */
-const se_GetRegisterAccountStatusRequest = (input: GetRegisterAccountStatusRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_DeleteFleetRequest omitted.
 
-/**
- * serializeAws_json1_0GetSignalCatalogRequest
- */
-const se_GetSignalCatalogRequest = (input: GetSignalCatalogRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_DeleteModelManifestRequest omitted.
 
-/**
- * serializeAws_json1_0GetVehicleRequest
- */
-const se_GetVehicleRequest = (input: GetVehicleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
+// se_DeleteSignalCatalogRequest omitted.
 
-/**
- * serializeAws_json1_0GetVehicleStatusRequest
- */
-const se_GetVehicleStatusRequest = (input: GetVehicleStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
+// se_DeleteVehicleRequest omitted.
 
-/**
- * serializeAws_json1_0IamResources
- */
-const se_IamResources = (input: IamResources, context: __SerdeContext): any => {
-  return {
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-  };
-};
+// se_DisassociateVehicleFleetRequest omitted.
+
+// se_FormattedVss omitted.
+
+// se_Fqns omitted.
+
+// se_GetCampaignRequest omitted.
+
+// se_GetDecoderManifestRequest omitted.
+
+// se_GetFleetRequest omitted.
+
+// se_GetLoggingOptionsRequest omitted.
+
+// se_GetModelManifestRequest omitted.
+
+// se_GetRegisterAccountStatusRequest omitted.
+
+// se_GetSignalCatalogRequest omitted.
+
+// se_GetVehicleRequest omitted.
+
+// se_GetVehicleStatusRequest omitted.
+
+// se_IamResources omitted.
 
 /**
  * serializeAws_json1_0ImportDecoderManifestRequest
  */
 const se_ImportDecoderManifestRequest = (input: ImportDecoderManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.networkFileDefinitions != null && {
-      networkFileDefinitions: se_NetworkFileDefinitions(input.networkFileDefinitions, context),
-    }),
-  };
+  return take(input, {
+    name: [],
+    networkFileDefinitions: (_) => se_NetworkFileDefinitions(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_0ImportSignalCatalogRequest
- */
-const se_ImportSignalCatalogRequest = (input: ImportSignalCatalogRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.vss != null && { vss: se_FormattedVss(input.vss, context) }),
-  };
-};
+// se_ImportSignalCatalogRequest omitted.
 
-/**
- * serializeAws_json1_0InterfaceIds
- */
-const se_InterfaceIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InterfaceIds omitted.
 
-/**
- * serializeAws_json1_0ListCampaignsRequest
- */
-const se_ListCampaignsRequest = (input: ListCampaignsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_ListCampaignsRequest omitted.
 
-/**
- * serializeAws_json1_0ListDecoderManifestNetworkInterfacesRequest
- */
-const se_ListDecoderManifestNetworkInterfacesRequest = (
-  input: ListDecoderManifestNetworkInterfacesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDecoderManifestNetworkInterfacesRequest omitted.
 
-/**
- * serializeAws_json1_0ListDecoderManifestSignalsRequest
- */
-const se_ListDecoderManifestSignalsRequest = (
-  input: ListDecoderManifestSignalsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDecoderManifestSignalsRequest omitted.
 
-/**
- * serializeAws_json1_0ListDecoderManifestsRequest
- */
-const se_ListDecoderManifestsRequest = (input: ListDecoderManifestsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDecoderManifestsRequest omitted.
 
-/**
- * serializeAws_json1_0ListFleetsForVehicleRequest
- */
-const se_ListFleetsForVehicleRequest = (input: ListFleetsForVehicleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
+// se_ListFleetsForVehicleRequest omitted.
 
-/**
- * serializeAws_json1_0ListFleetsRequest
- */
-const se_ListFleetsRequest = (input: ListFleetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListFleetsRequest omitted.
 
-/**
- * serializeAws_json1_0ListModelManifestNodesRequest
- */
-const se_ListModelManifestNodesRequest = (input: ListModelManifestNodesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListModelManifestNodesRequest omitted.
 
-/**
- * serializeAws_json1_0ListModelManifestsRequest
- */
-const se_ListModelManifestsRequest = (input: ListModelManifestsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.signalCatalogArn != null && { signalCatalogArn: input.signalCatalogArn }),
-  };
-};
+// se_ListModelManifestsRequest omitted.
 
-/**
- * serializeAws_json1_0listOfStrings
- */
-const se_listOfStrings = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_listOfStrings omitted.
 
-/**
- * serializeAws_json1_0ListSignalCatalogNodesRequest
- */
-const se_ListSignalCatalogNodesRequest = (input: ListSignalCatalogNodesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListSignalCatalogNodesRequest omitted.
 
-/**
- * serializeAws_json1_0ListSignalCatalogsRequest
- */
-const se_ListSignalCatalogsRequest = (input: ListSignalCatalogsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListSignalCatalogsRequest omitted.
 
-/**
- * serializeAws_json1_0ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_0ListVehiclesInFleetRequest
- */
-const se_ListVehiclesInFleetRequest = (input: ListVehiclesInFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.fleetId != null && { fleetId: input.fleetId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListVehiclesInFleetRequest omitted.
 
-/**
- * serializeAws_json1_0ListVehiclesRequest
- */
-const se_ListVehiclesRequest = (input: ListVehiclesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListVehiclesRequest omitted.
 
-/**
- * serializeAws_json1_0ModelSignalsMap
- */
-const se_ModelSignalsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ModelSignalsMap omitted.
 
 /**
  * serializeAws_json1_0NetworkFileDefinition
@@ -4823,28 +4285,9 @@ const se_NetworkFilesList = (input: Uint8Array[], context: __SerdeContext): any 
     });
 };
 
-/**
- * serializeAws_json1_0NetworkInterface
- */
-const se_NetworkInterface = (input: NetworkInterface, context: __SerdeContext): any => {
-  return {
-    ...(input.canInterface != null && { canInterface: se_CanInterface(input.canInterface, context) }),
-    ...(input.interfaceId != null && { interfaceId: input.interfaceId }),
-    ...(input.obdInterface != null && { obdInterface: se_ObdInterface(input.obdInterface, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_NetworkInterface omitted.
 
-/**
- * serializeAws_json1_0NetworkInterfaces
- */
-const se_NetworkInterfaces = (input: NetworkInterface[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_NetworkInterface(entry, context);
-    });
-};
+// se_NetworkInterfaces omitted.
 
 /**
  * serializeAws_json1_0Node
@@ -4853,22 +4296,13 @@ const se_Node = (input: Node, context: __SerdeContext): any => {
   return Node.visit(input, {
     actuator: (value) => ({ actuator: se_Actuator(value, context) }),
     attribute: (value) => ({ attribute: se_Attribute(value, context) }),
-    branch: (value) => ({ branch: se_Branch(value, context) }),
+    branch: (value) => ({ branch: _json(value) }),
     sensor: (value) => ({ sensor: se_Sensor(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-/**
- * serializeAws_json1_0NodePaths
- */
-const se_NodePaths = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NodePaths omitted.
 
 /**
  * serializeAws_json1_0Nodes
@@ -4881,87 +4315,55 @@ const se_Nodes = (input: Node[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_json1_0ObdInterface
- */
-const se_ObdInterface = (input: ObdInterface, context: __SerdeContext): any => {
-  return {
-    ...(input.dtcRequestIntervalSeconds != null && { dtcRequestIntervalSeconds: input.dtcRequestIntervalSeconds }),
-    ...(input.hasTransmissionEcu != null && { hasTransmissionEcu: input.hasTransmissionEcu }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.obdStandard != null && { obdStandard: input.obdStandard }),
-    ...(input.pidRequestIntervalSeconds != null && { pidRequestIntervalSeconds: input.pidRequestIntervalSeconds }),
-    ...(input.requestMessageId != null && { requestMessageId: input.requestMessageId }),
-    ...(input.useExtendedIds != null && { useExtendedIds: input.useExtendedIds }),
-  };
-};
+// se_ObdInterface omitted.
 
 /**
  * serializeAws_json1_0ObdSignal
  */
 const se_ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
-  return {
-    ...(input.bitMaskLength != null && { bitMaskLength: input.bitMaskLength }),
-    ...(input.bitRightShift != null && { bitRightShift: input.bitRightShift }),
-    ...(input.byteLength != null && { byteLength: input.byteLength }),
-    ...(input.offset != null && { offset: __serializeFloat(input.offset) }),
-    ...(input.pid != null && { pid: input.pid }),
-    ...(input.pidResponseLength != null && { pidResponseLength: input.pidResponseLength }),
-    ...(input.scaling != null && { scaling: __serializeFloat(input.scaling) }),
-    ...(input.serviceMode != null && { serviceMode: input.serviceMode }),
-    ...(input.startByte != null && { startByte: input.startByte }),
-  };
+  return take(input, {
+    bitMaskLength: [],
+    bitRightShift: [],
+    byteLength: [],
+    offset: (_) => __serializeFloat(_),
+    pid: [],
+    pidResponseLength: [],
+    scaling: (_) => __serializeFloat(_),
+    serviceMode: [],
+    startByte: [],
+  });
 };
 
-/**
- * serializeAws_json1_0PutLoggingOptionsRequest
- */
-const se_PutLoggingOptionsRequest = (input: PutLoggingOptionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.cloudWatchLogDelivery != null && {
-      cloudWatchLogDelivery: se_CloudWatchLogDeliveryOptions(input.cloudWatchLogDelivery, context),
-    }),
-  };
-};
+// se_PutLoggingOptionsRequest omitted.
 
-/**
- * serializeAws_json1_0RegisterAccountRequest
- */
-const se_RegisterAccountRequest = (input: RegisterAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.iamResources != null && { iamResources: se_IamResources(input.iamResources, context) }),
-    ...(input.timestreamResources != null && {
-      timestreamResources: se_TimestreamResources(input.timestreamResources, context),
-    }),
-  };
-};
+// se_RegisterAccountRequest omitted.
 
 /**
  * serializeAws_json1_0Sensor
  */
 const se_Sensor = (input: Sensor, context: __SerdeContext): any => {
-  return {
-    ...(input.allowedValues != null && { allowedValues: se_listOfStrings(input.allowedValues, context) }),
-    ...(input.dataType != null && { dataType: input.dataType }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.fullyQualifiedName != null && { fullyQualifiedName: input.fullyQualifiedName }),
-    ...(input.max != null && { max: __serializeFloat(input.max) }),
-    ...(input.min != null && { min: __serializeFloat(input.min) }),
-    ...(input.unit != null && { unit: input.unit }),
-  };
+  return take(input, {
+    allowedValues: (_) => _json(_),
+    dataType: [],
+    description: [],
+    fullyQualifiedName: [],
+    max: (_) => __serializeFloat(_),
+    min: (_) => __serializeFloat(_),
+    unit: [],
+  });
 };
 
 /**
  * serializeAws_json1_0SignalDecoder
  */
 const se_SignalDecoder = (input: SignalDecoder, context: __SerdeContext): any => {
-  return {
-    ...(input.canSignal != null && { canSignal: se_CanSignal(input.canSignal, context) }),
-    ...(input.fullyQualifiedName != null && { fullyQualifiedName: input.fullyQualifiedName }),
-    ...(input.interfaceId != null && { interfaceId: input.interfaceId }),
-    ...(input.obdSignal != null && { obdSignal: se_ObdSignal(input.obdSignal, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    canSignal: (_) => se_CanSignal(_, context),
+    fullyQualifiedName: [],
+    interfaceId: [],
+    obdSignal: (_) => se_ObdSignal(_, context),
+    type: [],
+  });
 };
 
 /**
@@ -4975,306 +4377,110 @@ const se_SignalDecoders = (input: SignalDecoder[], context: __SerdeContext): any
     });
 };
 
-/**
- * serializeAws_json1_0SignalInformation
- */
-const se_SignalInformation = (input: SignalInformation, context: __SerdeContext): any => {
-  return {
-    ...(input.maxSampleCount != null && { maxSampleCount: input.maxSampleCount }),
-    ...(input.minimumSamplingIntervalMs != null && { minimumSamplingIntervalMs: input.minimumSamplingIntervalMs }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_SignalInformation omitted.
 
-/**
- * serializeAws_json1_0SignalInformationList
- */
-const se_SignalInformationList = (input: SignalInformation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SignalInformation(entry, context);
-    });
-};
+// se_SignalInformationList omitted.
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_0TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0TimeBasedCollectionScheme
- */
-const se_TimeBasedCollectionScheme = (input: TimeBasedCollectionScheme, context: __SerdeContext): any => {
-  return {
-    ...(input.periodMs != null && { periodMs: input.periodMs }),
-  };
-};
+// se_TimeBasedCollectionScheme omitted.
 
-/**
- * serializeAws_json1_0TimestreamResources
- */
-const se_TimestreamResources = (input: TimestreamResources, context: __SerdeContext): any => {
-  return {
-    ...(input.timestreamDatabaseName != null && { timestreamDatabaseName: input.timestreamDatabaseName }),
-    ...(input.timestreamTableName != null && { timestreamTableName: input.timestreamTableName }),
-  };
-};
+// se_TimestreamResources omitted.
 
-/**
- * serializeAws_json1_0UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateCampaignRequest
- */
-const se_UpdateCampaignRequest = (input: UpdateCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: input.action }),
-    ...(input.dataExtraDimensions != null && {
-      dataExtraDimensions: se_DataExtraDimensionNodePathList(input.dataExtraDimensions, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UpdateCampaignRequest omitted.
 
 /**
  * serializeAws_json1_0UpdateDecoderManifestRequest
  */
 const se_UpdateDecoderManifestRequest = (input: UpdateDecoderManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.networkInterfacesToAdd != null && {
-      networkInterfacesToAdd: se_NetworkInterfaces(input.networkInterfacesToAdd, context),
-    }),
-    ...(input.networkInterfacesToRemove != null && {
-      networkInterfacesToRemove: se_InterfaceIds(input.networkInterfacesToRemove, context),
-    }),
-    ...(input.networkInterfacesToUpdate != null && {
-      networkInterfacesToUpdate: se_NetworkInterfaces(input.networkInterfacesToUpdate, context),
-    }),
-    ...(input.signalDecodersToAdd != null && {
-      signalDecodersToAdd: se_SignalDecoders(input.signalDecodersToAdd, context),
-    }),
-    ...(input.signalDecodersToRemove != null && {
-      signalDecodersToRemove: se_Fqns(input.signalDecodersToRemove, context),
-    }),
-    ...(input.signalDecodersToUpdate != null && {
-      signalDecodersToUpdate: se_SignalDecoders(input.signalDecodersToUpdate, context),
-    }),
-    ...(input.status != null && { status: input.status }),
-  };
+  return take(input, {
+    description: [],
+    name: [],
+    networkInterfacesToAdd: (_) => _json(_),
+    networkInterfacesToRemove: (_) => _json(_),
+    networkInterfacesToUpdate: (_) => _json(_),
+    signalDecodersToAdd: (_) => se_SignalDecoders(_, context),
+    signalDecodersToRemove: (_) => _json(_),
+    signalDecodersToUpdate: (_) => se_SignalDecoders(_, context),
+    status: [],
+  });
 };
 
-/**
- * serializeAws_json1_0UpdateFleetRequest
- */
-const se_UpdateFleetRequest = (input: UpdateFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.fleetId != null && { fleetId: input.fleetId }),
-  };
-};
+// se_UpdateFleetRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateModelManifestRequest
- */
-const se_UpdateModelManifestRequest = (input: UpdateModelManifestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nodesToAdd != null && { nodesToAdd: se_NodePaths(input.nodesToAdd, context) }),
-    ...(input.nodesToRemove != null && { nodesToRemove: se_NodePaths(input.nodesToRemove, context) }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_UpdateModelManifestRequest omitted.
 
 /**
  * serializeAws_json1_0UpdateSignalCatalogRequest
  */
 const se_UpdateSignalCatalogRequest = (input: UpdateSignalCatalogRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nodesToAdd != null && { nodesToAdd: se_Nodes(input.nodesToAdd, context) }),
-    ...(input.nodesToRemove != null && { nodesToRemove: se_NodePaths(input.nodesToRemove, context) }),
-    ...(input.nodesToUpdate != null && { nodesToUpdate: se_Nodes(input.nodesToUpdate, context) }),
-  };
+  return take(input, {
+    description: [],
+    name: [],
+    nodesToAdd: (_) => se_Nodes(_, context),
+    nodesToRemove: (_) => _json(_),
+    nodesToUpdate: (_) => se_Nodes(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_0UpdateVehicleRequest
- */
-const se_UpdateVehicleRequest = (input: UpdateVehicleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.attributeUpdateMode != null && { attributeUpdateMode: input.attributeUpdateMode }),
-    ...(input.attributes != null && { attributes: se_attributesMap(input.attributes, context) }),
-    ...(input.decoderManifestArn != null && { decoderManifestArn: input.decoderManifestArn }),
-    ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
+// se_UpdateVehicleRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateVehicleRequestItem
- */
-const se_UpdateVehicleRequestItem = (input: UpdateVehicleRequestItem, context: __SerdeContext): any => {
-  return {
-    ...(input.attributeUpdateMode != null && { attributeUpdateMode: input.attributeUpdateMode }),
-    ...(input.attributes != null && { attributes: se_attributesMap(input.attributes, context) }),
-    ...(input.decoderManifestArn != null && { decoderManifestArn: input.decoderManifestArn }),
-    ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
-  };
-};
+// se_UpdateVehicleRequestItem omitted.
 
-/**
- * serializeAws_json1_0updateVehicleRequestItems
- */
-const se_updateVehicleRequestItems = (input: UpdateVehicleRequestItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdateVehicleRequestItem(entry, context);
-    });
-};
+// se_updateVehicleRequestItems omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
 /**
  * deserializeAws_json1_0Actuator
  */
 const de_Actuator = (output: any, context: __SerdeContext): Actuator => {
-  return {
-    allowedValues: output.allowedValues != null ? de_listOfStrings(output.allowedValues, context) : undefined,
-    assignedValue: __expectString(output.assignedValue),
-    dataType: __expectString(output.dataType),
-    description: __expectString(output.description),
-    fullyQualifiedName: __expectString(output.fullyQualifiedName),
-    max: __limitedParseDouble(output.max),
-    min: __limitedParseDouble(output.min),
-    unit: __expectString(output.unit),
-  } as any;
+  return take(output, {
+    allowedValues: _json,
+    assignedValue: __expectString,
+    dataType: __expectString,
+    description: __expectString,
+    fullyQualifiedName: __expectString,
+    max: __limitedParseDouble,
+    min: __limitedParseDouble,
+    unit: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0AssociateVehicleFleetResponse
- */
-const de_AssociateVehicleFleetResponse = (output: any, context: __SerdeContext): AssociateVehicleFleetResponse => {
-  return {} as any;
-};
+// de_AssociateVehicleFleetResponse omitted.
 
 /**
  * deserializeAws_json1_0Attribute
  */
 const de_Attribute = (output: any, context: __SerdeContext): Attribute => {
-  return {
-    allowedValues: output.allowedValues != null ? de_listOfStrings(output.allowedValues, context) : undefined,
-    assignedValue: __expectString(output.assignedValue),
-    dataType: __expectString(output.dataType),
-    defaultValue: __expectString(output.defaultValue),
-    description: __expectString(output.description),
-    fullyQualifiedName: __expectString(output.fullyQualifiedName),
-    max: __limitedParseDouble(output.max),
-    min: __limitedParseDouble(output.min),
-    unit: __expectString(output.unit),
-  } as any;
+  return take(output, {
+    allowedValues: _json,
+    assignedValue: __expectString,
+    dataType: __expectString,
+    defaultValue: __expectString,
+    description: __expectString,
+    fullyQualifiedName: __expectString,
+    max: __limitedParseDouble,
+    min: __limitedParseDouble,
+    unit: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0attributesMap
- */
-const de_attributesMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_attributesMap omitted.
 
-/**
- * deserializeAws_json1_0BatchCreateVehicleResponse
- */
-const de_BatchCreateVehicleResponse = (output: any, context: __SerdeContext): BatchCreateVehicleResponse => {
-  return {
-    errors: output.errors != null ? de_createVehicleErrors(output.errors, context) : undefined,
-    vehicles: output.vehicles != null ? de_createVehicleResponses(output.vehicles, context) : undefined,
-  } as any;
-};
+// de_BatchCreateVehicleResponse omitted.
 
-/**
- * deserializeAws_json1_0BatchUpdateVehicleResponse
- */
-const de_BatchUpdateVehicleResponse = (output: any, context: __SerdeContext): BatchUpdateVehicleResponse => {
-  return {
-    errors: output.errors != null ? de_updateVehicleErrors(output.errors, context) : undefined,
-    vehicles: output.vehicles != null ? de_updateVehicleResponseItems(output.vehicles, context) : undefined,
-  } as any;
-};
+// de_BatchUpdateVehicleResponse omitted.
 
-/**
- * deserializeAws_json1_0Branch
- */
-const de_Branch = (output: any, context: __SerdeContext): Branch => {
-  return {
-    description: __expectString(output.description),
-    fullyQualifiedName: __expectString(output.fullyQualifiedName),
-  } as any;
-};
+// de_Branch omitted.
 
 /**
  * deserializeAws_json1_0campaignSummaries
@@ -5283,9 +4489,6 @@ const de_campaignSummaries = (output: any, context: __SerdeContext): CampaignSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CampaignSummary(entry, context);
     });
   return retVal;
@@ -5295,228 +4498,65 @@ const de_campaignSummaries = (output: any, context: __SerdeContext): CampaignSum
  * deserializeAws_json1_0CampaignSummary
  */
 const de_CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    signalCatalogArn: __expectString(output.signalCatalogArn),
-    status: __expectString(output.status),
-    targetArn: __expectString(output.targetArn),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    signalCatalogArn: __expectString,
+    status: __expectString,
+    targetArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CanInterface
- */
-const de_CanInterface = (output: any, context: __SerdeContext): CanInterface => {
-  return {
-    name: __expectString(output.name),
-    protocolName: __expectString(output.protocolName),
-    protocolVersion: __expectString(output.protocolVersion),
-  } as any;
-};
+// de_CanInterface omitted.
 
 /**
  * deserializeAws_json1_0CanSignal
  */
 const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
-  return {
-    factor: __limitedParseDouble(output.factor),
-    isBigEndian: __expectBoolean(output.isBigEndian),
-    isSigned: __expectBoolean(output.isSigned),
-    length: __expectInt32(output.length),
-    messageId: __expectInt32(output.messageId),
-    name: __expectString(output.name),
-    offset: __limitedParseDouble(output.offset),
-    startBit: __expectInt32(output.startBit),
-  } as any;
+  return take(output, {
+    factor: __limitedParseDouble,
+    isBigEndian: __expectBoolean,
+    isSigned: __expectBoolean,
+    length: __expectInt32,
+    messageId: __expectInt32,
+    name: __expectString,
+    offset: __limitedParseDouble,
+    startBit: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CloudWatchLogDeliveryOptions
- */
-const de_CloudWatchLogDeliveryOptions = (output: any, context: __SerdeContext): CloudWatchLogDeliveryOptions => {
-  return {
-    logGroupName: __expectString(output.logGroupName),
-    logType: __expectString(output.logType),
-  } as any;
-};
+// de_CloudWatchLogDeliveryOptions omitted.
 
-/**
- * deserializeAws_json1_0CollectionScheme
- */
-const de_CollectionScheme = (output: any, context: __SerdeContext): CollectionScheme => {
-  if (output.conditionBasedCollectionScheme != null) {
-    return {
-      conditionBasedCollectionScheme: de_ConditionBasedCollectionScheme(output.conditionBasedCollectionScheme, context),
-    };
-  }
-  if (output.timeBasedCollectionScheme != null) {
-    return {
-      timeBasedCollectionScheme: de_TimeBasedCollectionScheme(output.timeBasedCollectionScheme, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_CollectionScheme omitted.
 
-/**
- * deserializeAws_json1_0ConditionBasedCollectionScheme
- */
-const de_ConditionBasedCollectionScheme = (output: any, context: __SerdeContext): ConditionBasedCollectionScheme => {
-  return {
-    conditionLanguageVersion: __expectInt32(output.conditionLanguageVersion),
-    expression: __expectString(output.expression),
-    minimumTriggerIntervalMs: __expectLong(output.minimumTriggerIntervalMs),
-    triggerMode: __expectString(output.triggerMode),
-  } as any;
-};
+// de_ConditionBasedCollectionScheme omitted.
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-    resource: __expectString(output.resource),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_0CreateCampaignResponse
- */
-const de_CreateCampaignResponse = (output: any, context: __SerdeContext): CreateCampaignResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_CreateCampaignResponse omitted.
 
-/**
- * deserializeAws_json1_0CreateDecoderManifestResponse
- */
-const de_CreateDecoderManifestResponse = (output: any, context: __SerdeContext): CreateDecoderManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_CreateDecoderManifestResponse omitted.
 
-/**
- * deserializeAws_json1_0CreateFleetResponse
- */
-const de_CreateFleetResponse = (output: any, context: __SerdeContext): CreateFleetResponse => {
-  return {
-    arn: __expectString(output.arn),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_CreateFleetResponse omitted.
 
-/**
- * deserializeAws_json1_0CreateModelManifestResponse
- */
-const de_CreateModelManifestResponse = (output: any, context: __SerdeContext): CreateModelManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_CreateModelManifestResponse omitted.
 
-/**
- * deserializeAws_json1_0CreateSignalCatalogResponse
- */
-const de_CreateSignalCatalogResponse = (output: any, context: __SerdeContext): CreateSignalCatalogResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_CreateSignalCatalogResponse omitted.
 
-/**
- * deserializeAws_json1_0CreateVehicleError
- */
-const de_CreateVehicleError = (output: any, context: __SerdeContext): CreateVehicleError => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
-};
+// de_CreateVehicleError omitted.
 
-/**
- * deserializeAws_json1_0createVehicleErrors
- */
-const de_createVehicleErrors = (output: any, context: __SerdeContext): CreateVehicleError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CreateVehicleError(entry, context);
-    });
-  return retVal;
-};
+// de_createVehicleErrors omitted.
 
-/**
- * deserializeAws_json1_0CreateVehicleResponse
- */
-const de_CreateVehicleResponse = (output: any, context: __SerdeContext): CreateVehicleResponse => {
-  return {
-    arn: __expectString(output.arn),
-    thingArn: __expectString(output.thingArn),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
-};
+// de_CreateVehicleResponse omitted.
 
-/**
- * deserializeAws_json1_0CreateVehicleResponseItem
- */
-const de_CreateVehicleResponseItem = (output: any, context: __SerdeContext): CreateVehicleResponseItem => {
-  return {
-    arn: __expectString(output.arn),
-    thingArn: __expectString(output.thingArn),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
-};
+// de_CreateVehicleResponseItem omitted.
 
-/**
- * deserializeAws_json1_0createVehicleResponses
- */
-const de_createVehicleResponses = (output: any, context: __SerdeContext): CreateVehicleResponseItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CreateVehicleResponseItem(entry, context);
-    });
-  return retVal;
-};
+// de_createVehicleResponses omitted.
 
-/**
- * deserializeAws_json1_0DataExtraDimensionNodePathList
- */
-const de_DataExtraDimensionNodePathList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DataExtraDimensionNodePathList omitted.
 
 /**
  * deserializeAws_json1_0decoderManifestSummaries
@@ -5525,9 +4565,6 @@ const de_decoderManifestSummaries = (output: any, context: __SerdeContext): Deco
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DecoderManifestSummary(entry, context);
     });
   return retVal;
@@ -5537,125 +4574,34 @@ const de_decoderManifestSummaries = (output: any, context: __SerdeContext): Deco
  * deserializeAws_json1_0DecoderManifestSummary
  */
 const de_DecoderManifestSummary = (output: any, context: __SerdeContext): DecoderManifestSummary => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    modelManifestArn: __expectString(output.modelManifestArn),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modelManifestArn: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DecoderManifestValidationException
- */
-const de_DecoderManifestValidationException = (
-  output: any,
-  context: __SerdeContext
-): DecoderManifestValidationException => {
-  return {
-    invalidNetworkInterfaces:
-      output.invalidNetworkInterfaces != null
-        ? de_InvalidNetworkInterfaces(output.invalidNetworkInterfaces, context)
-        : undefined,
-    invalidSignals:
-      output.invalidSignals != null ? de_InvalidSignalDecoders(output.invalidSignals, context) : undefined,
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DecoderManifestValidationException omitted.
 
-/**
- * deserializeAws_json1_0DeleteCampaignResponse
- */
-const de_DeleteCampaignResponse = (output: any, context: __SerdeContext): DeleteCampaignResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_DeleteCampaignResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteDecoderManifestResponse
- */
-const de_DeleteDecoderManifestResponse = (output: any, context: __SerdeContext): DeleteDecoderManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_DeleteDecoderManifestResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteFleetResponse
- */
-const de_DeleteFleetResponse = (output: any, context: __SerdeContext): DeleteFleetResponse => {
-  return {
-    arn: __expectString(output.arn),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_DeleteFleetResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteModelManifestResponse
- */
-const de_DeleteModelManifestResponse = (output: any, context: __SerdeContext): DeleteModelManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_DeleteModelManifestResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteSignalCatalogResponse
- */
-const de_DeleteSignalCatalogResponse = (output: any, context: __SerdeContext): DeleteSignalCatalogResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_DeleteSignalCatalogResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteVehicleResponse
- */
-const de_DeleteVehicleResponse = (output: any, context: __SerdeContext): DeleteVehicleResponse => {
-  return {
-    arn: __expectString(output.arn),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
-};
+// de_DeleteVehicleResponse omitted.
 
-/**
- * deserializeAws_json1_0DisassociateVehicleFleetResponse
- */
-const de_DisassociateVehicleFleetResponse = (
-  output: any,
-  context: __SerdeContext
-): DisassociateVehicleFleetResponse => {
-  return {} as any;
-};
+// de_DisassociateVehicleFleetResponse omitted.
 
-/**
- * deserializeAws_json1_0fleets
- */
-const de_fleets = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_fleets omitted.
 
 /**
  * deserializeAws_json1_0fleetSummaries
@@ -5664,9 +4610,6 @@ const de_fleetSummaries = (output: any, context: __SerdeContext): FleetSummary[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FleetSummary(entry, context);
     });
   return retVal;
@@ -5676,135 +4619,86 @@ const de_fleetSummaries = (output: any, context: __SerdeContext): FleetSummary[]
  * deserializeAws_json1_0FleetSummary
  */
 const de_FleetSummary = (output: any, context: __SerdeContext): FleetSummary => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    signalCatalogArn: __expectString(output.signalCatalogArn),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    signalCatalogArn: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetCampaignResponse
  */
 const de_GetCampaignResponse = (output: any, context: __SerdeContext): GetCampaignResponse => {
-  return {
-    arn: __expectString(output.arn),
-    collectionScheme:
-      output.collectionScheme != null
-        ? de_CollectionScheme(__expectUnion(output.collectionScheme), context)
-        : undefined,
-    compression: __expectString(output.compression),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    dataExtraDimensions:
-      output.dataExtraDimensions != null
-        ? de_DataExtraDimensionNodePathList(output.dataExtraDimensions, context)
-        : undefined,
-    description: __expectString(output.description),
-    diagnosticsMode: __expectString(output.diagnosticsMode),
-    expiryTime:
-      output.expiryTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiryTime))) : undefined,
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    postTriggerCollectionDuration: __expectLong(output.postTriggerCollectionDuration),
-    priority: __expectInt32(output.priority),
-    signalCatalogArn: __expectString(output.signalCatalogArn),
-    signalsToCollect:
-      output.signalsToCollect != null ? de_SignalInformationList(output.signalsToCollect, context) : undefined,
-    spoolingMode: __expectString(output.spoolingMode),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    status: __expectString(output.status),
-    targetArn: __expectString(output.targetArn),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    collectionScheme: (_: any) => _json(__expectUnion(_)),
+    compression: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataExtraDimensions: _json,
+    description: __expectString,
+    diagnosticsMode: __expectString,
+    expiryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    postTriggerCollectionDuration: __expectLong,
+    priority: __expectInt32,
+    signalCatalogArn: __expectString,
+    signalsToCollect: _json,
+    spoolingMode: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    targetArn: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetDecoderManifestResponse
  */
 const de_GetDecoderManifestResponse = (output: any, context: __SerdeContext): GetDecoderManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    modelManifestArn: __expectString(output.modelManifestArn),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modelManifestArn: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetFleetResponse
  */
 const de_GetFleetResponse = (output: any, context: __SerdeContext): GetFleetResponse => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    signalCatalogArn: __expectString(output.signalCatalogArn),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    signalCatalogArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetLoggingOptionsResponse
- */
-const de_GetLoggingOptionsResponse = (output: any, context: __SerdeContext): GetLoggingOptionsResponse => {
-  return {
-    cloudWatchLogDelivery:
-      output.cloudWatchLogDelivery != null
-        ? de_CloudWatchLogDeliveryOptions(output.cloudWatchLogDelivery, context)
-        : undefined,
-  } as any;
-};
+// de_GetLoggingOptionsResponse omitted.
 
 /**
  * deserializeAws_json1_0GetModelManifestResponse
  */
 const de_GetModelManifestResponse = (output: any, context: __SerdeContext): GetModelManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    signalCatalogArn: __expectString(output.signalCatalogArn),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    signalCatalogArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -5814,260 +4708,95 @@ const de_GetRegisterAccountStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetRegisterAccountStatusResponse => {
-  return {
-    accountStatus: __expectString(output.accountStatus),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    customerAccountId: __expectString(output.customerAccountId),
-    iamRegistrationResponse:
-      output.iamRegistrationResponse != null
-        ? de_IamRegistrationResponse(output.iamRegistrationResponse, context)
-        : undefined,
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    timestreamRegistrationResponse:
-      output.timestreamRegistrationResponse != null
-        ? de_TimestreamRegistrationResponse(output.timestreamRegistrationResponse, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    accountStatus: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerAccountId: __expectString,
+    iamRegistrationResponse: _json,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    timestreamRegistrationResponse: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetSignalCatalogResponse
  */
 const de_GetSignalCatalogResponse = (output: any, context: __SerdeContext): GetSignalCatalogResponse => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    nodeCounts: output.nodeCounts != null ? de_NodeCounts(output.nodeCounts, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    nodeCounts: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetVehicleResponse
  */
 const de_GetVehicleResponse = (output: any, context: __SerdeContext): GetVehicleResponse => {
-  return {
-    arn: __expectString(output.arn),
-    attributes: output.attributes != null ? de_attributesMap(output.attributes, context) : undefined,
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    decoderManifestArn: __expectString(output.decoderManifestArn),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    modelManifestArn: __expectString(output.modelManifestArn),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    attributes: _json,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    decoderManifestArn: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modelManifestArn: __expectString,
+    vehicleName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetVehicleStatusResponse
- */
-const de_GetVehicleStatusResponse = (output: any, context: __SerdeContext): GetVehicleStatusResponse => {
-  return {
-    campaigns: output.campaigns != null ? de_VehicleStatusList(output.campaigns, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_GetVehicleStatusResponse omitted.
 
-/**
- * deserializeAws_json1_0IamRegistrationResponse
- */
-const de_IamRegistrationResponse = (output: any, context: __SerdeContext): IamRegistrationResponse => {
-  return {
-    errorMessage: __expectString(output.errorMessage),
-    registrationStatus: __expectString(output.registrationStatus),
-    roleArn: __expectString(output.roleArn),
-  } as any;
-};
+// de_IamRegistrationResponse omitted.
 
-/**
- * deserializeAws_json1_0IamResources
- */
-const de_IamResources = (output: any, context: __SerdeContext): IamResources => {
-  return {
-    roleArn: __expectString(output.roleArn),
-  } as any;
-};
+// de_IamResources omitted.
 
-/**
- * deserializeAws_json1_0ImportDecoderManifestResponse
- */
-const de_ImportDecoderManifestResponse = (output: any, context: __SerdeContext): ImportDecoderManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ImportDecoderManifestResponse omitted.
 
-/**
- * deserializeAws_json1_0ImportSignalCatalogResponse
- */
-const de_ImportSignalCatalogResponse = (output: any, context: __SerdeContext): ImportSignalCatalogResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ImportSignalCatalogResponse omitted.
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    message: __expectString(output.message),
-    retryAfterSeconds: __expectInt32(output.retryAfterSeconds),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0InvalidNetworkInterface
- */
-const de_InvalidNetworkInterface = (output: any, context: __SerdeContext): InvalidNetworkInterface => {
-  return {
-    interfaceId: __expectString(output.interfaceId),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_InvalidNetworkInterface omitted.
 
-/**
- * deserializeAws_json1_0InvalidNetworkInterfaces
- */
-const de_InvalidNetworkInterfaces = (output: any, context: __SerdeContext): InvalidNetworkInterface[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InvalidNetworkInterface(entry, context);
-    });
-  return retVal;
-};
+// de_InvalidNetworkInterfaces omitted.
 
 /**
  * deserializeAws_json1_0InvalidNodeException
  */
 const de_InvalidNodeException = (output: any, context: __SerdeContext): InvalidNodeException => {
-  return {
-    invalidNodes: output.invalidNodes != null ? de_Nodes(output.invalidNodes, context) : undefined,
-    message: __expectString(output.message),
-    reason: __expectString(output.reason),
-  } as any;
+  return take(output, {
+    invalidNodes: (_: any) => de_Nodes(_, context),
+    message: __expectString,
+    reason: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0InvalidSignal
- */
-const de_InvalidSignal = (output: any, context: __SerdeContext): InvalidSignal => {
-  return {
-    name: __expectString(output.name),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_InvalidSignal omitted.
 
-/**
- * deserializeAws_json1_0InvalidSignalDecoder
- */
-const de_InvalidSignalDecoder = (output: any, context: __SerdeContext): InvalidSignalDecoder => {
-  return {
-    name: __expectString(output.name),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_InvalidSignalDecoder omitted.
 
-/**
- * deserializeAws_json1_0InvalidSignalDecoders
- */
-const de_InvalidSignalDecoders = (output: any, context: __SerdeContext): InvalidSignalDecoder[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InvalidSignalDecoder(entry, context);
-    });
-  return retVal;
-};
+// de_InvalidSignalDecoders omitted.
 
-/**
- * deserializeAws_json1_0InvalidSignals
- */
-const de_InvalidSignals = (output: any, context: __SerdeContext): InvalidSignal[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InvalidSignal(entry, context);
-    });
-  return retVal;
-};
+// de_InvalidSignals omitted.
 
-/**
- * deserializeAws_json1_0InvalidSignalsException
- */
-const de_InvalidSignalsException = (output: any, context: __SerdeContext): InvalidSignalsException => {
-  return {
-    invalidSignals: output.invalidSignals != null ? de_InvalidSignals(output.invalidSignals, context) : undefined,
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidSignalsException omitted.
 
-/**
- * deserializeAws_json1_0LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-    resourceId: __expectString(output.resourceId),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_0ListCampaignsResponse
  */
 const de_ListCampaignsResponse = (output: any, context: __SerdeContext): ListCampaignsResponse => {
-  return {
-    campaignSummaries:
-      output.campaignSummaries != null ? de_campaignSummaries(output.campaignSummaries, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    campaignSummaries: (_: any) => de_campaignSummaries(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListDecoderManifestNetworkInterfacesResponse
- */
-const de_ListDecoderManifestNetworkInterfacesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDecoderManifestNetworkInterfacesResponse => {
-  return {
-    networkInterfaces:
-      output.networkInterfaces != null ? de_NetworkInterfaces(output.networkInterfaces, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListDecoderManifestNetworkInterfacesResponse omitted.
 
 /**
  * deserializeAws_json1_0ListDecoderManifestSignalsResponse
@@ -6076,125 +4805,88 @@ const de_ListDecoderManifestSignalsResponse = (
   output: any,
   context: __SerdeContext
 ): ListDecoderManifestSignalsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    signalDecoders: output.signalDecoders != null ? de_SignalDecoders(output.signalDecoders, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    signalDecoders: (_: any) => de_SignalDecoders(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListDecoderManifestsResponse
  */
 const de_ListDecoderManifestsResponse = (output: any, context: __SerdeContext): ListDecoderManifestsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_decoderManifestSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_decoderManifestSummaries(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListFleetsForVehicleResponse
- */
-const de_ListFleetsForVehicleResponse = (output: any, context: __SerdeContext): ListFleetsForVehicleResponse => {
-  return {
-    fleets: output.fleets != null ? de_fleets(output.fleets, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListFleetsForVehicleResponse omitted.
 
 /**
  * deserializeAws_json1_0ListFleetsResponse
  */
 const de_ListFleetsResponse = (output: any, context: __SerdeContext): ListFleetsResponse => {
-  return {
-    fleetSummaries: output.fleetSummaries != null ? de_fleetSummaries(output.fleetSummaries, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    fleetSummaries: (_: any) => de_fleetSummaries(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListModelManifestNodesResponse
  */
 const de_ListModelManifestNodesResponse = (output: any, context: __SerdeContext): ListModelManifestNodesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    nodes: output.nodes != null ? de_Nodes(output.nodes, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    nodes: (_: any) => de_Nodes(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListModelManifestsResponse
  */
 const de_ListModelManifestsResponse = (output: any, context: __SerdeContext): ListModelManifestsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_modelManifestSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_modelManifestSummaries(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0listOfStrings
- */
-const de_listOfStrings = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_listOfStrings omitted.
 
 /**
  * deserializeAws_json1_0ListSignalCatalogNodesResponse
  */
 const de_ListSignalCatalogNodesResponse = (output: any, context: __SerdeContext): ListSignalCatalogNodesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    nodes: output.nodes != null ? de_Nodes(output.nodes, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    nodes: (_: any) => de_Nodes(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListSignalCatalogsResponse
  */
 const de_ListSignalCatalogsResponse = (output: any, context: __SerdeContext): ListSignalCatalogsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_signalCatalogSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_signalCatalogSummaries(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0ListVehiclesInFleetResponse
- */
-const de_ListVehiclesInFleetResponse = (output: any, context: __SerdeContext): ListVehiclesInFleetResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    vehicles: output.vehicles != null ? de_vehicles(output.vehicles, context) : undefined,
-  } as any;
-};
+// de_ListVehiclesInFleetResponse omitted.
 
 /**
  * deserializeAws_json1_0ListVehiclesResponse
  */
 const de_ListVehiclesResponse = (output: any, context: __SerdeContext): ListVehiclesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    vehicleSummaries:
-      output.vehicleSummaries != null ? de_vehicleSummaries(output.vehicleSummaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    vehicleSummaries: (_: any) => de_vehicleSummaries(_, context),
+  }) as any;
 };
 
 /**
@@ -6204,9 +4896,6 @@ const de_modelManifestSummaries = (output: any, context: __SerdeContext): ModelM
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ModelManifestSummary(entry, context);
     });
   return retVal;
@@ -6216,49 +4905,20 @@ const de_modelManifestSummaries = (output: any, context: __SerdeContext): ModelM
  * deserializeAws_json1_0ModelManifestSummary
  */
 const de_ModelManifestSummary = (output: any, context: __SerdeContext): ModelManifestSummary => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    signalCatalogArn: __expectString(output.signalCatalogArn),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    signalCatalogArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0NetworkInterface
- */
-const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  return {
-    canInterface: output.canInterface != null ? de_CanInterface(output.canInterface, context) : undefined,
-    interfaceId: __expectString(output.interfaceId),
-    obdInterface: output.obdInterface != null ? de_ObdInterface(output.obdInterface, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_NetworkInterface omitted.
 
-/**
- * deserializeAws_json1_0NetworkInterfaces
- */
-const de_NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NetworkInterface(entry, context);
-    });
-  return retVal;
-};
+// de_NetworkInterfaces omitted.
 
 /**
  * deserializeAws_json1_0Node
@@ -6276,7 +4936,7 @@ const de_Node = (output: any, context: __SerdeContext): Node => {
   }
   if (output.branch != null) {
     return {
-      branch: de_Branch(output.branch, context),
+      branch: _json(output.branch),
     };
   }
   if (output.sensor != null) {
@@ -6287,18 +4947,7 @@ const de_Node = (output: any, context: __SerdeContext): Node => {
   return { $unknown: Object.entries(output)[0] };
 };
 
-/**
- * deserializeAws_json1_0NodeCounts
- */
-const de_NodeCounts = (output: any, context: __SerdeContext): NodeCounts => {
-  return {
-    totalActuators: __expectInt32(output.totalActuators),
-    totalAttributes: __expectInt32(output.totalAttributes),
-    totalBranches: __expectInt32(output.totalBranches),
-    totalNodes: __expectInt32(output.totalNodes),
-    totalSensors: __expectInt32(output.totalSensors),
-  } as any;
-};
+// de_NodeCounts omitted.
 
 /**
  * deserializeAws_json1_0Nodes
@@ -6307,97 +4956,60 @@ const de_Nodes = (output: any, context: __SerdeContext): Node[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Node(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ObdInterface
- */
-const de_ObdInterface = (output: any, context: __SerdeContext): ObdInterface => {
-  return {
-    dtcRequestIntervalSeconds: __expectInt32(output.dtcRequestIntervalSeconds),
-    hasTransmissionEcu: __expectBoolean(output.hasTransmissionEcu),
-    name: __expectString(output.name),
-    obdStandard: __expectString(output.obdStandard),
-    pidRequestIntervalSeconds: __expectInt32(output.pidRequestIntervalSeconds),
-    requestMessageId: __expectInt32(output.requestMessageId),
-    useExtendedIds: __expectBoolean(output.useExtendedIds),
-  } as any;
-};
+// de_ObdInterface omitted.
 
 /**
  * deserializeAws_json1_0ObdSignal
  */
 const de_ObdSignal = (output: any, context: __SerdeContext): ObdSignal => {
-  return {
-    bitMaskLength: __expectInt32(output.bitMaskLength),
-    bitRightShift: __expectInt32(output.bitRightShift),
-    byteLength: __expectInt32(output.byteLength),
-    offset: __limitedParseDouble(output.offset),
-    pid: __expectInt32(output.pid),
-    pidResponseLength: __expectInt32(output.pidResponseLength),
-    scaling: __limitedParseDouble(output.scaling),
-    serviceMode: __expectInt32(output.serviceMode),
-    startByte: __expectInt32(output.startByte),
-  } as any;
+  return take(output, {
+    bitMaskLength: __expectInt32,
+    bitRightShift: __expectInt32,
+    byteLength: __expectInt32,
+    offset: __limitedParseDouble,
+    pid: __expectInt32,
+    pidResponseLength: __expectInt32,
+    scaling: __limitedParseDouble,
+    serviceMode: __expectInt32,
+    startByte: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0PutLoggingOptionsResponse
- */
-const de_PutLoggingOptionsResponse = (output: any, context: __SerdeContext): PutLoggingOptionsResponse => {
-  return {} as any;
-};
+// de_PutLoggingOptionsResponse omitted.
 
 /**
  * deserializeAws_json1_0RegisterAccountResponse
  */
 const de_RegisterAccountResponse = (output: any, context: __SerdeContext): RegisterAccountResponse => {
-  return {
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    iamResources: output.iamResources != null ? de_IamResources(output.iamResources, context) : undefined,
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    registerAccountStatus: __expectString(output.registerAccountStatus),
-    timestreamResources:
-      output.timestreamResources != null ? de_TimestreamResources(output.timestreamResources, context) : undefined,
-  } as any;
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    iamResources: _json,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    registerAccountStatus: __expectString,
+    timestreamResources: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-    resourceId: __expectString(output.resourceId),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_0Sensor
  */
 const de_Sensor = (output: any, context: __SerdeContext): Sensor => {
-  return {
-    allowedValues: output.allowedValues != null ? de_listOfStrings(output.allowedValues, context) : undefined,
-    dataType: __expectString(output.dataType),
-    description: __expectString(output.description),
-    fullyQualifiedName: __expectString(output.fullyQualifiedName),
-    max: __limitedParseDouble(output.max),
-    min: __limitedParseDouble(output.min),
-    unit: __expectString(output.unit),
-  } as any;
+  return take(output, {
+    allowedValues: _json,
+    dataType: __expectString,
+    description: __expectString,
+    fullyQualifiedName: __expectString,
+    max: __limitedParseDouble,
+    min: __limitedParseDouble,
+    unit: __expectString,
+  }) as any;
 };
 
 /**
@@ -6407,9 +5019,6 @@ const de_signalCatalogSummaries = (output: any, context: __SerdeContext): Signal
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SignalCatalogSummary(entry, context);
     });
   return retVal;
@@ -6419,31 +5028,25 @@ const de_signalCatalogSummaries = (output: any, context: __SerdeContext): Signal
  * deserializeAws_json1_0SignalCatalogSummary
  */
 const de_SignalCatalogSummary = (output: any, context: __SerdeContext): SignalCatalogSummary => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0SignalDecoder
  */
 const de_SignalDecoder = (output: any, context: __SerdeContext): SignalDecoder => {
-  return {
-    canSignal: output.canSignal != null ? de_CanSignal(output.canSignal, context) : undefined,
-    fullyQualifiedName: __expectString(output.fullyQualifiedName),
-    interfaceId: __expectString(output.interfaceId),
-    obdSignal: output.obdSignal != null ? de_ObdSignal(output.obdSignal, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    canSignal: (_: any) => de_CanSignal(_, context),
+    fullyQualifiedName: __expectString,
+    interfaceId: __expectString,
+    obdSignal: (_: any) => de_ObdSignal(_, context),
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -6453,312 +5056,62 @@ const de_SignalDecoders = (output: any, context: __SerdeContext): SignalDecoder[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SignalDecoder(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0SignalInformation
- */
-const de_SignalInformation = (output: any, context: __SerdeContext): SignalInformation => {
-  return {
-    maxSampleCount: __expectLong(output.maxSampleCount),
-    minimumSamplingIntervalMs: __expectLong(output.minimumSamplingIntervalMs),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_SignalInformation omitted.
 
-/**
- * deserializeAws_json1_0SignalInformationList
- */
-const de_SignalInformationList = (output: any, context: __SerdeContext): SignalInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SignalInformation(entry, context);
-    });
-  return retVal;
-};
+// de_SignalInformationList omitted.
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-    quotaCode: __expectString(output.quotaCode),
-    retryAfterSeconds: __expectInt32(output.retryAfterSeconds),
-    serviceCode: __expectString(output.serviceCode),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0TimeBasedCollectionScheme
- */
-const de_TimeBasedCollectionScheme = (output: any, context: __SerdeContext): TimeBasedCollectionScheme => {
-  return {
-    periodMs: __expectLong(output.periodMs),
-  } as any;
-};
+// de_TimeBasedCollectionScheme omitted.
 
-/**
- * deserializeAws_json1_0TimestreamRegistrationResponse
- */
-const de_TimestreamRegistrationResponse = (output: any, context: __SerdeContext): TimestreamRegistrationResponse => {
-  return {
-    errorMessage: __expectString(output.errorMessage),
-    registrationStatus: __expectString(output.registrationStatus),
-    timestreamDatabaseArn: __expectString(output.timestreamDatabaseArn),
-    timestreamDatabaseName: __expectString(output.timestreamDatabaseName),
-    timestreamTableArn: __expectString(output.timestreamTableArn),
-    timestreamTableName: __expectString(output.timestreamTableName),
-  } as any;
-};
+// de_TimestreamRegistrationResponse omitted.
 
-/**
- * deserializeAws_json1_0TimestreamResources
- */
-const de_TimestreamResources = (output: any, context: __SerdeContext): TimestreamResources => {
-  return {
-    timestreamDatabaseName: __expectString(output.timestreamDatabaseName),
-    timestreamTableName: __expectString(output.timestreamTableName),
-  } as any;
-};
+// de_TimestreamResources omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateCampaignResponse
- */
-const de_UpdateCampaignResponse = (output: any, context: __SerdeContext): UpdateCampaignResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_UpdateCampaignResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateDecoderManifestResponse
- */
-const de_UpdateDecoderManifestResponse = (output: any, context: __SerdeContext): UpdateDecoderManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_UpdateDecoderManifestResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateFleetResponse
- */
-const de_UpdateFleetResponse = (output: any, context: __SerdeContext): UpdateFleetResponse => {
-  return {
-    arn: __expectString(output.arn),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_UpdateFleetResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateModelManifestResponse
- */
-const de_UpdateModelManifestResponse = (output: any, context: __SerdeContext): UpdateModelManifestResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_UpdateModelManifestResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateSignalCatalogResponse
- */
-const de_UpdateSignalCatalogResponse = (output: any, context: __SerdeContext): UpdateSignalCatalogResponse => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_UpdateSignalCatalogResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateVehicleError
- */
-const de_UpdateVehicleError = (output: any, context: __SerdeContext): UpdateVehicleError => {
-  return {
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
-};
+// de_UpdateVehicleError omitted.
 
-/**
- * deserializeAws_json1_0updateVehicleErrors
- */
-const de_updateVehicleErrors = (output: any, context: __SerdeContext): UpdateVehicleError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UpdateVehicleError(entry, context);
-    });
-  return retVal;
-};
+// de_updateVehicleErrors omitted.
 
-/**
- * deserializeAws_json1_0UpdateVehicleResponse
- */
-const de_UpdateVehicleResponse = (output: any, context: __SerdeContext): UpdateVehicleResponse => {
-  return {
-    arn: __expectString(output.arn),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
-};
+// de_UpdateVehicleResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateVehicleResponseItem
- */
-const de_UpdateVehicleResponseItem = (output: any, context: __SerdeContext): UpdateVehicleResponseItem => {
-  return {
-    arn: __expectString(output.arn),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
-};
+// de_UpdateVehicleResponseItem omitted.
 
-/**
- * deserializeAws_json1_0updateVehicleResponseItems
- */
-const de_updateVehicleResponseItems = (output: any, context: __SerdeContext): UpdateVehicleResponseItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UpdateVehicleResponseItem(entry, context);
-    });
-  return retVal;
-};
+// de_updateVehicleResponseItems omitted.
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    fieldList: output.fieldList != null ? de_ValidationExceptionFieldList(output.fieldList, context) : undefined,
-    message: __expectString(output.message),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_0ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_json1_0ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
-/**
- * deserializeAws_json1_0vehicles
- */
-const de_vehicles = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_vehicles omitted.
 
-/**
- * deserializeAws_json1_0VehicleStatus
- */
-const de_VehicleStatus = (output: any, context: __SerdeContext): VehicleStatus => {
-  return {
-    campaignName: __expectString(output.campaignName),
-    status: __expectString(output.status),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
-};
+// de_VehicleStatus omitted.
 
-/**
- * deserializeAws_json1_0VehicleStatusList
- */
-const de_VehicleStatusList = (output: any, context: __SerdeContext): VehicleStatus[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VehicleStatus(entry, context);
-    });
-  return retVal;
-};
+// de_VehicleStatusList omitted.
 
 /**
  * deserializeAws_json1_0vehicleSummaries
@@ -6767,9 +5120,6 @@ const de_vehicleSummaries = (output: any, context: __SerdeContext): VehicleSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VehicleSummary(entry, context);
     });
   return retVal;
@@ -6779,20 +5129,14 @@ const de_vehicleSummaries = (output: any, context: __SerdeContext): VehicleSumma
  * deserializeAws_json1_0VehicleSummary
  */
 const de_VehicleSummary = (output: any, context: __SerdeContext): VehicleSummary => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    decoderManifestArn: __expectString(output.decoderManifestArn),
-    lastModificationTime:
-      output.lastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
-        : undefined,
-    modelManifestArn: __expectString(output.modelManifestArn),
-    vehicleName: __expectString(output.vehicleName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    decoderManifestArn: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modelManifestArn: __expectString,
+    vehicleName: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -6815,6 +5159,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

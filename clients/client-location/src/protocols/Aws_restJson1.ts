@@ -5,6 +5,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -13,11 +14,12 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -166,17 +168,11 @@ import {
   AccessDeniedException,
   ApiKeyFilter,
   ApiKeyRestrictions,
-  BatchDeleteDevicePositionHistoryError,
-  BatchDeleteGeofenceError,
   BatchEvaluateGeofencesError,
-  BatchGetDevicePositionError,
-  BatchItemError,
-  BatchPutGeofenceError,
   BatchPutGeofenceRequestEntry,
   BatchPutGeofenceSuccess,
   BatchUpdateDevicePositionError,
   CalculateRouteCarModeOptions,
-  CalculateRouteMatrixSummary,
   CalculateRouteSummary,
   CalculateRouteTruckModeOptions,
   Circle,
@@ -202,9 +198,7 @@ import {
   PositionalAccuracy,
   ResourceNotFoundException,
   RouteMatrixEntry,
-  RouteMatrixEntryError,
   SearchForPositionResult,
-  SearchForSuggestionsResult,
   SearchForTextResult,
   SearchPlaceIndexForPositionSummary,
   SearchPlaceIndexForSuggestionsSummary,
@@ -212,7 +206,6 @@ import {
   ServiceQuotaExceededException,
   Step,
   ThrottlingException,
-  TimeZone,
   TruckDimensions,
   TruckWeight,
   ValidationException,
@@ -235,9 +228,11 @@ export const se_AssociateTrackerConsumerCommand = async (
     "/tracking/v0/trackers/{TrackerName}/consumers";
   resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConsumerArn != null && { ConsumerArn: input.ConsumerArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConsumerArn: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -272,9 +267,11 @@ export const se_BatchDeleteDevicePositionHistoryCommand = async (
     "/tracking/v0/trackers/{TrackerName}/delete-positions";
   resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeviceIds != null && { DeviceIds: se_DeviceIdsList(input.DeviceIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeviceIds: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -316,9 +313,11 @@ export const se_BatchDeleteGeofenceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.GeofenceIds != null && { GeofenceIds: se_IdList(input.GeofenceIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GeofenceIds: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
@@ -360,11 +359,11 @@ export const se_BatchEvaluateGeofencesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.DevicePositionUpdates != null && {
-      DevicePositionUpdates: se_DevicePositionUpdateList(input.DevicePositionUpdates, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DevicePositionUpdates: (_) => se_DevicePositionUpdateList(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
@@ -399,9 +398,11 @@ export const se_BatchGetDevicePositionCommand = async (
     "/tracking/v0/trackers/{TrackerName}/get-positions";
   resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeviceIds != null && { DeviceIds: se_IdList(input.DeviceIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeviceIds: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -443,9 +444,11 @@ export const se_BatchPutGeofenceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Entries != null && { Entries: se_BatchPutGeofenceRequestEntryList(input.Entries, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Entries: (_) => se_BatchPutGeofenceRequestEntryList(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
@@ -480,9 +483,11 @@ export const se_BatchUpdateDevicePositionCommand = async (
     "/tracking/v0/trackers/{TrackerName}/positions";
   resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Updates != null && { Updates: se_DevicePositionUpdateList(input.Updates, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Updates: (_) => se_DevicePositionUpdateList(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -524,24 +529,20 @@ export const se_CalculateRouteCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CarModeOptions != null && {
-      CarModeOptions: se_CalculateRouteCarModeOptions(input.CarModeOptions, context),
-    }),
-    ...(input.DepartNow != null && { DepartNow: input.DepartNow }),
-    ...(input.DeparturePosition != null && { DeparturePosition: se_Position(input.DeparturePosition, context) }),
-    ...(input.DepartureTime != null && { DepartureTime: input.DepartureTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.DestinationPosition != null && { DestinationPosition: se_Position(input.DestinationPosition, context) }),
-    ...(input.DistanceUnit != null && { DistanceUnit: input.DistanceUnit }),
-    ...(input.IncludeLegGeometry != null && { IncludeLegGeometry: input.IncludeLegGeometry }),
-    ...(input.TravelMode != null && { TravelMode: input.TravelMode }),
-    ...(input.TruckModeOptions != null && {
-      TruckModeOptions: se_CalculateRouteTruckModeOptions(input.TruckModeOptions, context),
-    }),
-    ...(input.WaypointPositions != null && {
-      WaypointPositions: se_WaypointPositionList(input.WaypointPositions, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CarModeOptions: (_) => _json(_),
+      DepartNow: [],
+      DeparturePosition: (_) => se_Position(_, context),
+      DepartureTime: (_) => _.toISOString().split(".")[0] + "Z",
+      DestinationPosition: (_) => se_Position(_, context),
+      DistanceUnit: [],
+      IncludeLegGeometry: [],
+      TravelMode: [],
+      TruckModeOptions: (_) => se_CalculateRouteTruckModeOptions(_, context),
+      WaypointPositions: (_) => se_WaypointPositionList(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "routes." + resolvedHostname;
@@ -583,22 +584,18 @@ export const se_CalculateRouteMatrixCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CarModeOptions != null && {
-      CarModeOptions: se_CalculateRouteCarModeOptions(input.CarModeOptions, context),
-    }),
-    ...(input.DepartNow != null && { DepartNow: input.DepartNow }),
-    ...(input.DeparturePositions != null && { DeparturePositions: se_PositionList(input.DeparturePositions, context) }),
-    ...(input.DepartureTime != null && { DepartureTime: input.DepartureTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.DestinationPositions != null && {
-      DestinationPositions: se_PositionList(input.DestinationPositions, context),
-    }),
-    ...(input.DistanceUnit != null && { DistanceUnit: input.DistanceUnit }),
-    ...(input.TravelMode != null && { TravelMode: input.TravelMode }),
-    ...(input.TruckModeOptions != null && {
-      TruckModeOptions: se_CalculateRouteTruckModeOptions(input.TruckModeOptions, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CarModeOptions: (_) => _json(_),
+      DepartNow: [],
+      DeparturePositions: (_) => se_PositionList(_, context),
+      DepartureTime: (_) => _.toISOString().split(".")[0] + "Z",
+      DestinationPositions: (_) => se_PositionList(_, context),
+      DistanceUnit: [],
+      TravelMode: [],
+      TruckModeOptions: (_) => se_CalculateRouteTruckModeOptions(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "routes." + resolvedHostname;
@@ -631,14 +628,16 @@ export const se_CreateGeofenceCollectionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/geofencing/v0/collections";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CollectionName != null && { CollectionName: input.CollectionName }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-    ...(input.PricingPlanDataSource != null && { PricingPlanDataSource: input.PricingPlanDataSource }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CollectionName: [],
+      Description: [],
+      KmsKeyId: [],
+      PricingPlan: [],
+      PricingPlanDataSource: [],
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
@@ -670,14 +669,16 @@ export const se_CreateKeyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.ExpireTime != null && { ExpireTime: input.ExpireTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.KeyName != null && { KeyName: input.KeyName }),
-    ...(input.NoExpiry != null && { NoExpiry: input.NoExpiry }),
-    ...(input.Restrictions != null && { Restrictions: se_ApiKeyRestrictions(input.Restrictions, context) }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      ExpireTime: (_) => _.toISOString().split(".")[0] + "Z",
+      KeyName: [],
+      NoExpiry: [],
+      Restrictions: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "metadata." + resolvedHostname;
@@ -709,13 +710,15 @@ export const se_CreateMapCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Configuration != null && { Configuration: se_MapConfiguration(input.Configuration, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.MapName != null && { MapName: input.MapName }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Configuration: (_) => _json(_),
+      Description: [],
+      MapName: [],
+      PricingPlan: [],
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "maps." + resolvedHostname;
@@ -747,16 +750,16 @@ export const se_CreatePlaceIndexCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DataSource != null && { DataSource: input.DataSource }),
-    ...(input.DataSourceConfiguration != null && {
-      DataSourceConfiguration: se_DataSourceConfiguration(input.DataSourceConfiguration, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.IndexName != null && { IndexName: input.IndexName }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DataSource: [],
+      DataSourceConfiguration: (_) => _json(_),
+      Description: [],
+      IndexName: [],
+      PricingPlan: [],
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "places." + resolvedHostname;
@@ -788,13 +791,15 @@ export const se_CreateRouteCalculatorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CalculatorName != null && { CalculatorName: input.CalculatorName }),
-    ...(input.DataSource != null && { DataSource: input.DataSource }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CalculatorName: [],
+      DataSource: [],
+      Description: [],
+      PricingPlan: [],
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "routes." + resolvedHostname;
@@ -826,15 +831,17 @@ export const se_CreateTrackerCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.PositionFiltering != null && { PositionFiltering: input.PositionFiltering }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-    ...(input.PricingPlanDataSource != null && { PricingPlanDataSource: input.PricingPlanDataSource }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.TrackerName != null && { TrackerName: input.TrackerName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      KmsKeyId: [],
+      PositionFiltering: [],
+      PricingPlan: [],
+      PricingPlanDataSource: [],
+      Tags: (_) => _json(_),
+      TrackerName: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -1336,16 +1343,14 @@ export const se_GetDevicePositionHistoryCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.EndTimeExclusive != null && {
-      EndTimeExclusive: input.EndTimeExclusive.toISOString().split(".")[0] + "Z",
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTimeInclusive != null && {
-      StartTimeInclusive: input.StartTimeInclusive.toISOString().split(".")[0] + "Z",
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EndTimeExclusive: (_) => _.toISOString().split(".")[0] + "Z",
+      MaxResults: [],
+      NextToken: [],
+      StartTimeInclusive: (_) => _.toISOString().split(".")[0] + "Z",
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -1612,10 +1617,12 @@ export const se_ListDevicePositionsCommand = async (
     "/tracking/v0/trackers/{TrackerName}/list-positions";
   resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -1648,10 +1655,12 @@ export const se_ListGeofenceCollectionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/geofencing/v0/list-collections";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
@@ -1693,10 +1702,12 @@ export const se_ListGeofencesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
@@ -1728,11 +1739,13 @@ export const se_ListKeysCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/list-keys";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filter != null && { Filter: se_ApiKeyFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filter: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "metadata." + resolvedHostname;
@@ -1764,10 +1777,12 @@ export const se_ListMapsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/list-maps";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "maps." + resolvedHostname;
@@ -1800,10 +1815,12 @@ export const se_ListPlaceIndexesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/list-indexes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "places." + resolvedHostname;
@@ -1836,10 +1853,12 @@ export const se_ListRouteCalculatorsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/list-calculators";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "routes." + resolvedHostname;
@@ -1904,10 +1923,12 @@ export const se_ListTrackerConsumersCommand = async (
     "/tracking/v0/trackers/{TrackerName}/list-consumers";
   resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -1940,10 +1961,12 @@ export const se_ListTrackersCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/list-trackers";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -1986,9 +2009,11 @@ export const se_PutGeofenceCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "GeofenceId", () => input.GeofenceId!, "{GeofenceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Geometry != null && { Geometry: se_GeofenceGeometry(input.Geometry, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Geometry: (_) => se_GeofenceGeometry(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
@@ -2023,11 +2048,13 @@ export const se_SearchPlaceIndexForPositionCommand = async (
     "/places/v0/indexes/{IndexName}/search/position";
   resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Language != null && { Language: input.Language }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Position != null && { Position: se_Position(input.Position, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Language: [],
+      MaxResults: [],
+      Position: (_) => se_Position(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "places." + resolvedHostname;
@@ -2062,14 +2089,16 @@ export const se_SearchPlaceIndexForSuggestionsCommand = async (
     "/places/v0/indexes/{IndexName}/search/suggestions";
   resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BiasPosition != null && { BiasPosition: se_Position(input.BiasPosition, context) }),
-    ...(input.FilterBBox != null && { FilterBBox: se_BoundingBox(input.FilterBBox, context) }),
-    ...(input.FilterCountries != null && { FilterCountries: se_CountryCodeList(input.FilterCountries, context) }),
-    ...(input.Language != null && { Language: input.Language }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Text != null && { Text: input.Text }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BiasPosition: (_) => se_Position(_, context),
+      FilterBBox: (_) => se_BoundingBox(_, context),
+      FilterCountries: (_) => _json(_),
+      Language: [],
+      MaxResults: [],
+      Text: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "places." + resolvedHostname;
@@ -2104,14 +2133,16 @@ export const se_SearchPlaceIndexForTextCommand = async (
     "/places/v0/indexes/{IndexName}/search/text";
   resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BiasPosition != null && { BiasPosition: se_Position(input.BiasPosition, context) }),
-    ...(input.FilterBBox != null && { FilterBBox: se_BoundingBox(input.FilterBBox, context) }),
-    ...(input.FilterCountries != null && { FilterCountries: se_CountryCodeList(input.FilterCountries, context) }),
-    ...(input.Language != null && { Language: input.Language }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Text != null && { Text: input.Text }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BiasPosition: (_) => se_Position(_, context),
+      FilterBBox: (_) => se_BoundingBox(_, context),
+      FilterCountries: (_) => _json(_),
+      Language: [],
+      MaxResults: [],
+      Text: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "places." + resolvedHostname;
@@ -2144,9 +2175,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "metadata." + resolvedHostname;
@@ -2225,11 +2258,13 @@ export const se_UpdateGeofenceCollectionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-    ...(input.PricingPlanDataSource != null && { PricingPlanDataSource: input.PricingPlanDataSource }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      PricingPlan: [],
+      PricingPlanDataSource: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
@@ -2263,13 +2298,15 @@ export const se_UpdateKeyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys/{KeyName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "KeyName", () => input.KeyName!, "{KeyName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.ExpireTime != null && { ExpireTime: input.ExpireTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.ForceUpdate != null && { ForceUpdate: input.ForceUpdate }),
-    ...(input.NoExpiry != null && { NoExpiry: input.NoExpiry }),
-    ...(input.Restrictions != null && { Restrictions: se_ApiKeyRestrictions(input.Restrictions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      ExpireTime: (_) => _.toISOString().split(".")[0] + "Z",
+      ForceUpdate: [],
+      NoExpiry: [],
+      Restrictions: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "metadata." + resolvedHostname;
@@ -2302,10 +2339,12 @@ export const se_UpdateMapCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      PricingPlan: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "maps." + resolvedHostname;
@@ -2339,13 +2378,13 @@ export const se_UpdatePlaceIndexCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes/{IndexName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DataSourceConfiguration != null && {
-      DataSourceConfiguration: se_DataSourceConfiguration(input.DataSourceConfiguration, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DataSourceConfiguration: (_) => _json(_),
+      Description: [],
+      PricingPlan: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "places." + resolvedHostname;
@@ -2386,10 +2425,12 @@ export const se_UpdateRouteCalculatorCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      PricingPlan: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "routes." + resolvedHostname;
@@ -2423,12 +2464,14 @@ export const se_UpdateTrackerCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers/{TrackerName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.PositionFiltering != null && { PositionFiltering: input.PositionFiltering }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-    ...(input.PricingPlanDataSource != null && { PricingPlanDataSource: input.PricingPlanDataSource }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      PositionFiltering: [],
+      PricingPlan: [],
+      PricingPlanDataSource: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tracking." + resolvedHostname;
@@ -2500,10 +2543,9 @@ const de_AssociateTrackerConsumerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2523,9 +2565,10 @@ export const de_BatchDeleteDevicePositionHistoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_BatchDeleteDevicePositionHistoryErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2559,10 +2602,9 @@ const de_BatchDeleteDevicePositionHistoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2582,9 +2624,10 @@ export const de_BatchDeleteGeofenceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_BatchDeleteGeofenceErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2618,10 +2661,9 @@ const de_BatchDeleteGeofenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2641,9 +2683,10 @@ export const de_BatchEvaluateGeofencesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_BatchEvaluateGeofencesErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Errors: (_) => de_BatchEvaluateGeofencesErrorList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2677,10 +2720,9 @@ const de_BatchEvaluateGeofencesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2700,12 +2742,11 @@ export const de_BatchGetDevicePositionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DevicePositions != null) {
-    contents.DevicePositions = de_DevicePositionList(data.DevicePositions, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_BatchGetDevicePositionErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    DevicePositions: (_) => de_DevicePositionList(_, context),
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2739,10 +2780,9 @@ const de_BatchGetDevicePositionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2762,12 +2802,11 @@ export const de_BatchPutGeofenceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_BatchPutGeofenceErrorList(data.Errors, context);
-  }
-  if (data.Successes != null) {
-    contents.Successes = de_BatchPutGeofenceSuccessList(data.Successes, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+    Successes: (_) => de_BatchPutGeofenceSuccessList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2801,10 +2840,9 @@ const de_BatchPutGeofenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2824,9 +2862,10 @@ export const de_BatchUpdateDevicePositionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_BatchUpdateDevicePositionErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Errors: (_) => de_BatchUpdateDevicePositionErrorList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2860,10 +2899,9 @@ const de_BatchUpdateDevicePositionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2883,12 +2921,11 @@ export const de_CalculateRouteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Legs != null) {
-    contents.Legs = de_LegList(data.Legs, context);
-  }
-  if (data.Summary != null) {
-    contents.Summary = de_CalculateRouteSummary(data.Summary, context);
-  }
+  const doc = take(data, {
+    Legs: (_) => de_LegList(_, context),
+    Summary: (_) => de_CalculateRouteSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2922,10 +2959,9 @@ const de_CalculateRouteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2945,18 +2981,13 @@ export const de_CalculateRouteMatrixCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RouteMatrix != null) {
-    contents.RouteMatrix = de_RouteMatrix(data.RouteMatrix, context);
-  }
-  if (data.SnappedDeparturePositions != null) {
-    contents.SnappedDeparturePositions = de_PositionList(data.SnappedDeparturePositions, context);
-  }
-  if (data.SnappedDestinationPositions != null) {
-    contents.SnappedDestinationPositions = de_PositionList(data.SnappedDestinationPositions, context);
-  }
-  if (data.Summary != null) {
-    contents.Summary = de_CalculateRouteMatrixSummary(data.Summary, context);
-  }
+  const doc = take(data, {
+    RouteMatrix: (_) => de_RouteMatrix(_, context),
+    SnappedDeparturePositions: (_) => de_PositionList(_, context),
+    SnappedDestinationPositions: (_) => de_PositionList(_, context),
+    Summary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2990,10 +3021,9 @@ const de_CalculateRouteMatrixCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3013,15 +3043,12 @@ export const de_CreateGeofenceCollectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CollectionArn != null) {
-    contents.CollectionArn = __expectString(data.CollectionArn);
-  }
-  if (data.CollectionName != null) {
-    contents.CollectionName = __expectString(data.CollectionName);
-  }
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
+  const doc = take(data, {
+    CollectionArn: __expectString,
+    CollectionName: __expectString,
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3058,10 +3085,9 @@ const de_CreateGeofenceCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3081,18 +3107,13 @@ export const de_CreateKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.Key != null) {
-    contents.Key = __expectString(data.Key);
-  }
-  if (data.KeyArn != null) {
-    contents.KeyArn = __expectString(data.KeyArn);
-  }
-  if (data.KeyName != null) {
-    contents.KeyName = __expectString(data.KeyName);
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Key: __expectString,
+    KeyArn: __expectString,
+    KeyName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3129,10 +3150,9 @@ const de_CreateKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3152,15 +3172,12 @@ export const de_CreateMapCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.MapArn != null) {
-    contents.MapArn = __expectString(data.MapArn);
-  }
-  if (data.MapName != null) {
-    contents.MapName = __expectString(data.MapName);
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MapArn: __expectString,
+    MapName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3197,10 +3214,9 @@ const de_CreateMapCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3220,15 +3236,12 @@ export const de_CreatePlaceIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.IndexArn != null) {
-    contents.IndexArn = __expectString(data.IndexArn);
-  }
-  if (data.IndexName != null) {
-    contents.IndexName = __expectString(data.IndexName);
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    IndexArn: __expectString,
+    IndexName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3265,10 +3278,9 @@ const de_CreatePlaceIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3288,15 +3300,12 @@ export const de_CreateRouteCalculatorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CalculatorArn != null) {
-    contents.CalculatorArn = __expectString(data.CalculatorArn);
-  }
-  if (data.CalculatorName != null) {
-    contents.CalculatorName = __expectString(data.CalculatorName);
-  }
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
+  const doc = take(data, {
+    CalculatorArn: __expectString,
+    CalculatorName: __expectString,
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3333,10 +3342,9 @@ const de_CreateRouteCalculatorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3356,15 +3364,12 @@ export const de_CreateTrackerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.TrackerArn != null) {
-    contents.TrackerArn = __expectString(data.TrackerArn);
-  }
-  if (data.TrackerName != null) {
-    contents.TrackerName = __expectString(data.TrackerName);
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    TrackerArn: __expectString,
+    TrackerName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3398,10 +3403,9 @@ const de_CreateTrackerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3454,10 +3458,9 @@ const de_DeleteGeofenceCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3510,10 +3513,9 @@ const de_DeleteKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3566,10 +3568,9 @@ const de_DeleteMapCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3622,10 +3623,9 @@ const de_DeletePlaceIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3678,10 +3678,9 @@ const de_DeleteRouteCalculatorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3734,10 +3733,9 @@ const de_DeleteTrackerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3757,33 +3755,18 @@ export const de_DescribeGeofenceCollectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CollectionArn != null) {
-    contents.CollectionArn = __expectString(data.CollectionArn);
-  }
-  if (data.CollectionName != null) {
-    contents.CollectionName = __expectString(data.CollectionName);
-  }
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.KmsKeyId != null) {
-    contents.KmsKeyId = __expectString(data.KmsKeyId);
-  }
-  if (data.PricingPlan != null) {
-    contents.PricingPlan = __expectString(data.PricingPlan);
-  }
-  if (data.PricingPlanDataSource != null) {
-    contents.PricingPlanDataSource = __expectString(data.PricingPlanDataSource);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CollectionArn: __expectString,
+    CollectionName: __expectString,
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    KmsKeyId: __expectString,
+    PricingPlan: __expectString,
+    PricingPlanDataSource: __expectString,
+    Tags: _json,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3817,10 +3800,9 @@ const de_DescribeGeofenceCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3840,33 +3822,18 @@ export const de_DescribeKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.ExpireTime != null) {
-    contents.ExpireTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.ExpireTime));
-  }
-  if (data.Key != null) {
-    contents.Key = __expectString(data.Key);
-  }
-  if (data.KeyArn != null) {
-    contents.KeyArn = __expectString(data.KeyArn);
-  }
-  if (data.KeyName != null) {
-    contents.KeyName = __expectString(data.KeyName);
-  }
-  if (data.Restrictions != null) {
-    contents.Restrictions = de_ApiKeyRestrictions(data.Restrictions, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    ExpireTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Key: __expectString,
+    KeyArn: __expectString,
+    KeyName: __expectString,
+    Restrictions: _json,
+    Tags: _json,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3900,10 +3867,9 @@ const de_DescribeKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3923,33 +3889,18 @@ export const de_DescribeMapCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Configuration != null) {
-    contents.Configuration = de_MapConfiguration(data.Configuration, context);
-  }
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.DataSource != null) {
-    contents.DataSource = __expectString(data.DataSource);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.MapArn != null) {
-    contents.MapArn = __expectString(data.MapArn);
-  }
-  if (data.MapName != null) {
-    contents.MapName = __expectString(data.MapName);
-  }
-  if (data.PricingPlan != null) {
-    contents.PricingPlan = __expectString(data.PricingPlan);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    Configuration: _json,
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSource: __expectString,
+    Description: __expectString,
+    MapArn: __expectString,
+    MapName: __expectString,
+    PricingPlan: __expectString,
+    Tags: _json,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3983,10 +3934,9 @@ const de_DescribeMapCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4006,33 +3956,18 @@ export const de_DescribePlaceIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.DataSource != null) {
-    contents.DataSource = __expectString(data.DataSource);
-  }
-  if (data.DataSourceConfiguration != null) {
-    contents.DataSourceConfiguration = de_DataSourceConfiguration(data.DataSourceConfiguration, context);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.IndexArn != null) {
-    contents.IndexArn = __expectString(data.IndexArn);
-  }
-  if (data.IndexName != null) {
-    contents.IndexName = __expectString(data.IndexName);
-  }
-  if (data.PricingPlan != null) {
-    contents.PricingPlan = __expectString(data.PricingPlan);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSource: __expectString,
+    DataSourceConfiguration: _json,
+    Description: __expectString,
+    IndexArn: __expectString,
+    IndexName: __expectString,
+    PricingPlan: __expectString,
+    Tags: _json,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4066,10 +4001,9 @@ const de_DescribePlaceIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4089,30 +4023,17 @@ export const de_DescribeRouteCalculatorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CalculatorArn != null) {
-    contents.CalculatorArn = __expectString(data.CalculatorArn);
-  }
-  if (data.CalculatorName != null) {
-    contents.CalculatorName = __expectString(data.CalculatorName);
-  }
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.DataSource != null) {
-    contents.DataSource = __expectString(data.DataSource);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.PricingPlan != null) {
-    contents.PricingPlan = __expectString(data.PricingPlan);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CalculatorArn: __expectString,
+    CalculatorName: __expectString,
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSource: __expectString,
+    Description: __expectString,
+    PricingPlan: __expectString,
+    Tags: _json,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4146,10 +4067,9 @@ const de_DescribeRouteCalculatorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4169,36 +4089,19 @@ export const de_DescribeTrackerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.KmsKeyId != null) {
-    contents.KmsKeyId = __expectString(data.KmsKeyId);
-  }
-  if (data.PositionFiltering != null) {
-    contents.PositionFiltering = __expectString(data.PositionFiltering);
-  }
-  if (data.PricingPlan != null) {
-    contents.PricingPlan = __expectString(data.PricingPlan);
-  }
-  if (data.PricingPlanDataSource != null) {
-    contents.PricingPlanDataSource = __expectString(data.PricingPlanDataSource);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.TrackerArn != null) {
-    contents.TrackerArn = __expectString(data.TrackerArn);
-  }
-  if (data.TrackerName != null) {
-    contents.TrackerName = __expectString(data.TrackerName);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    KmsKeyId: __expectString,
+    PositionFiltering: __expectString,
+    PricingPlan: __expectString,
+    PricingPlanDataSource: __expectString,
+    Tags: _json,
+    TrackerArn: __expectString,
+    TrackerName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4232,10 +4135,9 @@ const de_DescribeTrackerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4288,10 +4190,9 @@ const de_DisassociateTrackerConsumerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4311,24 +4212,15 @@ export const de_GetDevicePositionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Accuracy != null) {
-    contents.Accuracy = de_PositionalAccuracy(data.Accuracy, context);
-  }
-  if (data.DeviceId != null) {
-    contents.DeviceId = __expectString(data.DeviceId);
-  }
-  if (data.Position != null) {
-    contents.Position = de_Position(data.Position, context);
-  }
-  if (data.PositionProperties != null) {
-    contents.PositionProperties = de_PropertyMap(data.PositionProperties, context);
-  }
-  if (data.ReceivedTime != null) {
-    contents.ReceivedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.ReceivedTime));
-  }
-  if (data.SampleTime != null) {
-    contents.SampleTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.SampleTime));
-  }
+  const doc = take(data, {
+    Accuracy: (_) => de_PositionalAccuracy(_, context),
+    DeviceId: __expectString,
+    Position: (_) => de_Position(_, context),
+    PositionProperties: _json,
+    ReceivedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SampleTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4362,10 +4254,9 @@ const de_GetDevicePositionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4385,12 +4276,11 @@ export const de_GetDevicePositionHistoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DevicePositions != null) {
-    contents.DevicePositions = de_DevicePositionList(data.DevicePositions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DevicePositions: (_) => de_DevicePositionList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4424,10 +4314,9 @@ const de_GetDevicePositionHistoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4447,21 +4336,14 @@ export const de_GetGeofenceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.GeofenceId != null) {
-    contents.GeofenceId = __expectString(data.GeofenceId);
-  }
-  if (data.Geometry != null) {
-    contents.Geometry = de_GeofenceGeometry(data.Geometry, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GeofenceId: __expectString,
+    Geometry: (_) => de_GeofenceGeometry(_, context),
+    Status: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4495,10 +4377,9 @@ const de_GetGeofenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4554,10 +4435,9 @@ const de_GetMapGlyphsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4613,10 +4493,9 @@ const de_GetMapSpritesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4672,10 +4551,9 @@ const de_GetMapStyleDescriptorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4731,10 +4609,9 @@ const de_GetMapTileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4754,9 +4631,10 @@ export const de_GetPlaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Place != null) {
-    contents.Place = de_Place(data.Place, context);
-  }
+  const doc = take(data, {
+    Place: (_) => de_Place(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4790,10 +4668,9 @@ const de_GetPlaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4813,12 +4690,11 @@ export const de_ListDevicePositionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Entries != null) {
-    contents.Entries = de_ListDevicePositionsResponseEntryList(data.Entries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Entries: (_) => de_ListDevicePositionsResponseEntryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4849,10 +4725,9 @@ const de_ListDevicePositionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4872,12 +4747,11 @@ export const de_ListGeofenceCollectionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Entries != null) {
-    contents.Entries = de_ListGeofenceCollectionsResponseEntryList(data.Entries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Entries: (_) => de_ListGeofenceCollectionsResponseEntryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4908,10 +4782,9 @@ const de_ListGeofenceCollectionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4931,12 +4804,11 @@ export const de_ListGeofencesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Entries != null) {
-    contents.Entries = de_ListGeofenceResponseEntryList(data.Entries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Entries: (_) => de_ListGeofenceResponseEntryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4970,10 +4842,9 @@ const de_ListGeofencesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4993,12 +4864,11 @@ export const de_ListKeysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Entries != null) {
-    contents.Entries = de_ListKeysResponseEntryList(data.Entries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Entries: (_) => de_ListKeysResponseEntryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5029,10 +4899,9 @@ const de_ListKeysCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5052,12 +4921,11 @@ export const de_ListMapsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Entries != null) {
-    contents.Entries = de_ListMapsResponseEntryList(data.Entries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Entries: (_) => de_ListMapsResponseEntryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5088,10 +4956,9 @@ const de_ListMapsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5111,12 +4978,11 @@ export const de_ListPlaceIndexesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Entries != null) {
-    contents.Entries = de_ListPlaceIndexesResponseEntryList(data.Entries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Entries: (_) => de_ListPlaceIndexesResponseEntryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5147,10 +5013,9 @@ const de_ListPlaceIndexesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5170,12 +5035,11 @@ export const de_ListRouteCalculatorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Entries != null) {
-    contents.Entries = de_ListRouteCalculatorsResponseEntryList(data.Entries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Entries: (_) => de_ListRouteCalculatorsResponseEntryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5206,10 +5070,9 @@ const de_ListRouteCalculatorsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5229,9 +5092,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5265,10 +5129,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5288,12 +5151,11 @@ export const de_ListTrackerConsumersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConsumerArns != null) {
-    contents.ConsumerArns = de_ArnList(data.ConsumerArns, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ConsumerArns: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5327,10 +5189,9 @@ const de_ListTrackerConsumersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5350,12 +5211,11 @@ export const de_ListTrackersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Entries != null) {
-    contents.Entries = de_ListTrackersResponseEntryList(data.Entries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Entries: (_) => de_ListTrackersResponseEntryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5386,10 +5246,9 @@ const de_ListTrackersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5409,15 +5268,12 @@ export const de_PutGeofenceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
-  }
-  if (data.GeofenceId != null) {
-    contents.GeofenceId = __expectString(data.GeofenceId);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GeofenceId: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5454,10 +5310,9 @@ const de_PutGeofenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5477,12 +5332,11 @@ export const de_SearchPlaceIndexForPositionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Results != null) {
-    contents.Results = de_SearchForPositionResultList(data.Results, context);
-  }
-  if (data.Summary != null) {
-    contents.Summary = de_SearchPlaceIndexForPositionSummary(data.Summary, context);
-  }
+  const doc = take(data, {
+    Results: (_) => de_SearchForPositionResultList(_, context),
+    Summary: (_) => de_SearchPlaceIndexForPositionSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5516,10 +5370,9 @@ const de_SearchPlaceIndexForPositionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5539,12 +5392,11 @@ export const de_SearchPlaceIndexForSuggestionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Results != null) {
-    contents.Results = de_SearchForSuggestionsResultList(data.Results, context);
-  }
-  if (data.Summary != null) {
-    contents.Summary = de_SearchPlaceIndexForSuggestionsSummary(data.Summary, context);
-  }
+  const doc = take(data, {
+    Results: _json,
+    Summary: (_) => de_SearchPlaceIndexForSuggestionsSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5578,10 +5430,9 @@ const de_SearchPlaceIndexForSuggestionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5601,12 +5452,11 @@ export const de_SearchPlaceIndexForTextCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Results != null) {
-    contents.Results = de_SearchForTextResultList(data.Results, context);
-  }
-  if (data.Summary != null) {
-    contents.Summary = de_SearchPlaceIndexForTextSummary(data.Summary, context);
-  }
+  const doc = take(data, {
+    Results: (_) => de_SearchForTextResultList(_, context),
+    Summary: (_) => de_SearchPlaceIndexForTextSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5640,10 +5490,9 @@ const de_SearchPlaceIndexForTextCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5696,10 +5545,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5752,10 +5600,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5775,15 +5622,12 @@ export const de_UpdateGeofenceCollectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CollectionArn != null) {
-    contents.CollectionArn = __expectString(data.CollectionArn);
-  }
-  if (data.CollectionName != null) {
-    contents.CollectionName = __expectString(data.CollectionName);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CollectionArn: __expectString,
+    CollectionName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5817,10 +5661,9 @@ const de_UpdateGeofenceCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5840,15 +5683,12 @@ export const de_UpdateKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.KeyArn != null) {
-    contents.KeyArn = __expectString(data.KeyArn);
-  }
-  if (data.KeyName != null) {
-    contents.KeyName = __expectString(data.KeyName);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    KeyArn: __expectString,
+    KeyName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5882,10 +5722,9 @@ const de_UpdateKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5905,15 +5744,12 @@ export const de_UpdateMapCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MapArn != null) {
-    contents.MapArn = __expectString(data.MapArn);
-  }
-  if (data.MapName != null) {
-    contents.MapName = __expectString(data.MapName);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    MapArn: __expectString,
+    MapName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5947,10 +5783,9 @@ const de_UpdateMapCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5970,15 +5805,12 @@ export const de_UpdatePlaceIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IndexArn != null) {
-    contents.IndexArn = __expectString(data.IndexArn);
-  }
-  if (data.IndexName != null) {
-    contents.IndexName = __expectString(data.IndexName);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    IndexArn: __expectString,
+    IndexName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6012,10 +5844,9 @@ const de_UpdatePlaceIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6035,15 +5866,12 @@ export const de_UpdateRouteCalculatorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CalculatorArn != null) {
-    contents.CalculatorArn = __expectString(data.CalculatorArn);
-  }
-  if (data.CalculatorName != null) {
-    contents.CalculatorName = __expectString(data.CalculatorName);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    CalculatorArn: __expectString,
+    CalculatorName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6077,10 +5905,9 @@ const de_UpdateRouteCalculatorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6100,15 +5927,12 @@ export const de_UpdateTrackerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TrackerArn != null) {
-    contents.TrackerArn = __expectString(data.TrackerArn);
-  }
-  if (data.TrackerName != null) {
-    contents.TrackerName = __expectString(data.TrackerName);
-  }
-  if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
-  }
+  const doc = take(data, {
+    TrackerArn: __expectString,
+    TrackerName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6142,16 +5966,15 @@ const de_UpdateTrackerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -6161,9 +5984,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6177,9 +6001,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6196,9 +6021,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6215,9 +6041,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6234,9 +6061,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6250,9 +6078,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6266,15 +6095,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.FieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.Reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    FieldList: [, (_) => de_ValidationExceptionFieldList(_, context), `fieldList`],
+    Message: [, __expectString, `message`],
+    Reason: [, __expectString, `reason`],
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6282,45 +6108,20 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ApiKeyActionList
- */
-const se_ApiKeyActionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ApiKeyActionList omitted.
 
-/**
- * serializeAws_restJson1ApiKeyFilter
- */
-const se_ApiKeyFilter = (input: ApiKeyFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyStatus != null && { KeyStatus: input.KeyStatus }),
-  };
-};
+// se_ApiKeyFilter omitted.
 
-/**
- * serializeAws_restJson1ApiKeyRestrictions
- */
-const se_ApiKeyRestrictions = (input: ApiKeyRestrictions, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowActions != null && { AllowActions: se_ApiKeyActionList(input.AllowActions, context) }),
-    ...(input.AllowReferers != null && { AllowReferers: se_RefererPatternList(input.AllowReferers, context) }),
-    ...(input.AllowResources != null && { AllowResources: se_GeoArnList(input.AllowResources, context) }),
-  };
-};
+// se_ApiKeyRestrictions omitted.
 
 /**
  * serializeAws_restJson1BatchPutGeofenceRequestEntry
  */
 const se_BatchPutGeofenceRequestEntry = (input: BatchPutGeofenceRequestEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.GeofenceId != null && { GeofenceId: input.GeofenceId }),
-    ...(input.Geometry != null && { Geometry: se_GeofenceGeometry(input.Geometry, context) }),
-  };
+  return take(input, {
+    GeofenceId: [],
+    Geometry: (_) => se_GeofenceGeometry(_, context),
+  });
 };
 
 /**
@@ -6345,80 +6146,47 @@ const se_BoundingBox = (input: number[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1CalculateRouteCarModeOptions
- */
-const se_CalculateRouteCarModeOptions = (input: CalculateRouteCarModeOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.AvoidFerries != null && { AvoidFerries: input.AvoidFerries }),
-    ...(input.AvoidTolls != null && { AvoidTolls: input.AvoidTolls }),
-  };
-};
+// se_CalculateRouteCarModeOptions omitted.
 
 /**
  * serializeAws_restJson1CalculateRouteTruckModeOptions
  */
 const se_CalculateRouteTruckModeOptions = (input: CalculateRouteTruckModeOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.AvoidFerries != null && { AvoidFerries: input.AvoidFerries }),
-    ...(input.AvoidTolls != null && { AvoidTolls: input.AvoidTolls }),
-    ...(input.Dimensions != null && { Dimensions: se_TruckDimensions(input.Dimensions, context) }),
-    ...(input.Weight != null && { Weight: se_TruckWeight(input.Weight, context) }),
-  };
+  return take(input, {
+    AvoidFerries: [],
+    AvoidTolls: [],
+    Dimensions: (_) => se_TruckDimensions(_, context),
+    Weight: (_) => se_TruckWeight(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1Circle
  */
 const se_Circle = (input: Circle, context: __SerdeContext): any => {
-  return {
-    ...(input.Center != null && { Center: se_Position(input.Center, context) }),
-    ...(input.Radius != null && { Radius: __serializeFloat(input.Radius) }),
-  };
+  return take(input, {
+    Center: (_) => se_Position(_, context),
+    Radius: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_restJson1CountryCodeList
- */
-const se_CountryCodeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CountryCodeList omitted.
 
-/**
- * serializeAws_restJson1DataSourceConfiguration
- */
-const se_DataSourceConfiguration = (input: DataSourceConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.IntendedUse != null && { IntendedUse: input.IntendedUse }),
-  };
-};
+// se_DataSourceConfiguration omitted.
 
-/**
- * serializeAws_restJson1DeviceIdsList
- */
-const se_DeviceIdsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DeviceIdsList omitted.
 
 /**
  * serializeAws_restJson1DevicePositionUpdate
  */
 const se_DevicePositionUpdate = (input: DevicePositionUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Accuracy != null && { Accuracy: se_PositionalAccuracy(input.Accuracy, context) }),
-    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
-    ...(input.Position != null && { Position: se_Position(input.Position, context) }),
-    ...(input.PositionProperties != null && { PositionProperties: se_PropertyMap(input.PositionProperties, context) }),
-    ...(input.SampleTime != null && { SampleTime: input.SampleTime.toISOString().split(".")[0] + "Z" }),
-  };
+  return take(input, {
+    Accuracy: (_) => se_PositionalAccuracy(_, context),
+    DeviceId: [],
+    Position: (_) => se_Position(_, context),
+    PositionProperties: (_) => _json(_),
+    SampleTime: (_) => _.toISOString().split(".")[0] + "Z",
+  });
 };
 
 /**
@@ -6432,37 +6200,19 @@ const se_DevicePositionUpdateList = (input: DevicePositionUpdate[], context: __S
     });
 };
 
-/**
- * serializeAws_restJson1GeoArnList
- */
-const se_GeoArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_GeoArnList omitted.
 
 /**
  * serializeAws_restJson1GeofenceGeometry
  */
 const se_GeofenceGeometry = (input: GeofenceGeometry, context: __SerdeContext): any => {
-  return {
-    ...(input.Circle != null && { Circle: se_Circle(input.Circle, context) }),
-    ...(input.Polygon != null && { Polygon: se_LinearRings(input.Polygon, context) }),
-  };
+  return take(input, {
+    Circle: (_) => se_Circle(_, context),
+    Polygon: (_) => se_LinearRings(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1IdList
- */
-const se_IdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IdList omitted.
 
 /**
  * serializeAws_restJson1LinearRing
@@ -6486,14 +6236,7 @@ const se_LinearRings = (input: number[][][], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1MapConfiguration
- */
-const se_MapConfiguration = (input: MapConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Style != null && { Style: input.Style }),
-  };
-};
+// se_MapConfiguration omitted.
 
 /**
  * serializeAws_restJson1Position
@@ -6510,9 +6253,9 @@ const se_Position = (input: number[], context: __SerdeContext): any => {
  * serializeAws_restJson1PositionalAccuracy
  */
 const se_PositionalAccuracy = (input: PositionalAccuracy, context: __SerdeContext): any => {
-  return {
-    ...(input.Horizontal != null && { Horizontal: __serializeFloat(input.Horizontal) }),
-  };
+  return take(input, {
+    Horizontal: (_) => __serializeFloat(_),
+  });
 };
 
 /**
@@ -6526,63 +6269,32 @@ const se_PositionList = (input: number[][], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1PropertyMap
- */
-const se_PropertyMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_PropertyMap omitted.
 
-/**
- * serializeAws_restJson1RefererPatternList
- */
-const se_RefererPatternList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RefererPatternList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
 /**
  * serializeAws_restJson1TruckDimensions
  */
 const se_TruckDimensions = (input: TruckDimensions, context: __SerdeContext): any => {
-  return {
-    ...(input.Height != null && { Height: __serializeFloat(input.Height) }),
-    ...(input.Length != null && { Length: __serializeFloat(input.Length) }),
-    ...(input.Unit != null && { Unit: input.Unit }),
-    ...(input.Width != null && { Width: __serializeFloat(input.Width) }),
-  };
+  return take(input, {
+    Height: (_) => __serializeFloat(_),
+    Length: (_) => __serializeFloat(_),
+    Unit: [],
+    Width: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_restJson1TruckWeight
  */
 const se_TruckWeight = (input: TruckWeight, context: __SerdeContext): any => {
-  return {
-    ...(input.Total != null && { Total: __serializeFloat(input.Total) }),
-    ...(input.Unit != null && { Unit: input.Unit }),
-  };
+  return take(input, {
+    Total: (_) => __serializeFloat(_),
+    Unit: [],
+  });
 };
 
 /**
@@ -6596,113 +6308,29 @@ const se_WaypointPositionList = (input: number[][], context: __SerdeContext): an
     });
 };
 
-/**
- * deserializeAws_restJson1ApiKeyActionList
- */
-const de_ApiKeyActionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ApiKeyActionList omitted.
 
-/**
- * deserializeAws_restJson1ApiKeyRestrictions
- */
-const de_ApiKeyRestrictions = (output: any, context: __SerdeContext): ApiKeyRestrictions => {
-  return {
-    AllowActions: output.AllowActions != null ? de_ApiKeyActionList(output.AllowActions, context) : undefined,
-    AllowReferers: output.AllowReferers != null ? de_RefererPatternList(output.AllowReferers, context) : undefined,
-    AllowResources: output.AllowResources != null ? de_GeoArnList(output.AllowResources, context) : undefined,
-  } as any;
-};
+// de_ApiKeyRestrictions omitted.
 
-/**
- * deserializeAws_restJson1ArnList
- */
-const de_ArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ArnList omitted.
 
-/**
- * deserializeAws_restJson1BatchDeleteDevicePositionHistoryError
- */
-const de_BatchDeleteDevicePositionHistoryError = (
-  output: any,
-  context: __SerdeContext
-): BatchDeleteDevicePositionHistoryError => {
-  return {
-    DeviceId: __expectString(output.DeviceId),
-    Error: output.Error != null ? de_BatchItemError(output.Error, context) : undefined,
-  } as any;
-};
+// de_BatchDeleteDevicePositionHistoryError omitted.
 
-/**
- * deserializeAws_restJson1BatchDeleteDevicePositionHistoryErrorList
- */
-const de_BatchDeleteDevicePositionHistoryErrorList = (
-  output: any,
-  context: __SerdeContext
-): BatchDeleteDevicePositionHistoryError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchDeleteDevicePositionHistoryError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchDeleteDevicePositionHistoryErrorList omitted.
 
-/**
- * deserializeAws_restJson1BatchDeleteGeofenceError
- */
-const de_BatchDeleteGeofenceError = (output: any, context: __SerdeContext): BatchDeleteGeofenceError => {
-  return {
-    Error: output.Error != null ? de_BatchItemError(output.Error, context) : undefined,
-    GeofenceId: __expectString(output.GeofenceId),
-  } as any;
-};
+// de_BatchDeleteGeofenceError omitted.
 
-/**
- * deserializeAws_restJson1BatchDeleteGeofenceErrorList
- */
-const de_BatchDeleteGeofenceErrorList = (output: any, context: __SerdeContext): BatchDeleteGeofenceError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchDeleteGeofenceError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchDeleteGeofenceErrorList omitted.
 
 /**
  * deserializeAws_restJson1BatchEvaluateGeofencesError
  */
 const de_BatchEvaluateGeofencesError = (output: any, context: __SerdeContext): BatchEvaluateGeofencesError => {
-  return {
-    DeviceId: __expectString(output.DeviceId),
-    Error: output.Error != null ? de_BatchItemError(output.Error, context) : undefined,
-    SampleTime:
-      output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SampleTime)) : undefined,
-  } as any;
+  return take(output, {
+    DeviceId: __expectString,
+    Error: _json,
+    SampleTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -6712,85 +6340,30 @@ const de_BatchEvaluateGeofencesErrorList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchEvaluateGeofencesError(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1BatchGetDevicePositionError
- */
-const de_BatchGetDevicePositionError = (output: any, context: __SerdeContext): BatchGetDevicePositionError => {
-  return {
-    DeviceId: __expectString(output.DeviceId),
-    Error: output.Error != null ? de_BatchItemError(output.Error, context) : undefined,
-  } as any;
-};
+// de_BatchGetDevicePositionError omitted.
 
-/**
- * deserializeAws_restJson1BatchGetDevicePositionErrorList
- */
-const de_BatchGetDevicePositionErrorList = (output: any, context: __SerdeContext): BatchGetDevicePositionError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetDevicePositionError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetDevicePositionErrorList omitted.
 
-/**
- * deserializeAws_restJson1BatchItemError
- */
-const de_BatchItemError = (output: any, context: __SerdeContext): BatchItemError => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_BatchItemError omitted.
 
-/**
- * deserializeAws_restJson1BatchPutGeofenceError
- */
-const de_BatchPutGeofenceError = (output: any, context: __SerdeContext): BatchPutGeofenceError => {
-  return {
-    Error: output.Error != null ? de_BatchItemError(output.Error, context) : undefined,
-    GeofenceId: __expectString(output.GeofenceId),
-  } as any;
-};
+// de_BatchPutGeofenceError omitted.
 
-/**
- * deserializeAws_restJson1BatchPutGeofenceErrorList
- */
-const de_BatchPutGeofenceErrorList = (output: any, context: __SerdeContext): BatchPutGeofenceError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchPutGeofenceError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchPutGeofenceErrorList omitted.
 
 /**
  * deserializeAws_restJson1BatchPutGeofenceSuccess
  */
 const de_BatchPutGeofenceSuccess = (output: any, context: __SerdeContext): BatchPutGeofenceSuccess => {
-  return {
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
-    GeofenceId: __expectString(output.GeofenceId),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
-  } as any;
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GeofenceId: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -6800,9 +6373,6 @@ const de_BatchPutGeofenceSuccessList = (output: any, context: __SerdeContext): B
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchPutGeofenceSuccess(entry, context);
     });
   return retVal;
@@ -6812,12 +6382,11 @@ const de_BatchPutGeofenceSuccessList = (output: any, context: __SerdeContext): B
  * deserializeAws_restJson1BatchUpdateDevicePositionError
  */
 const de_BatchUpdateDevicePositionError = (output: any, context: __SerdeContext): BatchUpdateDevicePositionError => {
-  return {
-    DeviceId: __expectString(output.DeviceId),
-    Error: output.Error != null ? de_BatchItemError(output.Error, context) : undefined,
-    SampleTime:
-      output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SampleTime)) : undefined,
-  } as any;
+  return take(output, {
+    DeviceId: __expectString,
+    Error: _json,
+    SampleTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -6830,9 +6399,6 @@ const de_BatchUpdateDevicePositionErrorList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchUpdateDevicePositionError(entry, context);
     });
   return retVal;
@@ -6845,88 +6411,52 @@ const de_BoundingBox = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CalculateRouteMatrixSummary
- */
-const de_CalculateRouteMatrixSummary = (output: any, context: __SerdeContext): CalculateRouteMatrixSummary => {
-  return {
-    DataSource: __expectString(output.DataSource),
-    DistanceUnit: __expectString(output.DistanceUnit),
-    ErrorCount: __expectInt32(output.ErrorCount),
-    RouteCount: __expectInt32(output.RouteCount),
-  } as any;
-};
+// de_CalculateRouteMatrixSummary omitted.
 
 /**
  * deserializeAws_restJson1CalculateRouteSummary
  */
 const de_CalculateRouteSummary = (output: any, context: __SerdeContext): CalculateRouteSummary => {
-  return {
-    DataSource: __expectString(output.DataSource),
-    Distance: __limitedParseDouble(output.Distance),
-    DistanceUnit: __expectString(output.DistanceUnit),
-    DurationSeconds: __limitedParseDouble(output.DurationSeconds),
-    RouteBBox: output.RouteBBox != null ? de_BoundingBox(output.RouteBBox, context) : undefined,
-  } as any;
+  return take(output, {
+    DataSource: __expectString,
+    Distance: __limitedParseDouble,
+    DistanceUnit: __expectString,
+    DurationSeconds: __limitedParseDouble,
+    RouteBBox: (_: any) => de_BoundingBox(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Circle
  */
 const de_Circle = (output: any, context: __SerdeContext): Circle => {
-  return {
-    Center: output.Center != null ? de_Position(output.Center, context) : undefined,
-    Radius: __limitedParseDouble(output.Radius),
-  } as any;
+  return take(output, {
+    Center: (_: any) => de_Position(_, context),
+    Radius: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CountryCodeList
- */
-const de_CountryCodeList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CountryCodeList omitted.
 
-/**
- * deserializeAws_restJson1DataSourceConfiguration
- */
-const de_DataSourceConfiguration = (output: any, context: __SerdeContext): DataSourceConfiguration => {
-  return {
-    IntendedUse: __expectString(output.IntendedUse),
-  } as any;
-};
+// de_DataSourceConfiguration omitted.
 
 /**
  * deserializeAws_restJson1DevicePosition
  */
 const de_DevicePosition = (output: any, context: __SerdeContext): DevicePosition => {
-  return {
-    Accuracy: output.Accuracy != null ? de_PositionalAccuracy(output.Accuracy, context) : undefined,
-    DeviceId: __expectString(output.DeviceId),
-    Position: output.Position != null ? de_Position(output.Position, context) : undefined,
-    PositionProperties:
-      output.PositionProperties != null ? de_PropertyMap(output.PositionProperties, context) : undefined,
-    ReceivedTime:
-      output.ReceivedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ReceivedTime)) : undefined,
-    SampleTime:
-      output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SampleTime)) : undefined,
-  } as any;
+  return take(output, {
+    Accuracy: (_: any) => de_PositionalAccuracy(_, context),
+    DeviceId: __expectString,
+    Position: (_: any) => de_Position(_, context),
+    PositionProperties: _json,
+    ReceivedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SampleTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -6936,60 +6466,44 @@ const de_DevicePositionList = (output: any, context: __SerdeContext): DevicePosi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DevicePosition(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1GeoArnList
- */
-const de_GeoArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_GeoArnList omitted.
 
 /**
  * deserializeAws_restJson1GeofenceGeometry
  */
 const de_GeofenceGeometry = (output: any, context: __SerdeContext): GeofenceGeometry => {
-  return {
-    Circle: output.Circle != null ? de_Circle(output.Circle, context) : undefined,
-    Polygon: output.Polygon != null ? de_LinearRings(output.Polygon, context) : undefined,
-  } as any;
+  return take(output, {
+    Circle: (_: any) => de_Circle(_, context),
+    Polygon: (_: any) => de_LinearRings(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Leg
  */
 const de_Leg = (output: any, context: __SerdeContext): Leg => {
-  return {
-    Distance: __limitedParseDouble(output.Distance),
-    DurationSeconds: __limitedParseDouble(output.DurationSeconds),
-    EndPosition: output.EndPosition != null ? de_Position(output.EndPosition, context) : undefined,
-    Geometry: output.Geometry != null ? de_LegGeometry(output.Geometry, context) : undefined,
-    StartPosition: output.StartPosition != null ? de_Position(output.StartPosition, context) : undefined,
-    Steps: output.Steps != null ? de_StepList(output.Steps, context) : undefined,
-  } as any;
+  return take(output, {
+    Distance: __limitedParseDouble,
+    DurationSeconds: __limitedParseDouble,
+    EndPosition: (_: any) => de_Position(_, context),
+    Geometry: (_: any) => de_LegGeometry(_, context),
+    StartPosition: (_: any) => de_Position(_, context),
+    Steps: (_: any) => de_StepList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LegGeometry
  */
 const de_LegGeometry = (output: any, context: __SerdeContext): LegGeometry => {
-  return {
-    LineString: output.LineString != null ? de_LineString(output.LineString, context) : undefined,
-  } as any;
+  return take(output, {
+    LineString: (_: any) => de_LineString(_, context),
+  }) as any;
 };
 
 /**
@@ -6999,9 +6513,6 @@ const de_LegList = (output: any, context: __SerdeContext): Leg[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Leg(entry, context);
     });
   return retVal;
@@ -7014,9 +6525,6 @@ const de_LinearRing = (output: any, context: __SerdeContext): number[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Position(entry, context);
     });
   return retVal;
@@ -7029,9 +6537,6 @@ const de_LinearRings = (output: any, context: __SerdeContext): number[][][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LinearRing(entry, context);
     });
   return retVal;
@@ -7044,9 +6549,6 @@ const de_LineString = (output: any, context: __SerdeContext): number[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Position(entry, context);
     });
   return retVal;
@@ -7059,15 +6561,13 @@ const de_ListDevicePositionsResponseEntry = (
   output: any,
   context: __SerdeContext
 ): ListDevicePositionsResponseEntry => {
-  return {
-    Accuracy: output.Accuracy != null ? de_PositionalAccuracy(output.Accuracy, context) : undefined,
-    DeviceId: __expectString(output.DeviceId),
-    Position: output.Position != null ? de_Position(output.Position, context) : undefined,
-    PositionProperties:
-      output.PositionProperties != null ? de_PropertyMap(output.PositionProperties, context) : undefined,
-    SampleTime:
-      output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SampleTime)) : undefined,
-  } as any;
+  return take(output, {
+    Accuracy: (_: any) => de_PositionalAccuracy(_, context),
+    DeviceId: __expectString,
+    Position: (_: any) => de_Position(_, context),
+    PositionProperties: _json,
+    SampleTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -7080,9 +6580,6 @@ const de_ListDevicePositionsResponseEntryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListDevicePositionsResponseEntry(entry, context);
     });
   return retVal;
@@ -7095,16 +6592,14 @@ const de_ListGeofenceCollectionsResponseEntry = (
   output: any,
   context: __SerdeContext
 ): ListGeofenceCollectionsResponseEntry => {
-  return {
-    CollectionName: __expectString(output.CollectionName),
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
-    Description: __expectString(output.Description),
-    PricingPlan: __expectString(output.PricingPlan),
-    PricingPlanDataSource: __expectString(output.PricingPlanDataSource),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
-  } as any;
+  return take(output, {
+    CollectionName: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    PricingPlan: __expectString,
+    PricingPlanDataSource: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -7117,9 +6612,6 @@ const de_ListGeofenceCollectionsResponseEntryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListGeofenceCollectionsResponseEntry(entry, context);
     });
   return retVal;
@@ -7129,15 +6621,13 @@ const de_ListGeofenceCollectionsResponseEntryList = (
  * deserializeAws_restJson1ListGeofenceResponseEntry
  */
 const de_ListGeofenceResponseEntry = (output: any, context: __SerdeContext): ListGeofenceResponseEntry => {
-  return {
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
-    GeofenceId: __expectString(output.GeofenceId),
-    Geometry: output.Geometry != null ? de_GeofenceGeometry(output.Geometry, context) : undefined,
-    Status: __expectString(output.Status),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
-  } as any;
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GeofenceId: __expectString,
+    Geometry: (_: any) => de_GeofenceGeometry(_, context),
+    Status: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -7147,9 +6637,6 @@ const de_ListGeofenceResponseEntryList = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListGeofenceResponseEntry(entry, context);
     });
   return retVal;
@@ -7159,17 +6646,14 @@ const de_ListGeofenceResponseEntryList = (output: any, context: __SerdeContext):
  * deserializeAws_restJson1ListKeysResponseEntry
  */
 const de_ListKeysResponseEntry = (output: any, context: __SerdeContext): ListKeysResponseEntry => {
-  return {
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
-    Description: __expectString(output.Description),
-    ExpireTime:
-      output.ExpireTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpireTime)) : undefined,
-    KeyName: __expectString(output.KeyName),
-    Restrictions: output.Restrictions != null ? de_ApiKeyRestrictions(output.Restrictions, context) : undefined,
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
-  } as any;
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    ExpireTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    KeyName: __expectString,
+    Restrictions: _json,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -7179,9 +6663,6 @@ const de_ListKeysResponseEntryList = (output: any, context: __SerdeContext): Lis
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListKeysResponseEntry(entry, context);
     });
   return retVal;
@@ -7191,16 +6672,14 @@ const de_ListKeysResponseEntryList = (output: any, context: __SerdeContext): Lis
  * deserializeAws_restJson1ListMapsResponseEntry
  */
 const de_ListMapsResponseEntry = (output: any, context: __SerdeContext): ListMapsResponseEntry => {
-  return {
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
-    DataSource: __expectString(output.DataSource),
-    Description: __expectString(output.Description),
-    MapName: __expectString(output.MapName),
-    PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
-  } as any;
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSource: __expectString,
+    Description: __expectString,
+    MapName: __expectString,
+    PricingPlan: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -7210,9 +6689,6 @@ const de_ListMapsResponseEntryList = (output: any, context: __SerdeContext): Lis
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListMapsResponseEntry(entry, context);
     });
   return retVal;
@@ -7222,16 +6698,14 @@ const de_ListMapsResponseEntryList = (output: any, context: __SerdeContext): Lis
  * deserializeAws_restJson1ListPlaceIndexesResponseEntry
  */
 const de_ListPlaceIndexesResponseEntry = (output: any, context: __SerdeContext): ListPlaceIndexesResponseEntry => {
-  return {
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
-    DataSource: __expectString(output.DataSource),
-    Description: __expectString(output.Description),
-    IndexName: __expectString(output.IndexName),
-    PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
-  } as any;
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSource: __expectString,
+    Description: __expectString,
+    IndexName: __expectString,
+    PricingPlan: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -7244,9 +6718,6 @@ const de_ListPlaceIndexesResponseEntryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListPlaceIndexesResponseEntry(entry, context);
     });
   return retVal;
@@ -7259,16 +6730,14 @@ const de_ListRouteCalculatorsResponseEntry = (
   output: any,
   context: __SerdeContext
 ): ListRouteCalculatorsResponseEntry => {
-  return {
-    CalculatorName: __expectString(output.CalculatorName),
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
-    DataSource: __expectString(output.DataSource),
-    Description: __expectString(output.Description),
-    PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
-  } as any;
+  return take(output, {
+    CalculatorName: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSource: __expectString,
+    Description: __expectString,
+    PricingPlan: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -7281,9 +6750,6 @@ const de_ListRouteCalculatorsResponseEntryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListRouteCalculatorsResponseEntry(entry, context);
     });
   return retVal;
@@ -7293,16 +6759,14 @@ const de_ListRouteCalculatorsResponseEntryList = (
  * deserializeAws_restJson1ListTrackersResponseEntry
  */
 const de_ListTrackersResponseEntry = (output: any, context: __SerdeContext): ListTrackersResponseEntry => {
-  return {
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
-    Description: __expectString(output.Description),
-    PricingPlan: __expectString(output.PricingPlan),
-    PricingPlanDataSource: __expectString(output.PricingPlanDataSource),
-    TrackerName: __expectString(output.TrackerName),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
-  } as any;
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    PricingPlan: __expectString,
+    PricingPlanDataSource: __expectString,
+    TrackerName: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -7312,52 +6776,42 @@ const de_ListTrackersResponseEntryList = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListTrackersResponseEntry(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1MapConfiguration
- */
-const de_MapConfiguration = (output: any, context: __SerdeContext): MapConfiguration => {
-  return {
-    Style: __expectString(output.Style),
-  } as any;
-};
+// de_MapConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Place
  */
 const de_Place = (output: any, context: __SerdeContext): Place => {
-  return {
-    AddressNumber: __expectString(output.AddressNumber),
-    Country: __expectString(output.Country),
-    Geometry: output.Geometry != null ? de_PlaceGeometry(output.Geometry, context) : undefined,
-    Interpolated: __expectBoolean(output.Interpolated),
-    Label: __expectString(output.Label),
-    Municipality: __expectString(output.Municipality),
-    Neighborhood: __expectString(output.Neighborhood),
-    PostalCode: __expectString(output.PostalCode),
-    Region: __expectString(output.Region),
-    Street: __expectString(output.Street),
-    SubRegion: __expectString(output.SubRegion),
-    TimeZone: output.TimeZone != null ? de_TimeZone(output.TimeZone, context) : undefined,
-    UnitNumber: __expectString(output.UnitNumber),
-    UnitType: __expectString(output.UnitType),
-  } as any;
+  return take(output, {
+    AddressNumber: __expectString,
+    Country: __expectString,
+    Geometry: (_: any) => de_PlaceGeometry(_, context),
+    Interpolated: __expectBoolean,
+    Label: __expectString,
+    Municipality: __expectString,
+    Neighborhood: __expectString,
+    PostalCode: __expectString,
+    Region: __expectString,
+    Street: __expectString,
+    SubRegion: __expectString,
+    TimeZone: _json,
+    UnitNumber: __expectString,
+    UnitType: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PlaceGeometry
  */
 const de_PlaceGeometry = (output: any, context: __SerdeContext): PlaceGeometry => {
-  return {
-    Point: output.Point != null ? de_Position(output.Point, context) : undefined,
-  } as any;
+  return take(output, {
+    Point: (_: any) => de_Position(_, context),
+  }) as any;
 };
 
 /**
@@ -7367,9 +6821,6 @@ const de_Position = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
@@ -7379,9 +6830,9 @@ const de_Position = (output: any, context: __SerdeContext): number[] => {
  * deserializeAws_restJson1PositionalAccuracy
  */
 const de_PositionalAccuracy = (output: any, context: __SerdeContext): PositionalAccuracy => {
-  return {
-    Horizontal: __limitedParseDouble(output.Horizontal),
-  } as any;
+  return take(output, {
+    Horizontal: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -7391,41 +6842,14 @@ const de_PositionList = (output: any, context: __SerdeContext): number[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Position(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1PropertyMap
- */
-const de_PropertyMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_PropertyMap omitted.
 
-/**
- * deserializeAws_restJson1RefererPatternList
- */
-const de_RefererPatternList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RefererPatternList omitted.
 
 /**
  * deserializeAws_restJson1RouteMatrix
@@ -7434,9 +6858,6 @@ const de_RouteMatrix = (output: any, context: __SerdeContext): RouteMatrixEntry[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RouteMatrixRow(entry, context);
     });
   return retVal;
@@ -7446,22 +6867,14 @@ const de_RouteMatrix = (output: any, context: __SerdeContext): RouteMatrixEntry[
  * deserializeAws_restJson1RouteMatrixEntry
  */
 const de_RouteMatrixEntry = (output: any, context: __SerdeContext): RouteMatrixEntry => {
-  return {
-    Distance: __limitedParseDouble(output.Distance),
-    DurationSeconds: __limitedParseDouble(output.DurationSeconds),
-    Error: output.Error != null ? de_RouteMatrixEntryError(output.Error, context) : undefined,
-  } as any;
+  return take(output, {
+    Distance: __limitedParseDouble,
+    DurationSeconds: __limitedParseDouble,
+    Error: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RouteMatrixEntryError
- */
-const de_RouteMatrixEntryError = (output: any, context: __SerdeContext): RouteMatrixEntryError => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RouteMatrixEntryError omitted.
 
 /**
  * deserializeAws_restJson1RouteMatrixRow
@@ -7470,9 +6883,6 @@ const de_RouteMatrixRow = (output: any, context: __SerdeContext): RouteMatrixEnt
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RouteMatrixEntry(entry, context);
     });
   return retVal;
@@ -7482,11 +6892,11 @@ const de_RouteMatrixRow = (output: any, context: __SerdeContext): RouteMatrixEnt
  * deserializeAws_restJson1SearchForPositionResult
  */
 const de_SearchForPositionResult = (output: any, context: __SerdeContext): SearchForPositionResult => {
-  return {
-    Distance: __limitedParseDouble(output.Distance),
-    Place: output.Place != null ? de_Place(output.Place, context) : undefined,
-    PlaceId: __expectString(output.PlaceId),
-  } as any;
+  return take(output, {
+    Distance: __limitedParseDouble,
+    Place: (_: any) => de_Place(_, context),
+    PlaceId: __expectString,
+  }) as any;
 };
 
 /**
@@ -7496,49 +6906,25 @@ const de_SearchForPositionResultList = (output: any, context: __SerdeContext): S
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SearchForPositionResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SearchForSuggestionsResult
- */
-const de_SearchForSuggestionsResult = (output: any, context: __SerdeContext): SearchForSuggestionsResult => {
-  return {
-    PlaceId: __expectString(output.PlaceId),
-    Text: __expectString(output.Text),
-  } as any;
-};
+// de_SearchForSuggestionsResult omitted.
 
-/**
- * deserializeAws_restJson1SearchForSuggestionsResultList
- */
-const de_SearchForSuggestionsResultList = (output: any, context: __SerdeContext): SearchForSuggestionsResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SearchForSuggestionsResult(entry, context);
-    });
-  return retVal;
-};
+// de_SearchForSuggestionsResultList omitted.
 
 /**
  * deserializeAws_restJson1SearchForTextResult
  */
 const de_SearchForTextResult = (output: any, context: __SerdeContext): SearchForTextResult => {
-  return {
-    Distance: __limitedParseDouble(output.Distance),
-    Place: output.Place != null ? de_Place(output.Place, context) : undefined,
-    PlaceId: __expectString(output.PlaceId),
-    Relevance: __limitedParseDouble(output.Relevance),
-  } as any;
+  return take(output, {
+    Distance: __limitedParseDouble,
+    Place: (_: any) => de_Place(_, context),
+    PlaceId: __expectString,
+    Relevance: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -7548,9 +6934,6 @@ const de_SearchForTextResultList = (output: any, context: __SerdeContext): Searc
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SearchForTextResult(entry, context);
     });
   return retVal;
@@ -7563,12 +6946,12 @@ const de_SearchPlaceIndexForPositionSummary = (
   output: any,
   context: __SerdeContext
 ): SearchPlaceIndexForPositionSummary => {
-  return {
-    DataSource: __expectString(output.DataSource),
-    Language: __expectString(output.Language),
-    MaxResults: __expectInt32(output.MaxResults),
-    Position: output.Position != null ? de_Position(output.Position, context) : undefined,
-  } as any;
+  return take(output, {
+    DataSource: __expectString,
+    Language: __expectString,
+    MaxResults: __expectInt32,
+    Position: (_: any) => de_Position(_, context),
+  }) as any;
 };
 
 /**
@@ -7578,44 +6961,44 @@ const de_SearchPlaceIndexForSuggestionsSummary = (
   output: any,
   context: __SerdeContext
 ): SearchPlaceIndexForSuggestionsSummary => {
-  return {
-    BiasPosition: output.BiasPosition != null ? de_Position(output.BiasPosition, context) : undefined,
-    DataSource: __expectString(output.DataSource),
-    FilterBBox: output.FilterBBox != null ? de_BoundingBox(output.FilterBBox, context) : undefined,
-    FilterCountries: output.FilterCountries != null ? de_CountryCodeList(output.FilterCountries, context) : undefined,
-    Language: __expectString(output.Language),
-    MaxResults: __expectInt32(output.MaxResults),
-    Text: __expectString(output.Text),
-  } as any;
+  return take(output, {
+    BiasPosition: (_: any) => de_Position(_, context),
+    DataSource: __expectString,
+    FilterBBox: (_: any) => de_BoundingBox(_, context),
+    FilterCountries: _json,
+    Language: __expectString,
+    MaxResults: __expectInt32,
+    Text: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SearchPlaceIndexForTextSummary
  */
 const de_SearchPlaceIndexForTextSummary = (output: any, context: __SerdeContext): SearchPlaceIndexForTextSummary => {
-  return {
-    BiasPosition: output.BiasPosition != null ? de_Position(output.BiasPosition, context) : undefined,
-    DataSource: __expectString(output.DataSource),
-    FilterBBox: output.FilterBBox != null ? de_BoundingBox(output.FilterBBox, context) : undefined,
-    FilterCountries: output.FilterCountries != null ? de_CountryCodeList(output.FilterCountries, context) : undefined,
-    Language: __expectString(output.Language),
-    MaxResults: __expectInt32(output.MaxResults),
-    ResultBBox: output.ResultBBox != null ? de_BoundingBox(output.ResultBBox, context) : undefined,
-    Text: __expectString(output.Text),
-  } as any;
+  return take(output, {
+    BiasPosition: (_: any) => de_Position(_, context),
+    DataSource: __expectString,
+    FilterBBox: (_: any) => de_BoundingBox(_, context),
+    FilterCountries: _json,
+    Language: __expectString,
+    MaxResults: __expectInt32,
+    ResultBBox: (_: any) => de_BoundingBox(_, context),
+    Text: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Step
  */
 const de_Step = (output: any, context: __SerdeContext): Step => {
-  return {
-    Distance: __limitedParseDouble(output.Distance),
-    DurationSeconds: __limitedParseDouble(output.DurationSeconds),
-    EndPosition: output.EndPosition != null ? de_Position(output.EndPosition, context) : undefined,
-    GeometryOffset: __expectInt32(output.GeometryOffset),
-    StartPosition: output.StartPosition != null ? de_Position(output.StartPosition, context) : undefined,
-  } as any;
+  return take(output, {
+    Distance: __limitedParseDouble,
+    DurationSeconds: __limitedParseDouble,
+    EndPosition: (_: any) => de_Position(_, context),
+    GeometryOffset: __expectInt32,
+    StartPosition: (_: any) => de_Position(_, context),
+  }) as any;
 };
 
 /**
@@ -7625,45 +7008,23 @@ const de_StepList = (output: any, context: __SerdeContext): Step[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Step(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1TimeZone
- */
-const de_TimeZone = (output: any, context: __SerdeContext): TimeZone => {
-  return {
-    Name: __expectString(output.Name),
-    Offset: __expectInt32(output.Offset),
-  } as any;
-};
+// de_TimeZone omitted.
 
 /**
  * deserializeAws_restJson1ValidationExceptionField
  */
 const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    Message: __expectString(output.message),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    Message: [, __expectString, `message`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
@@ -7673,9 +7034,6 @@ const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ValidationExceptionField(entry, context);
     });
   return retVal;

@@ -13,7 +13,7 @@ import {
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -639,7 +639,7 @@ export const de_BuildSuggestersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -669,10 +669,9 @@ const de_BuildSuggestersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -695,7 +694,7 @@ export const de_CreateDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -728,10 +727,9 @@ const de_CreateDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -754,7 +752,7 @@ export const de_DefineAnalysisSchemeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -790,10 +788,9 @@ const de_DefineAnalysisSchemeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -816,7 +813,7 @@ export const de_DefineExpressionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -852,10 +849,9 @@ const de_DefineExpressionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -878,7 +874,7 @@ export const de_DefineIndexFieldCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -914,10 +910,9 @@ const de_DefineIndexFieldCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -940,7 +935,7 @@ export const de_DefineSuggesterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -976,10 +971,9 @@ const de_DefineSuggesterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1002,7 +996,7 @@ export const de_DeleteAnalysisSchemeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1035,10 +1029,9 @@ const de_DeleteAnalysisSchemeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1061,7 +1054,7 @@ export const de_DeleteDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1085,10 +1078,9 @@ const de_DeleteDomainCommandError = async (
       throw await de_InternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1111,7 +1103,7 @@ export const de_DeleteExpressionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1144,10 +1136,9 @@ const de_DeleteExpressionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1170,7 +1161,7 @@ export const de_DeleteIndexFieldCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1203,10 +1194,9 @@ const de_DeleteIndexFieldCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1229,7 +1219,7 @@ export const de_DeleteSuggesterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1262,10 +1252,9 @@ const de_DeleteSuggesterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1288,7 +1277,7 @@ export const de_DescribeAnalysisSchemesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1315,10 +1304,9 @@ const de_DescribeAnalysisSchemesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1341,7 +1329,7 @@ export const de_DescribeAvailabilityOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1377,10 +1365,9 @@ const de_DescribeAvailabilityOptionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1403,7 +1390,7 @@ export const de_DescribeDomainEndpointOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1436,10 +1423,9 @@ const de_DescribeDomainEndpointOptionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1462,7 +1448,7 @@ export const de_DescribeDomainsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1486,10 +1472,9 @@ const de_DescribeDomainsCommandError = async (
       throw await de_InternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1512,7 +1497,7 @@ export const de_DescribeExpressionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1539,10 +1524,9 @@ const de_DescribeExpressionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1565,7 +1549,7 @@ export const de_DescribeIndexFieldsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1592,10 +1576,9 @@ const de_DescribeIndexFieldsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1618,7 +1601,7 @@ export const de_DescribeScalingParametersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1645,10 +1628,9 @@ const de_DescribeScalingParametersCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1671,7 +1653,7 @@ export const de_DescribeServiceAccessPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1698,10 +1680,9 @@ const de_DescribeServiceAccessPoliciesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1724,7 +1705,7 @@ export const de_DescribeSuggestersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1751,10 +1732,9 @@ const de_DescribeSuggestersCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1777,7 +1757,7 @@ export const de_IndexDocumentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1807,10 +1787,9 @@ const de_IndexDocumentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1833,7 +1812,7 @@ export const de_ListDomainNamesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1854,10 +1833,9 @@ const de_ListDomainNamesCommandError = async (
       throw await de_BaseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1880,7 +1858,7 @@ export const de_UpdateAvailabilityOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1919,10 +1897,9 @@ const de_UpdateAvailabilityOptionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1945,7 +1922,7 @@ export const de_UpdateDomainEndpointOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1984,10 +1961,9 @@ const de_UpdateDomainEndpointOptionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2010,7 +1986,7 @@ export const de_UpdateScalingParametersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2046,10 +2022,9 @@ const de_UpdateScalingParametersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2072,7 +2047,7 @@ export const de_UpdateServiceAccessPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2108,10 +2083,9 @@ const de_UpdateServiceAccessPoliciesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4369,6 +4343,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

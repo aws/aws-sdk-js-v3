@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,7 +9,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -180,15 +182,11 @@ import {
   AcceptSharedDirectoryResult,
   AccessDeniedException,
   AddIpRoutesRequest,
-  AddIpRoutesResult,
   AddRegionRequest,
-  AddRegionResult,
   AddTagsToResourceRequest,
-  AddTagsToResourceResult,
   Attribute,
   AuthenticationFailedException,
   CancelSchemaExtensionRequest,
-  CancelSchemaExtensionResult,
   Certificate,
   CertificateAlreadyExistsException,
   CertificateDoesNotExistException,
@@ -198,46 +196,27 @@ import {
   ClientAuthenticationSettingInfo,
   ClientCertAuthSettings,
   ClientException,
-  Computer,
-  ConditionalForwarder,
   ConnectDirectoryRequest,
-  ConnectDirectoryResult,
   CreateAliasRequest,
-  CreateAliasResult,
   CreateComputerRequest,
-  CreateComputerResult,
   CreateConditionalForwarderRequest,
-  CreateConditionalForwarderResult,
   CreateDirectoryRequest,
-  CreateDirectoryResult,
   CreateLogSubscriptionRequest,
-  CreateLogSubscriptionResult,
   CreateMicrosoftADRequest,
-  CreateMicrosoftADResult,
   CreateSnapshotRequest,
-  CreateSnapshotResult,
   CreateTrustRequest,
-  CreateTrustResult,
   DeleteConditionalForwarderRequest,
-  DeleteConditionalForwarderResult,
   DeleteDirectoryRequest,
-  DeleteDirectoryResult,
   DeleteLogSubscriptionRequest,
-  DeleteLogSubscriptionResult,
   DeleteSnapshotRequest,
-  DeleteSnapshotResult,
   DeleteTrustRequest,
-  DeleteTrustResult,
   DeregisterCertificateRequest,
-  DeregisterCertificateResult,
   DeregisterEventTopicRequest,
-  DeregisterEventTopicResult,
   DescribeCertificateRequest,
   DescribeCertificateResult,
   DescribeClientAuthenticationSettingsRequest,
   DescribeClientAuthenticationSettingsResult,
   DescribeConditionalForwardersRequest,
-  DescribeConditionalForwardersResult,
   DescribeDirectoriesRequest,
   DescribeDirectoriesResult,
   DescribeDomainControllersRequest,
@@ -260,43 +239,29 @@ import {
   DescribeUpdateDirectoryResult,
   DirectoryAlreadyInRegionException,
   DirectoryAlreadySharedException,
-  DirectoryConfigurationStatus,
   DirectoryConnectSettings,
-  DirectoryConnectSettingsDescription,
   DirectoryDescription,
   DirectoryDoesNotExistException,
   DirectoryInDesiredStateException,
   DirectoryLimitExceededException,
-  DirectoryLimits,
   DirectoryNotSharedException,
   DirectoryUnavailableException,
   DirectoryVpcSettings,
-  DirectoryVpcSettingsDescription,
   DisableClientAuthenticationRequest,
-  DisableClientAuthenticationResult,
   DisableLDAPSRequest,
-  DisableLDAPSResult,
   DisableRadiusRequest,
-  DisableRadiusResult,
   DisableSsoRequest,
-  DisableSsoResult,
   DomainController,
   DomainControllerLimitExceededException,
   EnableClientAuthenticationRequest,
-  EnableClientAuthenticationResult,
   EnableLDAPSRequest,
-  EnableLDAPSResult,
   EnableRadiusRequest,
-  EnableRadiusResult,
   EnableSsoRequest,
-  EnableSsoResult,
   EntityAlreadyExistsException,
   EntityDoesNotExistException,
   EventTopic,
   GetDirectoryLimitsRequest,
-  GetDirectoryLimitsResult,
   GetSnapshotLimitsRequest,
-  GetSnapshotLimitsResult,
   IncompatibleSettingsException,
   InsufficientPermissionsException,
   InvalidCertificateException,
@@ -319,71 +284,48 @@ import {
   ListSchemaExtensionsRequest,
   ListSchemaExtensionsResult,
   ListTagsForResourceRequest,
-  ListTagsForResourceResult,
   LogSubscription,
   NoAvailableCertificateException,
   OrganizationsException,
   OSUpdateSettings,
-  OwnerDirectoryDescription,
   RadiusSettings,
   RegionDescription,
   RegionLimitExceededException,
-  RegionsInfo,
   RegisterCertificateRequest,
-  RegisterCertificateResult,
   RegisterEventTopicRequest,
-  RegisterEventTopicResult,
   RejectSharedDirectoryRequest,
-  RejectSharedDirectoryResult,
   RemoveIpRoutesRequest,
-  RemoveIpRoutesResult,
   RemoveRegionRequest,
-  RemoveRegionResult,
   RemoveTagsFromResourceRequest,
-  RemoveTagsFromResourceResult,
   ResetUserPasswordRequest,
-  ResetUserPasswordResult,
   RestoreFromSnapshotRequest,
-  RestoreFromSnapshotResult,
   SchemaExtensionInfo,
   ServiceException,
   Setting,
   SettingEntry,
   SharedDirectory,
   ShareDirectoryRequest,
-  ShareDirectoryResult,
   ShareLimitExceededException,
   ShareTarget,
   Snapshot,
   SnapshotLimitExceededException,
-  SnapshotLimits,
   StartSchemaExtensionRequest,
-  StartSchemaExtensionResult,
   Tag,
   TagLimitExceededException,
   Trust,
   UnshareDirectoryRequest,
-  UnshareDirectoryResult,
   UnshareTarget,
   UnsupportedOperationException,
   UnsupportedSettingsException,
   UpdateConditionalForwarderRequest,
-  UpdateConditionalForwarderResult,
   UpdateDirectorySetupRequest,
-  UpdateDirectorySetupResult,
   UpdateInfoEntry,
   UpdateNumberOfDomainControllersRequest,
-  UpdateNumberOfDomainControllersResult,
   UpdateRadiusRequest,
-  UpdateRadiusResult,
   UpdateSettingsRequest,
-  UpdateSettingsResult,
   UpdateTrustRequest,
-  UpdateTrustResult,
-  UpdateValue,
   UserDoesNotExistException,
   VerifyTrustRequest,
-  VerifyTrustResult,
 } from "../models/models_0";
 
 /**
@@ -395,7 +337,7 @@ export const se_AcceptSharedDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptSharedDirectory");
   let body: any;
-  body = JSON.stringify(se_AcceptSharedDirectoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -408,7 +350,7 @@ export const se_AddIpRoutesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddIpRoutes");
   let body: any;
-  body = JSON.stringify(se_AddIpRoutesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -421,7 +363,7 @@ export const se_AddRegionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddRegion");
   let body: any;
-  body = JSON.stringify(se_AddRegionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -434,7 +376,7 @@ export const se_AddTagsToResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddTagsToResource");
   let body: any;
-  body = JSON.stringify(se_AddTagsToResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -447,7 +389,7 @@ export const se_CancelSchemaExtensionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelSchemaExtension");
   let body: any;
-  body = JSON.stringify(se_CancelSchemaExtensionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -460,7 +402,7 @@ export const se_ConnectDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConnectDirectory");
   let body: any;
-  body = JSON.stringify(se_ConnectDirectoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -473,7 +415,7 @@ export const se_CreateAliasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAlias");
   let body: any;
-  body = JSON.stringify(se_CreateAliasRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -486,7 +428,7 @@ export const se_CreateComputerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateComputer");
   let body: any;
-  body = JSON.stringify(se_CreateComputerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -499,7 +441,7 @@ export const se_CreateConditionalForwarderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateConditionalForwarder");
   let body: any;
-  body = JSON.stringify(se_CreateConditionalForwarderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -512,7 +454,7 @@ export const se_CreateDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDirectory");
   let body: any;
-  body = JSON.stringify(se_CreateDirectoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -525,7 +467,7 @@ export const se_CreateLogSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLogSubscription");
   let body: any;
-  body = JSON.stringify(se_CreateLogSubscriptionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -538,7 +480,7 @@ export const se_CreateMicrosoftADCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateMicrosoftAD");
   let body: any;
-  body = JSON.stringify(se_CreateMicrosoftADRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -551,7 +493,7 @@ export const se_CreateSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateSnapshot");
   let body: any;
-  body = JSON.stringify(se_CreateSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -564,7 +506,7 @@ export const se_CreateTrustCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTrust");
   let body: any;
-  body = JSON.stringify(se_CreateTrustRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -577,7 +519,7 @@ export const se_DeleteConditionalForwarderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConditionalForwarder");
   let body: any;
-  body = JSON.stringify(se_DeleteConditionalForwarderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -590,7 +532,7 @@ export const se_DeleteDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDirectory");
   let body: any;
-  body = JSON.stringify(se_DeleteDirectoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -603,7 +545,7 @@ export const se_DeleteLogSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLogSubscription");
   let body: any;
-  body = JSON.stringify(se_DeleteLogSubscriptionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -616,7 +558,7 @@ export const se_DeleteSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSnapshot");
   let body: any;
-  body = JSON.stringify(se_DeleteSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -629,7 +571,7 @@ export const se_DeleteTrustCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTrust");
   let body: any;
-  body = JSON.stringify(se_DeleteTrustRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -642,7 +584,7 @@ export const se_DeregisterCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterCertificate");
   let body: any;
-  body = JSON.stringify(se_DeregisterCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -655,7 +597,7 @@ export const se_DeregisterEventTopicCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterEventTopic");
   let body: any;
-  body = JSON.stringify(se_DeregisterEventTopicRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -668,7 +610,7 @@ export const se_DescribeCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCertificate");
   let body: any;
-  body = JSON.stringify(se_DescribeCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -681,7 +623,7 @@ export const se_DescribeClientAuthenticationSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeClientAuthenticationSettings");
   let body: any;
-  body = JSON.stringify(se_DescribeClientAuthenticationSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -694,7 +636,7 @@ export const se_DescribeConditionalForwardersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConditionalForwarders");
   let body: any;
-  body = JSON.stringify(se_DescribeConditionalForwardersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -707,7 +649,7 @@ export const se_DescribeDirectoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDirectories");
   let body: any;
-  body = JSON.stringify(se_DescribeDirectoriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -720,7 +662,7 @@ export const se_DescribeDomainControllersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDomainControllers");
   let body: any;
-  body = JSON.stringify(se_DescribeDomainControllersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -733,7 +675,7 @@ export const se_DescribeEventTopicsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEventTopics");
   let body: any;
-  body = JSON.stringify(se_DescribeEventTopicsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -746,7 +688,7 @@ export const se_DescribeLDAPSSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLDAPSSettings");
   let body: any;
-  body = JSON.stringify(se_DescribeLDAPSSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -759,7 +701,7 @@ export const se_DescribeRegionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRegions");
   let body: any;
-  body = JSON.stringify(se_DescribeRegionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -772,7 +714,7 @@ export const se_DescribeSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSettings");
   let body: any;
-  body = JSON.stringify(se_DescribeSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -785,7 +727,7 @@ export const se_DescribeSharedDirectoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSharedDirectories");
   let body: any;
-  body = JSON.stringify(se_DescribeSharedDirectoriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -798,7 +740,7 @@ export const se_DescribeSnapshotsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSnapshots");
   let body: any;
-  body = JSON.stringify(se_DescribeSnapshotsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -811,7 +753,7 @@ export const se_DescribeTrustsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTrusts");
   let body: any;
-  body = JSON.stringify(se_DescribeTrustsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -824,7 +766,7 @@ export const se_DescribeUpdateDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeUpdateDirectory");
   let body: any;
-  body = JSON.stringify(se_DescribeUpdateDirectoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -837,7 +779,7 @@ export const se_DisableClientAuthenticationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableClientAuthentication");
   let body: any;
-  body = JSON.stringify(se_DisableClientAuthenticationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -850,7 +792,7 @@ export const se_DisableLDAPSCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableLDAPS");
   let body: any;
-  body = JSON.stringify(se_DisableLDAPSRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -863,7 +805,7 @@ export const se_DisableRadiusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableRadius");
   let body: any;
-  body = JSON.stringify(se_DisableRadiusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -876,7 +818,7 @@ export const se_DisableSsoCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableSso");
   let body: any;
-  body = JSON.stringify(se_DisableSsoRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -889,7 +831,7 @@ export const se_EnableClientAuthenticationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableClientAuthentication");
   let body: any;
-  body = JSON.stringify(se_EnableClientAuthenticationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -902,7 +844,7 @@ export const se_EnableLDAPSCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableLDAPS");
   let body: any;
-  body = JSON.stringify(se_EnableLDAPSRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -915,7 +857,7 @@ export const se_EnableRadiusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableRadius");
   let body: any;
-  body = JSON.stringify(se_EnableRadiusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -928,7 +870,7 @@ export const se_EnableSsoCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableSso");
   let body: any;
-  body = JSON.stringify(se_EnableSsoRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -941,7 +883,7 @@ export const se_GetDirectoryLimitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDirectoryLimits");
   let body: any;
-  body = JSON.stringify(se_GetDirectoryLimitsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -954,7 +896,7 @@ export const se_GetSnapshotLimitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSnapshotLimits");
   let body: any;
-  body = JSON.stringify(se_GetSnapshotLimitsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -967,7 +909,7 @@ export const se_ListCertificatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCertificates");
   let body: any;
-  body = JSON.stringify(se_ListCertificatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -980,7 +922,7 @@ export const se_ListIpRoutesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListIpRoutes");
   let body: any;
-  body = JSON.stringify(se_ListIpRoutesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -993,7 +935,7 @@ export const se_ListLogSubscriptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLogSubscriptions");
   let body: any;
-  body = JSON.stringify(se_ListLogSubscriptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1006,7 +948,7 @@ export const se_ListSchemaExtensionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSchemaExtensions");
   let body: any;
-  body = JSON.stringify(se_ListSchemaExtensionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1019,7 +961,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1032,7 +974,7 @@ export const se_RegisterCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterCertificate");
   let body: any;
-  body = JSON.stringify(se_RegisterCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1045,7 +987,7 @@ export const se_RegisterEventTopicCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterEventTopic");
   let body: any;
-  body = JSON.stringify(se_RegisterEventTopicRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1058,7 +1000,7 @@ export const se_RejectSharedDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RejectSharedDirectory");
   let body: any;
-  body = JSON.stringify(se_RejectSharedDirectoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1071,7 +1013,7 @@ export const se_RemoveIpRoutesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveIpRoutes");
   let body: any;
-  body = JSON.stringify(se_RemoveIpRoutesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1084,7 +1026,7 @@ export const se_RemoveRegionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveRegion");
   let body: any;
-  body = JSON.stringify(se_RemoveRegionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1097,7 +1039,7 @@ export const se_RemoveTagsFromResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveTagsFromResource");
   let body: any;
-  body = JSON.stringify(se_RemoveTagsFromResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1110,7 +1052,7 @@ export const se_ResetUserPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResetUserPassword");
   let body: any;
-  body = JSON.stringify(se_ResetUserPasswordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1123,7 +1065,7 @@ export const se_RestoreFromSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RestoreFromSnapshot");
   let body: any;
-  body = JSON.stringify(se_RestoreFromSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1136,7 +1078,7 @@ export const se_ShareDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ShareDirectory");
   let body: any;
-  body = JSON.stringify(se_ShareDirectoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1149,7 +1091,7 @@ export const se_StartSchemaExtensionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartSchemaExtension");
   let body: any;
-  body = JSON.stringify(se_StartSchemaExtensionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1162,7 +1104,7 @@ export const se_UnshareDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UnshareDirectory");
   let body: any;
-  body = JSON.stringify(se_UnshareDirectoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1175,7 +1117,7 @@ export const se_UpdateConditionalForwarderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateConditionalForwarder");
   let body: any;
-  body = JSON.stringify(se_UpdateConditionalForwarderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1188,7 +1130,7 @@ export const se_UpdateDirectorySetupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDirectorySetup");
   let body: any;
-  body = JSON.stringify(se_UpdateDirectorySetupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1201,7 +1143,7 @@ export const se_UpdateNumberOfDomainControllersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateNumberOfDomainControllers");
   let body: any;
-  body = JSON.stringify(se_UpdateNumberOfDomainControllersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1214,7 +1156,7 @@ export const se_UpdateRadiusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRadius");
   let body: any;
-  body = JSON.stringify(se_UpdateRadiusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1227,7 +1169,7 @@ export const se_UpdateSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateSettings");
   let body: any;
-  body = JSON.stringify(se_UpdateSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1240,7 +1182,7 @@ export const se_UpdateTrustCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTrust");
   let body: any;
-  body = JSON.stringify(se_UpdateTrustRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1253,7 +1195,7 @@ export const se_VerifyTrustCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("VerifyTrust");
   let body: any;
-  body = JSON.stringify(se_VerifyTrustRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1274,7 +1216,7 @@ export const de_AcceptSharedDirectoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1307,10 +1249,9 @@ const de_AcceptSharedDirectoryCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1328,12 +1269,12 @@ export const de_AddIpRoutesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddIpRoutesResult(data, context);
+  contents = _json(data);
   const response: AddIpRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1372,10 +1313,9 @@ const de_AddIpRoutesCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1393,12 +1333,12 @@ export const de_AddRegionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddRegionResult(data, context);
+  contents = _json(data);
   const response: AddRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1446,10 +1386,9 @@ const de_AddRegionCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1467,12 +1406,12 @@ export const de_AddTagsToResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddTagsToResourceResult(data, context);
+  contents = _json(data);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1505,10 +1444,9 @@ const de_AddTagsToResourceCommandError = async (
       throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1526,12 +1464,12 @@ export const de_CancelSchemaExtensionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CancelSchemaExtensionResult(data, context);
+  contents = _json(data);
   const response: CancelSchemaExtensionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1558,10 +1496,9 @@ const de_CancelSchemaExtensionCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1579,12 +1516,12 @@ export const de_ConnectDirectoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConnectDirectoryResult(data, context);
+  contents = _json(data);
   const response: ConnectDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1614,10 +1551,9 @@ const de_ConnectDirectoryCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1635,12 +1571,12 @@ export const de_CreateAliasCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAliasResult(data, context);
+  contents = _json(data);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1673,10 +1609,9 @@ const de_CreateAliasCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1694,12 +1629,12 @@ export const de_CreateComputerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateComputerResult(data, context);
+  contents = _json(data);
   const response: CreateComputerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1741,10 +1676,9 @@ const de_CreateComputerCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1762,12 +1696,12 @@ export const de_CreateConditionalForwarderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateConditionalForwarderResult(data, context);
+  contents = _json(data);
   const response: CreateConditionalForwarderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1806,10 +1740,9 @@ const de_CreateConditionalForwarderCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1827,12 +1760,12 @@ export const de_CreateDirectoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDirectoryResult(data, context);
+  contents = _json(data);
   const response: CreateDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1862,10 +1795,9 @@ const de_CreateDirectoryCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1883,12 +1815,12 @@ export const de_CreateLogSubscriptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLogSubscriptionResult(data, context);
+  contents = _json(data);
   const response: CreateLogSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1924,10 +1856,9 @@ const de_CreateLogSubscriptionCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1945,12 +1876,12 @@ export const de_CreateMicrosoftADCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateMicrosoftADResult(data, context);
+  contents = _json(data);
   const response: CreateMicrosoftADCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1983,10 +1914,9 @@ const de_CreateMicrosoftADCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2004,12 +1934,12 @@ export const de_CreateSnapshotCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateSnapshotResult(data, context);
+  contents = _json(data);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2042,10 +1972,9 @@ const de_CreateSnapshotCommandError = async (
       throw await de_SnapshotLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2063,12 +1992,12 @@ export const de_CreateTrustCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateTrustResult(data, context);
+  contents = _json(data);
   const response: CreateTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2104,10 +2033,9 @@ const de_CreateTrustCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2125,12 +2053,12 @@ export const de_DeleteConditionalForwarderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteConditionalForwarderResult(data, context);
+  contents = _json(data);
   const response: DeleteConditionalForwarderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2166,10 +2094,9 @@ const de_DeleteConditionalForwarderCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2187,12 +2114,12 @@ export const de_DeleteDirectoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDirectoryResult(data, context);
+  contents = _json(data);
   const response: DeleteDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2219,10 +2146,9 @@ const de_DeleteDirectoryCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2240,12 +2166,12 @@ export const de_DeleteLogSubscriptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteLogSubscriptionResult(data, context);
+  contents = _json(data);
   const response: DeleteLogSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2275,10 +2201,9 @@ const de_DeleteLogSubscriptionCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2296,12 +2221,12 @@ export const de_DeleteSnapshotCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSnapshotResult(data, context);
+  contents = _json(data);
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2331,10 +2256,9 @@ const de_DeleteSnapshotCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2352,12 +2276,12 @@ export const de_DeleteTrustCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTrustResult(data, context);
+  contents = _json(data);
   const response: DeleteTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2390,10 +2314,9 @@ const de_DeleteTrustCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2411,12 +2334,12 @@ export const de_DeregisterCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeregisterCertificateResult(data, context);
+  contents = _json(data);
   const response: DeregisterCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2458,10 +2381,9 @@ const de_DeregisterCertificateCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2479,12 +2401,12 @@ export const de_DeregisterEventTopicCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeregisterEventTopicResult(data, context);
+  contents = _json(data);
   const response: DeregisterEventTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2514,10 +2436,9 @@ const de_DeregisterEventTopicCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2540,7 +2461,7 @@ export const de_DescribeCertificateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2576,10 +2497,9 @@ const de_DescribeCertificateCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2602,7 +2522,7 @@ export const de_DescribeClientAuthenticationSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2638,10 +2558,9 @@ const de_DescribeClientAuthenticationSettingsCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2659,12 +2578,12 @@ export const de_DescribeConditionalForwardersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeConditionalForwardersResult(data, context);
+  contents = _json(data);
   const response: DescribeConditionalForwardersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2700,10 +2619,9 @@ const de_DescribeConditionalForwardersCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2726,7 +2644,7 @@ export const de_DescribeDirectoriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2759,10 +2677,9 @@ const de_DescribeDirectoriesCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2785,7 +2702,7 @@ export const de_DescribeDomainControllersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2821,10 +2738,9 @@ const de_DescribeDomainControllersCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2847,7 +2763,7 @@ export const de_DescribeEventTopicsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2877,10 +2793,9 @@ const de_DescribeEventTopicsCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2903,7 +2818,7 @@ export const de_DescribeLDAPSSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2939,10 +2854,9 @@ const de_DescribeLDAPSSettingsCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2965,7 +2879,7 @@ export const de_DescribeRegionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3004,10 +2918,9 @@ const de_DescribeRegionsCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3030,7 +2943,7 @@ export const de_DescribeSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3066,10 +2979,9 @@ const de_DescribeSettingsCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3092,7 +3004,7 @@ export const de_DescribeSharedDirectoriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3128,10 +3040,9 @@ const de_DescribeSharedDirectoriesCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3154,7 +3065,7 @@ export const de_DescribeSnapshotsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3187,10 +3098,9 @@ const de_DescribeSnapshotsCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3213,7 +3123,7 @@ export const de_DescribeTrustsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3249,10 +3159,9 @@ const de_DescribeTrustsCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3275,7 +3184,7 @@ export const de_DescribeUpdateDirectoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3311,10 +3220,9 @@ const de_DescribeUpdateDirectoryCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3332,12 +3240,12 @@ export const de_DisableClientAuthenticationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisableClientAuthenticationResult(data, context);
+  contents = _json(data);
   const response: DisableClientAuthenticationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3373,10 +3281,9 @@ const de_DisableClientAuthenticationCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3394,12 +3301,12 @@ export const de_DisableLDAPSCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisableLDAPSResult(data, context);
+  contents = _json(data);
   const response: DisableLDAPSCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3438,10 +3345,9 @@ const de_DisableLDAPSCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3459,12 +3365,12 @@ export const de_DisableRadiusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisableRadiusResult(data, context);
+  contents = _json(data);
   const response: DisableRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3491,10 +3397,9 @@ const de_DisableRadiusCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3512,12 +3417,12 @@ export const de_DisableSsoCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisableSsoResult(data, context);
+  contents = _json(data);
   const response: DisableSsoCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3550,10 +3455,9 @@ const de_DisableSsoCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3571,12 +3475,12 @@ export const de_EnableClientAuthenticationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnableClientAuthenticationResult(data, context);
+  contents = _json(data);
   const response: EnableClientAuthenticationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3615,10 +3519,9 @@ const de_EnableClientAuthenticationCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3636,12 +3539,12 @@ export const de_EnableLDAPSCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnableLDAPSResult(data, context);
+  contents = _json(data);
   const response: EnableLDAPSCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3683,10 +3586,9 @@ const de_EnableLDAPSCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3704,12 +3606,12 @@ export const de_EnableRadiusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnableRadiusResult(data, context);
+  contents = _json(data);
   const response: EnableRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3742,10 +3644,9 @@ const de_EnableRadiusCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3763,12 +3664,12 @@ export const de_EnableSsoCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnableSsoResult(data, context);
+  contents = _json(data);
   const response: EnableSsoCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3801,10 +3702,9 @@ const de_EnableSsoCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3822,12 +3722,12 @@ export const de_GetDirectoryLimitsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDirectoryLimitsResult(data, context);
+  contents = _json(data);
   const response: GetDirectoryLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3854,10 +3754,9 @@ const de_GetDirectoryLimitsCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3875,12 +3774,12 @@ export const de_GetSnapshotLimitsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSnapshotLimitsResult(data, context);
+  contents = _json(data);
   const response: GetSnapshotLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3907,10 +3806,9 @@ const de_GetSnapshotLimitsCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3933,7 +3831,7 @@ export const de_ListCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3969,10 +3867,9 @@ const de_ListCertificatesCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3995,7 +3892,7 @@ export const de_ListIpRoutesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4028,10 +3925,9 @@ const de_ListIpRoutesCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4054,7 +3950,7 @@ export const de_ListLogSubscriptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4084,10 +3980,9 @@ const de_ListLogSubscriptionsCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4110,7 +4005,7 @@ export const de_ListSchemaExtensionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4140,10 +4035,9 @@ const de_ListSchemaExtensionsCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4161,12 +4055,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResult(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4199,10 +4093,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4220,12 +4113,12 @@ export const de_RegisterCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RegisterCertificateResult(data, context);
+  contents = _json(data);
   const response: RegisterCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4270,10 +4163,9 @@ const de_RegisterCertificateCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4291,12 +4183,12 @@ export const de_RegisterEventTopicCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RegisterEventTopicResult(data, context);
+  contents = _json(data);
   const response: RegisterEventTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4326,10 +4218,9 @@ const de_RegisterEventTopicCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4347,12 +4238,12 @@ export const de_RejectSharedDirectoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RejectSharedDirectoryResult(data, context);
+  contents = _json(data);
   const response: RejectSharedDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4385,10 +4276,9 @@ const de_RejectSharedDirectoryCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4406,12 +4296,12 @@ export const de_RemoveIpRoutesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RemoveIpRoutesResult(data, context);
+  contents = _json(data);
   const response: RemoveIpRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4444,10 +4334,9 @@ const de_RemoveIpRoutesCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4465,12 +4354,12 @@ export const de_RemoveRegionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RemoveRegionResult(data, context);
+  contents = _json(data);
   const response: RemoveRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4506,10 +4395,9 @@ const de_RemoveRegionCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4527,12 +4415,12 @@ export const de_RemoveTagsFromResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RemoveTagsFromResourceResult(data, context);
+  contents = _json(data);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4562,10 +4450,9 @@ const de_RemoveTagsFromResourceCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4583,12 +4470,12 @@ export const de_ResetUserPasswordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ResetUserPasswordResult(data, context);
+  contents = _json(data);
   const response: ResetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4627,10 +4514,9 @@ const de_ResetUserPasswordCommandError = async (
       throw await de_UserDoesNotExistExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4648,12 +4534,12 @@ export const de_RestoreFromSnapshotCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RestoreFromSnapshotResult(data, context);
+  contents = _json(data);
   const response: RestoreFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4683,10 +4569,9 @@ const de_RestoreFromSnapshotCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4704,12 +4589,12 @@ export const de_ShareDirectoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ShareDirectoryResult(data, context);
+  contents = _json(data);
   const response: ShareDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4757,10 +4642,9 @@ const de_ShareDirectoryCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4778,12 +4662,12 @@ export const de_StartSchemaExtensionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartSchemaExtensionResult(data, context);
+  contents = _json(data);
   const response: StartSchemaExtensionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4819,10 +4703,9 @@ const de_StartSchemaExtensionCommandError = async (
       throw await de_SnapshotLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4840,12 +4723,12 @@ export const de_UnshareDirectoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UnshareDirectoryResult(data, context);
+  contents = _json(data);
   const response: UnshareDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4878,10 +4761,9 @@ const de_UnshareDirectoryCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4899,12 +4781,12 @@ export const de_UpdateConditionalForwarderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateConditionalForwarderResult(data, context);
+  contents = _json(data);
   const response: UpdateConditionalForwarderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4940,10 +4822,9 @@ const de_UpdateConditionalForwarderCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4961,12 +4842,12 @@ export const de_UpdateDirectorySetupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDirectorySetupResult(data, context);
+  contents = _json(data);
   const response: UpdateDirectorySetupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5011,10 +4892,9 @@ const de_UpdateDirectorySetupCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5032,12 +4912,12 @@ export const de_UpdateNumberOfDomainControllersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateNumberOfDomainControllersResult(data, context);
+  contents = _json(data);
   const response: UpdateNumberOfDomainControllersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5076,10 +4956,9 @@ const de_UpdateNumberOfDomainControllersCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5097,12 +4976,12 @@ export const de_UpdateRadiusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRadiusResult(data, context);
+  contents = _json(data);
   const response: UpdateRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5132,10 +5011,9 @@ const de_UpdateRadiusCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5153,12 +5031,12 @@ export const de_UpdateSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateSettingsResult(data, context);
+  contents = _json(data);
   const response: UpdateSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5200,10 +5078,9 @@ const de_UpdateSettingsCommandError = async (
       throw await de_UnsupportedSettingsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5221,12 +5098,12 @@ export const de_UpdateTrustCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateTrustResult(data, context);
+  contents = _json(data);
   const response: UpdateTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5256,10 +5133,9 @@ const de_UpdateTrustCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5277,12 +5153,12 @@ export const de_VerifyTrustCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VerifyTrustResult(data, context);
+  contents = _json(data);
   const response: VerifyTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5315,10 +5191,9 @@ const de_VerifyTrustCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5332,7 +5207,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5348,7 +5223,7 @@ const de_AuthenticationFailedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AuthenticationFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AuthenticationFailedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AuthenticationFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5364,7 +5239,7 @@ const de_CertificateAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<CertificateAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CertificateAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CertificateAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5380,7 +5255,7 @@ const de_CertificateDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<CertificateDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CertificateDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CertificateDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5396,7 +5271,7 @@ const de_CertificateInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<CertificateInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CertificateInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CertificateInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5412,7 +5287,7 @@ const de_CertificateLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<CertificateLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CertificateLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CertificateLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5425,7 +5300,7 @@ const de_CertificateLimitExceededExceptionRes = async (
  */
 const de_ClientExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ClientException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ClientException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5441,7 +5316,7 @@ const de_DirectoryAlreadyInRegionExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectoryAlreadyInRegionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectoryAlreadyInRegionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectoryAlreadyInRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5457,7 +5332,7 @@ const de_DirectoryAlreadySharedExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectoryAlreadySharedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectoryAlreadySharedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectoryAlreadySharedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5473,7 +5348,7 @@ const de_DirectoryDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectoryDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectoryDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectoryDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5489,7 +5364,7 @@ const de_DirectoryInDesiredStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectoryInDesiredStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectoryInDesiredStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectoryInDesiredStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5505,7 +5380,7 @@ const de_DirectoryLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectoryLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectoryLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectoryLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5521,7 +5396,7 @@ const de_DirectoryNotSharedExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectoryNotSharedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectoryNotSharedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectoryNotSharedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5537,7 +5412,7 @@ const de_DirectoryUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectoryUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectoryUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectoryUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5553,7 +5428,7 @@ const de_DomainControllerLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<DomainControllerLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DomainControllerLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DomainControllerLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5569,7 +5444,7 @@ const de_EntityAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<EntityAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EntityAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EntityAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5585,7 +5460,7 @@ const de_EntityDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<EntityDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EntityDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EntityDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5601,7 +5476,7 @@ const de_IncompatibleSettingsExceptionRes = async (
   context: __SerdeContext
 ): Promise<IncompatibleSettingsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IncompatibleSettingsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IncompatibleSettingsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5617,7 +5492,7 @@ const de_InsufficientPermissionsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InsufficientPermissionsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InsufficientPermissionsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InsufficientPermissionsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5633,7 +5508,7 @@ const de_InvalidCertificateExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidCertificateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidCertificateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5649,7 +5524,7 @@ const de_InvalidClientAuthStatusExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidClientAuthStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidClientAuthStatusException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidClientAuthStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5665,7 +5540,7 @@ const de_InvalidLDAPSStatusExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidLDAPSStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidLDAPSStatusException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidLDAPSStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5681,7 +5556,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5697,7 +5572,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5713,7 +5588,7 @@ const de_InvalidPasswordExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPasswordException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPasswordException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPasswordException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5729,7 +5604,7 @@ const de_InvalidTargetExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTargetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTargetException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTargetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5745,7 +5620,7 @@ const de_IpRouteLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<IpRouteLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IpRouteLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IpRouteLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5761,7 +5636,7 @@ const de_NoAvailableCertificateExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoAvailableCertificateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoAvailableCertificateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoAvailableCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5777,7 +5652,7 @@ const de_OrganizationsExceptionRes = async (
   context: __SerdeContext
 ): Promise<OrganizationsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OrganizationsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OrganizationsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5793,7 +5668,7 @@ const de_RegionLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<RegionLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RegionLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RegionLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5806,7 +5681,7 @@ const de_RegionLimitExceededExceptionRes = async (
  */
 const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5822,7 +5697,7 @@ const de_ShareLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ShareLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ShareLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ShareLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5838,7 +5713,7 @@ const de_SnapshotLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<SnapshotLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SnapshotLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SnapshotLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5854,7 +5729,7 @@ const de_TagLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5870,7 +5745,7 @@ const de_UnsupportedOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5886,7 +5761,7 @@ const de_UnsupportedSettingsExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedSettingsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedSettingsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedSettingsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5902,7 +5777,7 @@ const de_UserDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5910,1247 +5785,257 @@ const de_UserDoesNotExistExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AcceptSharedDirectoryRequest
- */
-const se_AcceptSharedDirectoryRequest = (input: AcceptSharedDirectoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SharedDirectoryId != null && { SharedDirectoryId: input.SharedDirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AddIpRoutesRequest
- */
-const se_AddIpRoutesRequest = (input: AddIpRoutesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.IpRoutes != null && { IpRoutes: se_IpRoutes(input.IpRoutes, context) }),
-    ...(input.UpdateSecurityGroupForDirectoryControllers != null && {
-      UpdateSecurityGroupForDirectoryControllers: input.UpdateSecurityGroupForDirectoryControllers,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1AddRegionRequest
- */
-const se_AddRegionRequest = (input: AddRegionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.RegionName != null && { RegionName: input.RegionName }),
-    ...(input.VPCSettings != null && { VPCSettings: se_DirectoryVpcSettings(input.VPCSettings, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1AddTagsToResourceRequest
- */
-const se_AddTagsToResourceRequest = (input: AddTagsToResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1Attribute
- */
-const se_Attribute = (input: Attribute, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1Attributes
- */
-const se_Attributes = (input: Attribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Attribute(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1CancelSchemaExtensionRequest
- */
-const se_CancelSchemaExtensionRequest = (input: CancelSchemaExtensionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.SchemaExtensionId != null && { SchemaExtensionId: input.SchemaExtensionId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CidrIps
- */
-const se_CidrIps = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ClientCertAuthSettings
- */
-const se_ClientCertAuthSettings = (input: ClientCertAuthSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.OCSPUrl != null && { OCSPUrl: input.OCSPUrl }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConnectDirectoryRequest
- */
-const se_ConnectDirectoryRequest = (input: ConnectDirectoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectSettings != null && {
-      ConnectSettings: se_DirectoryConnectSettings(input.ConnectSettings, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.ShortName != null && { ShortName: input.ShortName }),
-    ...(input.Size != null && { Size: input.Size }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateAliasRequest
- */
-const se_CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Alias != null && { Alias: input.Alias }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateComputerRequest
- */
-const se_CreateComputerRequest = (input: CreateComputerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComputerAttributes != null && { ComputerAttributes: se_Attributes(input.ComputerAttributes, context) }),
-    ...(input.ComputerName != null && { ComputerName: input.ComputerName }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.OrganizationalUnitDistinguishedName != null && {
-      OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
-    }),
-    ...(input.Password != null && { Password: input.Password }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateConditionalForwarderRequest
- */
-const se_CreateConditionalForwarderRequest = (
-  input: CreateConditionalForwarderRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.DnsIpAddrs != null && { DnsIpAddrs: se_DnsIpAddrs(input.DnsIpAddrs, context) }),
-    ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateDirectoryRequest
- */
-const se_CreateDirectoryRequest = (input: CreateDirectoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.ShortName != null && { ShortName: input.ShortName }),
-    ...(input.Size != null && { Size: input.Size }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.VpcSettings != null && { VpcSettings: se_DirectoryVpcSettings(input.VpcSettings, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateLogSubscriptionRequest
- */
-const se_CreateLogSubscriptionRequest = (input: CreateLogSubscriptionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.LogGroupName != null && { LogGroupName: input.LogGroupName }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateMicrosoftADRequest
- */
-const se_CreateMicrosoftADRequest = (input: CreateMicrosoftADRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Edition != null && { Edition: input.Edition }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.ShortName != null && { ShortName: input.ShortName }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.VpcSettings != null && { VpcSettings: se_DirectoryVpcSettings(input.VpcSettings, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateSnapshotRequest
- */
-const se_CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateTrustRequest
- */
-const se_CreateTrustRequest = (input: CreateTrustRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConditionalForwarderIpAddrs != null && {
-      ConditionalForwarderIpAddrs: se_DnsIpAddrs(input.ConditionalForwarderIpAddrs, context),
-    }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
-    ...(input.SelectiveAuth != null && { SelectiveAuth: input.SelectiveAuth }),
-    ...(input.TrustDirection != null && { TrustDirection: input.TrustDirection }),
-    ...(input.TrustPassword != null && { TrustPassword: input.TrustPassword }),
-    ...(input.TrustType != null && { TrustType: input.TrustType }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteConditionalForwarderRequest
- */
-const se_DeleteConditionalForwarderRequest = (
-  input: DeleteConditionalForwarderRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteDirectoryRequest
- */
-const se_DeleteDirectoryRequest = (input: DeleteDirectoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteLogSubscriptionRequest
- */
-const se_DeleteLogSubscriptionRequest = (input: DeleteLogSubscriptionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteSnapshotRequest
- */
-const se_DeleteSnapshotRequest = (input: DeleteSnapshotRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteTrustRequest
- */
-const se_DeleteTrustRequest = (input: DeleteTrustRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeleteAssociatedConditionalForwarder != null && {
-      DeleteAssociatedConditionalForwarder: input.DeleteAssociatedConditionalForwarder,
-    }),
-    ...(input.TrustId != null && { TrustId: input.TrustId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeregisterCertificateRequest
- */
-const se_DeregisterCertificateRequest = (input: DeregisterCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeregisterEventTopicRequest
- */
-const se_DeregisterEventTopicRequest = (input: DeregisterEventTopicRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicName != null && { TopicName: input.TopicName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeCertificateRequest
- */
-const se_DescribeCertificateRequest = (input: DescribeCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeClientAuthenticationSettingsRequest
- */
-const se_DescribeClientAuthenticationSettingsRequest = (
-  input: DescribeClientAuthenticationSettingsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConditionalForwardersRequest
- */
-const se_DescribeConditionalForwardersRequest = (
-  input: DescribeConditionalForwardersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainNames != null && {
-      RemoteDomainNames: se_RemoteDomainNames(input.RemoteDomainNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeDirectoriesRequest
- */
-const se_DescribeDirectoriesRequest = (input: DescribeDirectoriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryIds != null && { DirectoryIds: se_DirectoryIds(input.DirectoryIds, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeDomainControllersRequest
- */
-const se_DescribeDomainControllersRequest = (input: DescribeDomainControllersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.DomainControllerIds != null && {
-      DomainControllerIds: se_DomainControllerIds(input.DomainControllerIds, context),
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeEventTopicsRequest
- */
-const se_DescribeEventTopicsRequest = (input: DescribeEventTopicsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicNames != null && { TopicNames: se_TopicNames(input.TopicNames, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeLDAPSSettingsRequest
- */
-const se_DescribeLDAPSSettingsRequest = (input: DescribeLDAPSSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeRegionsRequest
- */
-const se_DescribeRegionsRequest = (input: DescribeRegionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RegionName != null && { RegionName: input.RegionName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeSettingsRequest
- */
-const se_DescribeSettingsRequest = (input: DescribeSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeSharedDirectoriesRequest
- */
-const se_DescribeSharedDirectoriesRequest = (input: DescribeSharedDirectoriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OwnerDirectoryId != null && { OwnerDirectoryId: input.OwnerDirectoryId }),
-    ...(input.SharedDirectoryIds != null && { SharedDirectoryIds: se_DirectoryIds(input.SharedDirectoryIds, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeSnapshotsRequest
- */
-const se_DescribeSnapshotsRequest = (input: DescribeSnapshotsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SnapshotIds != null && { SnapshotIds: se_SnapshotIds(input.SnapshotIds, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeTrustsRequest
- */
-const se_DescribeTrustsRequest = (input: DescribeTrustsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TrustIds != null && { TrustIds: se_TrustIds(input.TrustIds, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeUpdateDirectoryRequest
- */
-const se_DescribeUpdateDirectoryRequest = (input: DescribeUpdateDirectoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RegionName != null && { RegionName: input.RegionName }),
-    ...(input.UpdateType != null && { UpdateType: input.UpdateType }),
-  };
-};
-
-/**
- * serializeAws_json1_1DirectoryConnectSettings
- */
-const se_DirectoryConnectSettings = (input: DirectoryConnectSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomerDnsIps != null && { CustomerDnsIps: se_DnsIpAddrs(input.CustomerDnsIps, context) }),
-    ...(input.CustomerUserName != null && { CustomerUserName: input.CustomerUserName }),
-    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DirectoryIds
- */
-const se_DirectoryIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1DirectoryVpcSettings
- */
-const se_DirectoryVpcSettings = (input: DirectoryVpcSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DisableClientAuthenticationRequest
- */
-const se_DisableClientAuthenticationRequest = (
-  input: DisableClientAuthenticationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1DisableLDAPSRequest
- */
-const se_DisableLDAPSRequest = (input: DisableLDAPSRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1DisableRadiusRequest
- */
-const se_DisableRadiusRequest = (input: DisableRadiusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DisableSsoRequest
- */
-const se_DisableSsoRequest = (input: DisableSsoRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DnsIpAddrs
- */
-const se_DnsIpAddrs = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1DomainControllerIds
- */
-const se_DomainControllerIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1EnableClientAuthenticationRequest
- */
-const se_EnableClientAuthenticationRequest = (
-  input: EnableClientAuthenticationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1EnableLDAPSRequest
- */
-const se_EnableLDAPSRequest = (input: EnableLDAPSRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1EnableRadiusRequest
- */
-const se_EnableRadiusRequest = (input: EnableRadiusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.RadiusSettings != null && { RadiusSettings: se_RadiusSettings(input.RadiusSettings, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1EnableSsoRequest
- */
-const se_EnableSsoRequest = (input: EnableSsoRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetDirectoryLimitsRequest
- */
-const se_GetDirectoryLimitsRequest = (input: GetDirectoryLimitsRequest, context: __SerdeContext): any => {
-  return {};
-};
-
-/**
- * serializeAws_json1_1GetSnapshotLimitsRequest
- */
-const se_GetSnapshotLimitsRequest = (input: GetSnapshotLimitsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1IpRoute
- */
-const se_IpRoute = (input: IpRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.CidrIp != null && { CidrIp: input.CidrIp }),
-    ...(input.Description != null && { Description: input.Description }),
-  };
-};
-
-/**
- * serializeAws_json1_1IpRoutes
- */
-const se_IpRoutes = (input: IpRoute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_IpRoute(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ListCertificatesRequest
- */
-const se_ListCertificatesRequest = (input: ListCertificatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListIpRoutesRequest
- */
-const se_ListIpRoutesRequest = (input: ListIpRoutesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListLogSubscriptionsRequest
- */
-const se_ListLogSubscriptionsRequest = (input: ListLogSubscriptionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListSchemaExtensionsRequest
- */
-const se_ListSchemaExtensionsRequest = (input: ListSchemaExtensionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1OSUpdateSettings
- */
-const se_OSUpdateSettings = (input: OSUpdateSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.OSVersion != null && { OSVersion: input.OSVersion }),
-  };
-};
-
-/**
- * serializeAws_json1_1RadiusSettings
- */
-const se_RadiusSettings = (input: RadiusSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthenticationProtocol != null && { AuthenticationProtocol: input.AuthenticationProtocol }),
-    ...(input.DisplayLabel != null && { DisplayLabel: input.DisplayLabel }),
-    ...(input.RadiusPort != null && { RadiusPort: input.RadiusPort }),
-    ...(input.RadiusRetries != null && { RadiusRetries: input.RadiusRetries }),
-    ...(input.RadiusServers != null && { RadiusServers: se_Servers(input.RadiusServers, context) }),
-    ...(input.RadiusTimeout != null && { RadiusTimeout: input.RadiusTimeout }),
-    ...(input.SharedSecret != null && { SharedSecret: input.SharedSecret }),
-    ...(input.UseSameUsername != null && { UseSameUsername: input.UseSameUsername }),
-  };
-};
-
-/**
- * serializeAws_json1_1RegisterCertificateRequest
- */
-const se_RegisterCertificateRequest = (input: RegisterCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateData != null && { CertificateData: input.CertificateData }),
-    ...(input.ClientCertAuthSettings != null && {
-      ClientCertAuthSettings: se_ClientCertAuthSettings(input.ClientCertAuthSettings, context),
-    }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1RegisterEventTopicRequest
- */
-const se_RegisterEventTopicRequest = (input: RegisterEventTopicRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicName != null && { TopicName: input.TopicName }),
-  };
-};
-
-/**
- * serializeAws_json1_1RejectSharedDirectoryRequest
- */
-const se_RejectSharedDirectoryRequest = (input: RejectSharedDirectoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SharedDirectoryId != null && { SharedDirectoryId: input.SharedDirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1RemoteDomainNames
- */
-const se_RemoteDomainNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1RemoveIpRoutesRequest
- */
-const se_RemoveIpRoutesRequest = (input: RemoveIpRoutesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CidrIps != null && { CidrIps: se_CidrIps(input.CidrIps, context) }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1RemoveRegionRequest
- */
-const se_RemoveRegionRequest = (input: RemoveRegionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1RemoveTagsFromResourceRequest
- */
-const se_RemoveTagsFromResourceRequest = (input: RemoveTagsFromResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1ResetUserPasswordRequest
- */
-const se_ResetUserPasswordRequest = (input: ResetUserPasswordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.NewPassword != null && { NewPassword: input.NewPassword }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
-
-/**
- * serializeAws_json1_1RestoreFromSnapshotRequest
- */
-const se_RestoreFromSnapshotRequest = (input: RestoreFromSnapshotRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
-  };
-};
-
-/**
- * serializeAws_json1_1Servers
- */
-const se_Servers = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1Setting
- */
-const se_Setting = (input: Setting, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1Settings
- */
-const se_Settings = (input: Setting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Setting(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ShareDirectoryRequest
- */
-const se_ShareDirectoryRequest = (input: ShareDirectoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.ShareMethod != null && { ShareMethod: input.ShareMethod }),
-    ...(input.ShareNotes != null && { ShareNotes: input.ShareNotes }),
-    ...(input.ShareTarget != null && { ShareTarget: se_ShareTarget(input.ShareTarget, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1ShareTarget
- */
-const se_ShareTarget = (input: ShareTarget, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1SnapshotIds
- */
-const se_SnapshotIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1StartSchemaExtensionRequest
- */
-const se_StartSchemaExtensionRequest = (input: StartSchemaExtensionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CreateSnapshotBeforeSchemaExtension != null && {
-      CreateSnapshotBeforeSchemaExtension: input.CreateSnapshotBeforeSchemaExtension,
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.LdifContent != null && { LdifContent: input.LdifContent }),
-  };
-};
-
-/**
- * serializeAws_json1_1SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1TopicNames
- */
-const se_TopicNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1TrustIds
- */
-const se_TrustIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1UnshareDirectoryRequest
- */
-const se_UnshareDirectoryRequest = (input: UnshareDirectoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.UnshareTarget != null && { UnshareTarget: se_UnshareTarget(input.UnshareTarget, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UnshareTarget
- */
-const se_UnshareTarget = (input: UnshareTarget, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateConditionalForwarderRequest
- */
-const se_UpdateConditionalForwarderRequest = (
-  input: UpdateConditionalForwarderRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.DnsIpAddrs != null && { DnsIpAddrs: se_DnsIpAddrs(input.DnsIpAddrs, context) }),
-    ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateDirectorySetupRequest
- */
-const se_UpdateDirectorySetupRequest = (input: UpdateDirectorySetupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CreateSnapshotBeforeUpdate != null && { CreateSnapshotBeforeUpdate: input.CreateSnapshotBeforeUpdate }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.OSUpdateSettings != null && { OSUpdateSettings: se_OSUpdateSettings(input.OSUpdateSettings, context) }),
-    ...(input.UpdateType != null && { UpdateType: input.UpdateType }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateNumberOfDomainControllersRequest
- */
-const se_UpdateNumberOfDomainControllersRequest = (
-  input: UpdateNumberOfDomainControllersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DesiredNumber != null && { DesiredNumber: input.DesiredNumber }),
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateRadiusRequest
- */
-const se_UpdateRadiusRequest = (input: UpdateRadiusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.RadiusSettings != null && { RadiusSettings: se_RadiusSettings(input.RadiusSettings, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateSettingsRequest
- */
-const se_UpdateSettingsRequest = (input: UpdateSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Settings != null && { Settings: se_Settings(input.Settings, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateTrustRequest
- */
-const se_UpdateTrustRequest = (input: UpdateTrustRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SelectiveAuth != null && { SelectiveAuth: input.SelectiveAuth }),
-    ...(input.TrustId != null && { TrustId: input.TrustId }),
-  };
-};
-
-/**
- * serializeAws_json1_1VerifyTrustRequest
- */
-const se_VerifyTrustRequest = (input: VerifyTrustRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.TrustId != null && { TrustId: input.TrustId }),
-  };
-};
+// se_AcceptSharedDirectoryRequest omitted.
+
+// se_AddIpRoutesRequest omitted.
+
+// se_AddRegionRequest omitted.
+
+// se_AddTagsToResourceRequest omitted.
+
+// se_Attribute omitted.
+
+// se_Attributes omitted.
+
+// se_CancelSchemaExtensionRequest omitted.
+
+// se_CidrIps omitted.
+
+// se_ClientCertAuthSettings omitted.
+
+// se_ConnectDirectoryRequest omitted.
+
+// se_CreateAliasRequest omitted.
+
+// se_CreateComputerRequest omitted.
+
+// se_CreateConditionalForwarderRequest omitted.
+
+// se_CreateDirectoryRequest omitted.
+
+// se_CreateLogSubscriptionRequest omitted.
+
+// se_CreateMicrosoftADRequest omitted.
+
+// se_CreateSnapshotRequest omitted.
+
+// se_CreateTrustRequest omitted.
+
+// se_DeleteConditionalForwarderRequest omitted.
+
+// se_DeleteDirectoryRequest omitted.
+
+// se_DeleteLogSubscriptionRequest omitted.
+
+// se_DeleteSnapshotRequest omitted.
+
+// se_DeleteTrustRequest omitted.
+
+// se_DeregisterCertificateRequest omitted.
+
+// se_DeregisterEventTopicRequest omitted.
+
+// se_DescribeCertificateRequest omitted.
+
+// se_DescribeClientAuthenticationSettingsRequest omitted.
+
+// se_DescribeConditionalForwardersRequest omitted.
+
+// se_DescribeDirectoriesRequest omitted.
+
+// se_DescribeDomainControllersRequest omitted.
+
+// se_DescribeEventTopicsRequest omitted.
+
+// se_DescribeLDAPSSettingsRequest omitted.
+
+// se_DescribeRegionsRequest omitted.
+
+// se_DescribeSettingsRequest omitted.
+
+// se_DescribeSharedDirectoriesRequest omitted.
+
+// se_DescribeSnapshotsRequest omitted.
+
+// se_DescribeTrustsRequest omitted.
+
+// se_DescribeUpdateDirectoryRequest omitted.
+
+// se_DirectoryConnectSettings omitted.
+
+// se_DirectoryIds omitted.
+
+// se_DirectoryVpcSettings omitted.
+
+// se_DisableClientAuthenticationRequest omitted.
+
+// se_DisableLDAPSRequest omitted.
+
+// se_DisableRadiusRequest omitted.
+
+// se_DisableSsoRequest omitted.
+
+// se_DnsIpAddrs omitted.
+
+// se_DomainControllerIds omitted.
+
+// se_EnableClientAuthenticationRequest omitted.
+
+// se_EnableLDAPSRequest omitted.
+
+// se_EnableRadiusRequest omitted.
+
+// se_EnableSsoRequest omitted.
+
+// se_GetDirectoryLimitsRequest omitted.
+
+// se_GetSnapshotLimitsRequest omitted.
+
+// se_IpRoute omitted.
+
+// se_IpRoutes omitted.
+
+// se_ListCertificatesRequest omitted.
+
+// se_ListIpRoutesRequest omitted.
+
+// se_ListLogSubscriptionsRequest omitted.
+
+// se_ListSchemaExtensionsRequest omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
+// se_OSUpdateSettings omitted.
+
+// se_RadiusSettings omitted.
+
+// se_RegisterCertificateRequest omitted.
+
+// se_RegisterEventTopicRequest omitted.
+
+// se_RejectSharedDirectoryRequest omitted.
+
+// se_RemoteDomainNames omitted.
+
+// se_RemoveIpRoutesRequest omitted.
+
+// se_RemoveRegionRequest omitted.
+
+// se_RemoveTagsFromResourceRequest omitted.
+
+// se_ResetUserPasswordRequest omitted.
+
+// se_RestoreFromSnapshotRequest omitted.
+
+// se_Servers omitted.
+
+// se_Setting omitted.
+
+// se_Settings omitted.
+
+// se_ShareDirectoryRequest omitted.
+
+// se_ShareTarget omitted.
+
+// se_SnapshotIds omitted.
+
+// se_StartSchemaExtensionRequest omitted.
+
+// se_SubnetIds omitted.
+
+// se_Tag omitted.
+
+// se_TagKeys omitted.
+
+// se_Tags omitted.
+
+// se_TopicNames omitted.
+
+// se_TrustIds omitted.
+
+// se_UnshareDirectoryRequest omitted.
+
+// se_UnshareTarget omitted.
+
+// se_UpdateConditionalForwarderRequest omitted.
+
+// se_UpdateDirectorySetupRequest omitted.
+
+// se_UpdateNumberOfDomainControllersRequest omitted.
+
+// se_UpdateRadiusRequest omitted.
+
+// se_UpdateSettingsRequest omitted.
+
+// se_UpdateTrustRequest omitted.
+
+// se_VerifyTrustRequest omitted.
 
 /**
  * deserializeAws_json1_1AcceptSharedDirectoryResult
  */
 const de_AcceptSharedDirectoryResult = (output: any, context: __SerdeContext): AcceptSharedDirectoryResult => {
-  return {
-    SharedDirectory: output.SharedDirectory != null ? de_SharedDirectory(output.SharedDirectory, context) : undefined,
-  } as any;
+  return take(output, {
+    SharedDirectory: (_: any) => de_SharedDirectory(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AddIpRoutesResult
- */
-const de_AddIpRoutesResult = (output: any, context: __SerdeContext): AddIpRoutesResult => {
-  return {} as any;
-};
+// de_AddIpRoutesResult omitted.
 
-/**
- * deserializeAws_json1_1AdditionalRegions
- */
-const de_AdditionalRegions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AdditionalRegions omitted.
 
-/**
- * deserializeAws_json1_1AddRegionResult
- */
-const de_AddRegionResult = (output: any, context: __SerdeContext): AddRegionResult => {
-  return {} as any;
-};
+// de_AddRegionResult omitted.
 
-/**
- * deserializeAws_json1_1AddTagsToResourceResult
- */
-const de_AddTagsToResourceResult = (output: any, context: __SerdeContext): AddTagsToResourceResult => {
-  return {} as any;
-};
+// de_AddTagsToResourceResult omitted.
 
-/**
- * deserializeAws_json1_1Attribute
- */
-const de_Attribute = (output: any, context: __SerdeContext): Attribute => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Attribute omitted.
 
-/**
- * deserializeAws_json1_1Attributes
- */
-const de_Attributes = (output: any, context: __SerdeContext): Attribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Attribute(entry, context);
-    });
-  return retVal;
-};
+// de_Attributes omitted.
 
-/**
- * deserializeAws_json1_1AuthenticationFailedException
- */
-const de_AuthenticationFailedException = (output: any, context: __SerdeContext): AuthenticationFailedException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_AuthenticationFailedException omitted.
 
-/**
- * deserializeAws_json1_1AvailabilityZones
- */
-const de_AvailabilityZones = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AvailabilityZones omitted.
 
-/**
- * deserializeAws_json1_1CancelSchemaExtensionResult
- */
-const de_CancelSchemaExtensionResult = (output: any, context: __SerdeContext): CancelSchemaExtensionResult => {
-  return {} as any;
-};
+// de_CancelSchemaExtensionResult omitted.
 
 /**
  * deserializeAws_json1_1Certificate
  */
 const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
-  return {
-    CertificateId: __expectString(output.CertificateId),
-    ClientCertAuthSettings:
-      output.ClientCertAuthSettings != null
-        ? de_ClientCertAuthSettings(output.ClientCertAuthSettings, context)
-        : undefined,
-    CommonName: __expectString(output.CommonName),
-    ExpiryDateTime:
-      output.ExpiryDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiryDateTime)))
-        : undefined,
-    RegisteredDateTime:
-      output.RegisteredDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RegisteredDateTime)))
-        : undefined,
-    State: __expectString(output.State),
-    StateReason: __expectString(output.StateReason),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CertificateId: __expectString,
+    ClientCertAuthSettings: _json,
+    CommonName: __expectString,
+    ExpiryDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RegisteredDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateReason: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CertificateAlreadyExistsException
- */
-const de_CertificateAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): CertificateAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_CertificateAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1CertificateDoesNotExistException
- */
-const de_CertificateDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): CertificateDoesNotExistException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_CertificateDoesNotExistException omitted.
 
 /**
  * deserializeAws_json1_1CertificateInfo
  */
 const de_CertificateInfo = (output: any, context: __SerdeContext): CertificateInfo => {
-  return {
-    CertificateId: __expectString(output.CertificateId),
-    CommonName: __expectString(output.CommonName),
-    ExpiryDateTime:
-      output.ExpiryDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiryDateTime)))
-        : undefined,
-    State: __expectString(output.State),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CertificateId: __expectString,
+    CommonName: __expectString,
+    ExpiryDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CertificateInUseException
- */
-const de_CertificateInUseException = (output: any, context: __SerdeContext): CertificateInUseException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_CertificateInUseException omitted.
 
-/**
- * deserializeAws_json1_1CertificateLimitExceededException
- */
-const de_CertificateLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): CertificateLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_CertificateLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1CertificatesInfo
@@ -7159,9 +6044,6 @@ const de_CertificatesInfo = (output: any, context: __SerdeContext): CertificateI
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CertificateInfo(entry, context);
     });
   return retVal;
@@ -7171,14 +6053,11 @@ const de_CertificatesInfo = (output: any, context: __SerdeContext): CertificateI
  * deserializeAws_json1_1ClientAuthenticationSettingInfo
  */
 const de_ClientAuthenticationSettingInfo = (output: any, context: __SerdeContext): ClientAuthenticationSettingInfo => {
-  return {
-    LastUpdatedDateTime:
-      output.LastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
-        : undefined,
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -7191,217 +6070,60 @@ const de_ClientAuthenticationSettingsInfo = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ClientAuthenticationSettingInfo(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ClientCertAuthSettings
- */
-const de_ClientCertAuthSettings = (output: any, context: __SerdeContext): ClientCertAuthSettings => {
-  return {
-    OCSPUrl: __expectString(output.OCSPUrl),
-  } as any;
-};
+// de_ClientCertAuthSettings omitted.
 
-/**
- * deserializeAws_json1_1ClientException
- */
-const de_ClientException = (output: any, context: __SerdeContext): ClientException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_ClientException omitted.
 
-/**
- * deserializeAws_json1_1Computer
- */
-const de_Computer = (output: any, context: __SerdeContext): Computer => {
-  return {
-    ComputerAttributes:
-      output.ComputerAttributes != null ? de_Attributes(output.ComputerAttributes, context) : undefined,
-    ComputerId: __expectString(output.ComputerId),
-    ComputerName: __expectString(output.ComputerName),
-  } as any;
-};
+// de_Computer omitted.
 
-/**
- * deserializeAws_json1_1ConditionalForwarder
- */
-const de_ConditionalForwarder = (output: any, context: __SerdeContext): ConditionalForwarder => {
-  return {
-    DnsIpAddrs: output.DnsIpAddrs != null ? de_DnsIpAddrs(output.DnsIpAddrs, context) : undefined,
-    RemoteDomainName: __expectString(output.RemoteDomainName),
-    ReplicationScope: __expectString(output.ReplicationScope),
-  } as any;
-};
+// de_ConditionalForwarder omitted.
 
-/**
- * deserializeAws_json1_1ConditionalForwarders
- */
-const de_ConditionalForwarders = (output: any, context: __SerdeContext): ConditionalForwarder[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConditionalForwarder(entry, context);
-    });
-  return retVal;
-};
+// de_ConditionalForwarders omitted.
 
-/**
- * deserializeAws_json1_1ConnectDirectoryResult
- */
-const de_ConnectDirectoryResult = (output: any, context: __SerdeContext): ConnectDirectoryResult => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-  } as any;
-};
+// de_ConnectDirectoryResult omitted.
 
-/**
- * deserializeAws_json1_1CreateAliasResult
- */
-const de_CreateAliasResult = (output: any, context: __SerdeContext): CreateAliasResult => {
-  return {
-    Alias: __expectString(output.Alias),
-    DirectoryId: __expectString(output.DirectoryId),
-  } as any;
-};
+// de_CreateAliasResult omitted.
 
-/**
- * deserializeAws_json1_1CreateComputerResult
- */
-const de_CreateComputerResult = (output: any, context: __SerdeContext): CreateComputerResult => {
-  return {
-    Computer: output.Computer != null ? de_Computer(output.Computer, context) : undefined,
-  } as any;
-};
+// de_CreateComputerResult omitted.
 
-/**
- * deserializeAws_json1_1CreateConditionalForwarderResult
- */
-const de_CreateConditionalForwarderResult = (
-  output: any,
-  context: __SerdeContext
-): CreateConditionalForwarderResult => {
-  return {} as any;
-};
+// de_CreateConditionalForwarderResult omitted.
 
-/**
- * deserializeAws_json1_1CreateDirectoryResult
- */
-const de_CreateDirectoryResult = (output: any, context: __SerdeContext): CreateDirectoryResult => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-  } as any;
-};
+// de_CreateDirectoryResult omitted.
 
-/**
- * deserializeAws_json1_1CreateLogSubscriptionResult
- */
-const de_CreateLogSubscriptionResult = (output: any, context: __SerdeContext): CreateLogSubscriptionResult => {
-  return {} as any;
-};
+// de_CreateLogSubscriptionResult omitted.
 
-/**
- * deserializeAws_json1_1CreateMicrosoftADResult
- */
-const de_CreateMicrosoftADResult = (output: any, context: __SerdeContext): CreateMicrosoftADResult => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-  } as any;
-};
+// de_CreateMicrosoftADResult omitted.
 
-/**
- * deserializeAws_json1_1CreateSnapshotResult
- */
-const de_CreateSnapshotResult = (output: any, context: __SerdeContext): CreateSnapshotResult => {
-  return {
-    SnapshotId: __expectString(output.SnapshotId),
-  } as any;
-};
+// de_CreateSnapshotResult omitted.
 
-/**
- * deserializeAws_json1_1CreateTrustResult
- */
-const de_CreateTrustResult = (output: any, context: __SerdeContext): CreateTrustResult => {
-  return {
-    TrustId: __expectString(output.TrustId),
-  } as any;
-};
+// de_CreateTrustResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteConditionalForwarderResult
- */
-const de_DeleteConditionalForwarderResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteConditionalForwarderResult => {
-  return {} as any;
-};
+// de_DeleteConditionalForwarderResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteDirectoryResult
- */
-const de_DeleteDirectoryResult = (output: any, context: __SerdeContext): DeleteDirectoryResult => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-  } as any;
-};
+// de_DeleteDirectoryResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteLogSubscriptionResult
- */
-const de_DeleteLogSubscriptionResult = (output: any, context: __SerdeContext): DeleteLogSubscriptionResult => {
-  return {} as any;
-};
+// de_DeleteLogSubscriptionResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteSnapshotResult
- */
-const de_DeleteSnapshotResult = (output: any, context: __SerdeContext): DeleteSnapshotResult => {
-  return {
-    SnapshotId: __expectString(output.SnapshotId),
-  } as any;
-};
+// de_DeleteSnapshotResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteTrustResult
- */
-const de_DeleteTrustResult = (output: any, context: __SerdeContext): DeleteTrustResult => {
-  return {
-    TrustId: __expectString(output.TrustId),
-  } as any;
-};
+// de_DeleteTrustResult omitted.
 
-/**
- * deserializeAws_json1_1DeregisterCertificateResult
- */
-const de_DeregisterCertificateResult = (output: any, context: __SerdeContext): DeregisterCertificateResult => {
-  return {} as any;
-};
+// de_DeregisterCertificateResult omitted.
 
-/**
- * deserializeAws_json1_1DeregisterEventTopicResult
- */
-const de_DeregisterEventTopicResult = (output: any, context: __SerdeContext): DeregisterEventTopicResult => {
-  return {} as any;
-};
+// de_DeregisterEventTopicResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeCertificateResult
  */
 const de_DescribeCertificateResult = (output: any, context: __SerdeContext): DescribeCertificateResult => {
-  return {
-    Certificate: output.Certificate != null ? de_Certificate(output.Certificate, context) : undefined,
-  } as any;
+  return take(output, {
+    Certificate: (_: any) => de_Certificate(_, context),
+  }) as any;
 };
 
 /**
@@ -7411,241 +6133,154 @@ const de_DescribeClientAuthenticationSettingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientAuthenticationSettingsResult => {
-  return {
-    ClientAuthenticationSettingsInfo:
-      output.ClientAuthenticationSettingsInfo != null
-        ? de_ClientAuthenticationSettingsInfo(output.ClientAuthenticationSettingsInfo, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ClientAuthenticationSettingsInfo: (_: any) => de_ClientAuthenticationSettingsInfo(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeConditionalForwardersResult
- */
-const de_DescribeConditionalForwardersResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeConditionalForwardersResult => {
-  return {
-    ConditionalForwarders:
-      output.ConditionalForwarders != null
-        ? de_ConditionalForwarders(output.ConditionalForwarders, context)
-        : undefined,
-  } as any;
-};
+// de_DescribeConditionalForwardersResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeDirectoriesResult
  */
 const de_DescribeDirectoriesResult = (output: any, context: __SerdeContext): DescribeDirectoriesResult => {
-  return {
-    DirectoryDescriptions:
-      output.DirectoryDescriptions != null
-        ? de_DirectoryDescriptions(output.DirectoryDescriptions, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DirectoryDescriptions: (_: any) => de_DirectoryDescriptions(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeDomainControllersResult
  */
 const de_DescribeDomainControllersResult = (output: any, context: __SerdeContext): DescribeDomainControllersResult => {
-  return {
-    DomainControllers:
-      output.DomainControllers != null ? de_DomainControllers(output.DomainControllers, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DomainControllers: (_: any) => de_DomainControllers(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeEventTopicsResult
  */
 const de_DescribeEventTopicsResult = (output: any, context: __SerdeContext): DescribeEventTopicsResult => {
-  return {
-    EventTopics: output.EventTopics != null ? de_EventTopics(output.EventTopics, context) : undefined,
-  } as any;
+  return take(output, {
+    EventTopics: (_: any) => de_EventTopics(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeLDAPSSettingsResult
  */
 const de_DescribeLDAPSSettingsResult = (output: any, context: __SerdeContext): DescribeLDAPSSettingsResult => {
-  return {
-    LDAPSSettingsInfo:
-      output.LDAPSSettingsInfo != null ? de_LDAPSSettingsInfo(output.LDAPSSettingsInfo, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LDAPSSettingsInfo: (_: any) => de_LDAPSSettingsInfo(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeRegionsResult
  */
 const de_DescribeRegionsResult = (output: any, context: __SerdeContext): DescribeRegionsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RegionsDescription:
-      output.RegionsDescription != null ? de_RegionsDescription(output.RegionsDescription, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    RegionsDescription: (_: any) => de_RegionsDescription(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeSettingsResult
  */
 const de_DescribeSettingsResult = (output: any, context: __SerdeContext): DescribeSettingsResult => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-    NextToken: __expectString(output.NextToken),
-    SettingEntries: output.SettingEntries != null ? de_SettingEntries(output.SettingEntries, context) : undefined,
-  } as any;
+  return take(output, {
+    DirectoryId: __expectString,
+    NextToken: __expectString,
+    SettingEntries: (_: any) => de_SettingEntries(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeSharedDirectoriesResult
  */
 const de_DescribeSharedDirectoriesResult = (output: any, context: __SerdeContext): DescribeSharedDirectoriesResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SharedDirectories:
-      output.SharedDirectories != null ? de_SharedDirectories(output.SharedDirectories, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    SharedDirectories: (_: any) => de_SharedDirectories(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeSnapshotsResult
  */
 const de_DescribeSnapshotsResult = (output: any, context: __SerdeContext): DescribeSnapshotsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Snapshots: output.Snapshots != null ? de_Snapshots(output.Snapshots, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Snapshots: (_: any) => de_Snapshots(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeTrustsResult
  */
 const de_DescribeTrustsResult = (output: any, context: __SerdeContext): DescribeTrustsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Trusts: output.Trusts != null ? de_Trusts(output.Trusts, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Trusts: (_: any) => de_Trusts(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeUpdateDirectoryResult
  */
 const de_DescribeUpdateDirectoryResult = (output: any, context: __SerdeContext): DescribeUpdateDirectoryResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    UpdateActivities:
-      output.UpdateActivities != null ? de_UpdateActivities(output.UpdateActivities, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    UpdateActivities: (_: any) => de_UpdateActivities(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DirectoryAlreadyInRegionException
- */
-const de_DirectoryAlreadyInRegionException = (
-  output: any,
-  context: __SerdeContext
-): DirectoryAlreadyInRegionException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_DirectoryAlreadyInRegionException omitted.
 
-/**
- * deserializeAws_json1_1DirectoryAlreadySharedException
- */
-const de_DirectoryAlreadySharedException = (output: any, context: __SerdeContext): DirectoryAlreadySharedException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_DirectoryAlreadySharedException omitted.
 
-/**
- * deserializeAws_json1_1DirectoryConfigurationSettingRequestDetailedStatus
- */
-const de_DirectoryConfigurationSettingRequestDetailedStatus = (
-  output: any,
-  context: __SerdeContext
-): Record<string, DirectoryConfigurationStatus | string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, DirectoryConfigurationStatus | string>, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_DirectoryConfigurationSettingRequestDetailedStatus omitted.
 
-/**
- * deserializeAws_json1_1DirectoryConnectSettingsDescription
- */
-const de_DirectoryConnectSettingsDescription = (
-  output: any,
-  context: __SerdeContext
-): DirectoryConnectSettingsDescription => {
-  return {
-    AvailabilityZones:
-      output.AvailabilityZones != null ? de_AvailabilityZones(output.AvailabilityZones, context) : undefined,
-    ConnectIps: output.ConnectIps != null ? de_IpAddrs(output.ConnectIps, context) : undefined,
-    CustomerUserName: __expectString(output.CustomerUserName),
-    SecurityGroupId: __expectString(output.SecurityGroupId),
-    SubnetIds: output.SubnetIds != null ? de_SubnetIds(output.SubnetIds, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_DirectoryConnectSettingsDescription omitted.
 
 /**
  * deserializeAws_json1_1DirectoryDescription
  */
 const de_DirectoryDescription = (output: any, context: __SerdeContext): DirectoryDescription => {
-  return {
-    AccessUrl: __expectString(output.AccessUrl),
-    Alias: __expectString(output.Alias),
-    ConnectSettings:
-      output.ConnectSettings != null
-        ? de_DirectoryConnectSettingsDescription(output.ConnectSettings, context)
-        : undefined,
-    Description: __expectString(output.Description),
-    DesiredNumberOfDomainControllers: __expectInt32(output.DesiredNumberOfDomainControllers),
-    DirectoryId: __expectString(output.DirectoryId),
-    DnsIpAddrs: output.DnsIpAddrs != null ? de_DnsIpAddrs(output.DnsIpAddrs, context) : undefined,
-    Edition: __expectString(output.Edition),
-    LaunchTime:
-      output.LaunchTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime))) : undefined,
-    Name: __expectString(output.Name),
-    OsVersion: __expectString(output.OsVersion),
-    OwnerDirectoryDescription:
-      output.OwnerDirectoryDescription != null
-        ? de_OwnerDirectoryDescription(output.OwnerDirectoryDescription, context)
-        : undefined,
-    RadiusSettings: output.RadiusSettings != null ? de_RadiusSettings(output.RadiusSettings, context) : undefined,
-    RadiusStatus: __expectString(output.RadiusStatus),
-    RegionsInfo: output.RegionsInfo != null ? de_RegionsInfo(output.RegionsInfo, context) : undefined,
-    ShareMethod: __expectString(output.ShareMethod),
-    ShareNotes: __expectString(output.ShareNotes),
-    ShareStatus: __expectString(output.ShareStatus),
-    ShortName: __expectString(output.ShortName),
-    Size: __expectString(output.Size),
-    SsoEnabled: __expectBoolean(output.SsoEnabled),
-    Stage: __expectString(output.Stage),
-    StageLastUpdatedDateTime:
-      output.StageLastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StageLastUpdatedDateTime)))
-        : undefined,
-    StageReason: __expectString(output.StageReason),
-    Type: __expectString(output.Type),
-    VpcSettings:
-      output.VpcSettings != null ? de_DirectoryVpcSettingsDescription(output.VpcSettings, context) : undefined,
-  } as any;
+  return take(output, {
+    AccessUrl: __expectString,
+    Alias: __expectString,
+    ConnectSettings: _json,
+    Description: __expectString,
+    DesiredNumberOfDomainControllers: __expectInt32,
+    DirectoryId: __expectString,
+    DnsIpAddrs: _json,
+    Edition: __expectString,
+    LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    OsVersion: __expectString,
+    OwnerDirectoryDescription: _json,
+    RadiusSettings: _json,
+    RadiusStatus: __expectString,
+    RegionsInfo: _json,
+    ShareMethod: __expectString,
+    ShareNotes: __expectString,
+    ShareStatus: __expectString,
+    ShortName: __expectString,
+    Size: __expectString,
+    SsoEnabled: __expectBoolean,
+    Stage: __expectString,
+    StageLastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StageReason: __expectString,
+    Type: __expectString,
+    VpcSettings: _json,
+  }) as any;
 };
 
 /**
@@ -7655,187 +6290,56 @@ const de_DirectoryDescriptions = (output: any, context: __SerdeContext): Directo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DirectoryDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DirectoryDoesNotExistException
- */
-const de_DirectoryDoesNotExistException = (output: any, context: __SerdeContext): DirectoryDoesNotExistException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_DirectoryDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1DirectoryInDesiredStateException
- */
-const de_DirectoryInDesiredStateException = (
-  output: any,
-  context: __SerdeContext
-): DirectoryInDesiredStateException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_DirectoryInDesiredStateException omitted.
 
-/**
- * deserializeAws_json1_1DirectoryLimitExceededException
- */
-const de_DirectoryLimitExceededException = (output: any, context: __SerdeContext): DirectoryLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_DirectoryLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1DirectoryLimits
- */
-const de_DirectoryLimits = (output: any, context: __SerdeContext): DirectoryLimits => {
-  return {
-    CloudOnlyDirectoriesCurrentCount: __expectInt32(output.CloudOnlyDirectoriesCurrentCount),
-    CloudOnlyDirectoriesLimit: __expectInt32(output.CloudOnlyDirectoriesLimit),
-    CloudOnlyDirectoriesLimitReached: __expectBoolean(output.CloudOnlyDirectoriesLimitReached),
-    CloudOnlyMicrosoftADCurrentCount: __expectInt32(output.CloudOnlyMicrosoftADCurrentCount),
-    CloudOnlyMicrosoftADLimit: __expectInt32(output.CloudOnlyMicrosoftADLimit),
-    CloudOnlyMicrosoftADLimitReached: __expectBoolean(output.CloudOnlyMicrosoftADLimitReached),
-    ConnectedDirectoriesCurrentCount: __expectInt32(output.ConnectedDirectoriesCurrentCount),
-    ConnectedDirectoriesLimit: __expectInt32(output.ConnectedDirectoriesLimit),
-    ConnectedDirectoriesLimitReached: __expectBoolean(output.ConnectedDirectoriesLimitReached),
-  } as any;
-};
+// de_DirectoryLimits omitted.
 
-/**
- * deserializeAws_json1_1DirectoryNotSharedException
- */
-const de_DirectoryNotSharedException = (output: any, context: __SerdeContext): DirectoryNotSharedException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_DirectoryNotSharedException omitted.
 
-/**
- * deserializeAws_json1_1DirectoryUnavailableException
- */
-const de_DirectoryUnavailableException = (output: any, context: __SerdeContext): DirectoryUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_DirectoryUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1DirectoryVpcSettings
- */
-const de_DirectoryVpcSettings = (output: any, context: __SerdeContext): DirectoryVpcSettings => {
-  return {
-    SubnetIds: output.SubnetIds != null ? de_SubnetIds(output.SubnetIds, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_DirectoryVpcSettings omitted.
 
-/**
- * deserializeAws_json1_1DirectoryVpcSettingsDescription
- */
-const de_DirectoryVpcSettingsDescription = (output: any, context: __SerdeContext): DirectoryVpcSettingsDescription => {
-  return {
-    AvailabilityZones:
-      output.AvailabilityZones != null ? de_AvailabilityZones(output.AvailabilityZones, context) : undefined,
-    SecurityGroupId: __expectString(output.SecurityGroupId),
-    SubnetIds: output.SubnetIds != null ? de_SubnetIds(output.SubnetIds, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_DirectoryVpcSettingsDescription omitted.
 
-/**
- * deserializeAws_json1_1DisableClientAuthenticationResult
- */
-const de_DisableClientAuthenticationResult = (
-  output: any,
-  context: __SerdeContext
-): DisableClientAuthenticationResult => {
-  return {} as any;
-};
+// de_DisableClientAuthenticationResult omitted.
 
-/**
- * deserializeAws_json1_1DisableLDAPSResult
- */
-const de_DisableLDAPSResult = (output: any, context: __SerdeContext): DisableLDAPSResult => {
-  return {} as any;
-};
+// de_DisableLDAPSResult omitted.
 
-/**
- * deserializeAws_json1_1DisableRadiusResult
- */
-const de_DisableRadiusResult = (output: any, context: __SerdeContext): DisableRadiusResult => {
-  return {} as any;
-};
+// de_DisableRadiusResult omitted.
 
-/**
- * deserializeAws_json1_1DisableSsoResult
- */
-const de_DisableSsoResult = (output: any, context: __SerdeContext): DisableSsoResult => {
-  return {} as any;
-};
+// de_DisableSsoResult omitted.
 
-/**
- * deserializeAws_json1_1DnsIpAddrs
- */
-const de_DnsIpAddrs = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DnsIpAddrs omitted.
 
 /**
  * deserializeAws_json1_1DomainController
  */
 const de_DomainController = (output: any, context: __SerdeContext): DomainController => {
-  return {
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    DirectoryId: __expectString(output.DirectoryId),
-    DnsIpAddr: __expectString(output.DnsIpAddr),
-    DomainControllerId: __expectString(output.DomainControllerId),
-    LaunchTime:
-      output.LaunchTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime))) : undefined,
-    Status: __expectString(output.Status),
-    StatusLastUpdatedDateTime:
-      output.StatusLastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StatusLastUpdatedDateTime)))
-        : undefined,
-    StatusReason: __expectString(output.StatusReason),
-    SubnetId: __expectString(output.SubnetId),
-    VpcId: __expectString(output.VpcId),
-  } as any;
+  return take(output, {
+    AvailabilityZone: __expectString,
+    DirectoryId: __expectString,
+    DnsIpAddr: __expectString,
+    DomainControllerId: __expectString,
+    LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusLastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StatusReason: __expectString,
+    SubnetId: __expectString,
+    VpcId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DomainControllerLimitExceededException
- */
-const de_DomainControllerLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): DomainControllerLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_DomainControllerLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1DomainControllers
@@ -7844,79 +6348,34 @@ const de_DomainControllers = (output: any, context: __SerdeContext): DomainContr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainController(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1EnableClientAuthenticationResult
- */
-const de_EnableClientAuthenticationResult = (
-  output: any,
-  context: __SerdeContext
-): EnableClientAuthenticationResult => {
-  return {} as any;
-};
+// de_EnableClientAuthenticationResult omitted.
 
-/**
- * deserializeAws_json1_1EnableLDAPSResult
- */
-const de_EnableLDAPSResult = (output: any, context: __SerdeContext): EnableLDAPSResult => {
-  return {} as any;
-};
+// de_EnableLDAPSResult omitted.
 
-/**
- * deserializeAws_json1_1EnableRadiusResult
- */
-const de_EnableRadiusResult = (output: any, context: __SerdeContext): EnableRadiusResult => {
-  return {} as any;
-};
+// de_EnableRadiusResult omitted.
 
-/**
- * deserializeAws_json1_1EnableSsoResult
- */
-const de_EnableSsoResult = (output: any, context: __SerdeContext): EnableSsoResult => {
-  return {} as any;
-};
+// de_EnableSsoResult omitted.
 
-/**
- * deserializeAws_json1_1EntityAlreadyExistsException
- */
-const de_EntityAlreadyExistsException = (output: any, context: __SerdeContext): EntityAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_EntityAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1EntityDoesNotExistException
- */
-const de_EntityDoesNotExistException = (output: any, context: __SerdeContext): EntityDoesNotExistException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_EntityDoesNotExistException omitted.
 
 /**
  * deserializeAws_json1_1EventTopic
  */
 const de_EventTopic = (output: any, context: __SerdeContext): EventTopic => {
-  return {
-    CreatedDateTime:
-      output.CreatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDateTime)))
-        : undefined,
-    DirectoryId: __expectString(output.DirectoryId),
-    Status: __expectString(output.Status),
-    TopicArn: __expectString(output.TopicArn),
-    TopicName: __expectString(output.TopicName),
-  } as any;
+  return take(output, {
+    CreatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DirectoryId: __expectString,
+    Status: __expectString,
+    TopicArn: __expectString,
+    TopicName: __expectString,
+  }) as any;
 };
 
 /**
@@ -7926,169 +6385,50 @@ const de_EventTopics = (output: any, context: __SerdeContext): EventTopic[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EventTopic(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1GetDirectoryLimitsResult
- */
-const de_GetDirectoryLimitsResult = (output: any, context: __SerdeContext): GetDirectoryLimitsResult => {
-  return {
-    DirectoryLimits: output.DirectoryLimits != null ? de_DirectoryLimits(output.DirectoryLimits, context) : undefined,
-  } as any;
-};
+// de_GetDirectoryLimitsResult omitted.
 
-/**
- * deserializeAws_json1_1GetSnapshotLimitsResult
- */
-const de_GetSnapshotLimitsResult = (output: any, context: __SerdeContext): GetSnapshotLimitsResult => {
-  return {
-    SnapshotLimits: output.SnapshotLimits != null ? de_SnapshotLimits(output.SnapshotLimits, context) : undefined,
-  } as any;
-};
+// de_GetSnapshotLimitsResult omitted.
 
-/**
- * deserializeAws_json1_1IncompatibleSettingsException
- */
-const de_IncompatibleSettingsException = (output: any, context: __SerdeContext): IncompatibleSettingsException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_IncompatibleSettingsException omitted.
 
-/**
- * deserializeAws_json1_1InsufficientPermissionsException
- */
-const de_InsufficientPermissionsException = (
-  output: any,
-  context: __SerdeContext
-): InsufficientPermissionsException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InsufficientPermissionsException omitted.
 
-/**
- * deserializeAws_json1_1InvalidCertificateException
- */
-const de_InvalidCertificateException = (output: any, context: __SerdeContext): InvalidCertificateException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InvalidCertificateException omitted.
 
-/**
- * deserializeAws_json1_1InvalidClientAuthStatusException
- */
-const de_InvalidClientAuthStatusException = (
-  output: any,
-  context: __SerdeContext
-): InvalidClientAuthStatusException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InvalidClientAuthStatusException omitted.
 
-/**
- * deserializeAws_json1_1InvalidLDAPSStatusException
- */
-const de_InvalidLDAPSStatusException = (output: any, context: __SerdeContext): InvalidLDAPSStatusException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InvalidLDAPSStatusException omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPasswordException
- */
-const de_InvalidPasswordException = (output: any, context: __SerdeContext): InvalidPasswordException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InvalidPasswordException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTargetException
- */
-const de_InvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InvalidTargetException omitted.
 
-/**
- * deserializeAws_json1_1IpAddrs
- */
-const de_IpAddrs = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IpAddrs omitted.
 
 /**
  * deserializeAws_json1_1IpRouteInfo
  */
 const de_IpRouteInfo = (output: any, context: __SerdeContext): IpRouteInfo => {
-  return {
-    AddedDateTime:
-      output.AddedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AddedDateTime)))
-        : undefined,
-    CidrIp: __expectString(output.CidrIp),
-    Description: __expectString(output.Description),
-    DirectoryId: __expectString(output.DirectoryId),
-    IpRouteStatusMsg: __expectString(output.IpRouteStatusMsg),
-    IpRouteStatusReason: __expectString(output.IpRouteStatusReason),
-  } as any;
+  return take(output, {
+    AddedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CidrIp: __expectString,
+    Description: __expectString,
+    DirectoryId: __expectString,
+    IpRouteStatusMsg: __expectString,
+    IpRouteStatusReason: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1IpRouteLimitExceededException
- */
-const de_IpRouteLimitExceededException = (output: any, context: __SerdeContext): IpRouteLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_IpRouteLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1IpRoutesInfo
@@ -8097,9 +6437,6 @@ const de_IpRoutesInfo = (output: any, context: __SerdeContext): IpRouteInfo[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_IpRouteInfo(entry, context);
     });
   return retVal;
@@ -8109,14 +6446,11 @@ const de_IpRoutesInfo = (output: any, context: __SerdeContext): IpRouteInfo[] =>
  * deserializeAws_json1_1LDAPSSettingInfo
  */
 const de_LDAPSSettingInfo = (output: any, context: __SerdeContext): LDAPSSettingInfo => {
-  return {
-    LDAPSStatus: __expectString(output.LDAPSStatus),
-    LDAPSStatusReason: __expectString(output.LDAPSStatusReason),
-    LastUpdatedDateTime:
-      output.LastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    LDAPSStatus: __expectString,
+    LDAPSStatusReason: __expectString,
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -8126,9 +6460,6 @@ const de_LDAPSSettingsInfo = (output: any, context: __SerdeContext): LDAPSSettin
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LDAPSSettingInfo(entry, context);
     });
   return retVal;
@@ -8138,67 +6469,53 @@ const de_LDAPSSettingsInfo = (output: any, context: __SerdeContext): LDAPSSettin
  * deserializeAws_json1_1ListCertificatesResult
  */
 const de_ListCertificatesResult = (output: any, context: __SerdeContext): ListCertificatesResult => {
-  return {
-    CertificatesInfo:
-      output.CertificatesInfo != null ? de_CertificatesInfo(output.CertificatesInfo, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    CertificatesInfo: (_: any) => de_CertificatesInfo(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListIpRoutesResult
  */
 const de_ListIpRoutesResult = (output: any, context: __SerdeContext): ListIpRoutesResult => {
-  return {
-    IpRoutesInfo: output.IpRoutesInfo != null ? de_IpRoutesInfo(output.IpRoutesInfo, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    IpRoutesInfo: (_: any) => de_IpRoutesInfo(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListLogSubscriptionsResult
  */
 const de_ListLogSubscriptionsResult = (output: any, context: __SerdeContext): ListLogSubscriptionsResult => {
-  return {
-    LogSubscriptions:
-      output.LogSubscriptions != null ? de_LogSubscriptions(output.LogSubscriptions, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LogSubscriptions: (_: any) => de_LogSubscriptions(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListSchemaExtensionsResult
  */
 const de_ListSchemaExtensionsResult = (output: any, context: __SerdeContext): ListSchemaExtensionsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SchemaExtensionsInfo:
-      output.SchemaExtensionsInfo != null ? de_SchemaExtensionsInfo(output.SchemaExtensionsInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    SchemaExtensionsInfo: (_: any) => de_SchemaExtensionsInfo(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResult
- */
-const de_ListTagsForResourceResult = (output: any, context: __SerdeContext): ListTagsForResourceResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResult omitted.
 
 /**
  * deserializeAws_json1_1LogSubscription
  */
 const de_LogSubscription = (output: any, context: __SerdeContext): LogSubscription => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-    LogGroupName: __expectString(output.LogGroupName),
-    SubscriptionCreatedDateTime:
-      output.SubscriptionCreatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubscriptionCreatedDateTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    DirectoryId: __expectString,
+    LogGroupName: __expectString,
+    SubscriptionCreatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -8208,107 +6525,39 @@ const de_LogSubscriptions = (output: any, context: __SerdeContext): LogSubscript
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LogSubscription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1NoAvailableCertificateException
- */
-const de_NoAvailableCertificateException = (output: any, context: __SerdeContext): NoAvailableCertificateException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_NoAvailableCertificateException omitted.
 
-/**
- * deserializeAws_json1_1OrganizationsException
- */
-const de_OrganizationsException = (output: any, context: __SerdeContext): OrganizationsException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_OrganizationsException omitted.
 
-/**
- * deserializeAws_json1_1OSUpdateSettings
- */
-const de_OSUpdateSettings = (output: any, context: __SerdeContext): OSUpdateSettings => {
-  return {
-    OSVersion: __expectString(output.OSVersion),
-  } as any;
-};
+// de_OSUpdateSettings omitted.
 
-/**
- * deserializeAws_json1_1OwnerDirectoryDescription
- */
-const de_OwnerDirectoryDescription = (output: any, context: __SerdeContext): OwnerDirectoryDescription => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    DirectoryId: __expectString(output.DirectoryId),
-    DnsIpAddrs: output.DnsIpAddrs != null ? de_DnsIpAddrs(output.DnsIpAddrs, context) : undefined,
-    RadiusSettings: output.RadiusSettings != null ? de_RadiusSettings(output.RadiusSettings, context) : undefined,
-    RadiusStatus: __expectString(output.RadiusStatus),
-    VpcSettings:
-      output.VpcSettings != null ? de_DirectoryVpcSettingsDescription(output.VpcSettings, context) : undefined,
-  } as any;
-};
+// de_OwnerDirectoryDescription omitted.
 
-/**
- * deserializeAws_json1_1RadiusSettings
- */
-const de_RadiusSettings = (output: any, context: __SerdeContext): RadiusSettings => {
-  return {
-    AuthenticationProtocol: __expectString(output.AuthenticationProtocol),
-    DisplayLabel: __expectString(output.DisplayLabel),
-    RadiusPort: __expectInt32(output.RadiusPort),
-    RadiusRetries: __expectInt32(output.RadiusRetries),
-    RadiusServers: output.RadiusServers != null ? de_Servers(output.RadiusServers, context) : undefined,
-    RadiusTimeout: __expectInt32(output.RadiusTimeout),
-    SharedSecret: __expectString(output.SharedSecret),
-    UseSameUsername: __expectBoolean(output.UseSameUsername),
-  } as any;
-};
+// de_RadiusSettings omitted.
 
 /**
  * deserializeAws_json1_1RegionDescription
  */
 const de_RegionDescription = (output: any, context: __SerdeContext): RegionDescription => {
-  return {
-    DesiredNumberOfDomainControllers: __expectInt32(output.DesiredNumberOfDomainControllers),
-    DirectoryId: __expectString(output.DirectoryId),
-    LastUpdatedDateTime:
-      output.LastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
-        : undefined,
-    LaunchTime:
-      output.LaunchTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime))) : undefined,
-    RegionName: __expectString(output.RegionName),
-    RegionType: __expectString(output.RegionType),
-    Status: __expectString(output.Status),
-    StatusLastUpdatedDateTime:
-      output.StatusLastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StatusLastUpdatedDateTime)))
-        : undefined,
-    VpcSettings: output.VpcSettings != null ? de_DirectoryVpcSettings(output.VpcSettings, context) : undefined,
-  } as any;
+  return take(output, {
+    DesiredNumberOfDomainControllers: __expectInt32,
+    DirectoryId: __expectString,
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RegionName: __expectString,
+    RegionType: __expectString,
+    Status: __expectString,
+    StatusLastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VpcSettings: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RegionLimitExceededException
- */
-const de_RegionLimitExceededException = (output: any, context: __SerdeContext): RegionLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_RegionLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1RegionsDescription
@@ -8317,104 +6566,42 @@ const de_RegionsDescription = (output: any, context: __SerdeContext): RegionDesc
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RegionDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1RegionsInfo
- */
-const de_RegionsInfo = (output: any, context: __SerdeContext): RegionsInfo => {
-  return {
-    AdditionalRegions:
-      output.AdditionalRegions != null ? de_AdditionalRegions(output.AdditionalRegions, context) : undefined,
-    PrimaryRegion: __expectString(output.PrimaryRegion),
-  } as any;
-};
+// de_RegionsInfo omitted.
 
-/**
- * deserializeAws_json1_1RegisterCertificateResult
- */
-const de_RegisterCertificateResult = (output: any, context: __SerdeContext): RegisterCertificateResult => {
-  return {
-    CertificateId: __expectString(output.CertificateId),
-  } as any;
-};
+// de_RegisterCertificateResult omitted.
 
-/**
- * deserializeAws_json1_1RegisterEventTopicResult
- */
-const de_RegisterEventTopicResult = (output: any, context: __SerdeContext): RegisterEventTopicResult => {
-  return {} as any;
-};
+// de_RegisterEventTopicResult omitted.
 
-/**
- * deserializeAws_json1_1RejectSharedDirectoryResult
- */
-const de_RejectSharedDirectoryResult = (output: any, context: __SerdeContext): RejectSharedDirectoryResult => {
-  return {
-    SharedDirectoryId: __expectString(output.SharedDirectoryId),
-  } as any;
-};
+// de_RejectSharedDirectoryResult omitted.
 
-/**
- * deserializeAws_json1_1RemoveIpRoutesResult
- */
-const de_RemoveIpRoutesResult = (output: any, context: __SerdeContext): RemoveIpRoutesResult => {
-  return {} as any;
-};
+// de_RemoveIpRoutesResult omitted.
 
-/**
- * deserializeAws_json1_1RemoveRegionResult
- */
-const de_RemoveRegionResult = (output: any, context: __SerdeContext): RemoveRegionResult => {
-  return {} as any;
-};
+// de_RemoveRegionResult omitted.
 
-/**
- * deserializeAws_json1_1RemoveTagsFromResourceResult
- */
-const de_RemoveTagsFromResourceResult = (output: any, context: __SerdeContext): RemoveTagsFromResourceResult => {
-  return {} as any;
-};
+// de_RemoveTagsFromResourceResult omitted.
 
-/**
- * deserializeAws_json1_1ResetUserPasswordResult
- */
-const de_ResetUserPasswordResult = (output: any, context: __SerdeContext): ResetUserPasswordResult => {
-  return {} as any;
-};
+// de_ResetUserPasswordResult omitted.
 
-/**
- * deserializeAws_json1_1RestoreFromSnapshotResult
- */
-const de_RestoreFromSnapshotResult = (output: any, context: __SerdeContext): RestoreFromSnapshotResult => {
-  return {} as any;
-};
+// de_RestoreFromSnapshotResult omitted.
 
 /**
  * deserializeAws_json1_1SchemaExtensionInfo
  */
 const de_SchemaExtensionInfo = (output: any, context: __SerdeContext): SchemaExtensionInfo => {
-  return {
-    Description: __expectString(output.Description),
-    DirectoryId: __expectString(output.DirectoryId),
-    EndDateTime:
-      output.EndDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndDateTime)))
-        : undefined,
-    SchemaExtensionId: __expectString(output.SchemaExtensionId),
-    SchemaExtensionStatus: __expectString(output.SchemaExtensionStatus),
-    SchemaExtensionStatusReason: __expectString(output.SchemaExtensionStatusReason),
-    StartDateTime:
-      output.StartDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDateTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    DirectoryId: __expectString,
+    EndDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SchemaExtensionId: __expectString,
+    SchemaExtensionStatus: __expectString,
+    SchemaExtensionStatusReason: __expectString,
+    StartDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -8424,38 +6611,14 @@ const de_SchemaExtensionsInfo = (output: any, context: __SerdeContext): SchemaEx
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SchemaExtensionInfo(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Servers
- */
-const de_Servers = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Servers omitted.
 
-/**
- * deserializeAws_json1_1ServiceException
- */
-const de_ServiceException = (output: any, context: __SerdeContext): ServiceException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_ServiceException omitted.
 
 /**
  * deserializeAws_json1_1SettingEntries
@@ -8464,9 +6627,6 @@ const de_SettingEntries = (output: any, context: __SerdeContext): SettingEntry[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SettingEntry(entry, context);
     });
   return retVal;
@@ -8476,27 +6636,18 @@ const de_SettingEntries = (output: any, context: __SerdeContext): SettingEntry[]
  * deserializeAws_json1_1SettingEntry
  */
 const de_SettingEntry = (output: any, context: __SerdeContext): SettingEntry => {
-  return {
-    AllowedValues: __expectString(output.AllowedValues),
-    AppliedValue: __expectString(output.AppliedValue),
-    LastRequestedDateTime:
-      output.LastRequestedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRequestedDateTime)))
-        : undefined,
-    LastUpdatedDateTime:
-      output.LastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    RequestDetailedStatus:
-      output.RequestDetailedStatus != null
-        ? de_DirectoryConfigurationSettingRequestDetailedStatus(output.RequestDetailedStatus, context)
-        : undefined,
-    RequestStatus: __expectString(output.RequestStatus),
-    RequestStatusMessage: __expectString(output.RequestStatusMessage),
-    RequestedValue: __expectString(output.RequestedValue),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    AllowedValues: __expectString,
+    AppliedValue: __expectString,
+    LastRequestedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    RequestDetailedStatus: _json,
+    RequestStatus: __expectString,
+    RequestStatusMessage: __expectString,
+    RequestedValue: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -8506,9 +6657,6 @@ const de_SharedDirectories = (output: any, context: __SerdeContext): SharedDirec
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SharedDirectory(entry, context);
     });
   return retVal;
@@ -8518,79 +6666,40 @@ const de_SharedDirectories = (output: any, context: __SerdeContext): SharedDirec
  * deserializeAws_json1_1SharedDirectory
  */
 const de_SharedDirectory = (output: any, context: __SerdeContext): SharedDirectory => {
-  return {
-    CreatedDateTime:
-      output.CreatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDateTime)))
-        : undefined,
-    LastUpdatedDateTime:
-      output.LastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
-        : undefined,
-    OwnerAccountId: __expectString(output.OwnerAccountId),
-    OwnerDirectoryId: __expectString(output.OwnerDirectoryId),
-    ShareMethod: __expectString(output.ShareMethod),
-    ShareNotes: __expectString(output.ShareNotes),
-    ShareStatus: __expectString(output.ShareStatus),
-    SharedAccountId: __expectString(output.SharedAccountId),
-    SharedDirectoryId: __expectString(output.SharedDirectoryId),
-  } as any;
+  return take(output, {
+    CreatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OwnerAccountId: __expectString,
+    OwnerDirectoryId: __expectString,
+    ShareMethod: __expectString,
+    ShareNotes: __expectString,
+    ShareStatus: __expectString,
+    SharedAccountId: __expectString,
+    SharedDirectoryId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ShareDirectoryResult
- */
-const de_ShareDirectoryResult = (output: any, context: __SerdeContext): ShareDirectoryResult => {
-  return {
-    SharedDirectoryId: __expectString(output.SharedDirectoryId),
-  } as any;
-};
+// de_ShareDirectoryResult omitted.
 
-/**
- * deserializeAws_json1_1ShareLimitExceededException
- */
-const de_ShareLimitExceededException = (output: any, context: __SerdeContext): ShareLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_ShareLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1Snapshot
  */
 const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-    Name: __expectString(output.Name),
-    SnapshotId: __expectString(output.SnapshotId),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    DirectoryId: __expectString,
+    Name: __expectString,
+    SnapshotId: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SnapshotLimitExceededException
- */
-const de_SnapshotLimitExceededException = (output: any, context: __SerdeContext): SnapshotLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_SnapshotLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1SnapshotLimits
- */
-const de_SnapshotLimits = (output: any, context: __SerdeContext): SnapshotLimits => {
-  return {
-    ManualSnapshotsCurrentCount: __expectInt32(output.ManualSnapshotsCurrentCount),
-    ManualSnapshotsLimit: __expectInt32(output.ManualSnapshotsLimit),
-    ManualSnapshotsLimitReached: __expectBoolean(output.ManualSnapshotsLimitReached),
-  } as any;
-};
+// de_SnapshotLimits omitted.
 
 /**
  * deserializeAws_json1_1Snapshots
@@ -8599,99 +6708,38 @@ const de_Snapshots = (output: any, context: __SerdeContext): Snapshot[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Snapshot(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1StartSchemaExtensionResult
- */
-const de_StartSchemaExtensionResult = (output: any, context: __SerdeContext): StartSchemaExtensionResult => {
-  return {
-    SchemaExtensionId: __expectString(output.SchemaExtensionId),
-  } as any;
-};
+// de_StartSchemaExtensionResult omitted.
 
-/**
- * deserializeAws_json1_1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagLimitExceededException
- */
-const de_TagLimitExceededException = (output: any, context: __SerdeContext): TagLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_TagLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
 /**
  * deserializeAws_json1_1Trust
  */
 const de_Trust = (output: any, context: __SerdeContext): Trust => {
-  return {
-    CreatedDateTime:
-      output.CreatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDateTime)))
-        : undefined,
-    DirectoryId: __expectString(output.DirectoryId),
-    LastUpdatedDateTime:
-      output.LastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
-        : undefined,
-    RemoteDomainName: __expectString(output.RemoteDomainName),
-    SelectiveAuth: __expectString(output.SelectiveAuth),
-    StateLastUpdatedDateTime:
-      output.StateLastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StateLastUpdatedDateTime)))
-        : undefined,
-    TrustDirection: __expectString(output.TrustDirection),
-    TrustId: __expectString(output.TrustId),
-    TrustState: __expectString(output.TrustState),
-    TrustStateReason: __expectString(output.TrustStateReason),
-    TrustType: __expectString(output.TrustType),
-  } as any;
+  return take(output, {
+    CreatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DirectoryId: __expectString,
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RemoteDomainName: __expectString,
+    SelectiveAuth: __expectString,
+    StateLastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrustDirection: __expectString,
+    TrustId: __expectString,
+    TrustState: __expectString,
+    TrustStateReason: __expectString,
+    TrustType: __expectString,
+  }) as any;
 };
 
 /**
@@ -8701,42 +6749,16 @@ const de_Trusts = (output: any, context: __SerdeContext): Trust[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Trust(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1UnshareDirectoryResult
- */
-const de_UnshareDirectoryResult = (output: any, context: __SerdeContext): UnshareDirectoryResult => {
-  return {
-    SharedDirectoryId: __expectString(output.SharedDirectoryId),
-  } as any;
-};
+// de_UnshareDirectoryResult omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedOperationException
- */
-const de_UnsupportedOperationException = (output: any, context: __SerdeContext): UnsupportedOperationException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_UnsupportedOperationException omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedSettingsException
- */
-const de_UnsupportedSettingsException = (output: any, context: __SerdeContext): UnsupportedSettingsException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_UnsupportedSettingsException omitted.
 
 /**
  * deserializeAws_json1_1UpdateActivities
@@ -8745,115 +6767,44 @@ const de_UpdateActivities = (output: any, context: __SerdeContext): UpdateInfoEn
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UpdateInfoEntry(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1UpdateConditionalForwarderResult
- */
-const de_UpdateConditionalForwarderResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateConditionalForwarderResult => {
-  return {} as any;
-};
+// de_UpdateConditionalForwarderResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateDirectorySetupResult
- */
-const de_UpdateDirectorySetupResult = (output: any, context: __SerdeContext): UpdateDirectorySetupResult => {
-  return {} as any;
-};
+// de_UpdateDirectorySetupResult omitted.
 
 /**
  * deserializeAws_json1_1UpdateInfoEntry
  */
 const de_UpdateInfoEntry = (output: any, context: __SerdeContext): UpdateInfoEntry => {
-  return {
-    InitiatedBy: __expectString(output.InitiatedBy),
-    LastUpdatedDateTime:
-      output.LastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
-        : undefined,
-    NewValue: output.NewValue != null ? de_UpdateValue(output.NewValue, context) : undefined,
-    PreviousValue: output.PreviousValue != null ? de_UpdateValue(output.PreviousValue, context) : undefined,
-    Region: __expectString(output.Region),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Status: __expectString(output.Status),
-    StatusReason: __expectString(output.StatusReason),
-  } as any;
+  return take(output, {
+    InitiatedBy: __expectString,
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NewValue: _json,
+    PreviousValue: _json,
+    Region: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusReason: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateNumberOfDomainControllersResult
- */
-const de_UpdateNumberOfDomainControllersResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateNumberOfDomainControllersResult => {
-  return {} as any;
-};
+// de_UpdateNumberOfDomainControllersResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateRadiusResult
- */
-const de_UpdateRadiusResult = (output: any, context: __SerdeContext): UpdateRadiusResult => {
-  return {} as any;
-};
+// de_UpdateRadiusResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateSettingsResult
- */
-const de_UpdateSettingsResult = (output: any, context: __SerdeContext): UpdateSettingsResult => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-  } as any;
-};
+// de_UpdateSettingsResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateTrustResult
- */
-const de_UpdateTrustResult = (output: any, context: __SerdeContext): UpdateTrustResult => {
-  return {
-    RequestId: __expectString(output.RequestId),
-    TrustId: __expectString(output.TrustId),
-  } as any;
-};
+// de_UpdateTrustResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateValue
- */
-const de_UpdateValue = (output: any, context: __SerdeContext): UpdateValue => {
-  return {
-    OSUpdateSettings:
-      output.OSUpdateSettings != null ? de_OSUpdateSettings(output.OSUpdateSettings, context) : undefined,
-  } as any;
-};
+// de_UpdateValue omitted.
 
-/**
- * deserializeAws_json1_1UserDoesNotExistException
- */
-const de_UserDoesNotExistException = (output: any, context: __SerdeContext): UserDoesNotExistException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_UserDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1VerifyTrustResult
- */
-const de_VerifyTrustResult = (output: any, context: __SerdeContext): VerifyTrustResult => {
-  return {
-    TrustId: __expectString(output.TrustId),
-  } as any;
-};
+// de_VerifyTrustResult omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -8875,6 +6826,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

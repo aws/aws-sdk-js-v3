@@ -8,7 +8,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -218,7 +218,7 @@ export const de_AssumeRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -248,10 +248,9 @@ const de_AssumeRoleCommandError = async (
       throw await de_RegionDisabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -274,7 +273,7 @@ export const de_AssumeRoleWithSAMLCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -310,10 +309,9 @@ const de_AssumeRoleWithSAMLCommandError = async (
       throw await de_RegionDisabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -336,7 +334,7 @@ export const de_AssumeRoleWithWebIdentityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -375,10 +373,9 @@ const de_AssumeRoleWithWebIdentityCommandError = async (
       throw await de_RegionDisabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -401,7 +398,7 @@ export const de_DecodeAuthorizationMessageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -422,10 +419,9 @@ const de_DecodeAuthorizationMessageCommandError = async (
       throw await de_InvalidAuthorizationMessageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -448,7 +444,7 @@ export const de_GetAccessKeyInfoCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -464,10 +460,9 @@ const de_GetAccessKeyInfoCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -489,7 +484,7 @@ export const de_GetCallerIdentityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -505,10 +500,9 @@ const de_GetCallerIdentityCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -530,7 +524,7 @@ export const de_GetFederationTokenCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -557,10 +551,9 @@ const de_GetFederationTokenCommandError = async (
       throw await de_RegionDisabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -583,7 +576,7 @@ export const de_GetSessionTokenCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -604,10 +597,9 @@ const de_GetSessionTokenCommandError = async (
       throw await de_RegionDisabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1357,6 +1349,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

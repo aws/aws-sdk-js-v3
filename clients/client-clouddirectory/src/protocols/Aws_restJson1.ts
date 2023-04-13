@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,9 +10,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   expectUnion as __expectUnion,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -170,35 +172,23 @@ import {
   AttributeKeyAndValue,
   AttributeNameAndValue,
   BatchAddFacetToObject,
-  BatchAddFacetToObjectResponse,
   BatchAttachObject,
-  BatchAttachObjectResponse,
   BatchAttachPolicy,
-  BatchAttachPolicyResponse,
   BatchAttachToIndex,
-  BatchAttachToIndexResponse,
   BatchAttachTypedLink,
   BatchAttachTypedLinkResponse,
   BatchCreateIndex,
-  BatchCreateIndexResponse,
   BatchCreateObject,
-  BatchCreateObjectResponse,
   BatchDeleteObject,
-  BatchDeleteObjectResponse,
   BatchDetachFromIndex,
-  BatchDetachFromIndexResponse,
   BatchDetachObject,
-  BatchDetachObjectResponse,
   BatchDetachPolicy,
-  BatchDetachPolicyResponse,
   BatchDetachTypedLink,
-  BatchDetachTypedLinkResponse,
   BatchGetLinkAttributes,
   BatchGetLinkAttributesResponse,
   BatchGetObjectAttributes,
   BatchGetObjectAttributesResponse,
   BatchGetObjectInformation,
-  BatchGetObjectInformationResponse,
   BatchListAttachedIndices,
   BatchListAttachedIndicesResponse,
   BatchListIncomingTypedLinks,
@@ -208,29 +198,19 @@ import {
   BatchListObjectAttributes,
   BatchListObjectAttributesResponse,
   BatchListObjectChildren,
-  BatchListObjectChildrenResponse,
   BatchListObjectParentPaths,
-  BatchListObjectParentPathsResponse,
   BatchListObjectParents,
-  BatchListObjectParentsResponse,
   BatchListObjectPolicies,
-  BatchListObjectPoliciesResponse,
   BatchListOutgoingTypedLinks,
   BatchListOutgoingTypedLinksResponse,
   BatchListPolicyAttachments,
-  BatchListPolicyAttachmentsResponse,
   BatchLookupPolicy,
-  BatchLookupPolicyResponse,
-  BatchReadException,
   BatchReadOperation,
   BatchReadOperationResponse,
   BatchReadSuccessfulResponse,
   BatchRemoveFacetFromObject,
-  BatchRemoveFacetFromObjectResponse,
   BatchUpdateLinkAttributes,
-  BatchUpdateLinkAttributesResponse,
   BatchUpdateObjectAttributes,
-  BatchUpdateObjectAttributesResponse,
   BatchWriteException,
   BatchWriteOperation,
   BatchWriteOperationResponse,
@@ -240,7 +220,6 @@ import {
   DirectoryDeletedException,
   DirectoryNotDisabledException,
   DirectoryNotEnabledException,
-  Facet,
   FacetAlreadyExistsException,
   FacetAttribute,
   FacetAttributeDefinition,
@@ -271,12 +250,8 @@ import {
   ObjectAttributeAction,
   ObjectAttributeRange,
   ObjectAttributeUpdate,
-  ObjectIdentifierAndLinkNameTuple,
   ObjectNotDetachedException,
   ObjectReference,
-  PathToObjectIdentifiers,
-  PolicyAttachment,
-  PolicyToPath,
   ResourceNotFoundException,
   RetryableConflictException,
   Rule,
@@ -313,13 +288,13 @@ export const se_AddFacetToObjectCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectAttributeList != null && {
-      ObjectAttributeList: se_AttributeKeyAndValueList(input.ObjectAttributeList, context),
-    }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.SchemaFacet != null && { SchemaFacet: se_SchemaFacet(input.SchemaFacet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
+      ObjectReference: (_) => _json(_),
+      SchemaFacet: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -347,9 +322,11 @@ export const se_ApplySchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PublishedSchemaArn != null && { PublishedSchemaArn: input.PublishedSchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PublishedSchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -377,11 +354,13 @@ export const se_AttachObjectCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChildReference != null && { ChildReference: se_ObjectReference(input.ChildReference, context) }),
-    ...(input.LinkName != null && { LinkName: input.LinkName }),
-    ...(input.ParentReference != null && { ParentReference: se_ObjectReference(input.ParentReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChildReference: (_) => _json(_),
+      LinkName: [],
+      ParentReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -409,10 +388,12 @@ export const se_AttachPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.PolicyReference != null && { PolicyReference: se_ObjectReference(input.PolicyReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+      PolicyReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -440,10 +421,12 @@ export const se_AttachToIndexCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IndexReference != null && { IndexReference: se_ObjectReference(input.IndexReference, context) }),
-    ...(input.TargetReference != null && { TargetReference: se_ObjectReference(input.TargetReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IndexReference: (_) => _json(_),
+      TargetReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -471,18 +454,14 @@ export const se_AttachTypedLinkCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attributes != null && { Attributes: se_AttributeNameAndValueList(input.Attributes, context) }),
-    ...(input.SourceObjectReference != null && {
-      SourceObjectReference: se_ObjectReference(input.SourceObjectReference, context),
-    }),
-    ...(input.TargetObjectReference != null && {
-      TargetObjectReference: se_ObjectReference(input.TargetObjectReference, context),
-    }),
-    ...(input.TypedLinkFacet != null && {
-      TypedLinkFacet: se_TypedLinkSchemaAndFacetName(input.TypedLinkFacet, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attributes: (_) => se_AttributeNameAndValueList(_, context),
+      SourceObjectReference: (_) => _json(_),
+      TargetObjectReference: (_) => _json(_),
+      TypedLinkFacet: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -511,9 +490,11 @@ export const se_BatchReadCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Operations != null && { Operations: se_BatchReadOperationList(input.Operations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Operations: (_) => se_BatchReadOperationList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -541,9 +522,11 @@ export const se_BatchWriteCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Operations != null && { Operations: se_BatchWriteOperationList(input.Operations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Operations: (_) => se_BatchWriteOperationList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -571,9 +554,11 @@ export const se_CreateDirectoryCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -601,12 +586,14 @@ export const se_CreateFacetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attributes != null && { Attributes: se_FacetAttributeList(input.Attributes, context) }),
-    ...(input.FacetStyle != null && { FacetStyle: input.FacetStyle }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ObjectType != null && { ObjectType: input.ObjectType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attributes: (_) => se_FacetAttributeList(_, context),
+      FacetStyle: [],
+      Name: [],
+      ObjectType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -633,14 +620,14 @@ export const se_CreateIndexCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/index";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IsUnique != null && { IsUnique: input.IsUnique }),
-    ...(input.LinkName != null && { LinkName: input.LinkName }),
-    ...(input.OrderedIndexedAttributeList != null && {
-      OrderedIndexedAttributeList: se_AttributeKeyList(input.OrderedIndexedAttributeList, context),
-    }),
-    ...(input.ParentReference != null && { ParentReference: se_ObjectReference(input.ParentReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IsUnique: [],
+      LinkName: [],
+      OrderedIndexedAttributeList: (_) => _json(_),
+      ParentReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -667,14 +654,14 @@ export const se_CreateObjectCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/object";
   let body: any;
-  body = JSON.stringify({
-    ...(input.LinkName != null && { LinkName: input.LinkName }),
-    ...(input.ObjectAttributeList != null && {
-      ObjectAttributeList: se_AttributeKeyAndValueList(input.ObjectAttributeList, context),
-    }),
-    ...(input.ParentReference != null && { ParentReference: se_ObjectReference(input.ParentReference, context) }),
-    ...(input.SchemaFacets != null && { SchemaFacets: se_SchemaFacetList(input.SchemaFacets, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LinkName: [],
+      ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
+      ParentReference: (_) => _json(_),
+      SchemaFacets: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -701,9 +688,11 @@ export const se_CreateSchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/create";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -731,9 +720,11 @@ export const se_CreateTypedLinkFacetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Facet != null && { Facet: se_TypedLinkFacet(input.Facet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Facet: (_) => se_TypedLinkFacet(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -787,9 +778,11 @@ export const se_DeleteFacetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -817,9 +810,11 @@ export const se_DeleteObjectCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -872,9 +867,11 @@ export const se_DeleteTypedLinkFacetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -902,10 +899,12 @@ export const se_DetachFromIndexCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IndexReference != null && { IndexReference: se_ObjectReference(input.IndexReference, context) }),
-    ...(input.TargetReference != null && { TargetReference: se_ObjectReference(input.TargetReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IndexReference: (_) => _json(_),
+      TargetReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -933,10 +932,12 @@ export const se_DetachObjectCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.LinkName != null && { LinkName: input.LinkName }),
-    ...(input.ParentReference != null && { ParentReference: se_ObjectReference(input.ParentReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LinkName: [],
+      ParentReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -964,10 +965,12 @@ export const se_DetachPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.PolicyReference != null && { PolicyReference: se_ObjectReference(input.PolicyReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+      PolicyReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -995,11 +998,11 @@ export const se_DetachTypedLinkCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TypedLinkSpecifier != null && {
-      TypedLinkSpecifier: se_TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1078,9 +1081,11 @@ export const se_GetAppliedSchemaVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SchemaArn != null && { SchemaArn: input.SchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1133,9 +1138,11 @@ export const se_GetFacetCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1163,13 +1170,13 @@ export const se_GetLinkAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeNames != null && { AttributeNames: se_AttributeNameList(input.AttributeNames, context) }),
-    ...(input.ConsistencyLevel != null && { ConsistencyLevel: input.ConsistencyLevel }),
-    ...(input.TypedLinkSpecifier != null && {
-      TypedLinkSpecifier: se_TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeNames: (_) => _json(_),
+      ConsistencyLevel: [],
+      TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1198,11 +1205,13 @@ export const se_GetObjectAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeNames != null && { AttributeNames: se_AttributeNameList(input.AttributeNames, context) }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.SchemaFacet != null && { SchemaFacet: se_SchemaFacet(input.SchemaFacet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeNames: (_) => _json(_),
+      ObjectReference: (_) => _json(_),
+      SchemaFacet: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1231,9 +1240,11 @@ export const se_GetObjectInformationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1287,9 +1298,11 @@ export const se_GetTypedLinkFacetInformationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1316,12 +1329,14 @@ export const se_ListAppliedSchemaArnsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/applied";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DirectoryArn != null && { DirectoryArn: input.DirectoryArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SchemaArn != null && { SchemaArn: input.SchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DirectoryArn: [],
+      MaxResults: [],
+      NextToken: [],
+      SchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1350,11 +1365,13 @@ export const se_ListAttachedIndicesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TargetReference != null && { TargetReference: se_ObjectReference(input.TargetReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      TargetReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1381,10 +1398,12 @@ export const se_ListDevelopmentSchemaArnsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/development";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1411,11 +1430,13 @@ export const se_ListDirectoriesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.state != null && { state: input.state }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      state: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1443,11 +1464,13 @@ export const se_ListFacetAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      Name: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1475,10 +1498,12 @@ export const se_ListFacetNamesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1506,18 +1531,16 @@ export const se_ListIncomingTypedLinksCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConsistencyLevel != null && { ConsistencyLevel: input.ConsistencyLevel }),
-    ...(input.FilterAttributeRanges != null && {
-      FilterAttributeRanges: se_TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
-    }),
-    ...(input.FilterTypedLink != null && {
-      FilterTypedLink: se_TypedLinkSchemaAndFacetName(input.FilterTypedLink, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConsistencyLevel: [],
+      FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
+      FilterTypedLink: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1546,14 +1569,14 @@ export const se_ListIndexCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IndexReference != null && { IndexReference: se_ObjectReference(input.IndexReference, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RangesOnIndexedValues != null && {
-      RangesOnIndexedValues: se_ObjectAttributeRangeList(input.RangesOnIndexedValues, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IndexReference: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      RangesOnIndexedValues: (_) => se_ObjectAttributeRangeList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1580,11 +1603,13 @@ export const se_ListManagedSchemaArnsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/managed";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SchemaArn != null && { SchemaArn: input.SchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1613,12 +1638,14 @@ export const se_ListObjectAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FacetFilter != null && { FacetFilter: se_SchemaFacet(input.FacetFilter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FacetFilter: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1647,11 +1674,13 @@ export const se_ListObjectChildrenCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1679,11 +1708,13 @@ export const se_ListObjectParentPathsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1712,14 +1743,14 @@ export const se_ListObjectParentsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IncludeAllLinksToEachParent != null && {
-      IncludeAllLinksToEachParent: input.IncludeAllLinksToEachParent,
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IncludeAllLinksToEachParent: [],
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1748,11 +1779,13 @@ export const se_ListObjectPoliciesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1780,18 +1813,16 @@ export const se_ListOutgoingTypedLinksCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConsistencyLevel != null && { ConsistencyLevel: input.ConsistencyLevel }),
-    ...(input.FilterAttributeRanges != null && {
-      FilterAttributeRanges: se_TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
-    }),
-    ...(input.FilterTypedLink != null && {
-      FilterTypedLink: se_TypedLinkSchemaAndFacetName(input.FilterTypedLink, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConsistencyLevel: [],
+      FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
+      FilterTypedLink: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1820,11 +1851,13 @@ export const se_ListPolicyAttachmentsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PolicyReference != null && { PolicyReference: se_ObjectReference(input.PolicyReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      PolicyReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1851,11 +1884,13 @@ export const se_ListPublishedSchemaArnsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/published";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SchemaArn != null && { SchemaArn: input.SchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1881,11 +1916,13 @@ export const se_ListTagsForResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ResourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1913,11 +1950,13 @@ export const se_ListTypedLinkFacetAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      Name: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1945,10 +1984,12 @@ export const se_ListTypedLinkFacetNamesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1976,11 +2017,13 @@ export const se_LookupPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2008,11 +2051,13 @@ export const se_PublishSchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MinorVersion != null && { MinorVersion: input.MinorVersion }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Version != null && { Version: input.Version }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MinorVersion: [],
+      Name: [],
+      Version: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2040,9 +2085,11 @@ export const se_PutSchemaFromJsonCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Document != null && { Document: input.Document }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Document: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2070,10 +2117,12 @@ export const se_RemoveFacetFromObjectCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.SchemaFacet != null && { SchemaFacet: se_SchemaFacet(input.SchemaFacet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+      SchemaFacet: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2099,10 +2148,12 @@ export const se_TagResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags/add";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2129,10 +2180,12 @@ export const se_UntagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/tags/remove";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2159,13 +2212,13 @@ export const se_UpdateFacetCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeUpdates != null && {
-      AttributeUpdates: se_FacetAttributeUpdateList(input.AttributeUpdates, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ObjectType != null && { ObjectType: input.ObjectType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeUpdates: (_) => se_FacetAttributeUpdateList(_, context),
+      Name: [],
+      ObjectType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2193,14 +2246,12 @@ export const se_UpdateLinkAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeUpdates != null && {
-      AttributeUpdates: se_LinkAttributeUpdateList(input.AttributeUpdates, context),
-    }),
-    ...(input.TypedLinkSpecifier != null && {
-      TypedLinkSpecifier: se_TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeUpdates: (_) => se_LinkAttributeUpdateList(_, context),
+      TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2228,12 +2279,12 @@ export const se_UpdateObjectAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeUpdates != null && {
-      AttributeUpdates: se_ObjectAttributeUpdateList(input.AttributeUpdates, context),
-    }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeUpdates: (_) => se_ObjectAttributeUpdateList(_, context),
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2261,9 +2312,11 @@ export const se_UpdateSchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2291,15 +2344,13 @@ export const se_UpdateTypedLinkFacetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeUpdates != null && {
-      AttributeUpdates: se_TypedLinkFacetAttributeUpdateList(input.AttributeUpdates, context),
-    }),
-    ...(input.IdentityAttributeOrder != null && {
-      IdentityAttributeOrder: se_AttributeNameList(input.IdentityAttributeOrder, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeUpdates: (_) => se_TypedLinkFacetAttributeUpdateList(_, context),
+      IdentityAttributeOrder: (_) => _json(_),
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2326,11 +2377,13 @@ export const se_UpgradeAppliedSchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DirectoryArn != null && { DirectoryArn: input.DirectoryArn }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.PublishedSchemaArn != null && { PublishedSchemaArn: input.PublishedSchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DirectoryArn: [],
+      DryRun: [],
+      PublishedSchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2357,12 +2410,14 @@ export const se_UpgradePublishedSchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DevelopmentSchemaArn != null && { DevelopmentSchemaArn: input.DevelopmentSchemaArn }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MinorVersion != null && { MinorVersion: input.MinorVersion }),
-    ...(input.PublishedSchemaArn != null && { PublishedSchemaArn: input.PublishedSchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DevelopmentSchemaArn: [],
+      DryRun: [],
+      MinorVersion: [],
+      PublishedSchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2433,10 +2488,9 @@ const de_AddFacetToObjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2456,12 +2510,11 @@ export const de_ApplySchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppliedSchemaArn != null) {
-    contents.AppliedSchemaArn = __expectString(data.AppliedSchemaArn);
-  }
-  if (data.DirectoryArn != null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
+  const doc = take(data, {
+    AppliedSchemaArn: __expectString,
+    DirectoryArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2507,10 +2560,9 @@ const de_ApplySchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2530,9 +2582,10 @@ export const de_AttachObjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AttachedObjectIdentifier != null) {
-    contents.AttachedObjectIdentifier = __expectString(data.AttachedObjectIdentifier);
-  }
+  const doc = take(data, {
+    AttachedObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2584,10 +2637,9 @@ const de_AttachObjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2652,10 +2704,9 @@ const de_AttachPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2675,9 +2726,10 @@ export const de_AttachToIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AttachedObjectIdentifier != null) {
-    contents.AttachedObjectIdentifier = __expectString(data.AttachedObjectIdentifier);
-  }
+  const doc = take(data, {
+    AttachedObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2732,10 +2784,9 @@ const de_AttachToIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2755,9 +2806,10 @@ export const de_AttachTypedLinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TypedLinkSpecifier != null) {
-    contents.TypedLinkSpecifier = de_TypedLinkSpecifier(data.TypedLinkSpecifier, context);
-  }
+  const doc = take(data, {
+    TypedLinkSpecifier: (_) => de_TypedLinkSpecifier(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2806,10 +2858,9 @@ const de_AttachTypedLinkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2829,9 +2880,10 @@ export const de_BatchReadCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Responses != null) {
-    contents.Responses = de_BatchReadOperationResponseList(data.Responses, context);
-  }
+  const doc = take(data, {
+    Responses: (_) => de_BatchReadOperationResponseList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2871,10 +2923,9 @@ const de_BatchReadCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2894,9 +2945,10 @@ export const de_BatchWriteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Responses != null) {
-    contents.Responses = de_BatchWriteOperationResponseList(data.Responses, context);
-  }
+  const doc = take(data, {
+    Responses: (_) => de_BatchWriteOperationResponseList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2939,10 +2991,9 @@ const de_BatchWriteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2962,18 +3013,13 @@ export const de_CreateDirectoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppliedSchemaArn != null) {
-    contents.AppliedSchemaArn = __expectString(data.AppliedSchemaArn);
-  }
-  if (data.DirectoryArn != null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ObjectIdentifier != null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
+  const doc = take(data, {
+    AppliedSchemaArn: __expectString,
+    DirectoryArn: __expectString,
+    Name: __expectString,
+    ObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3016,10 +3062,9 @@ const de_CreateDirectoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3087,10 +3132,9 @@ const de_CreateFacetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3110,9 +3154,10 @@ export const de_CreateIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectIdentifier != null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
+  const doc = take(data, {
+    ObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3164,10 +3209,9 @@ const de_CreateIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3187,9 +3231,10 @@ export const de_CreateObjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectIdentifier != null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
+  const doc = take(data, {
+    ObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3241,10 +3286,9 @@ const de_CreateObjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3264,9 +3308,10 @@ export const de_CreateSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SchemaArn != null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
+  const doc = take(data, {
+    SchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3306,10 +3351,9 @@ const de_CreateSchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3377,10 +3421,9 @@ const de_CreateTypedLinkFacetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3400,9 +3443,10 @@ export const de_DeleteDirectoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DirectoryArn != null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
+  const doc = take(data, {
+    DirectoryArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3448,10 +3492,9 @@ const de_DeleteDirectoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3516,10 +3559,9 @@ const de_DeleteFacetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3584,10 +3626,9 @@ const de_DeleteObjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3607,9 +3648,10 @@ export const de_DeleteSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SchemaArn != null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
+  const doc = take(data, {
+    SchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3652,10 +3694,9 @@ const de_DeleteSchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3717,10 +3758,9 @@ const de_DeleteTypedLinkFacetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3740,9 +3780,10 @@ export const de_DetachFromIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DetachedObjectIdentifier != null) {
-    contents.DetachedObjectIdentifier = __expectString(data.DetachedObjectIdentifier);
-  }
+  const doc = take(data, {
+    DetachedObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3791,10 +3832,9 @@ const de_DetachFromIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3814,9 +3854,10 @@ export const de_DetachObjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DetachedObjectIdentifier != null) {
-    contents.DetachedObjectIdentifier = __expectString(data.DetachedObjectIdentifier);
-  }
+  const doc = take(data, {
+    DetachedObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3862,10 +3903,9 @@ const de_DetachObjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3930,10 +3970,9 @@ const de_DetachPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3998,10 +4037,9 @@ const de_DetachTypedLinkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4021,9 +4059,10 @@ export const de_DisableDirectoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DirectoryArn != null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
+  const doc = take(data, {
+    DirectoryArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4066,10 +4105,9 @@ const de_DisableDirectoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4089,9 +4127,10 @@ export const de_EnableDirectoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DirectoryArn != null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
+  const doc = take(data, {
+    DirectoryArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4134,10 +4173,9 @@ const de_EnableDirectoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4157,9 +4195,10 @@ export const de_GetAppliedSchemaVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppliedSchemaArn != null) {
-    contents.AppliedSchemaArn = __expectString(data.AppliedSchemaArn);
-  }
+  const doc = take(data, {
+    AppliedSchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4199,10 +4238,9 @@ const de_GetAppliedSchemaVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4222,9 +4260,10 @@ export const de_GetDirectoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Directory != null) {
-    contents.Directory = de_Directory(data.Directory, context);
-  }
+  const doc = take(data, {
+    Directory: (_) => de_Directory(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4261,10 +4300,9 @@ const de_GetDirectoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4284,9 +4322,10 @@ export const de_GetFacetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Facet != null) {
-    contents.Facet = de_Facet(data.Facet, context);
-  }
+  const doc = take(data, {
+    Facet: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4329,10 +4368,9 @@ const de_GetFacetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4352,9 +4390,10 @@ export const de_GetLinkAttributesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes != null) {
-    contents.Attributes = de_AttributeKeyAndValueList(data.Attributes, context);
-  }
+  const doc = take(data, {
+    Attributes: (_) => de_AttributeKeyAndValueList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4400,10 +4439,9 @@ const de_GetLinkAttributesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4423,9 +4461,10 @@ export const de_GetObjectAttributesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes != null) {
-    contents.Attributes = de_AttributeKeyAndValueList(data.Attributes, context);
-  }
+  const doc = take(data, {
+    Attributes: (_) => de_AttributeKeyAndValueList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4471,10 +4510,9 @@ const de_GetObjectAttributesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4494,12 +4532,11 @@ export const de_GetObjectInformationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectIdentifier != null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
-  if (data.SchemaFacets != null) {
-    contents.SchemaFacets = de_SchemaFacetList(data.SchemaFacets, context);
-  }
+  const doc = take(data, {
+    ObjectIdentifier: __expectString,
+    SchemaFacets: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4542,10 +4579,9 @@ const de_GetObjectInformationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4565,12 +4601,11 @@ export const de_GetSchemaAsJsonCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Document != null) {
-    contents.Document = __expectString(data.Document);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Document: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4610,10 +4645,9 @@ const de_GetSchemaAsJsonCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4633,9 +4667,10 @@ export const de_GetTypedLinkFacetInformationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityAttributeOrder != null) {
-    contents.IdentityAttributeOrder = de_AttributeNameList(data.IdentityAttributeOrder, context);
-  }
+  const doc = take(data, {
+    IdentityAttributeOrder: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4681,10 +4716,9 @@ const de_GetTypedLinkFacetInformationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4704,12 +4738,11 @@ export const de_ListAppliedSchemaArnsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaArns != null) {
-    contents.SchemaArns = de_Arns(data.SchemaArns, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaArns: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4752,10 +4785,9 @@ const de_ListAppliedSchemaArnsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4775,12 +4807,11 @@ export const de_ListAttachedIndicesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IndexAttachments != null) {
-    contents.IndexAttachments = de_IndexAttachmentList(data.IndexAttachments, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    IndexAttachments: (_) => de_IndexAttachmentList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4823,10 +4854,9 @@ const de_ListAttachedIndicesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4846,12 +4876,11 @@ export const de_ListDevelopmentSchemaArnsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaArns != null) {
-    contents.SchemaArns = de_Arns(data.SchemaArns, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaArns: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4894,10 +4923,9 @@ const de_ListDevelopmentSchemaArnsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4917,12 +4945,11 @@ export const de_ListDirectoriesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Directories != null) {
-    contents.Directories = de_DirectoryList(data.Directories, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Directories: (_) => de_DirectoryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4962,10 +4989,9 @@ const de_ListDirectoriesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4985,12 +5011,11 @@ export const de_ListFacetAttributesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes != null) {
-    contents.Attributes = de_FacetAttributeList(data.Attributes, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Attributes: (_) => de_FacetAttributeList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5036,10 +5061,9 @@ const de_ListFacetAttributesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5059,12 +5083,11 @@ export const de_ListFacetNamesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FacetNames != null) {
-    contents.FacetNames = de_FacetNameList(data.FacetNames, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    FacetNames: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5107,10 +5130,9 @@ const de_ListFacetNamesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5130,12 +5152,11 @@ export const de_ListIncomingTypedLinksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LinkSpecifiers != null) {
-    contents.LinkSpecifiers = de_TypedLinkSpecifierList(data.LinkSpecifiers, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    LinkSpecifiers: (_) => de_TypedLinkSpecifierList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5184,10 +5205,9 @@ const de_ListIncomingTypedLinksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5207,12 +5227,11 @@ export const de_ListIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IndexAttachments != null) {
-    contents.IndexAttachments = de_IndexAttachmentList(data.IndexAttachments, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    IndexAttachments: (_) => de_IndexAttachmentList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5264,10 +5283,9 @@ const de_ListIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5287,12 +5305,11 @@ export const de_ListManagedSchemaArnsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaArns != null) {
-    contents.SchemaArns = de_Arns(data.SchemaArns, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaArns: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5329,10 +5346,9 @@ const de_ListManagedSchemaArnsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5352,12 +5368,11 @@ export const de_ListObjectAttributesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes != null) {
-    contents.Attributes = de_AttributeKeyAndValueList(data.Attributes, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Attributes: (_) => de_AttributeKeyAndValueList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5406,10 +5421,9 @@ const de_ListObjectAttributesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5429,12 +5443,11 @@ export const de_ListObjectChildrenCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Children != null) {
-    contents.Children = de_LinkNameToObjectIdentifierMap(data.Children, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Children: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5483,10 +5496,9 @@ const de_ListObjectChildrenCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5506,12 +5518,11 @@ export const de_ListObjectParentPathsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PathToObjectIdentifiersList != null) {
-    contents.PathToObjectIdentifiersList = de_PathToObjectIdentifiersList(data.PathToObjectIdentifiersList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PathToObjectIdentifiersList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5557,10 +5568,9 @@ const de_ListObjectParentPathsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5580,15 +5590,12 @@ export const de_ListObjectParentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ParentLinks != null) {
-    contents.ParentLinks = de_ObjectIdentifierAndLinkNameList(data.ParentLinks, context);
-  }
-  if (data.Parents != null) {
-    contents.Parents = de_ObjectIdentifierToLinkNameMap(data.Parents, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ParentLinks: _json,
+    Parents: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5637,10 +5644,9 @@ const de_ListObjectParentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5660,12 +5666,11 @@ export const de_ListObjectPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AttachedPolicyIds != null) {
-    contents.AttachedPolicyIds = de_ObjectIdentifierList(data.AttachedPolicyIds, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AttachedPolicyIds: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5711,10 +5716,9 @@ const de_ListObjectPoliciesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5734,12 +5738,11 @@ export const de_ListOutgoingTypedLinksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.TypedLinkSpecifiers != null) {
-    contents.TypedLinkSpecifiers = de_TypedLinkSpecifierList(data.TypedLinkSpecifiers, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    TypedLinkSpecifiers: (_) => de_TypedLinkSpecifierList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5788,10 +5791,9 @@ const de_ListOutgoingTypedLinksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5811,12 +5813,11 @@ export const de_ListPolicyAttachmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ObjectIdentifiers != null) {
-    contents.ObjectIdentifiers = de_ObjectIdentifierList(data.ObjectIdentifiers, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ObjectIdentifiers: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5865,10 +5866,9 @@ const de_ListPolicyAttachmentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5888,12 +5888,11 @@ export const de_ListPublishedSchemaArnsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaArns != null) {
-    contents.SchemaArns = de_Arns(data.SchemaArns, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaArns: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5936,10 +5935,9 @@ const de_ListPublishedSchemaArnsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5959,12 +5957,11 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6007,10 +6004,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6030,12 +6026,11 @@ export const de_ListTypedLinkFacetAttributesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes != null) {
-    contents.Attributes = de_TypedLinkAttributeDefinitionList(data.Attributes, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Attributes: (_) => de_TypedLinkAttributeDefinitionList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6081,10 +6076,9 @@ const de_ListTypedLinkFacetAttributesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6104,12 +6098,11 @@ export const de_ListTypedLinkFacetNamesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FacetNames != null) {
-    contents.FacetNames = de_TypedLinkNameList(data.FacetNames, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    FacetNames: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6152,10 +6145,9 @@ const de_ListTypedLinkFacetNamesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6175,12 +6167,11 @@ export const de_LookupPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PolicyToPathList != null) {
-    contents.PolicyToPathList = de_PolicyToPathList(data.PolicyToPathList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PolicyToPathList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6226,10 +6217,9 @@ const de_LookupPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6249,9 +6239,10 @@ export const de_PublishSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PublishedSchemaArn != null) {
-    contents.PublishedSchemaArn = __expectString(data.PublishedSchemaArn);
-  }
+  const doc = take(data, {
+    PublishedSchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6294,10 +6285,9 @@ const de_PublishSchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6317,9 +6307,10 @@ export const de_PutSchemaFromJsonCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6362,10 +6353,9 @@ const de_PutSchemaFromJsonCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6430,10 +6420,9 @@ const de_RemoveFacetFromObjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6495,10 +6484,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6560,10 +6548,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6634,10 +6621,9 @@ const de_UpdateFacetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6702,10 +6688,9 @@ const de_UpdateLinkAttributesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6725,9 +6710,10 @@ export const de_UpdateObjectAttributesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectIdentifier != null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
+  const doc = take(data, {
+    ObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6776,10 +6762,9 @@ const de_UpdateObjectAttributesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6799,9 +6784,10 @@ export const de_UpdateSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SchemaArn != null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
+  const doc = take(data, {
+    SchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6841,10 +6827,9 @@ const de_UpdateSchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6915,10 +6900,9 @@ const de_UpdateTypedLinkFacetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6938,12 +6922,11 @@ export const de_UpgradeAppliedSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DirectoryArn != null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
-  if (data.UpgradedSchemaArn != null) {
-    contents.UpgradedSchemaArn = __expectString(data.UpgradedSchemaArn);
-  }
+  const doc = take(data, {
+    DirectoryArn: __expectString,
+    UpgradedSchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6989,10 +6972,9 @@ const de_UpgradeAppliedSchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7012,9 +6994,10 @@ export const de_UpgradePublishedSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UpgradedSchemaArn != null) {
-    contents.UpgradedSchemaArn = __expectString(data.UpgradedSchemaArn);
-  }
+  const doc = take(data, {
+    UpgradedSchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7060,16 +7043,15 @@ const de_UpgradePublishedSchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -7079,9 +7061,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7095,15 +7078,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_BatchWriteExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BatchWriteException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Index != null) {
-    contents.Index = __expectInt32(data.Index);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Index: __expectInt32,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BatchWriteException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7120,9 +7100,10 @@ const de_CannotListParentOfRootExceptionRes = async (
 ): Promise<CannotListParentOfRootException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new CannotListParentOfRootException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7139,9 +7120,10 @@ const de_DirectoryAlreadyExistsExceptionRes = async (
 ): Promise<DirectoryAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DirectoryAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7158,9 +7140,10 @@ const de_DirectoryDeletedExceptionRes = async (
 ): Promise<DirectoryDeletedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DirectoryDeletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7177,9 +7160,10 @@ const de_DirectoryNotDisabledExceptionRes = async (
 ): Promise<DirectoryNotDisabledException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DirectoryNotDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7196,9 +7180,10 @@ const de_DirectoryNotEnabledExceptionRes = async (
 ): Promise<DirectoryNotEnabledException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DirectoryNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7215,9 +7200,10 @@ const de_FacetAlreadyExistsExceptionRes = async (
 ): Promise<FacetAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FacetAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7231,9 +7217,10 @@ const de_FacetAlreadyExistsExceptionRes = async (
 const de_FacetInUseExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<FacetInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FacetInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7250,9 +7237,10 @@ const de_FacetNotFoundExceptionRes = async (
 ): Promise<FacetNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FacetNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7269,9 +7257,10 @@ const de_FacetValidationExceptionRes = async (
 ): Promise<FacetValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FacetValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7288,9 +7277,10 @@ const de_IncompatibleSchemaExceptionRes = async (
 ): Promise<IncompatibleSchemaException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IncompatibleSchemaException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7307,9 +7297,10 @@ const de_IndexedAttributeMissingExceptionRes = async (
 ): Promise<IndexedAttributeMissingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IndexedAttributeMissingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7326,9 +7317,10 @@ const de_InternalServiceExceptionRes = async (
 ): Promise<InternalServiceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7342,9 +7334,10 @@ const de_InternalServiceExceptionRes = async (
 const de_InvalidArnExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArnException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7361,9 +7354,10 @@ const de_InvalidAttachmentExceptionRes = async (
 ): Promise<InvalidAttachmentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidAttachmentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7380,9 +7374,10 @@ const de_InvalidFacetUpdateExceptionRes = async (
 ): Promise<InvalidFacetUpdateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidFacetUpdateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7399,9 +7394,10 @@ const de_InvalidNextTokenExceptionRes = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7418,9 +7414,10 @@ const de_InvalidRuleExceptionRes = async (
 ): Promise<InvalidRuleException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRuleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7437,9 +7434,10 @@ const de_InvalidSchemaDocExceptionRes = async (
 ): Promise<InvalidSchemaDocException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidSchemaDocException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7456,9 +7454,10 @@ const de_InvalidTaggingRequestExceptionRes = async (
 ): Promise<InvalidTaggingRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidTaggingRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7475,9 +7474,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7494,9 +7494,10 @@ const de_LinkNameAlreadyInUseExceptionRes = async (
 ): Promise<LinkNameAlreadyInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LinkNameAlreadyInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7510,9 +7511,10 @@ const de_LinkNameAlreadyInUseExceptionRes = async (
 const de_NotIndexExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotIndexException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotIndexException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7526,9 +7528,10 @@ const de_NotIndexExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_NotNodeExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotNodeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotNodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7542,9 +7545,10 @@ const de_NotNodeExceptionRes = async (parsedOutput: any, context: __SerdeContext
 const de_NotPolicyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotPolicyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7561,9 +7565,10 @@ const de_ObjectAlreadyDetachedExceptionRes = async (
 ): Promise<ObjectAlreadyDetachedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ObjectAlreadyDetachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7580,9 +7585,10 @@ const de_ObjectNotDetachedExceptionRes = async (
 ): Promise<ObjectNotDetachedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ObjectNotDetachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7599,9 +7605,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7618,9 +7625,10 @@ const de_RetryableConflictExceptionRes = async (
 ): Promise<RetryableConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RetryableConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7637,9 +7645,10 @@ const de_SchemaAlreadyExistsExceptionRes = async (
 ): Promise<SchemaAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SchemaAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7656,9 +7665,10 @@ const de_SchemaAlreadyPublishedExceptionRes = async (
 ): Promise<SchemaAlreadyPublishedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SchemaAlreadyPublishedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7675,9 +7685,10 @@ const de_StillContainsLinksExceptionRes = async (
 ): Promise<StillContainsLinksException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StillContainsLinksException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7694,9 +7705,10 @@ const de_UnsupportedIndexTypeExceptionRes = async (
 ): Promise<UnsupportedIndexTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedIndexTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7710,9 +7722,10 @@ const de_UnsupportedIndexTypeExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7720,25 +7733,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AttributeKey
- */
-const se_AttributeKey = (input: AttributeKey, context: __SerdeContext): any => {
-  return {
-    ...(input.FacetName != null && { FacetName: input.FacetName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SchemaArn != null && { SchemaArn: input.SchemaArn }),
-  };
-};
+// se_AttributeKey omitted.
 
 /**
  * serializeAws_restJson1AttributeKeyAndValue
  */
 const se_AttributeKeyAndValue = (input: AttributeKeyAndValue, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: se_AttributeKey(input.Key, context) }),
-    ...(input.Value != null && { Value: se_TypedAttributeValue(input.Value, context) }),
-  };
+  return take(input, {
+    Key: (_) => _json(_),
+    Value: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
 /**
@@ -7752,25 +7756,16 @@ const se_AttributeKeyAndValueList = (input: AttributeKeyAndValue[], context: __S
     });
 };
 
-/**
- * serializeAws_restJson1AttributeKeyList
- */
-const se_AttributeKeyList = (input: AttributeKey[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AttributeKey(entry, context);
-    });
-};
+// se_AttributeKeyList omitted.
 
 /**
  * serializeAws_restJson1AttributeNameAndValue
  */
 const se_AttributeNameAndValue = (input: AttributeNameAndValue, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.Value != null && { Value: se_TypedAttributeValue(input.Value, context) }),
-  };
+  return take(input, {
+    AttributeName: [],
+    Value: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
 /**
@@ -7784,373 +7779,157 @@ const se_AttributeNameAndValueList = (input: AttributeNameAndValue[], context: _
     });
 };
 
-/**
- * serializeAws_restJson1AttributeNameList
- */
-const se_AttributeNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AttributeNameList omitted.
 
 /**
  * serializeAws_restJson1BatchAddFacetToObject
  */
 const se_BatchAddFacetToObject = (input: BatchAddFacetToObject, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectAttributeList != null && {
-      ObjectAttributeList: se_AttributeKeyAndValueList(input.ObjectAttributeList, context),
-    }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.SchemaFacet != null && { SchemaFacet: se_SchemaFacet(input.SchemaFacet, context) }),
-  };
+  return take(input, {
+    ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
+    ObjectReference: (_) => _json(_),
+    SchemaFacet: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_restJson1BatchAttachObject
- */
-const se_BatchAttachObject = (input: BatchAttachObject, context: __SerdeContext): any => {
-  return {
-    ...(input.ChildReference != null && { ChildReference: se_ObjectReference(input.ChildReference, context) }),
-    ...(input.LinkName != null && { LinkName: input.LinkName }),
-    ...(input.ParentReference != null && { ParentReference: se_ObjectReference(input.ParentReference, context) }),
-  };
-};
+// se_BatchAttachObject omitted.
 
-/**
- * serializeAws_restJson1BatchAttachPolicy
- */
-const se_BatchAttachPolicy = (input: BatchAttachPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.PolicyReference != null && { PolicyReference: se_ObjectReference(input.PolicyReference, context) }),
-  };
-};
+// se_BatchAttachPolicy omitted.
 
-/**
- * serializeAws_restJson1BatchAttachToIndex
- */
-const se_BatchAttachToIndex = (input: BatchAttachToIndex, context: __SerdeContext): any => {
-  return {
-    ...(input.IndexReference != null && { IndexReference: se_ObjectReference(input.IndexReference, context) }),
-    ...(input.TargetReference != null && { TargetReference: se_ObjectReference(input.TargetReference, context) }),
-  };
-};
+// se_BatchAttachToIndex omitted.
 
 /**
  * serializeAws_restJson1BatchAttachTypedLink
  */
 const se_BatchAttachTypedLink = (input: BatchAttachTypedLink, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_AttributeNameAndValueList(input.Attributes, context) }),
-    ...(input.SourceObjectReference != null && {
-      SourceObjectReference: se_ObjectReference(input.SourceObjectReference, context),
-    }),
-    ...(input.TargetObjectReference != null && {
-      TargetObjectReference: se_ObjectReference(input.TargetObjectReference, context),
-    }),
-    ...(input.TypedLinkFacet != null && {
-      TypedLinkFacet: se_TypedLinkSchemaAndFacetName(input.TypedLinkFacet, context),
-    }),
-  };
+  return take(input, {
+    Attributes: (_) => se_AttributeNameAndValueList(_, context),
+    SourceObjectReference: (_) => _json(_),
+    TargetObjectReference: (_) => _json(_),
+    TypedLinkFacet: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_restJson1BatchCreateIndex
- */
-const se_BatchCreateIndex = (input: BatchCreateIndex, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchReferenceName != null && { BatchReferenceName: input.BatchReferenceName }),
-    ...(input.IsUnique != null && { IsUnique: input.IsUnique }),
-    ...(input.LinkName != null && { LinkName: input.LinkName }),
-    ...(input.OrderedIndexedAttributeList != null && {
-      OrderedIndexedAttributeList: se_AttributeKeyList(input.OrderedIndexedAttributeList, context),
-    }),
-    ...(input.ParentReference != null && { ParentReference: se_ObjectReference(input.ParentReference, context) }),
-  };
-};
+// se_BatchCreateIndex omitted.
 
 /**
  * serializeAws_restJson1BatchCreateObject
  */
 const se_BatchCreateObject = (input: BatchCreateObject, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchReferenceName != null && { BatchReferenceName: input.BatchReferenceName }),
-    ...(input.LinkName != null && { LinkName: input.LinkName }),
-    ...(input.ObjectAttributeList != null && {
-      ObjectAttributeList: se_AttributeKeyAndValueList(input.ObjectAttributeList, context),
-    }),
-    ...(input.ParentReference != null && { ParentReference: se_ObjectReference(input.ParentReference, context) }),
-    ...(input.SchemaFacet != null && { SchemaFacet: se_SchemaFacetList(input.SchemaFacet, context) }),
-  };
+  return take(input, {
+    BatchReferenceName: [],
+    LinkName: [],
+    ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
+    ParentReference: (_) => _json(_),
+    SchemaFacet: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_restJson1BatchDeleteObject
- */
-const se_BatchDeleteObject = (input: BatchDeleteObject, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
-};
+// se_BatchDeleteObject omitted.
 
-/**
- * serializeAws_restJson1BatchDetachFromIndex
- */
-const se_BatchDetachFromIndex = (input: BatchDetachFromIndex, context: __SerdeContext): any => {
-  return {
-    ...(input.IndexReference != null && { IndexReference: se_ObjectReference(input.IndexReference, context) }),
-    ...(input.TargetReference != null && { TargetReference: se_ObjectReference(input.TargetReference, context) }),
-  };
-};
+// se_BatchDetachFromIndex omitted.
 
-/**
- * serializeAws_restJson1BatchDetachObject
- */
-const se_BatchDetachObject = (input: BatchDetachObject, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchReferenceName != null && { BatchReferenceName: input.BatchReferenceName }),
-    ...(input.LinkName != null && { LinkName: input.LinkName }),
-    ...(input.ParentReference != null && { ParentReference: se_ObjectReference(input.ParentReference, context) }),
-  };
-};
+// se_BatchDetachObject omitted.
 
-/**
- * serializeAws_restJson1BatchDetachPolicy
- */
-const se_BatchDetachPolicy = (input: BatchDetachPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.PolicyReference != null && { PolicyReference: se_ObjectReference(input.PolicyReference, context) }),
-  };
-};
+// se_BatchDetachPolicy omitted.
 
 /**
  * serializeAws_restJson1BatchDetachTypedLink
  */
 const se_BatchDetachTypedLink = (input: BatchDetachTypedLink, context: __SerdeContext): any => {
-  return {
-    ...(input.TypedLinkSpecifier != null && {
-      TypedLinkSpecifier: se_TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-    }),
-  };
+  return take(input, {
+    TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1BatchGetLinkAttributes
  */
 const se_BatchGetLinkAttributes = (input: BatchGetLinkAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeNames != null && { AttributeNames: se_AttributeNameList(input.AttributeNames, context) }),
-    ...(input.TypedLinkSpecifier != null && {
-      TypedLinkSpecifier: se_TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-    }),
-  };
+  return take(input, {
+    AttributeNames: (_) => _json(_),
+    TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1BatchGetObjectAttributes
- */
-const se_BatchGetObjectAttributes = (input: BatchGetObjectAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeNames != null && { AttributeNames: se_AttributeNameList(input.AttributeNames, context) }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.SchemaFacet != null && { SchemaFacet: se_SchemaFacet(input.SchemaFacet, context) }),
-  };
-};
+// se_BatchGetObjectAttributes omitted.
 
-/**
- * serializeAws_restJson1BatchGetObjectInformation
- */
-const se_BatchGetObjectInformation = (input: BatchGetObjectInformation, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
-};
+// se_BatchGetObjectInformation omitted.
 
-/**
- * serializeAws_restJson1BatchListAttachedIndices
- */
-const se_BatchListAttachedIndices = (input: BatchListAttachedIndices, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TargetReference != null && { TargetReference: se_ObjectReference(input.TargetReference, context) }),
-  };
-};
+// se_BatchListAttachedIndices omitted.
 
 /**
  * serializeAws_restJson1BatchListIncomingTypedLinks
  */
 const se_BatchListIncomingTypedLinks = (input: BatchListIncomingTypedLinks, context: __SerdeContext): any => {
-  return {
-    ...(input.FilterAttributeRanges != null && {
-      FilterAttributeRanges: se_TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
-    }),
-    ...(input.FilterTypedLink != null && {
-      FilterTypedLink: se_TypedLinkSchemaAndFacetName(input.FilterTypedLink, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
+  return take(input, {
+    FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
+    FilterTypedLink: (_) => _json(_),
+    MaxResults: [],
+    NextToken: [],
+    ObjectReference: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_restJson1BatchListIndex
  */
 const se_BatchListIndex = (input: BatchListIndex, context: __SerdeContext): any => {
-  return {
-    ...(input.IndexReference != null && { IndexReference: se_ObjectReference(input.IndexReference, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RangesOnIndexedValues != null && {
-      RangesOnIndexedValues: se_ObjectAttributeRangeList(input.RangesOnIndexedValues, context),
-    }),
-  };
+  return take(input, {
+    IndexReference: (_) => _json(_),
+    MaxResults: [],
+    NextToken: [],
+    RangesOnIndexedValues: (_) => se_ObjectAttributeRangeList(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1BatchListObjectAttributes
- */
-const se_BatchListObjectAttributes = (input: BatchListObjectAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.FacetFilter != null && { FacetFilter: se_SchemaFacet(input.FacetFilter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
-};
+// se_BatchListObjectAttributes omitted.
 
-/**
- * serializeAws_restJson1BatchListObjectChildren
- */
-const se_BatchListObjectChildren = (input: BatchListObjectChildren, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
-};
+// se_BatchListObjectChildren omitted.
 
-/**
- * serializeAws_restJson1BatchListObjectParentPaths
- */
-const se_BatchListObjectParentPaths = (input: BatchListObjectParentPaths, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
-};
+// se_BatchListObjectParentPaths omitted.
 
-/**
- * serializeAws_restJson1BatchListObjectParents
- */
-const se_BatchListObjectParents = (input: BatchListObjectParents, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
-};
+// se_BatchListObjectParents omitted.
 
-/**
- * serializeAws_restJson1BatchListObjectPolicies
- */
-const se_BatchListObjectPolicies = (input: BatchListObjectPolicies, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
-};
+// se_BatchListObjectPolicies omitted.
 
 /**
  * serializeAws_restJson1BatchListOutgoingTypedLinks
  */
 const se_BatchListOutgoingTypedLinks = (input: BatchListOutgoingTypedLinks, context: __SerdeContext): any => {
-  return {
-    ...(input.FilterAttributeRanges != null && {
-      FilterAttributeRanges: se_TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
-    }),
-    ...(input.FilterTypedLink != null && {
-      FilterTypedLink: se_TypedLinkSchemaAndFacetName(input.FilterTypedLink, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
+  return take(input, {
+    FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
+    FilterTypedLink: (_) => _json(_),
+    MaxResults: [],
+    NextToken: [],
+    ObjectReference: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_restJson1BatchListPolicyAttachments
- */
-const se_BatchListPolicyAttachments = (input: BatchListPolicyAttachments, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PolicyReference != null && { PolicyReference: se_ObjectReference(input.PolicyReference, context) }),
-  };
-};
+// se_BatchListPolicyAttachments omitted.
 
-/**
- * serializeAws_restJson1BatchLookupPolicy
- */
-const se_BatchLookupPolicy = (input: BatchLookupPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
-};
+// se_BatchLookupPolicy omitted.
 
 /**
  * serializeAws_restJson1BatchReadOperation
  */
 const se_BatchReadOperation = (input: BatchReadOperation, context: __SerdeContext): any => {
-  return {
-    ...(input.GetLinkAttributes != null && {
-      GetLinkAttributes: se_BatchGetLinkAttributes(input.GetLinkAttributes, context),
-    }),
-    ...(input.GetObjectAttributes != null && {
-      GetObjectAttributes: se_BatchGetObjectAttributes(input.GetObjectAttributes, context),
-    }),
-    ...(input.GetObjectInformation != null && {
-      GetObjectInformation: se_BatchGetObjectInformation(input.GetObjectInformation, context),
-    }),
-    ...(input.ListAttachedIndices != null && {
-      ListAttachedIndices: se_BatchListAttachedIndices(input.ListAttachedIndices, context),
-    }),
-    ...(input.ListIncomingTypedLinks != null && {
-      ListIncomingTypedLinks: se_BatchListIncomingTypedLinks(input.ListIncomingTypedLinks, context),
-    }),
-    ...(input.ListIndex != null && { ListIndex: se_BatchListIndex(input.ListIndex, context) }),
-    ...(input.ListObjectAttributes != null && {
-      ListObjectAttributes: se_BatchListObjectAttributes(input.ListObjectAttributes, context),
-    }),
-    ...(input.ListObjectChildren != null && {
-      ListObjectChildren: se_BatchListObjectChildren(input.ListObjectChildren, context),
-    }),
-    ...(input.ListObjectParentPaths != null && {
-      ListObjectParentPaths: se_BatchListObjectParentPaths(input.ListObjectParentPaths, context),
-    }),
-    ...(input.ListObjectParents != null && {
-      ListObjectParents: se_BatchListObjectParents(input.ListObjectParents, context),
-    }),
-    ...(input.ListObjectPolicies != null && {
-      ListObjectPolicies: se_BatchListObjectPolicies(input.ListObjectPolicies, context),
-    }),
-    ...(input.ListOutgoingTypedLinks != null && {
-      ListOutgoingTypedLinks: se_BatchListOutgoingTypedLinks(input.ListOutgoingTypedLinks, context),
-    }),
-    ...(input.ListPolicyAttachments != null && {
-      ListPolicyAttachments: se_BatchListPolicyAttachments(input.ListPolicyAttachments, context),
-    }),
-    ...(input.LookupPolicy != null && { LookupPolicy: se_BatchLookupPolicy(input.LookupPolicy, context) }),
-  };
+  return take(input, {
+    GetLinkAttributes: (_) => se_BatchGetLinkAttributes(_, context),
+    GetObjectAttributes: (_) => _json(_),
+    GetObjectInformation: (_) => _json(_),
+    ListAttachedIndices: (_) => _json(_),
+    ListIncomingTypedLinks: (_) => se_BatchListIncomingTypedLinks(_, context),
+    ListIndex: (_) => se_BatchListIndex(_, context),
+    ListObjectAttributes: (_) => _json(_),
+    ListObjectChildren: (_) => _json(_),
+    ListObjectParentPaths: (_) => _json(_),
+    ListObjectParents: (_) => _json(_),
+    ListObjectPolicies: (_) => _json(_),
+    ListOutgoingTypedLinks: (_) => se_BatchListOutgoingTypedLinks(_, context),
+    ListPolicyAttachments: (_) => _json(_),
+    LookupPolicy: (_) => _json(_),
+  });
 };
 
 /**
@@ -8164,71 +7943,49 @@ const se_BatchReadOperationList = (input: BatchReadOperation[], context: __Serde
     });
 };
 
-/**
- * serializeAws_restJson1BatchRemoveFacetFromObject
- */
-const se_BatchRemoveFacetFromObject = (input: BatchRemoveFacetFromObject, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-    ...(input.SchemaFacet != null && { SchemaFacet: se_SchemaFacet(input.SchemaFacet, context) }),
-  };
-};
+// se_BatchRemoveFacetFromObject omitted.
 
 /**
  * serializeAws_restJson1BatchUpdateLinkAttributes
  */
 const se_BatchUpdateLinkAttributes = (input: BatchUpdateLinkAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeUpdates != null && {
-      AttributeUpdates: se_LinkAttributeUpdateList(input.AttributeUpdates, context),
-    }),
-    ...(input.TypedLinkSpecifier != null && {
-      TypedLinkSpecifier: se_TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-    }),
-  };
+  return take(input, {
+    AttributeUpdates: (_) => se_LinkAttributeUpdateList(_, context),
+    TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1BatchUpdateObjectAttributes
  */
 const se_BatchUpdateObjectAttributes = (input: BatchUpdateObjectAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeUpdates != null && {
-      AttributeUpdates: se_ObjectAttributeUpdateList(input.AttributeUpdates, context),
-    }),
-    ...(input.ObjectReference != null && { ObjectReference: se_ObjectReference(input.ObjectReference, context) }),
-  };
+  return take(input, {
+    AttributeUpdates: (_) => se_ObjectAttributeUpdateList(_, context),
+    ObjectReference: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_restJson1BatchWriteOperation
  */
 const se_BatchWriteOperation = (input: BatchWriteOperation, context: __SerdeContext): any => {
-  return {
-    ...(input.AddFacetToObject != null && {
-      AddFacetToObject: se_BatchAddFacetToObject(input.AddFacetToObject, context),
-    }),
-    ...(input.AttachObject != null && { AttachObject: se_BatchAttachObject(input.AttachObject, context) }),
-    ...(input.AttachPolicy != null && { AttachPolicy: se_BatchAttachPolicy(input.AttachPolicy, context) }),
-    ...(input.AttachToIndex != null && { AttachToIndex: se_BatchAttachToIndex(input.AttachToIndex, context) }),
-    ...(input.AttachTypedLink != null && { AttachTypedLink: se_BatchAttachTypedLink(input.AttachTypedLink, context) }),
-    ...(input.CreateIndex != null && { CreateIndex: se_BatchCreateIndex(input.CreateIndex, context) }),
-    ...(input.CreateObject != null && { CreateObject: se_BatchCreateObject(input.CreateObject, context) }),
-    ...(input.DeleteObject != null && { DeleteObject: se_BatchDeleteObject(input.DeleteObject, context) }),
-    ...(input.DetachFromIndex != null && { DetachFromIndex: se_BatchDetachFromIndex(input.DetachFromIndex, context) }),
-    ...(input.DetachObject != null && { DetachObject: se_BatchDetachObject(input.DetachObject, context) }),
-    ...(input.DetachPolicy != null && { DetachPolicy: se_BatchDetachPolicy(input.DetachPolicy, context) }),
-    ...(input.DetachTypedLink != null && { DetachTypedLink: se_BatchDetachTypedLink(input.DetachTypedLink, context) }),
-    ...(input.RemoveFacetFromObject != null && {
-      RemoveFacetFromObject: se_BatchRemoveFacetFromObject(input.RemoveFacetFromObject, context),
-    }),
-    ...(input.UpdateLinkAttributes != null && {
-      UpdateLinkAttributes: se_BatchUpdateLinkAttributes(input.UpdateLinkAttributes, context),
-    }),
-    ...(input.UpdateObjectAttributes != null && {
-      UpdateObjectAttributes: se_BatchUpdateObjectAttributes(input.UpdateObjectAttributes, context),
-    }),
-  };
+  return take(input, {
+    AddFacetToObject: (_) => se_BatchAddFacetToObject(_, context),
+    AttachObject: (_) => _json(_),
+    AttachPolicy: (_) => _json(_),
+    AttachToIndex: (_) => _json(_),
+    AttachTypedLink: (_) => se_BatchAttachTypedLink(_, context),
+    CreateIndex: (_) => _json(_),
+    CreateObject: (_) => se_BatchCreateObject(_, context),
+    DeleteObject: (_) => _json(_),
+    DetachFromIndex: (_) => _json(_),
+    DetachObject: (_) => _json(_),
+    DetachPolicy: (_) => _json(_),
+    DetachTypedLink: (_) => se_BatchDetachTypedLink(_, context),
+    RemoveFacetFromObject: (_) => _json(_),
+    UpdateLinkAttributes: (_) => se_BatchUpdateLinkAttributes(_, context),
+    UpdateObjectAttributes: (_) => se_BatchUpdateObjectAttributes(_, context),
+  });
 };
 
 /**
@@ -8246,28 +8003,24 @@ const se_BatchWriteOperationList = (input: BatchWriteOperation[], context: __Ser
  * serializeAws_restJson1FacetAttribute
  */
 const se_FacetAttribute = (input: FacetAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeDefinition != null && {
-      AttributeDefinition: se_FacetAttributeDefinition(input.AttributeDefinition, context),
-    }),
-    ...(input.AttributeReference != null && {
-      AttributeReference: se_FacetAttributeReference(input.AttributeReference, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RequiredBehavior != null && { RequiredBehavior: input.RequiredBehavior }),
-  };
+  return take(input, {
+    AttributeDefinition: (_) => se_FacetAttributeDefinition(_, context),
+    AttributeReference: (_) => _json(_),
+    Name: [],
+    RequiredBehavior: [],
+  });
 };
 
 /**
  * serializeAws_restJson1FacetAttributeDefinition
  */
 const se_FacetAttributeDefinition = (input: FacetAttributeDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.DefaultValue != null && { DefaultValue: se_TypedAttributeValue(input.DefaultValue, context) }),
-    ...(input.IsImmutable != null && { IsImmutable: input.IsImmutable }),
-    ...(input.Rules != null && { Rules: se_RuleMap(input.Rules, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    DefaultValue: (_) => se_TypedAttributeValue(_, context),
+    IsImmutable: [],
+    Rules: (_) => _json(_),
+    Type: [],
+  });
 };
 
 /**
@@ -8281,24 +8034,16 @@ const se_FacetAttributeList = (input: FacetAttribute[], context: __SerdeContext)
     });
 };
 
-/**
- * serializeAws_restJson1FacetAttributeReference
- */
-const se_FacetAttributeReference = (input: FacetAttributeReference, context: __SerdeContext): any => {
-  return {
-    ...(input.TargetAttributeName != null && { TargetAttributeName: input.TargetAttributeName }),
-    ...(input.TargetFacetName != null && { TargetFacetName: input.TargetFacetName }),
-  };
-};
+// se_FacetAttributeReference omitted.
 
 /**
  * serializeAws_restJson1FacetAttributeUpdate
  */
 const se_FacetAttributeUpdate = (input: FacetAttributeUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Attribute != null && { Attribute: se_FacetAttribute(input.Attribute, context) }),
-  };
+  return take(input, {
+    Action: [],
+    Attribute: (_) => se_FacetAttribute(_, context),
+  });
 };
 
 /**
@@ -8316,22 +8061,20 @@ const se_FacetAttributeUpdateList = (input: FacetAttributeUpdate[], context: __S
  * serializeAws_restJson1LinkAttributeAction
  */
 const se_LinkAttributeAction = (input: LinkAttributeAction, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeActionType != null && { AttributeActionType: input.AttributeActionType }),
-    ...(input.AttributeUpdateValue != null && {
-      AttributeUpdateValue: se_TypedAttributeValue(input.AttributeUpdateValue, context),
-    }),
-  };
+  return take(input, {
+    AttributeActionType: [],
+    AttributeUpdateValue: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1LinkAttributeUpdate
  */
 const se_LinkAttributeUpdate = (input: LinkAttributeUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeAction != null && { AttributeAction: se_LinkAttributeAction(input.AttributeAction, context) }),
-    ...(input.AttributeKey != null && { AttributeKey: se_AttributeKey(input.AttributeKey, context) }),
-  };
+  return take(input, {
+    AttributeAction: (_) => se_LinkAttributeAction(_, context),
+    AttributeKey: (_) => _json(_),
+  });
 };
 
 /**
@@ -8349,22 +8092,20 @@ const se_LinkAttributeUpdateList = (input: LinkAttributeUpdate[], context: __Ser
  * serializeAws_restJson1ObjectAttributeAction
  */
 const se_ObjectAttributeAction = (input: ObjectAttributeAction, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectAttributeActionType != null && { ObjectAttributeActionType: input.ObjectAttributeActionType }),
-    ...(input.ObjectAttributeUpdateValue != null && {
-      ObjectAttributeUpdateValue: se_TypedAttributeValue(input.ObjectAttributeUpdateValue, context),
-    }),
-  };
+  return take(input, {
+    ObjectAttributeActionType: [],
+    ObjectAttributeUpdateValue: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1ObjectAttributeRange
  */
 const se_ObjectAttributeRange = (input: ObjectAttributeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeKey != null && { AttributeKey: se_AttributeKey(input.AttributeKey, context) }),
-    ...(input.Range != null && { Range: se_TypedAttributeValueRange(input.Range, context) }),
-  };
+  return take(input, {
+    AttributeKey: (_) => _json(_),
+    Range: (_) => se_TypedAttributeValueRange(_, context),
+  });
 };
 
 /**
@@ -8382,12 +8123,10 @@ const se_ObjectAttributeRangeList = (input: ObjectAttributeRange[], context: __S
  * serializeAws_restJson1ObjectAttributeUpdate
  */
 const se_ObjectAttributeUpdate = (input: ObjectAttributeUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectAttributeAction != null && {
-      ObjectAttributeAction: se_ObjectAttributeAction(input.ObjectAttributeAction, context),
-    }),
-    ...(input.ObjectAttributeKey != null && { ObjectAttributeKey: se_AttributeKey(input.ObjectAttributeKey, context) }),
-  };
+  return take(input, {
+    ObjectAttributeAction: (_) => se_ObjectAttributeAction(_, context),
+    ObjectAttributeKey: (_) => _json(_),
+  });
 };
 
 /**
@@ -8401,103 +8140,23 @@ const se_ObjectAttributeUpdateList = (input: ObjectAttributeUpdate[], context: _
     });
 };
 
-/**
- * serializeAws_restJson1ObjectReference
- */
-const se_ObjectReference = (input: ObjectReference, context: __SerdeContext): any => {
-  return {
-    ...(input.Selector != null && { Selector: input.Selector }),
-  };
-};
+// se_ObjectReference omitted.
 
-/**
- * serializeAws_restJson1Rule
- */
-const se_Rule = (input: Rule, context: __SerdeContext): any => {
-  return {
-    ...(input.Parameters != null && { Parameters: se_RuleParameterMap(input.Parameters, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_Rule omitted.
 
-/**
- * serializeAws_restJson1RuleMap
- */
-const se_RuleMap = (input: Record<string, Rule>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_Rule(value, context);
-    return acc;
-  }, {});
-};
+// se_RuleMap omitted.
 
-/**
- * serializeAws_restJson1RuleParameterMap
- */
-const se_RuleParameterMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_RuleParameterMap omitted.
 
-/**
- * serializeAws_restJson1SchemaFacet
- */
-const se_SchemaFacet = (input: SchemaFacet, context: __SerdeContext): any => {
-  return {
-    ...(input.FacetName != null && { FacetName: input.FacetName }),
-    ...(input.SchemaArn != null && { SchemaArn: input.SchemaArn }),
-  };
-};
+// se_SchemaFacet omitted.
 
-/**
- * serializeAws_restJson1SchemaFacetList
- */
-const se_SchemaFacetList = (input: SchemaFacet[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SchemaFacet(entry, context);
-    });
-};
+// se_SchemaFacetList omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
 /**
  * serializeAws_restJson1TypedAttributeValue
@@ -8517,26 +8176,26 @@ const se_TypedAttributeValue = (input: TypedAttributeValue, context: __SerdeCont
  * serializeAws_restJson1TypedAttributeValueRange
  */
 const se_TypedAttributeValueRange = (input: TypedAttributeValueRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndMode != null && { EndMode: input.EndMode }),
-    ...(input.EndValue != null && { EndValue: se_TypedAttributeValue(input.EndValue, context) }),
-    ...(input.StartMode != null && { StartMode: input.StartMode }),
-    ...(input.StartValue != null && { StartValue: se_TypedAttributeValue(input.StartValue, context) }),
-  };
+  return take(input, {
+    EndMode: [],
+    EndValue: (_) => se_TypedAttributeValue(_, context),
+    StartMode: [],
+    StartValue: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1TypedLinkAttributeDefinition
  */
 const se_TypedLinkAttributeDefinition = (input: TypedLinkAttributeDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.DefaultValue != null && { DefaultValue: se_TypedAttributeValue(input.DefaultValue, context) }),
-    ...(input.IsImmutable != null && { IsImmutable: input.IsImmutable }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RequiredBehavior != null && { RequiredBehavior: input.RequiredBehavior }),
-    ...(input.Rules != null && { Rules: se_RuleMap(input.Rules, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    DefaultValue: (_) => se_TypedAttributeValue(_, context),
+    IsImmutable: [],
+    Name: [],
+    RequiredBehavior: [],
+    Rules: (_) => _json(_),
+    Type: [],
+  });
 };
 
 /**
@@ -8554,10 +8213,10 @@ const se_TypedLinkAttributeDefinitionList = (input: TypedLinkAttributeDefinition
  * serializeAws_restJson1TypedLinkAttributeRange
  */
 const se_TypedLinkAttributeRange = (input: TypedLinkAttributeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.Range != null && { Range: se_TypedAttributeValueRange(input.Range, context) }),
-  };
+  return take(input, {
+    AttributeName: [],
+    Range: (_) => se_TypedAttributeValueRange(_, context),
+  });
 };
 
 /**
@@ -8575,23 +8234,21 @@ const se_TypedLinkAttributeRangeList = (input: TypedLinkAttributeRange[], contex
  * serializeAws_restJson1TypedLinkFacet
  */
 const se_TypedLinkFacet = (input: TypedLinkFacet, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_TypedLinkAttributeDefinitionList(input.Attributes, context) }),
-    ...(input.IdentityAttributeOrder != null && {
-      IdentityAttributeOrder: se_AttributeNameList(input.IdentityAttributeOrder, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
+  return take(input, {
+    Attributes: (_) => se_TypedLinkAttributeDefinitionList(_, context),
+    IdentityAttributeOrder: (_) => _json(_),
+    Name: [],
+  });
 };
 
 /**
  * serializeAws_restJson1TypedLinkFacetAttributeUpdate
  */
 const se_TypedLinkFacetAttributeUpdate = (input: TypedLinkFacetAttributeUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Attribute != null && { Attribute: se_TypedLinkAttributeDefinition(input.Attribute, context) }),
-  };
+  return take(input, {
+    Action: [],
+    Attribute: (_) => se_TypedLinkAttributeDefinition(_, context),
+  });
 };
 
 /**
@@ -8605,70 +8262,32 @@ const se_TypedLinkFacetAttributeUpdateList = (input: TypedLinkFacetAttributeUpda
     });
 };
 
-/**
- * serializeAws_restJson1TypedLinkSchemaAndFacetName
- */
-const se_TypedLinkSchemaAndFacetName = (input: TypedLinkSchemaAndFacetName, context: __SerdeContext): any => {
-  return {
-    ...(input.SchemaArn != null && { SchemaArn: input.SchemaArn }),
-    ...(input.TypedLinkName != null && { TypedLinkName: input.TypedLinkName }),
-  };
-};
+// se_TypedLinkSchemaAndFacetName omitted.
 
 /**
  * serializeAws_restJson1TypedLinkSpecifier
  */
 const se_TypedLinkSpecifier = (input: TypedLinkSpecifier, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityAttributeValues != null && {
-      IdentityAttributeValues: se_AttributeNameAndValueList(input.IdentityAttributeValues, context),
-    }),
-    ...(input.SourceObjectReference != null && {
-      SourceObjectReference: se_ObjectReference(input.SourceObjectReference, context),
-    }),
-    ...(input.TargetObjectReference != null && {
-      TargetObjectReference: se_ObjectReference(input.TargetObjectReference, context),
-    }),
-    ...(input.TypedLinkFacet != null && {
-      TypedLinkFacet: se_TypedLinkSchemaAndFacetName(input.TypedLinkFacet, context),
-    }),
-  };
+  return take(input, {
+    IdentityAttributeValues: (_) => se_AttributeNameAndValueList(_, context),
+    SourceObjectReference: (_) => _json(_),
+    TargetObjectReference: (_) => _json(_),
+    TypedLinkFacet: (_) => _json(_),
+  });
 };
 
-/**
- * deserializeAws_restJson1Arns
- */
-const de_Arns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Arns omitted.
 
-/**
- * deserializeAws_restJson1AttributeKey
- */
-const de_AttributeKey = (output: any, context: __SerdeContext): AttributeKey => {
-  return {
-    FacetName: __expectString(output.FacetName),
-    Name: __expectString(output.Name),
-    SchemaArn: __expectString(output.SchemaArn),
-  } as any;
-};
+// de_AttributeKey omitted.
 
 /**
  * deserializeAws_restJson1AttributeKeyAndValue
  */
 const de_AttributeKeyAndValue = (output: any, context: __SerdeContext): AttributeKeyAndValue => {
-  return {
-    Key: output.Key != null ? de_AttributeKey(output.Key, context) : undefined,
-    Value: output.Value != null ? de_TypedAttributeValue(__expectUnion(output.Value), context) : undefined,
-  } as any;
+  return take(output, {
+    Key: _json,
+    Value: (_: any) => de_TypedAttributeValue(__expectUnion(_), context),
+  }) as any;
 };
 
 /**
@@ -8678,9 +8297,6 @@ const de_AttributeKeyAndValueList = (output: any, context: __SerdeContext): Attr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AttributeKeyAndValue(entry, context);
     });
   return retVal;
@@ -8690,10 +8306,10 @@ const de_AttributeKeyAndValueList = (output: any, context: __SerdeContext): Attr
  * deserializeAws_restJson1AttributeNameAndValue
  */
 const de_AttributeNameAndValue = (output: any, context: __SerdeContext): AttributeNameAndValue => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    Value: output.Value != null ? de_TypedAttributeValue(__expectUnion(output.Value), context) : undefined,
-  } as any;
+  return take(output, {
+    AttributeName: __expectString,
+    Value: (_: any) => de_TypedAttributeValue(__expectUnion(_), context),
+  }) as any;
 };
 
 /**
@@ -8703,135 +8319,51 @@ const de_AttributeNameAndValueList = (output: any, context: __SerdeContext): Att
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AttributeNameAndValue(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1AttributeNameList
- */
-const de_AttributeNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AttributeNameList omitted.
 
-/**
- * deserializeAws_restJson1BatchAddFacetToObjectResponse
- */
-const de_BatchAddFacetToObjectResponse = (output: any, context: __SerdeContext): BatchAddFacetToObjectResponse => {
-  return {} as any;
-};
+// de_BatchAddFacetToObjectResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchAttachObjectResponse
- */
-const de_BatchAttachObjectResponse = (output: any, context: __SerdeContext): BatchAttachObjectResponse => {
-  return {
-    attachedObjectIdentifier: __expectString(output.attachedObjectIdentifier),
-  } as any;
-};
+// de_BatchAttachObjectResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchAttachPolicyResponse
- */
-const de_BatchAttachPolicyResponse = (output: any, context: __SerdeContext): BatchAttachPolicyResponse => {
-  return {} as any;
-};
+// de_BatchAttachPolicyResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchAttachToIndexResponse
- */
-const de_BatchAttachToIndexResponse = (output: any, context: __SerdeContext): BatchAttachToIndexResponse => {
-  return {
-    AttachedObjectIdentifier: __expectString(output.AttachedObjectIdentifier),
-  } as any;
-};
+// de_BatchAttachToIndexResponse omitted.
 
 /**
  * deserializeAws_restJson1BatchAttachTypedLinkResponse
  */
 const de_BatchAttachTypedLinkResponse = (output: any, context: __SerdeContext): BatchAttachTypedLinkResponse => {
-  return {
-    TypedLinkSpecifier:
-      output.TypedLinkSpecifier != null ? de_TypedLinkSpecifier(output.TypedLinkSpecifier, context) : undefined,
-  } as any;
+  return take(output, {
+    TypedLinkSpecifier: (_: any) => de_TypedLinkSpecifier(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchCreateIndexResponse
- */
-const de_BatchCreateIndexResponse = (output: any, context: __SerdeContext): BatchCreateIndexResponse => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
+// de_BatchCreateIndexResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateObjectResponse
- */
-const de_BatchCreateObjectResponse = (output: any, context: __SerdeContext): BatchCreateObjectResponse => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
+// de_BatchCreateObjectResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchDeleteObjectResponse
- */
-const de_BatchDeleteObjectResponse = (output: any, context: __SerdeContext): BatchDeleteObjectResponse => {
-  return {} as any;
-};
+// de_BatchDeleteObjectResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchDetachFromIndexResponse
- */
-const de_BatchDetachFromIndexResponse = (output: any, context: __SerdeContext): BatchDetachFromIndexResponse => {
-  return {
-    DetachedObjectIdentifier: __expectString(output.DetachedObjectIdentifier),
-  } as any;
-};
+// de_BatchDetachFromIndexResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchDetachObjectResponse
- */
-const de_BatchDetachObjectResponse = (output: any, context: __SerdeContext): BatchDetachObjectResponse => {
-  return {
-    detachedObjectIdentifier: __expectString(output.detachedObjectIdentifier),
-  } as any;
-};
+// de_BatchDetachObjectResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchDetachPolicyResponse
- */
-const de_BatchDetachPolicyResponse = (output: any, context: __SerdeContext): BatchDetachPolicyResponse => {
-  return {} as any;
-};
+// de_BatchDetachPolicyResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchDetachTypedLinkResponse
- */
-const de_BatchDetachTypedLinkResponse = (output: any, context: __SerdeContext): BatchDetachTypedLinkResponse => {
-  return {} as any;
-};
+// de_BatchDetachTypedLinkResponse omitted.
 
 /**
  * deserializeAws_restJson1BatchGetLinkAttributesResponse
  */
 const de_BatchGetLinkAttributesResponse = (output: any, context: __SerdeContext): BatchGetLinkAttributesResponse => {
-  return {
-    Attributes: output.Attributes != null ? de_AttributeKeyAndValueList(output.Attributes, context) : undefined,
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_AttributeKeyAndValueList(_, context),
+  }) as any;
 };
 
 /**
@@ -8841,23 +8373,12 @@ const de_BatchGetObjectAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): BatchGetObjectAttributesResponse => {
-  return {
-    Attributes: output.Attributes != null ? de_AttributeKeyAndValueList(output.Attributes, context) : undefined,
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_AttributeKeyAndValueList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchGetObjectInformationResponse
- */
-const de_BatchGetObjectInformationResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchGetObjectInformationResponse => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-    SchemaFacets: output.SchemaFacets != null ? de_SchemaFacetList(output.SchemaFacets, context) : undefined,
-  } as any;
-};
+// de_BatchGetObjectInformationResponse omitted.
 
 /**
  * deserializeAws_restJson1BatchListAttachedIndicesResponse
@@ -8866,11 +8387,10 @@ const de_BatchListAttachedIndicesResponse = (
   output: any,
   context: __SerdeContext
 ): BatchListAttachedIndicesResponse => {
-  return {
-    IndexAttachments:
-      output.IndexAttachments != null ? de_IndexAttachmentList(output.IndexAttachments, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    IndexAttachments: (_: any) => de_IndexAttachmentList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -8880,22 +8400,20 @@ const de_BatchListIncomingTypedLinksResponse = (
   output: any,
   context: __SerdeContext
 ): BatchListIncomingTypedLinksResponse => {
-  return {
-    LinkSpecifiers:
-      output.LinkSpecifiers != null ? de_TypedLinkSpecifierList(output.LinkSpecifiers, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LinkSpecifiers: (_: any) => de_TypedLinkSpecifierList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BatchListIndexResponse
  */
 const de_BatchListIndexResponse = (output: any, context: __SerdeContext): BatchListIndexResponse => {
-  return {
-    IndexAttachments:
-      output.IndexAttachments != null ? de_IndexAttachmentList(output.IndexAttachments, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    IndexAttachments: (_: any) => de_IndexAttachmentList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -8905,59 +8423,19 @@ const de_BatchListObjectAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): BatchListObjectAttributesResponse => {
-  return {
-    Attributes: output.Attributes != null ? de_AttributeKeyAndValueList(output.Attributes, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_AttributeKeyAndValueList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchListObjectChildrenResponse
- */
-const de_BatchListObjectChildrenResponse = (output: any, context: __SerdeContext): BatchListObjectChildrenResponse => {
-  return {
-    Children: output.Children != null ? de_LinkNameToObjectIdentifierMap(output.Children, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_BatchListObjectChildrenResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchListObjectParentPathsResponse
- */
-const de_BatchListObjectParentPathsResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchListObjectParentPathsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PathToObjectIdentifiersList:
-      output.PathToObjectIdentifiersList != null
-        ? de_PathToObjectIdentifiersList(output.PathToObjectIdentifiersList, context)
-        : undefined,
-  } as any;
-};
+// de_BatchListObjectParentPathsResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchListObjectParentsResponse
- */
-const de_BatchListObjectParentsResponse = (output: any, context: __SerdeContext): BatchListObjectParentsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ParentLinks:
-      output.ParentLinks != null ? de_ObjectIdentifierAndLinkNameList(output.ParentLinks, context) : undefined,
-  } as any;
-};
+// de_BatchListObjectParentsResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchListObjectPoliciesResponse
- */
-const de_BatchListObjectPoliciesResponse = (output: any, context: __SerdeContext): BatchListObjectPoliciesResponse => {
-  return {
-    AttachedPolicyIds:
-      output.AttachedPolicyIds != null ? de_ObjectIdentifierList(output.AttachedPolicyIds, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_BatchListObjectPoliciesResponse omitted.
 
 /**
  * deserializeAws_restJson1BatchListOutgoingTypedLinksResponse
@@ -8966,60 +8444,26 @@ const de_BatchListOutgoingTypedLinksResponse = (
   output: any,
   context: __SerdeContext
 ): BatchListOutgoingTypedLinksResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    TypedLinkSpecifiers:
-      output.TypedLinkSpecifiers != null ? de_TypedLinkSpecifierList(output.TypedLinkSpecifiers, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    TypedLinkSpecifiers: (_: any) => de_TypedLinkSpecifierList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchListPolicyAttachmentsResponse
- */
-const de_BatchListPolicyAttachmentsResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchListPolicyAttachmentsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ObjectIdentifiers:
-      output.ObjectIdentifiers != null ? de_ObjectIdentifierList(output.ObjectIdentifiers, context) : undefined,
-  } as any;
-};
+// de_BatchListPolicyAttachmentsResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchLookupPolicyResponse
- */
-const de_BatchLookupPolicyResponse = (output: any, context: __SerdeContext): BatchLookupPolicyResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PolicyToPathList:
-      output.PolicyToPathList != null ? de_PolicyToPathList(output.PolicyToPathList, context) : undefined,
-  } as any;
-};
+// de_BatchLookupPolicyResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchReadException
- */
-const de_BatchReadException = (output: any, context: __SerdeContext): BatchReadException => {
-  return {
-    Message: __expectString(output.Message),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_BatchReadException omitted.
 
 /**
  * deserializeAws_restJson1BatchReadOperationResponse
  */
 const de_BatchReadOperationResponse = (output: any, context: __SerdeContext): BatchReadOperationResponse => {
-  return {
-    ExceptionResponse:
-      output.ExceptionResponse != null ? de_BatchReadException(output.ExceptionResponse, context) : undefined,
-    SuccessfulResponse:
-      output.SuccessfulResponse != null
-        ? de_BatchReadSuccessfulResponse(output.SuccessfulResponse, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ExceptionResponse: _json,
+    SuccessfulResponse: (_: any) => de_BatchReadSuccessfulResponse(_, context),
+  }) as any;
 };
 
 /**
@@ -9029,9 +8473,6 @@ const de_BatchReadOperationResponseList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchReadOperationResponse(entry, context);
     });
   return retVal;
@@ -9041,127 +8482,51 @@ const de_BatchReadOperationResponseList = (output: any, context: __SerdeContext)
  * deserializeAws_restJson1BatchReadSuccessfulResponse
  */
 const de_BatchReadSuccessfulResponse = (output: any, context: __SerdeContext): BatchReadSuccessfulResponse => {
-  return {
-    GetLinkAttributes:
-      output.GetLinkAttributes != null
-        ? de_BatchGetLinkAttributesResponse(output.GetLinkAttributes, context)
-        : undefined,
-    GetObjectAttributes:
-      output.GetObjectAttributes != null
-        ? de_BatchGetObjectAttributesResponse(output.GetObjectAttributes, context)
-        : undefined,
-    GetObjectInformation:
-      output.GetObjectInformation != null
-        ? de_BatchGetObjectInformationResponse(output.GetObjectInformation, context)
-        : undefined,
-    ListAttachedIndices:
-      output.ListAttachedIndices != null
-        ? de_BatchListAttachedIndicesResponse(output.ListAttachedIndices, context)
-        : undefined,
-    ListIncomingTypedLinks:
-      output.ListIncomingTypedLinks != null
-        ? de_BatchListIncomingTypedLinksResponse(output.ListIncomingTypedLinks, context)
-        : undefined,
-    ListIndex: output.ListIndex != null ? de_BatchListIndexResponse(output.ListIndex, context) : undefined,
-    ListObjectAttributes:
-      output.ListObjectAttributes != null
-        ? de_BatchListObjectAttributesResponse(output.ListObjectAttributes, context)
-        : undefined,
-    ListObjectChildren:
-      output.ListObjectChildren != null
-        ? de_BatchListObjectChildrenResponse(output.ListObjectChildren, context)
-        : undefined,
-    ListObjectParentPaths:
-      output.ListObjectParentPaths != null
-        ? de_BatchListObjectParentPathsResponse(output.ListObjectParentPaths, context)
-        : undefined,
-    ListObjectParents:
-      output.ListObjectParents != null
-        ? de_BatchListObjectParentsResponse(output.ListObjectParents, context)
-        : undefined,
-    ListObjectPolicies:
-      output.ListObjectPolicies != null
-        ? de_BatchListObjectPoliciesResponse(output.ListObjectPolicies, context)
-        : undefined,
-    ListOutgoingTypedLinks:
-      output.ListOutgoingTypedLinks != null
-        ? de_BatchListOutgoingTypedLinksResponse(output.ListOutgoingTypedLinks, context)
-        : undefined,
-    ListPolicyAttachments:
-      output.ListPolicyAttachments != null
-        ? de_BatchListPolicyAttachmentsResponse(output.ListPolicyAttachments, context)
-        : undefined,
-    LookupPolicy: output.LookupPolicy != null ? de_BatchLookupPolicyResponse(output.LookupPolicy, context) : undefined,
-  } as any;
+  return take(output, {
+    GetLinkAttributes: (_: any) => de_BatchGetLinkAttributesResponse(_, context),
+    GetObjectAttributes: (_: any) => de_BatchGetObjectAttributesResponse(_, context),
+    GetObjectInformation: _json,
+    ListAttachedIndices: (_: any) => de_BatchListAttachedIndicesResponse(_, context),
+    ListIncomingTypedLinks: (_: any) => de_BatchListIncomingTypedLinksResponse(_, context),
+    ListIndex: (_: any) => de_BatchListIndexResponse(_, context),
+    ListObjectAttributes: (_: any) => de_BatchListObjectAttributesResponse(_, context),
+    ListObjectChildren: _json,
+    ListObjectParentPaths: _json,
+    ListObjectParents: _json,
+    ListObjectPolicies: _json,
+    ListOutgoingTypedLinks: (_: any) => de_BatchListOutgoingTypedLinksResponse(_, context),
+    ListPolicyAttachments: _json,
+    LookupPolicy: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchRemoveFacetFromObjectResponse
- */
-const de_BatchRemoveFacetFromObjectResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchRemoveFacetFromObjectResponse => {
-  return {} as any;
-};
+// de_BatchRemoveFacetFromObjectResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchUpdateLinkAttributesResponse
- */
-const de_BatchUpdateLinkAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchUpdateLinkAttributesResponse => {
-  return {} as any;
-};
+// de_BatchUpdateLinkAttributesResponse omitted.
 
-/**
- * deserializeAws_restJson1BatchUpdateObjectAttributesResponse
- */
-const de_BatchUpdateObjectAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchUpdateObjectAttributesResponse => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
+// de_BatchUpdateObjectAttributesResponse omitted.
 
 /**
  * deserializeAws_restJson1BatchWriteOperationResponse
  */
 const de_BatchWriteOperationResponse = (output: any, context: __SerdeContext): BatchWriteOperationResponse => {
-  return {
-    AddFacetToObject:
-      output.AddFacetToObject != null ? de_BatchAddFacetToObjectResponse(output.AddFacetToObject, context) : undefined,
-    AttachObject: output.AttachObject != null ? de_BatchAttachObjectResponse(output.AttachObject, context) : undefined,
-    AttachPolicy: output.AttachPolicy != null ? de_BatchAttachPolicyResponse(output.AttachPolicy, context) : undefined,
-    AttachToIndex:
-      output.AttachToIndex != null ? de_BatchAttachToIndexResponse(output.AttachToIndex, context) : undefined,
-    AttachTypedLink:
-      output.AttachTypedLink != null ? de_BatchAttachTypedLinkResponse(output.AttachTypedLink, context) : undefined,
-    CreateIndex: output.CreateIndex != null ? de_BatchCreateIndexResponse(output.CreateIndex, context) : undefined,
-    CreateObject: output.CreateObject != null ? de_BatchCreateObjectResponse(output.CreateObject, context) : undefined,
-    DeleteObject: output.DeleteObject != null ? de_BatchDeleteObjectResponse(output.DeleteObject, context) : undefined,
-    DetachFromIndex:
-      output.DetachFromIndex != null ? de_BatchDetachFromIndexResponse(output.DetachFromIndex, context) : undefined,
-    DetachObject: output.DetachObject != null ? de_BatchDetachObjectResponse(output.DetachObject, context) : undefined,
-    DetachPolicy: output.DetachPolicy != null ? de_BatchDetachPolicyResponse(output.DetachPolicy, context) : undefined,
-    DetachTypedLink:
-      output.DetachTypedLink != null ? de_BatchDetachTypedLinkResponse(output.DetachTypedLink, context) : undefined,
-    RemoveFacetFromObject:
-      output.RemoveFacetFromObject != null
-        ? de_BatchRemoveFacetFromObjectResponse(output.RemoveFacetFromObject, context)
-        : undefined,
-    UpdateLinkAttributes:
-      output.UpdateLinkAttributes != null
-        ? de_BatchUpdateLinkAttributesResponse(output.UpdateLinkAttributes, context)
-        : undefined,
-    UpdateObjectAttributes:
-      output.UpdateObjectAttributes != null
-        ? de_BatchUpdateObjectAttributesResponse(output.UpdateObjectAttributes, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AddFacetToObject: _json,
+    AttachObject: _json,
+    AttachPolicy: _json,
+    AttachToIndex: _json,
+    AttachTypedLink: (_: any) => de_BatchAttachTypedLinkResponse(_, context),
+    CreateIndex: _json,
+    CreateObject: _json,
+    DeleteObject: _json,
+    DetachFromIndex: _json,
+    DetachObject: _json,
+    DetachPolicy: _json,
+    DetachTypedLink: _json,
+    RemoveFacetFromObject: _json,
+    UpdateLinkAttributes: _json,
+    UpdateObjectAttributes: _json,
+  }) as any;
 };
 
 /**
@@ -9171,9 +8536,6 @@ const de_BatchWriteOperationResponseList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchWriteOperationResponse(entry, context);
     });
   return retVal;
@@ -9183,15 +8545,12 @@ const de_BatchWriteOperationResponseList = (output: any, context: __SerdeContext
  * deserializeAws_restJson1Directory
  */
 const de_Directory = (output: any, context: __SerdeContext): Directory => {
-  return {
-    CreationDateTime:
-      output.CreationDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
-        : undefined,
-    DirectoryArn: __expectString(output.DirectoryArn),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    CreationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DirectoryArn: __expectString,
+    Name: __expectString,
+    State: __expectString,
+  }) as any;
 };
 
 /**
@@ -9201,50 +8560,35 @@ const de_DirectoryList = (output: any, context: __SerdeContext): Directory[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Directory(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Facet
- */
-const de_Facet = (output: any, context: __SerdeContext): Facet => {
-  return {
-    FacetStyle: __expectString(output.FacetStyle),
-    Name: __expectString(output.Name),
-    ObjectType: __expectString(output.ObjectType),
-  } as any;
-};
+// de_Facet omitted.
 
 /**
  * deserializeAws_restJson1FacetAttribute
  */
 const de_FacetAttribute = (output: any, context: __SerdeContext): FacetAttribute => {
-  return {
-    AttributeDefinition:
-      output.AttributeDefinition != null ? de_FacetAttributeDefinition(output.AttributeDefinition, context) : undefined,
-    AttributeReference:
-      output.AttributeReference != null ? de_FacetAttributeReference(output.AttributeReference, context) : undefined,
-    Name: __expectString(output.Name),
-    RequiredBehavior: __expectString(output.RequiredBehavior),
-  } as any;
+  return take(output, {
+    AttributeDefinition: (_: any) => de_FacetAttributeDefinition(_, context),
+    AttributeReference: _json,
+    Name: __expectString,
+    RequiredBehavior: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1FacetAttributeDefinition
  */
 const de_FacetAttributeDefinition = (output: any, context: __SerdeContext): FacetAttributeDefinition => {
-  return {
-    DefaultValue:
-      output.DefaultValue != null ? de_TypedAttributeValue(__expectUnion(output.DefaultValue), context) : undefined,
-    IsImmutable: __expectBoolean(output.IsImmutable),
-    Rules: output.Rules != null ? de_RuleMap(output.Rules, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    DefaultValue: (_: any) => de_TypedAttributeValue(__expectUnion(_), context),
+    IsImmutable: __expectBoolean,
+    Rules: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -9254,48 +8598,23 @@ const de_FacetAttributeList = (output: any, context: __SerdeContext): FacetAttri
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FacetAttribute(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1FacetAttributeReference
- */
-const de_FacetAttributeReference = (output: any, context: __SerdeContext): FacetAttributeReference => {
-  return {
-    TargetAttributeName: __expectString(output.TargetAttributeName),
-    TargetFacetName: __expectString(output.TargetFacetName),
-  } as any;
-};
+// de_FacetAttributeReference omitted.
 
-/**
- * deserializeAws_restJson1FacetNameList
- */
-const de_FacetNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FacetNameList omitted.
 
 /**
  * deserializeAws_restJson1IndexAttachment
  */
 const de_IndexAttachment = (output: any, context: __SerdeContext): IndexAttachment => {
-  return {
-    IndexedAttributes:
-      output.IndexedAttributes != null ? de_AttributeKeyAndValueList(output.IndexedAttributes, context) : undefined,
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
+  return take(output, {
+    IndexedAttributes: (_: any) => de_AttributeKeyAndValueList(_, context),
+    ObjectIdentifier: __expectString,
+  }) as any;
 };
 
 /**
@@ -9305,257 +8624,48 @@ const de_IndexAttachmentList = (output: any, context: __SerdeContext): IndexAtta
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_IndexAttachment(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LinkNameToObjectIdentifierMap
- */
-const de_LinkNameToObjectIdentifierMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_LinkNameToObjectIdentifierMap omitted.
 
-/**
- * deserializeAws_restJson1ObjectIdentifierAndLinkNameList
- */
-const de_ObjectIdentifierAndLinkNameList = (
-  output: any,
-  context: __SerdeContext
-): ObjectIdentifierAndLinkNameTuple[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ObjectIdentifierAndLinkNameTuple(entry, context);
-    });
-  return retVal;
-};
+// de_ObjectIdentifierAndLinkNameList omitted.
 
-/**
- * deserializeAws_restJson1ObjectIdentifierAndLinkNameTuple
- */
-const de_ObjectIdentifierAndLinkNameTuple = (
-  output: any,
-  context: __SerdeContext
-): ObjectIdentifierAndLinkNameTuple => {
-  return {
-    LinkName: __expectString(output.LinkName),
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
+// de_ObjectIdentifierAndLinkNameTuple omitted.
 
-/**
- * deserializeAws_restJson1ObjectIdentifierList
- */
-const de_ObjectIdentifierList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ObjectIdentifierList omitted.
 
-/**
- * deserializeAws_restJson1ObjectIdentifierToLinkNameMap
- */
-const de_ObjectIdentifierToLinkNameMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ObjectIdentifierToLinkNameMap omitted.
 
-/**
- * deserializeAws_restJson1ObjectReference
- */
-const de_ObjectReference = (output: any, context: __SerdeContext): ObjectReference => {
-  return {
-    Selector: __expectString(output.Selector),
-  } as any;
-};
+// de_ObjectReference omitted.
 
-/**
- * deserializeAws_restJson1PathToObjectIdentifiers
- */
-const de_PathToObjectIdentifiers = (output: any, context: __SerdeContext): PathToObjectIdentifiers => {
-  return {
-    ObjectIdentifiers:
-      output.ObjectIdentifiers != null ? de_ObjectIdentifierList(output.ObjectIdentifiers, context) : undefined,
-    Path: __expectString(output.Path),
-  } as any;
-};
+// de_PathToObjectIdentifiers omitted.
 
-/**
- * deserializeAws_restJson1PathToObjectIdentifiersList
- */
-const de_PathToObjectIdentifiersList = (output: any, context: __SerdeContext): PathToObjectIdentifiers[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PathToObjectIdentifiers(entry, context);
-    });
-  return retVal;
-};
+// de_PathToObjectIdentifiersList omitted.
 
-/**
- * deserializeAws_restJson1PolicyAttachment
- */
-const de_PolicyAttachment = (output: any, context: __SerdeContext): PolicyAttachment => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-    PolicyId: __expectString(output.PolicyId),
-    PolicyType: __expectString(output.PolicyType),
-  } as any;
-};
+// de_PolicyAttachment omitted.
 
-/**
- * deserializeAws_restJson1PolicyAttachmentList
- */
-const de_PolicyAttachmentList = (output: any, context: __SerdeContext): PolicyAttachment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PolicyAttachment(entry, context);
-    });
-  return retVal;
-};
+// de_PolicyAttachmentList omitted.
 
-/**
- * deserializeAws_restJson1PolicyToPath
- */
-const de_PolicyToPath = (output: any, context: __SerdeContext): PolicyToPath => {
-  return {
-    Path: __expectString(output.Path),
-    Policies: output.Policies != null ? de_PolicyAttachmentList(output.Policies, context) : undefined,
-  } as any;
-};
+// de_PolicyToPath omitted.
 
-/**
- * deserializeAws_restJson1PolicyToPathList
- */
-const de_PolicyToPathList = (output: any, context: __SerdeContext): PolicyToPath[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PolicyToPath(entry, context);
-    });
-  return retVal;
-};
+// de_PolicyToPathList omitted.
 
-/**
- * deserializeAws_restJson1Rule
- */
-const de_Rule = (output: any, context: __SerdeContext): Rule => {
-  return {
-    Parameters: output.Parameters != null ? de_RuleParameterMap(output.Parameters, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Rule omitted.
 
-/**
- * deserializeAws_restJson1RuleMap
- */
-const de_RuleMap = (output: any, context: __SerdeContext): Record<string, Rule> => {
-  return Object.entries(output).reduce((acc: Record<string, Rule>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_Rule(value, context);
-    return acc;
-  }, {});
-};
+// de_RuleMap omitted.
 
-/**
- * deserializeAws_restJson1RuleParameterMap
- */
-const de_RuleParameterMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_RuleParameterMap omitted.
 
-/**
- * deserializeAws_restJson1SchemaFacet
- */
-const de_SchemaFacet = (output: any, context: __SerdeContext): SchemaFacet => {
-  return {
-    FacetName: __expectString(output.FacetName),
-    SchemaArn: __expectString(output.SchemaArn),
-  } as any;
-};
+// de_SchemaFacet omitted.
 
-/**
- * deserializeAws_restJson1SchemaFacetList
- */
-const de_SchemaFacetList = (output: any, context: __SerdeContext): SchemaFacet[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SchemaFacet(entry, context);
-    });
-  return retVal;
-};
+// de_SchemaFacetList omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 /**
  * deserializeAws_restJson1TypedAttributeValue
@@ -9587,15 +8697,14 @@ const de_TypedAttributeValue = (output: any, context: __SerdeContext): TypedAttr
  * deserializeAws_restJson1TypedLinkAttributeDefinition
  */
 const de_TypedLinkAttributeDefinition = (output: any, context: __SerdeContext): TypedLinkAttributeDefinition => {
-  return {
-    DefaultValue:
-      output.DefaultValue != null ? de_TypedAttributeValue(__expectUnion(output.DefaultValue), context) : undefined,
-    IsImmutable: __expectBoolean(output.IsImmutable),
-    Name: __expectString(output.Name),
-    RequiredBehavior: __expectString(output.RequiredBehavior),
-    Rules: output.Rules != null ? de_RuleMap(output.Rules, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    DefaultValue: (_: any) => de_TypedAttributeValue(__expectUnion(_), context),
+    IsImmutable: __expectBoolean,
+    Name: __expectString,
+    RequiredBehavior: __expectString,
+    Rules: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -9605,55 +8714,25 @@ const de_TypedLinkAttributeDefinitionList = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TypedLinkAttributeDefinition(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TypedLinkNameList
- */
-const de_TypedLinkNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TypedLinkNameList omitted.
 
-/**
- * deserializeAws_restJson1TypedLinkSchemaAndFacetName
- */
-const de_TypedLinkSchemaAndFacetName = (output: any, context: __SerdeContext): TypedLinkSchemaAndFacetName => {
-  return {
-    SchemaArn: __expectString(output.SchemaArn),
-    TypedLinkName: __expectString(output.TypedLinkName),
-  } as any;
-};
+// de_TypedLinkSchemaAndFacetName omitted.
 
 /**
  * deserializeAws_restJson1TypedLinkSpecifier
  */
 const de_TypedLinkSpecifier = (output: any, context: __SerdeContext): TypedLinkSpecifier => {
-  return {
-    IdentityAttributeValues:
-      output.IdentityAttributeValues != null
-        ? de_AttributeNameAndValueList(output.IdentityAttributeValues, context)
-        : undefined,
-    SourceObjectReference:
-      output.SourceObjectReference != null ? de_ObjectReference(output.SourceObjectReference, context) : undefined,
-    TargetObjectReference:
-      output.TargetObjectReference != null ? de_ObjectReference(output.TargetObjectReference, context) : undefined,
-    TypedLinkFacet:
-      output.TypedLinkFacet != null ? de_TypedLinkSchemaAndFacetName(output.TypedLinkFacet, context) : undefined,
-  } as any;
+  return take(output, {
+    IdentityAttributeValues: (_: any) => de_AttributeNameAndValueList(_, context),
+    SourceObjectReference: _json,
+    TargetObjectReference: _json,
+    TypedLinkFacet: _json,
+  }) as any;
 };
 
 /**
@@ -9663,9 +8742,6 @@ const de_TypedLinkSpecifierList = (output: any, context: __SerdeContext): TypedL
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TypedLinkSpecifier(entry, context);
     });
   return retVal;

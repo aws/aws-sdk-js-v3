@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -86,49 +88,35 @@ import {
   AccessDeniedException,
   ApplicationState,
   AssociateCreatedArtifactRequest,
-  AssociateCreatedArtifactResult,
   AssociateDiscoveredResourceRequest,
-  AssociateDiscoveredResourceResult,
   CreatedArtifact,
   CreateProgressUpdateStreamRequest,
-  CreateProgressUpdateStreamResult,
   DeleteProgressUpdateStreamRequest,
-  DeleteProgressUpdateStreamResult,
   DescribeApplicationStateRequest,
   DescribeApplicationStateResult,
   DescribeMigrationTaskRequest,
   DescribeMigrationTaskResult,
   DisassociateCreatedArtifactRequest,
-  DisassociateCreatedArtifactResult,
   DisassociateDiscoveredResourceRequest,
-  DisassociateDiscoveredResourceResult,
   DiscoveredResource,
   DryRunOperation,
   HomeRegionNotSetException,
   ImportMigrationTaskRequest,
-  ImportMigrationTaskResult,
   InternalServerError,
   InvalidInputException,
   ListApplicationStatesRequest,
   ListApplicationStatesResult,
   ListCreatedArtifactsRequest,
-  ListCreatedArtifactsResult,
   ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesResult,
   ListMigrationTasksRequest,
   ListMigrationTasksResult,
   ListProgressUpdateStreamsRequest,
-  ListProgressUpdateStreamsResult,
   MigrationTask,
   MigrationTaskSummary,
   NotifyApplicationStateRequest,
-  NotifyApplicationStateResult,
   NotifyMigrationTaskStateRequest,
-  NotifyMigrationTaskStateResult,
   PolicyErrorException,
-  ProgressUpdateStreamSummary,
   PutResourceAttributesRequest,
-  PutResourceAttributesResult,
   ResourceAttribute,
   ResourceNotFoundException,
   ServiceUnavailableException,
@@ -146,7 +134,7 @@ export const se_AssociateCreatedArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateCreatedArtifact");
   let body: any;
-  body = JSON.stringify(se_AssociateCreatedArtifactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -159,7 +147,7 @@ export const se_AssociateDiscoveredResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateDiscoveredResource");
   let body: any;
-  body = JSON.stringify(se_AssociateDiscoveredResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -172,7 +160,7 @@ export const se_CreateProgressUpdateStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateProgressUpdateStream");
   let body: any;
-  body = JSON.stringify(se_CreateProgressUpdateStreamRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -185,7 +173,7 @@ export const se_DeleteProgressUpdateStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProgressUpdateStream");
   let body: any;
-  body = JSON.stringify(se_DeleteProgressUpdateStreamRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -198,7 +186,7 @@ export const se_DescribeApplicationStateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeApplicationState");
   let body: any;
-  body = JSON.stringify(se_DescribeApplicationStateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -211,7 +199,7 @@ export const se_DescribeMigrationTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeMigrationTask");
   let body: any;
-  body = JSON.stringify(se_DescribeMigrationTaskRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -224,7 +212,7 @@ export const se_DisassociateCreatedArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateCreatedArtifact");
   let body: any;
-  body = JSON.stringify(se_DisassociateCreatedArtifactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -237,7 +225,7 @@ export const se_DisassociateDiscoveredResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateDiscoveredResource");
   let body: any;
-  body = JSON.stringify(se_DisassociateDiscoveredResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -250,7 +238,7 @@ export const se_ImportMigrationTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportMigrationTask");
   let body: any;
-  body = JSON.stringify(se_ImportMigrationTaskRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -263,7 +251,7 @@ export const se_ListApplicationStatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListApplicationStates");
   let body: any;
-  body = JSON.stringify(se_ListApplicationStatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -276,7 +264,7 @@ export const se_ListCreatedArtifactsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCreatedArtifacts");
   let body: any;
-  body = JSON.stringify(se_ListCreatedArtifactsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -289,7 +277,7 @@ export const se_ListDiscoveredResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDiscoveredResources");
   let body: any;
-  body = JSON.stringify(se_ListDiscoveredResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -302,7 +290,7 @@ export const se_ListMigrationTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListMigrationTasks");
   let body: any;
-  body = JSON.stringify(se_ListMigrationTasksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -315,7 +303,7 @@ export const se_ListProgressUpdateStreamsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProgressUpdateStreams");
   let body: any;
-  body = JSON.stringify(se_ListProgressUpdateStreamsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -354,7 +342,7 @@ export const se_PutResourceAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutResourceAttributes");
   let body: any;
-  body = JSON.stringify(se_PutResourceAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -370,12 +358,12 @@ export const de_AssociateCreatedArtifactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateCreatedArtifactResult(data, context);
+  contents = _json(data);
   const response: AssociateCreatedArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -420,10 +408,9 @@ const de_AssociateCreatedArtifactCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -441,12 +428,12 @@ export const de_AssociateDiscoveredResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateDiscoveredResourceResult(data, context);
+  contents = _json(data);
   const response: AssociateDiscoveredResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -494,10 +481,9 @@ const de_AssociateDiscoveredResourceCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -515,12 +501,12 @@ export const de_CreateProgressUpdateStreamCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateProgressUpdateStreamResult(data, context);
+  contents = _json(data);
   const response: CreateProgressUpdateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -562,10 +548,9 @@ const de_CreateProgressUpdateStreamCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -583,12 +568,12 @@ export const de_DeleteProgressUpdateStreamCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProgressUpdateStreamResult(data, context);
+  contents = _json(data);
   const response: DeleteProgressUpdateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -633,10 +618,9 @@ const de_DeleteProgressUpdateStreamCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -659,7 +643,7 @@ export const de_DescribeApplicationStateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -701,10 +685,9 @@ const de_DescribeApplicationStateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -727,7 +710,7 @@ export const de_DescribeMigrationTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -766,10 +749,9 @@ const de_DescribeMigrationTaskCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -787,12 +769,12 @@ export const de_DisassociateCreatedArtifactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateCreatedArtifactResult(data, context);
+  contents = _json(data);
   const response: DisassociateCreatedArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -837,10 +819,9 @@ const de_DisassociateCreatedArtifactCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -858,12 +839,12 @@ export const de_DisassociateDiscoveredResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateDiscoveredResourceResult(data, context);
+  contents = _json(data);
   const response: DisassociateDiscoveredResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -908,10 +889,9 @@ const de_DisassociateDiscoveredResourceCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -929,12 +909,12 @@ export const de_ImportMigrationTaskCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportMigrationTaskResult(data, context);
+  contents = _json(data);
   const response: ImportMigrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -979,10 +959,9 @@ const de_ImportMigrationTaskCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1005,7 +984,7 @@ export const de_ListApplicationStatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1041,10 +1020,9 @@ const de_ListApplicationStatesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1062,12 +1040,12 @@ export const de_ListCreatedArtifactsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCreatedArtifactsResult(data, context);
+  contents = _json(data);
   const response: ListCreatedArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1106,10 +1084,9 @@ const de_ListCreatedArtifactsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1127,12 +1104,12 @@ export const de_ListDiscoveredResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDiscoveredResourcesResult(data, context);
+  contents = _json(data);
   const response: ListDiscoveredResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1171,10 +1148,9 @@ const de_ListDiscoveredResourcesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1197,7 +1173,7 @@ export const de_ListMigrationTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1239,10 +1215,9 @@ const de_ListMigrationTasksCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1260,12 +1235,12 @@ export const de_ListProgressUpdateStreamsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListProgressUpdateStreamsResult(data, context);
+  contents = _json(data);
   const response: ListProgressUpdateStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1301,10 +1276,9 @@ const de_ListProgressUpdateStreamsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1322,12 +1296,12 @@ export const de_NotifyApplicationStateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NotifyApplicationStateResult(data, context);
+  contents = _json(data);
   const response: NotifyApplicationStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1375,10 +1349,9 @@ const de_NotifyApplicationStateCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1396,12 +1369,12 @@ export const de_NotifyMigrationTaskStateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NotifyMigrationTaskStateResult(data, context);
+  contents = _json(data);
   const response: NotifyMigrationTaskStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1446,10 +1419,9 @@ const de_NotifyMigrationTaskStateCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1467,12 +1439,12 @@ export const de_PutResourceAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutResourceAttributesResult(data, context);
+  contents = _json(data);
   const response: PutResourceAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1517,10 +1489,9 @@ const de_PutResourceAttributesCommandError = async (
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1534,7 +1505,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1547,7 +1518,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_DryRunOperationRes = async (parsedOutput: any, context: __SerdeContext): Promise<DryRunOperation> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DryRunOperation(body, context);
+  const deserialized: any = _json(body);
   const exception = new DryRunOperation({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1563,7 +1534,7 @@ const de_HomeRegionNotSetExceptionRes = async (
   context: __SerdeContext
 ): Promise<HomeRegionNotSetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_HomeRegionNotSetException(body, context);
+  const deserialized: any = _json(body);
   const exception = new HomeRegionNotSetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1576,7 +1547,7 @@ const de_HomeRegionNotSetExceptionRes = async (
  */
 const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1592,7 +1563,7 @@ const de_InvalidInputExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1608,7 +1579,7 @@ const de_PolicyErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1624,7 +1595,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1640,7 +1611,7 @@ const de_ServiceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1653,7 +1624,7 @@ const de_ServiceUnavailableExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1669,7 +1640,7 @@ const de_UnauthorizedOperationRes = async (
   context: __SerdeContext
 ): Promise<UnauthorizedOperation> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnauthorizedOperation(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnauthorizedOperation({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1677,301 +1648,85 @@ const de_UnauthorizedOperationRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1ApplicationIds
- */
-const se_ApplicationIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ApplicationIds omitted.
 
-/**
- * serializeAws_json1_1AssociateCreatedArtifactRequest
- */
-const se_AssociateCreatedArtifactRequest = (input: AssociateCreatedArtifactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CreatedArtifact != null && { CreatedArtifact: se_CreatedArtifact(input.CreatedArtifact, context) }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-  };
-};
+// se_AssociateCreatedArtifactRequest omitted.
 
-/**
- * serializeAws_json1_1AssociateDiscoveredResourceRequest
- */
-const se_AssociateDiscoveredResourceRequest = (
-  input: AssociateDiscoveredResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DiscoveredResource != null && {
-      DiscoveredResource: se_DiscoveredResource(input.DiscoveredResource, context),
-    }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-  };
-};
+// se_AssociateDiscoveredResourceRequest omitted.
 
-/**
- * serializeAws_json1_1CreatedArtifact
- */
-const se_CreatedArtifact = (input: CreatedArtifact, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreatedArtifact omitted.
 
-/**
- * serializeAws_json1_1CreateProgressUpdateStreamRequest
- */
-const se_CreateProgressUpdateStreamRequest = (
-  input: CreateProgressUpdateStreamRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.ProgressUpdateStreamName != null && { ProgressUpdateStreamName: input.ProgressUpdateStreamName }),
-  };
-};
+// se_CreateProgressUpdateStreamRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteProgressUpdateStreamRequest
- */
-const se_DeleteProgressUpdateStreamRequest = (
-  input: DeleteProgressUpdateStreamRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.ProgressUpdateStreamName != null && { ProgressUpdateStreamName: input.ProgressUpdateStreamName }),
-  };
-};
+// se_DeleteProgressUpdateStreamRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeApplicationStateRequest
- */
-const se_DescribeApplicationStateRequest = (input: DescribeApplicationStateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
-  };
-};
+// se_DescribeApplicationStateRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeMigrationTaskRequest
- */
-const se_DescribeMigrationTaskRequest = (input: DescribeMigrationTaskRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-  };
-};
+// se_DescribeMigrationTaskRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateCreatedArtifactRequest
- */
-const se_DisassociateCreatedArtifactRequest = (
-  input: DisassociateCreatedArtifactRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CreatedArtifactName != null && { CreatedArtifactName: input.CreatedArtifactName }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-  };
-};
+// se_DisassociateCreatedArtifactRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateDiscoveredResourceRequest
- */
-const se_DisassociateDiscoveredResourceRequest = (
-  input: DisassociateDiscoveredResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationId != null && { ConfigurationId: input.ConfigurationId }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-  };
-};
+// se_DisassociateDiscoveredResourceRequest omitted.
 
-/**
- * serializeAws_json1_1DiscoveredResource
- */
-const se_DiscoveredResource = (input: DiscoveredResource, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationId != null && { ConfigurationId: input.ConfigurationId }),
-    ...(input.Description != null && { Description: input.Description }),
-  };
-};
+// se_DiscoveredResource omitted.
 
-/**
- * serializeAws_json1_1ImportMigrationTaskRequest
- */
-const se_ImportMigrationTaskRequest = (input: ImportMigrationTaskRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-  };
-};
+// se_ImportMigrationTaskRequest omitted.
 
-/**
- * serializeAws_json1_1ListApplicationStatesRequest
- */
-const se_ListApplicationStatesRequest = (input: ListApplicationStatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ApplicationIds != null && { ApplicationIds: se_ApplicationIds(input.ApplicationIds, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListApplicationStatesRequest omitted.
 
-/**
- * serializeAws_json1_1ListCreatedArtifactsRequest
- */
-const se_ListCreatedArtifactsRequest = (input: ListCreatedArtifactsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-  };
-};
+// se_ListCreatedArtifactsRequest omitted.
 
-/**
- * serializeAws_json1_1ListDiscoveredResourcesRequest
- */
-const se_ListDiscoveredResourcesRequest = (input: ListDiscoveredResourcesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-  };
-};
+// se_ListDiscoveredResourcesRequest omitted.
 
-/**
- * serializeAws_json1_1ListMigrationTasksRequest
- */
-const se_ListMigrationTasksRequest = (input: ListMigrationTasksRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceName != null && { ResourceName: input.ResourceName }),
-  };
-};
+// se_ListMigrationTasksRequest omitted.
 
-/**
- * serializeAws_json1_1ListProgressUpdateStreamsRequest
- */
-const se_ListProgressUpdateStreamsRequest = (input: ListProgressUpdateStreamsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListProgressUpdateStreamsRequest omitted.
 
 /**
  * serializeAws_json1_1NotifyApplicationStateRequest
  */
 const se_NotifyApplicationStateRequest = (input: NotifyApplicationStateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.UpdateDateTime != null && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    ApplicationId: [],
+    DryRun: [],
+    Status: [],
+    UpdateDateTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_json1_1NotifyMigrationTaskStateRequest
  */
 const se_NotifyMigrationTaskStateRequest = (input: NotifyMigrationTaskStateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.NextUpdateSeconds != null && { NextUpdateSeconds: input.NextUpdateSeconds }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-    ...(input.Task != null && { Task: se_Task(input.Task, context) }),
-    ...(input.UpdateDateTime != null && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    DryRun: [],
+    MigrationTaskName: [],
+    NextUpdateSeconds: [],
+    ProgressUpdateStream: [],
+    Task: (_) => _json(_),
+    UpdateDateTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1PutResourceAttributesRequest
- */
-const se_PutResourceAttributesRequest = (input: PutResourceAttributesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName != null && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
-    ...(input.ResourceAttributeList != null && {
-      ResourceAttributeList: se_ResourceAttributeList(input.ResourceAttributeList, context),
-    }),
-  };
-};
+// se_PutResourceAttributesRequest omitted.
 
-/**
- * serializeAws_json1_1ResourceAttribute
- */
-const se_ResourceAttribute = (input: ResourceAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ResourceAttribute omitted.
 
-/**
- * serializeAws_json1_1ResourceAttributeList
- */
-const se_ResourceAttributeList = (input: ResourceAttribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourceAttribute(entry, context);
-    });
-};
+// se_ResourceAttributeList omitted.
 
-/**
- * serializeAws_json1_1Task
- */
-const se_Task = (input: Task, context: __SerdeContext): any => {
-  return {
-    ...(input.ProgressPercent != null && { ProgressPercent: input.ProgressPercent }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.StatusDetail != null && { StatusDetail: input.StatusDetail }),
-  };
-};
+// se_Task omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
 /**
  * deserializeAws_json1_1ApplicationState
  */
 const de_ApplicationState = (output: any, context: __SerdeContext): ApplicationState => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    ApplicationStatus: __expectString(output.ApplicationStatus),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    ApplicationId: __expectString,
+    ApplicationStatus: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -1981,296 +1736,113 @@ const de_ApplicationStateList = (output: any, context: __SerdeContext): Applicat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApplicationState(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AssociateCreatedArtifactResult
- */
-const de_AssociateCreatedArtifactResult = (output: any, context: __SerdeContext): AssociateCreatedArtifactResult => {
-  return {} as any;
-};
+// de_AssociateCreatedArtifactResult omitted.
 
-/**
- * deserializeAws_json1_1AssociateDiscoveredResourceResult
- */
-const de_AssociateDiscoveredResourceResult = (
-  output: any,
-  context: __SerdeContext
-): AssociateDiscoveredResourceResult => {
-  return {} as any;
-};
+// de_AssociateDiscoveredResourceResult omitted.
 
-/**
- * deserializeAws_json1_1CreatedArtifact
- */
-const de_CreatedArtifact = (output: any, context: __SerdeContext): CreatedArtifact => {
-  return {
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_CreatedArtifact omitted.
 
-/**
- * deserializeAws_json1_1CreatedArtifactList
- */
-const de_CreatedArtifactList = (output: any, context: __SerdeContext): CreatedArtifact[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CreatedArtifact(entry, context);
-    });
-  return retVal;
-};
+// de_CreatedArtifactList omitted.
 
-/**
- * deserializeAws_json1_1CreateProgressUpdateStreamResult
- */
-const de_CreateProgressUpdateStreamResult = (
-  output: any,
-  context: __SerdeContext
-): CreateProgressUpdateStreamResult => {
-  return {} as any;
-};
+// de_CreateProgressUpdateStreamResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteProgressUpdateStreamResult
- */
-const de_DeleteProgressUpdateStreamResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteProgressUpdateStreamResult => {
-  return {} as any;
-};
+// de_DeleteProgressUpdateStreamResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeApplicationStateResult
  */
 const de_DescribeApplicationStateResult = (output: any, context: __SerdeContext): DescribeApplicationStateResult => {
-  return {
-    ApplicationStatus: __expectString(output.ApplicationStatus),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    ApplicationStatus: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeMigrationTaskResult
  */
 const de_DescribeMigrationTaskResult = (output: any, context: __SerdeContext): DescribeMigrationTaskResult => {
-  return {
-    MigrationTask: output.MigrationTask != null ? de_MigrationTask(output.MigrationTask, context) : undefined,
-  } as any;
+  return take(output, {
+    MigrationTask: (_: any) => de_MigrationTask(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DisassociateCreatedArtifactResult
- */
-const de_DisassociateCreatedArtifactResult = (
-  output: any,
-  context: __SerdeContext
-): DisassociateCreatedArtifactResult => {
-  return {} as any;
-};
+// de_DisassociateCreatedArtifactResult omitted.
 
-/**
- * deserializeAws_json1_1DisassociateDiscoveredResourceResult
- */
-const de_DisassociateDiscoveredResourceResult = (
-  output: any,
-  context: __SerdeContext
-): DisassociateDiscoveredResourceResult => {
-  return {} as any;
-};
+// de_DisassociateDiscoveredResourceResult omitted.
 
-/**
- * deserializeAws_json1_1DiscoveredResource
- */
-const de_DiscoveredResource = (output: any, context: __SerdeContext): DiscoveredResource => {
-  return {
-    ConfigurationId: __expectString(output.ConfigurationId),
-    Description: __expectString(output.Description),
-  } as any;
-};
+// de_DiscoveredResource omitted.
 
-/**
- * deserializeAws_json1_1DiscoveredResourceList
- */
-const de_DiscoveredResourceList = (output: any, context: __SerdeContext): DiscoveredResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DiscoveredResource(entry, context);
-    });
-  return retVal;
-};
+// de_DiscoveredResourceList omitted.
 
-/**
- * deserializeAws_json1_1DryRunOperation
- */
-const de_DryRunOperation = (output: any, context: __SerdeContext): DryRunOperation => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DryRunOperation omitted.
 
-/**
- * deserializeAws_json1_1HomeRegionNotSetException
- */
-const de_HomeRegionNotSetException = (output: any, context: __SerdeContext): HomeRegionNotSetException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_HomeRegionNotSetException omitted.
 
-/**
- * deserializeAws_json1_1ImportMigrationTaskResult
- */
-const de_ImportMigrationTaskResult = (output: any, context: __SerdeContext): ImportMigrationTaskResult => {
-  return {} as any;
-};
+// de_ImportMigrationTaskResult omitted.
 
-/**
- * deserializeAws_json1_1InternalServerError
- */
-const de_InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerError omitted.
 
-/**
- * deserializeAws_json1_1InvalidInputException
- */
-const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidInputException omitted.
 
-/**
- * deserializeAws_json1_1LatestResourceAttributeList
- */
-const de_LatestResourceAttributeList = (output: any, context: __SerdeContext): ResourceAttribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceAttribute(entry, context);
-    });
-  return retVal;
-};
+// de_LatestResourceAttributeList omitted.
 
 /**
  * deserializeAws_json1_1ListApplicationStatesResult
  */
 const de_ListApplicationStatesResult = (output: any, context: __SerdeContext): ListApplicationStatesResult => {
-  return {
-    ApplicationStateList:
-      output.ApplicationStateList != null ? de_ApplicationStateList(output.ApplicationStateList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ApplicationStateList: (_: any) => de_ApplicationStateList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListCreatedArtifactsResult
- */
-const de_ListCreatedArtifactsResult = (output: any, context: __SerdeContext): ListCreatedArtifactsResult => {
-  return {
-    CreatedArtifactList:
-      output.CreatedArtifactList != null ? de_CreatedArtifactList(output.CreatedArtifactList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListCreatedArtifactsResult omitted.
 
-/**
- * deserializeAws_json1_1ListDiscoveredResourcesResult
- */
-const de_ListDiscoveredResourcesResult = (output: any, context: __SerdeContext): ListDiscoveredResourcesResult => {
-  return {
-    DiscoveredResourceList:
-      output.DiscoveredResourceList != null
-        ? de_DiscoveredResourceList(output.DiscoveredResourceList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListDiscoveredResourcesResult omitted.
 
 /**
  * deserializeAws_json1_1ListMigrationTasksResult
  */
 const de_ListMigrationTasksResult = (output: any, context: __SerdeContext): ListMigrationTasksResult => {
-  return {
-    MigrationTaskSummaryList:
-      output.MigrationTaskSummaryList != null
-        ? de_MigrationTaskSummaryList(output.MigrationTaskSummaryList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    MigrationTaskSummaryList: (_: any) => de_MigrationTaskSummaryList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListProgressUpdateStreamsResult
- */
-const de_ListProgressUpdateStreamsResult = (output: any, context: __SerdeContext): ListProgressUpdateStreamsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ProgressUpdateStreamSummaryList:
-      output.ProgressUpdateStreamSummaryList != null
-        ? de_ProgressUpdateStreamSummaryList(output.ProgressUpdateStreamSummaryList, context)
-        : undefined,
-  } as any;
-};
+// de_ListProgressUpdateStreamsResult omitted.
 
 /**
  * deserializeAws_json1_1MigrationTask
  */
 const de_MigrationTask = (output: any, context: __SerdeContext): MigrationTask => {
-  return {
-    MigrationTaskName: __expectString(output.MigrationTaskName),
-    ProgressUpdateStream: __expectString(output.ProgressUpdateStream),
-    ResourceAttributeList:
-      output.ResourceAttributeList != null
-        ? de_LatestResourceAttributeList(output.ResourceAttributeList, context)
-        : undefined,
-    Task: output.Task != null ? de_Task(output.Task, context) : undefined,
-    UpdateDateTime:
-      output.UpdateDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDateTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    MigrationTaskName: __expectString,
+    ProgressUpdateStream: __expectString,
+    ResourceAttributeList: _json,
+    Task: _json,
+    UpdateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1MigrationTaskSummary
  */
 const de_MigrationTaskSummary = (output: any, context: __SerdeContext): MigrationTaskSummary => {
-  return {
-    MigrationTaskName: __expectString(output.MigrationTaskName),
-    ProgressPercent: __expectInt32(output.ProgressPercent),
-    ProgressUpdateStream: __expectString(output.ProgressUpdateStream),
-    Status: __expectString(output.Status),
-    StatusDetail: __expectString(output.StatusDetail),
-    UpdateDateTime:
-      output.UpdateDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDateTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    MigrationTaskName: __expectString,
+    ProgressPercent: __expectInt32,
+    ProgressUpdateStream: __expectString,
+    Status: __expectString,
+    StatusDetail: __expectString,
+    UpdateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -2280,125 +1852,34 @@ const de_MigrationTaskSummaryList = (output: any, context: __SerdeContext): Migr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MigrationTaskSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1NotifyApplicationStateResult
- */
-const de_NotifyApplicationStateResult = (output: any, context: __SerdeContext): NotifyApplicationStateResult => {
-  return {} as any;
-};
+// de_NotifyApplicationStateResult omitted.
 
-/**
- * deserializeAws_json1_1NotifyMigrationTaskStateResult
- */
-const de_NotifyMigrationTaskStateResult = (output: any, context: __SerdeContext): NotifyMigrationTaskStateResult => {
-  return {} as any;
-};
+// de_NotifyMigrationTaskStateResult omitted.
 
-/**
- * deserializeAws_json1_1PolicyErrorException
- */
-const de_PolicyErrorException = (output: any, context: __SerdeContext): PolicyErrorException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyErrorException omitted.
 
-/**
- * deserializeAws_json1_1ProgressUpdateStreamSummary
- */
-const de_ProgressUpdateStreamSummary = (output: any, context: __SerdeContext): ProgressUpdateStreamSummary => {
-  return {
-    ProgressUpdateStreamName: __expectString(output.ProgressUpdateStreamName),
-  } as any;
-};
+// de_ProgressUpdateStreamSummary omitted.
 
-/**
- * deserializeAws_json1_1ProgressUpdateStreamSummaryList
- */
-const de_ProgressUpdateStreamSummaryList = (output: any, context: __SerdeContext): ProgressUpdateStreamSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProgressUpdateStreamSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ProgressUpdateStreamSummaryList omitted.
 
-/**
- * deserializeAws_json1_1PutResourceAttributesResult
- */
-const de_PutResourceAttributesResult = (output: any, context: __SerdeContext): PutResourceAttributesResult => {
-  return {} as any;
-};
+// de_PutResourceAttributesResult omitted.
 
-/**
- * deserializeAws_json1_1ResourceAttribute
- */
-const de_ResourceAttribute = (output: any, context: __SerdeContext): ResourceAttribute => {
-  return {
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ResourceAttribute omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ServiceUnavailableException
- */
-const de_ServiceUnavailableException = (output: any, context: __SerdeContext): ServiceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1Task
- */
-const de_Task = (output: any, context: __SerdeContext): Task => {
-  return {
-    ProgressPercent: __expectInt32(output.ProgressPercent),
-    Status: __expectString(output.Status),
-    StatusDetail: __expectString(output.StatusDetail),
-  } as any;
-};
+// de_Task omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-    RetryAfterSeconds: __expectInt32(output.RetryAfterSeconds),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1UnauthorizedOperation
- */
-const de_UnauthorizedOperation = (output: any, context: __SerdeContext): UnauthorizedOperation => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnauthorizedOperation omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2420,6 +1901,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

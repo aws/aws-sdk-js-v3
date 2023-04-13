@@ -12,7 +12,7 @@ import {
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -13947,7 +13947,7 @@ export const de_AcceptAddressTransferCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -13963,10 +13963,9 @@ const de_AcceptAddressTransferCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -13988,7 +13987,7 @@ export const de_AcceptReservedInstancesExchangeQuoteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14004,10 +14003,9 @@ const de_AcceptReservedInstancesExchangeQuoteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14029,7 +14027,7 @@ export const de_AcceptTransitGatewayMulticastDomainAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14045,10 +14043,9 @@ const de_AcceptTransitGatewayMulticastDomainAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14070,7 +14067,7 @@ export const de_AcceptTransitGatewayPeeringAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14086,10 +14083,9 @@ const de_AcceptTransitGatewayPeeringAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14111,7 +14107,7 @@ export const de_AcceptTransitGatewayVpcAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14127,10 +14123,9 @@ const de_AcceptTransitGatewayVpcAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14152,7 +14147,7 @@ export const de_AcceptVpcEndpointConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14168,10 +14163,9 @@ const de_AcceptVpcEndpointConnectionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14193,7 +14187,7 @@ export const de_AcceptVpcPeeringConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14209,10 +14203,9 @@ const de_AcceptVpcPeeringConnectionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14234,7 +14227,7 @@ export const de_AdvertiseByoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14250,10 +14243,9 @@ const de_AdvertiseByoipCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14275,7 +14267,7 @@ export const de_AllocateAddressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14291,10 +14283,9 @@ const de_AllocateAddressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14316,7 +14307,7 @@ export const de_AllocateHostsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14332,10 +14323,9 @@ const de_AllocateHostsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14357,7 +14347,7 @@ export const de_AllocateIpamPoolCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14373,10 +14363,9 @@ const de_AllocateIpamPoolCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14398,7 +14387,7 @@ export const de_ApplySecurityGroupsToClientVpnTargetNetworkCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14414,10 +14403,9 @@ const de_ApplySecurityGroupsToClientVpnTargetNetworkCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14439,7 +14427,7 @@ export const de_AssignIpv6AddressesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14455,10 +14443,9 @@ const de_AssignIpv6AddressesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14480,7 +14467,7 @@ export const de_AssignPrivateIpAddressesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14496,10 +14483,9 @@ const de_AssignPrivateIpAddressesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14521,7 +14507,7 @@ export const de_AssignPrivateNatGatewayAddressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14537,10 +14523,9 @@ const de_AssignPrivateNatGatewayAddressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14562,7 +14547,7 @@ export const de_AssociateAddressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14578,10 +14563,9 @@ const de_AssociateAddressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14603,7 +14587,7 @@ export const de_AssociateClientVpnTargetNetworkCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14619,10 +14603,9 @@ const de_AssociateClientVpnTargetNetworkCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14641,7 +14624,7 @@ export const de_AssociateDhcpOptionsCommand = async (
   const response: AssociateDhcpOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14657,10 +14640,9 @@ const de_AssociateDhcpOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14682,7 +14664,7 @@ export const de_AssociateEnclaveCertificateIamRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14698,10 +14680,9 @@ const de_AssociateEnclaveCertificateIamRoleCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14723,7 +14704,7 @@ export const de_AssociateIamInstanceProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14739,10 +14720,9 @@ const de_AssociateIamInstanceProfileCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14764,7 +14744,7 @@ export const de_AssociateInstanceEventWindowCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14780,10 +14760,9 @@ const de_AssociateInstanceEventWindowCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14805,7 +14784,7 @@ export const de_AssociateIpamResourceDiscoveryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14821,10 +14800,9 @@ const de_AssociateIpamResourceDiscoveryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14846,7 +14824,7 @@ export const de_AssociateNatGatewayAddressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14862,10 +14840,9 @@ const de_AssociateNatGatewayAddressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14887,7 +14864,7 @@ export const de_AssociateRouteTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14903,10 +14880,9 @@ const de_AssociateRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14928,7 +14904,7 @@ export const de_AssociateSubnetCidrBlockCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14944,10 +14920,9 @@ const de_AssociateSubnetCidrBlockCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -14969,7 +14944,7 @@ export const de_AssociateTransitGatewayMulticastDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -14985,10 +14960,9 @@ const de_AssociateTransitGatewayMulticastDomainCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15010,7 +14984,7 @@ export const de_AssociateTransitGatewayPolicyTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15026,10 +15000,9 @@ const de_AssociateTransitGatewayPolicyTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15051,7 +15024,7 @@ export const de_AssociateTransitGatewayRouteTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15067,10 +15040,9 @@ const de_AssociateTransitGatewayRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15092,7 +15064,7 @@ export const de_AssociateTrunkInterfaceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15108,10 +15080,9 @@ const de_AssociateTrunkInterfaceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15133,7 +15104,7 @@ export const de_AssociateVpcCidrBlockCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15149,10 +15120,9 @@ const de_AssociateVpcCidrBlockCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15174,7 +15144,7 @@ export const de_AttachClassicLinkVpcCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15190,10 +15160,9 @@ const de_AttachClassicLinkVpcCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15212,7 +15181,7 @@ export const de_AttachInternetGatewayCommand = async (
   const response: AttachInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15228,10 +15197,9 @@ const de_AttachInternetGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15253,7 +15221,7 @@ export const de_AttachNetworkInterfaceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15269,10 +15237,9 @@ const de_AttachNetworkInterfaceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15294,7 +15261,7 @@ export const de_AttachVerifiedAccessTrustProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15310,10 +15277,9 @@ const de_AttachVerifiedAccessTrustProviderCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15335,7 +15301,7 @@ export const de_AttachVolumeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15351,10 +15317,9 @@ const de_AttachVolumeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15376,7 +15341,7 @@ export const de_AttachVpnGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15392,10 +15357,9 @@ const de_AttachVpnGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15417,7 +15381,7 @@ export const de_AuthorizeClientVpnIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15433,10 +15397,9 @@ const de_AuthorizeClientVpnIngressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15458,7 +15421,7 @@ export const de_AuthorizeSecurityGroupEgressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15474,10 +15437,9 @@ const de_AuthorizeSecurityGroupEgressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15499,7 +15461,7 @@ export const de_AuthorizeSecurityGroupIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15515,10 +15477,9 @@ const de_AuthorizeSecurityGroupIngressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15540,7 +15501,7 @@ export const de_BundleInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15556,10 +15517,9 @@ const de_BundleInstanceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15581,7 +15541,7 @@ export const de_CancelBundleTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15597,10 +15557,9 @@ const de_CancelBundleTaskCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15622,7 +15581,7 @@ export const de_CancelCapacityReservationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15638,10 +15597,9 @@ const de_CancelCapacityReservationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15663,7 +15621,7 @@ export const de_CancelCapacityReservationFleetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15679,10 +15637,9 @@ const de_CancelCapacityReservationFleetsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15701,7 +15658,7 @@ export const de_CancelConversionTaskCommand = async (
   const response: CancelConversionTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15717,10 +15674,9 @@ const de_CancelConversionTaskCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15739,7 +15695,7 @@ export const de_CancelExportTaskCommand = async (
   const response: CancelExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15755,10 +15711,9 @@ const de_CancelExportTaskCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15780,7 +15735,7 @@ export const de_CancelImageLaunchPermissionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15796,10 +15751,9 @@ const de_CancelImageLaunchPermissionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15821,7 +15775,7 @@ export const de_CancelImportTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15837,10 +15791,9 @@ const de_CancelImportTaskCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15862,7 +15815,7 @@ export const de_CancelReservedInstancesListingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15878,10 +15831,9 @@ const de_CancelReservedInstancesListingCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15903,7 +15855,7 @@ export const de_CancelSpotFleetRequestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15919,10 +15871,9 @@ const de_CancelSpotFleetRequestsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15944,7 +15895,7 @@ export const de_CancelSpotInstanceRequestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -15960,10 +15911,9 @@ const de_CancelSpotInstanceRequestsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -15985,7 +15935,7 @@ export const de_ConfirmProductInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16001,10 +15951,9 @@ const de_ConfirmProductInstanceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16026,7 +15975,7 @@ export const de_CopyFpgaImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16042,10 +15991,9 @@ const de_CopyFpgaImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16067,7 +16015,7 @@ export const de_CopyImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16083,10 +16031,9 @@ const de_CopyImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16108,7 +16055,7 @@ export const de_CopySnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16124,10 +16071,9 @@ const de_CopySnapshotCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16149,7 +16095,7 @@ export const de_CreateCapacityReservationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16165,10 +16111,9 @@ const de_CreateCapacityReservationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16190,7 +16135,7 @@ export const de_CreateCapacityReservationFleetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16206,10 +16151,9 @@ const de_CreateCapacityReservationFleetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16231,7 +16175,7 @@ export const de_CreateCarrierGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16247,10 +16191,9 @@ const de_CreateCarrierGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16272,7 +16215,7 @@ export const de_CreateClientVpnEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16288,10 +16231,9 @@ const de_CreateClientVpnEndpointCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16313,7 +16255,7 @@ export const de_CreateClientVpnRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16329,10 +16271,9 @@ const de_CreateClientVpnRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16354,7 +16295,7 @@ export const de_CreateCoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16370,10 +16311,9 @@ const de_CreateCoipCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16395,7 +16335,7 @@ export const de_CreateCoipPoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16411,10 +16351,9 @@ const de_CreateCoipPoolCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16436,7 +16375,7 @@ export const de_CreateCustomerGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16452,10 +16391,9 @@ const de_CreateCustomerGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16477,7 +16415,7 @@ export const de_CreateDefaultSubnetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16493,10 +16431,9 @@ const de_CreateDefaultSubnetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16518,7 +16455,7 @@ export const de_CreateDefaultVpcCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16534,10 +16471,9 @@ const de_CreateDefaultVpcCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16559,7 +16495,7 @@ export const de_CreateDhcpOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16575,10 +16511,9 @@ const de_CreateDhcpOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16600,7 +16535,7 @@ export const de_CreateEgressOnlyInternetGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16616,10 +16551,9 @@ const de_CreateEgressOnlyInternetGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16641,7 +16575,7 @@ export const de_CreateFleetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16657,10 +16591,9 @@ const de_CreateFleetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16682,7 +16615,7 @@ export const de_CreateFlowLogsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16698,10 +16631,9 @@ const de_CreateFlowLogsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16723,7 +16655,7 @@ export const de_CreateFpgaImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16739,10 +16671,9 @@ const de_CreateFpgaImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16764,7 +16695,7 @@ export const de_CreateImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16780,10 +16711,9 @@ const de_CreateImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16805,7 +16735,7 @@ export const de_CreateInstanceEventWindowCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16821,10 +16751,9 @@ const de_CreateInstanceEventWindowCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16846,7 +16775,7 @@ export const de_CreateInstanceExportTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16862,10 +16791,9 @@ const de_CreateInstanceExportTaskCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16887,7 +16815,7 @@ export const de_CreateInternetGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16903,10 +16831,9 @@ const de_CreateInternetGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16928,7 +16855,7 @@ export const de_CreateIpamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16944,10 +16871,9 @@ const de_CreateIpamCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -16969,7 +16895,7 @@ export const de_CreateIpamPoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -16985,10 +16911,9 @@ const de_CreateIpamPoolCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17010,7 +16935,7 @@ export const de_CreateIpamResourceDiscoveryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17026,10 +16951,9 @@ const de_CreateIpamResourceDiscoveryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17051,7 +16975,7 @@ export const de_CreateIpamScopeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17067,10 +16991,9 @@ const de_CreateIpamScopeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17092,7 +17015,7 @@ export const de_CreateKeyPairCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17108,10 +17031,9 @@ const de_CreateKeyPairCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17133,7 +17055,7 @@ export const de_CreateLaunchTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17149,10 +17071,9 @@ const de_CreateLaunchTemplateCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17174,7 +17095,7 @@ export const de_CreateLaunchTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17190,10 +17111,9 @@ const de_CreateLaunchTemplateVersionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17215,7 +17135,7 @@ export const de_CreateLocalGatewayRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17231,10 +17151,9 @@ const de_CreateLocalGatewayRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17256,7 +17175,7 @@ export const de_CreateLocalGatewayRouteTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17272,10 +17191,9 @@ const de_CreateLocalGatewayRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17297,7 +17215,7 @@ export const de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationComm
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17313,10 +17231,9 @@ const de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandErro
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17338,7 +17255,7 @@ export const de_CreateLocalGatewayRouteTableVpcAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17354,10 +17271,9 @@ const de_CreateLocalGatewayRouteTableVpcAssociationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17379,7 +17295,7 @@ export const de_CreateManagedPrefixListCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17395,10 +17311,9 @@ const de_CreateManagedPrefixListCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17420,7 +17335,7 @@ export const de_CreateNatGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17436,10 +17351,9 @@ const de_CreateNatGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17461,7 +17375,7 @@ export const de_CreateNetworkAclCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17477,10 +17391,9 @@ const de_CreateNetworkAclCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17499,7 +17412,7 @@ export const de_CreateNetworkAclEntryCommand = async (
   const response: CreateNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17515,10 +17428,9 @@ const de_CreateNetworkAclEntryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17540,7 +17452,7 @@ export const de_CreateNetworkInsightsAccessScopeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17556,10 +17468,9 @@ const de_CreateNetworkInsightsAccessScopeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17581,7 +17492,7 @@ export const de_CreateNetworkInsightsPathCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17597,10 +17508,9 @@ const de_CreateNetworkInsightsPathCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17622,7 +17532,7 @@ export const de_CreateNetworkInterfaceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17638,10 +17548,9 @@ const de_CreateNetworkInterfaceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17663,7 +17572,7 @@ export const de_CreateNetworkInterfacePermissionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17679,10 +17588,9 @@ const de_CreateNetworkInterfacePermissionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17704,7 +17612,7 @@ export const de_CreatePlacementGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17720,10 +17628,9 @@ const de_CreatePlacementGroupCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17745,7 +17652,7 @@ export const de_CreatePublicIpv4PoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17761,10 +17668,9 @@ const de_CreatePublicIpv4PoolCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17786,7 +17692,7 @@ export const de_CreateReplaceRootVolumeTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17802,10 +17708,9 @@ const de_CreateReplaceRootVolumeTaskCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17827,7 +17732,7 @@ export const de_CreateReservedInstancesListingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17843,10 +17748,9 @@ const de_CreateReservedInstancesListingCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17868,7 +17772,7 @@ export const de_CreateRestoreImageTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17884,10 +17788,9 @@ const de_CreateRestoreImageTaskCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17909,7 +17812,7 @@ export const de_CreateRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17925,10 +17828,9 @@ const de_CreateRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17950,7 +17852,7 @@ export const de_CreateRouteTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -17966,10 +17868,9 @@ const de_CreateRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -17991,7 +17892,7 @@ export const de_CreateSecurityGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18007,10 +17908,9 @@ const de_CreateSecurityGroupCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18032,7 +17932,7 @@ export const de_CreateSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18048,10 +17948,9 @@ const de_CreateSnapshotCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18073,7 +17972,7 @@ export const de_CreateSnapshotsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18089,10 +17988,9 @@ const de_CreateSnapshotsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18114,7 +18012,7 @@ export const de_CreateSpotDatafeedSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18130,10 +18028,9 @@ const de_CreateSpotDatafeedSubscriptionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18155,7 +18052,7 @@ export const de_CreateStoreImageTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18171,10 +18068,9 @@ const de_CreateStoreImageTaskCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18196,7 +18092,7 @@ export const de_CreateSubnetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18212,10 +18108,9 @@ const de_CreateSubnetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18237,7 +18132,7 @@ export const de_CreateSubnetCidrReservationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18253,10 +18148,9 @@ const de_CreateSubnetCidrReservationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18275,7 +18169,7 @@ export const de_CreateTagsCommand = async (
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18291,10 +18185,9 @@ const de_CreateTagsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18316,7 +18209,7 @@ export const de_CreateTrafficMirrorFilterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18332,10 +18225,9 @@ const de_CreateTrafficMirrorFilterCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18357,7 +18249,7 @@ export const de_CreateTrafficMirrorFilterRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18373,10 +18265,9 @@ const de_CreateTrafficMirrorFilterRuleCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18398,7 +18289,7 @@ export const de_CreateTrafficMirrorSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18414,10 +18305,9 @@ const de_CreateTrafficMirrorSessionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18439,7 +18329,7 @@ export const de_CreateTrafficMirrorTargetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18455,10 +18345,9 @@ const de_CreateTrafficMirrorTargetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18480,7 +18369,7 @@ export const de_CreateTransitGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18496,10 +18385,9 @@ const de_CreateTransitGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18521,7 +18409,7 @@ export const de_CreateTransitGatewayConnectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18537,10 +18425,9 @@ const de_CreateTransitGatewayConnectCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18562,7 +18449,7 @@ export const de_CreateTransitGatewayConnectPeerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18578,10 +18465,9 @@ const de_CreateTransitGatewayConnectPeerCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18603,7 +18489,7 @@ export const de_CreateTransitGatewayMulticastDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18619,10 +18505,9 @@ const de_CreateTransitGatewayMulticastDomainCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18644,7 +18529,7 @@ export const de_CreateTransitGatewayPeeringAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18660,10 +18545,9 @@ const de_CreateTransitGatewayPeeringAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18685,7 +18569,7 @@ export const de_CreateTransitGatewayPolicyTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18701,10 +18585,9 @@ const de_CreateTransitGatewayPolicyTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18726,7 +18609,7 @@ export const de_CreateTransitGatewayPrefixListReferenceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18742,10 +18625,9 @@ const de_CreateTransitGatewayPrefixListReferenceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18767,7 +18649,7 @@ export const de_CreateTransitGatewayRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18783,10 +18665,9 @@ const de_CreateTransitGatewayRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18808,7 +18689,7 @@ export const de_CreateTransitGatewayRouteTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18824,10 +18705,9 @@ const de_CreateTransitGatewayRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18849,7 +18729,7 @@ export const de_CreateTransitGatewayRouteTableAnnouncementCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18865,10 +18745,9 @@ const de_CreateTransitGatewayRouteTableAnnouncementCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18890,7 +18769,7 @@ export const de_CreateTransitGatewayVpcAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18906,10 +18785,9 @@ const de_CreateTransitGatewayVpcAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18931,7 +18809,7 @@ export const de_CreateVerifiedAccessEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18947,10 +18825,9 @@ const de_CreateVerifiedAccessEndpointCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -18972,7 +18849,7 @@ export const de_CreateVerifiedAccessGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -18988,10 +18865,9 @@ const de_CreateVerifiedAccessGroupCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19013,7 +18889,7 @@ export const de_CreateVerifiedAccessInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19029,10 +18905,9 @@ const de_CreateVerifiedAccessInstanceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19054,7 +18929,7 @@ export const de_CreateVerifiedAccessTrustProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19070,10 +18945,9 @@ const de_CreateVerifiedAccessTrustProviderCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19095,7 +18969,7 @@ export const de_CreateVolumeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19111,10 +18985,9 @@ const de_CreateVolumeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19136,7 +19009,7 @@ export const de_CreateVpcCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19152,10 +19025,9 @@ const de_CreateVpcCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19177,7 +19049,7 @@ export const de_CreateVpcEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19193,10 +19065,9 @@ const de_CreateVpcEndpointCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19218,7 +19089,7 @@ export const de_CreateVpcEndpointConnectionNotificationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19234,10 +19105,9 @@ const de_CreateVpcEndpointConnectionNotificationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19259,7 +19129,7 @@ export const de_CreateVpcEndpointServiceConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19275,10 +19145,9 @@ const de_CreateVpcEndpointServiceConfigurationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19300,7 +19169,7 @@ export const de_CreateVpcPeeringConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19316,10 +19185,9 @@ const de_CreateVpcPeeringConnectionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19341,7 +19209,7 @@ export const de_CreateVpnConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19357,10 +19225,9 @@ const de_CreateVpnConnectionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19379,7 +19246,7 @@ export const de_CreateVpnConnectionRouteCommand = async (
   const response: CreateVpnConnectionRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19395,10 +19262,9 @@ const de_CreateVpnConnectionRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19420,7 +19286,7 @@ export const de_CreateVpnGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19436,10 +19302,9 @@ const de_CreateVpnGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19461,7 +19326,7 @@ export const de_DeleteCarrierGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19477,10 +19342,9 @@ const de_DeleteCarrierGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19502,7 +19366,7 @@ export const de_DeleteClientVpnEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19518,10 +19382,9 @@ const de_DeleteClientVpnEndpointCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19543,7 +19406,7 @@ export const de_DeleteClientVpnRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19559,10 +19422,9 @@ const de_DeleteClientVpnRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19584,7 +19446,7 @@ export const de_DeleteCoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19600,10 +19462,9 @@ const de_DeleteCoipCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19625,7 +19486,7 @@ export const de_DeleteCoipPoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19641,10 +19502,9 @@ const de_DeleteCoipPoolCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19663,7 +19523,7 @@ export const de_DeleteCustomerGatewayCommand = async (
   const response: DeleteCustomerGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19679,10 +19539,9 @@ const de_DeleteCustomerGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19701,7 +19560,7 @@ export const de_DeleteDhcpOptionsCommand = async (
   const response: DeleteDhcpOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19717,10 +19576,9 @@ const de_DeleteDhcpOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19742,7 +19600,7 @@ export const de_DeleteEgressOnlyInternetGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19758,10 +19616,9 @@ const de_DeleteEgressOnlyInternetGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19783,7 +19640,7 @@ export const de_DeleteFleetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19799,10 +19656,9 @@ const de_DeleteFleetsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19824,7 +19680,7 @@ export const de_DeleteFlowLogsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19840,10 +19696,9 @@ const de_DeleteFlowLogsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19865,7 +19720,7 @@ export const de_DeleteFpgaImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19881,10 +19736,9 @@ const de_DeleteFpgaImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19906,7 +19760,7 @@ export const de_DeleteInstanceEventWindowCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19922,10 +19776,9 @@ const de_DeleteInstanceEventWindowCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19944,7 +19797,7 @@ export const de_DeleteInternetGatewayCommand = async (
   const response: DeleteInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -19960,10 +19813,9 @@ const de_DeleteInternetGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -19985,7 +19837,7 @@ export const de_DeleteIpamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20001,10 +19853,9 @@ const de_DeleteIpamCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20026,7 +19877,7 @@ export const de_DeleteIpamPoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20042,10 +19893,9 @@ const de_DeleteIpamPoolCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20067,7 +19917,7 @@ export const de_DeleteIpamResourceDiscoveryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20083,10 +19933,9 @@ const de_DeleteIpamResourceDiscoveryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20108,7 +19957,7 @@ export const de_DeleteIpamScopeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20124,10 +19973,9 @@ const de_DeleteIpamScopeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20146,7 +19994,7 @@ export const de_DeleteKeyPairCommand = async (
   const response: DeleteKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20162,10 +20010,9 @@ const de_DeleteKeyPairCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20187,7 +20034,7 @@ export const de_DeleteLaunchTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20203,10 +20050,9 @@ const de_DeleteLaunchTemplateCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20228,7 +20074,7 @@ export const de_DeleteLaunchTemplateVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20244,10 +20090,9 @@ const de_DeleteLaunchTemplateVersionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20269,7 +20114,7 @@ export const de_DeleteLocalGatewayRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20285,10 +20130,9 @@ const de_DeleteLocalGatewayRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20310,7 +20154,7 @@ export const de_DeleteLocalGatewayRouteTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20326,10 +20170,9 @@ const de_DeleteLocalGatewayRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20351,7 +20194,7 @@ export const de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationComm
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20367,10 +20210,9 @@ const de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandErro
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20392,7 +20234,7 @@ export const de_DeleteLocalGatewayRouteTableVpcAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20408,10 +20250,9 @@ const de_DeleteLocalGatewayRouteTableVpcAssociationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20433,7 +20274,7 @@ export const de_DeleteManagedPrefixListCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20449,10 +20290,9 @@ const de_DeleteManagedPrefixListCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20474,7 +20314,7 @@ export const de_DeleteNatGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20490,10 +20330,9 @@ const de_DeleteNatGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20512,7 +20351,7 @@ export const de_DeleteNetworkAclCommand = async (
   const response: DeleteNetworkAclCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20528,10 +20367,9 @@ const de_DeleteNetworkAclCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20550,7 +20388,7 @@ export const de_DeleteNetworkAclEntryCommand = async (
   const response: DeleteNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20566,10 +20404,9 @@ const de_DeleteNetworkAclEntryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20591,7 +20428,7 @@ export const de_DeleteNetworkInsightsAccessScopeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20607,10 +20444,9 @@ const de_DeleteNetworkInsightsAccessScopeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20632,7 +20468,7 @@ export const de_DeleteNetworkInsightsAccessScopeAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20648,10 +20484,9 @@ const de_DeleteNetworkInsightsAccessScopeAnalysisCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20673,7 +20508,7 @@ export const de_DeleteNetworkInsightsAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20689,10 +20524,9 @@ const de_DeleteNetworkInsightsAnalysisCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20714,7 +20548,7 @@ export const de_DeleteNetworkInsightsPathCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20730,10 +20564,9 @@ const de_DeleteNetworkInsightsPathCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20752,7 +20585,7 @@ export const de_DeleteNetworkInterfaceCommand = async (
   const response: DeleteNetworkInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20768,10 +20601,9 @@ const de_DeleteNetworkInterfaceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20793,7 +20625,7 @@ export const de_DeleteNetworkInterfacePermissionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20809,10 +20641,9 @@ const de_DeleteNetworkInterfacePermissionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20831,7 +20662,7 @@ export const de_DeletePlacementGroupCommand = async (
   const response: DeletePlacementGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20847,10 +20678,9 @@ const de_DeletePlacementGroupCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20872,7 +20702,7 @@ export const de_DeletePublicIpv4PoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20888,10 +20718,9 @@ const de_DeletePublicIpv4PoolCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20913,7 +20742,7 @@ export const de_DeleteQueuedReservedInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20929,10 +20758,9 @@ const de_DeleteQueuedReservedInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20951,7 +20779,7 @@ export const de_DeleteRouteCommand = async (
   const response: DeleteRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -20967,10 +20795,9 @@ const de_DeleteRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -20989,7 +20816,7 @@ export const de_DeleteRouteTableCommand = async (
   const response: DeleteRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21005,10 +20832,9 @@ const de_DeleteRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21027,7 +20853,7 @@ export const de_DeleteSecurityGroupCommand = async (
   const response: DeleteSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21043,10 +20869,9 @@ const de_DeleteSecurityGroupCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21065,7 +20890,7 @@ export const de_DeleteSnapshotCommand = async (
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21081,10 +20906,9 @@ const de_DeleteSnapshotCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21103,7 +20927,7 @@ export const de_DeleteSpotDatafeedSubscriptionCommand = async (
   const response: DeleteSpotDatafeedSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21119,10 +20943,9 @@ const de_DeleteSpotDatafeedSubscriptionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21141,7 +20964,7 @@ export const de_DeleteSubnetCommand = async (
   const response: DeleteSubnetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21157,10 +20980,9 @@ const de_DeleteSubnetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21182,7 +21004,7 @@ export const de_DeleteSubnetCidrReservationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21198,10 +21020,9 @@ const de_DeleteSubnetCidrReservationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21220,7 +21041,7 @@ export const de_DeleteTagsCommand = async (
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21236,10 +21057,9 @@ const de_DeleteTagsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21261,7 +21081,7 @@ export const de_DeleteTrafficMirrorFilterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21277,10 +21097,9 @@ const de_DeleteTrafficMirrorFilterCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21302,7 +21121,7 @@ export const de_DeleteTrafficMirrorFilterRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21318,10 +21137,9 @@ const de_DeleteTrafficMirrorFilterRuleCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21343,7 +21161,7 @@ export const de_DeleteTrafficMirrorSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21359,10 +21177,9 @@ const de_DeleteTrafficMirrorSessionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21384,7 +21201,7 @@ export const de_DeleteTrafficMirrorTargetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21400,10 +21217,9 @@ const de_DeleteTrafficMirrorTargetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21425,7 +21241,7 @@ export const de_DeleteTransitGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21441,10 +21257,9 @@ const de_DeleteTransitGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21466,7 +21281,7 @@ export const de_DeleteTransitGatewayConnectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21482,10 +21297,9 @@ const de_DeleteTransitGatewayConnectCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21507,7 +21321,7 @@ export const de_DeleteTransitGatewayConnectPeerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21523,10 +21337,9 @@ const de_DeleteTransitGatewayConnectPeerCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21548,7 +21361,7 @@ export const de_DeleteTransitGatewayMulticastDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21564,10 +21377,9 @@ const de_DeleteTransitGatewayMulticastDomainCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21589,7 +21401,7 @@ export const de_DeleteTransitGatewayPeeringAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21605,10 +21417,9 @@ const de_DeleteTransitGatewayPeeringAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21630,7 +21441,7 @@ export const de_DeleteTransitGatewayPolicyTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21646,10 +21457,9 @@ const de_DeleteTransitGatewayPolicyTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21671,7 +21481,7 @@ export const de_DeleteTransitGatewayPrefixListReferenceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21687,10 +21497,9 @@ const de_DeleteTransitGatewayPrefixListReferenceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21712,7 +21521,7 @@ export const de_DeleteTransitGatewayRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21728,10 +21537,9 @@ const de_DeleteTransitGatewayRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21753,7 +21561,7 @@ export const de_DeleteTransitGatewayRouteTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21769,10 +21577,9 @@ const de_DeleteTransitGatewayRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21794,7 +21601,7 @@ export const de_DeleteTransitGatewayRouteTableAnnouncementCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21810,10 +21617,9 @@ const de_DeleteTransitGatewayRouteTableAnnouncementCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21835,7 +21641,7 @@ export const de_DeleteTransitGatewayVpcAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21851,10 +21657,9 @@ const de_DeleteTransitGatewayVpcAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21876,7 +21681,7 @@ export const de_DeleteVerifiedAccessEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21892,10 +21697,9 @@ const de_DeleteVerifiedAccessEndpointCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21917,7 +21721,7 @@ export const de_DeleteVerifiedAccessGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21933,10 +21737,9 @@ const de_DeleteVerifiedAccessGroupCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21958,7 +21761,7 @@ export const de_DeleteVerifiedAccessInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -21974,10 +21777,9 @@ const de_DeleteVerifiedAccessInstanceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -21999,7 +21801,7 @@ export const de_DeleteVerifiedAccessTrustProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22015,10 +21817,9 @@ const de_DeleteVerifiedAccessTrustProviderCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22037,7 +21838,7 @@ export const de_DeleteVolumeCommand = async (
   const response: DeleteVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22053,10 +21854,9 @@ const de_DeleteVolumeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22075,7 +21875,7 @@ export const de_DeleteVpcCommand = async (
   const response: DeleteVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22091,10 +21891,9 @@ const de_DeleteVpcCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22116,7 +21915,7 @@ export const de_DeleteVpcEndpointConnectionNotificationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22132,10 +21931,9 @@ const de_DeleteVpcEndpointConnectionNotificationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22157,7 +21955,7 @@ export const de_DeleteVpcEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22173,10 +21971,9 @@ const de_DeleteVpcEndpointsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22198,7 +21995,7 @@ export const de_DeleteVpcEndpointServiceConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22214,10 +22011,9 @@ const de_DeleteVpcEndpointServiceConfigurationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22239,7 +22035,7 @@ export const de_DeleteVpcPeeringConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22255,10 +22051,9 @@ const de_DeleteVpcPeeringConnectionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22277,7 +22072,7 @@ export const de_DeleteVpnConnectionCommand = async (
   const response: DeleteVpnConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22293,10 +22088,9 @@ const de_DeleteVpnConnectionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22315,7 +22109,7 @@ export const de_DeleteVpnConnectionRouteCommand = async (
   const response: DeleteVpnConnectionRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22331,10 +22125,9 @@ const de_DeleteVpnConnectionRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22353,7 +22146,7 @@ export const de_DeleteVpnGatewayCommand = async (
   const response: DeleteVpnGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22369,10 +22162,9 @@ const de_DeleteVpnGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22394,7 +22186,7 @@ export const de_DeprovisionByoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22410,10 +22202,9 @@ const de_DeprovisionByoipCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22435,7 +22226,7 @@ export const de_DeprovisionIpamPoolCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22451,10 +22242,9 @@ const de_DeprovisionIpamPoolCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22476,7 +22266,7 @@ export const de_DeprovisionPublicIpv4PoolCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22492,10 +22282,9 @@ const de_DeprovisionPublicIpv4PoolCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22514,7 +22303,7 @@ export const de_DeregisterImageCommand = async (
   const response: DeregisterImageCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22530,10 +22319,9 @@ const de_DeregisterImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22555,7 +22343,7 @@ export const de_DeregisterInstanceEventNotificationAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22571,10 +22359,9 @@ const de_DeregisterInstanceEventNotificationAttributesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22596,7 +22383,7 @@ export const de_DeregisterTransitGatewayMulticastGroupMembersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22612,10 +22399,9 @@ const de_DeregisterTransitGatewayMulticastGroupMembersCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22637,7 +22423,7 @@ export const de_DeregisterTransitGatewayMulticastGroupSourcesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22653,10 +22439,9 @@ const de_DeregisterTransitGatewayMulticastGroupSourcesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22678,7 +22463,7 @@ export const de_DescribeAccountAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22694,10 +22479,9 @@ const de_DescribeAccountAttributesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22719,7 +22503,7 @@ export const de_DescribeAddressesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22735,10 +22519,9 @@ const de_DescribeAddressesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22760,7 +22543,7 @@ export const de_DescribeAddressesAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22776,10 +22559,9 @@ const de_DescribeAddressesAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22801,7 +22583,7 @@ export const de_DescribeAddressTransfersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22817,10 +22599,9 @@ const de_DescribeAddressTransfersCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22842,7 +22623,7 @@ export const de_DescribeAggregateIdFormatCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22858,10 +22639,9 @@ const de_DescribeAggregateIdFormatCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22883,7 +22663,7 @@ export const de_DescribeAvailabilityZonesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22899,10 +22679,9 @@ const de_DescribeAvailabilityZonesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22924,7 +22703,7 @@ export const de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommand = async 
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22940,10 +22719,9 @@ const de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -22965,7 +22743,7 @@ export const de_DescribeBundleTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -22981,10 +22759,9 @@ const de_DescribeBundleTasksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23006,7 +22783,7 @@ export const de_DescribeByoipCidrsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23022,10 +22799,9 @@ const de_DescribeByoipCidrsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23047,7 +22823,7 @@ export const de_DescribeCapacityReservationFleetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23063,10 +22839,9 @@ const de_DescribeCapacityReservationFleetsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23088,7 +22863,7 @@ export const de_DescribeCapacityReservationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23104,10 +22879,9 @@ const de_DescribeCapacityReservationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23129,7 +22903,7 @@ export const de_DescribeCarrierGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23145,10 +22919,9 @@ const de_DescribeCarrierGatewaysCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23170,7 +22943,7 @@ export const de_DescribeClassicLinkInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23186,10 +22959,9 @@ const de_DescribeClassicLinkInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23211,7 +22983,7 @@ export const de_DescribeClientVpnAuthorizationRulesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23227,10 +22999,9 @@ const de_DescribeClientVpnAuthorizationRulesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23252,7 +23023,7 @@ export const de_DescribeClientVpnConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23268,10 +23039,9 @@ const de_DescribeClientVpnConnectionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23293,7 +23063,7 @@ export const de_DescribeClientVpnEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23309,10 +23079,9 @@ const de_DescribeClientVpnEndpointsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23334,7 +23103,7 @@ export const de_DescribeClientVpnRoutesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23350,10 +23119,9 @@ const de_DescribeClientVpnRoutesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23375,7 +23143,7 @@ export const de_DescribeClientVpnTargetNetworksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23391,10 +23159,9 @@ const de_DescribeClientVpnTargetNetworksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23416,7 +23183,7 @@ export const de_DescribeCoipPoolsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23432,10 +23199,9 @@ const de_DescribeCoipPoolsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23457,7 +23223,7 @@ export const de_DescribeConversionTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23473,10 +23239,9 @@ const de_DescribeConversionTasksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23498,7 +23263,7 @@ export const de_DescribeCustomerGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23514,10 +23279,9 @@ const de_DescribeCustomerGatewaysCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23539,7 +23303,7 @@ export const de_DescribeDhcpOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23555,10 +23319,9 @@ const de_DescribeDhcpOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23580,7 +23343,7 @@ export const de_DescribeEgressOnlyInternetGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23596,10 +23359,9 @@ const de_DescribeEgressOnlyInternetGatewaysCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23621,7 +23383,7 @@ export const de_DescribeElasticGpusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23637,10 +23399,9 @@ const de_DescribeElasticGpusCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23662,7 +23423,7 @@ export const de_DescribeExportImageTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23678,10 +23439,9 @@ const de_DescribeExportImageTasksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23703,7 +23463,7 @@ export const de_DescribeExportTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23719,10 +23479,9 @@ const de_DescribeExportTasksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23744,7 +23503,7 @@ export const de_DescribeFastLaunchImagesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23760,10 +23519,9 @@ const de_DescribeFastLaunchImagesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23785,7 +23543,7 @@ export const de_DescribeFastSnapshotRestoresCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23801,10 +23559,9 @@ const de_DescribeFastSnapshotRestoresCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23826,7 +23583,7 @@ export const de_DescribeFleetHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23842,10 +23599,9 @@ const de_DescribeFleetHistoryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23867,7 +23623,7 @@ export const de_DescribeFleetInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23883,10 +23639,9 @@ const de_DescribeFleetInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23908,7 +23663,7 @@ export const de_DescribeFleetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23924,10 +23679,9 @@ const de_DescribeFleetsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23949,7 +23703,7 @@ export const de_DescribeFlowLogsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -23965,10 +23719,9 @@ const de_DescribeFlowLogsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -23990,7 +23743,7 @@ export const de_DescribeFpgaImageAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24006,10 +23759,9 @@ const de_DescribeFpgaImageAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24031,7 +23783,7 @@ export const de_DescribeFpgaImagesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24047,10 +23799,9 @@ const de_DescribeFpgaImagesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24072,7 +23823,7 @@ export const de_DescribeHostReservationOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24088,10 +23839,9 @@ const de_DescribeHostReservationOfferingsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24113,7 +23863,7 @@ export const de_DescribeHostReservationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24129,10 +23879,9 @@ const de_DescribeHostReservationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24154,7 +23903,7 @@ export const de_DescribeHostsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24170,10 +23919,9 @@ const de_DescribeHostsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24195,7 +23943,7 @@ export const de_DescribeIamInstanceProfileAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24211,10 +23959,9 @@ const de_DescribeIamInstanceProfileAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24236,7 +23983,7 @@ export const de_DescribeIdentityIdFormatCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24252,10 +23999,9 @@ const de_DescribeIdentityIdFormatCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24277,7 +24023,7 @@ export const de_DescribeIdFormatCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24293,10 +24039,9 @@ const de_DescribeIdFormatCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24318,7 +24063,7 @@ export const de_DescribeImageAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24334,10 +24079,9 @@ const de_DescribeImageAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24359,7 +24103,7 @@ export const de_DescribeImagesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24375,10 +24119,9 @@ const de_DescribeImagesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24400,7 +24143,7 @@ export const de_DescribeImportImageTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24416,10 +24159,9 @@ const de_DescribeImportImageTasksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24441,7 +24183,7 @@ export const de_DescribeImportSnapshotTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24457,10 +24199,9 @@ const de_DescribeImportSnapshotTasksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24482,7 +24223,7 @@ export const de_DescribeInstanceAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24498,10 +24239,9 @@ const de_DescribeInstanceAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24523,7 +24263,7 @@ export const de_DescribeInstanceCreditSpecificationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24539,10 +24279,9 @@ const de_DescribeInstanceCreditSpecificationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24564,7 +24303,7 @@ export const de_DescribeInstanceEventNotificationAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24580,10 +24319,9 @@ const de_DescribeInstanceEventNotificationAttributesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24605,7 +24343,7 @@ export const de_DescribeInstanceEventWindowsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24621,10 +24359,9 @@ const de_DescribeInstanceEventWindowsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24646,7 +24383,7 @@ export const de_DescribeInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24662,10 +24399,9 @@ const de_DescribeInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24687,7 +24423,7 @@ export const de_DescribeInstanceStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24703,10 +24439,9 @@ const de_DescribeInstanceStatusCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24728,7 +24463,7 @@ export const de_DescribeInstanceTypeOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24744,10 +24479,9 @@ const de_DescribeInstanceTypeOfferingsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24769,7 +24503,7 @@ export const de_DescribeInstanceTypesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24785,10 +24519,9 @@ const de_DescribeInstanceTypesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24810,7 +24543,7 @@ export const de_DescribeInternetGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24826,10 +24559,9 @@ const de_DescribeInternetGatewaysCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24851,7 +24583,7 @@ export const de_DescribeIpamPoolsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24867,10 +24599,9 @@ const de_DescribeIpamPoolsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24892,7 +24623,7 @@ export const de_DescribeIpamResourceDiscoveriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24908,10 +24639,9 @@ const de_DescribeIpamResourceDiscoveriesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24933,7 +24663,7 @@ export const de_DescribeIpamResourceDiscoveryAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24949,10 +24679,9 @@ const de_DescribeIpamResourceDiscoveryAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -24974,7 +24703,7 @@ export const de_DescribeIpamsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -24990,10 +24719,9 @@ const de_DescribeIpamsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25015,7 +24743,7 @@ export const de_DescribeIpamScopesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25031,10 +24759,9 @@ const de_DescribeIpamScopesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25056,7 +24783,7 @@ export const de_DescribeIpv6PoolsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25072,10 +24799,9 @@ const de_DescribeIpv6PoolsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25097,7 +24823,7 @@ export const de_DescribeKeyPairsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25113,10 +24839,9 @@ const de_DescribeKeyPairsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25138,7 +24863,7 @@ export const de_DescribeLaunchTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25154,10 +24879,9 @@ const de_DescribeLaunchTemplatesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25179,7 +24903,7 @@ export const de_DescribeLaunchTemplateVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25195,10 +24919,9 @@ const de_DescribeLaunchTemplateVersionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25220,7 +24943,7 @@ export const de_DescribeLocalGatewayRouteTablesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25236,10 +24959,9 @@ const de_DescribeLocalGatewayRouteTablesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25261,7 +24983,7 @@ export const de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsC
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25277,10 +24999,9 @@ const de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandE
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25302,7 +25023,7 @@ export const de_DescribeLocalGatewayRouteTableVpcAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25318,10 +25039,9 @@ const de_DescribeLocalGatewayRouteTableVpcAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25343,7 +25063,7 @@ export const de_DescribeLocalGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25359,10 +25079,9 @@ const de_DescribeLocalGatewaysCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25384,7 +25103,7 @@ export const de_DescribeLocalGatewayVirtualInterfaceGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25400,10 +25119,9 @@ const de_DescribeLocalGatewayVirtualInterfaceGroupsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25425,7 +25143,7 @@ export const de_DescribeLocalGatewayVirtualInterfacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25441,10 +25159,9 @@ const de_DescribeLocalGatewayVirtualInterfacesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25466,7 +25183,7 @@ export const de_DescribeManagedPrefixListsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25482,10 +25199,9 @@ const de_DescribeManagedPrefixListsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25507,7 +25223,7 @@ export const de_DescribeMovingAddressesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25523,10 +25239,9 @@ const de_DescribeMovingAddressesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25548,7 +25263,7 @@ export const de_DescribeNatGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25564,10 +25279,9 @@ const de_DescribeNatGatewaysCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25589,7 +25303,7 @@ export const de_DescribeNetworkAclsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25605,10 +25319,9 @@ const de_DescribeNetworkAclsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25630,7 +25343,7 @@ export const de_DescribeNetworkInsightsAccessScopeAnalysesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25646,10 +25359,9 @@ const de_DescribeNetworkInsightsAccessScopeAnalysesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25671,7 +25383,7 @@ export const de_DescribeNetworkInsightsAccessScopesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25687,10 +25399,9 @@ const de_DescribeNetworkInsightsAccessScopesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25712,7 +25423,7 @@ export const de_DescribeNetworkInsightsAnalysesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25728,10 +25439,9 @@ const de_DescribeNetworkInsightsAnalysesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25753,7 +25463,7 @@ export const de_DescribeNetworkInsightsPathsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25769,10 +25479,9 @@ const de_DescribeNetworkInsightsPathsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25794,7 +25503,7 @@ export const de_DescribeNetworkInterfaceAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25810,10 +25519,9 @@ const de_DescribeNetworkInterfaceAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25835,7 +25543,7 @@ export const de_DescribeNetworkInterfacePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25851,10 +25559,9 @@ const de_DescribeNetworkInterfacePermissionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25876,7 +25583,7 @@ export const de_DescribeNetworkInterfacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25892,10 +25599,9 @@ const de_DescribeNetworkInterfacesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25917,7 +25623,7 @@ export const de_DescribePlacementGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25933,10 +25639,9 @@ const de_DescribePlacementGroupsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25958,7 +25663,7 @@ export const de_DescribePrefixListsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -25974,10 +25679,9 @@ const de_DescribePrefixListsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -25999,7 +25703,7 @@ export const de_DescribePrincipalIdFormatCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26015,10 +25719,9 @@ const de_DescribePrincipalIdFormatCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26040,7 +25743,7 @@ export const de_DescribePublicIpv4PoolsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26056,10 +25759,9 @@ const de_DescribePublicIpv4PoolsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26081,7 +25783,7 @@ export const de_DescribeRegionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26097,10 +25799,9 @@ const de_DescribeRegionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26122,7 +25823,7 @@ export const de_DescribeReplaceRootVolumeTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26138,10 +25839,9 @@ const de_DescribeReplaceRootVolumeTasksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26163,7 +25863,7 @@ export const de_DescribeReservedInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26179,10 +25879,9 @@ const de_DescribeReservedInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26204,7 +25903,7 @@ export const de_DescribeReservedInstancesListingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26220,10 +25919,9 @@ const de_DescribeReservedInstancesListingsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26245,7 +25943,7 @@ export const de_DescribeReservedInstancesModificationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26261,10 +25959,9 @@ const de_DescribeReservedInstancesModificationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26286,7 +25983,7 @@ export const de_DescribeReservedInstancesOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26302,10 +25999,9 @@ const de_DescribeReservedInstancesOfferingsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26327,7 +26023,7 @@ export const de_DescribeRouteTablesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26343,10 +26039,9 @@ const de_DescribeRouteTablesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26368,7 +26063,7 @@ export const de_DescribeScheduledInstanceAvailabilityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26384,10 +26079,9 @@ const de_DescribeScheduledInstanceAvailabilityCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26409,7 +26103,7 @@ export const de_DescribeScheduledInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26425,10 +26119,9 @@ const de_DescribeScheduledInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26450,7 +26143,7 @@ export const de_DescribeSecurityGroupReferencesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26466,10 +26159,9 @@ const de_DescribeSecurityGroupReferencesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26491,7 +26183,7 @@ export const de_DescribeSecurityGroupRulesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26507,10 +26199,9 @@ const de_DescribeSecurityGroupRulesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26532,7 +26223,7 @@ export const de_DescribeSecurityGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26548,10 +26239,9 @@ const de_DescribeSecurityGroupsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26573,7 +26263,7 @@ export const de_DescribeSnapshotAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26589,10 +26279,9 @@ const de_DescribeSnapshotAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26614,7 +26303,7 @@ export const de_DescribeSnapshotsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26630,10 +26319,9 @@ const de_DescribeSnapshotsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26655,7 +26343,7 @@ export const de_DescribeSnapshotTierStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26671,10 +26359,9 @@ const de_DescribeSnapshotTierStatusCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26696,7 +26383,7 @@ export const de_DescribeSpotDatafeedSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26712,10 +26399,9 @@ const de_DescribeSpotDatafeedSubscriptionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26737,7 +26423,7 @@ export const de_DescribeSpotFleetInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26753,10 +26439,9 @@ const de_DescribeSpotFleetInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26778,7 +26463,7 @@ export const de_DescribeSpotFleetRequestHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26794,10 +26479,9 @@ const de_DescribeSpotFleetRequestHistoryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26819,7 +26503,7 @@ export const de_DescribeSpotFleetRequestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26835,10 +26519,9 @@ const de_DescribeSpotFleetRequestsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26860,7 +26543,7 @@ export const de_DescribeSpotInstanceRequestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26876,10 +26559,9 @@ const de_DescribeSpotInstanceRequestsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26901,7 +26583,7 @@ export const de_DescribeSpotPriceHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26917,10 +26599,9 @@ const de_DescribeSpotPriceHistoryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26942,7 +26623,7 @@ export const de_DescribeStaleSecurityGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26958,10 +26639,9 @@ const de_DescribeStaleSecurityGroupsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -26983,7 +26663,7 @@ export const de_DescribeStoreImageTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -26999,10 +26679,9 @@ const de_DescribeStoreImageTasksCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27024,7 +26703,7 @@ export const de_DescribeSubnetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27040,10 +26719,9 @@ const de_DescribeSubnetsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27065,7 +26743,7 @@ export const de_DescribeTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27081,10 +26759,9 @@ const de_DescribeTagsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27106,7 +26783,7 @@ export const de_DescribeTrafficMirrorFiltersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27122,10 +26799,9 @@ const de_DescribeTrafficMirrorFiltersCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27147,7 +26823,7 @@ export const de_DescribeTrafficMirrorSessionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27163,10 +26839,9 @@ const de_DescribeTrafficMirrorSessionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27188,7 +26863,7 @@ export const de_DescribeTrafficMirrorTargetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27204,10 +26879,9 @@ const de_DescribeTrafficMirrorTargetsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27229,7 +26903,7 @@ export const de_DescribeTransitGatewayAttachmentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27245,10 +26919,9 @@ const de_DescribeTransitGatewayAttachmentsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27270,7 +26943,7 @@ export const de_DescribeTransitGatewayConnectPeersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27286,10 +26959,9 @@ const de_DescribeTransitGatewayConnectPeersCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27311,7 +26983,7 @@ export const de_DescribeTransitGatewayConnectsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27327,10 +26999,9 @@ const de_DescribeTransitGatewayConnectsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27352,7 +27023,7 @@ export const de_DescribeTransitGatewayMulticastDomainsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27368,10 +27039,9 @@ const de_DescribeTransitGatewayMulticastDomainsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27393,7 +27063,7 @@ export const de_DescribeTransitGatewayPeeringAttachmentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27409,10 +27079,9 @@ const de_DescribeTransitGatewayPeeringAttachmentsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27434,7 +27103,7 @@ export const de_DescribeTransitGatewayPolicyTablesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27450,10 +27119,9 @@ const de_DescribeTransitGatewayPolicyTablesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27475,7 +27143,7 @@ export const de_DescribeTransitGatewayRouteTableAnnouncementsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27491,10 +27159,9 @@ const de_DescribeTransitGatewayRouteTableAnnouncementsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27516,7 +27183,7 @@ export const de_DescribeTransitGatewayRouteTablesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27532,10 +27199,9 @@ const de_DescribeTransitGatewayRouteTablesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27557,7 +27223,7 @@ export const de_DescribeTransitGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27573,10 +27239,9 @@ const de_DescribeTransitGatewaysCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27598,7 +27263,7 @@ export const de_DescribeTransitGatewayVpcAttachmentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27614,10 +27279,9 @@ const de_DescribeTransitGatewayVpcAttachmentsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27639,7 +27303,7 @@ export const de_DescribeTrunkInterfaceAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27655,10 +27319,9 @@ const de_DescribeTrunkInterfaceAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27680,7 +27343,7 @@ export const de_DescribeVerifiedAccessEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27696,10 +27359,9 @@ const de_DescribeVerifiedAccessEndpointsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27721,7 +27383,7 @@ export const de_DescribeVerifiedAccessGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27737,10 +27399,9 @@ const de_DescribeVerifiedAccessGroupsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27762,7 +27423,7 @@ export const de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand = asy
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27778,10 +27439,9 @@ const de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommandError = async
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27803,7 +27463,7 @@ export const de_DescribeVerifiedAccessInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27819,10 +27479,9 @@ const de_DescribeVerifiedAccessInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27844,7 +27503,7 @@ export const de_DescribeVerifiedAccessTrustProvidersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27860,10 +27519,9 @@ const de_DescribeVerifiedAccessTrustProvidersCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27885,7 +27543,7 @@ export const de_DescribeVolumeAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27901,10 +27559,9 @@ const de_DescribeVolumeAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27926,7 +27583,7 @@ export const de_DescribeVolumesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27942,10 +27599,9 @@ const de_DescribeVolumesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -27967,7 +27623,7 @@ export const de_DescribeVolumesModificationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -27983,10 +27639,9 @@ const de_DescribeVolumesModificationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28008,7 +27663,7 @@ export const de_DescribeVolumeStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28024,10 +27679,9 @@ const de_DescribeVolumeStatusCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28049,7 +27703,7 @@ export const de_DescribeVpcAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28065,10 +27719,9 @@ const de_DescribeVpcAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28090,7 +27743,7 @@ export const de_DescribeVpcClassicLinkCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28106,10 +27759,9 @@ const de_DescribeVpcClassicLinkCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28131,7 +27783,7 @@ export const de_DescribeVpcClassicLinkDnsSupportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28147,10 +27799,9 @@ const de_DescribeVpcClassicLinkDnsSupportCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28172,7 +27823,7 @@ export const de_DescribeVpcEndpointConnectionNotificationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28188,10 +27839,9 @@ const de_DescribeVpcEndpointConnectionNotificationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28213,7 +27863,7 @@ export const de_DescribeVpcEndpointConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28229,10 +27879,9 @@ const de_DescribeVpcEndpointConnectionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28254,7 +27903,7 @@ export const de_DescribeVpcEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28270,10 +27919,9 @@ const de_DescribeVpcEndpointsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28295,7 +27943,7 @@ export const de_DescribeVpcEndpointServiceConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28311,10 +27959,9 @@ const de_DescribeVpcEndpointServiceConfigurationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28336,7 +27983,7 @@ export const de_DescribeVpcEndpointServicePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28352,10 +27999,9 @@ const de_DescribeVpcEndpointServicePermissionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28377,7 +28023,7 @@ export const de_DescribeVpcEndpointServicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28393,10 +28039,9 @@ const de_DescribeVpcEndpointServicesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28418,7 +28063,7 @@ export const de_DescribeVpcPeeringConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28434,10 +28079,9 @@ const de_DescribeVpcPeeringConnectionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28459,7 +28103,7 @@ export const de_DescribeVpcsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28475,10 +28119,9 @@ const de_DescribeVpcsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28500,7 +28143,7 @@ export const de_DescribeVpnConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28516,10 +28159,9 @@ const de_DescribeVpnConnectionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28541,7 +28183,7 @@ export const de_DescribeVpnGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28557,10 +28199,9 @@ const de_DescribeVpnGatewaysCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28582,7 +28223,7 @@ export const de_DetachClassicLinkVpcCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28598,10 +28239,9 @@ const de_DetachClassicLinkVpcCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28620,7 +28260,7 @@ export const de_DetachInternetGatewayCommand = async (
   const response: DetachInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28636,10 +28276,9 @@ const de_DetachInternetGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28658,7 +28297,7 @@ export const de_DetachNetworkInterfaceCommand = async (
   const response: DetachNetworkInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28674,10 +28313,9 @@ const de_DetachNetworkInterfaceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28699,7 +28337,7 @@ export const de_DetachVerifiedAccessTrustProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28715,10 +28353,9 @@ const de_DetachVerifiedAccessTrustProviderCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28740,7 +28377,7 @@ export const de_DetachVolumeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28756,10 +28393,9 @@ const de_DetachVolumeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28778,7 +28414,7 @@ export const de_DetachVpnGatewayCommand = async (
   const response: DetachVpnGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28794,10 +28430,9 @@ const de_DetachVpnGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28819,7 +28454,7 @@ export const de_DisableAddressTransferCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28835,10 +28470,9 @@ const de_DisableAddressTransferCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28860,7 +28494,7 @@ export const de_DisableAwsNetworkPerformanceMetricSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28876,10 +28510,9 @@ const de_DisableAwsNetworkPerformanceMetricSubscriptionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28901,7 +28534,7 @@ export const de_DisableEbsEncryptionByDefaultCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28917,10 +28550,9 @@ const de_DisableEbsEncryptionByDefaultCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28942,7 +28574,7 @@ export const de_DisableFastLaunchCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28958,10 +28590,9 @@ const de_DisableFastLaunchCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -28983,7 +28614,7 @@ export const de_DisableFastSnapshotRestoresCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -28999,10 +28630,9 @@ const de_DisableFastSnapshotRestoresCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29024,7 +28654,7 @@ export const de_DisableImageDeprecationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29040,10 +28670,9 @@ const de_DisableImageDeprecationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29065,7 +28694,7 @@ export const de_DisableIpamOrganizationAdminAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29081,10 +28710,9 @@ const de_DisableIpamOrganizationAdminAccountCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29106,7 +28734,7 @@ export const de_DisableSerialConsoleAccessCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29122,10 +28750,9 @@ const de_DisableSerialConsoleAccessCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29147,7 +28774,7 @@ export const de_DisableTransitGatewayRouteTablePropagationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29163,10 +28790,9 @@ const de_DisableTransitGatewayRouteTablePropagationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29185,7 +28811,7 @@ export const de_DisableVgwRoutePropagationCommand = async (
   const response: DisableVgwRoutePropagationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29201,10 +28827,9 @@ const de_DisableVgwRoutePropagationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29226,7 +28851,7 @@ export const de_DisableVpcClassicLinkCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29242,10 +28867,9 @@ const de_DisableVpcClassicLinkCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29267,7 +28891,7 @@ export const de_DisableVpcClassicLinkDnsSupportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29283,10 +28907,9 @@ const de_DisableVpcClassicLinkDnsSupportCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29305,7 +28928,7 @@ export const de_DisassociateAddressCommand = async (
   const response: DisassociateAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29321,10 +28944,9 @@ const de_DisassociateAddressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29346,7 +28968,7 @@ export const de_DisassociateClientVpnTargetNetworkCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29362,10 +28984,9 @@ const de_DisassociateClientVpnTargetNetworkCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29387,7 +29008,7 @@ export const de_DisassociateEnclaveCertificateIamRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29403,10 +29024,9 @@ const de_DisassociateEnclaveCertificateIamRoleCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29428,7 +29048,7 @@ export const de_DisassociateIamInstanceProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29444,10 +29064,9 @@ const de_DisassociateIamInstanceProfileCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29469,7 +29088,7 @@ export const de_DisassociateInstanceEventWindowCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29485,10 +29104,9 @@ const de_DisassociateInstanceEventWindowCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29510,7 +29128,7 @@ export const de_DisassociateIpamResourceDiscoveryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29526,10 +29144,9 @@ const de_DisassociateIpamResourceDiscoveryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29551,7 +29168,7 @@ export const de_DisassociateNatGatewayAddressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29567,10 +29184,9 @@ const de_DisassociateNatGatewayAddressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29589,7 +29205,7 @@ export const de_DisassociateRouteTableCommand = async (
   const response: DisassociateRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29605,10 +29221,9 @@ const de_DisassociateRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29630,7 +29245,7 @@ export const de_DisassociateSubnetCidrBlockCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29646,10 +29261,9 @@ const de_DisassociateSubnetCidrBlockCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29671,7 +29285,7 @@ export const de_DisassociateTransitGatewayMulticastDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29687,10 +29301,9 @@ const de_DisassociateTransitGatewayMulticastDomainCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29712,7 +29325,7 @@ export const de_DisassociateTransitGatewayPolicyTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29728,10 +29341,9 @@ const de_DisassociateTransitGatewayPolicyTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29753,7 +29365,7 @@ export const de_DisassociateTransitGatewayRouteTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29769,10 +29381,9 @@ const de_DisassociateTransitGatewayRouteTableCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29794,7 +29405,7 @@ export const de_DisassociateTrunkInterfaceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29810,10 +29421,9 @@ const de_DisassociateTrunkInterfaceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29835,7 +29445,7 @@ export const de_DisassociateVpcCidrBlockCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29851,10 +29461,9 @@ const de_DisassociateVpcCidrBlockCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29876,7 +29485,7 @@ export const de_EnableAddressTransferCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29892,10 +29501,9 @@ const de_EnableAddressTransferCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29917,7 +29525,7 @@ export const de_EnableAwsNetworkPerformanceMetricSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29933,10 +29541,9 @@ const de_EnableAwsNetworkPerformanceMetricSubscriptionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29958,7 +29565,7 @@ export const de_EnableEbsEncryptionByDefaultCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -29974,10 +29581,9 @@ const de_EnableEbsEncryptionByDefaultCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -29999,7 +29605,7 @@ export const de_EnableFastLaunchCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30015,10 +29621,9 @@ const de_EnableFastLaunchCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30040,7 +29645,7 @@ export const de_EnableFastSnapshotRestoresCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30056,10 +29661,9 @@ const de_EnableFastSnapshotRestoresCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30081,7 +29685,7 @@ export const de_EnableImageDeprecationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30097,10 +29701,9 @@ const de_EnableImageDeprecationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30122,7 +29725,7 @@ export const de_EnableIpamOrganizationAdminAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30138,10 +29741,9 @@ const de_EnableIpamOrganizationAdminAccountCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30163,7 +29765,7 @@ export const de_EnableReachabilityAnalyzerOrganizationSharingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30179,10 +29781,9 @@ const de_EnableReachabilityAnalyzerOrganizationSharingCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30204,7 +29805,7 @@ export const de_EnableSerialConsoleAccessCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30220,10 +29821,9 @@ const de_EnableSerialConsoleAccessCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30245,7 +29845,7 @@ export const de_EnableTransitGatewayRouteTablePropagationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30261,10 +29861,9 @@ const de_EnableTransitGatewayRouteTablePropagationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30283,7 +29882,7 @@ export const de_EnableVgwRoutePropagationCommand = async (
   const response: EnableVgwRoutePropagationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30299,10 +29898,9 @@ const de_EnableVgwRoutePropagationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30321,7 +29919,7 @@ export const de_EnableVolumeIOCommand = async (
   const response: EnableVolumeIOCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30337,10 +29935,9 @@ const de_EnableVolumeIOCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30362,7 +29959,7 @@ export const de_EnableVpcClassicLinkCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30378,10 +29975,9 @@ const de_EnableVpcClassicLinkCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30403,7 +29999,7 @@ export const de_EnableVpcClassicLinkDnsSupportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30419,10 +30015,9 @@ const de_EnableVpcClassicLinkDnsSupportCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30444,7 +30039,7 @@ export const de_ExportClientVpnClientCertificateRevocationListCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30460,10 +30055,9 @@ const de_ExportClientVpnClientCertificateRevocationListCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30485,7 +30079,7 @@ export const de_ExportClientVpnClientConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30501,10 +30095,9 @@ const de_ExportClientVpnClientConfigurationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30526,7 +30119,7 @@ export const de_ExportImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30542,10 +30135,9 @@ const de_ExportImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30567,7 +30159,7 @@ export const de_ExportTransitGatewayRoutesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30583,10 +30175,9 @@ const de_ExportTransitGatewayRoutesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30608,7 +30199,7 @@ export const de_GetAssociatedEnclaveCertificateIamRolesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30624,10 +30215,9 @@ const de_GetAssociatedEnclaveCertificateIamRolesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30649,7 +30239,7 @@ export const de_GetAssociatedIpv6PoolCidrsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30665,10 +30255,9 @@ const de_GetAssociatedIpv6PoolCidrsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30690,7 +30279,7 @@ export const de_GetAwsNetworkPerformanceDataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30706,10 +30295,9 @@ const de_GetAwsNetworkPerformanceDataCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30731,7 +30319,7 @@ export const de_GetCapacityReservationUsageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30747,10 +30335,9 @@ const de_GetCapacityReservationUsageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30772,7 +30359,7 @@ export const de_GetCoipPoolUsageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30788,10 +30375,9 @@ const de_GetCoipPoolUsageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30813,7 +30399,7 @@ export const de_GetConsoleOutputCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30829,10 +30415,9 @@ const de_GetConsoleOutputCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30854,7 +30439,7 @@ export const de_GetConsoleScreenshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30870,10 +30455,9 @@ const de_GetConsoleScreenshotCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30895,7 +30479,7 @@ export const de_GetDefaultCreditSpecificationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30911,10 +30495,9 @@ const de_GetDefaultCreditSpecificationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30936,7 +30519,7 @@ export const de_GetEbsDefaultKmsKeyIdCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30952,10 +30535,9 @@ const de_GetEbsDefaultKmsKeyIdCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -30977,7 +30559,7 @@ export const de_GetEbsEncryptionByDefaultCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -30993,10 +30575,9 @@ const de_GetEbsEncryptionByDefaultCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31018,7 +30599,7 @@ export const de_GetFlowLogsIntegrationTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31034,10 +30615,9 @@ const de_GetFlowLogsIntegrationTemplateCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31059,7 +30639,7 @@ export const de_GetGroupsForCapacityReservationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31075,10 +30655,9 @@ const de_GetGroupsForCapacityReservationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31100,7 +30679,7 @@ export const de_GetHostReservationPurchasePreviewCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31116,10 +30695,9 @@ const de_GetHostReservationPurchasePreviewCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31141,7 +30719,7 @@ export const de_GetInstanceTypesFromInstanceRequirementsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31157,10 +30735,9 @@ const de_GetInstanceTypesFromInstanceRequirementsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31182,7 +30759,7 @@ export const de_GetInstanceUefiDataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31198,10 +30775,9 @@ const de_GetInstanceUefiDataCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31223,7 +30799,7 @@ export const de_GetIpamAddressHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31239,10 +30815,9 @@ const de_GetIpamAddressHistoryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31264,7 +30839,7 @@ export const de_GetIpamDiscoveredAccountsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31280,10 +30855,9 @@ const de_GetIpamDiscoveredAccountsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31305,7 +30879,7 @@ export const de_GetIpamDiscoveredResourceCidrsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31321,10 +30895,9 @@ const de_GetIpamDiscoveredResourceCidrsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31346,7 +30919,7 @@ export const de_GetIpamPoolAllocationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31362,10 +30935,9 @@ const de_GetIpamPoolAllocationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31387,7 +30959,7 @@ export const de_GetIpamPoolCidrsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31403,10 +30975,9 @@ const de_GetIpamPoolCidrsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31428,7 +30999,7 @@ export const de_GetIpamResourceCidrsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31444,10 +31015,9 @@ const de_GetIpamResourceCidrsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31469,7 +31039,7 @@ export const de_GetLaunchTemplateDataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31485,10 +31055,9 @@ const de_GetLaunchTemplateDataCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31510,7 +31079,7 @@ export const de_GetManagedPrefixListAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31526,10 +31095,9 @@ const de_GetManagedPrefixListAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31551,7 +31119,7 @@ export const de_GetManagedPrefixListEntriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31567,10 +31135,9 @@ const de_GetManagedPrefixListEntriesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31592,7 +31159,7 @@ export const de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31608,10 +31175,9 @@ const de_GetNetworkInsightsAccessScopeAnalysisFindingsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31633,7 +31199,7 @@ export const de_GetNetworkInsightsAccessScopeContentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31649,10 +31215,9 @@ const de_GetNetworkInsightsAccessScopeContentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31674,7 +31239,7 @@ export const de_GetPasswordDataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31690,10 +31255,9 @@ const de_GetPasswordDataCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31715,7 +31279,7 @@ export const de_GetReservedInstancesExchangeQuoteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31731,10 +31295,9 @@ const de_GetReservedInstancesExchangeQuoteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31756,7 +31319,7 @@ export const de_GetSerialConsoleAccessStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31772,10 +31335,9 @@ const de_GetSerialConsoleAccessStatusCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31797,7 +31359,7 @@ export const de_GetSpotPlacementScoresCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31813,10 +31375,9 @@ const de_GetSpotPlacementScoresCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31838,7 +31399,7 @@ export const de_GetSubnetCidrReservationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31854,10 +31415,9 @@ const de_GetSubnetCidrReservationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31879,7 +31439,7 @@ export const de_GetTransitGatewayAttachmentPropagationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31895,10 +31455,9 @@ const de_GetTransitGatewayAttachmentPropagationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31920,7 +31479,7 @@ export const de_GetTransitGatewayMulticastDomainAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31936,10 +31495,9 @@ const de_GetTransitGatewayMulticastDomainAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -31961,7 +31519,7 @@ export const de_GetTransitGatewayPolicyTableAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -31977,10 +31535,9 @@ const de_GetTransitGatewayPolicyTableAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32002,7 +31559,7 @@ export const de_GetTransitGatewayPolicyTableEntriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32018,10 +31575,9 @@ const de_GetTransitGatewayPolicyTableEntriesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32043,7 +31599,7 @@ export const de_GetTransitGatewayPrefixListReferencesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32059,10 +31615,9 @@ const de_GetTransitGatewayPrefixListReferencesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32084,7 +31639,7 @@ export const de_GetTransitGatewayRouteTableAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32100,10 +31655,9 @@ const de_GetTransitGatewayRouteTableAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32125,7 +31679,7 @@ export const de_GetTransitGatewayRouteTablePropagationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32141,10 +31695,9 @@ const de_GetTransitGatewayRouteTablePropagationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32166,7 +31719,7 @@ export const de_GetVerifiedAccessEndpointPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32182,10 +31735,9 @@ const de_GetVerifiedAccessEndpointPolicyCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32207,7 +31759,7 @@ export const de_GetVerifiedAccessGroupPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32223,10 +31775,9 @@ const de_GetVerifiedAccessGroupPolicyCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32248,7 +31799,7 @@ export const de_GetVpnConnectionDeviceSampleConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32264,10 +31815,9 @@ const de_GetVpnConnectionDeviceSampleConfigurationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32289,7 +31839,7 @@ export const de_GetVpnConnectionDeviceTypesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32305,10 +31855,9 @@ const de_GetVpnConnectionDeviceTypesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32330,7 +31879,7 @@ export const de_GetVpnTunnelReplacementStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32346,10 +31895,9 @@ const de_GetVpnTunnelReplacementStatusCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32371,7 +31919,7 @@ export const de_ImportClientVpnClientCertificateRevocationListCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32387,10 +31935,9 @@ const de_ImportClientVpnClientCertificateRevocationListCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32412,7 +31959,7 @@ export const de_ImportImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32428,10 +31975,9 @@ const de_ImportImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32453,7 +31999,7 @@ export const de_ImportInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32469,10 +32015,9 @@ const de_ImportInstanceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32494,7 +32039,7 @@ export const de_ImportKeyPairCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32510,10 +32055,9 @@ const de_ImportKeyPairCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32535,7 +32079,7 @@ export const de_ImportSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32551,10 +32095,9 @@ const de_ImportSnapshotCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32576,7 +32119,7 @@ export const de_ImportVolumeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32592,10 +32135,9 @@ const de_ImportVolumeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32617,7 +32159,7 @@ export const de_ListImagesInRecycleBinCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32633,10 +32175,9 @@ const de_ListImagesInRecycleBinCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32658,7 +32199,7 @@ export const de_ListSnapshotsInRecycleBinCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32674,10 +32215,9 @@ const de_ListSnapshotsInRecycleBinCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32699,7 +32239,7 @@ export const de_ModifyAddressAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32715,10 +32255,9 @@ const de_ModifyAddressAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32740,7 +32279,7 @@ export const de_ModifyAvailabilityZoneGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32756,10 +32295,9 @@ const de_ModifyAvailabilityZoneGroupCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32781,7 +32319,7 @@ export const de_ModifyCapacityReservationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32797,10 +32335,9 @@ const de_ModifyCapacityReservationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32822,7 +32359,7 @@ export const de_ModifyCapacityReservationFleetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32838,10 +32375,9 @@ const de_ModifyCapacityReservationFleetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32863,7 +32399,7 @@ export const de_ModifyClientVpnEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32879,10 +32415,9 @@ const de_ModifyClientVpnEndpointCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32904,7 +32439,7 @@ export const de_ModifyDefaultCreditSpecificationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32920,10 +32455,9 @@ const de_ModifyDefaultCreditSpecificationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32945,7 +32479,7 @@ export const de_ModifyEbsDefaultKmsKeyIdCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -32961,10 +32495,9 @@ const de_ModifyEbsDefaultKmsKeyIdCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -32986,7 +32519,7 @@ export const de_ModifyFleetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33002,10 +32535,9 @@ const de_ModifyFleetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33027,7 +32559,7 @@ export const de_ModifyFpgaImageAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33043,10 +32575,9 @@ const de_ModifyFpgaImageAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33068,7 +32599,7 @@ export const de_ModifyHostsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33084,10 +32615,9 @@ const de_ModifyHostsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33106,7 +32636,7 @@ export const de_ModifyIdentityIdFormatCommand = async (
   const response: ModifyIdentityIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33122,10 +32652,9 @@ const de_ModifyIdentityIdFormatCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33144,7 +32673,7 @@ export const de_ModifyIdFormatCommand = async (
   const response: ModifyIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33160,10 +32689,9 @@ const de_ModifyIdFormatCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33182,7 +32710,7 @@ export const de_ModifyImageAttributeCommand = async (
   const response: ModifyImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33198,10 +32726,9 @@ const de_ModifyImageAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33220,7 +32747,7 @@ export const de_ModifyInstanceAttributeCommand = async (
   const response: ModifyInstanceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33236,10 +32763,9 @@ const de_ModifyInstanceAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33261,7 +32787,7 @@ export const de_ModifyInstanceCapacityReservationAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33277,10 +32803,9 @@ const de_ModifyInstanceCapacityReservationAttributesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33302,7 +32827,7 @@ export const de_ModifyInstanceCreditSpecificationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33318,10 +32843,9 @@ const de_ModifyInstanceCreditSpecificationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33343,7 +32867,7 @@ export const de_ModifyInstanceEventStartTimeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33359,10 +32883,9 @@ const de_ModifyInstanceEventStartTimeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33384,7 +32907,7 @@ export const de_ModifyInstanceEventWindowCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33400,10 +32923,9 @@ const de_ModifyInstanceEventWindowCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33425,7 +32947,7 @@ export const de_ModifyInstanceMaintenanceOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33441,10 +32963,9 @@ const de_ModifyInstanceMaintenanceOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33466,7 +32987,7 @@ export const de_ModifyInstanceMetadataOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33482,10 +33003,9 @@ const de_ModifyInstanceMetadataOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33507,7 +33027,7 @@ export const de_ModifyInstancePlacementCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33523,10 +33043,9 @@ const de_ModifyInstancePlacementCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33548,7 +33067,7 @@ export const de_ModifyIpamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33564,10 +33083,9 @@ const de_ModifyIpamCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33589,7 +33107,7 @@ export const de_ModifyIpamPoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33605,10 +33123,9 @@ const de_ModifyIpamPoolCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33630,7 +33147,7 @@ export const de_ModifyIpamResourceCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33646,10 +33163,9 @@ const de_ModifyIpamResourceCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33671,7 +33187,7 @@ export const de_ModifyIpamResourceDiscoveryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33687,10 +33203,9 @@ const de_ModifyIpamResourceDiscoveryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33712,7 +33227,7 @@ export const de_ModifyIpamScopeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33728,10 +33243,9 @@ const de_ModifyIpamScopeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33753,7 +33267,7 @@ export const de_ModifyLaunchTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33769,10 +33283,9 @@ const de_ModifyLaunchTemplateCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33794,7 +33307,7 @@ export const de_ModifyLocalGatewayRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33810,10 +33323,9 @@ const de_ModifyLocalGatewayRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33835,7 +33347,7 @@ export const de_ModifyManagedPrefixListCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33851,10 +33363,9 @@ const de_ModifyManagedPrefixListCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33873,7 +33384,7 @@ export const de_ModifyNetworkInterfaceAttributeCommand = async (
   const response: ModifyNetworkInterfaceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33889,10 +33400,9 @@ const de_ModifyNetworkInterfaceAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33914,7 +33424,7 @@ export const de_ModifyPrivateDnsNameOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33930,10 +33440,9 @@ const de_ModifyPrivateDnsNameOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33955,7 +33464,7 @@ export const de_ModifyReservedInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -33971,10 +33480,9 @@ const de_ModifyReservedInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -33996,7 +33504,7 @@ export const de_ModifySecurityGroupRulesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34012,10 +33520,9 @@ const de_ModifySecurityGroupRulesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34034,7 +33541,7 @@ export const de_ModifySnapshotAttributeCommand = async (
   const response: ModifySnapshotAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34050,10 +33557,9 @@ const de_ModifySnapshotAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34075,7 +33581,7 @@ export const de_ModifySnapshotTierCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34091,10 +33597,9 @@ const de_ModifySnapshotTierCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34116,7 +33621,7 @@ export const de_ModifySpotFleetRequestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34132,10 +33637,9 @@ const de_ModifySpotFleetRequestCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34154,7 +33658,7 @@ export const de_ModifySubnetAttributeCommand = async (
   const response: ModifySubnetAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34170,10 +33674,9 @@ const de_ModifySubnetAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34195,7 +33698,7 @@ export const de_ModifyTrafficMirrorFilterNetworkServicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34211,10 +33714,9 @@ const de_ModifyTrafficMirrorFilterNetworkServicesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34236,7 +33738,7 @@ export const de_ModifyTrafficMirrorFilterRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34252,10 +33754,9 @@ const de_ModifyTrafficMirrorFilterRuleCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34277,7 +33778,7 @@ export const de_ModifyTrafficMirrorSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34293,10 +33794,9 @@ const de_ModifyTrafficMirrorSessionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34318,7 +33818,7 @@ export const de_ModifyTransitGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34334,10 +33834,9 @@ const de_ModifyTransitGatewayCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34359,7 +33858,7 @@ export const de_ModifyTransitGatewayPrefixListReferenceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34375,10 +33874,9 @@ const de_ModifyTransitGatewayPrefixListReferenceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34400,7 +33898,7 @@ export const de_ModifyTransitGatewayVpcAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34416,10 +33914,9 @@ const de_ModifyTransitGatewayVpcAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34441,7 +33938,7 @@ export const de_ModifyVerifiedAccessEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34457,10 +33954,9 @@ const de_ModifyVerifiedAccessEndpointCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34482,7 +33978,7 @@ export const de_ModifyVerifiedAccessEndpointPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34498,10 +33994,9 @@ const de_ModifyVerifiedAccessEndpointPolicyCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34523,7 +34018,7 @@ export const de_ModifyVerifiedAccessGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34539,10 +34034,9 @@ const de_ModifyVerifiedAccessGroupCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34564,7 +34058,7 @@ export const de_ModifyVerifiedAccessGroupPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34580,10 +34074,9 @@ const de_ModifyVerifiedAccessGroupPolicyCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34605,7 +34098,7 @@ export const de_ModifyVerifiedAccessInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34621,10 +34114,9 @@ const de_ModifyVerifiedAccessInstanceCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34646,7 +34138,7 @@ export const de_ModifyVerifiedAccessInstanceLoggingConfigurationCommand = async 
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34662,10 +34154,9 @@ const de_ModifyVerifiedAccessInstanceLoggingConfigurationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34687,7 +34178,7 @@ export const de_ModifyVerifiedAccessTrustProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34703,10 +34194,9 @@ const de_ModifyVerifiedAccessTrustProviderCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34728,7 +34218,7 @@ export const de_ModifyVolumeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34744,10 +34234,9 @@ const de_ModifyVolumeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34766,7 +34255,7 @@ export const de_ModifyVolumeAttributeCommand = async (
   const response: ModifyVolumeAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34782,10 +34271,9 @@ const de_ModifyVolumeAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34804,7 +34292,7 @@ export const de_ModifyVpcAttributeCommand = async (
   const response: ModifyVpcAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34820,10 +34308,9 @@ const de_ModifyVpcAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34845,7 +34332,7 @@ export const de_ModifyVpcEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34861,10 +34348,9 @@ const de_ModifyVpcEndpointCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34886,7 +34372,7 @@ export const de_ModifyVpcEndpointConnectionNotificationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34902,10 +34388,9 @@ const de_ModifyVpcEndpointConnectionNotificationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34927,7 +34412,7 @@ export const de_ModifyVpcEndpointServiceConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34943,10 +34428,9 @@ const de_ModifyVpcEndpointServiceConfigurationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -34968,7 +34452,7 @@ export const de_ModifyVpcEndpointServicePayerResponsibilityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -34984,10 +34468,9 @@ const de_ModifyVpcEndpointServicePayerResponsibilityCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35009,7 +34492,7 @@ export const de_ModifyVpcEndpointServicePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35025,10 +34508,9 @@ const de_ModifyVpcEndpointServicePermissionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35050,7 +34532,7 @@ export const de_ModifyVpcPeeringConnectionOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35066,10 +34548,9 @@ const de_ModifyVpcPeeringConnectionOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35091,7 +34572,7 @@ export const de_ModifyVpcTenancyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35107,10 +34588,9 @@ const de_ModifyVpcTenancyCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35132,7 +34612,7 @@ export const de_ModifyVpnConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35148,10 +34628,9 @@ const de_ModifyVpnConnectionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35173,7 +34652,7 @@ export const de_ModifyVpnConnectionOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35189,10 +34668,9 @@ const de_ModifyVpnConnectionOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35214,7 +34692,7 @@ export const de_ModifyVpnTunnelCertificateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35230,10 +34708,9 @@ const de_ModifyVpnTunnelCertificateCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35255,7 +34732,7 @@ export const de_ModifyVpnTunnelOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35271,10 +34748,9 @@ const de_ModifyVpnTunnelOptionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35296,7 +34772,7 @@ export const de_MonitorInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35312,10 +34788,9 @@ const de_MonitorInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35337,7 +34812,7 @@ export const de_MoveAddressToVpcCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35353,10 +34828,9 @@ const de_MoveAddressToVpcCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35378,7 +34852,7 @@ export const de_MoveByoipCidrToIpamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35394,10 +34868,9 @@ const de_MoveByoipCidrToIpamCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35419,7 +34892,7 @@ export const de_ProvisionByoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35435,10 +34908,9 @@ const de_ProvisionByoipCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35460,7 +34932,7 @@ export const de_ProvisionIpamPoolCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35476,10 +34948,9 @@ const de_ProvisionIpamPoolCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35501,7 +34972,7 @@ export const de_ProvisionPublicIpv4PoolCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35517,10 +34988,9 @@ const de_ProvisionPublicIpv4PoolCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35542,7 +35012,7 @@ export const de_PurchaseHostReservationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35558,10 +35028,9 @@ const de_PurchaseHostReservationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35583,7 +35052,7 @@ export const de_PurchaseReservedInstancesOfferingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35599,10 +35068,9 @@ const de_PurchaseReservedInstancesOfferingCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35624,7 +35092,7 @@ export const de_PurchaseScheduledInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35640,10 +35108,9 @@ const de_PurchaseScheduledInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35662,7 +35129,7 @@ export const de_RebootInstancesCommand = async (
   const response: RebootInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35678,10 +35145,9 @@ const de_RebootInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35703,7 +35169,7 @@ export const de_RegisterImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35719,10 +35185,9 @@ const de_RegisterImageCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35744,7 +35209,7 @@ export const de_RegisterInstanceEventNotificationAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35760,10 +35225,9 @@ const de_RegisterInstanceEventNotificationAttributesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35785,7 +35249,7 @@ export const de_RegisterTransitGatewayMulticastGroupMembersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35801,10 +35265,9 @@ const de_RegisterTransitGatewayMulticastGroupMembersCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35826,7 +35289,7 @@ export const de_RegisterTransitGatewayMulticastGroupSourcesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35842,10 +35305,9 @@ const de_RegisterTransitGatewayMulticastGroupSourcesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35867,7 +35329,7 @@ export const de_RejectTransitGatewayMulticastDomainAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35883,10 +35345,9 @@ const de_RejectTransitGatewayMulticastDomainAssociationsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35908,7 +35369,7 @@ export const de_RejectTransitGatewayPeeringAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35924,10 +35385,9 @@ const de_RejectTransitGatewayPeeringAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35949,7 +35409,7 @@ export const de_RejectTransitGatewayVpcAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -35965,10 +35425,9 @@ const de_RejectTransitGatewayVpcAttachmentCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -35990,7 +35449,7 @@ export const de_RejectVpcEndpointConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36006,10 +35465,9 @@ const de_RejectVpcEndpointConnectionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36031,7 +35489,7 @@ export const de_RejectVpcPeeringConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36047,10 +35505,9 @@ const de_RejectVpcPeeringConnectionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36069,7 +35526,7 @@ export const de_ReleaseAddressCommand = async (
   const response: ReleaseAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36085,10 +35542,9 @@ const de_ReleaseAddressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36110,7 +35566,7 @@ export const de_ReleaseHostsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36126,10 +35582,9 @@ const de_ReleaseHostsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36151,7 +35606,7 @@ export const de_ReleaseIpamPoolAllocationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36167,10 +35622,9 @@ const de_ReleaseIpamPoolAllocationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36192,7 +35646,7 @@ export const de_ReplaceIamInstanceProfileAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36208,10 +35662,9 @@ const de_ReplaceIamInstanceProfileAssociationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36233,7 +35686,7 @@ export const de_ReplaceNetworkAclAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36249,10 +35702,9 @@ const de_ReplaceNetworkAclAssociationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36271,7 +35723,7 @@ export const de_ReplaceNetworkAclEntryCommand = async (
   const response: ReplaceNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36287,10 +35739,9 @@ const de_ReplaceNetworkAclEntryCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36309,7 +35760,7 @@ export const de_ReplaceRouteCommand = async (
   const response: ReplaceRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36325,10 +35776,9 @@ const de_ReplaceRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36350,7 +35800,7 @@ export const de_ReplaceRouteTableAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36366,10 +35816,9 @@ const de_ReplaceRouteTableAssociationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36391,7 +35840,7 @@ export const de_ReplaceTransitGatewayRouteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36407,10 +35856,9 @@ const de_ReplaceTransitGatewayRouteCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36432,7 +35880,7 @@ export const de_ReplaceVpnTunnelCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36448,10 +35896,9 @@ const de_ReplaceVpnTunnelCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36470,7 +35917,7 @@ export const de_ReportInstanceStatusCommand = async (
   const response: ReportInstanceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36486,10 +35933,9 @@ const de_ReportInstanceStatusCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36511,7 +35957,7 @@ export const de_RequestSpotFleetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36527,10 +35973,9 @@ const de_RequestSpotFleetCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36552,7 +35997,7 @@ export const de_RequestSpotInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36568,10 +36013,9 @@ const de_RequestSpotInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36593,7 +36037,7 @@ export const de_ResetAddressAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36609,10 +36053,9 @@ const de_ResetAddressAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36634,7 +36077,7 @@ export const de_ResetEbsDefaultKmsKeyIdCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36650,10 +36093,9 @@ const de_ResetEbsDefaultKmsKeyIdCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36675,7 +36117,7 @@ export const de_ResetFpgaImageAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36691,10 +36133,9 @@ const de_ResetFpgaImageAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36713,7 +36154,7 @@ export const de_ResetImageAttributeCommand = async (
   const response: ResetImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36729,10 +36170,9 @@ const de_ResetImageAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36751,7 +36191,7 @@ export const de_ResetInstanceAttributeCommand = async (
   const response: ResetInstanceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36767,10 +36207,9 @@ const de_ResetInstanceAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36789,7 +36228,7 @@ export const de_ResetNetworkInterfaceAttributeCommand = async (
   const response: ResetNetworkInterfaceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36805,10 +36244,9 @@ const de_ResetNetworkInterfaceAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36827,7 +36265,7 @@ export const de_ResetSnapshotAttributeCommand = async (
   const response: ResetSnapshotAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36843,10 +36281,9 @@ const de_ResetSnapshotAttributeCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36868,7 +36305,7 @@ export const de_RestoreAddressToClassicCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36884,10 +36321,9 @@ const de_RestoreAddressToClassicCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36909,7 +36345,7 @@ export const de_RestoreImageFromRecycleBinCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36925,10 +36361,9 @@ const de_RestoreImageFromRecycleBinCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36950,7 +36385,7 @@ export const de_RestoreManagedPrefixListVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -36966,10 +36401,9 @@ const de_RestoreManagedPrefixListVersionCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -36991,7 +36425,7 @@ export const de_RestoreSnapshotFromRecycleBinCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37007,10 +36441,9 @@ const de_RestoreSnapshotFromRecycleBinCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37032,7 +36465,7 @@ export const de_RestoreSnapshotTierCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37048,10 +36481,9 @@ const de_RestoreSnapshotTierCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37073,7 +36505,7 @@ export const de_RevokeClientVpnIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37089,10 +36521,9 @@ const de_RevokeClientVpnIngressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37114,7 +36545,7 @@ export const de_RevokeSecurityGroupEgressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37130,10 +36561,9 @@ const de_RevokeSecurityGroupEgressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37155,7 +36585,7 @@ export const de_RevokeSecurityGroupIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37171,10 +36601,9 @@ const de_RevokeSecurityGroupIngressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37196,7 +36625,7 @@ export const de_RunInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37212,10 +36641,9 @@ const de_RunInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37237,7 +36665,7 @@ export const de_RunScheduledInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37253,10 +36681,9 @@ const de_RunScheduledInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37278,7 +36705,7 @@ export const de_SearchLocalGatewayRoutesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37294,10 +36721,9 @@ const de_SearchLocalGatewayRoutesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37319,7 +36745,7 @@ export const de_SearchTransitGatewayMulticastGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37335,10 +36761,9 @@ const de_SearchTransitGatewayMulticastGroupsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37360,7 +36785,7 @@ export const de_SearchTransitGatewayRoutesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37376,10 +36801,9 @@ const de_SearchTransitGatewayRoutesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37398,7 +36822,7 @@ export const de_SendDiagnosticInterruptCommand = async (
   const response: SendDiagnosticInterruptCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37414,10 +36838,9 @@ const de_SendDiagnosticInterruptCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37439,7 +36862,7 @@ export const de_StartInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37455,10 +36878,9 @@ const de_StartInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37480,7 +36902,7 @@ export const de_StartNetworkInsightsAccessScopeAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37496,10 +36918,9 @@ const de_StartNetworkInsightsAccessScopeAnalysisCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37521,7 +36942,7 @@ export const de_StartNetworkInsightsAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37537,10 +36958,9 @@ const de_StartNetworkInsightsAnalysisCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37562,7 +36982,7 @@ export const de_StartVpcEndpointServicePrivateDnsVerificationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37578,10 +36998,9 @@ const de_StartVpcEndpointServicePrivateDnsVerificationCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37603,7 +37022,7 @@ export const de_StopInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37619,10 +37038,9 @@ const de_StopInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37644,7 +37062,7 @@ export const de_TerminateClientVpnConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37660,10 +37078,9 @@ const de_TerminateClientVpnConnectionsCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37685,7 +37102,7 @@ export const de_TerminateInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37701,10 +37118,9 @@ const de_TerminateInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37726,7 +37142,7 @@ export const de_UnassignIpv6AddressesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37742,10 +37158,9 @@ const de_UnassignIpv6AddressesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37764,7 +37179,7 @@ export const de_UnassignPrivateIpAddressesCommand = async (
   const response: UnassignPrivateIpAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37780,10 +37195,9 @@ const de_UnassignPrivateIpAddressesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37805,7 +37219,7 @@ export const de_UnassignPrivateNatGatewayAddressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37821,10 +37235,9 @@ const de_UnassignPrivateNatGatewayAddressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37846,7 +37259,7 @@ export const de_UnmonitorInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37862,10 +37275,9 @@ const de_UnmonitorInstancesCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37887,7 +37299,7 @@ export const de_UpdateSecurityGroupRuleDescriptionsEgressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37903,10 +37315,9 @@ const de_UpdateSecurityGroupRuleDescriptionsEgressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37928,7 +37339,7 @@ export const de_UpdateSecurityGroupRuleDescriptionsIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37944,10 +37355,9 @@ const de_UpdateSecurityGroupRuleDescriptionsIngressCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -37969,7 +37379,7 @@ export const de_WithdrawByoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -37985,10 +37395,9 @@ const de_WithdrawByoipCidrCommandError = async (
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Errors.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -93563,6 +92972,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

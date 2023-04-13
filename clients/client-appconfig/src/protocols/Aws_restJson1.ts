@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -10,12 +10,13 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -132,30 +133,18 @@ import {
 import { AppConfigServiceException as __BaseException } from "../models/AppConfigServiceException";
 import {
   Action,
-  ActionInvocation,
-  ActionPoint,
-  Application,
-  AppliedExtension,
-  BadRequestDetails,
   BadRequestException,
-  ConfigurationProfileSummary,
   ConflictException,
   DeploymentEvent,
   DeploymentStrategy,
   DeploymentSummary,
-  Environment,
-  ExtensionAssociationSummary,
-  ExtensionSummary,
-  HostedConfigurationVersionSummary,
   InternalServerException,
-  InvalidConfigurationDetail,
   Monitor,
   Parameter,
   PayloadTooLargeException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   Validator,
-  ValidatorType,
 } from "../models/models_0";
 
 /**
@@ -171,11 +160,13 @@ export const se_CreateApplicationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -210,15 +201,17 @@ export const se_CreateConfigurationProfileCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LocationUri != null && { LocationUri: input.LocationUri }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RetrievalRoleArn != null && { RetrievalRoleArn: input.RetrievalRoleArn }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Validators != null && { Validators: se_ValidatorList(input.Validators, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      LocationUri: [],
+      Name: [],
+      RetrievalRoleArn: [],
+      Tags: (_) => _json(_),
+      Type: [],
+      Validators: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -243,18 +236,18 @@ export const se_CreateDeploymentStrategyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deploymentstrategies";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeploymentDurationInMinutes != null && {
-      DeploymentDurationInMinutes: input.DeploymentDurationInMinutes,
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FinalBakeTimeInMinutes != null && { FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes }),
-    ...(input.GrowthFactor != null && { GrowthFactor: __serializeFloat(input.GrowthFactor) }),
-    ...(input.GrowthType != null && { GrowthType: input.GrowthType }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ReplicateTo != null && { ReplicateTo: input.ReplicateTo }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeploymentDurationInMinutes: [],
+      Description: [],
+      FinalBakeTimeInMinutes: [],
+      GrowthFactor: (_) => __serializeFloat(_),
+      GrowthType: [],
+      Name: [],
+      ReplicateTo: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -289,12 +282,14 @@ export const se_CreateEnvironmentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Monitors != null && { Monitors: se_MonitorList(input.Monitors, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Monitors: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -323,13 +318,15 @@ export const se_CreateExtensionCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Actions != null && { Actions: se_ActionsMap(input.Actions, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Parameters != null && { Parameters: se_ParameterMap(input.Parameters, context) }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Actions: (_) => _json(_),
+      Description: [],
+      Name: [],
+      Parameters: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -354,13 +351,15 @@ export const se_CreateExtensionAssociationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensionassociations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ExtensionIdentifier != null && { ExtensionIdentifier: input.ExtensionIdentifier }),
-    ...(input.ExtensionVersionNumber != null && { ExtensionVersionNumber: input.ExtensionVersionNumber }),
-    ...(input.Parameters != null && { Parameters: se_ParameterValueMap(input.Parameters, context) }),
-    ...(input.ResourceIdentifier != null && { ResourceIdentifier: input.ResourceIdentifier }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ExtensionIdentifier: [],
+      ExtensionVersionNumber: [],
+      Parameters: (_) => _json(_),
+      ResourceIdentifier: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1361,14 +1360,16 @@ export const se_StartDeploymentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationProfileId != null && { ConfigurationProfileId: input.ConfigurationProfileId }),
-    ...(input.ConfigurationVersion != null && { ConfigurationVersion: input.ConfigurationVersion }),
-    ...(input.DeploymentStrategyId != null && { DeploymentStrategyId: input.DeploymentStrategyId }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.KmsKeyIdentifier != null && { KmsKeyIdentifier: input.KmsKeyIdentifier }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationProfileId: [],
+      ConfigurationVersion: [],
+      DeploymentStrategyId: [],
+      Description: [],
+      KmsKeyIdentifier: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1442,9 +1443,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1508,10 +1511,12 @@ export const se_UpdateApplicationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1554,12 +1559,14 @@ export const se_UpdateConfigurationProfileCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RetrievalRoleArn != null && { RetrievalRoleArn: input.RetrievalRoleArn }),
-    ...(input.Validators != null && { Validators: se_ValidatorList(input.Validators, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+      RetrievalRoleArn: [],
+      Validators: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1594,15 +1601,15 @@ export const se_UpdateDeploymentStrategyCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeploymentDurationInMinutes != null && {
-      DeploymentDurationInMinutes: input.DeploymentDurationInMinutes,
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FinalBakeTimeInMinutes != null && { FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes }),
-    ...(input.GrowthFactor != null && { GrowthFactor: __serializeFloat(input.GrowthFactor) }),
-    ...(input.GrowthType != null && { GrowthType: input.GrowthType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeploymentDurationInMinutes: [],
+      Description: [],
+      FinalBakeTimeInMinutes: [],
+      GrowthFactor: (_) => __serializeFloat(_),
+      GrowthType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1645,11 +1652,13 @@ export const se_UpdateEnvironmentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Monitors != null && { Monitors: se_MonitorList(input.Monitors, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Monitors: (_) => _json(_),
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1683,12 +1692,14 @@ export const se_UpdateExtensionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Actions != null && { Actions: se_ActionsMap(input.Actions, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Parameters != null && { Parameters: se_ParameterMap(input.Parameters, context) }),
-    ...(input.VersionNumber != null && { VersionNumber: input.VersionNumber }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Actions: (_) => _json(_),
+      Description: [],
+      Parameters: (_) => _json(_),
+      VersionNumber: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1723,9 +1734,11 @@ export const se_UpdateExtensionAssociationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Parameters != null && { Parameters: se_ParameterValueMap(input.Parameters, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Parameters: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1795,15 +1808,12 @@ export const de_CreateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1828,10 +1838,9 @@ const de_CreateApplicationCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1851,30 +1860,17 @@ export const de_CreateConfigurationProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LocationUri != null) {
-    contents.LocationUri = __expectString(data.LocationUri);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RetrievalRoleArn != null) {
-    contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.Validators != null) {
-    contents.Validators = de_ValidatorList(data.Validators, context);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LocationUri: __expectString,
+    Name: __expectString,
+    RetrievalRoleArn: __expectString,
+    Type: __expectString,
+    Validators: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1902,10 +1898,9 @@ const de_CreateConfigurationProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1925,30 +1920,17 @@ export const de_CreateDeploymentStrategyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentDurationInMinutes != null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FinalBakeTimeInMinutes != null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor != null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType != null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ReplicateTo != null) {
-    contents.ReplicateTo = __expectString(data.ReplicateTo);
-  }
+  const doc = take(data, {
+    DeploymentDurationInMinutes: __expectInt32,
+    Description: __expectString,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReplicateTo: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1973,10 +1955,9 @@ const de_CreateDeploymentStrategyCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1996,24 +1977,15 @@ export const de_CreateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Monitors != null) {
-    contents.Monitors = de_MonitorList(data.Monitors, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Monitors: _json,
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2041,10 +2013,9 @@ const de_CreateEnvironmentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2064,27 +2035,16 @@ export const de_CreateExtensionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Actions != null) {
-    contents.Actions = de_ActionsMap(data.Actions, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Parameters != null) {
-    contents.Parameters = de_ParameterMap(data.Parameters, context);
-  }
-  if (data.VersionNumber != null) {
-    contents.VersionNumber = __expectInt32(data.VersionNumber);
-  }
+  const doc = take(data, {
+    Actions: _json,
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Parameters: _json,
+    VersionNumber: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2115,10 +2075,9 @@ const de_CreateExtensionCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2138,24 +2097,15 @@ export const de_CreateExtensionAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ExtensionArn != null) {
-    contents.ExtensionArn = __expectString(data.ExtensionArn);
-  }
-  if (data.ExtensionVersionNumber != null) {
-    contents.ExtensionVersionNumber = __expectInt32(data.ExtensionVersionNumber);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Parameters != null) {
-    contents.Parameters = de_ParameterValueMap(data.Parameters, context);
-  }
-  if (data.ResourceArn != null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    ExtensionArn: __expectString,
+    ExtensionVersionNumber: __expectInt32,
+    Id: __expectString,
+    Parameters: _json,
+    ResourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2186,10 +2136,9 @@ const de_CreateExtensionAssociationCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2255,10 +2204,9 @@ const de_CreateHostedConfigurationVersionCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2305,10 +2253,9 @@ const de_DeleteApplicationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2358,10 +2305,9 @@ const de_DeleteConfigurationProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2408,10 +2354,9 @@ const de_DeleteDeploymentStrategyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2461,10 +2406,9 @@ const de_DeleteEnvironmentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2511,10 +2455,9 @@ const de_DeleteExtensionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2561,10 +2504,9 @@ const de_DeleteExtensionAssociationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2611,10 +2553,9 @@ const de_DeleteHostedConfigurationVersionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2634,15 +2575,12 @@ export const de_GetApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2670,10 +2608,9 @@ const de_GetApplicationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2723,10 +2660,9 @@ const de_GetConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2746,30 +2682,17 @@ export const de_GetConfigurationProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LocationUri != null) {
-    contents.LocationUri = __expectString(data.LocationUri);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RetrievalRoleArn != null) {
-    contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.Validators != null) {
-    contents.Validators = de_ValidatorList(data.Validators, context);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LocationUri: __expectString,
+    Name: __expectString,
+    RetrievalRoleArn: __expectString,
+    Type: __expectString,
+    Validators: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2797,10 +2720,9 @@ const de_GetConfigurationProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2820,69 +2742,30 @@ export const de_GetDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.AppliedExtensions != null) {
-    contents.AppliedExtensions = de_AppliedExtensions(data.AppliedExtensions, context);
-  }
-  if (data.CompletedAt != null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CompletedAt));
-  }
-  if (data.ConfigurationLocationUri != null) {
-    contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
-  }
-  if (data.ConfigurationName != null) {
-    contents.ConfigurationName = __expectString(data.ConfigurationName);
-  }
-  if (data.ConfigurationProfileId != null) {
-    contents.ConfigurationProfileId = __expectString(data.ConfigurationProfileId);
-  }
-  if (data.ConfigurationVersion != null) {
-    contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
-  }
-  if (data.DeploymentDurationInMinutes != null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.DeploymentNumber != null) {
-    contents.DeploymentNumber = __expectInt32(data.DeploymentNumber);
-  }
-  if (data.DeploymentStrategyId != null) {
-    contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.EventLog != null) {
-    contents.EventLog = de_DeploymentEvents(data.EventLog, context);
-  }
-  if (data.FinalBakeTimeInMinutes != null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor != null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType != null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.KmsKeyArn != null) {
-    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
-  }
-  if (data.KmsKeyIdentifier != null) {
-    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
-  }
-  if (data.PercentageComplete != null) {
-    contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
-  }
-  if (data.StartedAt != null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.StartedAt));
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    AppliedExtensions: _json,
+    CompletedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ConfigurationLocationUri: __expectString,
+    ConfigurationName: __expectString,
+    ConfigurationProfileId: __expectString,
+    ConfigurationVersion: __expectString,
+    DeploymentDurationInMinutes: __expectInt32,
+    DeploymentNumber: __expectInt32,
+    DeploymentStrategyId: __expectString,
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    EventLog: (_) => de_DeploymentEvents(_, context),
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
+    PercentageComplete: __limitedParseFloat32,
+    StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2910,10 +2793,9 @@ const de_GetDeploymentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2933,30 +2815,17 @@ export const de_GetDeploymentStrategyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentDurationInMinutes != null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FinalBakeTimeInMinutes != null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor != null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType != null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ReplicateTo != null) {
-    contents.ReplicateTo = __expectString(data.ReplicateTo);
-  }
+  const doc = take(data, {
+    DeploymentDurationInMinutes: __expectInt32,
+    Description: __expectString,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReplicateTo: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2984,10 +2853,9 @@ const de_GetDeploymentStrategyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3007,24 +2875,15 @@ export const de_GetEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Monitors != null) {
-    contents.Monitors = de_MonitorList(data.Monitors, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Monitors: _json,
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3052,10 +2911,9 @@ const de_GetEnvironmentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3075,27 +2933,16 @@ export const de_GetExtensionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Actions != null) {
-    contents.Actions = de_ActionsMap(data.Actions, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Parameters != null) {
-    contents.Parameters = de_ParameterMap(data.Parameters, context);
-  }
-  if (data.VersionNumber != null) {
-    contents.VersionNumber = __expectInt32(data.VersionNumber);
-  }
+  const doc = take(data, {
+    Actions: _json,
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Parameters: _json,
+    VersionNumber: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3123,10 +2970,9 @@ const de_GetExtensionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3146,24 +2992,15 @@ export const de_GetExtensionAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ExtensionArn != null) {
-    contents.ExtensionArn = __expectString(data.ExtensionArn);
-  }
-  if (data.ExtensionVersionNumber != null) {
-    contents.ExtensionVersionNumber = __expectInt32(data.ExtensionVersionNumber);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Parameters != null) {
-    contents.Parameters = de_ParameterValueMap(data.Parameters, context);
-  }
-  if (data.ResourceArn != null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    ExtensionArn: __expectString,
+    ExtensionVersionNumber: __expectInt32,
+    Id: __expectString,
+    Parameters: _json,
+    ResourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3191,10 +3028,9 @@ const de_GetExtensionAssociationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3251,10 +3087,9 @@ const de_GetHostedConfigurationVersionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3274,12 +3109,11 @@ export const de_ListApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ApplicationList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3304,10 +3138,9 @@ const de_ListApplicationsCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3327,12 +3160,11 @@ export const de_ListConfigurationProfilesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ConfigurationProfileSummaryList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3360,10 +3192,9 @@ const de_ListConfigurationProfilesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3383,12 +3214,11 @@ export const de_ListDeploymentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_DeploymentList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de_DeploymentList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3416,10 +3246,9 @@ const de_ListDeploymentsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3439,12 +3268,11 @@ export const de_ListDeploymentStrategiesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_DeploymentStrategyList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de_DeploymentStrategyList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3469,10 +3297,9 @@ const de_ListDeploymentStrategiesCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3492,12 +3319,11 @@ export const de_ListEnvironmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_EnvironmentList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3525,10 +3351,9 @@ const de_ListEnvironmentsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3548,12 +3373,11 @@ export const de_ListExtensionAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ExtensionAssociationSummaries(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3578,10 +3402,9 @@ const de_ListExtensionAssociationsCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3601,12 +3424,11 @@ export const de_ListExtensionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ExtensionSummaries(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3631,10 +3453,9 @@ const de_ListExtensionsCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3654,12 +3475,11 @@ export const de_ListHostedConfigurationVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_HostedConfigurationVersionSummaryList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3687,10 +3507,9 @@ const de_ListHostedConfigurationVersionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3710,9 +3529,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3740,10 +3560,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3763,69 +3582,30 @@ export const de_StartDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.AppliedExtensions != null) {
-    contents.AppliedExtensions = de_AppliedExtensions(data.AppliedExtensions, context);
-  }
-  if (data.CompletedAt != null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CompletedAt));
-  }
-  if (data.ConfigurationLocationUri != null) {
-    contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
-  }
-  if (data.ConfigurationName != null) {
-    contents.ConfigurationName = __expectString(data.ConfigurationName);
-  }
-  if (data.ConfigurationProfileId != null) {
-    contents.ConfigurationProfileId = __expectString(data.ConfigurationProfileId);
-  }
-  if (data.ConfigurationVersion != null) {
-    contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
-  }
-  if (data.DeploymentDurationInMinutes != null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.DeploymentNumber != null) {
-    contents.DeploymentNumber = __expectInt32(data.DeploymentNumber);
-  }
-  if (data.DeploymentStrategyId != null) {
-    contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.EventLog != null) {
-    contents.EventLog = de_DeploymentEvents(data.EventLog, context);
-  }
-  if (data.FinalBakeTimeInMinutes != null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor != null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType != null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.KmsKeyArn != null) {
-    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
-  }
-  if (data.KmsKeyIdentifier != null) {
-    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
-  }
-  if (data.PercentageComplete != null) {
-    contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
-  }
-  if (data.StartedAt != null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.StartedAt));
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    AppliedExtensions: _json,
+    CompletedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ConfigurationLocationUri: __expectString,
+    ConfigurationName: __expectString,
+    ConfigurationProfileId: __expectString,
+    ConfigurationVersion: __expectString,
+    DeploymentDurationInMinutes: __expectInt32,
+    DeploymentNumber: __expectInt32,
+    DeploymentStrategyId: __expectString,
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    EventLog: (_) => de_DeploymentEvents(_, context),
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
+    PercentageComplete: __limitedParseFloat32,
+    StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3856,10 +3636,9 @@ const de_StartDeploymentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3879,69 +3658,30 @@ export const de_StopDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.AppliedExtensions != null) {
-    contents.AppliedExtensions = de_AppliedExtensions(data.AppliedExtensions, context);
-  }
-  if (data.CompletedAt != null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CompletedAt));
-  }
-  if (data.ConfigurationLocationUri != null) {
-    contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
-  }
-  if (data.ConfigurationName != null) {
-    contents.ConfigurationName = __expectString(data.ConfigurationName);
-  }
-  if (data.ConfigurationProfileId != null) {
-    contents.ConfigurationProfileId = __expectString(data.ConfigurationProfileId);
-  }
-  if (data.ConfigurationVersion != null) {
-    contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
-  }
-  if (data.DeploymentDurationInMinutes != null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.DeploymentNumber != null) {
-    contents.DeploymentNumber = __expectInt32(data.DeploymentNumber);
-  }
-  if (data.DeploymentStrategyId != null) {
-    contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.EventLog != null) {
-    contents.EventLog = de_DeploymentEvents(data.EventLog, context);
-  }
-  if (data.FinalBakeTimeInMinutes != null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor != null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType != null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.KmsKeyArn != null) {
-    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
-  }
-  if (data.KmsKeyIdentifier != null) {
-    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
-  }
-  if (data.PercentageComplete != null) {
-    contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
-  }
-  if (data.StartedAt != null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.StartedAt));
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    AppliedExtensions: _json,
+    CompletedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ConfigurationLocationUri: __expectString,
+    ConfigurationName: __expectString,
+    ConfigurationProfileId: __expectString,
+    ConfigurationVersion: __expectString,
+    DeploymentDurationInMinutes: __expectInt32,
+    DeploymentNumber: __expectInt32,
+    DeploymentStrategyId: __expectString,
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    EventLog: (_) => de_DeploymentEvents(_, context),
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
+    PercentageComplete: __limitedParseFloat32,
+    StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3969,10 +3709,9 @@ const de_StopDeploymentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4019,10 +3758,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4069,10 +3807,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4092,15 +3829,12 @@ export const de_UpdateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4128,10 +3862,9 @@ const de_UpdateApplicationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4151,30 +3884,17 @@ export const de_UpdateConfigurationProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LocationUri != null) {
-    contents.LocationUri = __expectString(data.LocationUri);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RetrievalRoleArn != null) {
-    contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.Validators != null) {
-    contents.Validators = de_ValidatorList(data.Validators, context);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LocationUri: __expectString,
+    Name: __expectString,
+    RetrievalRoleArn: __expectString,
+    Type: __expectString,
+    Validators: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4202,10 +3922,9 @@ const de_UpdateConfigurationProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4225,30 +3944,17 @@ export const de_UpdateDeploymentStrategyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentDurationInMinutes != null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FinalBakeTimeInMinutes != null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor != null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType != null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ReplicateTo != null) {
-    contents.ReplicateTo = __expectString(data.ReplicateTo);
-  }
+  const doc = take(data, {
+    DeploymentDurationInMinutes: __expectInt32,
+    Description: __expectString,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReplicateTo: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4276,10 +3982,9 @@ const de_UpdateDeploymentStrategyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4299,24 +4004,15 @@ export const de_UpdateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Monitors != null) {
-    contents.Monitors = de_MonitorList(data.Monitors, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Monitors: _json,
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4344,10 +4040,9 @@ const de_UpdateEnvironmentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4367,27 +4062,16 @@ export const de_UpdateExtensionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Actions != null) {
-    contents.Actions = de_ActionsMap(data.Actions, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Parameters != null) {
-    contents.Parameters = de_ParameterMap(data.Parameters, context);
-  }
-  if (data.VersionNumber != null) {
-    contents.VersionNumber = __expectInt32(data.VersionNumber);
-  }
+  const doc = take(data, {
+    Actions: _json,
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Parameters: _json,
+    VersionNumber: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4418,10 +4102,9 @@ const de_UpdateExtensionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4441,24 +4124,15 @@ export const de_UpdateExtensionAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ExtensionArn != null) {
-    contents.ExtensionArn = __expectString(data.ExtensionArn);
-  }
-  if (data.ExtensionVersionNumber != null) {
-    contents.ExtensionVersionNumber = __expectInt32(data.ExtensionVersionNumber);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Parameters != null) {
-    contents.Parameters = de_ParameterValueMap(data.Parameters, context);
-  }
-  if (data.ResourceArn != null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    ExtensionArn: __expectString,
+    ExtensionVersionNumber: __expectInt32,
+    Id: __expectString,
+    Parameters: _json,
+    ResourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4486,10 +4160,9 @@ const de_UpdateExtensionAssociationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4536,31 +4209,27 @@ const de_ValidateConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Details != null) {
-    contents.Details = de_BadRequestDetails(__expectUnion(data.Details), context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Details: (_) => _json(__expectUnion(_)),
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4574,9 +4243,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4593,9 +4263,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4612,18 +4283,13 @@ const de_PayloadTooLargeExceptionRes = async (
 ): Promise<PayloadTooLargeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Limit != null) {
-    contents.Limit = __limitedParseFloat32(data.Limit);
-  }
-  if (data.Measure != null) {
-    contents.Measure = __expectString(data.Measure);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Size != null) {
-    contents.Size = __limitedParseFloat32(data.Size);
-  }
+  const doc = take(data, {
+    Limit: __limitedParseFloat32,
+    Measure: __expectString,
+    Message: __expectString,
+    Size: __limitedParseFloat32,
+  });
+  Object.assign(contents, doc);
   const exception = new PayloadTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4640,12 +4306,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4662,9 +4327,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4672,310 +4338,63 @@ const de_ServiceQuotaExceededExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Action
- */
-const se_Action = (input: Action, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.Uri != null && { Uri: input.Uri }),
-  };
-};
+// se_Action omitted.
 
-/**
- * serializeAws_restJson1ActionList
- */
-const se_ActionList = (input: Action[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Action(entry, context);
-    });
-};
+// se_ActionList omitted.
 
-/**
- * serializeAws_restJson1ActionsMap
- */
-const se_ActionsMap = (input: Record<string, Action[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ActionPoint | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_ActionList(value, context);
-    return acc;
-  }, {});
-};
+// se_ActionsMap omitted.
 
-/**
- * serializeAws_restJson1Monitor
- */
-const se_Monitor = (input: Monitor, context: __SerdeContext): any => {
-  return {
-    ...(input.AlarmArn != null && { AlarmArn: input.AlarmArn }),
-    ...(input.AlarmRoleArn != null && { AlarmRoleArn: input.AlarmRoleArn }),
-  };
-};
+// se_Monitor omitted.
 
-/**
- * serializeAws_restJson1MonitorList
- */
-const se_MonitorList = (input: Monitor[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Monitor(entry, context);
-    });
-};
+// se_MonitorList omitted.
 
-/**
- * serializeAws_restJson1Parameter
- */
-const se_Parameter = (input: Parameter, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Required != null && { Required: input.Required }),
-  };
-};
+// se_Parameter omitted.
 
-/**
- * serializeAws_restJson1ParameterMap
- */
-const se_ParameterMap = (input: Record<string, Parameter>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_Parameter(value, context);
-    return acc;
-  }, {});
-};
+// se_ParameterMap omitted.
 
-/**
- * serializeAws_restJson1ParameterValueMap
- */
-const se_ParameterValueMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ParameterValueMap omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1Validator
- */
-const se_Validator = (input: Validator, context: __SerdeContext): any => {
-  return {
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_Validator omitted.
 
-/**
- * serializeAws_restJson1ValidatorList
- */
-const se_ValidatorList = (input: Validator[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Validator(entry, context);
-    });
-};
+// se_ValidatorList omitted.
 
-/**
- * deserializeAws_restJson1Action
- */
-const de_Action = (output: any, context: __SerdeContext): Action => {
-  return {
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    RoleArn: __expectString(output.RoleArn),
-    Uri: __expectString(output.Uri),
-  } as any;
-};
+// de_Action omitted.
 
-/**
- * deserializeAws_restJson1ActionInvocation
- */
-const de_ActionInvocation = (output: any, context: __SerdeContext): ActionInvocation => {
-  return {
-    ActionName: __expectString(output.ActionName),
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ExtensionIdentifier: __expectString(output.ExtensionIdentifier),
-    InvocationId: __expectString(output.InvocationId),
-    RoleArn: __expectString(output.RoleArn),
-    Uri: __expectString(output.Uri),
-  } as any;
-};
+// de_ActionInvocation omitted.
 
-/**
- * deserializeAws_restJson1ActionInvocations
- */
-const de_ActionInvocations = (output: any, context: __SerdeContext): ActionInvocation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ActionInvocation(entry, context);
-    });
-  return retVal;
-};
+// de_ActionInvocations omitted.
 
-/**
- * deserializeAws_restJson1ActionList
- */
-const de_ActionList = (output: any, context: __SerdeContext): Action[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Action(entry, context);
-    });
-  return retVal;
-};
+// de_ActionList omitted.
 
-/**
- * deserializeAws_restJson1ActionsMap
- */
-const de_ActionsMap = (output: any, context: __SerdeContext): Record<string, Action[]> => {
-  return Object.entries(output).reduce((acc: Record<string, Action[]>, [key, value]: [ActionPoint | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_ActionList(value, context);
-    return acc;
-  }, {});
-};
+// de_ActionsMap omitted.
 
-/**
- * deserializeAws_restJson1Application
- */
-const de_Application = (output: any, context: __SerdeContext): Application => {
-  return {
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Application omitted.
 
-/**
- * deserializeAws_restJson1ApplicationList
- */
-const de_ApplicationList = (output: any, context: __SerdeContext): Application[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Application(entry, context);
-    });
-  return retVal;
-};
+// de_ApplicationList omitted.
 
-/**
- * deserializeAws_restJson1AppliedExtension
- */
-const de_AppliedExtension = (output: any, context: __SerdeContext): AppliedExtension => {
-  return {
-    ExtensionAssociationId: __expectString(output.ExtensionAssociationId),
-    ExtensionId: __expectString(output.ExtensionId),
-    Parameters: output.Parameters != null ? de_ParameterValueMap(output.Parameters, context) : undefined,
-    VersionNumber: __expectInt32(output.VersionNumber),
-  } as any;
-};
+// de_AppliedExtension omitted.
 
-/**
- * deserializeAws_restJson1AppliedExtensions
- */
-const de_AppliedExtensions = (output: any, context: __SerdeContext): AppliedExtension[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppliedExtension(entry, context);
-    });
-  return retVal;
-};
+// de_AppliedExtensions omitted.
 
-/**
- * deserializeAws_restJson1BadRequestDetails
- */
-const de_BadRequestDetails = (output: any, context: __SerdeContext): BadRequestDetails => {
-  if (output.InvalidConfiguration != null) {
-    return {
-      InvalidConfiguration: de_InvalidConfigurationDetailList(output.InvalidConfiguration, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_BadRequestDetails omitted.
 
-/**
- * deserializeAws_restJson1ConfigurationProfileSummary
- */
-const de_ConfigurationProfileSummary = (output: any, context: __SerdeContext): ConfigurationProfileSummary => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    Id: __expectString(output.Id),
-    LocationUri: __expectString(output.LocationUri),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-    ValidatorTypes: output.ValidatorTypes != null ? de_ValidatorTypeList(output.ValidatorTypes, context) : undefined,
-  } as any;
-};
+// de_ConfigurationProfileSummary omitted.
 
-/**
- * deserializeAws_restJson1ConfigurationProfileSummaryList
- */
-const de_ConfigurationProfileSummaryList = (output: any, context: __SerdeContext): ConfigurationProfileSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConfigurationProfileSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ConfigurationProfileSummaryList omitted.
 
 /**
  * deserializeAws_restJson1DeploymentEvent
  */
 const de_DeploymentEvent = (output: any, context: __SerdeContext): DeploymentEvent => {
-  return {
-    ActionInvocations:
-      output.ActionInvocations != null ? de_ActionInvocations(output.ActionInvocations, context) : undefined,
-    Description: __expectString(output.Description),
-    EventType: __expectString(output.EventType),
-    OccurredAt:
-      output.OccurredAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.OccurredAt)) : undefined,
-    TriggeredBy: __expectString(output.TriggeredBy),
-  } as any;
+  return take(output, {
+    ActionInvocations: _json,
+    Description: __expectString,
+    EventType: __expectString,
+    OccurredAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    TriggeredBy: __expectString,
+  }) as any;
 };
 
 /**
@@ -4985,9 +4404,6 @@ const de_DeploymentEvents = (output: any, context: __SerdeContext): DeploymentEv
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeploymentEvent(entry, context);
     });
   return retVal;
@@ -5000,9 +4416,6 @@ const de_DeploymentList = (output: any, context: __SerdeContext): DeploymentSumm
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeploymentSummary(entry, context);
     });
   return retVal;
@@ -5012,16 +4425,16 @@ const de_DeploymentList = (output: any, context: __SerdeContext): DeploymentSumm
  * deserializeAws_restJson1DeploymentStrategy
  */
 const de_DeploymentStrategy = (output: any, context: __SerdeContext): DeploymentStrategy => {
-  return {
-    DeploymentDurationInMinutes: __expectInt32(output.DeploymentDurationInMinutes),
-    Description: __expectString(output.Description),
-    FinalBakeTimeInMinutes: __expectInt32(output.FinalBakeTimeInMinutes),
-    GrowthFactor: __limitedParseFloat32(output.GrowthFactor),
-    GrowthType: __expectString(output.GrowthType),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    ReplicateTo: __expectString(output.ReplicateTo),
-  } as any;
+  return take(output, {
+    DeploymentDurationInMinutes: __expectInt32,
+    Description: __expectString,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReplicateTo: __expectString,
+  }) as any;
 };
 
 /**
@@ -5031,9 +4444,6 @@ const de_DeploymentStrategyList = (output: any, context: __SerdeContext): Deploy
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeploymentStrategy(entry, context);
     });
   return retVal;
@@ -5043,282 +4453,58 @@ const de_DeploymentStrategyList = (output: any, context: __SerdeContext): Deploy
  * deserializeAws_restJson1DeploymentSummary
  */
 const de_DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
-  return {
-    CompletedAt:
-      output.CompletedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CompletedAt)) : undefined,
-    ConfigurationName: __expectString(output.ConfigurationName),
-    ConfigurationVersion: __expectString(output.ConfigurationVersion),
-    DeploymentDurationInMinutes: __expectInt32(output.DeploymentDurationInMinutes),
-    DeploymentNumber: __expectInt32(output.DeploymentNumber),
-    FinalBakeTimeInMinutes: __expectInt32(output.FinalBakeTimeInMinutes),
-    GrowthFactor: __limitedParseFloat32(output.GrowthFactor),
-    GrowthType: __expectString(output.GrowthType),
-    PercentageComplete: __limitedParseFloat32(output.PercentageComplete),
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartedAt)) : undefined,
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    CompletedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ConfigurationName: __expectString,
+    ConfigurationVersion: __expectString,
+    DeploymentDurationInMinutes: __expectInt32,
+    DeploymentNumber: __expectInt32,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    PercentageComplete: __limitedParseFloat32,
+    StartedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Environment
- */
-const de_Environment = (output: any, context: __SerdeContext): Environment => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Monitors: output.Monitors != null ? de_MonitorList(output.Monitors, context) : undefined,
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_Environment omitted.
 
-/**
- * deserializeAws_restJson1EnvironmentList
- */
-const de_EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Environment(entry, context);
-    });
-  return retVal;
-};
+// de_EnvironmentList omitted.
 
-/**
- * deserializeAws_restJson1ExtensionAssociationSummaries
- */
-const de_ExtensionAssociationSummaries = (output: any, context: __SerdeContext): ExtensionAssociationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExtensionAssociationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ExtensionAssociationSummaries omitted.
 
-/**
- * deserializeAws_restJson1ExtensionAssociationSummary
- */
-const de_ExtensionAssociationSummary = (output: any, context: __SerdeContext): ExtensionAssociationSummary => {
-  return {
-    ExtensionArn: __expectString(output.ExtensionArn),
-    Id: __expectString(output.Id),
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
-};
+// de_ExtensionAssociationSummary omitted.
 
-/**
- * deserializeAws_restJson1ExtensionSummaries
- */
-const de_ExtensionSummaries = (output: any, context: __SerdeContext): ExtensionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExtensionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ExtensionSummaries omitted.
 
-/**
- * deserializeAws_restJson1ExtensionSummary
- */
-const de_ExtensionSummary = (output: any, context: __SerdeContext): ExtensionSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    VersionNumber: __expectInt32(output.VersionNumber),
-  } as any;
-};
+// de_ExtensionSummary omitted.
 
-/**
- * deserializeAws_restJson1HostedConfigurationVersionSummary
- */
-const de_HostedConfigurationVersionSummary = (
-  output: any,
-  context: __SerdeContext
-): HostedConfigurationVersionSummary => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    ConfigurationProfileId: __expectString(output.ConfigurationProfileId),
-    ContentType: __expectString(output.ContentType),
-    Description: __expectString(output.Description),
-    VersionLabel: __expectString(output.VersionLabel),
-    VersionNumber: __expectInt32(output.VersionNumber),
-  } as any;
-};
+// de_HostedConfigurationVersionSummary omitted.
 
-/**
- * deserializeAws_restJson1HostedConfigurationVersionSummaryList
- */
-const de_HostedConfigurationVersionSummaryList = (
-  output: any,
-  context: __SerdeContext
-): HostedConfigurationVersionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HostedConfigurationVersionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_HostedConfigurationVersionSummaryList omitted.
 
-/**
- * deserializeAws_restJson1InvalidConfigurationDetail
- */
-const de_InvalidConfigurationDetail = (output: any, context: __SerdeContext): InvalidConfigurationDetail => {
-  return {
-    Constraint: __expectString(output.Constraint),
-    Location: __expectString(output.Location),
-    Reason: __expectString(output.Reason),
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_InvalidConfigurationDetail omitted.
 
-/**
- * deserializeAws_restJson1InvalidConfigurationDetailList
- */
-const de_InvalidConfigurationDetailList = (output: any, context: __SerdeContext): InvalidConfigurationDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InvalidConfigurationDetail(entry, context);
-    });
-  return retVal;
-};
+// de_InvalidConfigurationDetailList omitted.
 
-/**
- * deserializeAws_restJson1Monitor
- */
-const de_Monitor = (output: any, context: __SerdeContext): Monitor => {
-  return {
-    AlarmArn: __expectString(output.AlarmArn),
-    AlarmRoleArn: __expectString(output.AlarmRoleArn),
-  } as any;
-};
+// de_Monitor omitted.
 
-/**
- * deserializeAws_restJson1MonitorList
- */
-const de_MonitorList = (output: any, context: __SerdeContext): Monitor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Monitor(entry, context);
-    });
-  return retVal;
-};
+// de_MonitorList omitted.
 
-/**
- * deserializeAws_restJson1Parameter
- */
-const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
-  return {
-    Description: __expectString(output.Description),
-    Required: __expectBoolean(output.Required),
-  } as any;
-};
+// de_Parameter omitted.
 
-/**
- * deserializeAws_restJson1ParameterMap
- */
-const de_ParameterMap = (output: any, context: __SerdeContext): Record<string, Parameter> => {
-  return Object.entries(output).reduce((acc: Record<string, Parameter>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_Parameter(value, context);
-    return acc;
-  }, {});
-};
+// de_ParameterMap omitted.
 
-/**
- * deserializeAws_restJson1ParameterValueMap
- */
-const de_ParameterValueMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ParameterValueMap omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1Validator
- */
-const de_Validator = (output: any, context: __SerdeContext): Validator => {
-  return {
-    Content: __expectString(output.Content),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Validator omitted.
 
-/**
- * deserializeAws_restJson1ValidatorList
- */
-const de_ValidatorList = (output: any, context: __SerdeContext): Validator[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Validator(entry, context);
-    });
-  return retVal;
-};
+// de_ValidatorList omitted.
 
-/**
- * deserializeAws_restJson1ValidatorTypeList
- */
-const de_ValidatorTypeList = (output: any, context: __SerdeContext): (ValidatorType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ValidatorTypeList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

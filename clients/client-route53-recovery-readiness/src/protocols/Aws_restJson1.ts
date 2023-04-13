@@ -1,15 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -135,11 +137,13 @@ export const se_CreateCellCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cells";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CellName != null && { cellName: input.CellName }),
-    ...(input.Cells != null && { cells: se___listOf__string(input.Cells, context) }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cellName: [, , `CellName`],
+      cells: [, (_) => _json(_), `Cells`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -165,9 +169,11 @@ export const se_CreateCrossAccountAuthorizationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crossaccountauthorizations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CrossAccountAuthorization != null && { crossAccountAuthorization: input.CrossAccountAuthorization }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      crossAccountAuthorization: [, , `CrossAccountAuthorization`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -192,11 +198,13 @@ export const se_CreateReadinessCheckCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/readinesschecks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ReadinessCheckName != null && { readinessCheckName: input.ReadinessCheckName }),
-    ...(input.ResourceSetName != null && { resourceSetName: input.ResourceSetName }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      readinessCheckName: [, , `ReadinessCheckName`],
+      resourceSetName: [, , `ResourceSetName`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -221,11 +229,13 @@ export const se_CreateRecoveryGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/recoverygroups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Cells != null && { cells: se___listOf__string(input.Cells, context) }),
-    ...(input.RecoveryGroupName != null && { recoveryGroupName: input.RecoveryGroupName }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cells: [, (_) => _json(_), `Cells`],
+      recoveryGroupName: [, , `RecoveryGroupName`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -250,12 +260,14 @@ export const se_CreateResourceSetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resourcesets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceSetName != null && { resourceSetName: input.ResourceSetName }),
-    ...(input.ResourceSetType != null && { resourceSetType: input.ResourceSetType }),
-    ...(input.Resources != null && { resources: se___listOfResource(input.Resources, context) }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceSetName: [, , `ResourceSetName`],
+      resourceSetType: [, , `ResourceSetType`],
+      resources: [, (_) => se___listOfResource(_, context), `Resources`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -917,9 +929,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -975,9 +989,11 @@ export const se_UpdateCellCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cells/{CellName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "CellName", () => input.CellName!, "{CellName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Cells != null && { cells: se___listOf__string(input.Cells, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cells: [, (_) => _json(_), `Cells`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1011,9 +1027,11 @@ export const se_UpdateReadinessCheckCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceSetName != null && { resourceSetName: input.ResourceSetName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceSetName: [, , `ResourceSetName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1047,9 +1065,11 @@ export const se_UpdateRecoveryGroupCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Cells != null && { cells: se___listOf__string(input.Cells, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cells: [, (_) => _json(_), `Cells`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1083,10 +1103,12 @@ export const se_UpdateResourceSetCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceSetType != null && { resourceSetType: input.ResourceSetType }),
-    ...(input.Resources != null && { resources: se___listOfResource(input.Resources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceSetType: [, , `ResourceSetType`],
+      resources: [, (_) => se___listOfResource(_, context), `Resources`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1112,21 +1134,14 @@ export const de_CreateCellCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cellArn != null) {
-    contents.CellArn = __expectString(data.cellArn);
-  }
-  if (data.cellName != null) {
-    contents.CellName = __expectString(data.cellName);
-  }
-  if (data.cells != null) {
-    contents.Cells = de___listOf__string(data.cells, context);
-  }
-  if (data.parentReadinessScopes != null) {
-    contents.ParentReadinessScopes = de___listOf__string(data.parentReadinessScopes, context);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    CellArn: [, __expectString, `cellArn`],
+    CellName: [, __expectString, `cellName`],
+    Cells: [, _json, `cells`],
+    ParentReadinessScopes: [, _json, `parentReadinessScopes`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1160,10 +1175,9 @@ const de_CreateCellCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1183,9 +1197,10 @@ export const de_CreateCrossAccountAuthorizationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crossAccountAuthorization != null) {
-    contents.CrossAccountAuthorization = __expectString(data.crossAccountAuthorization);
-  }
+  const doc = take(data, {
+    CrossAccountAuthorization: [, __expectString, `crossAccountAuthorization`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1219,10 +1234,9 @@ const de_CreateCrossAccountAuthorizationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1242,18 +1256,13 @@ export const de_CreateReadinessCheckCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.readinessCheckArn != null) {
-    contents.ReadinessCheckArn = __expectString(data.readinessCheckArn);
-  }
-  if (data.readinessCheckName != null) {
-    contents.ReadinessCheckName = __expectString(data.readinessCheckName);
-  }
-  if (data.resourceSet != null) {
-    contents.ResourceSet = __expectString(data.resourceSet);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    ReadinessCheckArn: [, __expectString, `readinessCheckArn`],
+    ReadinessCheckName: [, __expectString, `readinessCheckName`],
+    ResourceSet: [, __expectString, `resourceSet`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1287,10 +1296,9 @@ const de_CreateReadinessCheckCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1310,18 +1318,13 @@ export const de_CreateRecoveryGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cells != null) {
-    contents.Cells = de___listOf__string(data.cells, context);
-  }
-  if (data.recoveryGroupArn != null) {
-    contents.RecoveryGroupArn = __expectString(data.recoveryGroupArn);
-  }
-  if (data.recoveryGroupName != null) {
-    contents.RecoveryGroupName = __expectString(data.recoveryGroupName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Cells: [, _json, `cells`],
+    RecoveryGroupArn: [, __expectString, `recoveryGroupArn`],
+    RecoveryGroupName: [, __expectString, `recoveryGroupName`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1355,10 +1358,9 @@ const de_CreateRecoveryGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1378,21 +1380,14 @@ export const de_CreateResourceSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resourceSetArn != null) {
-    contents.ResourceSetArn = __expectString(data.resourceSetArn);
-  }
-  if (data.resourceSetName != null) {
-    contents.ResourceSetName = __expectString(data.resourceSetName);
-  }
-  if (data.resourceSetType != null) {
-    contents.ResourceSetType = __expectString(data.resourceSetType);
-  }
-  if (data.resources != null) {
-    contents.Resources = de___listOfResource(data.resources, context);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    ResourceSetArn: [, __expectString, `resourceSetArn`],
+    ResourceSetName: [, __expectString, `resourceSetName`],
+    ResourceSetType: [, __expectString, `resourceSetType`],
+    Resources: [, (_) => de___listOfResource(_, context), `resources`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1426,10 +1421,9 @@ const de_CreateResourceSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1482,10 +1476,9 @@ const de_DeleteCellCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1535,10 +1528,9 @@ const de_DeleteCrossAccountAuthorizationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1591,10 +1583,9 @@ const de_DeleteReadinessCheckCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1647,10 +1638,9 @@ const de_DeleteRecoveryGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1703,10 +1693,9 @@ const de_DeleteResourceSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1726,15 +1715,12 @@ export const de_GetArchitectureRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.lastAuditTimestamp != null) {
-    contents.LastAuditTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastAuditTimestamp));
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.recommendations != null) {
-    contents.Recommendations = de___listOfRecommendation(data.recommendations, context);
-  }
+  const doc = take(data, {
+    LastAuditTimestamp: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastAuditTimestamp`],
+    NextToken: [, __expectString, `nextToken`],
+    Recommendations: [, (_) => de___listOfRecommendation(_, context), `recommendations`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1768,10 +1754,9 @@ const de_GetArchitectureRecommendationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1791,21 +1776,14 @@ export const de_GetCellCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cellArn != null) {
-    contents.CellArn = __expectString(data.cellArn);
-  }
-  if (data.cellName != null) {
-    contents.CellName = __expectString(data.cellName);
-  }
-  if (data.cells != null) {
-    contents.Cells = de___listOf__string(data.cells, context);
-  }
-  if (data.parentReadinessScopes != null) {
-    contents.ParentReadinessScopes = de___listOf__string(data.parentReadinessScopes, context);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    CellArn: [, __expectString, `cellArn`],
+    CellName: [, __expectString, `cellName`],
+    Cells: [, _json, `cells`],
+    ParentReadinessScopes: [, _json, `parentReadinessScopes`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1839,10 +1817,9 @@ const de_GetCellCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1862,15 +1839,12 @@ export const de_GetCellReadinessSummaryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.readiness != null) {
-    contents.Readiness = __expectString(data.readiness);
-  }
-  if (data.readinessChecks != null) {
-    contents.ReadinessChecks = de___listOfReadinessCheckSummary(data.readinessChecks, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Readiness: [, __expectString, `readiness`],
+    ReadinessChecks: [, (_) => de___listOfReadinessCheckSummary(_, context), `readinessChecks`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1904,10 +1878,9 @@ const de_GetCellReadinessSummaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1927,18 +1900,13 @@ export const de_GetReadinessCheckCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.readinessCheckArn != null) {
-    contents.ReadinessCheckArn = __expectString(data.readinessCheckArn);
-  }
-  if (data.readinessCheckName != null) {
-    contents.ReadinessCheckName = __expectString(data.readinessCheckName);
-  }
-  if (data.resourceSet != null) {
-    contents.ResourceSet = __expectString(data.resourceSet);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    ReadinessCheckArn: [, __expectString, `readinessCheckArn`],
+    ReadinessCheckName: [, __expectString, `readinessCheckName`],
+    ResourceSet: [, __expectString, `resourceSet`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1972,10 +1940,9 @@ const de_GetReadinessCheckCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1995,15 +1962,12 @@ export const de_GetReadinessCheckResourceStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.readiness != null) {
-    contents.Readiness = __expectString(data.readiness);
-  }
-  if (data.rules != null) {
-    contents.Rules = de___listOfRuleResult(data.rules, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Readiness: [, __expectString, `readiness`],
+    Rules: [, (_) => de___listOfRuleResult(_, context), `rules`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2037,10 +2001,9 @@ const de_GetReadinessCheckResourceStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2060,18 +2023,13 @@ export const de_GetReadinessCheckStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.messages != null) {
-    contents.Messages = de___listOfMessage(data.messages, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.readiness != null) {
-    contents.Readiness = __expectString(data.readiness);
-  }
-  if (data.resources != null) {
-    contents.Resources = de___listOfResourceResult(data.resources, context);
-  }
+  const doc = take(data, {
+    Messages: [, (_) => de___listOfMessage(_, context), `messages`],
+    NextToken: [, __expectString, `nextToken`],
+    Readiness: [, __expectString, `readiness`],
+    Resources: [, (_) => de___listOfResourceResult(_, context), `resources`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2105,10 +2063,9 @@ const de_GetReadinessCheckStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2128,18 +2085,13 @@ export const de_GetRecoveryGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cells != null) {
-    contents.Cells = de___listOf__string(data.cells, context);
-  }
-  if (data.recoveryGroupArn != null) {
-    contents.RecoveryGroupArn = __expectString(data.recoveryGroupArn);
-  }
-  if (data.recoveryGroupName != null) {
-    contents.RecoveryGroupName = __expectString(data.recoveryGroupName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Cells: [, _json, `cells`],
+    RecoveryGroupArn: [, __expectString, `recoveryGroupArn`],
+    RecoveryGroupName: [, __expectString, `recoveryGroupName`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2173,10 +2125,9 @@ const de_GetRecoveryGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2196,15 +2147,12 @@ export const de_GetRecoveryGroupReadinessSummaryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.readiness != null) {
-    contents.Readiness = __expectString(data.readiness);
-  }
-  if (data.readinessChecks != null) {
-    contents.ReadinessChecks = de___listOfReadinessCheckSummary(data.readinessChecks, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Readiness: [, __expectString, `readiness`],
+    ReadinessChecks: [, (_) => de___listOfReadinessCheckSummary(_, context), `readinessChecks`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2238,10 +2186,9 @@ const de_GetRecoveryGroupReadinessSummaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2261,21 +2208,14 @@ export const de_GetResourceSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resourceSetArn != null) {
-    contents.ResourceSetArn = __expectString(data.resourceSetArn);
-  }
-  if (data.resourceSetName != null) {
-    contents.ResourceSetName = __expectString(data.resourceSetName);
-  }
-  if (data.resourceSetType != null) {
-    contents.ResourceSetType = __expectString(data.resourceSetType);
-  }
-  if (data.resources != null) {
-    contents.Resources = de___listOfResource(data.resources, context);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    ResourceSetArn: [, __expectString, `resourceSetArn`],
+    ResourceSetName: [, __expectString, `resourceSetName`],
+    ResourceSetType: [, __expectString, `resourceSetType`],
+    Resources: [, (_) => de___listOfResource(_, context), `resources`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2309,10 +2249,9 @@ const de_GetResourceSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2332,12 +2271,11 @@ export const de_ListCellsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cells != null) {
-    contents.Cells = de___listOfCellOutput(data.cells, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Cells: [, (_) => de___listOfCellOutput(_, context), `cells`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2368,10 +2306,9 @@ const de_ListCellsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2391,15 +2328,11 @@ export const de_ListCrossAccountAuthorizationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crossAccountAuthorizations != null) {
-    contents.CrossAccountAuthorizations = de___listOfCrossAccountAuthorization(
-      data.crossAccountAuthorizations,
-      context
-    );
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    CrossAccountAuthorizations: [, _json, `crossAccountAuthorizations`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2430,10 +2363,9 @@ const de_ListCrossAccountAuthorizationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2453,12 +2385,11 @@ export const de_ListReadinessChecksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.readinessChecks != null) {
-    contents.ReadinessChecks = de___listOfReadinessCheckOutput(data.readinessChecks, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    ReadinessChecks: [, (_) => de___listOfReadinessCheckOutput(_, context), `readinessChecks`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2489,10 +2420,9 @@ const de_ListReadinessChecksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2512,12 +2442,11 @@ export const de_ListRecoveryGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.recoveryGroups != null) {
-    contents.RecoveryGroups = de___listOfRecoveryGroupOutput(data.recoveryGroups, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    RecoveryGroups: [, (_) => de___listOfRecoveryGroupOutput(_, context), `recoveryGroups`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2548,10 +2477,9 @@ const de_ListRecoveryGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2571,12 +2499,11 @@ export const de_ListResourceSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.resourceSets != null) {
-    contents.ResourceSets = de___listOfResourceSetOutput(data.resourceSets, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    ResourceSets: [, (_) => de___listOfResourceSetOutput(_, context), `resourceSets`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2607,10 +2534,9 @@ const de_ListResourceSetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2630,12 +2556,11 @@ export const de_ListRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.rules != null) {
-    contents.Rules = de___listOfListRulesOutput(data.rules, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Rules: [, (_) => de___listOfListRulesOutput(_, context), `rules`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2666,10 +2591,9 @@ const de_ListRulesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2689,9 +2613,10 @@ export const de_ListTagsForResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2719,10 +2644,9 @@ const de_ListTagsForResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2769,10 +2693,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2819,10 +2742,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2842,21 +2764,14 @@ export const de_UpdateCellCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cellArn != null) {
-    contents.CellArn = __expectString(data.cellArn);
-  }
-  if (data.cellName != null) {
-    contents.CellName = __expectString(data.cellName);
-  }
-  if (data.cells != null) {
-    contents.Cells = de___listOf__string(data.cells, context);
-  }
-  if (data.parentReadinessScopes != null) {
-    contents.ParentReadinessScopes = de___listOf__string(data.parentReadinessScopes, context);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    CellArn: [, __expectString, `cellArn`],
+    CellName: [, __expectString, `cellName`],
+    Cells: [, _json, `cells`],
+    ParentReadinessScopes: [, _json, `parentReadinessScopes`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2890,10 +2805,9 @@ const de_UpdateCellCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2913,18 +2827,13 @@ export const de_UpdateReadinessCheckCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.readinessCheckArn != null) {
-    contents.ReadinessCheckArn = __expectString(data.readinessCheckArn);
-  }
-  if (data.readinessCheckName != null) {
-    contents.ReadinessCheckName = __expectString(data.readinessCheckName);
-  }
-  if (data.resourceSet != null) {
-    contents.ResourceSet = __expectString(data.resourceSet);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    ReadinessCheckArn: [, __expectString, `readinessCheckArn`],
+    ReadinessCheckName: [, __expectString, `readinessCheckName`],
+    ResourceSet: [, __expectString, `resourceSet`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2958,10 +2867,9 @@ const de_UpdateReadinessCheckCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2981,18 +2889,13 @@ export const de_UpdateRecoveryGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cells != null) {
-    contents.Cells = de___listOf__string(data.cells, context);
-  }
-  if (data.recoveryGroupArn != null) {
-    contents.RecoveryGroupArn = __expectString(data.recoveryGroupArn);
-  }
-  if (data.recoveryGroupName != null) {
-    contents.RecoveryGroupName = __expectString(data.recoveryGroupName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Cells: [, _json, `cells`],
+    RecoveryGroupArn: [, __expectString, `recoveryGroupArn`],
+    RecoveryGroupName: [, __expectString, `recoveryGroupName`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3026,10 +2929,9 @@ const de_UpdateRecoveryGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3049,21 +2951,14 @@ export const de_UpdateResourceSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resourceSetArn != null) {
-    contents.ResourceSetArn = __expectString(data.resourceSetArn);
-  }
-  if (data.resourceSetName != null) {
-    contents.ResourceSetName = __expectString(data.resourceSetName);
-  }
-  if (data.resourceSetType != null) {
-    contents.ResourceSetType = __expectString(data.resourceSetType);
-  }
-  if (data.resources != null) {
-    contents.Resources = de___listOfResource(data.resources, context);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    ResourceSetArn: [, __expectString, `resourceSetArn`],
+    ResourceSetName: [, __expectString, `resourceSetName`],
+    ResourceSetType: [, __expectString, `resourceSetType`],
+    Resources: [, (_) => de___listOfResource(_, context), `resources`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3097,16 +2992,15 @@ const de_UpdateResourceSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3116,9 +3010,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3132,9 +3027,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3151,9 +3047,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3170,9 +3067,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3186,9 +3084,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3202,9 +3101,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3212,16 +3112,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOf__string
- */
-const se___listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__string omitted.
 
 /**
  * serializeAws_restJson1__listOfResource
@@ -3238,85 +3129,59 @@ const se___listOfResource = (input: Resource[], context: __SerdeContext): any =>
  * serializeAws_restJson1DNSTargetResource
  */
 const se_DNSTargetResource = (input: DNSTargetResource, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { domainName: input.DomainName }),
-    ...(input.HostedZoneArn != null && { hostedZoneArn: input.HostedZoneArn }),
-    ...(input.RecordSetId != null && { recordSetId: input.RecordSetId }),
-    ...(input.RecordType != null && { recordType: input.RecordType }),
-    ...(input.TargetResource != null && { targetResource: se_TargetResource(input.TargetResource, context) }),
-  };
+  return take(input, {
+    domainName: [, , `DomainName`],
+    hostedZoneArn: [, , `HostedZoneArn`],
+    recordSetId: [, , `RecordSetId`],
+    recordType: [, , `RecordType`],
+    targetResource: [, (_) => se_TargetResource(_, context), `TargetResource`],
+  });
 };
 
 /**
  * serializeAws_restJson1NLBResource
  */
 const se_NLBResource = (input: NLBResource, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { arn: input.Arn }),
-  };
+  return take(input, {
+    arn: [, , `Arn`],
+  });
 };
 
 /**
  * serializeAws_restJson1R53ResourceRecord
  */
 const se_R53ResourceRecord = (input: R53ResourceRecord, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { domainName: input.DomainName }),
-    ...(input.RecordSetId != null && { recordSetId: input.RecordSetId }),
-  };
+  return take(input, {
+    domainName: [, , `DomainName`],
+    recordSetId: [, , `RecordSetId`],
+  });
 };
 
 /**
  * serializeAws_restJson1Resource
  */
 const se_Resource = (input: Resource, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentId != null && { componentId: input.ComponentId }),
-    ...(input.DnsTargetResource != null && {
-      dnsTargetResource: se_DNSTargetResource(input.DnsTargetResource, context),
-    }),
-    ...(input.ReadinessScopes != null && { readinessScopes: se___listOf__string(input.ReadinessScopes, context) }),
-    ...(input.ResourceArn != null && { resourceArn: input.ResourceArn }),
-  };
+  return take(input, {
+    componentId: [, , `ComponentId`],
+    dnsTargetResource: [, (_) => se_DNSTargetResource(_, context), `DnsTargetResource`],
+    readinessScopes: [, (_) => _json(_), `ReadinessScopes`],
+    resourceArn: [, , `ResourceArn`],
+  });
 };
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
 /**
  * serializeAws_restJson1TargetResource
  */
 const se_TargetResource = (input: TargetResource, context: __SerdeContext): any => {
-  return {
-    ...(input.NLBResource != null && { nLBResource: se_NLBResource(input.NLBResource, context) }),
-    ...(input.R53Resource != null && { r53Resource: se_R53ResourceRecord(input.R53Resource, context) }),
-  };
+  return take(input, {
+    nLBResource: [, (_) => se_NLBResource(_, context), `NLBResource`],
+    r53Resource: [, (_) => se_R53ResourceRecord(_, context), `R53Resource`],
+  });
 };
 
-/**
- * deserializeAws_restJson1__listOf__string
- */
-const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__string omitted.
 
 /**
  * deserializeAws_restJson1__listOfCellOutput
@@ -3325,28 +3190,12 @@ const de___listOfCellOutput = (output: any, context: __SerdeContext): CellOutput
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CellOutput(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__listOfCrossAccountAuthorization
- */
-const de___listOfCrossAccountAuthorization = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOfCrossAccountAuthorization omitted.
 
 /**
  * deserializeAws_restJson1__listOfListRulesOutput
@@ -3355,9 +3204,6 @@ const de___listOfListRulesOutput = (output: any, context: __SerdeContext): ListR
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListRulesOutput(entry, context);
     });
   return retVal;
@@ -3370,9 +3216,6 @@ const de___listOfMessage = (output: any, context: __SerdeContext): Message[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Message(entry, context);
     });
   return retVal;
@@ -3385,9 +3228,6 @@ const de___listOfReadinessCheckOutput = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReadinessCheckOutput(entry, context);
     });
   return retVal;
@@ -3400,9 +3240,6 @@ const de___listOfReadinessCheckSummary = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReadinessCheckSummary(entry, context);
     });
   return retVal;
@@ -3415,9 +3252,6 @@ const de___listOfRecommendation = (output: any, context: __SerdeContext): Recomm
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Recommendation(entry, context);
     });
   return retVal;
@@ -3430,9 +3264,6 @@ const de___listOfRecoveryGroupOutput = (output: any, context: __SerdeContext): R
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecoveryGroupOutput(entry, context);
     });
   return retVal;
@@ -3445,9 +3276,6 @@ const de___listOfResource = (output: any, context: __SerdeContext): Resource[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Resource(entry, context);
     });
   return retVal;
@@ -3460,9 +3288,6 @@ const de___listOfResourceResult = (output: any, context: __SerdeContext): Resour
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceResult(entry, context);
     });
   return retVal;
@@ -3475,9 +3300,6 @@ const de___listOfResourceSetOutput = (output: any, context: __SerdeContext): Res
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceSetOutput(entry, context);
     });
   return retVal;
@@ -3490,9 +3312,6 @@ const de___listOfRuleResult = (output: any, context: __SerdeContext): RuleResult
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RuleResult(entry, context);
     });
   return retVal;
@@ -3502,188 +3321,169 @@ const de___listOfRuleResult = (output: any, context: __SerdeContext): RuleResult
  * deserializeAws_restJson1CellOutput
  */
 const de_CellOutput = (output: any, context: __SerdeContext): CellOutput => {
-  return {
-    CellArn: __expectString(output.cellArn),
-    CellName: __expectString(output.cellName),
-    Cells: output.cells != null ? de___listOf__string(output.cells, context) : undefined,
-    ParentReadinessScopes:
-      output.parentReadinessScopes != null ? de___listOf__string(output.parentReadinessScopes, context) : undefined,
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    CellArn: [, __expectString, `cellArn`],
+    CellName: [, __expectString, `cellName`],
+    Cells: [, _json, `cells`],
+    ParentReadinessScopes: [, _json, `parentReadinessScopes`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DNSTargetResource
  */
 const de_DNSTargetResource = (output: any, context: __SerdeContext): DNSTargetResource => {
-  return {
-    DomainName: __expectString(output.domainName),
-    HostedZoneArn: __expectString(output.hostedZoneArn),
-    RecordSetId: __expectString(output.recordSetId),
-    RecordType: __expectString(output.recordType),
-    TargetResource: output.targetResource != null ? de_TargetResource(output.targetResource, context) : undefined,
-  } as any;
+  return take(output, {
+    DomainName: [, __expectString, `domainName`],
+    HostedZoneArn: [, __expectString, `hostedZoneArn`],
+    RecordSetId: [, __expectString, `recordSetId`],
+    RecordType: [, __expectString, `recordType`],
+    TargetResource: (_) => [, de_TargetResource(_, context), `targetResource`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ListRulesOutput
  */
 const de_ListRulesOutput = (output: any, context: __SerdeContext): ListRulesOutput => {
-  return {
-    ResourceType: __expectString(output.resourceType),
-    RuleDescription: __expectString(output.ruleDescription),
-    RuleId: __expectString(output.ruleId),
-  } as any;
+  return take(output, {
+    ResourceType: [, __expectString, `resourceType`],
+    RuleDescription: [, __expectString, `ruleDescription`],
+    RuleId: [, __expectString, `ruleId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Message
  */
 const de_Message = (output: any, context: __SerdeContext): Message => {
-  return {
-    MessageText: __expectString(output.messageText),
-  } as any;
+  return take(output, {
+    MessageText: [, __expectString, `messageText`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1NLBResource
  */
 const de_NLBResource = (output: any, context: __SerdeContext): NLBResource => {
-  return {
-    Arn: __expectString(output.arn),
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1R53ResourceRecord
  */
 const de_R53ResourceRecord = (output: any, context: __SerdeContext): R53ResourceRecord => {
-  return {
-    DomainName: __expectString(output.domainName),
-    RecordSetId: __expectString(output.recordSetId),
-  } as any;
+  return take(output, {
+    DomainName: [, __expectString, `domainName`],
+    RecordSetId: [, __expectString, `recordSetId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ReadinessCheckOutput
  */
 const de_ReadinessCheckOutput = (output: any, context: __SerdeContext): ReadinessCheckOutput => {
-  return {
-    ReadinessCheckArn: __expectString(output.readinessCheckArn),
-    ReadinessCheckName: __expectString(output.readinessCheckName),
-    ResourceSet: __expectString(output.resourceSet),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ReadinessCheckArn: [, __expectString, `readinessCheckArn`],
+    ReadinessCheckName: [, __expectString, `readinessCheckName`],
+    ResourceSet: [, __expectString, `resourceSet`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ReadinessCheckSummary
  */
 const de_ReadinessCheckSummary = (output: any, context: __SerdeContext): ReadinessCheckSummary => {
-  return {
-    Readiness: __expectString(output.readiness),
-    ReadinessCheckName: __expectString(output.readinessCheckName),
-  } as any;
+  return take(output, {
+    Readiness: [, __expectString, `readiness`],
+    ReadinessCheckName: [, __expectString, `readinessCheckName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Recommendation
  */
 const de_Recommendation = (output: any, context: __SerdeContext): Recommendation => {
-  return {
-    RecommendationText: __expectString(output.recommendationText),
-  } as any;
+  return take(output, {
+    RecommendationText: [, __expectString, `recommendationText`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RecoveryGroupOutput
  */
 const de_RecoveryGroupOutput = (output: any, context: __SerdeContext): RecoveryGroupOutput => {
-  return {
-    Cells: output.cells != null ? de___listOf__string(output.cells, context) : undefined,
-    RecoveryGroupArn: __expectString(output.recoveryGroupArn),
-    RecoveryGroupName: __expectString(output.recoveryGroupName),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Cells: [, _json, `cells`],
+    RecoveryGroupArn: [, __expectString, `recoveryGroupArn`],
+    RecoveryGroupName: [, __expectString, `recoveryGroupName`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Resource
  */
 const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    ComponentId: __expectString(output.componentId),
-    DnsTargetResource:
-      output.dnsTargetResource != null ? de_DNSTargetResource(output.dnsTargetResource, context) : undefined,
-    ReadinessScopes: output.readinessScopes != null ? de___listOf__string(output.readinessScopes, context) : undefined,
-    ResourceArn: __expectString(output.resourceArn),
-  } as any;
+  return take(output, {
+    ComponentId: [, __expectString, `componentId`],
+    DnsTargetResource: (_) => [, de_DNSTargetResource(_, context), `dnsTargetResource`],
+    ReadinessScopes: [, _json, `readinessScopes`],
+    ResourceArn: [, __expectString, `resourceArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ResourceResult
  */
 const de_ResourceResult = (output: any, context: __SerdeContext): ResourceResult => {
-  return {
-    ComponentId: __expectString(output.componentId),
-    LastCheckedTimestamp:
-      output.lastCheckedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastCheckedTimestamp))
-        : undefined,
-    Readiness: __expectString(output.readiness),
-    ResourceArn: __expectString(output.resourceArn),
-  } as any;
+  return take(output, {
+    ComponentId: [, __expectString, `componentId`],
+    LastCheckedTimestamp: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastCheckedTimestamp`],
+    Readiness: [, __expectString, `readiness`],
+    ResourceArn: [, __expectString, `resourceArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ResourceSetOutput
  */
 const de_ResourceSetOutput = (output: any, context: __SerdeContext): ResourceSetOutput => {
-  return {
-    ResourceSetArn: __expectString(output.resourceSetArn),
-    ResourceSetName: __expectString(output.resourceSetName),
-    ResourceSetType: __expectString(output.resourceSetType),
-    Resources: output.resources != null ? de___listOfResource(output.resources, context) : undefined,
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ResourceSetArn: [, __expectString, `resourceSetArn`],
+    ResourceSetName: [, __expectString, `resourceSetName`],
+    ResourceSetType: [, __expectString, `resourceSetType`],
+    Resources: (_) => [, de___listOfResource(_, context), `resources`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RuleResult
  */
 const de_RuleResult = (output: any, context: __SerdeContext): RuleResult => {
-  return {
-    LastCheckedTimestamp:
-      output.lastCheckedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastCheckedTimestamp))
-        : undefined,
-    Messages: output.messages != null ? de___listOfMessage(output.messages, context) : undefined,
-    Readiness: __expectString(output.readiness),
-    RuleId: __expectString(output.ruleId),
-  } as any;
+  return take(output, {
+    LastCheckedTimestamp: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastCheckedTimestamp`],
+    Messages: (_) => [, de___listOfMessage(_, context), `messages`],
+    Readiness: [, __expectString, `readiness`],
+    RuleId: [, __expectString, `ruleId`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
 /**
  * deserializeAws_restJson1TargetResource
  */
 const de_TargetResource = (output: any, context: __SerdeContext): TargetResource => {
-  return {
-    NLBResource: output.nLBResource != null ? de_NLBResource(output.nLBResource, context) : undefined,
-    R53Resource: output.r53Resource != null ? de_R53ResourceRecord(output.r53Resource, context) : undefined,
-  } as any;
+  return take(output, {
+    NLBResource: (_) => [, de_NLBResource(_, context), `nLBResource`],
+    R53Resource: (_) => [, de_R53ResourceRecord(_, context), `r53Resource`],
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

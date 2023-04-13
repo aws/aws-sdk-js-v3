@@ -11,7 +11,7 @@ import {
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -832,7 +832,7 @@ export const de_AddListenerCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -859,10 +859,9 @@ const de_AddListenerCertificatesCommandError = async (
       throw await de_TooManyCertificatesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -885,7 +884,7 @@ export const de_AddTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -921,10 +920,9 @@ const de_AddTagsCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -947,7 +945,7 @@ export const de_CreateListenerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1019,10 +1017,9 @@ const de_CreateListenerCommandError = async (
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1045,7 +1042,7 @@ export const de_CreateLoadBalancerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1102,10 +1099,9 @@ const de_CreateLoadBalancerCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1128,7 +1124,7 @@ export const de_CreateRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1191,10 +1187,9 @@ const de_CreateRuleCommandError = async (
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1217,7 +1212,7 @@ export const de_CreateTargetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1247,10 +1242,9 @@ const de_CreateTargetGroupCommandError = async (
       throw await de_TooManyTargetGroupsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1273,7 +1267,7 @@ export const de_DeleteListenerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1297,10 +1291,9 @@ const de_DeleteListenerCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1323,7 +1316,7 @@ export const de_DeleteLoadBalancerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1350,10 +1343,9 @@ const de_DeleteLoadBalancerCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1376,7 +1368,7 @@ export const de_DeleteRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1400,10 +1392,9 @@ const de_DeleteRuleCommandError = async (
       throw await de_RuleNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1426,7 +1417,7 @@ export const de_DeleteTargetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1447,10 +1438,9 @@ const de_DeleteTargetGroupCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1473,7 +1463,7 @@ export const de_DeregisterTargetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1497,10 +1487,9 @@ const de_DeregisterTargetsCommandError = async (
       throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1523,7 +1512,7 @@ export const de_DescribeAccountLimitsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1539,10 +1528,9 @@ const de_DescribeAccountLimitsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1564,7 +1552,7 @@ export const de_DescribeListenerCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1585,10 +1573,9 @@ const de_DescribeListenerCertificatesCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1611,7 +1598,7 @@ export const de_DescribeListenersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1638,10 +1625,9 @@ const de_DescribeListenersCommandError = async (
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1664,7 +1650,7 @@ export const de_DescribeLoadBalancerAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1685,10 +1671,9 @@ const de_DescribeLoadBalancerAttributesCommandError = async (
       throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1711,7 +1696,7 @@ export const de_DescribeLoadBalancersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1732,10 +1717,9 @@ const de_DescribeLoadBalancersCommandError = async (
       throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1758,7 +1742,7 @@ export const de_DescribeRulesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1785,10 +1769,9 @@ const de_DescribeRulesCommandError = async (
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1811,7 +1794,7 @@ export const de_DescribeSSLPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1832,10 +1815,9 @@ const de_DescribeSSLPoliciesCommandError = async (
       throw await de_SSLPolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1858,7 +1840,7 @@ export const de_DescribeTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1888,10 +1870,9 @@ const de_DescribeTagsCommandError = async (
       throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1914,7 +1895,7 @@ export const de_DescribeTargetGroupAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1935,10 +1916,9 @@ const de_DescribeTargetGroupAttributesCommandError = async (
       throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1961,7 +1941,7 @@ export const de_DescribeTargetGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1985,10 +1965,9 @@ const de_DescribeTargetGroupsCommandError = async (
       throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2011,7 +1990,7 @@ export const de_DescribeTargetHealthCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2038,10 +2017,9 @@ const de_DescribeTargetHealthCommandError = async (
       throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2064,7 +2042,7 @@ export const de_ModifyListenerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2133,10 +2111,9 @@ const de_ModifyListenerCommandError = async (
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2159,7 +2136,7 @@ export const de_ModifyLoadBalancerAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2183,10 +2160,9 @@ const de_ModifyLoadBalancerAttributesCommandError = async (
       throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2209,7 +2185,7 @@ export const de_ModifyRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2260,10 +2236,9 @@ const de_ModifyRuleCommandError = async (
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2286,7 +2261,7 @@ export const de_ModifyTargetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2310,10 +2285,9 @@ const de_ModifyTargetGroupCommandError = async (
       throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2336,7 +2310,7 @@ export const de_ModifyTargetGroupAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2360,10 +2334,9 @@ const de_ModifyTargetGroupAttributesCommandError = async (
       throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2386,7 +2359,7 @@ export const de_RegisterTargetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2416,10 +2389,9 @@ const de_RegisterTargetsCommandError = async (
       throw await de_TooManyTargetsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2442,7 +2414,7 @@ export const de_RemoveListenerCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2466,10 +2438,9 @@ const de_RemoveListenerCertificatesCommandError = async (
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2492,7 +2463,7 @@ export const de_RemoveTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2525,10 +2496,9 @@ const de_RemoveTagsCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2551,7 +2521,7 @@ export const de_SetIpAddressTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2578,10 +2548,9 @@ const de_SetIpAddressTypeCommandError = async (
       throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2604,7 +2573,7 @@ export const de_SetRulePrioritiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2631,10 +2600,9 @@ const de_SetRulePrioritiesCommandError = async (
       throw await de_RuleNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2657,7 +2625,7 @@ export const de_SetSecurityGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2684,10 +2652,9 @@ const de_SetSecurityGroupsCommandError = async (
       throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2710,7 +2677,7 @@ export const de_SetSubnetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2746,10 +2713,9 @@ const de_SetSubnetsCommandError = async (
       throw await de_SubnetNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7265,6 +7231,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

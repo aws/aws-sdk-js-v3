@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -8,12 +9,13 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -208,10 +210,9 @@ const de_DeleteObjectCommandError = async (
       throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -269,10 +270,9 @@ const de_DescribeObjectCommandError = async (
       throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -339,10 +339,9 @@ const de_GetObjectCommandError = async (
       throw await de_RequestedRangeNotSatisfiableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -362,12 +361,11 @@ export const de_ListItemsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ItemList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de_ItemList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -392,10 +390,9 @@ const de_ListItemsCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -415,15 +412,12 @@ export const de_PutObjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ContentSHA256 != null) {
-    contents.ContentSHA256 = __expectString(data.ContentSHA256);
-  }
-  if (data.ETag != null) {
-    contents.ETag = __expectString(data.ETag);
-  }
-  if (data.StorageClass != null) {
-    contents.StorageClass = __expectString(data.StorageClass);
-  }
+  const doc = take(data, {
+    ContentSHA256: __expectString,
+    ETag: __expectString,
+    StorageClass: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -448,16 +442,15 @@ const de_PutObjectCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ContainerNotFoundExceptionRes
  */
@@ -467,9 +460,10 @@ const de_ContainerNotFoundExceptionRes = async (
 ): Promise<ContainerNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ContainerNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -483,9 +477,10 @@ const de_ContainerNotFoundExceptionRes = async (
 const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -502,9 +497,10 @@ const de_ObjectNotFoundExceptionRes = async (
 ): Promise<ObjectNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ObjectNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -521,9 +517,10 @@ const de_RequestedRangeNotSatisfiableExceptionRes = async (
 ): Promise<RequestedRangeNotSatisfiableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestedRangeNotSatisfiableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -535,17 +532,14 @@ const de_RequestedRangeNotSatisfiableExceptionRes = async (
  * deserializeAws_restJson1Item
  */
 const de_Item = (output: any, context: __SerdeContext): Item => {
-  return {
-    ContentLength: __expectLong(output.ContentLength),
-    ContentType: __expectString(output.ContentType),
-    ETag: __expectString(output.ETag),
-    LastModified:
-      output.LastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ContentLength: __expectLong,
+    ContentType: __expectString,
+    ETag: __expectString,
+    LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -555,9 +549,6 @@ const de_ItemList = (output: any, context: __SerdeContext): Item[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Item(entry, context);
     });
   return retVal;

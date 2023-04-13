@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -68,19 +69,13 @@ import {
   DeleteCertificateRequest,
   DescribeCertificateRequest,
   DescribeCertificateResponse,
-  DomainValidation,
   DomainValidationOption,
   ExpiryEventsConfiguration,
   ExportCertificateRequest,
-  ExportCertificateResponse,
-  ExtendedKeyUsage,
   ExtendedKeyUsageName,
   Filters,
-  GetAccountConfigurationResponse,
   GetCertificateRequest,
-  GetCertificateResponse,
   ImportCertificateRequest,
-  ImportCertificateResponse,
   InvalidArgsException,
   InvalidArnException,
   InvalidDomainValidationOptionsException,
@@ -88,24 +83,20 @@ import {
   InvalidStateException,
   InvalidTagException,
   KeyAlgorithm,
-  KeyUsage,
   KeyUsageName,
   LimitExceededException,
   ListCertificatesRequest,
   ListCertificatesResponse,
   ListTagsForCertificateRequest,
-  ListTagsForCertificateResponse,
   PutAccountConfigurationRequest,
   RemoveTagsFromCertificateRequest,
   RenewalSummary,
   RenewCertificateRequest,
   RequestCertificateRequest,
-  RequestCertificateResponse,
   RequestInProgressException,
   ResendValidationEmailRequest,
   ResourceInUseException,
   ResourceNotFoundException,
-  ResourceRecord,
   Tag,
   TagPolicyException,
   ThrottlingException,
@@ -123,7 +114,7 @@ export const se_AddTagsToCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddTagsToCertificate");
   let body: any;
-  body = JSON.stringify(se_AddTagsToCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -136,7 +127,7 @@ export const se_DeleteCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCertificate");
   let body: any;
-  body = JSON.stringify(se_DeleteCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -149,7 +140,7 @@ export const se_DescribeCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCertificate");
   let body: any;
-  body = JSON.stringify(se_DescribeCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -187,7 +178,7 @@ export const se_GetCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCertificate");
   let body: any;
-  body = JSON.stringify(se_GetCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -213,7 +204,7 @@ export const se_ListCertificatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCertificates");
   let body: any;
-  body = JSON.stringify(se_ListCertificatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -226,7 +217,7 @@ export const se_ListTagsForCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForCertificate");
   let body: any;
-  body = JSON.stringify(se_ListTagsForCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -239,7 +230,7 @@ export const se_PutAccountConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutAccountConfiguration");
   let body: any;
-  body = JSON.stringify(se_PutAccountConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -252,7 +243,7 @@ export const se_RemoveTagsFromCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveTagsFromCertificate");
   let body: any;
-  body = JSON.stringify(se_RemoveTagsFromCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -265,7 +256,7 @@ export const se_RenewCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RenewCertificate");
   let body: any;
-  body = JSON.stringify(se_RenewCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -278,7 +269,7 @@ export const se_RequestCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RequestCertificate");
   let body: any;
-  body = JSON.stringify(se_RequestCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -291,7 +282,7 @@ export const se_ResendValidationEmailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResendValidationEmail");
   let body: any;
-  body = JSON.stringify(se_ResendValidationEmailRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -304,7 +295,7 @@ export const se_UpdateCertificateOptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCertificateOptions");
   let body: any;
-  body = JSON.stringify(se_UpdateCertificateOptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -322,7 +313,7 @@ export const de_AddTagsToCertificateCommand = async (
   const response: AddTagsToCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -361,10 +352,9 @@ const de_AddTagsToCertificateCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -384,7 +374,7 @@ export const de_DeleteCertificateCommand = async (
   const response: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -420,10 +410,9 @@ const de_DeleteCertificateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -446,7 +435,7 @@ export const de_DescribeCertificateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -470,10 +459,9 @@ const de_DescribeCertificateCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -491,12 +479,12 @@ export const de_ExportCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ExportCertificateResponse(data, context);
+  contents = _json(data);
   const response: ExportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -523,10 +511,9 @@ const de_ExportCertificateCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -544,12 +531,12 @@ export const de_GetAccountConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAccountConfigurationResponse(data, context);
+  contents = _json(data);
   const response: GetAccountConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -573,10 +560,9 @@ const de_GetAccountConfigurationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -594,12 +580,12 @@ export const de_GetCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCertificateResponse(data, context);
+  contents = _json(data);
   const response: GetCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -626,10 +612,9 @@ const de_GetCertificateCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -647,12 +632,12 @@ export const de_ImportCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportCertificateResponse(data, context);
+  contents = _json(data);
   const response: ImportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -691,10 +676,9 @@ const de_ImportCertificateCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -717,7 +701,7 @@ export const de_ListCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -741,10 +725,9 @@ const de_ListCertificatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -762,12 +745,12 @@ export const de_ListTagsForCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForCertificateResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -791,10 +774,9 @@ const de_ListTagsForCertificateCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -814,7 +796,7 @@ export const de_PutAccountConfigurationCommand = async (
   const response: PutAccountConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -844,10 +826,9 @@ const de_PutAccountConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -867,7 +848,7 @@ export const de_RemoveTagsFromCertificateCommand = async (
   const response: RemoveTagsFromCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -903,10 +884,9 @@ const de_RemoveTagsFromCertificateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -926,7 +906,7 @@ export const de_RenewCertificateCommand = async (
   const response: RenewCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -950,10 +930,9 @@ const de_RenewCertificateCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -971,12 +950,12 @@ export const de_RequestCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RequestCertificateResponse(data, context);
+  contents = _json(data);
   const response: RequestCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1015,10 +994,9 @@ const de_RequestCertificateCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1038,7 +1016,7 @@ export const de_ResendValidationEmailCommand = async (
   const response: ResendValidationEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1068,10 +1046,9 @@ const de_ResendValidationEmailCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1091,7 +1068,7 @@ export const de_UpdateCertificateOptionsCommand = async (
   const response: UpdateCertificateOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1121,10 +1098,9 @@ const de_UpdateCertificateOptionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1138,7 +1114,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1151,7 +1127,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1167,7 +1143,7 @@ const de_InvalidArgsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidArgsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidArgsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArgsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1180,7 +1156,7 @@ const de_InvalidArgsExceptionRes = async (
  */
 const de_InvalidArnExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1196,7 +1172,7 @@ const de_InvalidDomainValidationOptionsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidDomainValidationOptionsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidDomainValidationOptionsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidDomainValidationOptionsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1212,7 +1188,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1228,7 +1204,7 @@ const de_InvalidStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1241,7 +1217,7 @@ const de_InvalidStateExceptionRes = async (
  */
 const de_InvalidTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTagException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1257,7 +1233,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1273,7 +1249,7 @@ const de_RequestInProgressExceptionRes = async (
   context: __SerdeContext
 ): Promise<RequestInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RequestInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1289,7 +1265,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1305,7 +1281,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1318,7 +1294,7 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const de_TagPolicyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1331,7 +1307,7 @@ const de_TagPolicyExceptionRes = async (parsedOutput: any, context: __SerdeConte
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1347,7 +1323,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1360,7 +1336,7 @@ const de_TooManyTagsExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1368,389 +1344,139 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AddTagsToCertificateRequest
- */
-const se_AddTagsToCertificateRequest = (input: AddTagsToCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_AddTagsToCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1CertificateOptions
- */
-const se_CertificateOptions = (input: CertificateOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateTransparencyLoggingPreference != null && {
-      CertificateTransparencyLoggingPreference: input.CertificateTransparencyLoggingPreference,
-    }),
-  };
-};
+// se_CertificateOptions omitted.
 
-/**
- * serializeAws_json1_1CertificateStatuses
- */
-const se_CertificateStatuses = (input: (CertificateStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CertificateStatuses omitted.
 
-/**
- * serializeAws_json1_1DeleteCertificateRequest
- */
-const se_DeleteCertificateRequest = (input: DeleteCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
+// se_DeleteCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCertificateRequest
- */
-const se_DescribeCertificateRequest = (input: DescribeCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
+// se_DescribeCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1DomainList
- */
-const se_DomainList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DomainList omitted.
 
-/**
- * serializeAws_json1_1DomainValidationOption
- */
-const se_DomainValidationOption = (input: DomainValidationOption, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.ValidationDomain != null && { ValidationDomain: input.ValidationDomain }),
-  };
-};
+// se_DomainValidationOption omitted.
 
-/**
- * serializeAws_json1_1DomainValidationOptionList
- */
-const se_DomainValidationOptionList = (input: DomainValidationOption[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DomainValidationOption(entry, context);
-    });
-};
+// se_DomainValidationOptionList omitted.
 
-/**
- * serializeAws_json1_1ExpiryEventsConfiguration
- */
-const se_ExpiryEventsConfiguration = (input: ExpiryEventsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DaysBeforeExpiry != null && { DaysBeforeExpiry: input.DaysBeforeExpiry }),
-  };
-};
+// se_ExpiryEventsConfiguration omitted.
 
 /**
  * serializeAws_json1_1ExportCertificateRequest
  */
 const se_ExportCertificateRequest = (input: ExportCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Passphrase != null && { Passphrase: context.base64Encoder(input.Passphrase) }),
-  };
+  return take(input, {
+    CertificateArn: [],
+    Passphrase: (_) => context.base64Encoder(_),
+  });
 };
 
-/**
- * serializeAws_json1_1ExtendedKeyUsageFilterList
- */
-const se_ExtendedKeyUsageFilterList = (input: (ExtendedKeyUsageName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExtendedKeyUsageFilterList omitted.
 
-/**
- * serializeAws_json1_1Filters
- */
-const se_Filters = (input: Filters, context: __SerdeContext): any => {
-  return {
-    ...(input.extendedKeyUsage != null && {
-      extendedKeyUsage: se_ExtendedKeyUsageFilterList(input.extendedKeyUsage, context),
-    }),
-    ...(input.keyTypes != null && { keyTypes: se_KeyAlgorithmList(input.keyTypes, context) }),
-    ...(input.keyUsage != null && { keyUsage: se_KeyUsageFilterList(input.keyUsage, context) }),
-  };
-};
+// se_Filters omitted.
 
-/**
- * serializeAws_json1_1GetCertificateRequest
- */
-const se_GetCertificateRequest = (input: GetCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
+// se_GetCertificateRequest omitted.
 
 /**
  * serializeAws_json1_1ImportCertificateRequest
  */
 const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Certificate != null && { Certificate: context.base64Encoder(input.Certificate) }),
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.CertificateChain != null && { CertificateChain: context.base64Encoder(input.CertificateChain) }),
-    ...(input.PrivateKey != null && { PrivateKey: context.base64Encoder(input.PrivateKey) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    Certificate: (_) => context.base64Encoder(_),
+    CertificateArn: [],
+    CertificateChain: (_) => context.base64Encoder(_),
+    PrivateKey: (_) => context.base64Encoder(_),
+    Tags: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1KeyAlgorithmList
- */
-const se_KeyAlgorithmList = (input: (KeyAlgorithm | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_KeyAlgorithmList omitted.
 
-/**
- * serializeAws_json1_1KeyUsageFilterList
- */
-const se_KeyUsageFilterList = (input: (KeyUsageName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_KeyUsageFilterList omitted.
 
-/**
- * serializeAws_json1_1ListCertificatesRequest
- */
-const se_ListCertificatesRequest = (input: ListCertificatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateStatuses != null && {
-      CertificateStatuses: se_CertificateStatuses(input.CertificateStatuses, context),
-    }),
-    ...(input.Includes != null && { Includes: se_Filters(input.Includes, context) }),
-    ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_ListCertificatesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForCertificateRequest
- */
-const se_ListTagsForCertificateRequest = (input: ListTagsForCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
+// se_ListTagsForCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1PutAccountConfigurationRequest
- */
-const se_PutAccountConfigurationRequest = (input: PutAccountConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExpiryEvents != null && { ExpiryEvents: se_ExpiryEventsConfiguration(input.ExpiryEvents, context) }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-  };
-};
+// se_PutAccountConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1RemoveTagsFromCertificateRequest
- */
-const se_RemoveTagsFromCertificateRequest = (input: RemoveTagsFromCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_RemoveTagsFromCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1RenewCertificateRequest
- */
-const se_RenewCertificateRequest = (input: RenewCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
+// se_RenewCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1RequestCertificateRequest
- */
-const se_RequestCertificateRequest = (input: RequestCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.DomainValidationOptions != null && {
-      DomainValidationOptions: se_DomainValidationOptionList(input.DomainValidationOptions, context),
-    }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.KeyAlgorithm != null && { KeyAlgorithm: input.KeyAlgorithm }),
-    ...(input.Options != null && { Options: se_CertificateOptions(input.Options, context) }),
-    ...(input.SubjectAlternativeNames != null && {
-      SubjectAlternativeNames: se_DomainList(input.SubjectAlternativeNames, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.ValidationMethod != null && { ValidationMethod: input.ValidationMethod }),
-  };
-};
+// se_RequestCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1ResendValidationEmailRequest
- */
-const se_ResendValidationEmailRequest = (input: ResendValidationEmailRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.ValidationDomain != null && { ValidationDomain: input.ValidationDomain }),
-  };
-};
+// se_ResendValidationEmailRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1UpdateCertificateOptionsRequest
- */
-const se_UpdateCertificateOptionsRequest = (input: UpdateCertificateOptionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Options != null && { Options: se_CertificateOptions(input.Options, context) }),
-  };
-};
+// se_UpdateCertificateOptionsRequest omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
 /**
  * deserializeAws_json1_1CertificateDetail
  */
 const de_CertificateDetail = (output: any, context: __SerdeContext): CertificateDetail => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainName: __expectString(output.DomainName),
-    DomainValidationOptions:
-      output.DomainValidationOptions != null
-        ? de_DomainValidationList(output.DomainValidationOptions, context)
-        : undefined,
-    ExtendedKeyUsages:
-      output.ExtendedKeyUsages != null ? de_ExtendedKeyUsageList(output.ExtendedKeyUsages, context) : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    ImportedAt:
-      output.ImportedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImportedAt))) : undefined,
-    InUseBy: output.InUseBy != null ? de_InUseList(output.InUseBy, context) : undefined,
-    IssuedAt:
-      output.IssuedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.IssuedAt))) : undefined,
-    Issuer: __expectString(output.Issuer),
-    KeyAlgorithm: __expectString(output.KeyAlgorithm),
-    KeyUsages: output.KeyUsages != null ? de_KeyUsageList(output.KeyUsages, context) : undefined,
-    NotAfter:
-      output.NotAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter))) : undefined,
-    NotBefore:
-      output.NotBefore != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore))) : undefined,
-    Options: output.Options != null ? de_CertificateOptions(output.Options, context) : undefined,
-    RenewalEligibility: __expectString(output.RenewalEligibility),
-    RenewalSummary: output.RenewalSummary != null ? de_RenewalSummary(output.RenewalSummary, context) : undefined,
-    RevocationReason: __expectString(output.RevocationReason),
-    RevokedAt:
-      output.RevokedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RevokedAt))) : undefined,
-    Serial: __expectString(output.Serial),
-    SignatureAlgorithm: __expectString(output.SignatureAlgorithm),
-    Status: __expectString(output.Status),
-    Subject: __expectString(output.Subject),
-    SubjectAlternativeNames:
-      output.SubjectAlternativeNames != null ? de_DomainList(output.SubjectAlternativeNames, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CertificateArn: __expectString,
+    CertificateAuthorityArn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainName: __expectString,
+    DomainValidationOptions: _json,
+    ExtendedKeyUsages: _json,
+    FailureReason: __expectString,
+    ImportedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InUseBy: _json,
+    IssuedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Issuer: __expectString,
+    KeyAlgorithm: __expectString,
+    KeyUsages: _json,
+    NotAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Options: _json,
+    RenewalEligibility: __expectString,
+    RenewalSummary: (_: any) => de_RenewalSummary(_, context),
+    RevocationReason: __expectString,
+    RevokedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Serial: __expectString,
+    SignatureAlgorithm: __expectString,
+    Status: __expectString,
+    Subject: __expectString,
+    SubjectAlternativeNames: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CertificateOptions
- */
-const de_CertificateOptions = (output: any, context: __SerdeContext): CertificateOptions => {
-  return {
-    CertificateTransparencyLoggingPreference: __expectString(output.CertificateTransparencyLoggingPreference),
-  } as any;
-};
+// de_CertificateOptions omitted.
 
 /**
  * deserializeAws_json1_1CertificateSummary
  */
 const de_CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainName: __expectString(output.DomainName),
-    Exported: __expectBoolean(output.Exported),
-    ExtendedKeyUsages:
-      output.ExtendedKeyUsages != null ? de_ExtendedKeyUsageNames(output.ExtendedKeyUsages, context) : undefined,
-    HasAdditionalSubjectAlternativeNames: __expectBoolean(output.HasAdditionalSubjectAlternativeNames),
-    ImportedAt:
-      output.ImportedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImportedAt))) : undefined,
-    InUse: __expectBoolean(output.InUse),
-    IssuedAt:
-      output.IssuedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.IssuedAt))) : undefined,
-    KeyAlgorithm: __expectString(output.KeyAlgorithm),
-    KeyUsages: output.KeyUsages != null ? de_KeyUsageNames(output.KeyUsages, context) : undefined,
-    NotAfter:
-      output.NotAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter))) : undefined,
-    NotBefore:
-      output.NotBefore != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore))) : undefined,
-    RenewalEligibility: __expectString(output.RenewalEligibility),
-    RevokedAt:
-      output.RevokedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RevokedAt))) : undefined,
-    Status: __expectString(output.Status),
-    SubjectAlternativeNameSummaries:
-      output.SubjectAlternativeNameSummaries != null
-        ? de_DomainList(output.SubjectAlternativeNameSummaries, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CertificateArn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainName: __expectString,
+    Exported: __expectBoolean,
+    ExtendedKeyUsages: _json,
+    HasAdditionalSubjectAlternativeNames: __expectBoolean,
+    ImportedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InUse: __expectBoolean,
+    IssuedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KeyAlgorithm: __expectString,
+    KeyUsages: _json,
+    NotAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RenewalEligibility: __expectString,
+    RevokedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    SubjectAlternativeNameSummaries: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -1760,445 +1486,113 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CertificateSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_1DescribeCertificateResponse
  */
 const de_DescribeCertificateResponse = (output: any, context: __SerdeContext): DescribeCertificateResponse => {
-  return {
-    Certificate: output.Certificate != null ? de_CertificateDetail(output.Certificate, context) : undefined,
-  } as any;
+  return take(output, {
+    Certificate: (_: any) => de_CertificateDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DomainList
- */
-const de_DomainList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DomainList omitted.
 
-/**
- * deserializeAws_json1_1DomainValidation
- */
-const de_DomainValidation = (output: any, context: __SerdeContext): DomainValidation => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    ResourceRecord: output.ResourceRecord != null ? de_ResourceRecord(output.ResourceRecord, context) : undefined,
-    ValidationDomain: __expectString(output.ValidationDomain),
-    ValidationEmails:
-      output.ValidationEmails != null ? de_ValidationEmailList(output.ValidationEmails, context) : undefined,
-    ValidationMethod: __expectString(output.ValidationMethod),
-    ValidationStatus: __expectString(output.ValidationStatus),
-  } as any;
-};
+// de_DomainValidation omitted.
 
-/**
- * deserializeAws_json1_1DomainValidationList
- */
-const de_DomainValidationList = (output: any, context: __SerdeContext): DomainValidation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DomainValidation(entry, context);
-    });
-  return retVal;
-};
+// de_DomainValidationList omitted.
 
-/**
- * deserializeAws_json1_1ExpiryEventsConfiguration
- */
-const de_ExpiryEventsConfiguration = (output: any, context: __SerdeContext): ExpiryEventsConfiguration => {
-  return {
-    DaysBeforeExpiry: __expectInt32(output.DaysBeforeExpiry),
-  } as any;
-};
+// de_ExpiryEventsConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ExportCertificateResponse
- */
-const de_ExportCertificateResponse = (output: any, context: __SerdeContext): ExportCertificateResponse => {
-  return {
-    Certificate: __expectString(output.Certificate),
-    CertificateChain: __expectString(output.CertificateChain),
-    PrivateKey: __expectString(output.PrivateKey),
-  } as any;
-};
+// de_ExportCertificateResponse omitted.
 
-/**
- * deserializeAws_json1_1ExtendedKeyUsage
- */
-const de_ExtendedKeyUsage = (output: any, context: __SerdeContext): ExtendedKeyUsage => {
-  return {
-    Name: __expectString(output.Name),
-    OID: __expectString(output.OID),
-  } as any;
-};
+// de_ExtendedKeyUsage omitted.
 
-/**
- * deserializeAws_json1_1ExtendedKeyUsageList
- */
-const de_ExtendedKeyUsageList = (output: any, context: __SerdeContext): ExtendedKeyUsage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExtendedKeyUsage(entry, context);
-    });
-  return retVal;
-};
+// de_ExtendedKeyUsageList omitted.
 
-/**
- * deserializeAws_json1_1ExtendedKeyUsageNames
- */
-const de_ExtendedKeyUsageNames = (output: any, context: __SerdeContext): (ExtendedKeyUsageName | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ExtendedKeyUsageNames omitted.
 
-/**
- * deserializeAws_json1_1GetAccountConfigurationResponse
- */
-const de_GetAccountConfigurationResponse = (output: any, context: __SerdeContext): GetAccountConfigurationResponse => {
-  return {
-    ExpiryEvents: output.ExpiryEvents != null ? de_ExpiryEventsConfiguration(output.ExpiryEvents, context) : undefined,
-  } as any;
-};
+// de_GetAccountConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1GetCertificateResponse
- */
-const de_GetCertificateResponse = (output: any, context: __SerdeContext): GetCertificateResponse => {
-  return {
-    Certificate: __expectString(output.Certificate),
-    CertificateChain: __expectString(output.CertificateChain),
-  } as any;
-};
+// de_GetCertificateResponse omitted.
 
-/**
- * deserializeAws_json1_1ImportCertificateResponse
- */
-const de_ImportCertificateResponse = (output: any, context: __SerdeContext): ImportCertificateResponse => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-  } as any;
-};
+// de_ImportCertificateResponse omitted.
 
-/**
- * deserializeAws_json1_1InUseList
- */
-const de_InUseList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_InUseList omitted.
 
-/**
- * deserializeAws_json1_1InvalidArgsException
- */
-const de_InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidArgsException omitted.
 
-/**
- * deserializeAws_json1_1InvalidArnException
- */
-const de_InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidArnException omitted.
 
-/**
- * deserializeAws_json1_1InvalidDomainValidationOptionsException
- */
-const de_InvalidDomainValidationOptionsException = (
-  output: any,
-  context: __SerdeContext
-): InvalidDomainValidationOptionsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidDomainValidationOptionsException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidStateException
- */
-const de_InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidStateException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTagException
- */
-const de_InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTagException omitted.
 
-/**
- * deserializeAws_json1_1KeyUsage
- */
-const de_KeyUsage = (output: any, context: __SerdeContext): KeyUsage => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_KeyUsage omitted.
 
-/**
- * deserializeAws_json1_1KeyUsageList
- */
-const de_KeyUsageList = (output: any, context: __SerdeContext): KeyUsage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_KeyUsage(entry, context);
-    });
-  return retVal;
-};
+// de_KeyUsageList omitted.
 
-/**
- * deserializeAws_json1_1KeyUsageNames
- */
-const de_KeyUsageNames = (output: any, context: __SerdeContext): (KeyUsageName | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_KeyUsageNames omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListCertificatesResponse
  */
 const de_ListCertificatesResponse = (output: any, context: __SerdeContext): ListCertificatesResponse => {
-  return {
-    CertificateSummaryList:
-      output.CertificateSummaryList != null
-        ? de_CertificateSummaryList(output.CertificateSummaryList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    CertificateSummaryList: (_: any) => de_CertificateSummaryList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForCertificateResponse
- */
-const de_ListTagsForCertificateResponse = (output: any, context: __SerdeContext): ListTagsForCertificateResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForCertificateResponse omitted.
 
 /**
  * deserializeAws_json1_1RenewalSummary
  */
 const de_RenewalSummary = (output: any, context: __SerdeContext): RenewalSummary => {
-  return {
-    DomainValidationOptions:
-      output.DomainValidationOptions != null
-        ? de_DomainValidationList(output.DomainValidationOptions, context)
-        : undefined,
-    RenewalStatus: __expectString(output.RenewalStatus),
-    RenewalStatusReason: __expectString(output.RenewalStatusReason),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    DomainValidationOptions: _json,
+    RenewalStatus: __expectString,
+    RenewalStatusReason: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RequestCertificateResponse
- */
-const de_RequestCertificateResponse = (output: any, context: __SerdeContext): RequestCertificateResponse => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-  } as any;
-};
+// de_RequestCertificateResponse omitted.
 
-/**
- * deserializeAws_json1_1RequestInProgressException
- */
-const de_RequestInProgressException = (output: any, context: __SerdeContext): RequestInProgressException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RequestInProgressException omitted.
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResourceRecord
- */
-const de_ResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
-  return {
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ResourceRecord omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagPolicyException
- */
-const de_TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TagPolicyException omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1ValidationEmailList
- */
-const de_ValidationEmailList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ValidationEmailList omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2220,6 +1614,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

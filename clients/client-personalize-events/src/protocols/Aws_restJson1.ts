@@ -1,12 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectString as __expectString,
   LazyJsonString as __LazyJsonString,
-  map as __map,
+  map,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -41,12 +43,14 @@ export const se_PutEventsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
   let body: any;
-  body = JSON.stringify({
-    ...(input.eventList != null && { eventList: se_EventList(input.eventList, context) }),
-    ...(input.sessionId != null && { sessionId: input.sessionId }),
-    ...(input.trackingId != null && { trackingId: input.trackingId }),
-    ...(input.userId != null && { userId: input.userId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      eventList: (_) => se_EventList(_, context),
+      sessionId: [],
+      trackingId: [],
+      userId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -71,10 +75,12 @@ export const se_PutItemsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/items";
   let body: any;
-  body = JSON.stringify({
-    ...(input.datasetArn != null && { datasetArn: input.datasetArn }),
-    ...(input.items != null && { items: se_ItemList(input.items, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      datasetArn: [],
+      items: (_) => se_ItemList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -99,10 +105,12 @@ export const se_PutUsersCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users";
   let body: any;
-  body = JSON.stringify({
-    ...(input.datasetArn != null && { datasetArn: input.datasetArn }),
-    ...(input.users != null && { users: se_UserList(input.users, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      datasetArn: [],
+      users: (_) => se_UserList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -149,10 +157,9 @@ const de_PutEventsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -199,10 +206,9 @@ const de_PutItemsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -249,16 +255,15 @@ const de_PutUsersCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InvalidInputExceptionRes
  */
@@ -268,9 +273,10 @@ const de_InvalidInputExceptionRes = async (
 ): Promise<InvalidInputException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -287,9 +293,10 @@ const de_ResourceInUseExceptionRes = async (
 ): Promise<ResourceInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -306,9 +313,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -320,19 +328,17 @@ const de_ResourceNotFoundExceptionRes = async (
  * serializeAws_restJson1Event
  */
 const se_Event = (input: Event, context: __SerdeContext): any => {
-  return {
-    ...(input.eventId != null && { eventId: input.eventId }),
-    ...(input.eventType != null && { eventType: input.eventType }),
-    ...(input.eventValue != null && { eventValue: __serializeFloat(input.eventValue) }),
-    ...(input.impression != null && { impression: se_Impression(input.impression, context) }),
-    ...(input.itemId != null && { itemId: input.itemId }),
-    ...(input.metricAttribution != null && {
-      metricAttribution: se_MetricAttribution(input.metricAttribution, context),
-    }),
-    ...(input.properties != null && { properties: __LazyJsonString.fromObject(input.properties) }),
-    ...(input.recommendationId != null && { recommendationId: input.recommendationId }),
-    ...(input.sentAt != null && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
-  };
+  return take(input, {
+    eventId: [],
+    eventType: [],
+    eventValue: (_) => __serializeFloat(_),
+    impression: (_) => _json(_),
+    itemId: [],
+    metricAttribution: (_) => _json(_),
+    properties: (_) => __LazyJsonString.fromObject(_),
+    recommendationId: [],
+    sentAt: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -346,25 +352,16 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1Impression
- */
-const se_Impression = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Impression omitted.
 
 /**
  * serializeAws_restJson1Item
  */
 const se_Item = (input: Item, context: __SerdeContext): any => {
-  return {
-    ...(input.itemId != null && { itemId: input.itemId }),
-    ...(input.properties != null && { properties: __LazyJsonString.fromObject(input.properties) }),
-  };
+  return take(input, {
+    itemId: [],
+    properties: (_) => __LazyJsonString.fromObject(_),
+  });
 };
 
 /**
@@ -378,23 +375,16 @@ const se_ItemList = (input: Item[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1MetricAttribution
- */
-const se_MetricAttribution = (input: MetricAttribution, context: __SerdeContext): any => {
-  return {
-    ...(input.eventAttributionSource != null && { eventAttributionSource: input.eventAttributionSource }),
-  };
-};
+// se_MetricAttribution omitted.
 
 /**
  * serializeAws_restJson1User
  */
 const se_User = (input: User, context: __SerdeContext): any => {
-  return {
-    ...(input.properties != null && { properties: __LazyJsonString.fromObject(input.properties) }),
-    ...(input.userId != null && { userId: input.userId }),
-  };
+  return take(input, {
+    properties: (_) => __LazyJsonString.fromObject(_),
+    userId: [],
+  });
 };
 
 /**

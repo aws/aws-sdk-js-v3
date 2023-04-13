@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -121,49 +122,32 @@ import {
 import { ViewBillingCommandInput, ViewBillingCommandOutput } from "../commands/ViewBillingCommand";
 import {
   AcceptDomainTransferFromAnotherAwsAccountRequest,
-  AcceptDomainTransferFromAnotherAwsAccountResponse,
   AssociateDelegationSignerToDomainRequest,
-  AssociateDelegationSignerToDomainResponse,
   BillingRecord,
   CancelDomainTransferToAnotherAwsAccountRequest,
-  CancelDomainTransferToAnotherAwsAccountResponse,
   CheckDomainAvailabilityRequest,
-  CheckDomainAvailabilityResponse,
   CheckDomainTransferabilityRequest,
-  CheckDomainTransferabilityResponse,
   Consent,
   ContactDetail,
   DeleteDomainRequest,
-  DeleteDomainResponse,
   DeleteTagsForDomainRequest,
-  DeleteTagsForDomainResponse,
   DisableDomainAutoRenewRequest,
-  DisableDomainAutoRenewResponse,
   DisableDomainTransferLockRequest,
-  DisableDomainTransferLockResponse,
   DisassociateDelegationSignerFromDomainRequest,
-  DisassociateDelegationSignerFromDomainResponse,
-  DnssecKey,
   DnssecLimitExceeded,
   DnssecSigningAttributes,
   DomainLimitExceeded,
   DomainPrice,
-  DomainSuggestion,
   DomainSummary,
-  DomainTransferability,
   DuplicateRequest,
   EnableDomainAutoRenewRequest,
-  EnableDomainAutoRenewResponse,
   EnableDomainTransferLockRequest,
-  EnableDomainTransferLockResponse,
   ExtraParam,
   FilterCondition,
   GetContactReachabilityStatusRequest,
-  GetContactReachabilityStatusResponse,
   GetDomainDetailRequest,
   GetDomainDetailResponse,
   GetDomainSuggestionsRequest,
-  GetDomainSuggestionsResponse,
   GetOperationDetailRequest,
   GetOperationDetailResponse,
   InvalidInput,
@@ -174,7 +158,6 @@ import {
   ListPricesRequest,
   ListPricesResponse,
   ListTagsForDomainRequest,
-  ListTagsForDomainResponse,
   Nameserver,
   OperationLimitExceeded,
   OperationStatus,
@@ -183,32 +166,21 @@ import {
   PriceWithCurrency,
   PushDomainRequest,
   RegisterDomainRequest,
-  RegisterDomainResponse,
   RejectDomainTransferFromAnotherAwsAccountRequest,
-  RejectDomainTransferFromAnotherAwsAccountResponse,
   RenewDomainRequest,
-  RenewDomainResponse,
   ResendContactReachabilityEmailRequest,
-  ResendContactReachabilityEmailResponse,
   ResendOperationAuthorizationRequest,
   RetrieveDomainAuthCodeRequest,
-  RetrieveDomainAuthCodeResponse,
   SortCondition,
   Tag,
   TLDRulesViolation,
   TransferDomainRequest,
-  TransferDomainResponse,
   TransferDomainToAnotherAwsAccountRequest,
-  TransferDomainToAnotherAwsAccountResponse,
   UnsupportedTLD,
   UpdateDomainContactPrivacyRequest,
-  UpdateDomainContactPrivacyResponse,
   UpdateDomainContactRequest,
-  UpdateDomainContactResponse,
   UpdateDomainNameserversRequest,
-  UpdateDomainNameserversResponse,
   UpdateTagsForDomainRequest,
-  UpdateTagsForDomainResponse,
   ViewBillingRequest,
   ViewBillingResponse,
 } from "../models/models_0";
@@ -223,7 +195,7 @@ export const se_AcceptDomainTransferFromAnotherAwsAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptDomainTransferFromAnotherAwsAccount");
   let body: any;
-  body = JSON.stringify(se_AcceptDomainTransferFromAnotherAwsAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -236,7 +208,7 @@ export const se_AssociateDelegationSignerToDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateDelegationSignerToDomain");
   let body: any;
-  body = JSON.stringify(se_AssociateDelegationSignerToDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -249,7 +221,7 @@ export const se_CancelDomainTransferToAnotherAwsAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelDomainTransferToAnotherAwsAccount");
   let body: any;
-  body = JSON.stringify(se_CancelDomainTransferToAnotherAwsAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -262,7 +234,7 @@ export const se_CheckDomainAvailabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CheckDomainAvailability");
   let body: any;
-  body = JSON.stringify(se_CheckDomainAvailabilityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -275,7 +247,7 @@ export const se_CheckDomainTransferabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CheckDomainTransferability");
   let body: any;
-  body = JSON.stringify(se_CheckDomainTransferabilityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -288,7 +260,7 @@ export const se_DeleteDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDomain");
   let body: any;
-  body = JSON.stringify(se_DeleteDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -301,7 +273,7 @@ export const se_DeleteTagsForDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTagsForDomain");
   let body: any;
-  body = JSON.stringify(se_DeleteTagsForDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -314,7 +286,7 @@ export const se_DisableDomainAutoRenewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableDomainAutoRenew");
   let body: any;
-  body = JSON.stringify(se_DisableDomainAutoRenewRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -327,7 +299,7 @@ export const se_DisableDomainTransferLockCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableDomainTransferLock");
   let body: any;
-  body = JSON.stringify(se_DisableDomainTransferLockRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -340,7 +312,7 @@ export const se_DisassociateDelegationSignerFromDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateDelegationSignerFromDomain");
   let body: any;
-  body = JSON.stringify(se_DisassociateDelegationSignerFromDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -353,7 +325,7 @@ export const se_EnableDomainAutoRenewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableDomainAutoRenew");
   let body: any;
-  body = JSON.stringify(se_EnableDomainAutoRenewRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -366,7 +338,7 @@ export const se_EnableDomainTransferLockCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableDomainTransferLock");
   let body: any;
-  body = JSON.stringify(se_EnableDomainTransferLockRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -379,7 +351,7 @@ export const se_GetContactReachabilityStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetContactReachabilityStatus");
   let body: any;
-  body = JSON.stringify(se_GetContactReachabilityStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -392,7 +364,7 @@ export const se_GetDomainDetailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDomainDetail");
   let body: any;
-  body = JSON.stringify(se_GetDomainDetailRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -405,7 +377,7 @@ export const se_GetDomainSuggestionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDomainSuggestions");
   let body: any;
-  body = JSON.stringify(se_GetDomainSuggestionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -418,7 +390,7 @@ export const se_GetOperationDetailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetOperationDetail");
   let body: any;
-  body = JSON.stringify(se_GetOperationDetailRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -431,7 +403,7 @@ export const se_ListDomainsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDomains");
   let body: any;
-  body = JSON.stringify(se_ListDomainsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -457,7 +429,7 @@ export const se_ListPricesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPrices");
   let body: any;
-  body = JSON.stringify(se_ListPricesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -470,7 +442,7 @@ export const se_ListTagsForDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForDomain");
   let body: any;
-  body = JSON.stringify(se_ListTagsForDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -483,7 +455,7 @@ export const se_PushDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PushDomain");
   let body: any;
-  body = JSON.stringify(se_PushDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -496,7 +468,7 @@ export const se_RegisterDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterDomain");
   let body: any;
-  body = JSON.stringify(se_RegisterDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -509,7 +481,7 @@ export const se_RejectDomainTransferFromAnotherAwsAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RejectDomainTransferFromAnotherAwsAccount");
   let body: any;
-  body = JSON.stringify(se_RejectDomainTransferFromAnotherAwsAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -522,7 +494,7 @@ export const se_RenewDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RenewDomain");
   let body: any;
-  body = JSON.stringify(se_RenewDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -535,7 +507,7 @@ export const se_ResendContactReachabilityEmailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResendContactReachabilityEmail");
   let body: any;
-  body = JSON.stringify(se_ResendContactReachabilityEmailRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -548,7 +520,7 @@ export const se_ResendOperationAuthorizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResendOperationAuthorization");
   let body: any;
-  body = JSON.stringify(se_ResendOperationAuthorizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -561,7 +533,7 @@ export const se_RetrieveDomainAuthCodeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RetrieveDomainAuthCode");
   let body: any;
-  body = JSON.stringify(se_RetrieveDomainAuthCodeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -574,7 +546,7 @@ export const se_TransferDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TransferDomain");
   let body: any;
-  body = JSON.stringify(se_TransferDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -587,7 +559,7 @@ export const se_TransferDomainToAnotherAwsAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TransferDomainToAnotherAwsAccount");
   let body: any;
-  body = JSON.stringify(se_TransferDomainToAnotherAwsAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -613,7 +585,7 @@ export const se_UpdateDomainContactPrivacyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDomainContactPrivacy");
   let body: any;
-  body = JSON.stringify(se_UpdateDomainContactPrivacyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -626,7 +598,7 @@ export const se_UpdateDomainNameserversCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDomainNameservers");
   let body: any;
-  body = JSON.stringify(se_UpdateDomainNameserversRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -639,7 +611,7 @@ export const se_UpdateTagsForDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTagsForDomain");
   let body: any;
-  body = JSON.stringify(se_UpdateTagsForDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -668,12 +640,12 @@ export const de_AcceptDomainTransferFromAnotherAwsAccountCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AcceptDomainTransferFromAnotherAwsAccountResponse(data, context);
+  contents = _json(data);
   const response: AcceptDomainTransferFromAnotherAwsAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -703,10 +675,9 @@ const de_AcceptDomainTransferFromAnotherAwsAccountCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -724,12 +695,12 @@ export const de_AssociateDelegationSignerToDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateDelegationSignerToDomainResponse(data, context);
+  contents = _json(data);
   const response: AssociateDelegationSignerToDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -765,10 +736,9 @@ const de_AssociateDelegationSignerToDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -786,12 +756,12 @@ export const de_CancelDomainTransferToAnotherAwsAccountCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CancelDomainTransferToAnotherAwsAccountResponse(data, context);
+  contents = _json(data);
   const response: CancelDomainTransferToAnotherAwsAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -818,10 +788,9 @@ const de_CancelDomainTransferToAnotherAwsAccountCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -839,12 +808,12 @@ export const de_CheckDomainAvailabilityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CheckDomainAvailabilityResponse(data, context);
+  contents = _json(data);
   const response: CheckDomainAvailabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -868,10 +837,9 @@ const de_CheckDomainAvailabilityCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -889,12 +857,12 @@ export const de_CheckDomainTransferabilityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CheckDomainTransferabilityResponse(data, context);
+  contents = _json(data);
   const response: CheckDomainTransferabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -918,10 +886,9 @@ const de_CheckDomainTransferabilityCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -939,12 +906,12 @@ export const de_DeleteDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDomainResponse(data, context);
+  contents = _json(data);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -974,10 +941,9 @@ const de_DeleteDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -995,12 +961,12 @@ export const de_DeleteTagsForDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTagsForDomainResponse(data, context);
+  contents = _json(data);
   const response: DeleteTagsForDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1027,10 +993,9 @@ const de_DeleteTagsForDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1048,12 +1013,12 @@ export const de_DisableDomainAutoRenewCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisableDomainAutoRenewResponse(data, context);
+  contents = _json(data);
   const response: DisableDomainAutoRenewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1077,10 +1042,9 @@ const de_DisableDomainAutoRenewCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1098,12 +1062,12 @@ export const de_DisableDomainTransferLockCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisableDomainTransferLockResponse(data, context);
+  contents = _json(data);
   const response: DisableDomainTransferLockCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1136,10 +1100,9 @@ const de_DisableDomainTransferLockCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1157,12 +1120,12 @@ export const de_DisassociateDelegationSignerFromDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateDelegationSignerFromDomainResponse(data, context);
+  contents = _json(data);
   const response: DisassociateDelegationSignerFromDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1195,10 +1158,9 @@ const de_DisassociateDelegationSignerFromDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1216,12 +1178,12 @@ export const de_EnableDomainAutoRenewCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnableDomainAutoRenewResponse(data, context);
+  contents = _json(data);
   const response: EnableDomainAutoRenewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1248,10 +1210,9 @@ const de_EnableDomainAutoRenewCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1269,12 +1230,12 @@ export const de_EnableDomainTransferLockCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnableDomainTransferLockResponse(data, context);
+  contents = _json(data);
   const response: EnableDomainTransferLockCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1307,10 +1268,9 @@ const de_EnableDomainTransferLockCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1328,12 +1288,12 @@ export const de_GetContactReachabilityStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetContactReachabilityStatusResponse(data, context);
+  contents = _json(data);
   const response: GetContactReachabilityStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1360,10 +1320,9 @@ const de_GetContactReachabilityStatusCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1386,7 +1345,7 @@ export const de_GetDomainDetailCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1410,10 +1369,9 @@ const de_GetDomainDetailCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1431,12 +1389,12 @@ export const de_GetDomainSuggestionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDomainSuggestionsResponse(data, context);
+  contents = _json(data);
   const response: GetDomainSuggestionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1460,10 +1418,9 @@ const de_GetDomainSuggestionsCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1486,7 +1443,7 @@ export const de_GetOperationDetailCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1507,10 +1464,9 @@ const de_GetOperationDetailCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1533,7 +1489,7 @@ export const de_ListDomainsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1554,10 +1510,9 @@ const de_ListDomainsCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1580,7 +1535,7 @@ export const de_ListOperationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1601,10 +1556,9 @@ const de_ListOperationsCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1627,7 +1581,7 @@ export const de_ListPricesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1651,10 +1605,9 @@ const de_ListPricesCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1672,12 +1625,12 @@ export const de_ListTagsForDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForDomainResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1704,10 +1657,9 @@ const de_ListTagsForDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1727,7 +1679,7 @@ export const de_PushDomainCommand = async (
   const response: PushDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1754,10 +1706,9 @@ const de_PushDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1775,12 +1726,12 @@ export const de_RegisterDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RegisterDomainResponse(data, context);
+  contents = _json(data);
   const response: RegisterDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1816,10 +1767,9 @@ const de_RegisterDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1837,12 +1787,12 @@ export const de_RejectDomainTransferFromAnotherAwsAccountCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RejectDomainTransferFromAnotherAwsAccountResponse(data, context);
+  contents = _json(data);
   const response: RejectDomainTransferFromAnotherAwsAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1869,10 +1819,9 @@ const de_RejectDomainTransferFromAnotherAwsAccountCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1890,12 +1839,12 @@ export const de_RenewDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RenewDomainResponse(data, context);
+  contents = _json(data);
   const response: RenewDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1928,10 +1877,9 @@ const de_RenewDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1949,12 +1897,12 @@ export const de_ResendContactReachabilityEmailCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ResendContactReachabilityEmailResponse(data, context);
+  contents = _json(data);
   const response: ResendContactReachabilityEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1981,10 +1929,9 @@ const de_ResendContactReachabilityEmailCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2004,7 +1951,7 @@ export const de_ResendOperationAuthorizationCommand = async (
   const response: ResendOperationAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2025,10 +1972,9 @@ const de_ResendOperationAuthorizationCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2046,12 +1992,12 @@ export const de_RetrieveDomainAuthCodeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RetrieveDomainAuthCodeResponse(data, context);
+  contents = _json(data);
   const response: RetrieveDomainAuthCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2075,10 +2021,9 @@ const de_RetrieveDomainAuthCodeCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2096,12 +2041,12 @@ export const de_TransferDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TransferDomainResponse(data, context);
+  contents = _json(data);
   const response: TransferDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2137,10 +2082,9 @@ const de_TransferDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2158,12 +2102,12 @@ export const de_TransferDomainToAnotherAwsAccountCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TransferDomainToAnotherAwsAccountResponse(data, context);
+  contents = _json(data);
   const response: TransferDomainToAnotherAwsAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2193,10 +2137,9 @@ const de_TransferDomainToAnotherAwsAccountCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2214,12 +2157,12 @@ export const de_UpdateDomainContactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDomainContactResponse(data, context);
+  contents = _json(data);
   const response: UpdateDomainContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2252,10 +2195,9 @@ const de_UpdateDomainContactCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2273,12 +2215,12 @@ export const de_UpdateDomainContactPrivacyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDomainContactPrivacyResponse(data, context);
+  contents = _json(data);
   const response: UpdateDomainContactPrivacyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2311,10 +2253,9 @@ const de_UpdateDomainContactPrivacyCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2332,12 +2273,12 @@ export const de_UpdateDomainNameserversCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDomainNameserversResponse(data, context);
+  contents = _json(data);
   const response: UpdateDomainNameserversCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2370,10 +2311,9 @@ const de_UpdateDomainNameserversCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2391,12 +2331,12 @@ export const de_UpdateTagsForDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateTagsForDomainResponse(data, context);
+  contents = _json(data);
   const response: UpdateTagsForDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2423,10 +2363,9 @@ const de_UpdateTagsForDomainCommandError = async (
       throw await de_UnsupportedTLDRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2449,7 +2388,7 @@ export const de_ViewBillingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2470,10 +2409,9 @@ const de_ViewBillingCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2484,7 +2422,7 @@ const de_ViewBillingCommandError = async (
  */
 const de_DnssecLimitExceededRes = async (parsedOutput: any, context: __SerdeContext): Promise<DnssecLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DnssecLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new DnssecLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2497,7 +2435,7 @@ const de_DnssecLimitExceededRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_DomainLimitExceededRes = async (parsedOutput: any, context: __SerdeContext): Promise<DomainLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DomainLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new DomainLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2510,7 +2448,7 @@ const de_DomainLimitExceededRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_DuplicateRequestRes = async (parsedOutput: any, context: __SerdeContext): Promise<DuplicateRequest> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateRequest(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2523,7 +2461,7 @@ const de_DuplicateRequestRes = async (parsedOutput: any, context: __SerdeContext
  */
 const de_InvalidInputRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidInput> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInput(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2539,7 +2477,7 @@ const de_OperationLimitExceededRes = async (
   context: __SerdeContext
 ): Promise<OperationLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OperationLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new OperationLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2552,7 +2490,7 @@ const de_OperationLimitExceededRes = async (
  */
 const de_TLDRulesViolationRes = async (parsedOutput: any, context: __SerdeContext): Promise<TLDRulesViolation> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TLDRulesViolation(body, context);
+  const deserialized: any = _json(body);
   const exception = new TLDRulesViolation({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2565,7 +2503,7 @@ const de_TLDRulesViolationRes = async (parsedOutput: any, context: __SerdeContex
  */
 const de_UnsupportedTLDRes = async (parsedOutput: any, context: __SerdeContext): Promise<UnsupportedTLD> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedTLD(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedTLD({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2573,636 +2511,165 @@ const de_UnsupportedTLDRes = async (parsedOutput: any, context: __SerdeContext):
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountRequest
- */
-const se_AcceptDomainTransferFromAnotherAwsAccountRequest = (
-  input: AcceptDomainTransferFromAnotherAwsAccountRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.Password != null && { Password: input.Password }),
-  };
-};
+// se_AcceptDomainTransferFromAnotherAwsAccountRequest omitted.
 
-/**
- * serializeAws_json1_1AssociateDelegationSignerToDomainRequest
- */
-const se_AssociateDelegationSignerToDomainRequest = (
-  input: AssociateDelegationSignerToDomainRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.SigningAttributes != null && {
-      SigningAttributes: se_DnssecSigningAttributes(input.SigningAttributes, context),
-    }),
-  };
-};
+// se_AssociateDelegationSignerToDomainRequest omitted.
 
-/**
- * serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountRequest
- */
-const se_CancelDomainTransferToAnotherAwsAccountRequest = (
-  input: CancelDomainTransferToAnotherAwsAccountRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_CancelDomainTransferToAnotherAwsAccountRequest omitted.
 
-/**
- * serializeAws_json1_1CheckDomainAvailabilityRequest
- */
-const se_CheckDomainAvailabilityRequest = (input: CheckDomainAvailabilityRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.IdnLangCode != null && { IdnLangCode: input.IdnLangCode }),
-  };
-};
+// se_CheckDomainAvailabilityRequest omitted.
 
-/**
- * serializeAws_json1_1CheckDomainTransferabilityRequest
- */
-const se_CheckDomainTransferabilityRequest = (
-  input: CheckDomainTransferabilityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuthCode != null && { AuthCode: input.AuthCode }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_CheckDomainTransferabilityRequest omitted.
 
 /**
  * serializeAws_json1_1Consent
  */
 const se_Consent = (input: Consent, context: __SerdeContext): any => {
-  return {
-    ...(input.Currency != null && { Currency: input.Currency }),
-    ...(input.MaxPrice != null && { MaxPrice: __serializeFloat(input.MaxPrice) }),
-  };
+  return take(input, {
+    Currency: [],
+    MaxPrice: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_1ContactDetail
- */
-const se_ContactDetail = (input: ContactDetail, context: __SerdeContext): any => {
-  return {
-    ...(input.AddressLine1 != null && { AddressLine1: input.AddressLine1 }),
-    ...(input.AddressLine2 != null && { AddressLine2: input.AddressLine2 }),
-    ...(input.City != null && { City: input.City }),
-    ...(input.ContactType != null && { ContactType: input.ContactType }),
-    ...(input.CountryCode != null && { CountryCode: input.CountryCode }),
-    ...(input.Email != null && { Email: input.Email }),
-    ...(input.ExtraParams != null && { ExtraParams: se_ExtraParamList(input.ExtraParams, context) }),
-    ...(input.Fax != null && { Fax: input.Fax }),
-    ...(input.FirstName != null && { FirstName: input.FirstName }),
-    ...(input.LastName != null && { LastName: input.LastName }),
-    ...(input.OrganizationName != null && { OrganizationName: input.OrganizationName }),
-    ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
-    ...(input.State != null && { State: input.State }),
-    ...(input.ZipCode != null && { ZipCode: input.ZipCode }),
-  };
-};
+// se_ContactDetail omitted.
 
-/**
- * serializeAws_json1_1DeleteDomainRequest
- */
-const se_DeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_DeleteDomainRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteTagsForDomainRequest
- */
-const se_DeleteTagsForDomainRequest = (input: DeleteTagsForDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.TagsToDelete != null && { TagsToDelete: se_TagKeyList(input.TagsToDelete, context) }),
-  };
-};
+// se_DeleteTagsForDomainRequest omitted.
 
-/**
- * serializeAws_json1_1DisableDomainAutoRenewRequest
- */
-const se_DisableDomainAutoRenewRequest = (input: DisableDomainAutoRenewRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_DisableDomainAutoRenewRequest omitted.
 
-/**
- * serializeAws_json1_1DisableDomainTransferLockRequest
- */
-const se_DisableDomainTransferLockRequest = (input: DisableDomainTransferLockRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_DisableDomainTransferLockRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateDelegationSignerFromDomainRequest
- */
-const se_DisassociateDelegationSignerFromDomainRequest = (
-  input: DisassociateDelegationSignerFromDomainRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DisassociateDelegationSignerFromDomainRequest omitted.
 
-/**
- * serializeAws_json1_1DnssecSigningAttributes
- */
-const se_DnssecSigningAttributes = (input: DnssecSigningAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.Algorithm != null && { Algorithm: input.Algorithm }),
-    ...(input.Flags != null && { Flags: input.Flags }),
-    ...(input.PublicKey != null && { PublicKey: input.PublicKey }),
-  };
-};
+// se_DnssecSigningAttributes omitted.
 
-/**
- * serializeAws_json1_1EnableDomainAutoRenewRequest
- */
-const se_EnableDomainAutoRenewRequest = (input: EnableDomainAutoRenewRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_EnableDomainAutoRenewRequest omitted.
 
-/**
- * serializeAws_json1_1EnableDomainTransferLockRequest
- */
-const se_EnableDomainTransferLockRequest = (input: EnableDomainTransferLockRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_EnableDomainTransferLockRequest omitted.
 
-/**
- * serializeAws_json1_1ExtraParam
- */
-const se_ExtraParam = (input: ExtraParam, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ExtraParam omitted.
 
-/**
- * serializeAws_json1_1ExtraParamList
- */
-const se_ExtraParamList = (input: ExtraParam[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ExtraParam(entry, context);
-    });
-};
+// se_ExtraParamList omitted.
 
-/**
- * serializeAws_json1_1FilterCondition
- */
-const se_FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Operator != null && { Operator: input.Operator }),
-    ...(input.Values != null && { Values: se_Values(input.Values, context) }),
-  };
-};
+// se_FilterCondition omitted.
 
-/**
- * serializeAws_json1_1FilterConditions
- */
-const se_FilterConditions = (input: FilterCondition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FilterCondition(entry, context);
-    });
-};
+// se_FilterConditions omitted.
 
-/**
- * serializeAws_json1_1GetContactReachabilityStatusRequest
- */
-const se_GetContactReachabilityStatusRequest = (
-  input: GetContactReachabilityStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.domainName != null && { domainName: input.domainName }),
-  };
-};
+// se_GetContactReachabilityStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetDomainDetailRequest
- */
-const se_GetDomainDetailRequest = (input: GetDomainDetailRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_GetDomainDetailRequest omitted.
 
-/**
- * serializeAws_json1_1GetDomainSuggestionsRequest
- */
-const se_GetDomainSuggestionsRequest = (input: GetDomainSuggestionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.OnlyAvailable != null && { OnlyAvailable: input.OnlyAvailable }),
-    ...(input.SuggestionCount != null && { SuggestionCount: input.SuggestionCount }),
-  };
-};
+// se_GetDomainSuggestionsRequest omitted.
 
-/**
- * serializeAws_json1_1GetOperationDetailRequest
- */
-const se_GetOperationDetailRequest = (input: GetOperationDetailRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.OperationId != null && { OperationId: input.OperationId }),
-  };
-};
+// se_GetOperationDetailRequest omitted.
 
-/**
- * serializeAws_json1_1GlueIpList
- */
-const se_GlueIpList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_GlueIpList omitted.
 
-/**
- * serializeAws_json1_1ListDomainsRequest
- */
-const se_ListDomainsRequest = (input: ListDomainsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FilterConditions != null && { FilterConditions: se_FilterConditions(input.FilterConditions, context) }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
-    ...(input.SortCondition != null && { SortCondition: se_SortCondition(input.SortCondition, context) }),
-  };
-};
+// se_ListDomainsRequest omitted.
 
 /**
  * serializeAws_json1_1ListOperationsRequest
  */
 const se_ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-    ...(input.Status != null && { Status: se_OperationStatusList(input.Status, context) }),
-    ...(input.SubmittedSince != null && { SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000) }),
-    ...(input.Type != null && { Type: se_OperationTypeList(input.Type, context) }),
-  };
+  return take(input, {
+    Marker: [],
+    MaxItems: [],
+    SortBy: [],
+    SortOrder: [],
+    Status: (_) => _json(_),
+    SubmittedSince: (_) => Math.round(_.getTime() / 1000),
+    Type: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1ListPricesRequest
- */
-const se_ListPricesRequest = (input: ListPricesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
-    ...(input.Tld != null && { Tld: input.Tld }),
-  };
-};
+// se_ListPricesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForDomainRequest
- */
-const se_ListTagsForDomainRequest = (input: ListTagsForDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_ListTagsForDomainRequest omitted.
 
-/**
- * serializeAws_json1_1Nameserver
- */
-const se_Nameserver = (input: Nameserver, context: __SerdeContext): any => {
-  return {
-    ...(input.GlueIps != null && { GlueIps: se_GlueIpList(input.GlueIps, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_Nameserver omitted.
 
-/**
- * serializeAws_json1_1NameserverList
- */
-const se_NameserverList = (input: Nameserver[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Nameserver(entry, context);
-    });
-};
+// se_NameserverList omitted.
 
-/**
- * serializeAws_json1_1OperationStatusList
- */
-const se_OperationStatusList = (input: (OperationStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OperationStatusList omitted.
 
-/**
- * serializeAws_json1_1OperationTypeList
- */
-const se_OperationTypeList = (input: (OperationType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OperationTypeList omitted.
 
-/**
- * serializeAws_json1_1PushDomainRequest
- */
-const se_PushDomainRequest = (input: PushDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.Target != null && { Target: input.Target }),
-  };
-};
+// se_PushDomainRequest omitted.
 
-/**
- * serializeAws_json1_1RegisterDomainRequest
- */
-const se_RegisterDomainRequest = (input: RegisterDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AdminContact != null && { AdminContact: se_ContactDetail(input.AdminContact, context) }),
-    ...(input.AutoRenew != null && { AutoRenew: input.AutoRenew }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.DurationInYears != null && { DurationInYears: input.DurationInYears }),
-    ...(input.IdnLangCode != null && { IdnLangCode: input.IdnLangCode }),
-    ...(input.PrivacyProtectAdminContact != null && { PrivacyProtectAdminContact: input.PrivacyProtectAdminContact }),
-    ...(input.PrivacyProtectRegistrantContact != null && {
-      PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
-    }),
-    ...(input.PrivacyProtectTechContact != null && { PrivacyProtectTechContact: input.PrivacyProtectTechContact }),
-    ...(input.RegistrantContact != null && { RegistrantContact: se_ContactDetail(input.RegistrantContact, context) }),
-    ...(input.TechContact != null && { TechContact: se_ContactDetail(input.TechContact, context) }),
-  };
-};
+// se_RegisterDomainRequest omitted.
 
-/**
- * serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountRequest
- */
-const se_RejectDomainTransferFromAnotherAwsAccountRequest = (
-  input: RejectDomainTransferFromAnotherAwsAccountRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_RejectDomainTransferFromAnotherAwsAccountRequest omitted.
 
-/**
- * serializeAws_json1_1RenewDomainRequest
- */
-const se_RenewDomainRequest = (input: RenewDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CurrentExpiryYear != null && { CurrentExpiryYear: input.CurrentExpiryYear }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.DurationInYears != null && { DurationInYears: input.DurationInYears }),
-  };
-};
+// se_RenewDomainRequest omitted.
 
-/**
- * serializeAws_json1_1ResendContactReachabilityEmailRequest
- */
-const se_ResendContactReachabilityEmailRequest = (
-  input: ResendContactReachabilityEmailRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.domainName != null && { domainName: input.domainName }),
-  };
-};
+// se_ResendContactReachabilityEmailRequest omitted.
 
-/**
- * serializeAws_json1_1ResendOperationAuthorizationRequest
- */
-const se_ResendOperationAuthorizationRequest = (
-  input: ResendOperationAuthorizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OperationId != null && { OperationId: input.OperationId }),
-  };
-};
+// se_ResendOperationAuthorizationRequest omitted.
 
-/**
- * serializeAws_json1_1RetrieveDomainAuthCodeRequest
- */
-const se_RetrieveDomainAuthCodeRequest = (input: RetrieveDomainAuthCodeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_RetrieveDomainAuthCodeRequest omitted.
 
-/**
- * serializeAws_json1_1SortCondition
- */
-const se_SortCondition = (input: SortCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_SortCondition omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TransferDomainRequest
- */
-const se_TransferDomainRequest = (input: TransferDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AdminContact != null && { AdminContact: se_ContactDetail(input.AdminContact, context) }),
-    ...(input.AuthCode != null && { AuthCode: input.AuthCode }),
-    ...(input.AutoRenew != null && { AutoRenew: input.AutoRenew }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.DurationInYears != null && { DurationInYears: input.DurationInYears }),
-    ...(input.IdnLangCode != null && { IdnLangCode: input.IdnLangCode }),
-    ...(input.Nameservers != null && { Nameservers: se_NameserverList(input.Nameservers, context) }),
-    ...(input.PrivacyProtectAdminContact != null && { PrivacyProtectAdminContact: input.PrivacyProtectAdminContact }),
-    ...(input.PrivacyProtectRegistrantContact != null && {
-      PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
-    }),
-    ...(input.PrivacyProtectTechContact != null && { PrivacyProtectTechContact: input.PrivacyProtectTechContact }),
-    ...(input.RegistrantContact != null && { RegistrantContact: se_ContactDetail(input.RegistrantContact, context) }),
-    ...(input.TechContact != null && { TechContact: se_ContactDetail(input.TechContact, context) }),
-  };
-};
+// se_TransferDomainRequest omitted.
 
-/**
- * serializeAws_json1_1TransferDomainToAnotherAwsAccountRequest
- */
-const se_TransferDomainToAnotherAwsAccountRequest = (
-  input: TransferDomainToAnotherAwsAccountRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  };
-};
+// se_TransferDomainToAnotherAwsAccountRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateDomainContactPrivacyRequest
- */
-const se_UpdateDomainContactPrivacyRequest = (
-  input: UpdateDomainContactPrivacyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AdminPrivacy != null && { AdminPrivacy: input.AdminPrivacy }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.RegistrantPrivacy != null && { RegistrantPrivacy: input.RegistrantPrivacy }),
-    ...(input.TechPrivacy != null && { TechPrivacy: input.TechPrivacy }),
-  };
-};
+// se_UpdateDomainContactPrivacyRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateDomainContactRequest
  */
 const se_UpdateDomainContactRequest = (input: UpdateDomainContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AdminContact != null && { AdminContact: se_ContactDetail(input.AdminContact, context) }),
-    ...(input.Consent != null && { Consent: se_Consent(input.Consent, context) }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.RegistrantContact != null && { RegistrantContact: se_ContactDetail(input.RegistrantContact, context) }),
-    ...(input.TechContact != null && { TechContact: se_ContactDetail(input.TechContact, context) }),
-  };
+  return take(input, {
+    AdminContact: (_) => _json(_),
+    Consent: (_) => se_Consent(_, context),
+    DomainName: [],
+    RegistrantContact: (_) => _json(_),
+    TechContact: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateDomainNameserversRequest
- */
-const se_UpdateDomainNameserversRequest = (input: UpdateDomainNameserversRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.FIAuthKey != null && { FIAuthKey: input.FIAuthKey }),
-    ...(input.Nameservers != null && { Nameservers: se_NameserverList(input.Nameservers, context) }),
-  };
-};
+// se_UpdateDomainNameserversRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateTagsForDomainRequest
- */
-const se_UpdateTagsForDomainRequest = (input: UpdateTagsForDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.TagsToUpdate != null && { TagsToUpdate: se_TagList(input.TagsToUpdate, context) }),
-  };
-};
+// se_UpdateTagsForDomainRequest omitted.
 
-/**
- * serializeAws_json1_1Values
- */
-const se_Values = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Values omitted.
 
 /**
  * serializeAws_json1_1ViewBillingRequest
  */
 const se_ViewBillingRequest = (input: ViewBillingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.End != null && { End: Math.round(input.End.getTime() / 1000) }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
-    ...(input.Start != null && { Start: Math.round(input.Start.getTime() / 1000) }),
-  };
+  return take(input, {
+    End: (_) => Math.round(_.getTime() / 1000),
+    Marker: [],
+    MaxItems: [],
+    Start: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountResponse
- */
-const de_AcceptDomainTransferFromAnotherAwsAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): AcceptDomainTransferFromAnotherAwsAccountResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_AcceptDomainTransferFromAnotherAwsAccountResponse omitted.
 
-/**
- * deserializeAws_json1_1AssociateDelegationSignerToDomainResponse
- */
-const de_AssociateDelegationSignerToDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateDelegationSignerToDomainResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_AssociateDelegationSignerToDomainResponse omitted.
 
 /**
  * deserializeAws_json1_1BillingRecord
  */
 const de_BillingRecord = (output: any, context: __SerdeContext): BillingRecord => {
-  return {
-    BillDate:
-      output.BillDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.BillDate))) : undefined,
-    DomainName: __expectString(output.DomainName),
-    InvoiceId: __expectString(output.InvoiceId),
-    Operation: __expectString(output.Operation),
-    Price: __limitedParseDouble(output.Price),
-  } as any;
+  return take(output, {
+    BillDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainName: __expectString,
+    InvoiceId: __expectString,
+    Operation: __expectString,
+    Price: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -3212,180 +2679,49 @@ const de_BillingRecords = (output: any, context: __SerdeContext): BillingRecord[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BillingRecord(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountResponse
- */
-const de_CancelDomainTransferToAnotherAwsAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): CancelDomainTransferToAnotherAwsAccountResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_CancelDomainTransferToAnotherAwsAccountResponse omitted.
 
-/**
- * deserializeAws_json1_1CheckDomainAvailabilityResponse
- */
-const de_CheckDomainAvailabilityResponse = (output: any, context: __SerdeContext): CheckDomainAvailabilityResponse => {
-  return {
-    Availability: __expectString(output.Availability),
-  } as any;
-};
+// de_CheckDomainAvailabilityResponse omitted.
 
-/**
- * deserializeAws_json1_1CheckDomainTransferabilityResponse
- */
-const de_CheckDomainTransferabilityResponse = (
-  output: any,
-  context: __SerdeContext
-): CheckDomainTransferabilityResponse => {
-  return {
-    Transferability:
-      output.Transferability != null ? de_DomainTransferability(output.Transferability, context) : undefined,
-  } as any;
-};
+// de_CheckDomainTransferabilityResponse omitted.
 
-/**
- * deserializeAws_json1_1ContactDetail
- */
-const de_ContactDetail = (output: any, context: __SerdeContext): ContactDetail => {
-  return {
-    AddressLine1: __expectString(output.AddressLine1),
-    AddressLine2: __expectString(output.AddressLine2),
-    City: __expectString(output.City),
-    ContactType: __expectString(output.ContactType),
-    CountryCode: __expectString(output.CountryCode),
-    Email: __expectString(output.Email),
-    ExtraParams: output.ExtraParams != null ? de_ExtraParamList(output.ExtraParams, context) : undefined,
-    Fax: __expectString(output.Fax),
-    FirstName: __expectString(output.FirstName),
-    LastName: __expectString(output.LastName),
-    OrganizationName: __expectString(output.OrganizationName),
-    PhoneNumber: __expectString(output.PhoneNumber),
-    State: __expectString(output.State),
-    ZipCode: __expectString(output.ZipCode),
-  } as any;
-};
+// de_ContactDetail omitted.
 
-/**
- * deserializeAws_json1_1DeleteDomainResponse
- */
-const de_DeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDomainResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_DeleteDomainResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteTagsForDomainResponse
- */
-const de_DeleteTagsForDomainResponse = (output: any, context: __SerdeContext): DeleteTagsForDomainResponse => {
-  return {} as any;
-};
+// de_DeleteTagsForDomainResponse omitted.
 
-/**
- * deserializeAws_json1_1DisableDomainAutoRenewResponse
- */
-const de_DisableDomainAutoRenewResponse = (output: any, context: __SerdeContext): DisableDomainAutoRenewResponse => {
-  return {} as any;
-};
+// de_DisableDomainAutoRenewResponse omitted.
 
-/**
- * deserializeAws_json1_1DisableDomainTransferLockResponse
- */
-const de_DisableDomainTransferLockResponse = (
-  output: any,
-  context: __SerdeContext
-): DisableDomainTransferLockResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_DisableDomainTransferLockResponse omitted.
 
-/**
- * deserializeAws_json1_1DisassociateDelegationSignerFromDomainResponse
- */
-const de_DisassociateDelegationSignerFromDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): DisassociateDelegationSignerFromDomainResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_DisassociateDelegationSignerFromDomainResponse omitted.
 
-/**
- * deserializeAws_json1_1DnssecKey
- */
-const de_DnssecKey = (output: any, context: __SerdeContext): DnssecKey => {
-  return {
-    Algorithm: __expectInt32(output.Algorithm),
-    Digest: __expectString(output.Digest),
-    DigestType: __expectInt32(output.DigestType),
-    Flags: __expectInt32(output.Flags),
-    Id: __expectString(output.Id),
-    KeyTag: __expectInt32(output.KeyTag),
-    PublicKey: __expectString(output.PublicKey),
-  } as any;
-};
+// de_DnssecKey omitted.
 
-/**
- * deserializeAws_json1_1DnssecKeyList
- */
-const de_DnssecKeyList = (output: any, context: __SerdeContext): DnssecKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DnssecKey(entry, context);
-    });
-  return retVal;
-};
+// de_DnssecKeyList omitted.
 
-/**
- * deserializeAws_json1_1DnssecLimitExceeded
- */
-const de_DnssecLimitExceeded = (output: any, context: __SerdeContext): DnssecLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DnssecLimitExceeded omitted.
 
-/**
- * deserializeAws_json1_1DomainLimitExceeded
- */
-const de_DomainLimitExceeded = (output: any, context: __SerdeContext): DomainLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DomainLimitExceeded omitted.
 
 /**
  * deserializeAws_json1_1DomainPrice
  */
 const de_DomainPrice = (output: any, context: __SerdeContext): DomainPrice => {
-  return {
-    ChangeOwnershipPrice:
-      output.ChangeOwnershipPrice != null ? de_PriceWithCurrency(output.ChangeOwnershipPrice, context) : undefined,
-    Name: __expectString(output.Name),
-    RegistrationPrice:
-      output.RegistrationPrice != null ? de_PriceWithCurrency(output.RegistrationPrice, context) : undefined,
-    RenewalPrice: output.RenewalPrice != null ? de_PriceWithCurrency(output.RenewalPrice, context) : undefined,
-    RestorationPrice:
-      output.RestorationPrice != null ? de_PriceWithCurrency(output.RestorationPrice, context) : undefined,
-    TransferPrice: output.TransferPrice != null ? de_PriceWithCurrency(output.TransferPrice, context) : undefined,
-  } as any;
+  return take(output, {
+    ChangeOwnershipPrice: (_: any) => de_PriceWithCurrency(_, context),
+    Name: __expectString,
+    RegistrationPrice: (_: any) => de_PriceWithCurrency(_, context),
+    RenewalPrice: (_: any) => de_PriceWithCurrency(_, context),
+    RestorationPrice: (_: any) => de_PriceWithCurrency(_, context),
+    TransferPrice: (_: any) => de_PriceWithCurrency(_, context),
+  }) as any;
 };
 
 /**
@@ -3395,64 +2731,27 @@ const de_DomainPriceList = (output: any, context: __SerdeContext): DomainPrice[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainPrice(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DomainStatusList
- */
-const de_DomainStatusList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DomainStatusList omitted.
 
-/**
- * deserializeAws_json1_1DomainSuggestion
- */
-const de_DomainSuggestion = (output: any, context: __SerdeContext): DomainSuggestion => {
-  return {
-    Availability: __expectString(output.Availability),
-    DomainName: __expectString(output.DomainName),
-  } as any;
-};
+// de_DomainSuggestion omitted.
 
-/**
- * deserializeAws_json1_1DomainSuggestionsList
- */
-const de_DomainSuggestionsList = (output: any, context: __SerdeContext): DomainSuggestion[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DomainSuggestion(entry, context);
-    });
-  return retVal;
-};
+// de_DomainSuggestionsList omitted.
 
 /**
  * deserializeAws_json1_1DomainSummary
  */
 const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
-  return {
-    AutoRenew: __expectBoolean(output.AutoRenew),
-    DomainName: __expectString(output.DomainName),
-    Expiry: output.Expiry != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiry))) : undefined,
-    TransferLock: __expectBoolean(output.TransferLock),
-  } as any;
+  return take(output, {
+    AutoRenew: __expectBoolean,
+    DomainName: __expectString,
+    Expiry: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TransferLock: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -3462,278 +2761,129 @@ const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DomainTransferability
- */
-const de_DomainTransferability = (output: any, context: __SerdeContext): DomainTransferability => {
-  return {
-    Transferable: __expectString(output.Transferable),
-  } as any;
-};
+// de_DomainTransferability omitted.
 
-/**
- * deserializeAws_json1_1DuplicateRequest
- */
-const de_DuplicateRequest = (output: any, context: __SerdeContext): DuplicateRequest => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DuplicateRequest omitted.
 
-/**
- * deserializeAws_json1_1EnableDomainAutoRenewResponse
- */
-const de_EnableDomainAutoRenewResponse = (output: any, context: __SerdeContext): EnableDomainAutoRenewResponse => {
-  return {} as any;
-};
+// de_EnableDomainAutoRenewResponse omitted.
 
-/**
- * deserializeAws_json1_1EnableDomainTransferLockResponse
- */
-const de_EnableDomainTransferLockResponse = (
-  output: any,
-  context: __SerdeContext
-): EnableDomainTransferLockResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_EnableDomainTransferLockResponse omitted.
 
-/**
- * deserializeAws_json1_1ExtraParam
- */
-const de_ExtraParam = (output: any, context: __SerdeContext): ExtraParam => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ExtraParam omitted.
 
-/**
- * deserializeAws_json1_1ExtraParamList
- */
-const de_ExtraParamList = (output: any, context: __SerdeContext): ExtraParam[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExtraParam(entry, context);
-    });
-  return retVal;
-};
+// de_ExtraParamList omitted.
 
-/**
- * deserializeAws_json1_1GetContactReachabilityStatusResponse
- */
-const de_GetContactReachabilityStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): GetContactReachabilityStatusResponse => {
-  return {
-    domainName: __expectString(output.domainName),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_GetContactReachabilityStatusResponse omitted.
 
 /**
  * deserializeAws_json1_1GetDomainDetailResponse
  */
 const de_GetDomainDetailResponse = (output: any, context: __SerdeContext): GetDomainDetailResponse => {
-  return {
-    AbuseContactEmail: __expectString(output.AbuseContactEmail),
-    AbuseContactPhone: __expectString(output.AbuseContactPhone),
-    AdminContact: output.AdminContact != null ? de_ContactDetail(output.AdminContact, context) : undefined,
-    AdminPrivacy: __expectBoolean(output.AdminPrivacy),
-    AutoRenew: __expectBoolean(output.AutoRenew),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    DnsSec: __expectString(output.DnsSec),
-    DnssecKeys: output.DnssecKeys != null ? de_DnssecKeyList(output.DnssecKeys, context) : undefined,
-    DomainName: __expectString(output.DomainName),
-    ExpirationDate:
-      output.ExpirationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
-        : undefined,
-    Nameservers: output.Nameservers != null ? de_NameserverList(output.Nameservers, context) : undefined,
-    RegistrantContact:
-      output.RegistrantContact != null ? de_ContactDetail(output.RegistrantContact, context) : undefined,
-    RegistrantPrivacy: __expectBoolean(output.RegistrantPrivacy),
-    RegistrarName: __expectString(output.RegistrarName),
-    RegistrarUrl: __expectString(output.RegistrarUrl),
-    RegistryDomainId: __expectString(output.RegistryDomainId),
-    Reseller: __expectString(output.Reseller),
-    StatusList: output.StatusList != null ? de_DomainStatusList(output.StatusList, context) : undefined,
-    TechContact: output.TechContact != null ? de_ContactDetail(output.TechContact, context) : undefined,
-    TechPrivacy: __expectBoolean(output.TechPrivacy),
-    UpdatedDate:
-      output.UpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedDate)))
-        : undefined,
-    WhoIsServer: __expectString(output.WhoIsServer),
-  } as any;
+  return take(output, {
+    AbuseContactEmail: __expectString,
+    AbuseContactPhone: __expectString,
+    AdminContact: _json,
+    AdminPrivacy: __expectBoolean,
+    AutoRenew: __expectBoolean,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DnsSec: __expectString,
+    DnssecKeys: _json,
+    DomainName: __expectString,
+    ExpirationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Nameservers: _json,
+    RegistrantContact: _json,
+    RegistrantPrivacy: __expectBoolean,
+    RegistrarName: __expectString,
+    RegistrarUrl: __expectString,
+    RegistryDomainId: __expectString,
+    Reseller: __expectString,
+    StatusList: _json,
+    TechContact: _json,
+    TechPrivacy: __expectBoolean,
+    UpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WhoIsServer: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetDomainSuggestionsResponse
- */
-const de_GetDomainSuggestionsResponse = (output: any, context: __SerdeContext): GetDomainSuggestionsResponse => {
-  return {
-    SuggestionsList:
-      output.SuggestionsList != null ? de_DomainSuggestionsList(output.SuggestionsList, context) : undefined,
-  } as any;
-};
+// de_GetDomainSuggestionsResponse omitted.
 
 /**
  * deserializeAws_json1_1GetOperationDetailResponse
  */
 const de_GetOperationDetailResponse = (output: any, context: __SerdeContext): GetOperationDetailResponse => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    LastUpdatedDate:
-      output.LastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDate)))
-        : undefined,
-    Message: __expectString(output.Message),
-    OperationId: __expectString(output.OperationId),
-    Status: __expectString(output.Status),
-    StatusFlag: __expectString(output.StatusFlag),
-    SubmittedDate:
-      output.SubmittedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedDate)))
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    DomainName: __expectString,
+    LastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    OperationId: __expectString,
+    Status: __expectString,
+    StatusFlag: __expectString,
+    SubmittedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GlueIpList
- */
-const de_GlueIpList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_GlueIpList omitted.
 
-/**
- * deserializeAws_json1_1InvalidInput
- */
-const de_InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidInput omitted.
 
 /**
  * deserializeAws_json1_1ListDomainsResponse
  */
 const de_ListDomainsResponse = (output: any, context: __SerdeContext): ListDomainsResponse => {
-  return {
-    Domains: output.Domains != null ? de_DomainSummaryList(output.Domains, context) : undefined,
-    NextPageMarker: __expectString(output.NextPageMarker),
-  } as any;
+  return take(output, {
+    Domains: (_: any) => de_DomainSummaryList(_, context),
+    NextPageMarker: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListOperationsResponse
  */
 const de_ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
-  return {
-    NextPageMarker: __expectString(output.NextPageMarker),
-    Operations: output.Operations != null ? de_OperationSummaryList(output.Operations, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageMarker: __expectString,
+    Operations: (_: any) => de_OperationSummaryList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListPricesResponse
  */
 const de_ListPricesResponse = (output: any, context: __SerdeContext): ListPricesResponse => {
-  return {
-    NextPageMarker: __expectString(output.NextPageMarker),
-    Prices: output.Prices != null ? de_DomainPriceList(output.Prices, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageMarker: __expectString,
+    Prices: (_: any) => de_DomainPriceList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForDomainResponse
- */
-const de_ListTagsForDomainResponse = (output: any, context: __SerdeContext): ListTagsForDomainResponse => {
-  return {
-    TagList: output.TagList != null ? de_TagList(output.TagList, context) : undefined,
-  } as any;
-};
+// de_ListTagsForDomainResponse omitted.
 
-/**
- * deserializeAws_json1_1Nameserver
- */
-const de_Nameserver = (output: any, context: __SerdeContext): Nameserver => {
-  return {
-    GlueIps: output.GlueIps != null ? de_GlueIpList(output.GlueIps, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Nameserver omitted.
 
-/**
- * deserializeAws_json1_1NameserverList
- */
-const de_NameserverList = (output: any, context: __SerdeContext): Nameserver[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Nameserver(entry, context);
-    });
-  return retVal;
-};
+// de_NameserverList omitted.
 
-/**
- * deserializeAws_json1_1OperationLimitExceeded
- */
-const de_OperationLimitExceeded = (output: any, context: __SerdeContext): OperationLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OperationLimitExceeded omitted.
 
 /**
  * deserializeAws_json1_1OperationSummary
  */
 const de_OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    LastUpdatedDate:
-      output.LastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDate)))
-        : undefined,
-    Message: __expectString(output.Message),
-    OperationId: __expectString(output.OperationId),
-    Status: __expectString(output.Status),
-    StatusFlag: __expectString(output.StatusFlag),
-    SubmittedDate:
-      output.SubmittedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedDate)))
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    DomainName: __expectString,
+    LastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    OperationId: __expectString,
+    Status: __expectString,
+    StatusFlag: __expectString,
+    SubmittedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3743,9 +2893,6 @@ const de_OperationSummaryList = (output: any, context: __SerdeContext): Operatio
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OperationSummary(entry, context);
     });
   return retVal;
@@ -3755,175 +2902,50 @@ const de_OperationSummaryList = (output: any, context: __SerdeContext): Operatio
  * deserializeAws_json1_1PriceWithCurrency
  */
 const de_PriceWithCurrency = (output: any, context: __SerdeContext): PriceWithCurrency => {
-  return {
-    Currency: __expectString(output.Currency),
-    Price: __limitedParseDouble(output.Price),
-  } as any;
+  return take(output, {
+    Currency: __expectString,
+    Price: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RegisterDomainResponse
- */
-const de_RegisterDomainResponse = (output: any, context: __SerdeContext): RegisterDomainResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_RegisterDomainResponse omitted.
 
-/**
- * deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountResponse
- */
-const de_RejectDomainTransferFromAnotherAwsAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): RejectDomainTransferFromAnotherAwsAccountResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_RejectDomainTransferFromAnotherAwsAccountResponse omitted.
 
-/**
- * deserializeAws_json1_1RenewDomainResponse
- */
-const de_RenewDomainResponse = (output: any, context: __SerdeContext): RenewDomainResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_RenewDomainResponse omitted.
 
-/**
- * deserializeAws_json1_1ResendContactReachabilityEmailResponse
- */
-const de_ResendContactReachabilityEmailResponse = (
-  output: any,
-  context: __SerdeContext
-): ResendContactReachabilityEmailResponse => {
-  return {
-    domainName: __expectString(output.domainName),
-    emailAddress: __expectString(output.emailAddress),
-    isAlreadyVerified: __expectBoolean(output.isAlreadyVerified),
-  } as any;
-};
+// de_ResendContactReachabilityEmailResponse omitted.
 
-/**
- * deserializeAws_json1_1RetrieveDomainAuthCodeResponse
- */
-const de_RetrieveDomainAuthCodeResponse = (output: any, context: __SerdeContext): RetrieveDomainAuthCodeResponse => {
-  return {
-    AuthCode: __expectString(output.AuthCode),
-  } as any;
-};
+// de_RetrieveDomainAuthCodeResponse omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TLDRulesViolation
- */
-const de_TLDRulesViolation = (output: any, context: __SerdeContext): TLDRulesViolation => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TLDRulesViolation omitted.
 
-/**
- * deserializeAws_json1_1TransferDomainResponse
- */
-const de_TransferDomainResponse = (output: any, context: __SerdeContext): TransferDomainResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_TransferDomainResponse omitted.
 
-/**
- * deserializeAws_json1_1TransferDomainToAnotherAwsAccountResponse
- */
-const de_TransferDomainToAnotherAwsAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): TransferDomainToAnotherAwsAccountResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-    Password: __expectString(output.Password),
-  } as any;
-};
+// de_TransferDomainToAnotherAwsAccountResponse omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedTLD
- */
-const de_UnsupportedTLD = (output: any, context: __SerdeContext): UnsupportedTLD => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedTLD omitted.
 
-/**
- * deserializeAws_json1_1UpdateDomainContactPrivacyResponse
- */
-const de_UpdateDomainContactPrivacyResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateDomainContactPrivacyResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_UpdateDomainContactPrivacyResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateDomainContactResponse
- */
-const de_UpdateDomainContactResponse = (output: any, context: __SerdeContext): UpdateDomainContactResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_UpdateDomainContactResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateDomainNameserversResponse
- */
-const de_UpdateDomainNameserversResponse = (output: any, context: __SerdeContext): UpdateDomainNameserversResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_UpdateDomainNameserversResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateTagsForDomainResponse
- */
-const de_UpdateTagsForDomainResponse = (output: any, context: __SerdeContext): UpdateTagsForDomainResponse => {
-  return {} as any;
-};
+// de_UpdateTagsForDomainResponse omitted.
 
 /**
  * deserializeAws_json1_1ViewBillingResponse
  */
 const de_ViewBillingResponse = (output: any, context: __SerdeContext): ViewBillingResponse => {
-  return {
-    BillingRecords: output.BillingRecords != null ? de_BillingRecords(output.BillingRecords, context) : undefined,
-    NextPageMarker: __expectString(output.NextPageMarker),
-  } as any;
+  return take(output, {
+    BillingRecords: (_: any) => de_BillingRecords(_, context),
+    NextPageMarker: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -3946,6 +2968,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

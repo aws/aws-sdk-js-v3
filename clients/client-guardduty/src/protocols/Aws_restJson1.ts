@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,10 +12,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -216,7 +218,6 @@ import {
   CoverageSortCriteria,
   CoverageStatistics,
   CoverageStatisticsType,
-  CoverageStatus,
   DataSource,
   DataSourceConfigurations,
   DataSourceConfigurationsResult,
@@ -304,7 +305,6 @@ import {
   RemotePortDetails,
   Resource,
   ResourceDetails,
-  ResourceType,
   RuntimeContext,
   RuntimeDetails,
   S3BucketDetail,
@@ -375,10 +375,12 @@ export const se_AcceptAdministratorInvitationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/administrator";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdministratorId != null && { administratorId: input.AdministratorId }),
-    ...(input.InvitationId != null && { invitationId: input.InvitationId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      administratorId: [, , `AdministratorId`],
+      invitationId: [, , `InvitationId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -405,10 +407,12 @@ export const se_AcceptInvitationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/master";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.InvitationId != null && { invitationId: input.InvitationId }),
-    ...(input.MasterId != null && { masterId: input.MasterId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      invitationId: [, , `InvitationId`],
+      masterId: [, , `MasterId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -435,9 +439,11 @@ export const se_ArchiveFindingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/findings/archive";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FindingIds != null && { findingIds: se_FindingIds(input.FindingIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      findingIds: [, (_) => _json(_), `FindingIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -462,14 +468,16 @@ export const se_CreateDetectorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataSources != null && { dataSources: se_DataSourceConfigurations(input.DataSources, context) }),
-    ...(input.Enable != null && { enable: input.Enable }),
-    ...(input.Features != null && { features: se_DetectorFeatureConfigurations(input.Features, context) }),
-    ...(input.FindingPublishingFrequency != null && { findingPublishingFrequency: input.FindingPublishingFrequency }),
-    ...(input.Tags != null && { tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      dataSources: [, (_) => se_DataSourceConfigurations(_, context), `DataSources`],
+      enable: [, , `Enable`],
+      features: [, (_) => se_DetectorFeatureConfigurations(_, context), `Features`],
+      findingPublishingFrequency: [, , `FindingPublishingFrequency`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -496,15 +504,17 @@ export const se_CreateFilterCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/filter";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { action: input.Action }),
-    clientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.FindingCriteria != null && { findingCriteria: se_FindingCriteria(input.FindingCriteria, context) }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Rank != null && { rank: input.Rank }),
-    ...(input.Tags != null && { tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      action: [, , `Action`],
+      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      description: [, , `Description`],
+      findingCriteria: [, (_) => se_FindingCriteria(_, context), `FindingCriteria`],
+      name: [, , `Name`],
+      rank: [, , `Rank`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -531,14 +541,16 @@ export const se_CreateIPSetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/ipset";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Activate != null && { activate: input.Activate }),
-    clientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Format != null && { format: input.Format }),
-    ...(input.Location != null && { location: input.Location }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Tags != null && { tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      activate: [, , `Activate`],
+      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      format: [, , `Format`],
+      location: [, , `Location`],
+      name: [, , `Name`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -565,9 +577,11 @@ export const se_CreateMembersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/member";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountDetails != null && { accountDetails: se_AccountDetails(input.AccountDetails, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountDetails: [, (_) => se_AccountDetails(_, context), `AccountDetails`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -595,13 +609,13 @@ export const se_CreatePublishingDestinationCommand = async (
     "/detector/{DetectorId}/publishingDestination";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DestinationProperties != null && {
-      destinationProperties: se_DestinationProperties(input.DestinationProperties, context),
-    }),
-    ...(input.DestinationType != null && { destinationType: input.DestinationType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      destinationProperties: [, (_) => se_DestinationProperties(_, context), `DestinationProperties`],
+      destinationType: [, , `DestinationType`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -628,9 +642,11 @@ export const se_CreateSampleFindingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/findings/create";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FindingTypes != null && { findingTypes: se_FindingTypes(input.FindingTypes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      findingTypes: [, (_) => _json(_), `FindingTypes`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -657,14 +673,16 @@ export const se_CreateThreatIntelSetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/threatintelset";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Activate != null && { activate: input.Activate }),
-    clientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Format != null && { format: input.Format }),
-    ...(input.Location != null && { location: input.Location }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Tags != null && { tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      activate: [, , `Activate`],
+      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      format: [, , `Format`],
+      location: [, , `Location`],
+      name: [, , `Name`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -689,9 +707,11 @@ export const se_DeclineInvitationsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitation/decline";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -765,9 +785,11 @@ export const se_DeleteInvitationsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitation/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -819,9 +841,11 @@ export const se_DeleteMembersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/member/delete";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -914,12 +938,14 @@ export const se_DescribeMalwareScansCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/malware-scans";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FilterCriteria != null && { filterCriteria: se_FilterCriteria(input.FilterCriteria, context) }),
-    ...(input.MaxResults != null && { maxResults: input.MaxResults }),
-    ...(input.NextToken != null && { nextToken: input.NextToken }),
-    ...(input.SortCriteria != null && { sortCriteria: se_SortCriteria(input.SortCriteria, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filterCriteria: [, (_) => se_FilterCriteria(_, context), `FilterCriteria`],
+      maxResults: [, , `MaxResults`],
+      nextToken: [, , `NextToken`],
+      sortCriteria: [, (_) => se_SortCriteria(_, context), `SortCriteria`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1006,9 +1032,11 @@ export const se_DisableOrganizationAdminAccountCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/admin/disable";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdminAccountId != null && { adminAccountId: input.AdminAccountId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      adminAccountId: [, , `AdminAccountId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1086,9 +1114,11 @@ export const se_DisassociateMembersCommand = async (
     "/detector/{DetectorId}/member/disassociate";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1113,9 +1143,11 @@ export const se_EnableOrganizationAdminAccountCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/admin/enable";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdminAccountId != null && { adminAccountId: input.AdminAccountId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      adminAccountId: [, , `AdminAccountId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1167,12 +1199,12 @@ export const se_GetCoverageStatisticsCommand = async (
     "/detector/{DetectorId}/coverage/statistics";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FilterCriteria != null && { filterCriteria: se_CoverageFilterCriteria(input.FilterCriteria, context) }),
-    ...(input.StatisticsType != null && {
-      statisticsType: se_CoverageStatisticsTypeList(input.StatisticsType, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filterCriteria: [, (_) => se_CoverageFilterCriteria(_, context), `FilterCriteria`],
+      statisticsType: [, (_) => _json(_), `StatisticsType`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1248,10 +1280,12 @@ export const se_GetFindingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/findings/get";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FindingIds != null && { findingIds: se_FindingIds(input.FindingIds, context) }),
-    ...(input.SortCriteria != null && { sortCriteria: se_SortCriteria(input.SortCriteria, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      findingIds: [, (_) => _json(_), `FindingIds`],
+      sortCriteria: [, (_) => se_SortCriteria(_, context), `SortCriteria`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1279,12 +1313,12 @@ export const se_GetFindingsStatisticsCommand = async (
     "/detector/{DetectorId}/findings/statistics";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FindingCriteria != null && { findingCriteria: se_FindingCriteria(input.FindingCriteria, context) }),
-    ...(input.FindingStatisticTypes != null && {
-      findingStatisticTypes: se_FindingStatisticTypes(input.FindingStatisticTypes, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      findingCriteria: [, (_) => se_FindingCriteria(_, context), `FindingCriteria`],
+      findingStatisticTypes: [, (_) => _json(_), `FindingStatisticTypes`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1411,9 +1445,11 @@ export const se_GetMemberDetectorsCommand = async (
     "/detector/{DetectorId}/member/detector/get";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1440,9 +1476,11 @@ export const se_GetMembersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/member/get";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1470,9 +1508,11 @@ export const se_GetRemainingFreeTrialDaysCommand = async (
     "/detector/{DetectorId}/freeTrial/daysRemaining";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1532,13 +1572,15 @@ export const se_GetUsageStatisticsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/usage/statistics";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { maxResults: input.MaxResults }),
-    ...(input.NextToken != null && { nextToken: input.NextToken }),
-    ...(input.Unit != null && { unit: input.Unit }),
-    ...(input.UsageCriteria != null && { usageCriteria: se_UsageCriteria(input.UsageCriteria, context) }),
-    ...(input.UsageStatisticType != null && { usageStatisticsType: input.UsageStatisticType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [, , `MaxResults`],
+      nextToken: [, , `NextToken`],
+      unit: [, , `Unit`],
+      usageCriteria: [, (_) => se_UsageCriteria(_, context), `UsageCriteria`],
+      usageStatisticsType: [, , `UsageStatisticType`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1565,11 +1607,13 @@ export const se_InviteMembersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/member/invite";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-    ...(input.DisableEmailNotification != null && { disableEmailNotification: input.DisableEmailNotification }),
-    ...(input.Message != null && { message: input.Message }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+      disableEmailNotification: [, , `DisableEmailNotification`],
+      message: [, , `Message`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1596,12 +1640,14 @@ export const se_ListCoverageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/coverage";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FilterCriteria != null && { filterCriteria: se_CoverageFilterCriteria(input.FilterCriteria, context) }),
-    ...(input.MaxResults != null && { maxResults: input.MaxResults }),
-    ...(input.NextToken != null && { nextToken: input.NextToken }),
-    ...(input.SortCriteria != null && { sortCriteria: se_CoverageSortCriteria(input.SortCriteria, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filterCriteria: [, (_) => se_CoverageFilterCriteria(_, context), `FilterCriteria`],
+      maxResults: [, , `MaxResults`],
+      nextToken: [, , `NextToken`],
+      sortCriteria: [, (_) => se_CoverageSortCriteria(_, context), `SortCriteria`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1684,12 +1730,14 @@ export const se_ListFindingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/findings";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FindingCriteria != null && { findingCriteria: se_FindingCriteria(input.FindingCriteria, context) }),
-    ...(input.MaxResults != null && { maxResults: input.MaxResults }),
-    ...(input.NextToken != null && { nextToken: input.NextToken }),
-    ...(input.SortCriteria != null && { sortCriteria: se_SortCriteria(input.SortCriteria, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      findingCriteria: [, (_) => se_FindingCriteria(_, context), `FindingCriteria`],
+      maxResults: [, , `MaxResults`],
+      nextToken: [, , `NextToken`],
+      sortCriteria: [, (_) => se_SortCriteria(_, context), `SortCriteria`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1911,9 +1959,11 @@ export const se_StartMonitoringMembersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/member/start";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1940,9 +1990,11 @@ export const se_StopMonitoringMembersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/member/stop";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1968,9 +2020,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1997,9 +2051,11 @@ export const se_UnarchiveFindingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/findings/unarchive";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FindingIds != null && { findingIds: se_FindingIds(input.FindingIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      findingIds: [, (_) => _json(_), `FindingIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2055,12 +2111,14 @@ export const se_UpdateDetectorCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DataSources != null && { dataSources: se_DataSourceConfigurations(input.DataSources, context) }),
-    ...(input.Enable != null && { enable: input.Enable }),
-    ...(input.Features != null && { features: se_DetectorFeatureConfigurations(input.Features, context) }),
-    ...(input.FindingPublishingFrequency != null && { findingPublishingFrequency: input.FindingPublishingFrequency }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      dataSources: [, (_) => se_DataSourceConfigurations(_, context), `DataSources`],
+      enable: [, , `Enable`],
+      features: [, (_) => se_DetectorFeatureConfigurations(_, context), `Features`],
+      findingPublishingFrequency: [, , `FindingPublishingFrequency`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2089,12 +2147,14 @@ export const se_UpdateFilterCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "FilterName", () => input.FilterName!, "{FilterName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { action: input.Action }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.FindingCriteria != null && { findingCriteria: se_FindingCriteria(input.FindingCriteria, context) }),
-    ...(input.Rank != null && { rank: input.Rank }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      action: [, , `Action`],
+      description: [, , `Description`],
+      findingCriteria: [, (_) => se_FindingCriteria(_, context), `FindingCriteria`],
+      rank: [, , `Rank`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2121,11 +2181,13 @@ export const se_UpdateFindingsFeedbackCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/findings/feedback";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Comments != null && { comments: input.Comments }),
-    ...(input.Feedback != null && { feedback: input.Feedback }),
-    ...(input.FindingIds != null && { findingIds: se_FindingIds(input.FindingIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      comments: [, , `Comments`],
+      feedback: [, , `Feedback`],
+      findingIds: [, (_) => _json(_), `FindingIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2153,11 +2215,13 @@ export const se_UpdateIPSetCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "IpSetId", () => input.IpSetId!, "{IpSetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Activate != null && { activate: input.Activate }),
-    ...(input.Location != null && { location: input.Location }),
-    ...(input.Name != null && { name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      activate: [, , `Activate`],
+      location: [, , `Location`],
+      name: [, , `Name`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2185,12 +2249,12 @@ export const se_UpdateMalwareScanSettingsCommand = async (
     "/detector/{DetectorId}/malware-scan-settings";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.EbsSnapshotPreservation != null && { ebsSnapshotPreservation: input.EbsSnapshotPreservation }),
-    ...(input.ScanResourceCriteria != null && {
-      scanResourceCriteria: se_ScanResourceCriteria(input.ScanResourceCriteria, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ebsSnapshotPreservation: [, , `EbsSnapshotPreservation`],
+      scanResourceCriteria: [, (_) => se_ScanResourceCriteria(_, context), `ScanResourceCriteria`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2218,11 +2282,13 @@ export const se_UpdateMemberDetectorsCommand = async (
     "/detector/{DetectorId}/member/detector/update";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-    ...(input.DataSources != null && { dataSources: se_DataSourceConfigurations(input.DataSources, context) }),
-    ...(input.Features != null && { features: se_MemberFeaturesConfigurations(input.Features, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountIds: [, (_) => _json(_), `AccountIds`],
+      dataSources: [, (_) => se_DataSourceConfigurations(_, context), `DataSources`],
+      features: [, (_) => se_MemberFeaturesConfigurations(_, context), `Features`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2249,16 +2315,14 @@ export const se_UpdateOrganizationConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/admin";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
-    ...(input.AutoEnableOrganizationMembers != null && {
-      autoEnableOrganizationMembers: input.AutoEnableOrganizationMembers,
-    }),
-    ...(input.DataSources != null && {
-      dataSources: se_OrganizationDataSourceConfigurations(input.DataSources, context),
-    }),
-    ...(input.Features != null && { features: se_OrganizationFeaturesConfigurations(input.Features, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      autoEnable: [, , `AutoEnable`],
+      autoEnableOrganizationMembers: [, , `AutoEnableOrganizationMembers`],
+      dataSources: [, (_) => se_OrganizationDataSourceConfigurations(_, context), `DataSources`],
+      features: [, (_) => se_OrganizationFeaturesConfigurations(_, context), `Features`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2294,11 +2358,11 @@ export const se_UpdatePublishingDestinationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.DestinationProperties != null && {
-      destinationProperties: se_DestinationProperties(input.DestinationProperties, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      destinationProperties: [, (_) => se_DestinationProperties(_, context), `DestinationProperties`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2334,11 +2398,13 @@ export const se_UpdateThreatIntelSetCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Activate != null && { activate: input.Activate }),
-    ...(input.Location != null && { location: input.Location }),
-    ...(input.Name != null && { name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      activate: [, , `Activate`],
+      location: [, , `Location`],
+      name: [, , `Name`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2388,10 +2454,9 @@ const de_AcceptAdministratorInvitationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2435,10 +2500,9 @@ const de_AcceptInvitationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2482,10 +2546,9 @@ const de_ArchiveFindingsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2505,12 +2568,11 @@ export const de_CreateDetectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.detectorId != null) {
-    contents.DetectorId = __expectString(data.detectorId);
-  }
-  if (data.unprocessedDataSources != null) {
-    contents.UnprocessedDataSources = de_UnprocessedDataSourcesResult(data.unprocessedDataSources, context);
-  }
+  const doc = take(data, {
+    DetectorId: [, __expectString, `detectorId`],
+    UnprocessedDataSources: [, (_) => de_UnprocessedDataSourcesResult(_, context), `unprocessedDataSources`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2535,10 +2597,9 @@ const de_CreateDetectorCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2558,9 +2619,10 @@ export const de_CreateFilterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
+  const doc = take(data, {
+    Name: [, __expectString, `name`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2585,10 +2647,9 @@ const de_CreateFilterCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2608,9 +2669,10 @@ export const de_CreateIPSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ipSetId != null) {
-    contents.IpSetId = __expectString(data.ipSetId);
-  }
+  const doc = take(data, {
+    IpSetId: [, __expectString, `ipSetId`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2635,10 +2697,9 @@ const de_CreateIPSetCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2658,9 +2719,10 @@ export const de_CreateMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2685,10 +2747,9 @@ const de_CreateMembersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2708,9 +2769,10 @@ export const de_CreatePublishingDestinationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.destinationId != null) {
-    contents.DestinationId = __expectString(data.destinationId);
-  }
+  const doc = take(data, {
+    DestinationId: [, __expectString, `destinationId`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2735,10 +2797,9 @@ const de_CreatePublishingDestinationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2782,10 +2843,9 @@ const de_CreateSampleFindingsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2805,9 +2865,10 @@ export const de_CreateThreatIntelSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.threatIntelSetId != null) {
-    contents.ThreatIntelSetId = __expectString(data.threatIntelSetId);
-  }
+  const doc = take(data, {
+    ThreatIntelSetId: [, __expectString, `threatIntelSetId`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2832,10 +2893,9 @@ const de_CreateThreatIntelSetCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2855,9 +2915,10 @@ export const de_DeclineInvitationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2882,10 +2943,9 @@ const de_DeclineInvitationsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2929,10 +2989,9 @@ const de_DeleteDetectorCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2976,10 +3035,9 @@ const de_DeleteFilterCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2999,9 +3057,10 @@ export const de_DeleteInvitationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3026,10 +3085,9 @@ const de_DeleteInvitationsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3073,10 +3131,9 @@ const de_DeleteIPSetCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3096,9 +3153,10 @@ export const de_DeleteMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3123,10 +3181,9 @@ const de_DeleteMembersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3170,10 +3227,9 @@ const de_DeletePublishingDestinationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3217,10 +3273,9 @@ const de_DeleteThreatIntelSetCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3240,12 +3295,11 @@ export const de_DescribeMalwareScansCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.scans != null) {
-    contents.Scans = de_Scans(data.scans, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Scans: [, (_) => de_Scans(_, context), `scans`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3270,10 +3324,9 @@ const de_DescribeMalwareScansCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3293,24 +3346,15 @@ export const de_DescribeOrganizationConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.autoEnable != null) {
-    contents.AutoEnable = __expectBoolean(data.autoEnable);
-  }
-  if (data.autoEnableOrganizationMembers != null) {
-    contents.AutoEnableOrganizationMembers = __expectString(data.autoEnableOrganizationMembers);
-  }
-  if (data.dataSources != null) {
-    contents.DataSources = de_OrganizationDataSourceConfigurationsResult(data.dataSources, context);
-  }
-  if (data.features != null) {
-    contents.Features = de_OrganizationFeaturesConfigurationsResults(data.features, context);
-  }
-  if (data.memberAccountLimitReached != null) {
-    contents.MemberAccountLimitReached = __expectBoolean(data.memberAccountLimitReached);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    AutoEnable: [, __expectBoolean, `autoEnable`],
+    AutoEnableOrganizationMembers: [, __expectString, `autoEnableOrganizationMembers`],
+    DataSources: [, (_) => de_OrganizationDataSourceConfigurationsResult(_, context), `dataSources`],
+    Features: [, (_) => de_OrganizationFeaturesConfigurationsResults(_, context), `features`],
+    MemberAccountLimitReached: [, __expectBoolean, `memberAccountLimitReached`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3335,10 +3379,9 @@ const de_DescribeOrganizationConfigurationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3358,21 +3401,14 @@ export const de_DescribePublishingDestinationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.destinationId != null) {
-    contents.DestinationId = __expectString(data.destinationId);
-  }
-  if (data.destinationProperties != null) {
-    contents.DestinationProperties = de_DestinationProperties(data.destinationProperties, context);
-  }
-  if (data.destinationType != null) {
-    contents.DestinationType = __expectString(data.destinationType);
-  }
-  if (data.publishingFailureStartTimestamp != null) {
-    contents.PublishingFailureStartTimestamp = __expectLong(data.publishingFailureStartTimestamp);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    DestinationId: [, __expectString, `destinationId`],
+    DestinationProperties: [, (_) => de_DestinationProperties(_, context), `destinationProperties`],
+    DestinationType: [, __expectString, `destinationType`],
+    PublishingFailureStartTimestamp: [, __expectLong, `publishingFailureStartTimestamp`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3397,10 +3433,9 @@ const de_DescribePublishingDestinationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3444,10 +3479,9 @@ const de_DisableOrganizationAdminAccountCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3491,10 +3525,9 @@ const de_DisassociateFromAdministratorAccountCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3538,10 +3571,9 @@ const de_DisassociateFromMasterAccountCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3561,9 +3593,10 @@ export const de_DisassociateMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3588,10 +3621,9 @@ const de_DisassociateMembersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3635,10 +3667,9 @@ const de_EnableOrganizationAdminAccountCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3658,9 +3689,10 @@ export const de_GetAdministratorAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.administrator != null) {
-    contents.Administrator = de_Administrator(data.administrator, context);
-  }
+  const doc = take(data, {
+    Administrator: [, (_) => de_Administrator(_, context), `administrator`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3685,10 +3717,9 @@ const de_GetAdministratorAccountCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3708,9 +3739,10 @@ export const de_GetCoverageStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.coverageStatistics != null) {
-    contents.CoverageStatistics = de_CoverageStatistics(data.coverageStatistics, context);
-  }
+  const doc = take(data, {
+    CoverageStatistics: [, (_) => de_CoverageStatistics(_, context), `coverageStatistics`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3735,10 +3767,9 @@ const de_GetCoverageStatisticsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3758,30 +3789,17 @@ export const de_GetDetectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.dataSources != null) {
-    contents.DataSources = de_DataSourceConfigurationsResult(data.dataSources, context);
-  }
-  if (data.features != null) {
-    contents.Features = de_DetectorFeatureConfigurationsResults(data.features, context);
-  }
-  if (data.findingPublishingFrequency != null) {
-    contents.FindingPublishingFrequency = __expectString(data.findingPublishingFrequency);
-  }
-  if (data.serviceRole != null) {
-    contents.ServiceRole = __expectString(data.serviceRole);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_TagMap(data.tags, context);
-  }
-  if (data.updatedAt != null) {
-    contents.UpdatedAt = __expectString(data.updatedAt);
-  }
+  const doc = take(data, {
+    CreatedAt: [, __expectString, `createdAt`],
+    DataSources: [, (_) => de_DataSourceConfigurationsResult(_, context), `dataSources`],
+    Features: [, (_) => de_DetectorFeatureConfigurationsResults(_, context), `features`],
+    FindingPublishingFrequency: [, __expectString, `findingPublishingFrequency`],
+    ServiceRole: [, __expectString, `serviceRole`],
+    Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
+    UpdatedAt: [, __expectString, `updatedAt`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3806,10 +3824,9 @@ const de_GetDetectorCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3829,24 +3846,15 @@ export const de_GetFilterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.action != null) {
-    contents.Action = __expectString(data.action);
-  }
-  if (data.description != null) {
-    contents.Description = __expectString(data.description);
-  }
-  if (data.findingCriteria != null) {
-    contents.FindingCriteria = de_FindingCriteria(data.findingCriteria, context);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.rank != null) {
-    contents.Rank = __expectInt32(data.rank);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    Action: [, __expectString, `action`],
+    Description: [, __expectString, `description`],
+    FindingCriteria: [, (_) => de_FindingCriteria(_, context), `findingCriteria`],
+    Name: [, __expectString, `name`],
+    Rank: [, __expectInt32, `rank`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3871,10 +3879,9 @@ const de_GetFilterCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3894,9 +3901,10 @@ export const de_GetFindingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.findings != null) {
-    contents.Findings = de_Findings(data.findings, context);
-  }
+  const doc = take(data, {
+    Findings: [, (_) => de_Findings(_, context), `findings`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3921,10 +3929,9 @@ const de_GetFindingsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3944,9 +3951,10 @@ export const de_GetFindingsStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.findingStatistics != null) {
-    contents.FindingStatistics = de_FindingStatistics(data.findingStatistics, context);
-  }
+  const doc = take(data, {
+    FindingStatistics: [, (_) => de_FindingStatistics(_, context), `findingStatistics`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3971,10 +3979,9 @@ const de_GetFindingsStatisticsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3994,9 +4001,10 @@ export const de_GetInvitationsCountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.invitationsCount != null) {
-    contents.InvitationsCount = __expectInt32(data.invitationsCount);
-  }
+  const doc = take(data, {
+    InvitationsCount: [, __expectInt32, `invitationsCount`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4021,10 +4029,9 @@ const de_GetInvitationsCountCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4044,21 +4051,14 @@ export const de_GetIPSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.format != null) {
-    contents.Format = __expectString(data.format);
-  }
-  if (data.location != null) {
-    contents.Location = __expectString(data.location);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    Format: [, __expectString, `format`],
+    Location: [, __expectString, `location`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4083,10 +4083,9 @@ const de_GetIPSetCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4106,12 +4105,11 @@ export const de_GetMalwareScanSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ebsSnapshotPreservation != null) {
-    contents.EbsSnapshotPreservation = __expectString(data.ebsSnapshotPreservation);
-  }
-  if (data.scanResourceCriteria != null) {
-    contents.ScanResourceCriteria = de_ScanResourceCriteria(data.scanResourceCriteria, context);
-  }
+  const doc = take(data, {
+    EbsSnapshotPreservation: [, __expectString, `ebsSnapshotPreservation`],
+    ScanResourceCriteria: [, (_) => de_ScanResourceCriteria(_, context), `scanResourceCriteria`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4136,10 +4134,9 @@ const de_GetMalwareScanSettingsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4159,9 +4156,10 @@ export const de_GetMasterAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.master != null) {
-    contents.Master = de_Master(data.master, context);
-  }
+  const doc = take(data, {
+    Master: [, (_) => de_Master(_, context), `master`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4186,10 +4184,9 @@ const de_GetMasterAccountCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4209,12 +4206,11 @@ export const de_GetMemberDetectorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.members != null) {
-    contents.MemberDataSourceConfigurations = de_MemberDataSourceConfigurations(data.members, context);
-  }
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    MemberDataSourceConfigurations: [, (_) => de_MemberDataSourceConfigurations(_, context), `members`],
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4239,10 +4235,9 @@ const de_GetMemberDetectorsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4262,12 +4257,11 @@ export const de_GetMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.members != null) {
-    contents.Members = de_Members(data.members, context);
-  }
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    Members: [, (_) => de_Members(_, context), `members`],
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4292,10 +4286,9 @@ const de_GetMembersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4315,12 +4308,11 @@ export const de_GetRemainingFreeTrialDaysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accounts != null) {
-    contents.Accounts = de_AccountFreeTrialInfos(data.accounts, context);
-  }
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    Accounts: [, (_) => de_AccountFreeTrialInfos(_, context), `accounts`],
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4345,10 +4337,9 @@ const de_GetRemainingFreeTrialDaysCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4368,21 +4359,14 @@ export const de_GetThreatIntelSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.format != null) {
-    contents.Format = __expectString(data.format);
-  }
-  if (data.location != null) {
-    contents.Location = __expectString(data.location);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    Format: [, __expectString, `format`],
+    Location: [, __expectString, `location`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4407,10 +4391,9 @@ const de_GetThreatIntelSetCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4430,12 +4413,11 @@ export const de_GetUsageStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.usageStatistics != null) {
-    contents.UsageStatistics = de_UsageStatistics(data.usageStatistics, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    UsageStatistics: [, (_) => de_UsageStatistics(_, context), `usageStatistics`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4460,10 +4442,9 @@ const de_GetUsageStatisticsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4483,9 +4464,10 @@ export const de_InviteMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4510,10 +4492,9 @@ const de_InviteMembersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4533,12 +4514,11 @@ export const de_ListCoverageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.resources != null) {
-    contents.Resources = de_CoverageResources(data.resources, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Resources: [, (_) => de_CoverageResources(_, context), `resources`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4563,10 +4543,9 @@ const de_ListCoverageCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4586,12 +4565,11 @@ export const de_ListDetectorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.detectorIds != null) {
-    contents.DetectorIds = de_DetectorIds(data.detectorIds, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    DetectorIds: [, _json, `detectorIds`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4616,10 +4594,9 @@ const de_ListDetectorsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4639,12 +4616,11 @@ export const de_ListFiltersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.filterNames != null) {
-    contents.FilterNames = de_FilterNames(data.filterNames, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    FilterNames: [, _json, `filterNames`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4669,10 +4645,9 @@ const de_ListFiltersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4692,12 +4667,11 @@ export const de_ListFindingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.findingIds != null) {
-    contents.FindingIds = de_FindingIds(data.findingIds, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    FindingIds: [, _json, `findingIds`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4722,10 +4696,9 @@ const de_ListFindingsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4745,12 +4718,11 @@ export const de_ListInvitationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.invitations != null) {
-    contents.Invitations = de_Invitations(data.invitations, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Invitations: [, (_) => de_Invitations(_, context), `invitations`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4775,10 +4747,9 @@ const de_ListInvitationsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4798,12 +4769,11 @@ export const de_ListIPSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ipSetIds != null) {
-    contents.IpSetIds = de_IpSetIds(data.ipSetIds, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    IpSetIds: [, _json, `ipSetIds`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4828,10 +4798,9 @@ const de_ListIPSetsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4851,12 +4820,11 @@ export const de_ListMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.members != null) {
-    contents.Members = de_Members(data.members, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Members: [, (_) => de_Members(_, context), `members`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4881,10 +4849,9 @@ const de_ListMembersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4904,12 +4871,11 @@ export const de_ListOrganizationAdminAccountsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adminAccounts != null) {
-    contents.AdminAccounts = de_AdminAccounts(data.adminAccounts, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    AdminAccounts: [, (_) => de_AdminAccounts(_, context), `adminAccounts`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4934,10 +4900,9 @@ const de_ListOrganizationAdminAccountsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4957,12 +4922,11 @@ export const de_ListPublishingDestinationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.destinations != null) {
-    contents.Destinations = de_Destinations(data.destinations, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Destinations: [, (_) => de_Destinations(_, context), `destinations`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4987,10 +4951,9 @@ const de_ListPublishingDestinationsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5010,9 +4973,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5037,10 +5001,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5060,12 +5023,11 @@ export const de_ListThreatIntelSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.threatIntelSetIds != null) {
-    contents.ThreatIntelSetIds = de_ThreatIntelSetIds(data.threatIntelSetIds, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    ThreatIntelSetIds: [, _json, `threatIntelSetIds`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5090,10 +5052,9 @@ const de_ListThreatIntelSetsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5113,9 +5074,10 @@ export const de_StartMonitoringMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5140,10 +5102,9 @@ const de_StartMonitoringMembersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5163,9 +5124,10 @@ export const de_StopMonitoringMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5190,10 +5152,9 @@ const de_StopMonitoringMembersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5237,10 +5198,9 @@ const de_TagResourceCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5284,10 +5244,9 @@ const de_UnarchiveFindingsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5331,10 +5290,9 @@ const de_UntagResourceCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5378,10 +5336,9 @@ const de_UpdateDetectorCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5401,9 +5358,10 @@ export const de_UpdateFilterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
+  const doc = take(data, {
+    Name: [, __expectString, `name`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5428,10 +5386,9 @@ const de_UpdateFilterCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5475,10 +5432,9 @@ const de_UpdateFindingsFeedbackCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5522,10 +5478,9 @@ const de_UpdateIPSetCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5569,10 +5524,9 @@ const de_UpdateMalwareScanSettingsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5592,9 +5546,10 @@ export const de_UpdateMemberDetectorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccounts(data.unprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    UnprocessedAccounts: [, (_) => de_UnprocessedAccounts(_, context), `unprocessedAccounts`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5619,10 +5574,9 @@ const de_UpdateMemberDetectorsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5666,10 +5620,9 @@ const de_UpdateOrganizationConfigurationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5713,10 +5666,9 @@ const de_UpdatePublishingDestinationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5760,28 +5712,26 @@ const de_UpdateThreatIntelSetCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
-  if (data.__type != null) {
-    contents.Type = __expectString(data.__type);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+    Type: [, __expectString, `__type`],
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5798,12 +5748,11 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
-  if (data.__type != null) {
-    contents.Type = __expectString(data.__type);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+    Type: [, __expectString, `__type`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5815,10 +5764,10 @@ const de_InternalServerErrorExceptionRes = async (
  * serializeAws_restJson1AccountDetail
  */
 const se_AccountDetail = (input: AccountDetail, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { accountId: input.AccountId }),
-    ...(input.Email != null && { email: input.Email }),
-  };
+  return take(input, {
+    accountId: [, , `AccountId`],
+    email: [, , `Email`],
+  });
 };
 
 /**
@@ -5832,68 +5781,55 @@ const se_AccountDetails = (input: AccountDetail[], context: __SerdeContext): any
     });
 };
 
-/**
- * serializeAws_restJson1AccountIds
- */
-const se_AccountIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AccountIds omitted.
 
 /**
  * serializeAws_restJson1Condition
  */
 const se_Condition = (input: Condition, context: __SerdeContext): any => {
-  return {
-    ...(input.Eq != null && { eq: se_Eq(input.Eq, context) }),
-    ...(input.Equals != null && { equals: se_Equals(input.Equals, context) }),
-    ...(input.GreaterThan != null && { greaterThan: input.GreaterThan }),
-    ...(input.GreaterThanOrEqual != null && { greaterThanOrEqual: input.GreaterThanOrEqual }),
-    ...(input.Gt != null && { gt: input.Gt }),
-    ...(input.Gte != null && { gte: input.Gte }),
-    ...(input.LessThan != null && { lessThan: input.LessThan }),
-    ...(input.LessThanOrEqual != null && { lessThanOrEqual: input.LessThanOrEqual }),
-    ...(input.Lt != null && { lt: input.Lt }),
-    ...(input.Lte != null && { lte: input.Lte }),
-    ...(input.Neq != null && { neq: se_Neq(input.Neq, context) }),
-    ...(input.NotEquals != null && { notEquals: se_NotEquals(input.NotEquals, context) }),
-  };
+  return take(input, {
+    eq: [, (_) => _json(_), `Eq`],
+    equals: [, (_) => _json(_), `Equals`],
+    greaterThan: [, , `GreaterThan`],
+    greaterThanOrEqual: [, , `GreaterThanOrEqual`],
+    gt: [, , `Gt`],
+    gte: [, , `Gte`],
+    lessThan: [, , `LessThan`],
+    lessThanOrEqual: [, , `LessThanOrEqual`],
+    lt: [, , `Lt`],
+    lte: [, , `Lte`],
+    neq: [, (_) => _json(_), `Neq`],
+    notEquals: [, (_) => _json(_), `NotEquals`],
+  });
 };
 
 /**
  * serializeAws_restJson1CoverageFilterCondition
  */
 const se_CoverageFilterCondition = (input: CoverageFilterCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.Equals != null && { equals: se_Equals(input.Equals, context) }),
-    ...(input.NotEquals != null && { notEquals: se_NotEquals(input.NotEquals, context) }),
-  };
+  return take(input, {
+    equals: [, (_) => _json(_), `Equals`],
+    notEquals: [, (_) => _json(_), `NotEquals`],
+  });
 };
 
 /**
  * serializeAws_restJson1CoverageFilterCriteria
  */
 const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.FilterCriterion != null && {
-      filterCriterion: se_CoverageFilterCriterionList(input.FilterCriterion, context),
-    }),
-  };
+  return take(input, {
+    filterCriterion: [, (_) => se_CoverageFilterCriterionList(_, context), `FilterCriterion`],
+  });
 };
 
 /**
  * serializeAws_restJson1CoverageFilterCriterion
  */
 const se_CoverageFilterCriterion = (input: CoverageFilterCriterion, context: __SerdeContext): any => {
-  return {
-    ...(input.CriterionKey != null && { criterionKey: input.CriterionKey }),
-    ...(input.FilterCondition != null && {
-      filterCondition: se_CoverageFilterCondition(input.FilterCondition, context),
-    }),
-  };
+  return take(input, {
+    criterionKey: [, , `CriterionKey`],
+    filterCondition: [, (_) => se_CoverageFilterCondition(_, context), `FilterCondition`],
+  });
 };
 
 /**
@@ -5911,22 +5847,13 @@ const se_CoverageFilterCriterionList = (input: CoverageFilterCriterion[], contex
  * serializeAws_restJson1CoverageSortCriteria
  */
 const se_CoverageSortCriteria = (input: CoverageSortCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { attributeName: input.AttributeName }),
-    ...(input.OrderBy != null && { orderBy: input.OrderBy }),
-  };
+  return take(input, {
+    attributeName: [, , `AttributeName`],
+    orderBy: [, , `OrderBy`],
+  });
 };
 
-/**
- * serializeAws_restJson1CoverageStatisticsTypeList
- */
-const se_CoverageStatisticsTypeList = (input: (CoverageStatisticsType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CoverageStatisticsTypeList omitted.
 
 /**
  * serializeAws_restJson1Criterion
@@ -5945,44 +5872,33 @@ const se_Criterion = (input: Record<string, Condition>, context: __SerdeContext)
  * serializeAws_restJson1DataSourceConfigurations
  */
 const se_DataSourceConfigurations = (input: DataSourceConfigurations, context: __SerdeContext): any => {
-  return {
-    ...(input.Kubernetes != null && { kubernetes: se_KubernetesConfiguration(input.Kubernetes, context) }),
-    ...(input.MalwareProtection != null && {
-      malwareProtection: se_MalwareProtectionConfiguration(input.MalwareProtection, context),
-    }),
-    ...(input.S3Logs != null && { s3Logs: se_S3LogsConfiguration(input.S3Logs, context) }),
-  };
+  return take(input, {
+    kubernetes: [, (_) => se_KubernetesConfiguration(_, context), `Kubernetes`],
+    malwareProtection: [, (_) => se_MalwareProtectionConfiguration(_, context), `MalwareProtection`],
+    s3Logs: [, (_) => se_S3LogsConfiguration(_, context), `S3Logs`],
+  });
 };
 
-/**
- * serializeAws_restJson1DataSourceList
- */
-const se_DataSourceList = (input: (DataSource | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DataSourceList omitted.
 
 /**
  * serializeAws_restJson1DestinationProperties
  */
 const se_DestinationProperties = (input: DestinationProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationArn != null && { destinationArn: input.DestinationArn }),
-    ...(input.KmsKeyArn != null && { kmsKeyArn: input.KmsKeyArn }),
-  };
+  return take(input, {
+    destinationArn: [, , `DestinationArn`],
+    kmsKeyArn: [, , `KmsKeyArn`],
+  });
 };
 
 /**
  * serializeAws_restJson1DetectorAdditionalConfiguration
  */
 const se_DetectorAdditionalConfiguration = (input: DetectorAdditionalConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Status != null && { status: input.Status }),
-  };
+  return take(input, {
+    name: [, , `Name`],
+    status: [, , `Status`],
+  });
 };
 
 /**
@@ -6003,13 +5919,11 @@ const se_DetectorAdditionalConfigurations = (
  * serializeAws_restJson1DetectorFeatureConfiguration
  */
 const se_DetectorFeatureConfiguration = (input: DetectorFeatureConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalConfiguration != null && {
-      additionalConfiguration: se_DetectorAdditionalConfigurations(input.AdditionalConfiguration, context),
-    }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Status != null && { status: input.Status }),
-  };
+  return take(input, {
+    additionalConfiguration: [, (_) => se_DetectorAdditionalConfigurations(_, context), `AdditionalConfiguration`],
+    name: [, , `Name`],
+    status: [, , `Status`],
+  });
 };
 
 /**
@@ -6023,56 +5937,38 @@ const se_DetectorFeatureConfigurations = (input: DetectorFeatureConfiguration[],
     });
 };
 
-/**
- * serializeAws_restJson1Eq
- */
-const se_Eq = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Eq omitted.
 
-/**
- * serializeAws_restJson1Equals
- */
-const se_Equals = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Equals omitted.
 
 /**
  * serializeAws_restJson1FilterCondition
  */
 const se_FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.EqualsValue != null && { equalsValue: input.EqualsValue }),
-    ...(input.GreaterThan != null && { greaterThan: input.GreaterThan }),
-    ...(input.LessThan != null && { lessThan: input.LessThan }),
-  };
+  return take(input, {
+    equalsValue: [, , `EqualsValue`],
+    greaterThan: [, , `GreaterThan`],
+    lessThan: [, , `LessThan`],
+  });
 };
 
 /**
  * serializeAws_restJson1FilterCriteria
  */
 const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.FilterCriterion != null && { filterCriterion: se_FilterCriterionList(input.FilterCriterion, context) }),
-  };
+  return take(input, {
+    filterCriterion: [, (_) => se_FilterCriterionList(_, context), `FilterCriterion`],
+  });
 };
 
 /**
  * serializeAws_restJson1FilterCriterion
  */
 const se_FilterCriterion = (input: FilterCriterion, context: __SerdeContext): any => {
-  return {
-    ...(input.CriterionKey != null && { criterionKey: input.CriterionKey }),
-    ...(input.FilterCondition != null && { filterCondition: se_FilterCondition(input.FilterCondition, context) }),
-  };
+  return take(input, {
+    criterionKey: [, , `CriterionKey`],
+    filterCondition: [, (_) => se_FilterCondition(_, context), `FilterCondition`],
+  });
 };
 
 /**
@@ -6090,71 +5986,42 @@ const se_FilterCriterionList = (input: FilterCriterion[], context: __SerdeContex
  * serializeAws_restJson1FindingCriteria
  */
 const se_FindingCriteria = (input: FindingCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.Criterion != null && { criterion: se_Criterion(input.Criterion, context) }),
-  };
+  return take(input, {
+    criterion: [, (_) => se_Criterion(_, context), `Criterion`],
+  });
 };
 
-/**
- * serializeAws_restJson1FindingIds
- */
-const se_FindingIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FindingIds omitted.
 
-/**
- * serializeAws_restJson1FindingStatisticTypes
- */
-const se_FindingStatisticTypes = (input: (FindingStatisticType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FindingStatisticTypes omitted.
 
-/**
- * serializeAws_restJson1FindingTypes
- */
-const se_FindingTypes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FindingTypes omitted.
 
 /**
  * serializeAws_restJson1KubernetesAuditLogsConfiguration
  */
 const se_KubernetesAuditLogsConfiguration = (input: KubernetesAuditLogsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Enable != null && { enable: input.Enable }),
-  };
+  return take(input, {
+    enable: [, , `Enable`],
+  });
 };
 
 /**
  * serializeAws_restJson1KubernetesConfiguration
  */
 const se_KubernetesConfiguration = (input: KubernetesConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AuditLogs != null && { auditLogs: se_KubernetesAuditLogsConfiguration(input.AuditLogs, context) }),
-  };
+  return take(input, {
+    auditLogs: [, (_) => se_KubernetesAuditLogsConfiguration(_, context), `AuditLogs`],
+  });
 };
 
 /**
  * serializeAws_restJson1MalwareProtectionConfiguration
  */
 const se_MalwareProtectionConfiguration = (input: MalwareProtectionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ScanEc2InstanceWithFindings != null && {
-      scanEc2InstanceWithFindings: se_ScanEc2InstanceWithFindings(input.ScanEc2InstanceWithFindings, context),
-    }),
-  };
+  return take(input, {
+    scanEc2InstanceWithFindings: [, (_) => se_ScanEc2InstanceWithFindings(_, context), `ScanEc2InstanceWithFindings`],
+  });
 };
 
 /**
@@ -6172,10 +6039,10 @@ const se_MapEquals = (input: ScanConditionPair[], context: __SerdeContext): any 
  * serializeAws_restJson1MemberAdditionalConfiguration
  */
 const se_MemberAdditionalConfiguration = (input: MemberAdditionalConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Status != null && { status: input.Status }),
-  };
+  return take(input, {
+    name: [, , `Name`],
+    status: [, , `Status`],
+  });
 };
 
 /**
@@ -6193,13 +6060,11 @@ const se_MemberAdditionalConfigurations = (input: MemberAdditionalConfiguration[
  * serializeAws_restJson1MemberFeaturesConfiguration
  */
 const se_MemberFeaturesConfiguration = (input: MemberFeaturesConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalConfiguration != null && {
-      additionalConfiguration: se_MemberAdditionalConfigurations(input.AdditionalConfiguration, context),
-    }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Status != null && { status: input.Status }),
-  };
+  return take(input, {
+    additionalConfiguration: [, (_) => se_MemberAdditionalConfigurations(_, context), `AdditionalConfiguration`],
+    name: [, , `Name`],
+    status: [, , `Status`],
+  });
 };
 
 /**
@@ -6213,27 +6078,9 @@ const se_MemberFeaturesConfigurations = (input: MemberFeaturesConfiguration[], c
     });
 };
 
-/**
- * serializeAws_restJson1Neq
- */
-const se_Neq = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Neq omitted.
 
-/**
- * serializeAws_restJson1NotEquals
- */
-const se_NotEquals = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NotEquals omitted.
 
 /**
  * serializeAws_restJson1OrganizationAdditionalConfiguration
@@ -6242,10 +6089,10 @@ const se_OrganizationAdditionalConfiguration = (
   input: OrganizationAdditionalConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
-    ...(input.Name != null && { name: input.Name }),
-  };
+  return take(input, {
+    autoEnable: [, , `AutoEnable`],
+    name: [, , `Name`],
+  });
 };
 
 /**
@@ -6269,35 +6116,31 @@ const se_OrganizationDataSourceConfigurations = (
   input: OrganizationDataSourceConfigurations,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Kubernetes != null && { kubernetes: se_OrganizationKubernetesConfiguration(input.Kubernetes, context) }),
-    ...(input.MalwareProtection != null && {
-      malwareProtection: se_OrganizationMalwareProtectionConfiguration(input.MalwareProtection, context),
-    }),
-    ...(input.S3Logs != null && { s3Logs: se_OrganizationS3LogsConfiguration(input.S3Logs, context) }),
-  };
+  return take(input, {
+    kubernetes: [, (_) => se_OrganizationKubernetesConfiguration(_, context), `Kubernetes`],
+    malwareProtection: [, (_) => se_OrganizationMalwareProtectionConfiguration(_, context), `MalwareProtection`],
+    s3Logs: [, (_) => se_OrganizationS3LogsConfiguration(_, context), `S3Logs`],
+  });
 };
 
 /**
  * serializeAws_restJson1OrganizationEbsVolumes
  */
 const se_OrganizationEbsVolumes = (input: OrganizationEbsVolumes, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
-  };
+  return take(input, {
+    autoEnable: [, , `AutoEnable`],
+  });
 };
 
 /**
  * serializeAws_restJson1OrganizationFeatureConfiguration
  */
 const se_OrganizationFeatureConfiguration = (input: OrganizationFeatureConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalConfiguration != null && {
-      additionalConfiguration: se_OrganizationAdditionalConfigurations(input.AdditionalConfiguration, context),
-    }),
-    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
-    ...(input.Name != null && { name: input.Name }),
-  };
+  return take(input, {
+    additionalConfiguration: [, (_) => se_OrganizationAdditionalConfigurations(_, context), `AdditionalConfiguration`],
+    autoEnable: [, , `AutoEnable`],
+    name: [, , `Name`],
+  });
 };
 
 /**
@@ -6321,9 +6164,9 @@ const se_OrganizationKubernetesAuditLogsConfiguration = (
   input: OrganizationKubernetesAuditLogsConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
-  };
+  return take(input, {
+    autoEnable: [, , `AutoEnable`],
+  });
 };
 
 /**
@@ -6333,11 +6176,9 @@ const se_OrganizationKubernetesConfiguration = (
   input: OrganizationKubernetesConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AuditLogs != null && {
-      auditLogs: se_OrganizationKubernetesAuditLogsConfiguration(input.AuditLogs, context),
-    }),
-  };
+  return take(input, {
+    auditLogs: [, (_) => se_OrganizationKubernetesAuditLogsConfiguration(_, context), `AuditLogs`],
+  });
 };
 
 /**
@@ -6347,23 +6188,22 @@ const se_OrganizationMalwareProtectionConfiguration = (
   input: OrganizationMalwareProtectionConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.ScanEc2InstanceWithFindings != null && {
-      scanEc2InstanceWithFindings: se_OrganizationScanEc2InstanceWithFindings(
-        input.ScanEc2InstanceWithFindings,
-        context
-      ),
-    }),
-  };
+  return take(input, {
+    scanEc2InstanceWithFindings: [
+      ,
+      (_) => se_OrganizationScanEc2InstanceWithFindings(_, context),
+      `ScanEc2InstanceWithFindings`,
+    ],
+  });
 };
 
 /**
  * serializeAws_restJson1OrganizationS3LogsConfiguration
  */
 const se_OrganizationS3LogsConfiguration = (input: OrganizationS3LogsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
-  };
+  return take(input, {
+    autoEnable: [, , `AutoEnable`],
+  });
 };
 
 /**
@@ -6373,48 +6213,39 @@ const se_OrganizationScanEc2InstanceWithFindings = (
   input: OrganizationScanEc2InstanceWithFindings,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.EbsVolumes != null && { ebsVolumes: se_OrganizationEbsVolumes(input.EbsVolumes, context) }),
-  };
+  return take(input, {
+    ebsVolumes: [, (_) => se_OrganizationEbsVolumes(_, context), `EbsVolumes`],
+  });
 };
 
-/**
- * serializeAws_restJson1ResourceList
- */
-const se_ResourceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceList omitted.
 
 /**
  * serializeAws_restJson1S3LogsConfiguration
  */
 const se_S3LogsConfiguration = (input: S3LogsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Enable != null && { enable: input.Enable }),
-  };
+  return take(input, {
+    enable: [, , `Enable`],
+  });
 };
 
 /**
  * serializeAws_restJson1ScanCondition
  */
 const se_ScanCondition = (input: ScanCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.MapEquals != null && { mapEquals: se_MapEquals(input.MapEquals, context) }),
-  };
+  return take(input, {
+    mapEquals: [, (_) => se_MapEquals(_, context), `MapEquals`],
+  });
 };
 
 /**
  * serializeAws_restJson1ScanConditionPair
  */
 const se_ScanConditionPair = (input: ScanConditionPair, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { key: input.Key }),
-    ...(input.Value != null && { value: input.Value }),
-  };
+  return take(input, {
+    key: [, , `Key`],
+    value: [, , `Value`],
+  });
 };
 
 /**
@@ -6434,98 +6265,78 @@ const se_ScanCriterion = (input: Record<string, ScanCondition>, context: __Serde
  * serializeAws_restJson1ScanEc2InstanceWithFindings
  */
 const se_ScanEc2InstanceWithFindings = (input: ScanEc2InstanceWithFindings, context: __SerdeContext): any => {
-  return {
-    ...(input.EbsVolumes != null && { ebsVolumes: input.EbsVolumes }),
-  };
+  return take(input, {
+    ebsVolumes: [, , `EbsVolumes`],
+  });
 };
 
 /**
  * serializeAws_restJson1ScanResourceCriteria
  */
 const se_ScanResourceCriteria = (input: ScanResourceCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.Exclude != null && { exclude: se_ScanCriterion(input.Exclude, context) }),
-    ...(input.Include != null && { include: se_ScanCriterion(input.Include, context) }),
-  };
+  return take(input, {
+    exclude: [, (_) => se_ScanCriterion(_, context), `Exclude`],
+    include: [, (_) => se_ScanCriterion(_, context), `Include`],
+  });
 };
 
 /**
  * serializeAws_restJson1SortCriteria
  */
 const se_SortCriteria = (input: SortCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { attributeName: input.AttributeName }),
-    ...(input.OrderBy != null && { orderBy: input.OrderBy }),
-  };
+  return take(input, {
+    attributeName: [, , `AttributeName`],
+    orderBy: [, , `OrderBy`],
+  });
 };
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
 /**
  * serializeAws_restJson1UsageCriteria
  */
 const se_UsageCriteria = (input: UsageCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountIds != null && { accountIds: se_AccountIds(input.AccountIds, context) }),
-    ...(input.DataSources != null && { dataSources: se_DataSourceList(input.DataSources, context) }),
-    ...(input.Features != null && { features: se_UsageFeatureList(input.Features, context) }),
-    ...(input.Resources != null && { resources: se_ResourceList(input.Resources, context) }),
-  };
+  return take(input, {
+    accountIds: [, (_) => _json(_), `AccountIds`],
+    dataSources: [, (_) => _json(_), `DataSources`],
+    features: [, (_) => _json(_), `Features`],
+    resources: [, (_) => _json(_), `Resources`],
+  });
 };
 
-/**
- * serializeAws_restJson1UsageFeatureList
- */
-const se_UsageFeatureList = (input: (UsageFeature | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UsageFeatureList omitted.
 
 /**
  * deserializeAws_restJson1AccessControlList
  */
 const de_AccessControlList = (output: any, context: __SerdeContext): AccessControlList => {
-  return {
-    AllowsPublicReadAccess: __expectBoolean(output.allowsPublicReadAccess),
-    AllowsPublicWriteAccess: __expectBoolean(output.allowsPublicWriteAccess),
-  } as any;
+  return take(output, {
+    AllowsPublicReadAccess: [, __expectBoolean, `allowsPublicReadAccess`],
+    AllowsPublicWriteAccess: [, __expectBoolean, `allowsPublicWriteAccess`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AccessKeyDetails
  */
 const de_AccessKeyDetails = (output: any, context: __SerdeContext): AccessKeyDetails => {
-  return {
-    AccessKeyId: __expectString(output.accessKeyId),
-    PrincipalId: __expectString(output.principalId),
-    UserName: __expectString(output.userName),
-    UserType: __expectString(output.userType),
-  } as any;
+  return take(output, {
+    AccessKeyId: [, __expectString, `accessKeyId`],
+    PrincipalId: [, __expectString, `principalId`],
+    UserName: [, __expectString, `userName`],
+    UserType: [, __expectString, `userType`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AccountFreeTrialInfo
  */
 const de_AccountFreeTrialInfo = (output: any, context: __SerdeContext): AccountFreeTrialInfo => {
-  return {
-    AccountId: __expectString(output.accountId),
-    DataSources: output.dataSources != null ? de_DataSourcesFreeTrial(output.dataSources, context) : undefined,
-    Features: output.features != null ? de_FreeTrialFeatureConfigurationsResults(output.features, context) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    DataSources: (_) => [, de_DataSourcesFreeTrial(_, context), `dataSources`],
+    Features: (_) => [, de_FreeTrialFeatureConfigurationsResults(_, context), `features`],
+  }) as any;
 };
 
 /**
@@ -6535,9 +6346,6 @@ const de_AccountFreeTrialInfos = (output: any, context: __SerdeContext): Account
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AccountFreeTrialInfo(entry, context);
     });
   return retVal;
@@ -6547,56 +6355,44 @@ const de_AccountFreeTrialInfos = (output: any, context: __SerdeContext): Account
  * deserializeAws_restJson1AccountLevelPermissions
  */
 const de_AccountLevelPermissions = (output: any, context: __SerdeContext): AccountLevelPermissions => {
-  return {
-    BlockPublicAccess:
-      output.blockPublicAccess != null ? de_BlockPublicAccess(output.blockPublicAccess, context) : undefined,
-  } as any;
+  return take(output, {
+    BlockPublicAccess: (_) => [, de_BlockPublicAccess(_, context), `blockPublicAccess`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Action
  */
 const de_Action = (output: any, context: __SerdeContext): Action => {
-  return {
-    ActionType: __expectString(output.actionType),
-    AwsApiCallAction:
-      output.awsApiCallAction != null ? de_AwsApiCallAction(output.awsApiCallAction, context) : undefined,
-    DnsRequestAction:
-      output.dnsRequestAction != null ? de_DnsRequestAction(output.dnsRequestAction, context) : undefined,
-    KubernetesApiCallAction:
-      output.kubernetesApiCallAction != null
-        ? de_KubernetesApiCallAction(output.kubernetesApiCallAction, context)
-        : undefined,
-    NetworkConnectionAction:
-      output.networkConnectionAction != null
-        ? de_NetworkConnectionAction(output.networkConnectionAction, context)
-        : undefined,
-    PortProbeAction: output.portProbeAction != null ? de_PortProbeAction(output.portProbeAction, context) : undefined,
-    RdsLoginAttemptAction:
-      output.rdsLoginAttemptAction != null
-        ? de_RdsLoginAttemptAction(output.rdsLoginAttemptAction, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ActionType: [, __expectString, `actionType`],
+    AwsApiCallAction: (_) => [, de_AwsApiCallAction(_, context), `awsApiCallAction`],
+    DnsRequestAction: (_) => [, de_DnsRequestAction(_, context), `dnsRequestAction`],
+    KubernetesApiCallAction: (_) => [, de_KubernetesApiCallAction(_, context), `kubernetesApiCallAction`],
+    NetworkConnectionAction: (_) => [, de_NetworkConnectionAction(_, context), `networkConnectionAction`],
+    PortProbeAction: (_) => [, de_PortProbeAction(_, context), `portProbeAction`],
+    RdsLoginAttemptAction: (_) => [, de_RdsLoginAttemptAction(_, context), `rdsLoginAttemptAction`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AddonDetails
  */
 const de_AddonDetails = (output: any, context: __SerdeContext): AddonDetails => {
-  return {
-    AddonStatus: __expectString(output.addonStatus),
-    AddonVersion: __expectString(output.addonVersion),
-  } as any;
+  return take(output, {
+    AddonStatus: [, __expectString, `addonStatus`],
+    AddonVersion: [, __expectString, `addonVersion`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AdminAccount
  */
 const de_AdminAccount = (output: any, context: __SerdeContext): AdminAccount => {
-  return {
-    AdminAccountId: __expectString(output.adminAccountId),
-    AdminStatus: __expectString(output.adminStatus),
-  } as any;
+  return take(output, {
+    AdminAccountId: [, __expectString, `adminAccountId`],
+    AdminStatus: [, __expectString, `adminStatus`],
+  }) as any;
 };
 
 /**
@@ -6606,9 +6402,6 @@ const de_AdminAccounts = (output: any, context: __SerdeContext): AdminAccount[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AdminAccount(entry, context);
     });
   return retVal;
@@ -6618,132 +6411,117 @@ const de_AdminAccounts = (output: any, context: __SerdeContext): AdminAccount[] 
  * deserializeAws_restJson1Administrator
  */
 const de_Administrator = (output: any, context: __SerdeContext): Administrator => {
-  return {
-    AccountId: __expectString(output.accountId),
-    InvitationId: __expectString(output.invitationId),
-    InvitedAt: __expectString(output.invitedAt),
-    RelationshipStatus: __expectString(output.relationshipStatus),
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    InvitationId: [, __expectString, `invitationId`],
+    InvitedAt: [, __expectString, `invitedAt`],
+    RelationshipStatus: [, __expectString, `relationshipStatus`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AffectedResources
- */
-const de_AffectedResources = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_AffectedResources omitted.
 
 /**
  * deserializeAws_restJson1AwsApiCallAction
  */
 const de_AwsApiCallAction = (output: any, context: __SerdeContext): AwsApiCallAction => {
-  return {
-    AffectedResources:
-      output.affectedResources != null ? de_AffectedResources(output.affectedResources, context) : undefined,
-    Api: __expectString(output.api),
-    CallerType: __expectString(output.callerType),
-    DomainDetails: output.domainDetails != null ? de_DomainDetails(output.domainDetails, context) : undefined,
-    ErrorCode: __expectString(output.errorCode),
-    RemoteAccountDetails:
-      output.remoteAccountDetails != null ? de_RemoteAccountDetails(output.remoteAccountDetails, context) : undefined,
-    RemoteIpDetails: output.remoteIpDetails != null ? de_RemoteIpDetails(output.remoteIpDetails, context) : undefined,
-    ServiceName: __expectString(output.serviceName),
-    UserAgent: __expectString(output.userAgent),
-  } as any;
+  return take(output, {
+    AffectedResources: [, _json, `affectedResources`],
+    Api: [, __expectString, `api`],
+    CallerType: [, __expectString, `callerType`],
+    DomainDetails: (_) => [, de_DomainDetails(_, context), `domainDetails`],
+    ErrorCode: [, __expectString, `errorCode`],
+    RemoteAccountDetails: (_) => [, de_RemoteAccountDetails(_, context), `remoteAccountDetails`],
+    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+    ServiceName: [, __expectString, `serviceName`],
+    UserAgent: [, __expectString, `userAgent`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BlockPublicAccess
  */
 const de_BlockPublicAccess = (output: any, context: __SerdeContext): BlockPublicAccess => {
-  return {
-    BlockPublicAcls: __expectBoolean(output.blockPublicAcls),
-    BlockPublicPolicy: __expectBoolean(output.blockPublicPolicy),
-    IgnorePublicAcls: __expectBoolean(output.ignorePublicAcls),
-    RestrictPublicBuckets: __expectBoolean(output.restrictPublicBuckets),
-  } as any;
+  return take(output, {
+    BlockPublicAcls: [, __expectBoolean, `blockPublicAcls`],
+    BlockPublicPolicy: [, __expectBoolean, `blockPublicPolicy`],
+    IgnorePublicAcls: [, __expectBoolean, `ignorePublicAcls`],
+    RestrictPublicBuckets: [, __expectBoolean, `restrictPublicBuckets`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BucketLevelPermissions
  */
 const de_BucketLevelPermissions = (output: any, context: __SerdeContext): BucketLevelPermissions => {
-  return {
-    AccessControlList:
-      output.accessControlList != null ? de_AccessControlList(output.accessControlList, context) : undefined,
-    BlockPublicAccess:
-      output.blockPublicAccess != null ? de_BlockPublicAccess(output.blockPublicAccess, context) : undefined,
-    BucketPolicy: output.bucketPolicy != null ? de_BucketPolicy(output.bucketPolicy, context) : undefined,
-  } as any;
+  return take(output, {
+    AccessControlList: (_) => [, de_AccessControlList(_, context), `accessControlList`],
+    BlockPublicAccess: (_) => [, de_BlockPublicAccess(_, context), `blockPublicAccess`],
+    BucketPolicy: (_) => [, de_BucketPolicy(_, context), `bucketPolicy`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BucketPolicy
  */
 const de_BucketPolicy = (output: any, context: __SerdeContext): BucketPolicy => {
-  return {
-    AllowsPublicReadAccess: __expectBoolean(output.allowsPublicReadAccess),
-    AllowsPublicWriteAccess: __expectBoolean(output.allowsPublicWriteAccess),
-  } as any;
+  return take(output, {
+    AllowsPublicReadAccess: [, __expectBoolean, `allowsPublicReadAccess`],
+    AllowsPublicWriteAccess: [, __expectBoolean, `allowsPublicWriteAccess`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1City
  */
 const de_City = (output: any, context: __SerdeContext): City => {
-  return {
-    CityName: __expectString(output.cityName),
-  } as any;
+  return take(output, {
+    CityName: [, __expectString, `cityName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CloudTrailConfigurationResult
  */
 const de_CloudTrailConfigurationResult = (output: any, context: __SerdeContext): CloudTrailConfigurationResult => {
-  return {
-    Status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    Status: [, __expectString, `status`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Condition
  */
 const de_Condition = (output: any, context: __SerdeContext): Condition => {
-  return {
-    Eq: output.eq != null ? de_Eq(output.eq, context) : undefined,
-    Equals: output.equals != null ? de_Equals(output.equals, context) : undefined,
-    GreaterThan: __expectLong(output.greaterThan),
-    GreaterThanOrEqual: __expectLong(output.greaterThanOrEqual),
-    Gt: __expectInt32(output.gt),
-    Gte: __expectInt32(output.gte),
-    LessThan: __expectLong(output.lessThan),
-    LessThanOrEqual: __expectLong(output.lessThanOrEqual),
-    Lt: __expectInt32(output.lt),
-    Lte: __expectInt32(output.lte),
-    Neq: output.neq != null ? de_Neq(output.neq, context) : undefined,
-    NotEquals: output.notEquals != null ? de_NotEquals(output.notEquals, context) : undefined,
-  } as any;
+  return take(output, {
+    Eq: [, _json, `eq`],
+    Equals: [, _json, `equals`],
+    GreaterThan: [, __expectLong, `greaterThan`],
+    GreaterThanOrEqual: [, __expectLong, `greaterThanOrEqual`],
+    Gt: [, __expectInt32, `gt`],
+    Gte: [, __expectInt32, `gte`],
+    LessThan: [, __expectLong, `lessThan`],
+    LessThanOrEqual: [, __expectLong, `lessThanOrEqual`],
+    Lt: [, __expectInt32, `lt`],
+    Lte: [, __expectInt32, `lte`],
+    Neq: [, _json, `neq`],
+    NotEquals: [, _json, `notEquals`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Container
  */
 const de_Container = (output: any, context: __SerdeContext): Container => {
-  return {
-    ContainerRuntime: __expectString(output.containerRuntime),
-    Id: __expectString(output.id),
-    Image: __expectString(output.image),
-    ImagePrefix: __expectString(output.imagePrefix),
-    Name: __expectString(output.name),
-    SecurityContext: output.securityContext != null ? de_SecurityContext(output.securityContext, context) : undefined,
-    VolumeMounts: output.volumeMounts != null ? de_VolumeMounts(output.volumeMounts, context) : undefined,
-  } as any;
+  return take(output, {
+    ContainerRuntime: [, __expectString, `containerRuntime`],
+    Id: [, __expectString, `id`],
+    Image: [, __expectString, `image`],
+    ImagePrefix: [, __expectString, `imagePrefix`],
+    Name: [, __expectString, `name`],
+    SecurityContext: (_) => [, de_SecurityContext(_, context), `securityContext`],
+    VolumeMounts: (_) => [, de_VolumeMounts(_, context), `volumeMounts`],
+  }) as any;
 };
 
 /**
@@ -6753,101 +6531,62 @@ const de_Containers = (output: any, context: __SerdeContext): Container[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Container(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CountByCoverageStatus
- */
-const de_CountByCoverageStatus = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [CoverageStatus | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectLong(value) as any;
-    return acc;
-  }, {});
-};
+// de_CountByCoverageStatus omitted.
 
-/**
- * deserializeAws_restJson1CountByResourceType
- */
-const de_CountByResourceType = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [ResourceType | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectLong(value) as any;
-    return acc;
-  }, {});
-};
+// de_CountByResourceType omitted.
 
-/**
- * deserializeAws_restJson1CountBySeverity
- */
-const de_CountBySeverity = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_CountBySeverity omitted.
 
 /**
  * deserializeAws_restJson1Country
  */
 const de_Country = (output: any, context: __SerdeContext): Country => {
-  return {
-    CountryCode: __expectString(output.countryCode),
-    CountryName: __expectString(output.countryName),
-  } as any;
+  return take(output, {
+    CountryCode: [, __expectString, `countryCode`],
+    CountryName: [, __expectString, `countryName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CoverageEksClusterDetails
  */
 const de_CoverageEksClusterDetails = (output: any, context: __SerdeContext): CoverageEksClusterDetails => {
-  return {
-    AddonDetails: output.addonDetails != null ? de_AddonDetails(output.addonDetails, context) : undefined,
-    ClusterName: __expectString(output.clusterName),
-    CompatibleNodes: __expectLong(output.compatibleNodes),
-    CoveredNodes: __expectLong(output.coveredNodes),
-  } as any;
+  return take(output, {
+    AddonDetails: (_) => [, de_AddonDetails(_, context), `addonDetails`],
+    ClusterName: [, __expectString, `clusterName`],
+    CompatibleNodes: [, __expectLong, `compatibleNodes`],
+    CoveredNodes: [, __expectLong, `coveredNodes`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CoverageResource
  */
 const de_CoverageResource = (output: any, context: __SerdeContext): CoverageResource => {
-  return {
-    AccountId: __expectString(output.accountId),
-    CoverageStatus: __expectString(output.coverageStatus),
-    DetectorId: __expectString(output.detectorId),
-    Issue: __expectString(output.issue),
-    ResourceDetails:
-      output.resourceDetails != null ? de_CoverageResourceDetails(output.resourceDetails, context) : undefined,
-    ResourceId: __expectString(output.resourceId),
-    UpdatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    CoverageStatus: [, __expectString, `coverageStatus`],
+    DetectorId: [, __expectString, `detectorId`],
+    Issue: [, __expectString, `issue`],
+    ResourceDetails: (_) => [, de_CoverageResourceDetails(_, context), `resourceDetails`],
+    ResourceId: [, __expectString, `resourceId`],
+    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CoverageResourceDetails
  */
 const de_CoverageResourceDetails = (output: any, context: __SerdeContext): CoverageResourceDetails => {
-  return {
-    EksClusterDetails:
-      output.eksClusterDetails != null ? de_CoverageEksClusterDetails(output.eksClusterDetails, context) : undefined,
-    ResourceType: __expectString(output.resourceType),
-  } as any;
+  return take(output, {
+    EksClusterDetails: (_) => [, de_CoverageEksClusterDetails(_, context), `eksClusterDetails`],
+    ResourceType: [, __expectString, `resourceType`],
+  }) as any;
 };
 
 /**
@@ -6857,9 +6596,6 @@ const de_CoverageResources = (output: any, context: __SerdeContext): CoverageRes
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CoverageResource(entry, context);
     });
   return retVal;
@@ -6869,14 +6605,10 @@ const de_CoverageResources = (output: any, context: __SerdeContext): CoverageRes
  * deserializeAws_restJson1CoverageStatistics
  */
 const de_CoverageStatistics = (output: any, context: __SerdeContext): CoverageStatistics => {
-  return {
-    CountByCoverageStatus:
-      output.countByCoverageStatus != null
-        ? de_CountByCoverageStatus(output.countByCoverageStatus, context)
-        : undefined,
-    CountByResourceType:
-      output.countByResourceType != null ? de_CountByResourceType(output.countByResourceType, context) : undefined,
-  } as any;
+  return take(output, {
+    CountByCoverageStatus: [, _json, `countByCoverageStatus`],
+    CountByResourceType: [, _json, `countByResourceType`],
+  }) as any;
 };
 
 /**
@@ -6896,74 +6628,68 @@ const de_Criterion = (output: any, context: __SerdeContext): Record<string, Cond
  * deserializeAws_restJson1DataSourceConfigurationsResult
  */
 const de_DataSourceConfigurationsResult = (output: any, context: __SerdeContext): DataSourceConfigurationsResult => {
-  return {
-    CloudTrail: output.cloudTrail != null ? de_CloudTrailConfigurationResult(output.cloudTrail, context) : undefined,
-    DNSLogs: output.dnsLogs != null ? de_DNSLogsConfigurationResult(output.dnsLogs, context) : undefined,
-    FlowLogs: output.flowLogs != null ? de_FlowLogsConfigurationResult(output.flowLogs, context) : undefined,
-    Kubernetes: output.kubernetes != null ? de_KubernetesConfigurationResult(output.kubernetes, context) : undefined,
-    MalwareProtection:
-      output.malwareProtection != null
-        ? de_MalwareProtectionConfigurationResult(output.malwareProtection, context)
-        : undefined,
-    S3Logs: output.s3Logs != null ? de_S3LogsConfigurationResult(output.s3Logs, context) : undefined,
-  } as any;
+  return take(output, {
+    CloudTrail: (_) => [, de_CloudTrailConfigurationResult(_, context), `cloudTrail`],
+    DNSLogs: (_) => [, de_DNSLogsConfigurationResult(_, context), `dnsLogs`],
+    FlowLogs: (_) => [, de_FlowLogsConfigurationResult(_, context), `flowLogs`],
+    Kubernetes: (_) => [, de_KubernetesConfigurationResult(_, context), `kubernetes`],
+    MalwareProtection: (_) => [, de_MalwareProtectionConfigurationResult(_, context), `malwareProtection`],
+    S3Logs: (_) => [, de_S3LogsConfigurationResult(_, context), `s3Logs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DataSourceFreeTrial
  */
 const de_DataSourceFreeTrial = (output: any, context: __SerdeContext): DataSourceFreeTrial => {
-  return {
-    FreeTrialDaysRemaining: __expectInt32(output.freeTrialDaysRemaining),
-  } as any;
+  return take(output, {
+    FreeTrialDaysRemaining: [, __expectInt32, `freeTrialDaysRemaining`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DataSourcesFreeTrial
  */
 const de_DataSourcesFreeTrial = (output: any, context: __SerdeContext): DataSourcesFreeTrial => {
-  return {
-    CloudTrail: output.cloudTrail != null ? de_DataSourceFreeTrial(output.cloudTrail, context) : undefined,
-    DnsLogs: output.dnsLogs != null ? de_DataSourceFreeTrial(output.dnsLogs, context) : undefined,
-    FlowLogs: output.flowLogs != null ? de_DataSourceFreeTrial(output.flowLogs, context) : undefined,
-    Kubernetes: output.kubernetes != null ? de_KubernetesDataSourceFreeTrial(output.kubernetes, context) : undefined,
-    MalwareProtection:
-      output.malwareProtection != null
-        ? de_MalwareProtectionDataSourceFreeTrial(output.malwareProtection, context)
-        : undefined,
-    S3Logs: output.s3Logs != null ? de_DataSourceFreeTrial(output.s3Logs, context) : undefined,
-  } as any;
+  return take(output, {
+    CloudTrail: (_) => [, de_DataSourceFreeTrial(_, context), `cloudTrail`],
+    DnsLogs: (_) => [, de_DataSourceFreeTrial(_, context), `dnsLogs`],
+    FlowLogs: (_) => [, de_DataSourceFreeTrial(_, context), `flowLogs`],
+    Kubernetes: (_) => [, de_KubernetesDataSourceFreeTrial(_, context), `kubernetes`],
+    MalwareProtection: (_) => [, de_MalwareProtectionDataSourceFreeTrial(_, context), `malwareProtection`],
+    S3Logs: (_) => [, de_DataSourceFreeTrial(_, context), `s3Logs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DefaultServerSideEncryption
  */
 const de_DefaultServerSideEncryption = (output: any, context: __SerdeContext): DefaultServerSideEncryption => {
-  return {
-    EncryptionType: __expectString(output.encryptionType),
-    KmsMasterKeyArn: __expectString(output.kmsMasterKeyArn),
-  } as any;
+  return take(output, {
+    EncryptionType: [, __expectString, `encryptionType`],
+    KmsMasterKeyArn: [, __expectString, `kmsMasterKeyArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Destination
  */
 const de_Destination = (output: any, context: __SerdeContext): Destination => {
-  return {
-    DestinationId: __expectString(output.destinationId),
-    DestinationType: __expectString(output.destinationType),
-    Status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    DestinationId: [, __expectString, `destinationId`],
+    DestinationType: [, __expectString, `destinationType`],
+    Status: [, __expectString, `status`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DestinationProperties
  */
 const de_DestinationProperties = (output: any, context: __SerdeContext): DestinationProperties => {
-  return {
-    DestinationArn: __expectString(output.destinationArn),
-    KmsKeyArn: __expectString(output.kmsKeyArn),
-  } as any;
+  return take(output, {
+    DestinationArn: [, __expectString, `destinationArn`],
+    KmsKeyArn: [, __expectString, `kmsKeyArn`],
+  }) as any;
 };
 
 /**
@@ -6973,9 +6699,6 @@ const de_Destinations = (output: any, context: __SerdeContext): Destination[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Destination(entry, context);
     });
   return retVal;
@@ -6988,12 +6711,11 @@ const de_DetectorAdditionalConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): DetectorAdditionalConfigurationResult => {
-  return {
-    Name: __expectString(output.name),
-    Status: __expectString(output.status),
-    UpdatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+  }) as any;
 };
 
 /**
@@ -7006,9 +6728,6 @@ const de_DetectorAdditionalConfigurationResults = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DetectorAdditionalConfigurationResult(entry, context);
     });
   return retVal;
@@ -7021,16 +6740,16 @@ const de_DetectorFeatureConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): DetectorFeatureConfigurationResult => {
-  return {
-    AdditionalConfiguration:
-      output.additionalConfiguration != null
-        ? de_DetectorAdditionalConfigurationResults(output.additionalConfiguration, context)
-        : undefined,
-    Name: __expectString(output.name),
-    Status: __expectString(output.status),
-    UpdatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    AdditionalConfiguration: (_) => [
+      ,
+      de_DetectorAdditionalConfigurationResults(_, context),
+      `additionalConfiguration`,
+    ],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+  }) as any;
 };
 
 /**
@@ -7043,191 +6762,135 @@ const de_DetectorFeatureConfigurationsResults = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DetectorFeatureConfigurationResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DetectorIds
- */
-const de_DetectorIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DetectorIds omitted.
 
 /**
  * deserializeAws_restJson1DNSLogsConfigurationResult
  */
 const de_DNSLogsConfigurationResult = (output: any, context: __SerdeContext): DNSLogsConfigurationResult => {
-  return {
-    Status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    Status: [, __expectString, `status`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DnsRequestAction
  */
 const de_DnsRequestAction = (output: any, context: __SerdeContext): DnsRequestAction => {
-  return {
-    Blocked: __expectBoolean(output.blocked),
-    Domain: __expectString(output.domain),
-    Protocol: __expectString(output.protocol),
-  } as any;
+  return take(output, {
+    Blocked: [, __expectBoolean, `blocked`],
+    Domain: [, __expectString, `domain`],
+    Protocol: [, __expectString, `protocol`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DomainDetails
  */
 const de_DomainDetails = (output: any, context: __SerdeContext): DomainDetails => {
-  return {
-    Domain: __expectString(output.domain),
-  } as any;
+  return take(output, {
+    Domain: [, __expectString, `domain`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EbsVolumeDetails
  */
 const de_EbsVolumeDetails = (output: any, context: __SerdeContext): EbsVolumeDetails => {
-  return {
-    ScannedVolumeDetails:
-      output.scannedVolumeDetails != null ? de_VolumeDetails(output.scannedVolumeDetails, context) : undefined,
-    SkippedVolumeDetails:
-      output.skippedVolumeDetails != null ? de_VolumeDetails(output.skippedVolumeDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    ScannedVolumeDetails: (_) => [, de_VolumeDetails(_, context), `scannedVolumeDetails`],
+    SkippedVolumeDetails: (_) => [, de_VolumeDetails(_, context), `skippedVolumeDetails`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EbsVolumeScanDetails
  */
 const de_EbsVolumeScanDetails = (output: any, context: __SerdeContext): EbsVolumeScanDetails => {
-  return {
-    ScanCompletedAt:
-      output.scanCompletedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scanCompletedAt)))
-        : undefined,
-    ScanDetections: output.scanDetections != null ? de_ScanDetections(output.scanDetections, context) : undefined,
-    ScanId: __expectString(output.scanId),
-    ScanStartedAt:
-      output.scanStartedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scanStartedAt)))
-        : undefined,
-    Sources: output.sources != null ? de_Sources(output.sources, context) : undefined,
-    TriggerFindingId: __expectString(output.triggerFindingId),
-  } as any;
+  return take(output, {
+    ScanCompletedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanCompletedAt`],
+    ScanDetections: (_) => [, de_ScanDetections(_, context), `scanDetections`],
+    ScanId: [, __expectString, `scanId`],
+    ScanStartedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanStartedAt`],
+    Sources: [, _json, `sources`],
+    TriggerFindingId: [, __expectString, `triggerFindingId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EbsVolumesResult
  */
 const de_EbsVolumesResult = (output: any, context: __SerdeContext): EbsVolumesResult => {
-  return {
-    Reason: __expectString(output.reason),
-    Status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    Reason: [, __expectString, `reason`],
+    Status: [, __expectString, `status`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EcsClusterDetails
  */
 const de_EcsClusterDetails = (output: any, context: __SerdeContext): EcsClusterDetails => {
-  return {
-    ActiveServicesCount: __expectInt32(output.activeServicesCount),
-    Arn: __expectString(output.arn),
-    Name: __expectString(output.name),
-    RegisteredContainerInstancesCount: __expectInt32(output.registeredContainerInstancesCount),
-    RunningTasksCount: __expectInt32(output.runningTasksCount),
-    Status: __expectString(output.status),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    TaskDetails: output.taskDetails != null ? de_EcsTaskDetails(output.taskDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    ActiveServicesCount: [, __expectInt32, `activeServicesCount`],
+    Arn: [, __expectString, `arn`],
+    Name: [, __expectString, `name`],
+    RegisteredContainerInstancesCount: [, __expectInt32, `registeredContainerInstancesCount`],
+    RunningTasksCount: [, __expectInt32, `runningTasksCount`],
+    Status: [, __expectString, `status`],
+    Tags: (_) => [, de_Tags(_, context), `tags`],
+    TaskDetails: (_) => [, de_EcsTaskDetails(_, context), `taskDetails`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EcsTaskDetails
  */
 const de_EcsTaskDetails = (output: any, context: __SerdeContext): EcsTaskDetails => {
-  return {
-    Arn: __expectString(output.arn),
-    Containers: output.containers != null ? de_Containers(output.containers, context) : undefined,
-    DefinitionArn: __expectString(output.definitionArn),
-    Group: __expectString(output.group),
-    StartedAt:
-      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
-    StartedBy: __expectString(output.startedBy),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    TaskCreatedAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    Version: __expectString(output.version),
-    Volumes: output.volumes != null ? de_Volumes(output.volumes, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    Containers: (_) => [, de_Containers(_, context), `containers`],
+    DefinitionArn: [, __expectString, `definitionArn`],
+    Group: [, __expectString, `group`],
+    StartedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startedAt`],
+    StartedBy: [, __expectString, `startedBy`],
+    Tags: (_) => [, de_Tags(_, context), `tags`],
+    TaskCreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    Version: [, __expectString, `version`],
+    Volumes: (_) => [, de_Volumes(_, context), `volumes`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EksClusterDetails
  */
 const de_EksClusterDetails = (output: any, context: __SerdeContext): EksClusterDetails => {
-  return {
-    Arn: __expectString(output.arn),
-    CreatedAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    Name: __expectString(output.name),
-    Status: __expectString(output.status),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    VpcId: __expectString(output.vpcId),
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    Tags: (_) => [, de_Tags(_, context), `tags`],
+    VpcId: [, __expectString, `vpcId`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Eq
- */
-const de_Eq = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Eq omitted.
 
-/**
- * deserializeAws_restJson1Equals
- */
-const de_Equals = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Equals omitted.
 
 /**
  * deserializeAws_restJson1Evidence
  */
 const de_Evidence = (output: any, context: __SerdeContext): Evidence => {
-  return {
-    ThreatIntelligenceDetails:
-      output.threatIntelligenceDetails != null
-        ? de_ThreatIntelligenceDetails(output.threatIntelligenceDetails, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ThreatIntelligenceDetails: (_) => [, de_ThreatIntelligenceDetails(_, context), `threatIntelligenceDetails`],
+  }) as any;
 };
 
 /**
@@ -7237,75 +6900,46 @@ const de_FilePaths = (output: any, context: __SerdeContext): ScanFilePath[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ScanFilePath(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1FilterNames
- */
-const de_FilterNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FilterNames omitted.
 
 /**
  * deserializeAws_restJson1Finding
  */
 const de_Finding = (output: any, context: __SerdeContext): Finding => {
-  return {
-    AccountId: __expectString(output.accountId),
-    Arn: __expectString(output.arn),
-    Confidence: __limitedParseDouble(output.confidence),
-    CreatedAt: __expectString(output.createdAt),
-    Description: __expectString(output.description),
-    Id: __expectString(output.id),
-    Partition: __expectString(output.partition),
-    Region: __expectString(output.region),
-    Resource: output.resource != null ? de_Resource(output.resource, context) : undefined,
-    SchemaVersion: __expectString(output.schemaVersion),
-    Service: output.service != null ? de_Service(output.service, context) : undefined,
-    Severity: __limitedParseDouble(output.severity),
-    Title: __expectString(output.title),
-    Type: __expectString(output.type),
-    UpdatedAt: __expectString(output.updatedAt),
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    Arn: [, __expectString, `arn`],
+    Confidence: [, __limitedParseDouble, `confidence`],
+    CreatedAt: [, __expectString, `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    Partition: [, __expectString, `partition`],
+    Region: [, __expectString, `region`],
+    Resource: (_) => [, de_Resource(_, context), `resource`],
+    SchemaVersion: [, __expectString, `schemaVersion`],
+    Service: (_) => [, de_Service(_, context), `service`],
+    Severity: [, __limitedParseDouble, `severity`],
+    Title: [, __expectString, `title`],
+    Type: [, __expectString, `type`],
+    UpdatedAt: [, __expectString, `updatedAt`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1FindingCriteria
  */
 const de_FindingCriteria = (output: any, context: __SerdeContext): FindingCriteria => {
-  return {
-    Criterion: output.criterion != null ? de_Criterion(output.criterion, context) : undefined,
-  } as any;
+  return take(output, {
+    Criterion: (_) => [, de_Criterion(_, context), `criterion`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FindingIds
- */
-const de_FindingIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FindingIds omitted.
 
 /**
  * deserializeAws_restJson1Findings
@@ -7314,9 +6948,6 @@ const de_Findings = (output: any, context: __SerdeContext): Finding[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Finding(entry, context);
     });
   return retVal;
@@ -7326,33 +6957,20 @@ const de_Findings = (output: any, context: __SerdeContext): Finding[] => {
  * deserializeAws_restJson1FindingStatistics
  */
 const de_FindingStatistics = (output: any, context: __SerdeContext): FindingStatistics => {
-  return {
-    CountBySeverity: output.countBySeverity != null ? de_CountBySeverity(output.countBySeverity, context) : undefined,
-  } as any;
+  return take(output, {
+    CountBySeverity: [, _json, `countBySeverity`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FlagsList
- */
-const de_FlagsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FlagsList omitted.
 
 /**
  * deserializeAws_restJson1FlowLogsConfigurationResult
  */
 const de_FlowLogsConfigurationResult = (output: any, context: __SerdeContext): FlowLogsConfigurationResult => {
-  return {
-    Status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    Status: [, __expectString, `status`],
+  }) as any;
 };
 
 /**
@@ -7362,10 +6980,10 @@ const de_FreeTrialFeatureConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): FreeTrialFeatureConfigurationResult => {
-  return {
-    FreeTrialDaysRemaining: __expectInt32(output.freeTrialDaysRemaining),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    FreeTrialDaysRemaining: [, __expectInt32, `freeTrialDaysRemaining`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
@@ -7378,9 +6996,6 @@ const de_FreeTrialFeatureConfigurationsResults = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FreeTrialFeatureConfigurationResult(entry, context);
     });
   return retVal;
@@ -7390,90 +7005,75 @@ const de_FreeTrialFeatureConfigurationsResults = (
  * deserializeAws_restJson1GeoLocation
  */
 const de_GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
-  return {
-    Lat: __limitedParseDouble(output.lat),
-    Lon: __limitedParseDouble(output.lon),
-  } as any;
+  return take(output, {
+    Lat: [, __limitedParseDouble, `lat`],
+    Lon: [, __limitedParseDouble, `lon`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Groups
- */
-const de_Groups = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Groups omitted.
 
 /**
  * deserializeAws_restJson1HighestSeverityThreatDetails
  */
 const de_HighestSeverityThreatDetails = (output: any, context: __SerdeContext): HighestSeverityThreatDetails => {
-  return {
-    Count: __expectInt32(output.count),
-    Severity: __expectString(output.severity),
-    ThreatName: __expectString(output.threatName),
-  } as any;
+  return take(output, {
+    Count: [, __expectInt32, `count`],
+    Severity: [, __expectString, `severity`],
+    ThreatName: [, __expectString, `threatName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1HostPath
  */
 const de_HostPath = (output: any, context: __SerdeContext): HostPath => {
-  return {
-    Path: __expectString(output.path),
-  } as any;
+  return take(output, {
+    Path: [, __expectString, `path`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1IamInstanceProfile
  */
 const de_IamInstanceProfile = (output: any, context: __SerdeContext): IamInstanceProfile => {
-  return {
-    Arn: __expectString(output.arn),
-    Id: __expectString(output.id),
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    Id: [, __expectString, `id`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1InstanceDetails
  */
 const de_InstanceDetails = (output: any, context: __SerdeContext): InstanceDetails => {
-  return {
-    AvailabilityZone: __expectString(output.availabilityZone),
-    IamInstanceProfile:
-      output.iamInstanceProfile != null ? de_IamInstanceProfile(output.iamInstanceProfile, context) : undefined,
-    ImageDescription: __expectString(output.imageDescription),
-    ImageId: __expectString(output.imageId),
-    InstanceId: __expectString(output.instanceId),
-    InstanceState: __expectString(output.instanceState),
-    InstanceType: __expectString(output.instanceType),
-    LaunchTime: __expectString(output.launchTime),
-    NetworkInterfaces:
-      output.networkInterfaces != null ? de_NetworkInterfaces(output.networkInterfaces, context) : undefined,
-    OutpostArn: __expectString(output.outpostArn),
-    Platform: __expectString(output.platform),
-    ProductCodes: output.productCodes != null ? de_ProductCodes(output.productCodes, context) : undefined,
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    AvailabilityZone: [, __expectString, `availabilityZone`],
+    IamInstanceProfile: (_) => [, de_IamInstanceProfile(_, context), `iamInstanceProfile`],
+    ImageDescription: [, __expectString, `imageDescription`],
+    ImageId: [, __expectString, `imageId`],
+    InstanceId: [, __expectString, `instanceId`],
+    InstanceState: [, __expectString, `instanceState`],
+    InstanceType: [, __expectString, `instanceType`],
+    LaunchTime: [, __expectString, `launchTime`],
+    NetworkInterfaces: (_) => [, de_NetworkInterfaces(_, context), `networkInterfaces`],
+    OutpostArn: [, __expectString, `outpostArn`],
+    Platform: [, __expectString, `platform`],
+    ProductCodes: (_) => [, de_ProductCodes(_, context), `productCodes`],
+    Tags: (_) => [, de_Tags(_, context), `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Invitation
  */
 const de_Invitation = (output: any, context: __SerdeContext): Invitation => {
-  return {
-    AccountId: __expectString(output.accountId),
-    InvitationId: __expectString(output.invitationId),
-    InvitedAt: __expectString(output.invitedAt),
-    RelationshipStatus: __expectString(output.relationshipStatus),
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    InvitationId: [, __expectString, `invitationId`],
+    InvitedAt: [, __expectString, `invitedAt`],
+    RelationshipStatus: [, __expectString, `relationshipStatus`],
+  }) as any;
 };
 
 /**
@@ -7483,57 +7083,28 @@ const de_Invitations = (output: any, context: __SerdeContext): Invitation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Invitation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1IpSetIds
- */
-const de_IpSetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IpSetIds omitted.
 
-/**
- * deserializeAws_restJson1Ipv6Addresses
- */
-const de_Ipv6Addresses = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Ipv6Addresses omitted.
 
 /**
  * deserializeAws_restJson1KubernetesApiCallAction
  */
 const de_KubernetesApiCallAction = (output: any, context: __SerdeContext): KubernetesApiCallAction => {
-  return {
-    Parameters: __expectString(output.parameters),
-    RemoteIpDetails: output.remoteIpDetails != null ? de_RemoteIpDetails(output.remoteIpDetails, context) : undefined,
-    RequestUri: __expectString(output.requestUri),
-    SourceIps: output.sourceIps != null ? de_SourceIps(output.sourceIps, context) : undefined,
-    StatusCode: __expectInt32(output.statusCode),
-    UserAgent: __expectString(output.userAgent),
-    Verb: __expectString(output.verb),
-  } as any;
+  return take(output, {
+    Parameters: [, __expectString, `parameters`],
+    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+    RequestUri: [, __expectString, `requestUri`],
+    SourceIps: [, _json, `sourceIps`],
+    StatusCode: [, __expectInt32, `statusCode`],
+    UserAgent: [, __expectString, `userAgent`],
+    Verb: [, __expectString, `verb`],
+  }) as any;
 };
 
 /**
@@ -7543,70 +7114,63 @@ const de_KubernetesAuditLogsConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): KubernetesAuditLogsConfigurationResult => {
-  return {
-    Status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    Status: [, __expectString, `status`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1KubernetesConfigurationResult
  */
 const de_KubernetesConfigurationResult = (output: any, context: __SerdeContext): KubernetesConfigurationResult => {
-  return {
-    AuditLogs:
-      output.auditLogs != null ? de_KubernetesAuditLogsConfigurationResult(output.auditLogs, context) : undefined,
-  } as any;
+  return take(output, {
+    AuditLogs: (_) => [, de_KubernetesAuditLogsConfigurationResult(_, context), `auditLogs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1KubernetesDataSourceFreeTrial
  */
 const de_KubernetesDataSourceFreeTrial = (output: any, context: __SerdeContext): KubernetesDataSourceFreeTrial => {
-  return {
-    AuditLogs: output.auditLogs != null ? de_DataSourceFreeTrial(output.auditLogs, context) : undefined,
-  } as any;
+  return take(output, {
+    AuditLogs: (_) => [, de_DataSourceFreeTrial(_, context), `auditLogs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1KubernetesDetails
  */
 const de_KubernetesDetails = (output: any, context: __SerdeContext): KubernetesDetails => {
-  return {
-    KubernetesUserDetails:
-      output.kubernetesUserDetails != null
-        ? de_KubernetesUserDetails(output.kubernetesUserDetails, context)
-        : undefined,
-    KubernetesWorkloadDetails:
-      output.kubernetesWorkloadDetails != null
-        ? de_KubernetesWorkloadDetails(output.kubernetesWorkloadDetails, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    KubernetesUserDetails: (_) => [, de_KubernetesUserDetails(_, context), `kubernetesUserDetails`],
+    KubernetesWorkloadDetails: (_) => [, de_KubernetesWorkloadDetails(_, context), `kubernetesWorkloadDetails`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1KubernetesUserDetails
  */
 const de_KubernetesUserDetails = (output: any, context: __SerdeContext): KubernetesUserDetails => {
-  return {
-    Groups: output.groups != null ? de_Groups(output.groups, context) : undefined,
-    Uid: __expectString(output.uid),
-    Username: __expectString(output.username),
-  } as any;
+  return take(output, {
+    Groups: [, _json, `groups`],
+    Uid: [, __expectString, `uid`],
+    Username: [, __expectString, `username`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1KubernetesWorkloadDetails
  */
 const de_KubernetesWorkloadDetails = (output: any, context: __SerdeContext): KubernetesWorkloadDetails => {
-  return {
-    Containers: output.containers != null ? de_Containers(output.containers, context) : undefined,
-    HostNetwork: __expectBoolean(output.hostNetwork),
-    Name: __expectString(output.name),
-    Namespace: __expectString(output.namespace),
-    Type: __expectString(output.type),
-    Uid: __expectString(output.uid),
-    Volumes: output.volumes != null ? de_Volumes(output.volumes, context) : undefined,
-  } as any;
+  return take(output, {
+    Containers: (_) => [, de_Containers(_, context), `containers`],
+    HostNetwork: [, __expectBoolean, `hostNetwork`],
+    Name: [, __expectString, `name`],
+    Namespace: [, __expectString, `namespace`],
+    Type: [, __expectString, `type`],
+    Uid: [, __expectString, `uid`],
+    Volumes: (_) => [, de_Volumes(_, context), `volumes`],
+  }) as any;
 };
 
 /**
@@ -7616,9 +7180,6 @@ const de_Lineage = (output: any, context: __SerdeContext): LineageObject[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LineageObject(entry, context);
     });
   return retVal;
@@ -7628,49 +7189,48 @@ const de_Lineage = (output: any, context: __SerdeContext): LineageObject[] => {
  * deserializeAws_restJson1LineageObject
  */
 const de_LineageObject = (output: any, context: __SerdeContext): LineageObject => {
-  return {
-    Euid: __expectInt32(output.euid),
-    ExecutablePath: __expectString(output.executablePath),
-    Name: __expectString(output.name),
-    NamespacePid: __expectInt32(output.namespacePid),
-    ParentUuid: __expectString(output.parentUuid),
-    Pid: __expectInt32(output.pid),
-    StartTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    UserId: __expectInt32(output.userId),
-    Uuid: __expectString(output.uuid),
-  } as any;
+  return take(output, {
+    Euid: [, __expectInt32, `euid`],
+    ExecutablePath: [, __expectString, `executablePath`],
+    Name: [, __expectString, `name`],
+    NamespacePid: [, __expectInt32, `namespacePid`],
+    ParentUuid: [, __expectString, `parentUuid`],
+    Pid: [, __expectInt32, `pid`],
+    StartTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startTime`],
+    UserId: [, __expectInt32, `userId`],
+    Uuid: [, __expectString, `uuid`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LocalIpDetails
  */
 const de_LocalIpDetails = (output: any, context: __SerdeContext): LocalIpDetails => {
-  return {
-    IpAddressV4: __expectString(output.ipAddressV4),
-  } as any;
+  return take(output, {
+    IpAddressV4: [, __expectString, `ipAddressV4`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LocalPortDetails
  */
 const de_LocalPortDetails = (output: any, context: __SerdeContext): LocalPortDetails => {
-  return {
-    Port: __expectInt32(output.port),
-    PortName: __expectString(output.portName),
-  } as any;
+  return take(output, {
+    Port: [, __expectInt32, `port`],
+    PortName: [, __expectString, `portName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LoginAttribute
  */
 const de_LoginAttribute = (output: any, context: __SerdeContext): LoginAttribute => {
-  return {
-    Application: __expectString(output.application),
-    FailedLoginAttempts: __expectInt32(output.failedLoginAttempts),
-    SuccessfulLoginAttempts: __expectInt32(output.successfulLoginAttempts),
-    User: __expectString(output.user),
-  } as any;
+  return take(output, {
+    Application: [, __expectString, `application`],
+    FailedLoginAttempts: [, __expectInt32, `failedLoginAttempts`],
+    SuccessfulLoginAttempts: [, __expectInt32, `successfulLoginAttempts`],
+    User: [, __expectString, `user`],
+  }) as any;
 };
 
 /**
@@ -7680,9 +7240,6 @@ const de_LoginAttributes = (output: any, context: __SerdeContext): LoginAttribut
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LoginAttribute(entry, context);
     });
   return retVal;
@@ -7695,13 +7252,14 @@ const de_MalwareProtectionConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): MalwareProtectionConfigurationResult => {
-  return {
-    ScanEc2InstanceWithFindings:
-      output.scanEc2InstanceWithFindings != null
-        ? de_ScanEc2InstanceWithFindingsResult(output.scanEc2InstanceWithFindings, context)
-        : undefined,
-    ServiceRole: __expectString(output.serviceRole),
-  } as any;
+  return take(output, {
+    ScanEc2InstanceWithFindings: (_) => [
+      ,
+      de_ScanEc2InstanceWithFindingsResult(_, context),
+      `scanEc2InstanceWithFindings`,
+    ],
+    ServiceRole: [, __expectString, `serviceRole`],
+  }) as any;
 };
 
 /**
@@ -7711,12 +7269,9 @@ const de_MalwareProtectionDataSourceFreeTrial = (
   output: any,
   context: __SerdeContext
 ): MalwareProtectionDataSourceFreeTrial => {
-  return {
-    ScanEc2InstanceWithFindings:
-      output.scanEc2InstanceWithFindings != null
-        ? de_DataSourceFreeTrial(output.scanEc2InstanceWithFindings, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ScanEc2InstanceWithFindings: (_) => [, de_DataSourceFreeTrial(_, context), `scanEc2InstanceWithFindings`],
+  }) as any;
 };
 
 /**
@@ -7726,9 +7281,6 @@ const de_MapEquals = (output: any, context: __SerdeContext): ScanConditionPair[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ScanConditionPair(entry, context);
     });
   return retVal;
@@ -7738,28 +7290,28 @@ const de_MapEquals = (output: any, context: __SerdeContext): ScanConditionPair[]
  * deserializeAws_restJson1Master
  */
 const de_Master = (output: any, context: __SerdeContext): Master => {
-  return {
-    AccountId: __expectString(output.accountId),
-    InvitationId: __expectString(output.invitationId),
-    InvitedAt: __expectString(output.invitedAt),
-    RelationshipStatus: __expectString(output.relationshipStatus),
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    InvitationId: [, __expectString, `invitationId`],
+    InvitedAt: [, __expectString, `invitedAt`],
+    RelationshipStatus: [, __expectString, `relationshipStatus`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Member
  */
 const de_Member = (output: any, context: __SerdeContext): Member => {
-  return {
-    AccountId: __expectString(output.accountId),
-    AdministratorId: __expectString(output.administratorId),
-    DetectorId: __expectString(output.detectorId),
-    Email: __expectString(output.email),
-    InvitedAt: __expectString(output.invitedAt),
-    MasterId: __expectString(output.masterId),
-    RelationshipStatus: __expectString(output.relationshipStatus),
-    UpdatedAt: __expectString(output.updatedAt),
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    AdministratorId: [, __expectString, `administratorId`],
+    DetectorId: [, __expectString, `detectorId`],
+    Email: [, __expectString, `email`],
+    InvitedAt: [, __expectString, `invitedAt`],
+    MasterId: [, __expectString, `masterId`],
+    RelationshipStatus: [, __expectString, `relationshipStatus`],
+    UpdatedAt: [, __expectString, `updatedAt`],
+  }) as any;
 };
 
 /**
@@ -7769,12 +7321,11 @@ const de_MemberAdditionalConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): MemberAdditionalConfigurationResult => {
-  return {
-    Name: __expectString(output.name),
-    Status: __expectString(output.status),
-    UpdatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+  }) as any;
 };
 
 /**
@@ -7787,9 +7338,6 @@ const de_MemberAdditionalConfigurationResults = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MemberAdditionalConfigurationResult(entry, context);
     });
   return retVal;
@@ -7799,12 +7347,11 @@ const de_MemberAdditionalConfigurationResults = (
  * deserializeAws_restJson1MemberDataSourceConfiguration
  */
 const de_MemberDataSourceConfiguration = (output: any, context: __SerdeContext): MemberDataSourceConfiguration => {
-  return {
-    AccountId: __expectString(output.accountId),
-    DataSources:
-      output.dataSources != null ? de_DataSourceConfigurationsResult(output.dataSources, context) : undefined,
-    Features: output.features != null ? de_MemberFeaturesConfigurationsResults(output.features, context) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    DataSources: (_) => [, de_DataSourceConfigurationsResult(_, context), `dataSources`],
+    Features: (_) => [, de_MemberFeaturesConfigurationsResults(_, context), `features`],
+  }) as any;
 };
 
 /**
@@ -7814,9 +7361,6 @@ const de_MemberDataSourceConfigurations = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MemberDataSourceConfiguration(entry, context);
     });
   return retVal;
@@ -7829,16 +7373,12 @@ const de_MemberFeaturesConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): MemberFeaturesConfigurationResult => {
-  return {
-    AdditionalConfiguration:
-      output.additionalConfiguration != null
-        ? de_MemberAdditionalConfigurationResults(output.additionalConfiguration, context)
-        : undefined,
-    Name: __expectString(output.name),
-    Status: __expectString(output.status),
-    UpdatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    AdditionalConfiguration: (_) => [, de_MemberAdditionalConfigurationResults(_, context), `additionalConfiguration`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+  }) as any;
 };
 
 /**
@@ -7851,9 +7391,6 @@ const de_MemberFeaturesConfigurationsResults = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MemberFeaturesConfigurationResult(entry, context);
     });
   return retVal;
@@ -7866,78 +7403,46 @@ const de_Members = (output: any, context: __SerdeContext): Member[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Member(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1MemoryRegionsList
- */
-const de_MemoryRegionsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MemoryRegionsList omitted.
 
-/**
- * deserializeAws_restJson1Neq
- */
-const de_Neq = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Neq omitted.
 
 /**
  * deserializeAws_restJson1NetworkConnectionAction
  */
 const de_NetworkConnectionAction = (output: any, context: __SerdeContext): NetworkConnectionAction => {
-  return {
-    Blocked: __expectBoolean(output.blocked),
-    ConnectionDirection: __expectString(output.connectionDirection),
-    LocalIpDetails: output.localIpDetails != null ? de_LocalIpDetails(output.localIpDetails, context) : undefined,
-    LocalPortDetails:
-      output.localPortDetails != null ? de_LocalPortDetails(output.localPortDetails, context) : undefined,
-    Protocol: __expectString(output.protocol),
-    RemoteIpDetails: output.remoteIpDetails != null ? de_RemoteIpDetails(output.remoteIpDetails, context) : undefined,
-    RemotePortDetails:
-      output.remotePortDetails != null ? de_RemotePortDetails(output.remotePortDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    Blocked: [, __expectBoolean, `blocked`],
+    ConnectionDirection: [, __expectString, `connectionDirection`],
+    LocalIpDetails: (_) => [, de_LocalIpDetails(_, context), `localIpDetails`],
+    LocalPortDetails: (_) => [, de_LocalPortDetails(_, context), `localPortDetails`],
+    Protocol: [, __expectString, `protocol`],
+    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+    RemotePortDetails: (_) => [, de_RemotePortDetails(_, context), `remotePortDetails`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1NetworkInterface
  */
 const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  return {
-    Ipv6Addresses: output.ipv6Addresses != null ? de_Ipv6Addresses(output.ipv6Addresses, context) : undefined,
-    NetworkInterfaceId: __expectString(output.networkInterfaceId),
-    PrivateDnsName: __expectString(output.privateDnsName),
-    PrivateIpAddress: __expectString(output.privateIpAddress),
-    PrivateIpAddresses:
-      output.privateIpAddresses != null ? de_PrivateIpAddresses(output.privateIpAddresses, context) : undefined,
-    PublicDnsName: __expectString(output.publicDnsName),
-    PublicIp: __expectString(output.publicIp),
-    SecurityGroups: output.securityGroups != null ? de_SecurityGroups(output.securityGroups, context) : undefined,
-    SubnetId: __expectString(output.subnetId),
-    VpcId: __expectString(output.vpcId),
-  } as any;
+  return take(output, {
+    Ipv6Addresses: [, _json, `ipv6Addresses`],
+    NetworkInterfaceId: [, __expectString, `networkInterfaceId`],
+    PrivateDnsName: [, __expectString, `privateDnsName`],
+    PrivateIpAddress: [, __expectString, `privateIpAddress`],
+    PrivateIpAddresses: (_) => [, de_PrivateIpAddresses(_, context), `privateIpAddresses`],
+    PublicDnsName: [, __expectString, `publicDnsName`],
+    PublicIp: [, __expectString, `publicIp`],
+    SecurityGroups: (_) => [, de_SecurityGroups(_, context), `securityGroups`],
+    SubnetId: [, __expectString, `subnetId`],
+    VpcId: [, __expectString, `vpcId`],
+  }) as any;
 };
 
 /**
@@ -7947,39 +7452,23 @@ const de_NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInte
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NetworkInterface(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1NotEquals
- */
-const de_NotEquals = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NotEquals omitted.
 
 /**
  * deserializeAws_restJson1Organization
  */
 const de_Organization = (output: any, context: __SerdeContext): Organization => {
-  return {
-    Asn: __expectString(output.asn),
-    AsnOrg: __expectString(output.asnOrg),
-    Isp: __expectString(output.isp),
-    Org: __expectString(output.org),
-  } as any;
+  return take(output, {
+    Asn: [, __expectString, `asn`],
+    AsnOrg: [, __expectString, `asnOrg`],
+    Isp: [, __expectString, `isp`],
+    Org: [, __expectString, `org`],
+  }) as any;
 };
 
 /**
@@ -7989,10 +7478,10 @@ const de_OrganizationAdditionalConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationAdditionalConfigurationResult => {
-  return {
-    AutoEnable: __expectString(output.autoEnable),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    AutoEnable: [, __expectString, `autoEnable`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
@@ -8005,9 +7494,6 @@ const de_OrganizationAdditionalConfigurationResults = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationAdditionalConfigurationResult(entry, context);
     });
   return retVal;
@@ -8020,24 +7506,20 @@ const de_OrganizationDataSourceConfigurationsResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationDataSourceConfigurationsResult => {
-  return {
-    Kubernetes:
-      output.kubernetes != null ? de_OrganizationKubernetesConfigurationResult(output.kubernetes, context) : undefined,
-    MalwareProtection:
-      output.malwareProtection != null
-        ? de_OrganizationMalwareProtectionConfigurationResult(output.malwareProtection, context)
-        : undefined,
-    S3Logs: output.s3Logs != null ? de_OrganizationS3LogsConfigurationResult(output.s3Logs, context) : undefined,
-  } as any;
+  return take(output, {
+    Kubernetes: (_) => [, de_OrganizationKubernetesConfigurationResult(_, context), `kubernetes`],
+    MalwareProtection: (_) => [, de_OrganizationMalwareProtectionConfigurationResult(_, context), `malwareProtection`],
+    S3Logs: (_) => [, de_OrganizationS3LogsConfigurationResult(_, context), `s3Logs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1OrganizationEbsVolumesResult
  */
 const de_OrganizationEbsVolumesResult = (output: any, context: __SerdeContext): OrganizationEbsVolumesResult => {
-  return {
-    AutoEnable: __expectBoolean(output.autoEnable),
-  } as any;
+  return take(output, {
+    AutoEnable: [, __expectBoolean, `autoEnable`],
+  }) as any;
 };
 
 /**
@@ -8047,14 +7529,15 @@ const de_OrganizationFeatureConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationFeatureConfigurationResult => {
-  return {
-    AdditionalConfiguration:
-      output.additionalConfiguration != null
-        ? de_OrganizationAdditionalConfigurationResults(output.additionalConfiguration, context)
-        : undefined,
-    AutoEnable: __expectString(output.autoEnable),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    AdditionalConfiguration: (_) => [
+      ,
+      de_OrganizationAdditionalConfigurationResults(_, context),
+      `additionalConfiguration`,
+    ],
+    AutoEnable: [, __expectString, `autoEnable`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
@@ -8067,9 +7550,6 @@ const de_OrganizationFeaturesConfigurationsResults = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationFeatureConfigurationResult(entry, context);
     });
   return retVal;
@@ -8082,9 +7562,9 @@ const de_OrganizationKubernetesAuditLogsConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationKubernetesAuditLogsConfigurationResult => {
-  return {
-    AutoEnable: __expectBoolean(output.autoEnable),
-  } as any;
+  return take(output, {
+    AutoEnable: [, __expectBoolean, `autoEnable`],
+  }) as any;
 };
 
 /**
@@ -8094,12 +7574,9 @@ const de_OrganizationKubernetesConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationKubernetesConfigurationResult => {
-  return {
-    AuditLogs:
-      output.auditLogs != null
-        ? de_OrganizationKubernetesAuditLogsConfigurationResult(output.auditLogs, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AuditLogs: (_) => [, de_OrganizationKubernetesAuditLogsConfigurationResult(_, context), `auditLogs`],
+  }) as any;
 };
 
 /**
@@ -8109,12 +7586,13 @@ const de_OrganizationMalwareProtectionConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationMalwareProtectionConfigurationResult => {
-  return {
-    ScanEc2InstanceWithFindings:
-      output.scanEc2InstanceWithFindings != null
-        ? de_OrganizationScanEc2InstanceWithFindingsResult(output.scanEc2InstanceWithFindings, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ScanEc2InstanceWithFindings: (_) => [
+      ,
+      de_OrganizationScanEc2InstanceWithFindingsResult(_, context),
+      `scanEc2InstanceWithFindings`,
+    ],
+  }) as any;
 };
 
 /**
@@ -8124,9 +7602,9 @@ const de_OrganizationS3LogsConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationS3LogsConfigurationResult => {
-  return {
-    AutoEnable: __expectBoolean(output.autoEnable),
-  } as any;
+  return take(output, {
+    AutoEnable: [, __expectBoolean, `autoEnable`],
+  }) as any;
 };
 
 /**
@@ -8136,57 +7614,49 @@ const de_OrganizationScanEc2InstanceWithFindingsResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationScanEc2InstanceWithFindingsResult => {
-  return {
-    EbsVolumes: output.ebsVolumes != null ? de_OrganizationEbsVolumesResult(output.ebsVolumes, context) : undefined,
-  } as any;
+  return take(output, {
+    EbsVolumes: (_) => [, de_OrganizationEbsVolumesResult(_, context), `ebsVolumes`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Owner
  */
 const de_Owner = (output: any, context: __SerdeContext): Owner => {
-  return {
-    Id: __expectString(output.id),
-  } as any;
+  return take(output, {
+    Id: [, __expectString, `id`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PermissionConfiguration
  */
 const de_PermissionConfiguration = (output: any, context: __SerdeContext): PermissionConfiguration => {
-  return {
-    AccountLevelPermissions:
-      output.accountLevelPermissions != null
-        ? de_AccountLevelPermissions(output.accountLevelPermissions, context)
-        : undefined,
-    BucketLevelPermissions:
-      output.bucketLevelPermissions != null
-        ? de_BucketLevelPermissions(output.bucketLevelPermissions, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountLevelPermissions: (_) => [, de_AccountLevelPermissions(_, context), `accountLevelPermissions`],
+    BucketLevelPermissions: (_) => [, de_BucketLevelPermissions(_, context), `bucketLevelPermissions`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PortProbeAction
  */
 const de_PortProbeAction = (output: any, context: __SerdeContext): PortProbeAction => {
-  return {
-    Blocked: __expectBoolean(output.blocked),
-    PortProbeDetails:
-      output.portProbeDetails != null ? de_PortProbeDetails(output.portProbeDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    Blocked: [, __expectBoolean, `blocked`],
+    PortProbeDetails: (_) => [, de_PortProbeDetails(_, context), `portProbeDetails`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PortProbeDetail
  */
 const de_PortProbeDetail = (output: any, context: __SerdeContext): PortProbeDetail => {
-  return {
-    LocalIpDetails: output.localIpDetails != null ? de_LocalIpDetails(output.localIpDetails, context) : undefined,
-    LocalPortDetails:
-      output.localPortDetails != null ? de_LocalPortDetails(output.localPortDetails, context) : undefined,
-    RemoteIpDetails: output.remoteIpDetails != null ? de_RemoteIpDetails(output.remoteIpDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    LocalIpDetails: (_) => [, de_LocalIpDetails(_, context), `localIpDetails`],
+    LocalPortDetails: (_) => [, de_LocalPortDetails(_, context), `localPortDetails`],
+    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+  }) as any;
 };
 
 /**
@@ -8196,9 +7666,6 @@ const de_PortProbeDetails = (output: any, context: __SerdeContext): PortProbeDet
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PortProbeDetail(entry, context);
     });
   return retVal;
@@ -8208,10 +7675,10 @@ const de_PortProbeDetails = (output: any, context: __SerdeContext): PortProbeDet
  * deserializeAws_restJson1PrivateIpAddressDetails
  */
 const de_PrivateIpAddressDetails = (output: any, context: __SerdeContext): PrivateIpAddressDetails => {
-  return {
-    PrivateDnsName: __expectString(output.privateDnsName),
-    PrivateIpAddress: __expectString(output.privateIpAddress),
-  } as any;
+  return take(output, {
+    PrivateDnsName: [, __expectString, `privateDnsName`],
+    PrivateIpAddress: [, __expectString, `privateIpAddress`],
+  }) as any;
 };
 
 /**
@@ -8221,9 +7688,6 @@ const de_PrivateIpAddresses = (output: any, context: __SerdeContext): PrivateIpA
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PrivateIpAddressDetails(entry, context);
     });
   return retVal;
@@ -8233,32 +7697,31 @@ const de_PrivateIpAddresses = (output: any, context: __SerdeContext): PrivateIpA
  * deserializeAws_restJson1ProcessDetails
  */
 const de_ProcessDetails = (output: any, context: __SerdeContext): ProcessDetails => {
-  return {
-    Euid: __expectInt32(output.euid),
-    ExecutablePath: __expectString(output.executablePath),
-    ExecutableSha256: __expectString(output.executableSha256),
-    Lineage: output.lineage != null ? de_Lineage(output.lineage, context) : undefined,
-    Name: __expectString(output.name),
-    NamespacePid: __expectInt32(output.namespacePid),
-    ParentUuid: __expectString(output.parentUuid),
-    Pid: __expectInt32(output.pid),
-    Pwd: __expectString(output.pwd),
-    StartTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    User: __expectString(output.user),
-    UserId: __expectInt32(output.userId),
-    Uuid: __expectString(output.uuid),
-  } as any;
+  return take(output, {
+    Euid: [, __expectInt32, `euid`],
+    ExecutablePath: [, __expectString, `executablePath`],
+    ExecutableSha256: [, __expectString, `executableSha256`],
+    Lineage: (_) => [, de_Lineage(_, context), `lineage`],
+    Name: [, __expectString, `name`],
+    NamespacePid: [, __expectInt32, `namespacePid`],
+    ParentUuid: [, __expectString, `parentUuid`],
+    Pid: [, __expectInt32, `pid`],
+    Pwd: [, __expectString, `pwd`],
+    StartTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startTime`],
+    User: [, __expectString, `user`],
+    UserId: [, __expectInt32, `userId`],
+    Uuid: [, __expectString, `uuid`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ProductCode
  */
 const de_ProductCode = (output: any, context: __SerdeContext): ProductCode => {
-  return {
-    Code: __expectString(output.productCodeId),
-    ProductType: __expectString(output.productCodeType),
-  } as any;
+  return take(output, {
+    Code: [, __expectString, `productCodeId`],
+    ProductType: [, __expectString, `productCodeType`],
+  }) as any;
 };
 
 /**
@@ -8268,9 +7731,6 @@ const de_ProductCodes = (output: any, context: __SerdeContext): ProductCode[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProductCode(entry, context);
     });
   return retVal;
@@ -8280,177 +7740,162 @@ const de_ProductCodes = (output: any, context: __SerdeContext): ProductCode[] =>
  * deserializeAws_restJson1PublicAccess
  */
 const de_PublicAccess = (output: any, context: __SerdeContext): PublicAccess => {
-  return {
-    EffectivePermission: __expectString(output.effectivePermission),
-    PermissionConfiguration:
-      output.permissionConfiguration != null
-        ? de_PermissionConfiguration(output.permissionConfiguration, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    EffectivePermission: [, __expectString, `effectivePermission`],
+    PermissionConfiguration: (_) => [, de_PermissionConfiguration(_, context), `permissionConfiguration`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RdsDbInstanceDetails
  */
 const de_RdsDbInstanceDetails = (output: any, context: __SerdeContext): RdsDbInstanceDetails => {
-  return {
-    DbClusterIdentifier: __expectString(output.dbClusterIdentifier),
-    DbInstanceArn: __expectString(output.dbInstanceArn),
-    DbInstanceIdentifier: __expectString(output.dbInstanceIdentifier),
-    Engine: __expectString(output.engine),
-    EngineVersion: __expectString(output.engineVersion),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    DbClusterIdentifier: [, __expectString, `dbClusterIdentifier`],
+    DbInstanceArn: [, __expectString, `dbInstanceArn`],
+    DbInstanceIdentifier: [, __expectString, `dbInstanceIdentifier`],
+    Engine: [, __expectString, `engine`],
+    EngineVersion: [, __expectString, `engineVersion`],
+    Tags: (_) => [, de_Tags(_, context), `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RdsDbUserDetails
  */
 const de_RdsDbUserDetails = (output: any, context: __SerdeContext): RdsDbUserDetails => {
-  return {
-    Application: __expectString(output.application),
-    AuthMethod: __expectString(output.authMethod),
-    Database: __expectString(output.database),
-    Ssl: __expectString(output.ssl),
-    User: __expectString(output.user),
-  } as any;
+  return take(output, {
+    Application: [, __expectString, `application`],
+    AuthMethod: [, __expectString, `authMethod`],
+    Database: [, __expectString, `database`],
+    Ssl: [, __expectString, `ssl`],
+    User: [, __expectString, `user`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RdsLoginAttemptAction
  */
 const de_RdsLoginAttemptAction = (output: any, context: __SerdeContext): RdsLoginAttemptAction => {
-  return {
-    LoginAttributes: output.LoginAttributes != null ? de_LoginAttributes(output.LoginAttributes, context) : undefined,
-    RemoteIpDetails: output.remoteIpDetails != null ? de_RemoteIpDetails(output.remoteIpDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    LoginAttributes: (_: any) => de_LoginAttributes(_, context),
+    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RemoteAccountDetails
  */
 const de_RemoteAccountDetails = (output: any, context: __SerdeContext): RemoteAccountDetails => {
-  return {
-    AccountId: __expectString(output.accountId),
-    Affiliated: __expectBoolean(output.affiliated),
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    Affiliated: [, __expectBoolean, `affiliated`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RemoteIpDetails
  */
 const de_RemoteIpDetails = (output: any, context: __SerdeContext): RemoteIpDetails => {
-  return {
-    City: output.city != null ? de_City(output.city, context) : undefined,
-    Country: output.country != null ? de_Country(output.country, context) : undefined,
-    GeoLocation: output.geoLocation != null ? de_GeoLocation(output.geoLocation, context) : undefined,
-    IpAddressV4: __expectString(output.ipAddressV4),
-    Organization: output.organization != null ? de_Organization(output.organization, context) : undefined,
-  } as any;
+  return take(output, {
+    City: (_) => [, de_City(_, context), `city`],
+    Country: (_) => [, de_Country(_, context), `country`],
+    GeoLocation: (_) => [, de_GeoLocation(_, context), `geoLocation`],
+    IpAddressV4: [, __expectString, `ipAddressV4`],
+    Organization: (_) => [, de_Organization(_, context), `organization`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RemotePortDetails
  */
 const de_RemotePortDetails = (output: any, context: __SerdeContext): RemotePortDetails => {
-  return {
-    Port: __expectInt32(output.port),
-    PortName: __expectString(output.portName),
-  } as any;
+  return take(output, {
+    Port: [, __expectInt32, `port`],
+    PortName: [, __expectString, `portName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Resource
  */
 const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    AccessKeyDetails:
-      output.accessKeyDetails != null ? de_AccessKeyDetails(output.accessKeyDetails, context) : undefined,
-    ContainerDetails: output.containerDetails != null ? de_Container(output.containerDetails, context) : undefined,
-    EbsVolumeDetails:
-      output.ebsVolumeDetails != null ? de_EbsVolumeDetails(output.ebsVolumeDetails, context) : undefined,
-    EcsClusterDetails:
-      output.ecsClusterDetails != null ? de_EcsClusterDetails(output.ecsClusterDetails, context) : undefined,
-    EksClusterDetails:
-      output.eksClusterDetails != null ? de_EksClusterDetails(output.eksClusterDetails, context) : undefined,
-    InstanceDetails: output.instanceDetails != null ? de_InstanceDetails(output.instanceDetails, context) : undefined,
-    KubernetesDetails:
-      output.kubernetesDetails != null ? de_KubernetesDetails(output.kubernetesDetails, context) : undefined,
-    RdsDbInstanceDetails:
-      output.rdsDbInstanceDetails != null ? de_RdsDbInstanceDetails(output.rdsDbInstanceDetails, context) : undefined,
-    RdsDbUserDetails:
-      output.rdsDbUserDetails != null ? de_RdsDbUserDetails(output.rdsDbUserDetails, context) : undefined,
-    ResourceType: __expectString(output.resourceType),
-    S3BucketDetails: output.s3BucketDetails != null ? de_S3BucketDetails(output.s3BucketDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    AccessKeyDetails: (_) => [, de_AccessKeyDetails(_, context), `accessKeyDetails`],
+    ContainerDetails: (_) => [, de_Container(_, context), `containerDetails`],
+    EbsVolumeDetails: (_) => [, de_EbsVolumeDetails(_, context), `ebsVolumeDetails`],
+    EcsClusterDetails: (_) => [, de_EcsClusterDetails(_, context), `ecsClusterDetails`],
+    EksClusterDetails: (_) => [, de_EksClusterDetails(_, context), `eksClusterDetails`],
+    InstanceDetails: (_) => [, de_InstanceDetails(_, context), `instanceDetails`],
+    KubernetesDetails: (_) => [, de_KubernetesDetails(_, context), `kubernetesDetails`],
+    RdsDbInstanceDetails: (_) => [, de_RdsDbInstanceDetails(_, context), `rdsDbInstanceDetails`],
+    RdsDbUserDetails: (_) => [, de_RdsDbUserDetails(_, context), `rdsDbUserDetails`],
+    ResourceType: [, __expectString, `resourceType`],
+    S3BucketDetails: (_) => [, de_S3BucketDetails(_, context), `s3BucketDetails`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ResourceDetails
  */
 const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
-  return {
-    InstanceArn: __expectString(output.instanceArn),
-  } as any;
+  return take(output, {
+    InstanceArn: [, __expectString, `instanceArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RuntimeContext
  */
 const de_RuntimeContext = (output: any, context: __SerdeContext): RuntimeContext => {
-  return {
-    AddressFamily: __expectString(output.addressFamily),
-    FileSystemType: __expectString(output.fileSystemType),
-    Flags: output.flags != null ? de_FlagsList(output.flags, context) : undefined,
-    IanaProtocolNumber: __expectInt32(output.ianaProtocolNumber),
-    LdPreloadValue: __expectString(output.ldPreloadValue),
-    LibraryPath: __expectString(output.libraryPath),
-    MemoryRegions: output.memoryRegions != null ? de_MemoryRegionsList(output.memoryRegions, context) : undefined,
-    ModifiedAt:
-      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
-    ModifyingProcess: output.modifyingProcess != null ? de_ProcessDetails(output.modifyingProcess, context) : undefined,
-    ModuleFilePath: __expectString(output.moduleFilePath),
-    ModuleName: __expectString(output.moduleName),
-    ModuleSha256: __expectString(output.moduleSha256),
-    MountSource: __expectString(output.mountSource),
-    MountTarget: __expectString(output.mountTarget),
-    ReleaseAgentPath: __expectString(output.releaseAgentPath),
-    RuncBinaryPath: __expectString(output.runcBinaryPath),
-    ScriptPath: __expectString(output.scriptPath),
-    ShellHistoryFilePath: __expectString(output.shellHistoryFilePath),
-    SocketPath: __expectString(output.socketPath),
-    TargetProcess: output.targetProcess != null ? de_ProcessDetails(output.targetProcess, context) : undefined,
-  } as any;
+  return take(output, {
+    AddressFamily: [, __expectString, `addressFamily`],
+    FileSystemType: [, __expectString, `fileSystemType`],
+    Flags: [, _json, `flags`],
+    IanaProtocolNumber: [, __expectInt32, `ianaProtocolNumber`],
+    LdPreloadValue: [, __expectString, `ldPreloadValue`],
+    LibraryPath: [, __expectString, `libraryPath`],
+    MemoryRegions: [, _json, `memoryRegions`],
+    ModifiedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `modifiedAt`],
+    ModifyingProcess: (_) => [, de_ProcessDetails(_, context), `modifyingProcess`],
+    ModuleFilePath: [, __expectString, `moduleFilePath`],
+    ModuleName: [, __expectString, `moduleName`],
+    ModuleSha256: [, __expectString, `moduleSha256`],
+    MountSource: [, __expectString, `mountSource`],
+    MountTarget: [, __expectString, `mountTarget`],
+    ReleaseAgentPath: [, __expectString, `releaseAgentPath`],
+    RuncBinaryPath: [, __expectString, `runcBinaryPath`],
+    ScriptPath: [, __expectString, `scriptPath`],
+    ShellHistoryFilePath: [, __expectString, `shellHistoryFilePath`],
+    SocketPath: [, __expectString, `socketPath`],
+    TargetProcess: (_) => [, de_ProcessDetails(_, context), `targetProcess`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RuntimeDetails
  */
 const de_RuntimeDetails = (output: any, context: __SerdeContext): RuntimeDetails => {
-  return {
-    Context: output.context != null ? de_RuntimeContext(output.context, context) : undefined,
-    Process: output.process != null ? de_ProcessDetails(output.process, context) : undefined,
-  } as any;
+  return take(output, {
+    Context: (_) => [, de_RuntimeContext(_, context), `context`],
+    Process: (_) => [, de_ProcessDetails(_, context), `process`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1S3BucketDetail
  */
 const de_S3BucketDetail = (output: any, context: __SerdeContext): S3BucketDetail => {
-  return {
-    Arn: __expectString(output.arn),
-    CreatedAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    DefaultServerSideEncryption:
-      output.defaultServerSideEncryption != null
-        ? de_DefaultServerSideEncryption(output.defaultServerSideEncryption, context)
-        : undefined,
-    Name: __expectString(output.name),
-    Owner: output.owner != null ? de_Owner(output.owner, context) : undefined,
-    PublicAccess: output.publicAccess != null ? de_PublicAccess(output.publicAccess, context) : undefined,
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    Type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    DefaultServerSideEncryption: (_) => [, de_DefaultServerSideEncryption(_, context), `defaultServerSideEncryption`],
+    Name: [, __expectString, `name`],
+    Owner: (_) => [, de_Owner(_, context), `owner`],
+    PublicAccess: (_) => [, de_PublicAccess(_, context), `publicAccess`],
+    Tags: (_) => [, de_Tags(_, context), `tags`],
+    Type: [, __expectString, `type`],
+  }) as any;
 };
 
 /**
@@ -8460,9 +7905,6 @@ const de_S3BucketDetails = (output: any, context: __SerdeContext): S3BucketDetai
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_S3BucketDetail(entry, context);
     });
   return retVal;
@@ -8472,57 +7914,50 @@ const de_S3BucketDetails = (output: any, context: __SerdeContext): S3BucketDetai
  * deserializeAws_restJson1S3LogsConfigurationResult
  */
 const de_S3LogsConfigurationResult = (output: any, context: __SerdeContext): S3LogsConfigurationResult => {
-  return {
-    Status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    Status: [, __expectString, `status`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Scan
  */
 const de_Scan = (output: any, context: __SerdeContext): Scan => {
-  return {
-    AccountId: __expectString(output.accountId),
-    AdminDetectorId: __expectString(output.adminDetectorId),
-    AttachedVolumes: output.attachedVolumes != null ? de_VolumeDetails(output.attachedVolumes, context) : undefined,
-    DetectorId: __expectString(output.detectorId),
-    FailureReason: __expectString(output.failureReason),
-    FileCount: __expectLong(output.fileCount),
-    ResourceDetails: output.resourceDetails != null ? de_ResourceDetails(output.resourceDetails, context) : undefined,
-    ScanEndTime:
-      output.scanEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scanEndTime)))
-        : undefined,
-    ScanId: __expectString(output.scanId),
-    ScanResultDetails:
-      output.scanResultDetails != null ? de_ScanResultDetails(output.scanResultDetails, context) : undefined,
-    ScanStartTime:
-      output.scanStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scanStartTime)))
-        : undefined,
-    ScanStatus: __expectString(output.scanStatus),
-    TotalBytes: __expectLong(output.totalBytes),
-    TriggerDetails: output.triggerDetails != null ? de_TriggerDetails(output.triggerDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    AdminDetectorId: [, __expectString, `adminDetectorId`],
+    AttachedVolumes: (_) => [, de_VolumeDetails(_, context), `attachedVolumes`],
+    DetectorId: [, __expectString, `detectorId`],
+    FailureReason: [, __expectString, `failureReason`],
+    FileCount: [, __expectLong, `fileCount`],
+    ResourceDetails: (_) => [, de_ResourceDetails(_, context), `resourceDetails`],
+    ScanEndTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanEndTime`],
+    ScanId: [, __expectString, `scanId`],
+    ScanResultDetails: (_) => [, de_ScanResultDetails(_, context), `scanResultDetails`],
+    ScanStartTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanStartTime`],
+    ScanStatus: [, __expectString, `scanStatus`],
+    TotalBytes: [, __expectLong, `totalBytes`],
+    TriggerDetails: (_) => [, de_TriggerDetails(_, context), `triggerDetails`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ScanCondition
  */
 const de_ScanCondition = (output: any, context: __SerdeContext): ScanCondition => {
-  return {
-    MapEquals: output.mapEquals != null ? de_MapEquals(output.mapEquals, context) : undefined,
-  } as any;
+  return take(output, {
+    MapEquals: (_) => [, de_MapEquals(_, context), `mapEquals`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ScanConditionPair
  */
 const de_ScanConditionPair = (output: any, context: __SerdeContext): ScanConditionPair => {
-  return {
-    Key: __expectString(output.key),
-    Value: __expectString(output.value),
-  } as any;
+  return take(output, {
+    Key: [, __expectString, `key`],
+    Value: [, __expectString, `value`],
+  }) as any;
 };
 
 /**
@@ -8545,20 +7980,16 @@ const de_ScanCriterion = (output: any, context: __SerdeContext): Record<string, 
  * deserializeAws_restJson1ScanDetections
  */
 const de_ScanDetections = (output: any, context: __SerdeContext): ScanDetections => {
-  return {
-    HighestSeverityThreatDetails:
-      output.highestSeverityThreatDetails != null
-        ? de_HighestSeverityThreatDetails(output.highestSeverityThreatDetails, context)
-        : undefined,
-    ScannedItemCount:
-      output.scannedItemCount != null ? de_ScannedItemCount(output.scannedItemCount, context) : undefined,
-    ThreatDetectedByName:
-      output.threatDetectedByName != null ? de_ThreatDetectedByName(output.threatDetectedByName, context) : undefined,
-    ThreatsDetectedItemCount:
-      output.threatsDetectedItemCount != null
-        ? de_ThreatsDetectedItemCount(output.threatsDetectedItemCount, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    HighestSeverityThreatDetails: (_) => [
+      ,
+      de_HighestSeverityThreatDetails(_, context),
+      `highestSeverityThreatDetails`,
+    ],
+    ScannedItemCount: (_) => [, de_ScannedItemCount(_, context), `scannedItemCount`],
+    ThreatDetectedByName: (_) => [, de_ThreatDetectedByName(_, context), `threatDetectedByName`],
+    ThreatsDetectedItemCount: (_) => [, de_ThreatsDetectedItemCount(_, context), `threatsDetectedItemCount`],
+  }) as any;
 };
 
 /**
@@ -8568,51 +7999,51 @@ const de_ScanEc2InstanceWithFindingsResult = (
   output: any,
   context: __SerdeContext
 ): ScanEc2InstanceWithFindingsResult => {
-  return {
-    EbsVolumes: output.ebsVolumes != null ? de_EbsVolumesResult(output.ebsVolumes, context) : undefined,
-  } as any;
+  return take(output, {
+    EbsVolumes: (_) => [, de_EbsVolumesResult(_, context), `ebsVolumes`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ScanFilePath
  */
 const de_ScanFilePath = (output: any, context: __SerdeContext): ScanFilePath => {
-  return {
-    FileName: __expectString(output.fileName),
-    FilePath: __expectString(output.filePath),
-    Hash: __expectString(output.hash),
-    VolumeArn: __expectString(output.volumeArn),
-  } as any;
+  return take(output, {
+    FileName: [, __expectString, `fileName`],
+    FilePath: [, __expectString, `filePath`],
+    Hash: [, __expectString, `hash`],
+    VolumeArn: [, __expectString, `volumeArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ScannedItemCount
  */
 const de_ScannedItemCount = (output: any, context: __SerdeContext): ScannedItemCount => {
-  return {
-    Files: __expectInt32(output.files),
-    TotalGb: __expectInt32(output.totalGb),
-    Volumes: __expectInt32(output.volumes),
-  } as any;
+  return take(output, {
+    Files: [, __expectInt32, `files`],
+    TotalGb: [, __expectInt32, `totalGb`],
+    Volumes: [, __expectInt32, `volumes`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ScanResourceCriteria
  */
 const de_ScanResourceCriteria = (output: any, context: __SerdeContext): ScanResourceCriteria => {
-  return {
-    Exclude: output.exclude != null ? de_ScanCriterion(output.exclude, context) : undefined,
-    Include: output.include != null ? de_ScanCriterion(output.include, context) : undefined,
-  } as any;
+  return take(output, {
+    Exclude: (_) => [, de_ScanCriterion(_, context), `exclude`],
+    Include: (_) => [, de_ScanCriterion(_, context), `include`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ScanResultDetails
  */
 const de_ScanResultDetails = (output: any, context: __SerdeContext): ScanResultDetails => {
-  return {
-    ScanResult: __expectString(output.scanResult),
-  } as any;
+  return take(output, {
+    ScanResult: [, __expectString, `scanResult`],
+  }) as any;
 };
 
 /**
@@ -8622,9 +8053,6 @@ const de_Scans = (output: any, context: __SerdeContext): Scan[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Scan(entry, context);
     });
   return retVal;
@@ -8634,12 +8062,12 @@ const de_Scans = (output: any, context: __SerdeContext): Scan[] => {
  * deserializeAws_restJson1ScanThreatName
  */
 const de_ScanThreatName = (output: any, context: __SerdeContext): ScanThreatName => {
-  return {
-    FilePaths: output.filePaths != null ? de_FilePaths(output.filePaths, context) : undefined,
-    ItemCount: __expectInt32(output.itemCount),
-    Name: __expectString(output.name),
-    Severity: __expectString(output.severity),
-  } as any;
+  return take(output, {
+    FilePaths: (_) => [, de_FilePaths(_, context), `filePaths`],
+    ItemCount: [, __expectInt32, `itemCount`],
+    Name: [, __expectString, `name`],
+    Severity: [, __expectString, `severity`],
+  }) as any;
 };
 
 /**
@@ -8649,9 +8077,6 @@ const de_ScanThreatNames = (output: any, context: __SerdeContext): ScanThreatNam
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ScanThreatName(entry, context);
     });
   return retVal;
@@ -8661,19 +8086,19 @@ const de_ScanThreatNames = (output: any, context: __SerdeContext): ScanThreatNam
  * deserializeAws_restJson1SecurityContext
  */
 const de_SecurityContext = (output: any, context: __SerdeContext): SecurityContext => {
-  return {
-    Privileged: __expectBoolean(output.privileged),
-  } as any;
+  return take(output, {
+    Privileged: [, __expectBoolean, `privileged`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SecurityGroup
  */
 const de_SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup => {
-  return {
-    GroupId: __expectString(output.groupId),
-    GroupName: __expectString(output.groupName),
-  } as any;
+  return take(output, {
+    GroupId: [, __expectString, `groupId`],
+    GroupName: [, __expectString, `groupName`],
+  }) as any;
 };
 
 /**
@@ -8683,9 +8108,6 @@ const de_SecurityGroups = (output: any, context: __SerdeContext): SecurityGroup[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SecurityGroup(entry, context);
     });
   return retVal;
@@ -8695,88 +8117,49 @@ const de_SecurityGroups = (output: any, context: __SerdeContext): SecurityGroup[
  * deserializeAws_restJson1Service
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
-  return {
-    Action: output.action != null ? de_Action(output.action, context) : undefined,
-    AdditionalInfo:
-      output.additionalInfo != null ? de_ServiceAdditionalInfo(output.additionalInfo, context) : undefined,
-    Archived: __expectBoolean(output.archived),
-    Count: __expectInt32(output.count),
-    DetectorId: __expectString(output.detectorId),
-    EbsVolumeScanDetails:
-      output.ebsVolumeScanDetails != null ? de_EbsVolumeScanDetails(output.ebsVolumeScanDetails, context) : undefined,
-    EventFirstSeen: __expectString(output.eventFirstSeen),
-    EventLastSeen: __expectString(output.eventLastSeen),
-    Evidence: output.evidence != null ? de_Evidence(output.evidence, context) : undefined,
-    FeatureName: __expectString(output.featureName),
-    ResourceRole: __expectString(output.resourceRole),
-    RuntimeDetails: output.runtimeDetails != null ? de_RuntimeDetails(output.runtimeDetails, context) : undefined,
-    ServiceName: __expectString(output.serviceName),
-    UserFeedback: __expectString(output.userFeedback),
-  } as any;
+  return take(output, {
+    Action: (_) => [, de_Action(_, context), `action`],
+    AdditionalInfo: (_) => [, de_ServiceAdditionalInfo(_, context), `additionalInfo`],
+    Archived: [, __expectBoolean, `archived`],
+    Count: [, __expectInt32, `count`],
+    DetectorId: [, __expectString, `detectorId`],
+    EbsVolumeScanDetails: (_) => [, de_EbsVolumeScanDetails(_, context), `ebsVolumeScanDetails`],
+    EventFirstSeen: [, __expectString, `eventFirstSeen`],
+    EventLastSeen: [, __expectString, `eventLastSeen`],
+    Evidence: (_) => [, de_Evidence(_, context), `evidence`],
+    FeatureName: [, __expectString, `featureName`],
+    ResourceRole: [, __expectString, `resourceRole`],
+    RuntimeDetails: (_) => [, de_RuntimeDetails(_, context), `runtimeDetails`],
+    ServiceName: [, __expectString, `serviceName`],
+    UserFeedback: [, __expectString, `userFeedback`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ServiceAdditionalInfo
  */
 const de_ServiceAdditionalInfo = (output: any, context: __SerdeContext): ServiceAdditionalInfo => {
-  return {
-    Type: __expectString(output.type),
-    Value: __expectString(output.value),
-  } as any;
+  return take(output, {
+    Type: [, __expectString, `type`],
+    Value: [, __expectString, `value`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SourceIps
- */
-const de_SourceIps = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SourceIps omitted.
 
-/**
- * deserializeAws_restJson1Sources
- */
-const de_Sources = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Sources omitted.
 
 /**
  * deserializeAws_restJson1Tag
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.key),
-    Value: __expectString(output.value),
-  } as any;
+  return take(output, {
+    Key: [, __expectString, `key`],
+    Value: [, __expectString, `value`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1Tags
@@ -8785,9 +8168,6 @@ const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Tag(entry, context);
     });
   return retVal;
@@ -8797,22 +8177,22 @@ const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
  * deserializeAws_restJson1ThreatDetectedByName
  */
 const de_ThreatDetectedByName = (output: any, context: __SerdeContext): ThreatDetectedByName => {
-  return {
-    ItemCount: __expectInt32(output.itemCount),
-    Shortened: __expectBoolean(output.shortened),
-    ThreatNames: output.threatNames != null ? de_ScanThreatNames(output.threatNames, context) : undefined,
-    UniqueThreatNameCount: __expectInt32(output.uniqueThreatNameCount),
-  } as any;
+  return take(output, {
+    ItemCount: [, __expectInt32, `itemCount`],
+    Shortened: [, __expectBoolean, `shortened`],
+    ThreatNames: (_) => [, de_ScanThreatNames(_, context), `threatNames`],
+    UniqueThreatNameCount: [, __expectInt32, `uniqueThreatNameCount`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ThreatIntelligenceDetail
  */
 const de_ThreatIntelligenceDetail = (output: any, context: __SerdeContext): ThreatIntelligenceDetail => {
-  return {
-    ThreatListName: __expectString(output.threatListName),
-    ThreatNames: output.threatNames != null ? de_ThreatNames(output.threatNames, context) : undefined,
-  } as any;
+  return take(output, {
+    ThreatListName: [, __expectString, `threatListName`],
+    ThreatNames: [, _json, `threatNames`],
+  }) as any;
 };
 
 /**
@@ -8822,81 +8202,52 @@ const de_ThreatIntelligenceDetails = (output: any, context: __SerdeContext): Thr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ThreatIntelligenceDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ThreatIntelSetIds
- */
-const de_ThreatIntelSetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ThreatIntelSetIds omitted.
 
-/**
- * deserializeAws_restJson1ThreatNames
- */
-const de_ThreatNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ThreatNames omitted.
 
 /**
  * deserializeAws_restJson1ThreatsDetectedItemCount
  */
 const de_ThreatsDetectedItemCount = (output: any, context: __SerdeContext): ThreatsDetectedItemCount => {
-  return {
-    Files: __expectInt32(output.files),
-  } as any;
+  return take(output, {
+    Files: [, __expectInt32, `files`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Total
  */
 const de_Total = (output: any, context: __SerdeContext): Total => {
-  return {
-    Amount: __expectString(output.amount),
-    Unit: __expectString(output.unit),
-  } as any;
+  return take(output, {
+    Amount: [, __expectString, `amount`],
+    Unit: [, __expectString, `unit`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1TriggerDetails
  */
 const de_TriggerDetails = (output: any, context: __SerdeContext): TriggerDetails => {
-  return {
-    Description: __expectString(output.description),
-    GuardDutyFindingId: __expectString(output.guardDutyFindingId),
-  } as any;
+  return take(output, {
+    Description: [, __expectString, `description`],
+    GuardDutyFindingId: [, __expectString, `guardDutyFindingId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1UnprocessedAccount
  */
 const de_UnprocessedAccount = (output: any, context: __SerdeContext): UnprocessedAccount => {
-  return {
-    AccountId: __expectString(output.accountId),
-    Result: __expectString(output.result),
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    Result: [, __expectString, `result`],
+  }) as any;
 };
 
 /**
@@ -8906,9 +8257,6 @@ const de_UnprocessedAccounts = (output: any, context: __SerdeContext): Unprocess
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UnprocessedAccount(entry, context);
     });
   return retVal;
@@ -8918,22 +8266,19 @@ const de_UnprocessedAccounts = (output: any, context: __SerdeContext): Unprocess
  * deserializeAws_restJson1UnprocessedDataSourcesResult
  */
 const de_UnprocessedDataSourcesResult = (output: any, context: __SerdeContext): UnprocessedDataSourcesResult => {
-  return {
-    MalwareProtection:
-      output.malwareProtection != null
-        ? de_MalwareProtectionConfigurationResult(output.malwareProtection, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    MalwareProtection: (_) => [, de_MalwareProtectionConfigurationResult(_, context), `malwareProtection`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1UsageAccountResult
  */
 const de_UsageAccountResult = (output: any, context: __SerdeContext): UsageAccountResult => {
-  return {
-    AccountId: __expectString(output.accountId),
-    Total: output.total != null ? de_Total(output.total, context) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    Total: (_) => [, de_Total(_, context), `total`],
+  }) as any;
 };
 
 /**
@@ -8943,9 +8288,6 @@ const de_UsageAccountResultList = (output: any, context: __SerdeContext): UsageA
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UsageAccountResult(entry, context);
     });
   return retVal;
@@ -8955,10 +8297,10 @@ const de_UsageAccountResultList = (output: any, context: __SerdeContext): UsageA
  * deserializeAws_restJson1UsageDataSourceResult
  */
 const de_UsageDataSourceResult = (output: any, context: __SerdeContext): UsageDataSourceResult => {
-  return {
-    DataSource: __expectString(output.dataSource),
-    Total: output.total != null ? de_Total(output.total, context) : undefined,
-  } as any;
+  return take(output, {
+    DataSource: [, __expectString, `dataSource`],
+    Total: (_) => [, de_Total(_, context), `total`],
+  }) as any;
 };
 
 /**
@@ -8968,9 +8310,6 @@ const de_UsageDataSourceResultList = (output: any, context: __SerdeContext): Usa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UsageDataSourceResult(entry, context);
     });
   return retVal;
@@ -8980,10 +8319,10 @@ const de_UsageDataSourceResultList = (output: any, context: __SerdeContext): Usa
  * deserializeAws_restJson1UsageFeatureResult
  */
 const de_UsageFeatureResult = (output: any, context: __SerdeContext): UsageFeatureResult => {
-  return {
-    Feature: __expectString(output.feature),
-    Total: output.total != null ? de_Total(output.total, context) : undefined,
-  } as any;
+  return take(output, {
+    Feature: [, __expectString, `feature`],
+    Total: (_) => [, de_Total(_, context), `total`],
+  }) as any;
 };
 
 /**
@@ -8993,9 +8332,6 @@ const de_UsageFeatureResultList = (output: any, context: __SerdeContext): UsageF
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UsageFeatureResult(entry, context);
     });
   return retVal;
@@ -9005,10 +8341,10 @@ const de_UsageFeatureResultList = (output: any, context: __SerdeContext): UsageF
  * deserializeAws_restJson1UsageResourceResult
  */
 const de_UsageResourceResult = (output: any, context: __SerdeContext): UsageResourceResult => {
-  return {
-    Resource: __expectString(output.resource),
-    Total: output.total != null ? de_Total(output.total, context) : undefined,
-  } as any;
+  return take(output, {
+    Resource: [, __expectString, `resource`],
+    Total: (_) => [, de_Total(_, context), `total`],
+  }) as any;
 };
 
 /**
@@ -9018,9 +8354,6 @@ const de_UsageResourceResultList = (output: any, context: __SerdeContext): Usage
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UsageResourceResult(entry, context);
     });
   return retVal;
@@ -9030,39 +8363,38 @@ const de_UsageResourceResultList = (output: any, context: __SerdeContext): Usage
  * deserializeAws_restJson1UsageStatistics
  */
 const de_UsageStatistics = (output: any, context: __SerdeContext): UsageStatistics => {
-  return {
-    SumByAccount: output.sumByAccount != null ? de_UsageAccountResultList(output.sumByAccount, context) : undefined,
-    SumByDataSource:
-      output.sumByDataSource != null ? de_UsageDataSourceResultList(output.sumByDataSource, context) : undefined,
-    SumByFeature: output.sumByFeature != null ? de_UsageFeatureResultList(output.sumByFeature, context) : undefined,
-    SumByResource: output.sumByResource != null ? de_UsageResourceResultList(output.sumByResource, context) : undefined,
-    TopResources: output.topResources != null ? de_UsageResourceResultList(output.topResources, context) : undefined,
-  } as any;
+  return take(output, {
+    SumByAccount: (_) => [, de_UsageAccountResultList(_, context), `sumByAccount`],
+    SumByDataSource: (_) => [, de_UsageDataSourceResultList(_, context), `sumByDataSource`],
+    SumByFeature: (_) => [, de_UsageFeatureResultList(_, context), `sumByFeature`],
+    SumByResource: (_) => [, de_UsageResourceResultList(_, context), `sumByResource`],
+    TopResources: (_) => [, de_UsageResourceResultList(_, context), `topResources`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Volume
  */
 const de_Volume = (output: any, context: __SerdeContext): Volume => {
-  return {
-    HostPath: output.hostPath != null ? de_HostPath(output.hostPath, context) : undefined,
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    HostPath: (_) => [, de_HostPath(_, context), `hostPath`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1VolumeDetail
  */
 const de_VolumeDetail = (output: any, context: __SerdeContext): VolumeDetail => {
-  return {
-    DeviceName: __expectString(output.deviceName),
-    EncryptionType: __expectString(output.encryptionType),
-    KmsKeyArn: __expectString(output.kmsKeyArn),
-    SnapshotArn: __expectString(output.snapshotArn),
-    VolumeArn: __expectString(output.volumeArn),
-    VolumeSizeInGB: __expectInt32(output.volumeSizeInGB),
-    VolumeType: __expectString(output.volumeType),
-  } as any;
+  return take(output, {
+    DeviceName: [, __expectString, `deviceName`],
+    EncryptionType: [, __expectString, `encryptionType`],
+    KmsKeyArn: [, __expectString, `kmsKeyArn`],
+    SnapshotArn: [, __expectString, `snapshotArn`],
+    VolumeArn: [, __expectString, `volumeArn`],
+    VolumeSizeInGB: [, __expectInt32, `volumeSizeInGB`],
+    VolumeType: [, __expectString, `volumeType`],
+  }) as any;
 };
 
 /**
@@ -9072,9 +8404,6 @@ const de_VolumeDetails = (output: any, context: __SerdeContext): VolumeDetail[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VolumeDetail(entry, context);
     });
   return retVal;
@@ -9084,10 +8413,10 @@ const de_VolumeDetails = (output: any, context: __SerdeContext): VolumeDetail[] 
  * deserializeAws_restJson1VolumeMount
  */
 const de_VolumeMount = (output: any, context: __SerdeContext): VolumeMount => {
-  return {
-    MountPath: __expectString(output.mountPath),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    MountPath: [, __expectString, `mountPath`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
@@ -9097,9 +8426,6 @@ const de_VolumeMounts = (output: any, context: __SerdeContext): VolumeMount[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VolumeMount(entry, context);
     });
   return retVal;
@@ -9112,9 +8438,6 @@ const de_Volumes = (output: any, context: __SerdeContext): Volume[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Volume(entry, context);
     });
   return retVal;

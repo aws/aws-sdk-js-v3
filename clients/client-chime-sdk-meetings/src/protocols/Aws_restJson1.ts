@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -56,20 +58,16 @@ import {
 } from "../commands/UpdateAttendeeCapabilitiesCommand";
 import { ChimeSDKMeetingsServiceException as __BaseException } from "../models/ChimeSDKMeetingsServiceException";
 import {
-  Attendee,
   AttendeeCapabilities,
   AttendeeIdItem,
   AudioFeatures,
   BadRequestException,
   ConflictException,
-  CreateAttendeeError,
   CreateAttendeeRequestItem,
   EngineTranscribeMedicalSettings,
   EngineTranscribeSettings,
   ForbiddenException,
   LimitExceededException,
-  MediaPlacement,
-  Meeting,
   MeetingFeaturesConfiguration,
   NotFoundException,
   NotificationsConfiguration,
@@ -102,9 +100,11 @@ export const se_BatchCreateAttendeeCommand = async (
     operation: [, "batch-create"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attendees != null && { Attendees: se_CreateAttendeeRequestItemList(input.Attendees, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attendees: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -136,12 +136,12 @@ export const se_BatchUpdateAttendeeCapabilitiesExceptCommand = async (
     operation: [, "batch-update-except"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && { Capabilities: se_AttendeeCapabilities(input.Capabilities, context) }),
-    ...(input.ExcludedAttendeeIds != null && {
-      ExcludedAttendeeIds: se_AttendeeIdsList(input.ExcludedAttendeeIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+      ExcludedAttendeeIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -169,10 +169,12 @@ export const se_CreateAttendeeCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/attendees";
   resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && { Capabilities: se_AttendeeCapabilities(input.Capabilities, context) }),
-    ...(input.ExternalUserId != null && { ExternalUserId: input.ExternalUserId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+      ExternalUserId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -197,21 +199,19 @@ export const se_CreateMeetingCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId != null && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion != null && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingFeatures != null && {
-      MeetingFeatures: se_MeetingFeaturesConfiguration(input.MeetingFeatures, context),
-    }),
-    ...(input.MeetingHostId != null && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration != null && {
-      NotificationsConfiguration: se_NotificationsConfiguration(input.NotificationsConfiguration, context),
-    }),
-    ...(input.PrimaryMeetingId != null && { PrimaryMeetingId: input.PrimaryMeetingId }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.TenantIds != null && { TenantIds: se_TenantIdList(input.TenantIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ExternalMeetingId: [],
+      MediaRegion: [],
+      MeetingFeatures: (_) => _json(_),
+      MeetingHostId: [],
+      NotificationsConfiguration: (_) => _json(_),
+      PrimaryMeetingId: [],
+      Tags: (_) => _json(_),
+      TenantIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -239,24 +239,20 @@ export const se_CreateMeetingWithAttendeesCommand = async (
     operation: [, "create-attendees"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attendees != null && {
-      Attendees: se_CreateMeetingWithAttendeesRequestItemList(input.Attendees, context),
-    }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId != null && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion != null && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingFeatures != null && {
-      MeetingFeatures: se_MeetingFeaturesConfiguration(input.MeetingFeatures, context),
-    }),
-    ...(input.MeetingHostId != null && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration != null && {
-      NotificationsConfiguration: se_NotificationsConfiguration(input.NotificationsConfiguration, context),
-    }),
-    ...(input.PrimaryMeetingId != null && { PrimaryMeetingId: input.PrimaryMeetingId }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.TenantIds != null && { TenantIds: se_TenantIdList(input.TenantIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attendees: (_) => _json(_),
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ExternalMeetingId: [],
+      MediaRegion: [],
+      MeetingFeatures: (_) => _json(_),
+      MeetingHostId: [],
+      NotificationsConfiguration: (_) => _json(_),
+      PrimaryMeetingId: [],
+      Tags: (_) => _json(_),
+      TenantIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -440,11 +436,11 @@ export const se_StartMeetingTranscriptionCommand = async (
     operation: [, "start"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.TranscriptionConfiguration != null && {
-      TranscriptionConfiguration: se_TranscriptionConfiguration(input.TranscriptionConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TranscriptionConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -501,10 +497,12 @@ export const se_TagResourceCommand = async (
     operation: [, "tag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -533,10 +531,12 @@ export const se_UntagResourceCommand = async (
     operation: [, "untag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -566,9 +566,11 @@ export const se_UpdateAttendeeCapabilitiesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "AttendeeId", () => input.AttendeeId!, "{AttendeeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && { Capabilities: se_AttendeeCapabilities(input.Capabilities, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -594,12 +596,11 @@ export const de_BatchCreateAttendeeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = de_AttendeeList(data.Attendees, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_BatchCreateAttendeeErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -645,10 +646,9 @@ const de_BatchCreateAttendeeCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -704,10 +704,9 @@ const de_BatchUpdateAttendeeCapabilitiesExceptCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -727,9 +726,10 @@ export const de_CreateAttendeeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendee != null) {
-    contents.Attendee = de_Attendee(data.Attendee, context);
-  }
+  const doc = take(data, {
+    Attendee: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -775,10 +775,9 @@ const de_CreateAttendeeCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -798,9 +797,10 @@ export const de_CreateMeetingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Meeting != null) {
-    contents.Meeting = de_Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -840,10 +840,9 @@ const de_CreateMeetingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -863,15 +862,12 @@ export const de_CreateMeetingWithAttendeesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = de_AttendeeList(data.Attendees, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_BatchCreateAttendeeErrorList(data.Errors, context);
-  }
-  if (data.Meeting != null) {
-    contents.Meeting = de_Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    Errors: _json,
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -911,10 +907,9 @@ const de_CreateMeetingWithAttendeesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -973,10 +968,9 @@ const de_DeleteAttendeeCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1035,10 +1029,9 @@ const de_DeleteMeetingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1058,9 +1051,10 @@ export const de_GetAttendeeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendee != null) {
-    contents.Attendee = de_Attendee(data.Attendee, context);
-  }
+  const doc = take(data, {
+    Attendee: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1100,10 +1094,9 @@ const de_GetAttendeeCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1123,9 +1116,10 @@ export const de_GetMeetingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Meeting != null) {
-    contents.Meeting = de_Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1165,10 +1159,9 @@ const de_GetMeetingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1188,12 +1181,11 @@ export const de_ListAttendeesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = de_AttendeeList(data.Attendees, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1233,10 +1225,9 @@ const de_ListAttendeesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1256,9 +1247,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1280,10 +1272,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1348,10 +1339,9 @@ const de_StartMeetingTranscriptionCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1413,10 +1403,9 @@ const de_StopMeetingTranscriptionCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1463,10 +1452,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1510,10 +1498,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1533,9 +1520,10 @@ export const de_UpdateAttendeeCapabilitiesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendee != null) {
-    contents.Attendee = de_Attendee(data.Attendee, context);
-  }
+  const doc = take(data, {
+    Attendee: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1572,31 +1560,27 @@ const de_UpdateAttendeeCapabilitiesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1610,15 +1594,12 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1632,15 +1613,12 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1657,15 +1635,12 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1679,15 +1654,12 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1704,18 +1676,13 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1732,15 +1699,12 @@ const de_ServiceFailureExceptionRes = async (
 ): Promise<ServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1759,15 +1723,12 @@ const de_ServiceUnavailableExceptionRes = async (
     RetryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1781,15 +1742,12 @@ const de_ServiceUnavailableExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1806,18 +1764,13 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1834,15 +1787,12 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1859,15 +1809,12 @@ const de_UnprocessableEntityExceptionRes = async (
 ): Promise<UnprocessableEntityException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnprocessableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1875,354 +1822,61 @@ const de_UnprocessableEntityExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AttendeeCapabilities
- */
-const se_AttendeeCapabilities = (input: AttendeeCapabilities, context: __SerdeContext): any => {
-  return {
-    ...(input.Audio != null && { Audio: input.Audio }),
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Video != null && { Video: input.Video }),
-  };
-};
+// se_AttendeeCapabilities omitted.
 
-/**
- * serializeAws_restJson1AttendeeIdItem
- */
-const se_AttendeeIdItem = (input: AttendeeIdItem, context: __SerdeContext): any => {
-  return {
-    ...(input.AttendeeId != null && { AttendeeId: input.AttendeeId }),
-  };
-};
+// se_AttendeeIdItem omitted.
 
-/**
- * serializeAws_restJson1AttendeeIdsList
- */
-const se_AttendeeIdsList = (input: AttendeeIdItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AttendeeIdItem(entry, context);
-    });
-};
+// se_AttendeeIdsList omitted.
 
-/**
- * serializeAws_restJson1AudioFeatures
- */
-const se_AudioFeatures = (input: AudioFeatures, context: __SerdeContext): any => {
-  return {
-    ...(input.EchoReduction != null && { EchoReduction: input.EchoReduction }),
-  };
-};
+// se_AudioFeatures omitted.
 
-/**
- * serializeAws_restJson1CreateAttendeeRequestItem
- */
-const se_CreateAttendeeRequestItem = (input: CreateAttendeeRequestItem, context: __SerdeContext): any => {
-  return {
-    ...(input.Capabilities != null && { Capabilities: se_AttendeeCapabilities(input.Capabilities, context) }),
-    ...(input.ExternalUserId != null && { ExternalUserId: input.ExternalUserId }),
-  };
-};
+// se_CreateAttendeeRequestItem omitted.
 
-/**
- * serializeAws_restJson1CreateAttendeeRequestItemList
- */
-const se_CreateAttendeeRequestItemList = (input: CreateAttendeeRequestItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateAttendeeRequestItem(entry, context);
-    });
-};
+// se_CreateAttendeeRequestItemList omitted.
 
-/**
- * serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList
- */
-const se_CreateMeetingWithAttendeesRequestItemList = (
-  input: CreateAttendeeRequestItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateAttendeeRequestItem(entry, context);
-    });
-};
+// se_CreateMeetingWithAttendeesRequestItemList omitted.
 
-/**
- * serializeAws_restJson1EngineTranscribeMedicalSettings
- */
-const se_EngineTranscribeMedicalSettings = (input: EngineTranscribeMedicalSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.Specialty != null && { Specialty: input.Specialty }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_EngineTranscribeMedicalSettings omitted.
 
-/**
- * serializeAws_restJson1EngineTranscribeSettings
- */
-const se_EngineTranscribeSettings = (input: EngineTranscribeSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.ContentRedactionType != null && { ContentRedactionType: input.ContentRedactionType }),
-    ...(input.EnablePartialResultsStabilization != null && {
-      EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
-    }),
-    ...(input.IdentifyLanguage != null && { IdentifyLanguage: input.IdentifyLanguage }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.LanguageOptions != null && { LanguageOptions: input.LanguageOptions }),
-    ...(input.PartialResultsStability != null && { PartialResultsStability: input.PartialResultsStability }),
-    ...(input.PiiEntityTypes != null && { PiiEntityTypes: input.PiiEntityTypes }),
-    ...(input.PreferredLanguage != null && { PreferredLanguage: input.PreferredLanguage }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_EngineTranscribeSettings omitted.
 
-/**
- * serializeAws_restJson1MeetingFeaturesConfiguration
- */
-const se_MeetingFeaturesConfiguration = (input: MeetingFeaturesConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Audio != null && { Audio: se_AudioFeatures(input.Audio, context) }),
-  };
-};
+// se_MeetingFeaturesConfiguration omitted.
 
-/**
- * serializeAws_restJson1NotificationsConfiguration
- */
-const se_NotificationsConfiguration = (input: NotificationsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.LambdaFunctionArn != null && { LambdaFunctionArn: input.LambdaFunctionArn }),
-    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
-    ...(input.SqsQueueArn != null && { SqsQueueArn: input.SqsQueueArn }),
-  };
-};
+// se_NotificationsConfiguration omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_restJson1TenantIdList
- */
-const se_TenantIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TenantIdList omitted.
 
-/**
- * serializeAws_restJson1TranscriptionConfiguration
- */
-const se_TranscriptionConfiguration = (input: TranscriptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.EngineTranscribeMedicalSettings != null && {
-      EngineTranscribeMedicalSettings: se_EngineTranscribeMedicalSettings(
-        input.EngineTranscribeMedicalSettings,
-        context
-      ),
-    }),
-    ...(input.EngineTranscribeSettings != null && {
-      EngineTranscribeSettings: se_EngineTranscribeSettings(input.EngineTranscribeSettings, context),
-    }),
-  };
-};
+// se_TranscriptionConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Attendee
- */
-const de_Attendee = (output: any, context: __SerdeContext): Attendee => {
-  return {
-    AttendeeId: __expectString(output.AttendeeId),
-    Capabilities: output.Capabilities != null ? de_AttendeeCapabilities(output.Capabilities, context) : undefined,
-    ExternalUserId: __expectString(output.ExternalUserId),
-    JoinToken: __expectString(output.JoinToken),
-  } as any;
-};
+// de_Attendee omitted.
 
-/**
- * deserializeAws_restJson1AttendeeCapabilities
- */
-const de_AttendeeCapabilities = (output: any, context: __SerdeContext): AttendeeCapabilities => {
-  return {
-    Audio: __expectString(output.Audio),
-    Content: __expectString(output.Content),
-    Video: __expectString(output.Video),
-  } as any;
-};
+// de_AttendeeCapabilities omitted.
 
-/**
- * deserializeAws_restJson1AttendeeList
- */
-const de_AttendeeList = (output: any, context: __SerdeContext): Attendee[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Attendee(entry, context);
-    });
-  return retVal;
-};
+// de_AttendeeList omitted.
 
-/**
- * deserializeAws_restJson1AudioFeatures
- */
-const de_AudioFeatures = (output: any, context: __SerdeContext): AudioFeatures => {
-  return {
-    EchoReduction: __expectString(output.EchoReduction),
-  } as any;
-};
+// de_AudioFeatures omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateAttendeeErrorList
- */
-const de_BatchCreateAttendeeErrorList = (output: any, context: __SerdeContext): CreateAttendeeError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CreateAttendeeError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchCreateAttendeeErrorList omitted.
 
-/**
- * deserializeAws_restJson1CreateAttendeeError
- */
-const de_CreateAttendeeError = (output: any, context: __SerdeContext): CreateAttendeeError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ExternalUserId: __expectString(output.ExternalUserId),
-  } as any;
-};
+// de_CreateAttendeeError omitted.
 
-/**
- * deserializeAws_restJson1MediaPlacement
- */
-const de_MediaPlacement = (output: any, context: __SerdeContext): MediaPlacement => {
-  return {
-    AudioFallbackUrl: __expectString(output.AudioFallbackUrl),
-    AudioHostUrl: __expectString(output.AudioHostUrl),
-    EventIngestionUrl: __expectString(output.EventIngestionUrl),
-    ScreenDataUrl: __expectString(output.ScreenDataUrl),
-    ScreenSharingUrl: __expectString(output.ScreenSharingUrl),
-    ScreenViewingUrl: __expectString(output.ScreenViewingUrl),
-    SignalingUrl: __expectString(output.SignalingUrl),
-    TurnControlUrl: __expectString(output.TurnControlUrl),
-  } as any;
-};
+// de_MediaPlacement omitted.
 
-/**
- * deserializeAws_restJson1Meeting
- */
-const de_Meeting = (output: any, context: __SerdeContext): Meeting => {
-  return {
-    ExternalMeetingId: __expectString(output.ExternalMeetingId),
-    MediaPlacement: output.MediaPlacement != null ? de_MediaPlacement(output.MediaPlacement, context) : undefined,
-    MediaRegion: __expectString(output.MediaRegion),
-    MeetingArn: __expectString(output.MeetingArn),
-    MeetingFeatures:
-      output.MeetingFeatures != null ? de_MeetingFeaturesConfiguration(output.MeetingFeatures, context) : undefined,
-    MeetingHostId: __expectString(output.MeetingHostId),
-    MeetingId: __expectString(output.MeetingId),
-    PrimaryMeetingId: __expectString(output.PrimaryMeetingId),
-    TenantIds: output.TenantIds != null ? de_TenantIdList(output.TenantIds, context) : undefined,
-  } as any;
-};
+// de_Meeting omitted.
 
-/**
- * deserializeAws_restJson1MeetingFeaturesConfiguration
- */
-const de_MeetingFeaturesConfiguration = (output: any, context: __SerdeContext): MeetingFeaturesConfiguration => {
-  return {
-    Audio: output.Audio != null ? de_AudioFeatures(output.Audio, context) : undefined,
-  } as any;
-};
+// de_MeetingFeaturesConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_restJson1TenantIdList
- */
-const de_TenantIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TenantIdList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

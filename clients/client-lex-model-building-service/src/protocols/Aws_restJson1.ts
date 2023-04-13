@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,11 +11,12 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -101,13 +103,9 @@ import {
   BotAliasMetadata,
   BotChannelAssociation,
   BotMetadata,
-  BuiltinIntentMetadata,
-  BuiltinIntentSlot,
-  BuiltinSlotTypeMetadata,
   CodeHook,
   ConflictException,
   ConversationLogsRequest,
-  ConversationLogsResponse,
   EnumerationValue,
   FollowUpPrompt,
   FulfillmentActivity,
@@ -117,18 +115,14 @@ import {
   InternalFailureException,
   KendraConfiguration,
   LimitExceededException,
-  Locale,
   LogSettingsRequest,
-  LogSettingsResponse,
   Message,
-  MigrationAlert,
   MigrationSummary,
   NotFoundException,
   OutputContext,
   PreconditionFailedException,
   Prompt,
   ResourceInUseException,
-  ResourceReference,
   Slot,
   SlotDefaultValue,
   SlotDefaultValueSpec,
@@ -155,9 +149,11 @@ export const se_CreateBotVersionCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum != null && { checksum: input.checksum }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -183,9 +179,11 @@ export const se_CreateIntentVersionCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum != null && { checksum: input.checksum }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -212,9 +210,11 @@ export const se_CreateSlotTypeVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum != null && { checksum: input.checksum }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1065,25 +1065,25 @@ export const se_PutBotCommand = async (input: PutBotCommandInput, context: __Ser
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions/$LATEST";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.abortStatement != null && { abortStatement: se_Statement(input.abortStatement, context) }),
-    ...(input.checksum != null && { checksum: input.checksum }),
-    ...(input.childDirected != null && { childDirected: input.childDirected }),
-    ...(input.clarificationPrompt != null && { clarificationPrompt: se_Prompt(input.clarificationPrompt, context) }),
-    ...(input.createVersion != null && { createVersion: input.createVersion }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.detectSentiment != null && { detectSentiment: input.detectSentiment }),
-    ...(input.enableModelImprovements != null && { enableModelImprovements: input.enableModelImprovements }),
-    ...(input.idleSessionTTLInSeconds != null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
-    ...(input.intents != null && { intents: se_IntentList(input.intents, context) }),
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.nluIntentConfidenceThreshold != null && {
-      nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
-    }),
-    ...(input.processBehavior != null && { processBehavior: input.processBehavior }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.voiceId != null && { voiceId: input.voiceId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      abortStatement: (_) => _json(_),
+      checksum: [],
+      childDirected: [],
+      clarificationPrompt: (_) => _json(_),
+      createVersion: [],
+      description: [],
+      detectSentiment: [],
+      enableModelImprovements: [],
+      idleSessionTTLInSeconds: [],
+      intents: (_) => _json(_),
+      locale: [],
+      nluIntentConfidenceThreshold: (_) => __serializeFloat(_),
+      processBehavior: [],
+      tags: (_) => _json(_),
+      voiceId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1111,15 +1111,15 @@ export const se_PutBotAliasCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.checksum != null && { checksum: input.checksum }),
-    ...(input.conversationLogs != null && {
-      conversationLogs: se_ConversationLogsRequest(input.conversationLogs, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botVersion: [],
+      checksum: [],
+      conversationLogs: (_) => _json(_),
+      description: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1146,29 +1146,25 @@ export const se_PutIntentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions/$LATEST";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum != null && { checksum: input.checksum }),
-    ...(input.conclusionStatement != null && { conclusionStatement: se_Statement(input.conclusionStatement, context) }),
-    ...(input.confirmationPrompt != null && { confirmationPrompt: se_Prompt(input.confirmationPrompt, context) }),
-    ...(input.createVersion != null && { createVersion: input.createVersion }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.dialogCodeHook != null && { dialogCodeHook: se_CodeHook(input.dialogCodeHook, context) }),
-    ...(input.followUpPrompt != null && { followUpPrompt: se_FollowUpPrompt(input.followUpPrompt, context) }),
-    ...(input.fulfillmentActivity != null && {
-      fulfillmentActivity: se_FulfillmentActivity(input.fulfillmentActivity, context),
-    }),
-    ...(input.inputContexts != null && { inputContexts: se_InputContextList(input.inputContexts, context) }),
-    ...(input.kendraConfiguration != null && {
-      kendraConfiguration: se_KendraConfiguration(input.kendraConfiguration, context),
-    }),
-    ...(input.outputContexts != null && { outputContexts: se_OutputContextList(input.outputContexts, context) }),
-    ...(input.parentIntentSignature != null && { parentIntentSignature: input.parentIntentSignature }),
-    ...(input.rejectionStatement != null && { rejectionStatement: se_Statement(input.rejectionStatement, context) }),
-    ...(input.sampleUtterances != null && {
-      sampleUtterances: se_IntentUtteranceList(input.sampleUtterances, context),
-    }),
-    ...(input.slots != null && { slots: se_SlotList(input.slots, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+      conclusionStatement: (_) => _json(_),
+      confirmationPrompt: (_) => _json(_),
+      createVersion: [],
+      description: [],
+      dialogCodeHook: (_) => _json(_),
+      followUpPrompt: (_) => _json(_),
+      fulfillmentActivity: (_) => _json(_),
+      inputContexts: (_) => _json(_),
+      kendraConfiguration: (_) => _json(_),
+      outputContexts: (_) => _json(_),
+      parentIntentSignature: [],
+      rejectionStatement: (_) => _json(_),
+      sampleUtterances: (_) => _json(_),
+      slots: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1195,19 +1191,17 @@ export const se_PutSlotTypeCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions/$LATEST";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum != null && { checksum: input.checksum }),
-    ...(input.createVersion != null && { createVersion: input.createVersion }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.enumerationValues != null && {
-      enumerationValues: se_EnumerationValues(input.enumerationValues, context),
-    }),
-    ...(input.parentSlotTypeSignature != null && { parentSlotTypeSignature: input.parentSlotTypeSignature }),
-    ...(input.slotTypeConfigurations != null && {
-      slotTypeConfigurations: se_SlotTypeConfigurations(input.slotTypeConfigurations, context),
-    }),
-    ...(input.valueSelectionStrategy != null && { valueSelectionStrategy: input.valueSelectionStrategy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+      createVersion: [],
+      description: [],
+      enumerationValues: (_) => _json(_),
+      parentSlotTypeSignature: [],
+      slotTypeConfigurations: (_) => _json(_),
+      valueSelectionStrategy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1232,12 +1226,14 @@ export const se_StartImportCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
   let body: any;
-  body = JSON.stringify({
-    ...(input.mergeStrategy != null && { mergeStrategy: input.mergeStrategy }),
-    ...(input.payload != null && { payload: context.base64Encoder(input.payload) }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      mergeStrategy: [],
+      payload: (_) => context.base64Encoder(_),
+      resourceType: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1262,13 +1258,15 @@ export const se_StartMigrationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.migrationStrategy != null && { migrationStrategy: input.migrationStrategy }),
-    ...(input.v1BotName != null && { v1BotName: input.v1BotName }),
-    ...(input.v1BotVersion != null && { v1BotVersion: input.v1BotVersion }),
-    ...(input.v2BotName != null && { v2BotName: input.v2BotName }),
-    ...(input.v2BotRole != null && { v2BotRole: input.v2BotRole }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      migrationStrategy: [],
+      v1BotName: [],
+      v1BotVersion: [],
+      v2BotName: [],
+      v2BotRole: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1294,9 +1292,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1352,57 +1352,26 @@ export const de_CreateBotVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.abortStatement != null) {
-    contents.abortStatement = de_Statement(data.abortStatement, context);
-  }
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.childDirected != null) {
-    contents.childDirected = __expectBoolean(data.childDirected);
-  }
-  if (data.clarificationPrompt != null) {
-    contents.clarificationPrompt = de_Prompt(data.clarificationPrompt, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.detectSentiment != null) {
-    contents.detectSentiment = __expectBoolean(data.detectSentiment);
-  }
-  if (data.enableModelImprovements != null) {
-    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.idleSessionTTLInSeconds != null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.intents != null) {
-    contents.intents = de_IntentList(data.intents, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.locale != null) {
-    contents.locale = __expectString(data.locale);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.voiceId != null) {
-    contents.voiceId = __expectString(data.voiceId);
-  }
+  const doc = take(data, {
+    abortStatement: _json,
+    checksum: __expectString,
+    childDirected: __expectBoolean,
+    clarificationPrompt: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    detectSentiment: __expectBoolean,
+    enableModelImprovements: __expectBoolean,
+    failureReason: __expectString,
+    idleSessionTTLInSeconds: __expectInt32,
+    intents: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    locale: __expectString,
+    name: __expectString,
+    status: __expectString,
+    version: __expectString,
+    voiceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1439,10 +1408,9 @@ const de_CreateBotVersionCommandError = async (
       throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1462,60 +1430,27 @@ export const de_CreateIntentVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conclusionStatement != null) {
-    contents.conclusionStatement = de_Statement(data.conclusionStatement, context);
-  }
-  if (data.confirmationPrompt != null) {
-    contents.confirmationPrompt = de_Prompt(data.confirmationPrompt, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook != null) {
-    contents.dialogCodeHook = de_CodeHook(data.dialogCodeHook, context);
-  }
-  if (data.followUpPrompt != null) {
-    contents.followUpPrompt = de_FollowUpPrompt(data.followUpPrompt, context);
-  }
-  if (data.fulfillmentActivity != null) {
-    contents.fulfillmentActivity = de_FulfillmentActivity(data.fulfillmentActivity, context);
-  }
-  if (data.inputContexts != null) {
-    contents.inputContexts = de_InputContextList(data.inputContexts, context);
-  }
-  if (data.kendraConfiguration != null) {
-    contents.kendraConfiguration = de_KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.outputContexts != null) {
-    contents.outputContexts = de_OutputContextList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature != null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.rejectionStatement != null) {
-    contents.rejectionStatement = de_Statement(data.rejectionStatement, context);
-  }
-  if (data.sampleUtterances != null) {
-    contents.sampleUtterances = de_IntentUtteranceList(data.sampleUtterances, context);
-  }
-  if (data.slots != null) {
-    contents.slots = de_SlotList(data.slots, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    checksum: __expectString,
+    conclusionStatement: _json,
+    confirmationPrompt: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    followUpPrompt: _json,
+    fulfillmentActivity: _json,
+    inputContexts: _json,
+    kendraConfiguration: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    rejectionStatement: _json,
+    sampleUtterances: _json,
+    slots: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1552,10 +1487,9 @@ const de_CreateIntentVersionCommandError = async (
       throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1575,36 +1509,19 @@ export const de_CreateSlotTypeVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enumerationValues != null) {
-    contents.enumerationValues = de_EnumerationValues(data.enumerationValues, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.parentSlotTypeSignature != null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeConfigurations != null) {
-    contents.slotTypeConfigurations = de_SlotTypeConfigurations(data.slotTypeConfigurations, context);
-  }
-  if (data.valueSelectionStrategy != null) {
-    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    checksum: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    enumerationValues: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeConfigurations: _json,
+    valueSelectionStrategy: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1641,10 +1558,9 @@ const de_CreateSlotTypeVersionCommandError = async (
       throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1700,10 +1616,9 @@ const de_DeleteBotCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1759,10 +1674,9 @@ const de_DeleteBotAliasCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1815,10 +1729,9 @@ const de_DeleteBotChannelAssociationCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1874,10 +1787,9 @@ const de_DeleteBotVersionCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1933,10 +1845,9 @@ const de_DeleteIntentCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1992,10 +1903,9 @@ const de_DeleteIntentVersionCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2051,10 +1961,9 @@ const de_DeleteSlotTypeCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2110,10 +2019,9 @@ const de_DeleteSlotTypeVersionCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2163,10 +2071,9 @@ const de_DeleteUtterancesCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2186,60 +2093,27 @@ export const de_GetBotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.abortStatement != null) {
-    contents.abortStatement = de_Statement(data.abortStatement, context);
-  }
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.childDirected != null) {
-    contents.childDirected = __expectBoolean(data.childDirected);
-  }
-  if (data.clarificationPrompt != null) {
-    contents.clarificationPrompt = de_Prompt(data.clarificationPrompt, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.detectSentiment != null) {
-    contents.detectSentiment = __expectBoolean(data.detectSentiment);
-  }
-  if (data.enableModelImprovements != null) {
-    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.idleSessionTTLInSeconds != null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.intents != null) {
-    contents.intents = de_IntentList(data.intents, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.locale != null) {
-    contents.locale = __expectString(data.locale);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.nluIntentConfidenceThreshold != null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.voiceId != null) {
-    contents.voiceId = __expectString(data.voiceId);
-  }
+  const doc = take(data, {
+    abortStatement: _json,
+    checksum: __expectString,
+    childDirected: __expectBoolean,
+    clarificationPrompt: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    detectSentiment: __expectBoolean,
+    enableModelImprovements: __expectBoolean,
+    failureReason: __expectString,
+    idleSessionTTLInSeconds: __expectInt32,
+    intents: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    locale: __expectString,
+    name: __expectString,
+    nluIntentConfidenceThreshold: __limitedParseDouble,
+    status: __expectString,
+    version: __expectString,
+    voiceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2267,10 +2141,9 @@ const de_GetBotCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2290,30 +2163,17 @@ export const de_GetBotAliasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conversationLogs != null) {
-    contents.conversationLogs = de_ConversationLogsResponse(data.conversationLogs, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
+  const doc = take(data, {
+    botName: __expectString,
+    botVersion: __expectString,
+    checksum: __expectString,
+    conversationLogs: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2344,10 +2204,9 @@ const de_GetBotAliasCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2367,12 +2226,11 @@ export const de_GetBotAliasesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BotAliases != null) {
-    contents.BotAliases = de_BotAliasMetadataList(data.BotAliases, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    BotAliases: (_) => de_BotAliasMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2400,10 +2258,9 @@ const de_GetBotAliasesCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2423,33 +2280,18 @@ export const de_GetBotChannelAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAlias != null) {
-    contents.botAlias = __expectString(data.botAlias);
-  }
-  if (data.botConfiguration != null) {
-    contents.botConfiguration = de_ChannelConfigurationMap(data.botConfiguration, context);
-  }
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    botAlias: __expectString,
+    botConfiguration: _json,
+    botName: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    failureReason: __expectString,
+    name: __expectString,
+    status: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2480,10 +2322,9 @@ const de_GetBotChannelAssociationCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2503,12 +2344,11 @@ export const de_GetBotChannelAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botChannelAssociations != null) {
-    contents.botChannelAssociations = de_BotChannelAssociationList(data.botChannelAssociations, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botChannelAssociations: (_) => de_BotChannelAssociationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2536,10 +2376,9 @@ const de_GetBotChannelAssociationsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2559,12 +2398,11 @@ export const de_GetBotsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bots != null) {
-    contents.bots = de_BotMetadataList(data.bots, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    bots: (_) => de_BotMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2595,10 +2433,9 @@ const de_GetBotsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2618,12 +2455,11 @@ export const de_GetBotVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bots != null) {
-    contents.bots = de_BotMetadataList(data.bots, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    bots: (_) => de_BotMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2654,10 +2490,9 @@ const de_GetBotVersionsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2677,15 +2512,12 @@ export const de_GetBuiltinIntentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.signature != null) {
-    contents.signature = __expectString(data.signature);
-  }
-  if (data.slots != null) {
-    contents.slots = de_BuiltinIntentSlotList(data.slots, context);
-  }
-  if (data.supportedLocales != null) {
-    contents.supportedLocales = de_LocaleList(data.supportedLocales, context);
-  }
+  const doc = take(data, {
+    signature: __expectString,
+    slots: _json,
+    supportedLocales: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2716,10 +2548,9 @@ const de_GetBuiltinIntentCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2739,12 +2570,11 @@ export const de_GetBuiltinIntentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.intents != null) {
-    contents.intents = de_BuiltinIntentMetadataList(data.intents, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    intents: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2772,10 +2602,9 @@ const de_GetBuiltinIntentsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2795,12 +2624,11 @@ export const de_GetBuiltinSlotTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slotTypes != null) {
-    contents.slotTypes = de_BuiltinSlotTypeMetadataList(data.slotTypes, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    slotTypes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2828,10 +2656,9 @@ const de_GetBuiltinSlotTypesCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2851,27 +2678,16 @@ export const de_GetExportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.exportStatus != null) {
-    contents.exportStatus = __expectString(data.exportStatus);
-  }
-  if (data.exportType != null) {
-    contents.exportType = __expectString(data.exportType);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.url != null) {
-    contents.url = __expectString(data.url);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    exportStatus: __expectString,
+    exportType: __expectString,
+    failureReason: __expectString,
+    name: __expectString,
+    resourceType: __expectString,
+    url: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2902,10 +2718,9 @@ const de_GetExportCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2925,27 +2740,16 @@ export const de_GetImportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = de_StringList(data.failureReason, context);
-  }
-  if (data.importId != null) {
-    contents.importId = __expectString(data.importId);
-  }
-  if (data.importStatus != null) {
-    contents.importStatus = __expectString(data.importStatus);
-  }
-  if (data.mergeStrategy != null) {
-    contents.mergeStrategy = __expectString(data.mergeStrategy);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: _json,
+    importId: __expectString,
+    importStatus: __expectString,
+    mergeStrategy: __expectString,
+    name: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2976,10 +2780,9 @@ const de_GetImportCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2999,60 +2802,27 @@ export const de_GetIntentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conclusionStatement != null) {
-    contents.conclusionStatement = de_Statement(data.conclusionStatement, context);
-  }
-  if (data.confirmationPrompt != null) {
-    contents.confirmationPrompt = de_Prompt(data.confirmationPrompt, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook != null) {
-    contents.dialogCodeHook = de_CodeHook(data.dialogCodeHook, context);
-  }
-  if (data.followUpPrompt != null) {
-    contents.followUpPrompt = de_FollowUpPrompt(data.followUpPrompt, context);
-  }
-  if (data.fulfillmentActivity != null) {
-    contents.fulfillmentActivity = de_FulfillmentActivity(data.fulfillmentActivity, context);
-  }
-  if (data.inputContexts != null) {
-    contents.inputContexts = de_InputContextList(data.inputContexts, context);
-  }
-  if (data.kendraConfiguration != null) {
-    contents.kendraConfiguration = de_KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.outputContexts != null) {
-    contents.outputContexts = de_OutputContextList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature != null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.rejectionStatement != null) {
-    contents.rejectionStatement = de_Statement(data.rejectionStatement, context);
-  }
-  if (data.sampleUtterances != null) {
-    contents.sampleUtterances = de_IntentUtteranceList(data.sampleUtterances, context);
-  }
-  if (data.slots != null) {
-    contents.slots = de_SlotList(data.slots, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    checksum: __expectString,
+    conclusionStatement: _json,
+    confirmationPrompt: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    followUpPrompt: _json,
+    fulfillmentActivity: _json,
+    inputContexts: _json,
+    kendraConfiguration: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    rejectionStatement: _json,
+    sampleUtterances: _json,
+    slots: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3083,10 +2853,9 @@ const de_GetIntentCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3106,12 +2875,11 @@ export const de_GetIntentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.intents != null) {
-    contents.intents = de_IntentMetadataList(data.intents, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    intents: (_) => de_IntentMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3142,10 +2910,9 @@ const de_GetIntentsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3165,12 +2932,11 @@ export const de_GetIntentVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.intents != null) {
-    contents.intents = de_IntentMetadataList(data.intents, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    intents: (_) => de_IntentMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3201,10 +2967,9 @@ const de_GetIntentVersionsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3224,36 +2989,19 @@ export const de_GetMigrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.alerts != null) {
-    contents.alerts = de_MigrationAlerts(data.alerts, context);
-  }
-  if (data.migrationId != null) {
-    contents.migrationId = __expectString(data.migrationId);
-  }
-  if (data.migrationStatus != null) {
-    contents.migrationStatus = __expectString(data.migrationStatus);
-  }
-  if (data.migrationStrategy != null) {
-    contents.migrationStrategy = __expectString(data.migrationStrategy);
-  }
-  if (data.migrationTimestamp != null) {
-    contents.migrationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.migrationTimestamp)));
-  }
-  if (data.v1BotLocale != null) {
-    contents.v1BotLocale = __expectString(data.v1BotLocale);
-  }
-  if (data.v1BotName != null) {
-    contents.v1BotName = __expectString(data.v1BotName);
-  }
-  if (data.v1BotVersion != null) {
-    contents.v1BotVersion = __expectString(data.v1BotVersion);
-  }
-  if (data.v2BotId != null) {
-    contents.v2BotId = __expectString(data.v2BotId);
-  }
-  if (data.v2BotRole != null) {
-    contents.v2BotRole = __expectString(data.v2BotRole);
-  }
+  const doc = take(data, {
+    alerts: _json,
+    migrationId: __expectString,
+    migrationStatus: __expectString,
+    migrationStrategy: __expectString,
+    migrationTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    v1BotLocale: __expectString,
+    v1BotName: __expectString,
+    v1BotVersion: __expectString,
+    v2BotId: __expectString,
+    v2BotRole: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3284,10 +3032,9 @@ const de_GetMigrationCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3307,12 +3054,11 @@ export const de_GetMigrationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.migrationSummaries != null) {
-    contents.migrationSummaries = de_MigrationSummaryList(data.migrationSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    migrationSummaries: (_) => de_MigrationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3340,10 +3086,9 @@ const de_GetMigrationsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3363,36 +3108,19 @@ export const de_GetSlotTypeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enumerationValues != null) {
-    contents.enumerationValues = de_EnumerationValues(data.enumerationValues, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.parentSlotTypeSignature != null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeConfigurations != null) {
-    contents.slotTypeConfigurations = de_SlotTypeConfigurations(data.slotTypeConfigurations, context);
-  }
-  if (data.valueSelectionStrategy != null) {
-    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    checksum: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    enumerationValues: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeConfigurations: _json,
+    valueSelectionStrategy: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3423,10 +3151,9 @@ const de_GetSlotTypeCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3446,12 +3173,11 @@ export const de_GetSlotTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slotTypes != null) {
-    contents.slotTypes = de_SlotTypeMetadataList(data.slotTypes, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    slotTypes: (_) => de_SlotTypeMetadataList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3482,10 +3208,9 @@ const de_GetSlotTypesCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3505,12 +3230,11 @@ export const de_GetSlotTypeVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slotTypes != null) {
-    contents.slotTypes = de_SlotTypeMetadataList(data.slotTypes, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    slotTypes: (_) => de_SlotTypeMetadataList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3541,10 +3265,9 @@ const de_GetSlotTypeVersionsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3564,12 +3287,11 @@ export const de_GetUtterancesViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.utterances != null) {
-    contents.utterances = de_ListsOfUtterances(data.utterances, context);
-  }
+  const doc = take(data, {
+    botName: __expectString,
+    utterances: (_) => de_ListsOfUtterances(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3597,10 +3319,9 @@ const de_GetUtterancesViewCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3620,9 +3341,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagList(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3653,10 +3375,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3676,66 +3397,29 @@ export const de_PutBotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.abortStatement != null) {
-    contents.abortStatement = de_Statement(data.abortStatement, context);
-  }
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.childDirected != null) {
-    contents.childDirected = __expectBoolean(data.childDirected);
-  }
-  if (data.clarificationPrompt != null) {
-    contents.clarificationPrompt = de_Prompt(data.clarificationPrompt, context);
-  }
-  if (data.createVersion != null) {
-    contents.createVersion = __expectBoolean(data.createVersion);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.detectSentiment != null) {
-    contents.detectSentiment = __expectBoolean(data.detectSentiment);
-  }
-  if (data.enableModelImprovements != null) {
-    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.idleSessionTTLInSeconds != null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.intents != null) {
-    contents.intents = de_IntentList(data.intents, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.locale != null) {
-    contents.locale = __expectString(data.locale);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.nluIntentConfidenceThreshold != null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagList(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.voiceId != null) {
-    contents.voiceId = __expectString(data.voiceId);
-  }
+  const doc = take(data, {
+    abortStatement: _json,
+    checksum: __expectString,
+    childDirected: __expectBoolean,
+    clarificationPrompt: _json,
+    createVersion: __expectBoolean,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    detectSentiment: __expectBoolean,
+    enableModelImprovements: __expectBoolean,
+    failureReason: __expectString,
+    idleSessionTTLInSeconds: __expectInt32,
+    intents: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    locale: __expectString,
+    name: __expectString,
+    nluIntentConfidenceThreshold: __limitedParseDouble,
+    status: __expectString,
+    tags: _json,
+    version: __expectString,
+    voiceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3766,10 +3450,9 @@ const de_PutBotCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3789,33 +3472,18 @@ export const de_PutBotAliasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conversationLogs != null) {
-    contents.conversationLogs = de_ConversationLogsResponse(data.conversationLogs, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagList(data.tags, context);
-  }
+  const doc = take(data, {
+    botName: __expectString,
+    botVersion: __expectString,
+    checksum: __expectString,
+    conversationLogs: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3849,10 +3517,9 @@ const de_PutBotAliasCommandError = async (
       throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3872,63 +3539,28 @@ export const de_PutIntentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conclusionStatement != null) {
-    contents.conclusionStatement = de_Statement(data.conclusionStatement, context);
-  }
-  if (data.confirmationPrompt != null) {
-    contents.confirmationPrompt = de_Prompt(data.confirmationPrompt, context);
-  }
-  if (data.createVersion != null) {
-    contents.createVersion = __expectBoolean(data.createVersion);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook != null) {
-    contents.dialogCodeHook = de_CodeHook(data.dialogCodeHook, context);
-  }
-  if (data.followUpPrompt != null) {
-    contents.followUpPrompt = de_FollowUpPrompt(data.followUpPrompt, context);
-  }
-  if (data.fulfillmentActivity != null) {
-    contents.fulfillmentActivity = de_FulfillmentActivity(data.fulfillmentActivity, context);
-  }
-  if (data.inputContexts != null) {
-    contents.inputContexts = de_InputContextList(data.inputContexts, context);
-  }
-  if (data.kendraConfiguration != null) {
-    contents.kendraConfiguration = de_KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.outputContexts != null) {
-    contents.outputContexts = de_OutputContextList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature != null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.rejectionStatement != null) {
-    contents.rejectionStatement = de_Statement(data.rejectionStatement, context);
-  }
-  if (data.sampleUtterances != null) {
-    contents.sampleUtterances = de_IntentUtteranceList(data.sampleUtterances, context);
-  }
-  if (data.slots != null) {
-    contents.slots = de_SlotList(data.slots, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    checksum: __expectString,
+    conclusionStatement: _json,
+    confirmationPrompt: _json,
+    createVersion: __expectBoolean,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    followUpPrompt: _json,
+    fulfillmentActivity: _json,
+    inputContexts: _json,
+    kendraConfiguration: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    rejectionStatement: _json,
+    sampleUtterances: _json,
+    slots: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3962,10 +3594,9 @@ const de_PutIntentCommandError = async (
       throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3985,39 +3616,20 @@ export const de_PutSlotTypeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum != null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.createVersion != null) {
-    contents.createVersion = __expectBoolean(data.createVersion);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enumerationValues != null) {
-    contents.enumerationValues = de_EnumerationValues(data.enumerationValues, context);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.parentSlotTypeSignature != null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeConfigurations != null) {
-    contents.slotTypeConfigurations = de_SlotTypeConfigurations(data.slotTypeConfigurations, context);
-  }
-  if (data.valueSelectionStrategy != null) {
-    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    checksum: __expectString,
+    createVersion: __expectBoolean,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    enumerationValues: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeConfigurations: _json,
+    valueSelectionStrategy: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4051,10 +3663,9 @@ const de_PutSlotTypeCommandError = async (
       throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4074,27 +3685,16 @@ export const de_StartImportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.importId != null) {
-    contents.importId = __expectString(data.importId);
-  }
-  if (data.importStatus != null) {
-    contents.importStatus = __expectString(data.importStatus);
-  }
-  if (data.mergeStrategy != null) {
-    contents.mergeStrategy = __expectString(data.mergeStrategy);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagList(data.tags, context);
-  }
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    importId: __expectString,
+    importStatus: __expectString,
+    mergeStrategy: __expectString,
+    name: __expectString,
+    resourceType: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4122,10 +3722,9 @@ const de_StartImportCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4145,30 +3744,17 @@ export const de_StartMigrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.migrationId != null) {
-    contents.migrationId = __expectString(data.migrationId);
-  }
-  if (data.migrationStrategy != null) {
-    contents.migrationStrategy = __expectString(data.migrationStrategy);
-  }
-  if (data.migrationTimestamp != null) {
-    contents.migrationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.migrationTimestamp)));
-  }
-  if (data.v1BotLocale != null) {
-    contents.v1BotLocale = __expectString(data.v1BotLocale);
-  }
-  if (data.v1BotName != null) {
-    contents.v1BotName = __expectString(data.v1BotName);
-  }
-  if (data.v1BotVersion != null) {
-    contents.v1BotVersion = __expectString(data.v1BotVersion);
-  }
-  if (data.v2BotId != null) {
-    contents.v2BotId = __expectString(data.v2BotId);
-  }
-  if (data.v2BotRole != null) {
-    contents.v2BotRole = __expectString(data.v2BotRole);
-  }
+  const doc = take(data, {
+    migrationId: __expectString,
+    migrationStrategy: __expectString,
+    migrationTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    v1BotLocale: __expectString,
+    v1BotName: __expectString,
+    v1BotVersion: __expectString,
+    v2BotId: __expectString,
+    v2BotRole: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4202,10 +3788,9 @@ const de_StartMigrationCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4258,10 +3843,9 @@ const de_TagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4314,16 +3898,15 @@ const de_UntagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -4333,9 +3916,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4349,9 +3933,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4365,9 +3950,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4384,9 +3970,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4405,9 +3992,10 @@ const de_LimitExceededExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4421,9 +4009,10 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4440,9 +4029,10 @@ const de_PreconditionFailedExceptionRes = async (
 ): Promise<PreconditionFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PreconditionFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4459,12 +4049,11 @@ const de_ResourceInUseExceptionRes = async (
 ): Promise<ResourceInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exampleReference != null) {
-    contents.exampleReference = de_ResourceReference(data.exampleReference, context);
-  }
-  if (data.referenceType != null) {
-    contents.referenceType = __expectString(data.referenceType);
-  }
+  const doc = take(data, {
+    exampleReference: _json,
+    referenceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4472,378 +4061,84 @@ const de_ResourceInUseExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1CodeHook
- */
-const se_CodeHook = (input: CodeHook, context: __SerdeContext): any => {
-  return {
-    ...(input.messageVersion != null && { messageVersion: input.messageVersion }),
-    ...(input.uri != null && { uri: input.uri }),
-  };
-};
+// se_CodeHook omitted.
 
-/**
- * serializeAws_restJson1ConversationLogsRequest
- */
-const se_ConversationLogsRequest = (input: ConversationLogsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.iamRoleArn != null && { iamRoleArn: input.iamRoleArn }),
-    ...(input.logSettings != null && { logSettings: se_LogSettingsRequestList(input.logSettings, context) }),
-  };
-};
+// se_ConversationLogsRequest omitted.
 
-/**
- * serializeAws_restJson1EnumerationValue
- */
-const se_EnumerationValue = (input: EnumerationValue, context: __SerdeContext): any => {
-  return {
-    ...(input.synonyms != null && { synonyms: se_SynonymList(input.synonyms, context) }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_EnumerationValue omitted.
 
-/**
- * serializeAws_restJson1EnumerationValues
- */
-const se_EnumerationValues = (input: EnumerationValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EnumerationValue(entry, context);
-    });
-};
+// se_EnumerationValues omitted.
 
-/**
- * serializeAws_restJson1FollowUpPrompt
- */
-const se_FollowUpPrompt = (input: FollowUpPrompt, context: __SerdeContext): any => {
-  return {
-    ...(input.prompt != null && { prompt: se_Prompt(input.prompt, context) }),
-    ...(input.rejectionStatement != null && { rejectionStatement: se_Statement(input.rejectionStatement, context) }),
-  };
-};
+// se_FollowUpPrompt omitted.
 
-/**
- * serializeAws_restJson1FulfillmentActivity
- */
-const se_FulfillmentActivity = (input: FulfillmentActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.codeHook != null && { codeHook: se_CodeHook(input.codeHook, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_FulfillmentActivity omitted.
 
-/**
- * serializeAws_restJson1InputContext
- */
-const se_InputContext = (input: InputContext, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_InputContext omitted.
 
-/**
- * serializeAws_restJson1InputContextList
- */
-const se_InputContextList = (input: InputContext[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_InputContext(entry, context);
-    });
-};
+// se_InputContextList omitted.
 
-/**
- * serializeAws_restJson1Intent
- */
-const se_Intent = (input: Intent, context: __SerdeContext): any => {
-  return {
-    ...(input.intentName != null && { intentName: input.intentName }),
-    ...(input.intentVersion != null && { intentVersion: input.intentVersion }),
-  };
-};
+// se_Intent omitted.
 
-/**
- * serializeAws_restJson1IntentList
- */
-const se_IntentList = (input: Intent[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Intent(entry, context);
-    });
-};
+// se_IntentList omitted.
 
-/**
- * serializeAws_restJson1IntentUtteranceList
- */
-const se_IntentUtteranceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IntentUtteranceList omitted.
 
-/**
- * serializeAws_restJson1KendraConfiguration
- */
-const se_KendraConfiguration = (input: KendraConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.kendraIndex != null && { kendraIndex: input.kendraIndex }),
-    ...(input.queryFilterString != null && { queryFilterString: input.queryFilterString }),
-    ...(input.role != null && { role: input.role }),
-  };
-};
+// se_KendraConfiguration omitted.
 
-/**
- * serializeAws_restJson1LogSettingsRequest
- */
-const se_LogSettingsRequest = (input: LogSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.destination != null && { destination: input.destination }),
-    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.logType != null && { logType: input.logType }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_LogSettingsRequest omitted.
 
-/**
- * serializeAws_restJson1LogSettingsRequestList
- */
-const se_LogSettingsRequestList = (input: LogSettingsRequest[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LogSettingsRequest(entry, context);
-    });
-};
+// se_LogSettingsRequestList omitted.
 
-/**
- * serializeAws_restJson1Message
- */
-const se_Message = (input: Message, context: __SerdeContext): any => {
-  return {
-    ...(input.content != null && { content: input.content }),
-    ...(input.contentType != null && { contentType: input.contentType }),
-    ...(input.groupNumber != null && { groupNumber: input.groupNumber }),
-  };
-};
+// se_Message omitted.
 
-/**
- * serializeAws_restJson1MessageList
- */
-const se_MessageList = (input: Message[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Message(entry, context);
-    });
-};
+// se_MessageList omitted.
 
-/**
- * serializeAws_restJson1OutputContext
- */
-const se_OutputContext = (input: OutputContext, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.timeToLiveInSeconds != null && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
-    ...(input.turnsToLive != null && { turnsToLive: input.turnsToLive }),
-  };
-};
+// se_OutputContext omitted.
 
-/**
- * serializeAws_restJson1OutputContextList
- */
-const se_OutputContextList = (input: OutputContext[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_OutputContext(entry, context);
-    });
-};
+// se_OutputContextList omitted.
 
-/**
- * serializeAws_restJson1Prompt
- */
-const se_Prompt = (input: Prompt, context: __SerdeContext): any => {
-  return {
-    ...(input.maxAttempts != null && { maxAttempts: input.maxAttempts }),
-    ...(input.messages != null && { messages: se_MessageList(input.messages, context) }),
-    ...(input.responseCard != null && { responseCard: input.responseCard }),
-  };
-};
+// se_Prompt omitted.
 
-/**
- * serializeAws_restJson1Slot
- */
-const se_Slot = (input: Slot, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValueSpec != null && {
-      defaultValueSpec: se_SlotDefaultValueSpec(input.defaultValueSpec, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.obfuscationSetting != null && { obfuscationSetting: input.obfuscationSetting }),
-    ...(input.priority != null && { priority: input.priority }),
-    ...(input.responseCard != null && { responseCard: input.responseCard }),
-    ...(input.sampleUtterances != null && { sampleUtterances: se_SlotUtteranceList(input.sampleUtterances, context) }),
-    ...(input.slotConstraint != null && { slotConstraint: input.slotConstraint }),
-    ...(input.slotType != null && { slotType: input.slotType }),
-    ...(input.slotTypeVersion != null && { slotTypeVersion: input.slotTypeVersion }),
-    ...(input.valueElicitationPrompt != null && {
-      valueElicitationPrompt: se_Prompt(input.valueElicitationPrompt, context),
-    }),
-  };
-};
+// se_Slot omitted.
 
-/**
- * serializeAws_restJson1SlotDefaultValue
- */
-const se_SlotDefaultValue = (input: SlotDefaultValue, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
-  };
-};
+// se_SlotDefaultValue omitted.
 
-/**
- * serializeAws_restJson1SlotDefaultValueList
- */
-const se_SlotDefaultValueList = (input: SlotDefaultValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SlotDefaultValue(entry, context);
-    });
-};
+// se_SlotDefaultValueList omitted.
 
-/**
- * serializeAws_restJson1SlotDefaultValueSpec
- */
-const se_SlotDefaultValueSpec = (input: SlotDefaultValueSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValueList != null && {
-      defaultValueList: se_SlotDefaultValueList(input.defaultValueList, context),
-    }),
-  };
-};
+// se_SlotDefaultValueSpec omitted.
 
-/**
- * serializeAws_restJson1SlotList
- */
-const se_SlotList = (input: Slot[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Slot(entry, context);
-    });
-};
+// se_SlotList omitted.
 
-/**
- * serializeAws_restJson1SlotTypeConfiguration
- */
-const se_SlotTypeConfiguration = (input: SlotTypeConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.regexConfiguration != null && {
-      regexConfiguration: se_SlotTypeRegexConfiguration(input.regexConfiguration, context),
-    }),
-  };
-};
+// se_SlotTypeConfiguration omitted.
 
-/**
- * serializeAws_restJson1SlotTypeConfigurations
- */
-const se_SlotTypeConfigurations = (input: SlotTypeConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SlotTypeConfiguration(entry, context);
-    });
-};
+// se_SlotTypeConfigurations omitted.
 
-/**
- * serializeAws_restJson1SlotTypeRegexConfiguration
- */
-const se_SlotTypeRegexConfiguration = (input: SlotTypeRegexConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.pattern != null && { pattern: input.pattern }),
-  };
-};
+// se_SlotTypeRegexConfiguration omitted.
 
-/**
- * serializeAws_restJson1SlotUtteranceList
- */
-const se_SlotUtteranceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SlotUtteranceList omitted.
 
-/**
- * serializeAws_restJson1Statement
- */
-const se_Statement = (input: Statement, context: __SerdeContext): any => {
-  return {
-    ...(input.messages != null && { messages: se_MessageList(input.messages, context) }),
-    ...(input.responseCard != null && { responseCard: input.responseCard }),
-  };
-};
+// se_Statement omitted.
 
-/**
- * serializeAws_restJson1SynonymList
- */
-const se_SynonymList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SynonymList omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
 /**
  * deserializeAws_restJson1BotAliasMetadata
  */
 const de_BotAliasMetadata = (output: any, context: __SerdeContext): BotAliasMetadata => {
-  return {
-    botName: __expectString(output.botName),
-    botVersion: __expectString(output.botVersion),
-    checksum: __expectString(output.checksum),
-    conversationLogs:
-      output.conversationLogs != null ? de_ConversationLogsResponse(output.conversationLogs, context) : undefined,
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDate:
-      output.lastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    botName: __expectString,
+    botVersion: __expectString,
+    checksum: __expectString,
+    conversationLogs: _json,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -4853,9 +4148,6 @@ const de_BotAliasMetadataList = (output: any, context: __SerdeContext): BotAlias
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BotAliasMetadata(entry, context);
     });
   return retVal;
@@ -4865,21 +4157,17 @@ const de_BotAliasMetadataList = (output: any, context: __SerdeContext): BotAlias
  * deserializeAws_restJson1BotChannelAssociation
  */
 const de_BotChannelAssociation = (output: any, context: __SerdeContext): BotChannelAssociation => {
-  return {
-    botAlias: __expectString(output.botAlias),
-    botConfiguration:
-      output.botConfiguration != null ? de_ChannelConfigurationMap(output.botConfiguration, context) : undefined,
-    botName: __expectString(output.botName),
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    failureReason: __expectString(output.failureReason),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    botAlias: __expectString,
+    botConfiguration: _json,
+    botName: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    failureReason: __expectString,
+    name: __expectString,
+    status: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -4889,9 +4177,6 @@ const de_BotChannelAssociationList = (output: any, context: __SerdeContext): Bot
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BotChannelAssociation(entry, context);
     });
   return retVal;
@@ -4901,20 +4186,14 @@ const de_BotChannelAssociationList = (output: any, context: __SerdeContext): Bot
  * deserializeAws_restJson1BotMetadata
  */
 const de_BotMetadata = (output: any, context: __SerdeContext): BotMetadata => {
-  return {
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDate:
-      output.lastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
 /**
@@ -4924,233 +4203,56 @@ const de_BotMetadataList = (output: any, context: __SerdeContext): BotMetadata[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BotMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1BuiltinIntentMetadata
- */
-const de_BuiltinIntentMetadata = (output: any, context: __SerdeContext): BuiltinIntentMetadata => {
-  return {
-    signature: __expectString(output.signature),
-    supportedLocales: output.supportedLocales != null ? de_LocaleList(output.supportedLocales, context) : undefined,
-  } as any;
-};
+// de_BuiltinIntentMetadata omitted.
 
-/**
- * deserializeAws_restJson1BuiltinIntentMetadataList
- */
-const de_BuiltinIntentMetadataList = (output: any, context: __SerdeContext): BuiltinIntentMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BuiltinIntentMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_BuiltinIntentMetadataList omitted.
 
-/**
- * deserializeAws_restJson1BuiltinIntentSlot
- */
-const de_BuiltinIntentSlot = (output: any, context: __SerdeContext): BuiltinIntentSlot => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_BuiltinIntentSlot omitted.
 
-/**
- * deserializeAws_restJson1BuiltinIntentSlotList
- */
-const de_BuiltinIntentSlotList = (output: any, context: __SerdeContext): BuiltinIntentSlot[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BuiltinIntentSlot(entry, context);
-    });
-  return retVal;
-};
+// de_BuiltinIntentSlotList omitted.
 
-/**
- * deserializeAws_restJson1BuiltinSlotTypeMetadata
- */
-const de_BuiltinSlotTypeMetadata = (output: any, context: __SerdeContext): BuiltinSlotTypeMetadata => {
-  return {
-    signature: __expectString(output.signature),
-    supportedLocales: output.supportedLocales != null ? de_LocaleList(output.supportedLocales, context) : undefined,
-  } as any;
-};
+// de_BuiltinSlotTypeMetadata omitted.
 
-/**
- * deserializeAws_restJson1BuiltinSlotTypeMetadataList
- */
-const de_BuiltinSlotTypeMetadataList = (output: any, context: __SerdeContext): BuiltinSlotTypeMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BuiltinSlotTypeMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_BuiltinSlotTypeMetadataList omitted.
 
-/**
- * deserializeAws_restJson1ChannelConfigurationMap
- */
-const de_ChannelConfigurationMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ChannelConfigurationMap omitted.
 
-/**
- * deserializeAws_restJson1CodeHook
- */
-const de_CodeHook = (output: any, context: __SerdeContext): CodeHook => {
-  return {
-    messageVersion: __expectString(output.messageVersion),
-    uri: __expectString(output.uri),
-  } as any;
-};
+// de_CodeHook omitted.
 
-/**
- * deserializeAws_restJson1ConversationLogsResponse
- */
-const de_ConversationLogsResponse = (output: any, context: __SerdeContext): ConversationLogsResponse => {
-  return {
-    iamRoleArn: __expectString(output.iamRoleArn),
-    logSettings: output.logSettings != null ? de_LogSettingsResponseList(output.logSettings, context) : undefined,
-  } as any;
-};
+// de_ConversationLogsResponse omitted.
 
-/**
- * deserializeAws_restJson1EnumerationValue
- */
-const de_EnumerationValue = (output: any, context: __SerdeContext): EnumerationValue => {
-  return {
-    synonyms: output.synonyms != null ? de_SynonymList(output.synonyms, context) : undefined,
-    value: __expectString(output.value),
-  } as any;
-};
+// de_EnumerationValue omitted.
 
-/**
- * deserializeAws_restJson1EnumerationValues
- */
-const de_EnumerationValues = (output: any, context: __SerdeContext): EnumerationValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EnumerationValue(entry, context);
-    });
-  return retVal;
-};
+// de_EnumerationValues omitted.
 
-/**
- * deserializeAws_restJson1FollowUpPrompt
- */
-const de_FollowUpPrompt = (output: any, context: __SerdeContext): FollowUpPrompt => {
-  return {
-    prompt: output.prompt != null ? de_Prompt(output.prompt, context) : undefined,
-    rejectionStatement:
-      output.rejectionStatement != null ? de_Statement(output.rejectionStatement, context) : undefined,
-  } as any;
-};
+// de_FollowUpPrompt omitted.
 
-/**
- * deserializeAws_restJson1FulfillmentActivity
- */
-const de_FulfillmentActivity = (output: any, context: __SerdeContext): FulfillmentActivity => {
-  return {
-    codeHook: output.codeHook != null ? de_CodeHook(output.codeHook, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_FulfillmentActivity omitted.
 
-/**
- * deserializeAws_restJson1InputContext
- */
-const de_InputContext = (output: any, context: __SerdeContext): InputContext => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_InputContext omitted.
 
-/**
- * deserializeAws_restJson1InputContextList
- */
-const de_InputContextList = (output: any, context: __SerdeContext): InputContext[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InputContext(entry, context);
-    });
-  return retVal;
-};
+// de_InputContextList omitted.
 
-/**
- * deserializeAws_restJson1Intent
- */
-const de_Intent = (output: any, context: __SerdeContext): Intent => {
-  return {
-    intentName: __expectString(output.intentName),
-    intentVersion: __expectString(output.intentVersion),
-  } as any;
-};
+// de_Intent omitted.
 
-/**
- * deserializeAws_restJson1IntentList
- */
-const de_IntentList = (output: any, context: __SerdeContext): Intent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Intent(entry, context);
-    });
-  return retVal;
-};
+// de_IntentList omitted.
 
 /**
  * deserializeAws_restJson1IntentMetadata
  */
 const de_IntentMetadata = (output: any, context: __SerdeContext): IntentMetadata => {
-  return {
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDate:
-      output.lastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
 /**
@@ -5160,39 +4262,14 @@ const de_IntentMetadataList = (output: any, context: __SerdeContext): IntentMeta
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_IntentMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1IntentUtteranceList
- */
-const de_IntentUtteranceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IntentUtteranceList omitted.
 
-/**
- * deserializeAws_restJson1KendraConfiguration
- */
-const de_KendraConfiguration = (output: any, context: __SerdeContext): KendraConfiguration => {
-  return {
-    kendraIndex: __expectString(output.kendraIndex),
-    queryFilterString: __expectString(output.queryFilterString),
-    role: __expectString(output.role),
-  } as any;
-};
+// de_KendraConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ListOfUtterance
@@ -5201,9 +4278,6 @@ const de_ListOfUtterance = (output: any, context: __SerdeContext): UtteranceData
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UtteranceData(entry, context);
     });
   return retVal;
@@ -5216,159 +4290,44 @@ const de_ListsOfUtterances = (output: any, context: __SerdeContext): UtteranceLi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UtteranceList(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LocaleList
- */
-const de_LocaleList = (output: any, context: __SerdeContext): (Locale | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LocaleList omitted.
 
-/**
- * deserializeAws_restJson1LogSettingsResponse
- */
-const de_LogSettingsResponse = (output: any, context: __SerdeContext): LogSettingsResponse => {
-  return {
-    destination: __expectString(output.destination),
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    logType: __expectString(output.logType),
-    resourceArn: __expectString(output.resourceArn),
-    resourcePrefix: __expectString(output.resourcePrefix),
-  } as any;
-};
+// de_LogSettingsResponse omitted.
 
-/**
- * deserializeAws_restJson1LogSettingsResponseList
- */
-const de_LogSettingsResponseList = (output: any, context: __SerdeContext): LogSettingsResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LogSettingsResponse(entry, context);
-    });
-  return retVal;
-};
+// de_LogSettingsResponseList omitted.
 
-/**
- * deserializeAws_restJson1Message
- */
-const de_Message = (output: any, context: __SerdeContext): Message => {
-  return {
-    content: __expectString(output.content),
-    contentType: __expectString(output.contentType),
-    groupNumber: __expectInt32(output.groupNumber),
-  } as any;
-};
+// de_Message omitted.
 
-/**
- * deserializeAws_restJson1MessageList
- */
-const de_MessageList = (output: any, context: __SerdeContext): Message[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Message(entry, context);
-    });
-  return retVal;
-};
+// de_MessageList omitted.
 
-/**
- * deserializeAws_restJson1MigrationAlert
- */
-const de_MigrationAlert = (output: any, context: __SerdeContext): MigrationAlert => {
-  return {
-    details: output.details != null ? de_MigrationAlertDetails(output.details, context) : undefined,
-    message: __expectString(output.message),
-    referenceURLs:
-      output.referenceURLs != null ? de_MigrationAlertReferenceURLs(output.referenceURLs, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_MigrationAlert omitted.
 
-/**
- * deserializeAws_restJson1MigrationAlertDetails
- */
-const de_MigrationAlertDetails = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MigrationAlertDetails omitted.
 
-/**
- * deserializeAws_restJson1MigrationAlertReferenceURLs
- */
-const de_MigrationAlertReferenceURLs = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MigrationAlertReferenceURLs omitted.
 
-/**
- * deserializeAws_restJson1MigrationAlerts
- */
-const de_MigrationAlerts = (output: any, context: __SerdeContext): MigrationAlert[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MigrationAlert(entry, context);
-    });
-  return retVal;
-};
+// de_MigrationAlerts omitted.
 
 /**
  * deserializeAws_restJson1MigrationSummary
  */
 const de_MigrationSummary = (output: any, context: __SerdeContext): MigrationSummary => {
-  return {
-    migrationId: __expectString(output.migrationId),
-    migrationStatus: __expectString(output.migrationStatus),
-    migrationStrategy: __expectString(output.migrationStrategy),
-    migrationTimestamp:
-      output.migrationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.migrationTimestamp)))
-        : undefined,
-    v1BotLocale: __expectString(output.v1BotLocale),
-    v1BotName: __expectString(output.v1BotName),
-    v1BotVersion: __expectString(output.v1BotVersion),
-    v2BotId: __expectString(output.v2BotId),
-    v2BotRole: __expectString(output.v2BotRole),
-  } as any;
+  return take(output, {
+    migrationId: __expectString,
+    migrationStatus: __expectString,
+    migrationStrategy: __expectString,
+    migrationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    v1BotLocale: __expectString,
+    v1BotName: __expectString,
+    v1BotVersion: __expectString,
+    v2BotId: __expectString,
+    v2BotRole: __expectString,
+  }) as any;
 };
 
 /**
@@ -5378,174 +4337,44 @@ const de_MigrationSummaryList = (output: any, context: __SerdeContext): Migratio
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MigrationSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1OutputContext
- */
-const de_OutputContext = (output: any, context: __SerdeContext): OutputContext => {
-  return {
-    name: __expectString(output.name),
-    timeToLiveInSeconds: __expectInt32(output.timeToLiveInSeconds),
-    turnsToLive: __expectInt32(output.turnsToLive),
-  } as any;
-};
+// de_OutputContext omitted.
 
-/**
- * deserializeAws_restJson1OutputContextList
- */
-const de_OutputContextList = (output: any, context: __SerdeContext): OutputContext[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OutputContext(entry, context);
-    });
-  return retVal;
-};
+// de_OutputContextList omitted.
 
-/**
- * deserializeAws_restJson1Prompt
- */
-const de_Prompt = (output: any, context: __SerdeContext): Prompt => {
-  return {
-    maxAttempts: __expectInt32(output.maxAttempts),
-    messages: output.messages != null ? de_MessageList(output.messages, context) : undefined,
-    responseCard: __expectString(output.responseCard),
-  } as any;
-};
+// de_Prompt omitted.
 
-/**
- * deserializeAws_restJson1ResourceReference
- */
-const de_ResourceReference = (output: any, context: __SerdeContext): ResourceReference => {
-  return {
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_ResourceReference omitted.
 
-/**
- * deserializeAws_restJson1Slot
- */
-const de_Slot = (output: any, context: __SerdeContext): Slot => {
-  return {
-    defaultValueSpec:
-      output.defaultValueSpec != null ? de_SlotDefaultValueSpec(output.defaultValueSpec, context) : undefined,
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    obfuscationSetting: __expectString(output.obfuscationSetting),
-    priority: __expectInt32(output.priority),
-    responseCard: __expectString(output.responseCard),
-    sampleUtterances:
-      output.sampleUtterances != null ? de_SlotUtteranceList(output.sampleUtterances, context) : undefined,
-    slotConstraint: __expectString(output.slotConstraint),
-    slotType: __expectString(output.slotType),
-    slotTypeVersion: __expectString(output.slotTypeVersion),
-    valueElicitationPrompt:
-      output.valueElicitationPrompt != null ? de_Prompt(output.valueElicitationPrompt, context) : undefined,
-  } as any;
-};
+// de_Slot omitted.
 
-/**
- * deserializeAws_restJson1SlotDefaultValue
- */
-const de_SlotDefaultValue = (output: any, context: __SerdeContext): SlotDefaultValue => {
-  return {
-    defaultValue: __expectString(output.defaultValue),
-  } as any;
-};
+// de_SlotDefaultValue omitted.
 
-/**
- * deserializeAws_restJson1SlotDefaultValueList
- */
-const de_SlotDefaultValueList = (output: any, context: __SerdeContext): SlotDefaultValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SlotDefaultValue(entry, context);
-    });
-  return retVal;
-};
+// de_SlotDefaultValueList omitted.
 
-/**
- * deserializeAws_restJson1SlotDefaultValueSpec
- */
-const de_SlotDefaultValueSpec = (output: any, context: __SerdeContext): SlotDefaultValueSpec => {
-  return {
-    defaultValueList:
-      output.defaultValueList != null ? de_SlotDefaultValueList(output.defaultValueList, context) : undefined,
-  } as any;
-};
+// de_SlotDefaultValueSpec omitted.
 
-/**
- * deserializeAws_restJson1SlotList
- */
-const de_SlotList = (output: any, context: __SerdeContext): Slot[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Slot(entry, context);
-    });
-  return retVal;
-};
+// de_SlotList omitted.
 
-/**
- * deserializeAws_restJson1SlotTypeConfiguration
- */
-const de_SlotTypeConfiguration = (output: any, context: __SerdeContext): SlotTypeConfiguration => {
-  return {
-    regexConfiguration:
-      output.regexConfiguration != null ? de_SlotTypeRegexConfiguration(output.regexConfiguration, context) : undefined,
-  } as any;
-};
+// de_SlotTypeConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SlotTypeConfigurations
- */
-const de_SlotTypeConfigurations = (output: any, context: __SerdeContext): SlotTypeConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SlotTypeConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_SlotTypeConfigurations omitted.
 
 /**
  * deserializeAws_restJson1SlotTypeMetadata
  */
 const de_SlotTypeMetadata = (output: any, context: __SerdeContext): SlotTypeMetadata => {
-  return {
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDate:
-      output.lastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
 /**
@@ -5555,130 +4384,46 @@ const de_SlotTypeMetadataList = (output: any, context: __SerdeContext): SlotType
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SlotTypeMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SlotTypeRegexConfiguration
- */
-const de_SlotTypeRegexConfiguration = (output: any, context: __SerdeContext): SlotTypeRegexConfiguration => {
-  return {
-    pattern: __expectString(output.pattern),
-  } as any;
-};
+// de_SlotTypeRegexConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SlotUtteranceList
- */
-const de_SlotUtteranceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SlotUtteranceList omitted.
 
-/**
- * deserializeAws_restJson1Statement
- */
-const de_Statement = (output: any, context: __SerdeContext): Statement => {
-  return {
-    messages: output.messages != null ? de_MessageList(output.messages, context) : undefined,
-    responseCard: __expectString(output.responseCard),
-  } as any;
-};
+// de_Statement omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1SynonymList
- */
-const de_SynonymList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SynonymList omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 /**
  * deserializeAws_restJson1UtteranceData
  */
 const de_UtteranceData = (output: any, context: __SerdeContext): UtteranceData => {
-  return {
-    count: __expectInt32(output.count),
-    distinctUsers: __expectInt32(output.distinctUsers),
-    firstUtteredDate:
-      output.firstUtteredDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstUtteredDate)))
-        : undefined,
-    lastUtteredDate:
-      output.lastUtteredDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUtteredDate)))
-        : undefined,
-    utteranceString: __expectString(output.utteranceString),
-  } as any;
+  return take(output, {
+    count: __expectInt32,
+    distinctUsers: __expectInt32,
+    firstUtteredDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUtteredDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    utteranceString: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1UtteranceList
  */
 const de_UtteranceList = (output: any, context: __SerdeContext): UtteranceList => {
-  return {
-    botVersion: __expectString(output.botVersion),
-    utterances: output.utterances != null ? de_ListOfUtterance(output.utterances, context) : undefined,
-  } as any;
+  return take(output, {
+    botVersion: __expectString,
+    utterances: (_: any) => de_ListOfUtterance(_, context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

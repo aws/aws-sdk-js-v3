@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
@@ -9,10 +10,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -98,8 +100,6 @@ import {
   ServiceQuotaExceededException,
   TimestampForCollection,
   TooManyRequestsException,
-  UnprocessedAccount,
-  UnprocessedGraph,
   ValidationException,
 } from "../models/models_0";
 
@@ -116,9 +116,11 @@ export const se_AcceptInvitationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitation";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -143,10 +145,12 @@ export const se_BatchGetGraphMemberDatasourcesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdExtendedList(input.AccountIds, context) }),
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -172,9 +176,11 @@ export const se_BatchGetMembershipDatasourcesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/membership/datasources/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GraphArns != null && { GraphArns: se_GraphArnList(input.GraphArns, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GraphArns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -199,9 +205,11 @@ export const se_CreateGraphCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -226,12 +234,14 @@ export const se_CreateMembersCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Accounts != null && { Accounts: se_AccountList(input.Accounts, context) }),
-    ...(input.DisableEmailNotification != null && { DisableEmailNotification: input.DisableEmailNotification }),
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-    ...(input.Message != null && { Message: input.Message }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Accounts: (_) => _json(_),
+      DisableEmailNotification: [],
+      GraphArn: [],
+      Message: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -256,9 +266,11 @@ export const se_DeleteGraphCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/removal";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -283,10 +295,12 @@ export const se_DeleteMembersCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/removal";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdList(input.AccountIds, context) }),
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -312,9 +326,11 @@ export const se_DescribeOrganizationConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/describeOrganizationConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -365,9 +381,11 @@ export const se_DisassociateMembershipCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/membership/removal";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -393,9 +411,11 @@ export const se_EnableOrganizationAdminAccountCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/enableAdminAccount";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -420,10 +440,12 @@ export const se_GetMembersCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdList(input.AccountIds, context) }),
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -449,11 +471,13 @@ export const se_ListDatasourcePackagesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -478,10 +502,12 @@ export const se_ListGraphsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -506,10 +532,12 @@ export const se_ListInvitationsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -534,11 +562,13 @@ export const se_ListMembersCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -564,10 +594,12 @@ export const se_ListOrganizationAdminAccountsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/adminAccountslist";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -615,9 +647,11 @@ export const se_RejectInvitationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitation/removal";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -643,10 +677,12 @@ export const se_StartMonitoringMemberCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/member/monitoringstate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -672,9 +708,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -730,12 +768,12 @@ export const se_UpdateDatasourcePackagesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DatasourcePackages != null && {
-      DatasourcePackages: se_DatasourcePackageList(input.DatasourcePackages, context),
-    }),
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DatasourcePackages: (_) => _json(_),
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -761,10 +799,12 @@ export const se_UpdateOrganizationConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/updateOrganizationConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AutoEnable != null && { AutoEnable: input.AutoEnable }),
-    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AutoEnable: [],
+      GraphArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -823,10 +863,9 @@ const de_AcceptInvitationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -846,12 +885,11 @@ export const de_BatchGetGraphMemberDatasourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MemberDatasources != null) {
-    contents.MemberDatasources = de_MembershipDatasourcesList(data.MemberDatasources, context);
-  }
-  if (data.UnprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccountList(data.UnprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    MemberDatasources: (_) => de_MembershipDatasourcesList(_, context),
+    UnprocessedAccounts: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -882,10 +920,9 @@ const de_BatchGetGraphMemberDatasourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -905,12 +942,11 @@ export const de_BatchGetMembershipDatasourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MembershipDatasources != null) {
-    contents.MembershipDatasources = de_MembershipDatasourcesList(data.MembershipDatasources, context);
-  }
-  if (data.UnprocessedGraphs != null) {
-    contents.UnprocessedGraphs = de_UnprocessedGraphList(data.UnprocessedGraphs, context);
-  }
+  const doc = take(data, {
+    MembershipDatasources: (_) => de_MembershipDatasourcesList(_, context),
+    UnprocessedGraphs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -941,10 +977,9 @@ const de_BatchGetMembershipDatasourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -964,9 +999,10 @@ export const de_CreateGraphCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GraphArn != null) {
-    contents.GraphArn = __expectString(data.GraphArn);
-  }
+  const doc = take(data, {
+    GraphArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -997,10 +1033,9 @@ const de_CreateGraphCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1020,12 +1055,11 @@ export const de_CreateMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Members != null) {
-    contents.Members = de_MemberDetailList(data.Members, context);
-  }
-  if (data.UnprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccountList(data.UnprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    Members: (_) => de_MemberDetailList(_, context),
+    UnprocessedAccounts: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1059,10 +1093,9 @@ const de_CreateMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1112,10 +1145,9 @@ const de_DeleteGraphCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1135,12 +1167,11 @@ export const de_DeleteMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountIds != null) {
-    contents.AccountIds = de_AccountIdList(data.AccountIds, context);
-  }
-  if (data.UnprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccountList(data.UnprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    AccountIds: _json,
+    UnprocessedAccounts: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1174,10 +1205,9 @@ const de_DeleteMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1197,9 +1227,10 @@ export const de_DescribeOrganizationConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AutoEnable != null) {
-    contents.AutoEnable = __expectBoolean(data.AutoEnable);
-  }
+  const doc = take(data, {
+    AutoEnable: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1230,10 +1261,9 @@ const de_DescribeOrganizationConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1283,10 +1313,9 @@ const de_DisableOrganizationAdminAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1339,10 +1368,9 @@ const de_DisassociateMembershipCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1392,10 +1420,9 @@ const de_EnableOrganizationAdminAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1415,12 +1442,11 @@ export const de_GetMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MemberDetails != null) {
-    contents.MemberDetails = de_MemberDetailList(data.MemberDetails, context);
-  }
-  if (data.UnprocessedAccounts != null) {
-    contents.UnprocessedAccounts = de_UnprocessedAccountList(data.UnprocessedAccounts, context);
-  }
+  const doc = take(data, {
+    MemberDetails: (_) => de_MemberDetailList(_, context),
+    UnprocessedAccounts: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1451,10 +1477,9 @@ const de_GetMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1474,12 +1499,11 @@ export const de_ListDatasourcePackagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DatasourcePackages != null) {
-    contents.DatasourcePackages = de_DatasourcePackageIngestDetails(data.DatasourcePackages, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DatasourcePackages: (_) => de_DatasourcePackageIngestDetails(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1510,10 +1534,9 @@ const de_ListDatasourcePackagesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1533,12 +1556,11 @@ export const de_ListGraphsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GraphList != null) {
-    contents.GraphList = de_GraphList(data.GraphList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    GraphList: (_) => de_GraphList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1566,10 +1588,9 @@ const de_ListGraphsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1589,12 +1610,11 @@ export const de_ListInvitationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Invitations != null) {
-    contents.Invitations = de_MemberDetailList(data.Invitations, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Invitations: (_) => de_MemberDetailList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1622,10 +1642,9 @@ const de_ListInvitationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1645,12 +1664,11 @@ export const de_ListMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MemberDetails != null) {
-    contents.MemberDetails = de_MemberDetailList(data.MemberDetails, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MemberDetails: (_) => de_MemberDetailList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1681,10 +1699,9 @@ const de_ListMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1704,12 +1721,11 @@ export const de_ListOrganizationAdminAccountsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Administrators != null) {
-    contents.Administrators = de_AdministratorList(data.Administrators, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Administrators: (_) => de_AdministratorList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1740,10 +1756,9 @@ const de_ListOrganizationAdminAccountsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1763,9 +1778,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1796,10 +1812,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1852,10 +1867,9 @@ const de_RejectInvitationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1911,10 +1925,9 @@ const de_StartMonitoringMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1964,10 +1977,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2017,10 +2029,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2073,10 +2084,9 @@ const de_UpdateDatasourcePackagesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2126,16 +2136,15 @@ const de_UpdateOrganizationConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2145,21 +2154,14 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.ErrorCodeReason != null) {
-    contents.ErrorCodeReason = __expectString(data.ErrorCodeReason);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.SubErrorCode != null) {
-    contents.SubErrorCode = __expectString(data.SubErrorCode);
-  }
-  if (data.SubErrorCodeReason != null) {
-    contents.SubErrorCodeReason = __expectString(data.SubErrorCodeReason);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    ErrorCodeReason: __expectString,
+    Message: __expectString,
+    SubErrorCode: __expectString,
+    SubErrorCodeReason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2173,9 +2175,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2192,9 +2195,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2211,9 +2215,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2230,12 +2235,11 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Resources != null) {
-    contents.Resources = de_ResourceList(data.Resources, context);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Resources: _json,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2252,9 +2256,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2268,15 +2273,12 @@ const de_TooManyRequestsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.ErrorCodeReason != null) {
-    contents.ErrorCodeReason = __expectString(data.ErrorCodeReason);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    ErrorCodeReason: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2284,111 +2286,31 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Account
- */
-const se_Account = (input: Account, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
-  };
-};
+// se_Account omitted.
 
-/**
- * serializeAws_restJson1AccountIdExtendedList
- */
-const se_AccountIdExtendedList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AccountIdExtendedList omitted.
 
-/**
- * serializeAws_restJson1AccountIdList
- */
-const se_AccountIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AccountIdList omitted.
 
-/**
- * serializeAws_restJson1AccountList
- */
-const se_AccountList = (input: Account[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Account(entry, context);
-    });
-};
+// se_AccountList omitted.
 
-/**
- * serializeAws_restJson1DatasourcePackageList
- */
-const se_DatasourcePackageList = (input: (DatasourcePackage | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DatasourcePackageList omitted.
 
-/**
- * serializeAws_restJson1GraphArnList
- */
-const se_GraphArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_GraphArnList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1AccountIdList
- */
-const de_AccountIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AccountIdList omitted.
 
 /**
  * deserializeAws_restJson1Administrator
  */
 const de_Administrator = (output: any, context: __SerdeContext): Administrator => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    DelegationTime:
-      output.DelegationTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.DelegationTime))
-        : undefined,
-    GraphArn: __expectString(output.GraphArn),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    DelegationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GraphArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -2398,9 +2320,6 @@ const de_AdministratorList = (output: any, context: __SerdeContext): Administrat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Administrator(entry, context);
     });
   return retVal;
@@ -2410,13 +2329,10 @@ const de_AdministratorList = (output: any, context: __SerdeContext): Administrat
  * deserializeAws_restJson1DatasourcePackageIngestDetail
  */
 const de_DatasourcePackageIngestDetail = (output: any, context: __SerdeContext): DatasourcePackageIngestDetail => {
-  return {
-    DatasourcePackageIngestState: __expectString(output.DatasourcePackageIngestState),
-    LastIngestStateChange:
-      output.LastIngestStateChange != null
-        ? de_LastIngestStateChangeDates(output.LastIngestStateChange, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DatasourcePackageIngestState: __expectString,
+    LastIngestStateChange: (_: any) => de_LastIngestStateChangeDates(_, context),
+  }) as any;
 };
 
 /**
@@ -2457,47 +2373,26 @@ const de_DatasourcePackageIngestHistory = (
   );
 };
 
-/**
- * deserializeAws_restJson1DatasourcePackageIngestStates
- */
-const de_DatasourcePackageIngestStates = (
-  output: any,
-  context: __SerdeContext
-): Record<string, DatasourcePackageIngestState | string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageIngestState | string>, [key, value]: [DatasourcePackage | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_DatasourcePackageIngestStates omitted.
 
 /**
  * deserializeAws_restJson1DatasourcePackageUsageInfo
  */
 const de_DatasourcePackageUsageInfo = (output: any, context: __SerdeContext): DatasourcePackageUsageInfo => {
-  return {
-    VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
-    VolumeUsageUpdateTime:
-      output.VolumeUsageUpdateTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.VolumeUsageUpdateTime))
-        : undefined,
-  } as any;
+  return take(output, {
+    VolumeUsageInBytes: __expectLong,
+    VolumeUsageUpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Graph
  */
 const de_Graph = (output: any, context: __SerdeContext): Graph => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTime)) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -2507,9 +2402,6 @@ const de_GraphList = (output: any, context: __SerdeContext): Graph[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Graph(entry, context);
     });
   return retVal;
@@ -2538,38 +2430,24 @@ const de_LastIngestStateChangeDates = (
  * deserializeAws_restJson1MemberDetail
  */
 const de_MemberDetail = (output: any, context: __SerdeContext): MemberDetail => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    AdministratorId: __expectString(output.AdministratorId),
-    DatasourcePackageIngestStates:
-      output.DatasourcePackageIngestStates != null
-        ? de_DatasourcePackageIngestStates(output.DatasourcePackageIngestStates, context)
-        : undefined,
-    DisabledReason: __expectString(output.DisabledReason),
-    EmailAddress: __expectString(output.EmailAddress),
-    GraphArn: __expectString(output.GraphArn),
-    InvitationType: __expectString(output.InvitationType),
-    InvitedTime:
-      output.InvitedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedTime)) : undefined,
-    MasterId: __expectString(output.MasterId),
-    PercentOfGraphUtilization: __limitedParseDouble(output.PercentOfGraphUtilization),
-    PercentOfGraphUtilizationUpdatedTime:
-      output.PercentOfGraphUtilizationUpdatedTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.PercentOfGraphUtilizationUpdatedTime))
-        : undefined,
-    Status: __expectString(output.Status),
-    UpdatedTime:
-      output.UpdatedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTime)) : undefined,
-    VolumeUsageByDatasourcePackage:
-      output.VolumeUsageByDatasourcePackage != null
-        ? de_VolumeUsageByDatasourcePackage(output.VolumeUsageByDatasourcePackage, context)
-        : undefined,
-    VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
-    VolumeUsageUpdatedTime:
-      output.VolumeUsageUpdatedTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.VolumeUsageUpdatedTime))
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    AdministratorId: __expectString,
+    DatasourcePackageIngestStates: _json,
+    DisabledReason: __expectString,
+    EmailAddress: __expectString,
+    GraphArn: __expectString,
+    InvitationType: __expectString,
+    InvitedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MasterId: __expectString,
+    PercentOfGraphUtilization: __limitedParseDouble,
+    PercentOfGraphUtilizationUpdatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Status: __expectString,
+    UpdatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    VolumeUsageByDatasourcePackage: (_: any) => de_VolumeUsageByDatasourcePackage(_, context),
+    VolumeUsageInBytes: __expectLong,
+    VolumeUsageUpdatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -2579,9 +2457,6 @@ const de_MemberDetailList = (output: any, context: __SerdeContext): MemberDetail
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MemberDetail(entry, context);
     });
   return retVal;
@@ -2591,14 +2466,11 @@ const de_MemberDetailList = (output: any, context: __SerdeContext): MemberDetail
  * deserializeAws_restJson1MembershipDatasources
  */
 const de_MembershipDatasources = (output: any, context: __SerdeContext): MembershipDatasources => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    DatasourcePackageIngestHistory:
-      output.DatasourcePackageIngestHistory != null
-        ? de_DatasourcePackageIngestHistory(output.DatasourcePackageIngestHistory, context)
-        : undefined,
-    GraphArn: __expectString(output.GraphArn),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    DatasourcePackageIngestHistory: (_: any) => de_DatasourcePackageIngestHistory(_, context),
+    GraphArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -2608,101 +2480,31 @@ const de_MembershipDatasourcesList = (output: any, context: __SerdeContext): Mem
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MembershipDatasources(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ResourceList
- */
-const de_ResourceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1TimestampForCollection
  */
 const de_TimestampForCollection = (output: any, context: __SerdeContext): TimestampForCollection => {
-  return {
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Timestamp)) : undefined,
-  } as any;
+  return take(output, {
+    Timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1UnprocessedAccount
- */
-const de_UnprocessedAccount = (output: any, context: __SerdeContext): UnprocessedAccount => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_UnprocessedAccount omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedAccountList
- */
-const de_UnprocessedAccountList = (output: any, context: __SerdeContext): UnprocessedAccount[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnprocessedAccount(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedAccountList omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedGraph
- */
-const de_UnprocessedGraph = (output: any, context: __SerdeContext): UnprocessedGraph => {
-  return {
-    GraphArn: __expectString(output.GraphArn),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_UnprocessedGraph omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedGraphList
- */
-const de_UnprocessedGraphList = (output: any, context: __SerdeContext): UnprocessedGraph[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnprocessedGraph(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedGraphList omitted.
 
 /**
  * deserializeAws_restJson1VolumeUsageByDatasourcePackage

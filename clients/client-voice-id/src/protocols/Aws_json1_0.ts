@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,7 +9,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -75,7 +77,6 @@ import {
   AccessDeniedException,
   AssociateFraudsterRequest,
   AssociateFraudsterResponse,
-  AuthenticationConfiguration,
   AuthenticationResult,
   ConflictException,
   CreateDomainRequest,
@@ -106,19 +107,13 @@ import {
   EnrollmentJobFraudDetectionConfig,
   EvaluateSessionRequest,
   EvaluateSessionResponse,
-  FailureDetails,
-  FraudDetectionConfiguration,
-  FraudDetectionReason,
   FraudDetectionResult,
-  FraudRiskDetails,
   Fraudster,
   FraudsterRegistrationJob,
   FraudsterRegistrationJobSummary,
   FraudsterSummary,
   InputDataConfig,
   InternalServerException,
-  JobProgress,
-  KnownFraudsterRisk,
   ListDomainsRequest,
   ListDomainsResponse,
   ListFraudsterRegistrationJobsRequest,
@@ -130,7 +125,6 @@ import {
   ListSpeakersRequest,
   ListSpeakersResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListWatchlistsRequest,
   ListWatchlistsResponse,
   OptOutSpeakerRequest,
@@ -139,7 +133,6 @@ import {
   RegistrationConfig,
   ResourceNotFoundException,
   ServerSideEncryptionConfiguration,
-  ServerSideEncryptionUpdateDetails,
   ServiceQuotaExceededException,
   Speaker,
   SpeakerEnrollmentJob,
@@ -151,18 +144,14 @@ import {
   StartSpeakerEnrollmentJobResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   ThrottlingException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateDomainRequest,
   UpdateDomainResponse,
   UpdateWatchlistRequest,
   UpdateWatchlistResponse,
   ValidationException,
-  VoiceSpoofingRisk,
   Watchlist,
-  WatchlistDetails,
   WatchlistSummary,
 } from "../models/models_0";
 import { VoiceIDServiceException as __BaseException } from "../models/VoiceIDServiceException";
@@ -176,7 +165,7 @@ export const se_AssociateFraudsterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateFraudster");
   let body: any;
-  body = JSON.stringify(se_AssociateFraudsterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -215,7 +204,7 @@ export const se_DeleteDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDomain");
   let body: any;
-  body = JSON.stringify(se_DeleteDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -228,7 +217,7 @@ export const se_DeleteFraudsterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFraudster");
   let body: any;
-  body = JSON.stringify(se_DeleteFraudsterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -241,7 +230,7 @@ export const se_DeleteSpeakerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSpeaker");
   let body: any;
-  body = JSON.stringify(se_DeleteSpeakerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -254,7 +243,7 @@ export const se_DeleteWatchlistCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteWatchlist");
   let body: any;
-  body = JSON.stringify(se_DeleteWatchlistRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -267,7 +256,7 @@ export const se_DescribeDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDomain");
   let body: any;
-  body = JSON.stringify(se_DescribeDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -280,7 +269,7 @@ export const se_DescribeFraudsterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFraudster");
   let body: any;
-  body = JSON.stringify(se_DescribeFraudsterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -293,7 +282,7 @@ export const se_DescribeFraudsterRegistrationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFraudsterRegistrationJob");
   let body: any;
-  body = JSON.stringify(se_DescribeFraudsterRegistrationJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -306,7 +295,7 @@ export const se_DescribeSpeakerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSpeaker");
   let body: any;
-  body = JSON.stringify(se_DescribeSpeakerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -319,7 +308,7 @@ export const se_DescribeSpeakerEnrollmentJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSpeakerEnrollmentJob");
   let body: any;
-  body = JSON.stringify(se_DescribeSpeakerEnrollmentJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -332,7 +321,7 @@ export const se_DescribeWatchlistCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeWatchlist");
   let body: any;
-  body = JSON.stringify(se_DescribeWatchlistRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -345,7 +334,7 @@ export const se_DisassociateFraudsterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateFraudster");
   let body: any;
-  body = JSON.stringify(se_DisassociateFraudsterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -358,7 +347,7 @@ export const se_EvaluateSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EvaluateSession");
   let body: any;
-  body = JSON.stringify(se_EvaluateSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -371,7 +360,7 @@ export const se_ListDomainsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDomains");
   let body: any;
-  body = JSON.stringify(se_ListDomainsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -384,7 +373,7 @@ export const se_ListFraudsterRegistrationJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFraudsterRegistrationJobs");
   let body: any;
-  body = JSON.stringify(se_ListFraudsterRegistrationJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -397,7 +386,7 @@ export const se_ListFraudstersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFraudsters");
   let body: any;
-  body = JSON.stringify(se_ListFraudstersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -410,7 +399,7 @@ export const se_ListSpeakerEnrollmentJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSpeakerEnrollmentJobs");
   let body: any;
-  body = JSON.stringify(se_ListSpeakerEnrollmentJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -423,7 +412,7 @@ export const se_ListSpeakersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSpeakers");
   let body: any;
-  body = JSON.stringify(se_ListSpeakersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -436,7 +425,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -449,7 +438,7 @@ export const se_ListWatchlistsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWatchlists");
   let body: any;
-  body = JSON.stringify(se_ListWatchlistsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -462,7 +451,7 @@ export const se_OptOutSpeakerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("OptOutSpeaker");
   let body: any;
-  body = JSON.stringify(se_OptOutSpeakerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -501,7 +490,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -514,7 +503,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -527,7 +516,7 @@ export const se_UpdateDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDomain");
   let body: any;
-  body = JSON.stringify(se_UpdateDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -540,7 +529,7 @@ export const se_UpdateWatchlistCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateWatchlist");
   let body: any;
-  body = JSON.stringify(se_UpdateWatchlistRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -561,7 +550,7 @@ export const de_AssociateFraudsterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -600,10 +589,9 @@ const de_AssociateFraudsterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -626,7 +614,7 @@ export const de_CreateDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -665,10 +653,9 @@ const de_CreateDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -691,7 +678,7 @@ export const de_CreateWatchlistCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -730,10 +717,9 @@ const de_CreateWatchlistCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -753,7 +739,7 @@ export const de_DeleteDomainCommand = async (
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -789,10 +775,9 @@ const de_DeleteDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -812,7 +797,7 @@ export const de_DeleteFraudsterCommand = async (
   const response: DeleteFraudsterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -848,10 +833,9 @@ const de_DeleteFraudsterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -871,7 +855,7 @@ export const de_DeleteSpeakerCommand = async (
   const response: DeleteSpeakerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -907,10 +891,9 @@ const de_DeleteSpeakerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -930,7 +913,7 @@ export const de_DeleteWatchlistCommand = async (
   const response: DeleteWatchlistCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -966,10 +949,9 @@ const de_DeleteWatchlistCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -992,7 +974,7 @@ export const de_DescribeDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1025,10 +1007,9 @@ const de_DescribeDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1051,7 +1032,7 @@ export const de_DescribeFraudsterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1084,10 +1065,9 @@ const de_DescribeFraudsterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1110,7 +1090,7 @@ export const de_DescribeFraudsterRegistrationJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1143,10 +1123,9 @@ const de_DescribeFraudsterRegistrationJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1169,7 +1148,7 @@ export const de_DescribeSpeakerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1202,10 +1181,9 @@ const de_DescribeSpeakerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1228,7 +1206,7 @@ export const de_DescribeSpeakerEnrollmentJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1261,10 +1239,9 @@ const de_DescribeSpeakerEnrollmentJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1287,7 +1264,7 @@ export const de_DescribeWatchlistCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1320,10 +1297,9 @@ const de_DescribeWatchlistCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1346,7 +1322,7 @@ export const de_DisassociateFraudsterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1382,10 +1358,9 @@ const de_DisassociateFraudsterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1408,7 +1383,7 @@ export const de_EvaluateSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1444,10 +1419,9 @@ const de_EvaluateSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1470,7 +1444,7 @@ export const de_ListDomainsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1500,10 +1474,9 @@ const de_ListDomainsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1526,7 +1499,7 @@ export const de_ListFraudsterRegistrationJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1559,10 +1532,9 @@ const de_ListFraudsterRegistrationJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1585,7 +1557,7 @@ export const de_ListFraudstersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1618,10 +1590,9 @@ const de_ListFraudstersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1644,7 +1615,7 @@ export const de_ListSpeakerEnrollmentJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1677,10 +1648,9 @@ const de_ListSpeakerEnrollmentJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1703,7 +1673,7 @@ export const de_ListSpeakersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1736,10 +1706,9 @@ const de_ListSpeakersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1757,12 +1726,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1795,10 +1764,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1821,7 +1789,7 @@ export const de_ListWatchlistsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1854,10 +1822,9 @@ const de_ListWatchlistsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1880,7 +1847,7 @@ export const de_OptOutSpeakerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1919,10 +1886,9 @@ const de_OptOutSpeakerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1945,7 +1911,7 @@ export const de_StartFraudsterRegistrationJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1984,10 +1950,9 @@ const de_StartFraudsterRegistrationJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2010,7 +1975,7 @@ export const de_StartSpeakerEnrollmentJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2049,10 +2014,9 @@ const de_StartSpeakerEnrollmentJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2070,12 +2034,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2111,10 +2075,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2132,12 +2095,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2173,10 +2136,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2199,7 +2161,7 @@ export const de_UpdateDomainCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2235,10 +2197,9 @@ const de_UpdateDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2261,7 +2222,7 @@ export const de_UpdateWatchlistCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2297,10 +2258,9 @@ const de_UpdateWatchlistCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2314,7 +2274,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2327,7 +2287,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2343,7 +2303,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2359,7 +2319,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2375,7 +2335,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2388,7 +2348,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2401,7 +2361,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2409,357 +2369,88 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0AssociateFraudsterRequest
- */
-const se_AssociateFraudsterRequest = (input: AssociateFraudsterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
-    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
-  };
-};
+// se_AssociateFraudsterRequest omitted.
 
 /**
  * serializeAws_json1_0CreateDomainRequest
  */
 const se_CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ServerSideEncryptionConfiguration != null && {
-      ServerSideEncryptionConfiguration: se_ServerSideEncryptionConfiguration(
-        input.ServerSideEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    Name: [],
+    ServerSideEncryptionConfiguration: (_) => _json(_),
+    Tags: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_0CreateWatchlistRequest
  */
 const se_CreateWatchlistRequest = (input: CreateWatchlistRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    DomainId: [],
+    Name: [],
+  });
 };
 
-/**
- * serializeAws_json1_0DeleteDomainRequest
- */
-const se_DeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-  };
-};
+// se_DeleteDomainRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteFraudsterRequest
- */
-const se_DeleteFraudsterRequest = (input: DeleteFraudsterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
-  };
-};
+// se_DeleteFraudsterRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteSpeakerRequest
- */
-const se_DeleteSpeakerRequest = (input: DeleteSpeakerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
-  };
-};
+// se_DeleteSpeakerRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteWatchlistRequest
- */
-const se_DeleteWatchlistRequest = (input: DeleteWatchlistRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
-  };
-};
+// se_DeleteWatchlistRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeDomainRequest
- */
-const se_DescribeDomainRequest = (input: DescribeDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-  };
-};
+// se_DescribeDomainRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeFraudsterRegistrationJobRequest
- */
-const se_DescribeFraudsterRegistrationJobRequest = (
-  input: DescribeFraudsterRegistrationJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeFraudsterRegistrationJobRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeFraudsterRequest
- */
-const se_DescribeFraudsterRequest = (input: DescribeFraudsterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
-  };
-};
+// se_DescribeFraudsterRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeSpeakerEnrollmentJobRequest
- */
-const se_DescribeSpeakerEnrollmentJobRequest = (
-  input: DescribeSpeakerEnrollmentJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeSpeakerEnrollmentJobRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeSpeakerRequest
- */
-const se_DescribeSpeakerRequest = (input: DescribeSpeakerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
-  };
-};
+// se_DescribeSpeakerRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeWatchlistRequest
- */
-const se_DescribeWatchlistRequest = (input: DescribeWatchlistRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
-  };
-};
+// se_DescribeWatchlistRequest omitted.
 
-/**
- * serializeAws_json1_0DisassociateFraudsterRequest
- */
-const se_DisassociateFraudsterRequest = (input: DisassociateFraudsterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
-    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
-  };
-};
+// se_DisassociateFraudsterRequest omitted.
 
-/**
- * serializeAws_json1_0EnrollmentConfig
- */
-const se_EnrollmentConfig = (input: EnrollmentConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ExistingEnrollmentAction != null && { ExistingEnrollmentAction: input.ExistingEnrollmentAction }),
-    ...(input.FraudDetectionConfig != null && {
-      FraudDetectionConfig: se_EnrollmentJobFraudDetectionConfig(input.FraudDetectionConfig, context),
-    }),
-  };
-};
+// se_EnrollmentConfig omitted.
 
-/**
- * serializeAws_json1_0EnrollmentJobFraudDetectionConfig
- */
-const se_EnrollmentJobFraudDetectionConfig = (
-  input: EnrollmentJobFraudDetectionConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FraudDetectionAction != null && { FraudDetectionAction: input.FraudDetectionAction }),
-    ...(input.RiskThreshold != null && { RiskThreshold: input.RiskThreshold }),
-    ...(input.WatchlistIds != null && {
-      WatchlistIds: se_EnrollmentJobFraudDetectionConfigWatchlistIds(input.WatchlistIds, context),
-    }),
-  };
-};
+// se_EnrollmentJobFraudDetectionConfig omitted.
 
-/**
- * serializeAws_json1_0EnrollmentJobFraudDetectionConfigWatchlistIds
- */
-const se_EnrollmentJobFraudDetectionConfigWatchlistIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EnrollmentJobFraudDetectionConfigWatchlistIds omitted.
 
-/**
- * serializeAws_json1_0EvaluateSessionRequest
- */
-const se_EvaluateSessionRequest = (input: EvaluateSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.SessionNameOrId != null && { SessionNameOrId: input.SessionNameOrId }),
-  };
-};
+// se_EvaluateSessionRequest omitted.
 
-/**
- * serializeAws_json1_0InputDataConfig
- */
-const se_InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_InputDataConfig omitted.
 
-/**
- * serializeAws_json1_0ListDomainsRequest
- */
-const se_ListDomainsRequest = (input: ListDomainsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDomainsRequest omitted.
 
-/**
- * serializeAws_json1_0ListFraudsterRegistrationJobsRequest
- */
-const se_ListFraudsterRegistrationJobsRequest = (
-  input: ListFraudsterRegistrationJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListFraudsterRegistrationJobsRequest omitted.
 
-/**
- * serializeAws_json1_0ListFraudstersRequest
- */
-const se_ListFraudstersRequest = (input: ListFraudstersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
-  };
-};
+// se_ListFraudstersRequest omitted.
 
-/**
- * serializeAws_json1_0ListSpeakerEnrollmentJobsRequest
- */
-const se_ListSpeakerEnrollmentJobsRequest = (input: ListSpeakerEnrollmentJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListSpeakerEnrollmentJobsRequest omitted.
 
-/**
- * serializeAws_json1_0ListSpeakersRequest
- */
-const se_ListSpeakersRequest = (input: ListSpeakersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListSpeakersRequest omitted.
 
-/**
- * serializeAws_json1_0ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_0ListWatchlistsRequest
- */
-const se_ListWatchlistsRequest = (input: ListWatchlistsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListWatchlistsRequest omitted.
 
-/**
- * serializeAws_json1_0OptOutSpeakerRequest
- */
-const se_OptOutSpeakerRequest = (input: OptOutSpeakerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
-  };
-};
+// se_OptOutSpeakerRequest omitted.
 
-/**
- * serializeAws_json1_0OutputDataConfig
- */
-const se_OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_OutputDataConfig omitted.
 
-/**
- * serializeAws_json1_0RegistrationConfig
- */
-const se_RegistrationConfig = (input: RegistrationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DuplicateRegistrationAction != null && {
-      DuplicateRegistrationAction: input.DuplicateRegistrationAction,
-    }),
-    ...(input.FraudsterSimilarityThreshold != null && {
-      FraudsterSimilarityThreshold: input.FraudsterSimilarityThreshold,
-    }),
-    ...(input.WatchlistIds != null && { WatchlistIds: se_RegistrationConfigWatchlistIds(input.WatchlistIds, context) }),
-  };
-};
+// se_RegistrationConfig omitted.
 
-/**
- * serializeAws_json1_0RegistrationConfigWatchlistIds
- */
-const se_RegistrationConfigWatchlistIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RegistrationConfigWatchlistIds omitted.
 
-/**
- * serializeAws_json1_0ServerSideEncryptionConfiguration
- */
-const se_ServerSideEncryptionConfiguration = (
-  input: ServerSideEncryptionConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-  };
-};
+// se_ServerSideEncryptionConfiguration omitted.
 
 /**
  * serializeAws_json1_0StartFraudsterRegistrationJobRequest
@@ -2768,200 +2459,102 @@ const se_StartFraudsterRegistrationJobRequest = (
   input: StartFraudsterRegistrationJobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.RegistrationConfig != null && {
-      RegistrationConfig: se_RegistrationConfig(input.RegistrationConfig, context),
-    }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    DomainId: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    OutputDataConfig: (_) => _json(_),
+    RegistrationConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_0StartSpeakerEnrollmentJobRequest
  */
 const se_StartSpeakerEnrollmentJobRequest = (input: StartSpeakerEnrollmentJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.EnrollmentConfig != null && { EnrollmentConfig: se_EnrollmentConfig(input.EnrollmentConfig, context) }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    DomainId: [],
+    EnrollmentConfig: (_) => _json(_),
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    OutputDataConfig: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_0TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateDomainRequest
- */
-const se_UpdateDomainRequest = (input: UpdateDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ServerSideEncryptionConfiguration != null && {
-      ServerSideEncryptionConfiguration: se_ServerSideEncryptionConfiguration(
-        input.ServerSideEncryptionConfiguration,
-        context
-      ),
-    }),
-  };
-};
+// se_UpdateDomainRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateWatchlistRequest
- */
-const se_UpdateWatchlistRequest = (input: UpdateWatchlistRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
-  };
-};
+// se_UpdateWatchlistRequest omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
 /**
  * deserializeAws_json1_0AssociateFraudsterResponse
  */
 const de_AssociateFraudsterResponse = (output: any, context: __SerdeContext): AssociateFraudsterResponse => {
-  return {
-    Fraudster: output.Fraudster != null ? de_Fraudster(output.Fraudster, context) : undefined,
-  } as any;
+  return take(output, {
+    Fraudster: (_: any) => de_Fraudster(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0AuthenticationConfiguration
- */
-const de_AuthenticationConfiguration = (output: any, context: __SerdeContext): AuthenticationConfiguration => {
-  return {
-    AcceptanceThreshold: __expectInt32(output.AcceptanceThreshold),
-  } as any;
-};
+// de_AuthenticationConfiguration omitted.
 
 /**
  * deserializeAws_json1_0AuthenticationResult
  */
 const de_AuthenticationResult = (output: any, context: __SerdeContext): AuthenticationResult => {
-  return {
-    AudioAggregationEndedAt:
-      output.AudioAggregationEndedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationEndedAt)))
-        : undefined,
-    AudioAggregationStartedAt:
-      output.AudioAggregationStartedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationStartedAt)))
-        : undefined,
-    AuthenticationResultId: __expectString(output.AuthenticationResultId),
-    Configuration:
-      output.Configuration != null ? de_AuthenticationConfiguration(output.Configuration, context) : undefined,
-    CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
-    Decision: __expectString(output.Decision),
-    GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
-    Score: __expectInt32(output.Score),
-  } as any;
+  return take(output, {
+    AudioAggregationEndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AudioAggregationStartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AuthenticationResultId: __expectString,
+    Configuration: _json,
+    CustomerSpeakerId: __expectString,
+    Decision: __expectString,
+    GeneratedSpeakerId: __expectString,
+    Score: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    ConflictType: __expectString(output.ConflictType),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_0CreateDomainResponse
  */
 const de_CreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
-  return {
-    Domain: output.Domain != null ? de_Domain(output.Domain, context) : undefined,
-  } as any;
+  return take(output, {
+    Domain: (_: any) => de_Domain(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0CreateWatchlistResponse
  */
 const de_CreateWatchlistResponse = (output: any, context: __SerdeContext): CreateWatchlistResponse => {
-  return {
-    Watchlist: output.Watchlist != null ? de_Watchlist(output.Watchlist, context) : undefined,
-  } as any;
+  return take(output, {
+    Watchlist: (_: any) => de_Watchlist(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribeDomainResponse
  */
 const de_DescribeDomainResponse = (output: any, context: __SerdeContext): DescribeDomainResponse => {
-  return {
-    Domain: output.Domain != null ? de_Domain(output.Domain, context) : undefined,
-  } as any;
+  return take(output, {
+    Domain: (_: any) => de_Domain(_, context),
+  }) as any;
 };
 
 /**
@@ -2971,18 +2564,18 @@ const de_DescribeFraudsterRegistrationJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeFraudsterRegistrationJobResponse => {
-  return {
-    Job: output.Job != null ? de_FraudsterRegistrationJob(output.Job, context) : undefined,
-  } as any;
+  return take(output, {
+    Job: (_: any) => de_FraudsterRegistrationJob(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribeFraudsterResponse
  */
 const de_DescribeFraudsterResponse = (output: any, context: __SerdeContext): DescribeFraudsterResponse => {
-  return {
-    Fraudster: output.Fraudster != null ? de_Fraudster(output.Fraudster, context) : undefined,
-  } as any;
+  return take(output, {
+    Fraudster: (_: any) => de_Fraudster(_, context),
+  }) as any;
 };
 
 /**
@@ -2992,63 +2585,54 @@ const de_DescribeSpeakerEnrollmentJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSpeakerEnrollmentJobResponse => {
-  return {
-    Job: output.Job != null ? de_SpeakerEnrollmentJob(output.Job, context) : undefined,
-  } as any;
+  return take(output, {
+    Job: (_: any) => de_SpeakerEnrollmentJob(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribeSpeakerResponse
  */
 const de_DescribeSpeakerResponse = (output: any, context: __SerdeContext): DescribeSpeakerResponse => {
-  return {
-    Speaker: output.Speaker != null ? de_Speaker(output.Speaker, context) : undefined,
-  } as any;
+  return take(output, {
+    Speaker: (_: any) => de_Speaker(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribeWatchlistResponse
  */
 const de_DescribeWatchlistResponse = (output: any, context: __SerdeContext): DescribeWatchlistResponse => {
-  return {
-    Watchlist: output.Watchlist != null ? de_Watchlist(output.Watchlist, context) : undefined,
-  } as any;
+  return take(output, {
+    Watchlist: (_: any) => de_Watchlist(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DisassociateFraudsterResponse
  */
 const de_DisassociateFraudsterResponse = (output: any, context: __SerdeContext): DisassociateFraudsterResponse => {
-  return {
-    Fraudster: output.Fraudster != null ? de_Fraudster(output.Fraudster, context) : undefined,
-  } as any;
+  return take(output, {
+    Fraudster: (_: any) => de_Fraudster(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0Domain
  */
 const de_Domain = (output: any, context: __SerdeContext): Domain => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Description: __expectString(output.Description),
-    DomainId: __expectString(output.DomainId),
-    DomainStatus: __expectString(output.DomainStatus),
-    Name: __expectString(output.Name),
-    ServerSideEncryptionConfiguration:
-      output.ServerSideEncryptionConfiguration != null
-        ? de_ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
-        : undefined,
-    ServerSideEncryptionUpdateDetails:
-      output.ServerSideEncryptionUpdateDetails != null
-        ? de_ServerSideEncryptionUpdateDetails(output.ServerSideEncryptionUpdateDetails, context)
-        : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-    WatchlistDetails:
-      output.WatchlistDetails != null ? de_WatchlistDetails(output.WatchlistDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DomainId: __expectString,
+    DomainStatus: __expectString,
+    Name: __expectString,
+    ServerSideEncryptionConfiguration: _json,
+    ServerSideEncryptionUpdateDetails: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WatchlistDetails: _json,
+  }) as any;
 };
 
 /**
@@ -3058,9 +2642,6 @@ const de_DomainSummaries = (output: any, context: __SerdeContext): DomainSummary
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainSummary(entry, context);
     });
   return retVal;
@@ -3070,194 +2651,93 @@ const de_DomainSummaries = (output: any, context: __SerdeContext): DomainSummary
  * deserializeAws_json1_0DomainSummary
  */
 const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Description: __expectString(output.Description),
-    DomainId: __expectString(output.DomainId),
-    DomainStatus: __expectString(output.DomainStatus),
-    Name: __expectString(output.Name),
-    ServerSideEncryptionConfiguration:
-      output.ServerSideEncryptionConfiguration != null
-        ? de_ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
-        : undefined,
-    ServerSideEncryptionUpdateDetails:
-      output.ServerSideEncryptionUpdateDetails != null
-        ? de_ServerSideEncryptionUpdateDetails(output.ServerSideEncryptionUpdateDetails, context)
-        : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-    WatchlistDetails:
-      output.WatchlistDetails != null ? de_WatchlistDetails(output.WatchlistDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DomainId: __expectString,
+    DomainStatus: __expectString,
+    Name: __expectString,
+    ServerSideEncryptionConfiguration: _json,
+    ServerSideEncryptionUpdateDetails: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WatchlistDetails: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0EnrollmentConfig
- */
-const de_EnrollmentConfig = (output: any, context: __SerdeContext): EnrollmentConfig => {
-  return {
-    ExistingEnrollmentAction: __expectString(output.ExistingEnrollmentAction),
-    FraudDetectionConfig:
-      output.FraudDetectionConfig != null
-        ? de_EnrollmentJobFraudDetectionConfig(output.FraudDetectionConfig, context)
-        : undefined,
-  } as any;
-};
+// de_EnrollmentConfig omitted.
 
-/**
- * deserializeAws_json1_0EnrollmentJobFraudDetectionConfig
- */
-const de_EnrollmentJobFraudDetectionConfig = (
-  output: any,
-  context: __SerdeContext
-): EnrollmentJobFraudDetectionConfig => {
-  return {
-    FraudDetectionAction: __expectString(output.FraudDetectionAction),
-    RiskThreshold: __expectInt32(output.RiskThreshold),
-    WatchlistIds:
-      output.WatchlistIds != null
-        ? de_EnrollmentJobFraudDetectionConfigWatchlistIds(output.WatchlistIds, context)
-        : undefined,
-  } as any;
-};
+// de_EnrollmentJobFraudDetectionConfig omitted.
 
-/**
- * deserializeAws_json1_0EnrollmentJobFraudDetectionConfigWatchlistIds
- */
-const de_EnrollmentJobFraudDetectionConfigWatchlistIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EnrollmentJobFraudDetectionConfigWatchlistIds omitted.
 
 /**
  * deserializeAws_json1_0EvaluateSessionResponse
  */
 const de_EvaluateSessionResponse = (output: any, context: __SerdeContext): EvaluateSessionResponse => {
-  return {
-    AuthenticationResult:
-      output.AuthenticationResult != null ? de_AuthenticationResult(output.AuthenticationResult, context) : undefined,
-    DomainId: __expectString(output.DomainId),
-    FraudDetectionResult:
-      output.FraudDetectionResult != null ? de_FraudDetectionResult(output.FraudDetectionResult, context) : undefined,
-    SessionId: __expectString(output.SessionId),
-    SessionName: __expectString(output.SessionName),
-    StreamingStatus: __expectString(output.StreamingStatus),
-  } as any;
+  return take(output, {
+    AuthenticationResult: (_: any) => de_AuthenticationResult(_, context),
+    DomainId: __expectString,
+    FraudDetectionResult: (_: any) => de_FraudDetectionResult(_, context),
+    SessionId: __expectString,
+    SessionName: __expectString,
+    StreamingStatus: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0FailureDetails
- */
-const de_FailureDetails = (output: any, context: __SerdeContext): FailureDetails => {
-  return {
-    Message: __expectString(output.Message),
-    StatusCode: __expectInt32(output.StatusCode),
-  } as any;
-};
+// de_FailureDetails omitted.
 
-/**
- * deserializeAws_json1_0FraudDetectionConfiguration
- */
-const de_FraudDetectionConfiguration = (output: any, context: __SerdeContext): FraudDetectionConfiguration => {
-  return {
-    RiskThreshold: __expectInt32(output.RiskThreshold),
-    WatchlistId: __expectString(output.WatchlistId),
-  } as any;
-};
+// de_FraudDetectionConfiguration omitted.
 
-/**
- * deserializeAws_json1_0FraudDetectionReasons
- */
-const de_FraudDetectionReasons = (output: any, context: __SerdeContext): (FraudDetectionReason | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FraudDetectionReasons omitted.
 
 /**
  * deserializeAws_json1_0FraudDetectionResult
  */
 const de_FraudDetectionResult = (output: any, context: __SerdeContext): FraudDetectionResult => {
-  return {
-    AudioAggregationEndedAt:
-      output.AudioAggregationEndedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationEndedAt)))
-        : undefined,
-    AudioAggregationStartedAt:
-      output.AudioAggregationStartedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationStartedAt)))
-        : undefined,
-    Configuration:
-      output.Configuration != null ? de_FraudDetectionConfiguration(output.Configuration, context) : undefined,
-    Decision: __expectString(output.Decision),
-    FraudDetectionResultId: __expectString(output.FraudDetectionResultId),
-    Reasons: output.Reasons != null ? de_FraudDetectionReasons(output.Reasons, context) : undefined,
-    RiskDetails: output.RiskDetails != null ? de_FraudRiskDetails(output.RiskDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    AudioAggregationEndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AudioAggregationStartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Configuration: _json,
+    Decision: __expectString,
+    FraudDetectionResultId: __expectString,
+    Reasons: _json,
+    RiskDetails: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0FraudRiskDetails
- */
-const de_FraudRiskDetails = (output: any, context: __SerdeContext): FraudRiskDetails => {
-  return {
-    KnownFraudsterRisk:
-      output.KnownFraudsterRisk != null ? de_KnownFraudsterRisk(output.KnownFraudsterRisk, context) : undefined,
-    VoiceSpoofingRisk:
-      output.VoiceSpoofingRisk != null ? de_VoiceSpoofingRisk(output.VoiceSpoofingRisk, context) : undefined,
-  } as any;
-};
+// de_FraudRiskDetails omitted.
 
 /**
  * deserializeAws_json1_0Fraudster
  */
 const de_Fraudster = (output: any, context: __SerdeContext): Fraudster => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainId: __expectString(output.DomainId),
-    GeneratedFraudsterId: __expectString(output.GeneratedFraudsterId),
-    WatchlistIds: output.WatchlistIds != null ? de_ResponseWatchlistIds(output.WatchlistIds, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainId: __expectString,
+    GeneratedFraudsterId: __expectString,
+    WatchlistIds: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0FraudsterRegistrationJob
  */
 const de_FraudsterRegistrationJob = (output: any, context: __SerdeContext): FraudsterRegistrationJob => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DomainId: __expectString(output.DomainId),
-    EndedAt:
-      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
-    FailureDetails: output.FailureDetails != null ? de_FailureDetails(output.FailureDetails, context) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobProgress: output.JobProgress != null ? de_JobProgress(output.JobProgress, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    RegistrationConfig:
-      output.RegistrationConfig != null ? de_RegistrationConfig(output.RegistrationConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataAccessRoleArn: __expectString,
+    DomainId: __expectString,
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureDetails: _json,
+    InputDataConfig: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobProgress: _json,
+    JobStatus: __expectString,
+    OutputDataConfig: _json,
+    RegistrationConfig: _json,
+  }) as any;
 };
 
 /**
@@ -3270,9 +2750,6 @@ const de_FraudsterRegistrationJobSummaries = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FraudsterRegistrationJobSummary(entry, context);
     });
   return retVal;
@@ -3282,18 +2759,16 @@ const de_FraudsterRegistrationJobSummaries = (
  * deserializeAws_json1_0FraudsterRegistrationJobSummary
  */
 const de_FraudsterRegistrationJobSummary = (output: any, context: __SerdeContext): FraudsterRegistrationJobSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainId: __expectString(output.DomainId),
-    EndedAt:
-      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
-    FailureDetails: output.FailureDetails != null ? de_FailureDetails(output.FailureDetails, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobProgress: output.JobProgress != null ? de_JobProgress(output.JobProgress, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainId: __expectString,
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureDetails: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobProgress: _json,
+    JobStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -3303,9 +2778,6 @@ const de_FraudsterSummaries = (output: any, context: __SerdeContext): FraudsterS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FraudsterSummary(entry, context);
     });
   return retVal;
@@ -3315,60 +2787,30 @@ const de_FraudsterSummaries = (output: any, context: __SerdeContext): FraudsterS
  * deserializeAws_json1_0FraudsterSummary
  */
 const de_FraudsterSummary = (output: any, context: __SerdeContext): FraudsterSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainId: __expectString(output.DomainId),
-    GeneratedFraudsterId: __expectString(output.GeneratedFraudsterId),
-    WatchlistIds: output.WatchlistIds != null ? de_ResponseWatchlistIds(output.WatchlistIds, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainId: __expectString,
+    GeneratedFraudsterId: __expectString,
+    WatchlistIds: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0InputDataConfig
- */
-const de_InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_InputDataConfig omitted.
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0JobProgress
- */
-const de_JobProgress = (output: any, context: __SerdeContext): JobProgress => {
-  return {
-    PercentComplete: __expectInt32(output.PercentComplete),
-  } as any;
-};
+// de_JobProgress omitted.
 
-/**
- * deserializeAws_json1_0KnownFraudsterRisk
- */
-const de_KnownFraudsterRisk = (output: any, context: __SerdeContext): KnownFraudsterRisk => {
-  return {
-    GeneratedFraudsterId: __expectString(output.GeneratedFraudsterId),
-    RiskScore: __expectInt32(output.RiskScore),
-  } as any;
-};
+// de_KnownFraudsterRisk omitted.
 
 /**
  * deserializeAws_json1_0ListDomainsResponse
  */
 const de_ListDomainsResponse = (output: any, context: __SerdeContext): ListDomainsResponse => {
-  return {
-    DomainSummaries: output.DomainSummaries != null ? de_DomainSummaries(output.DomainSummaries, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DomainSummaries: (_: any) => de_DomainSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -3378,22 +2820,20 @@ const de_ListFraudsterRegistrationJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListFraudsterRegistrationJobsResponse => {
-  return {
-    JobSummaries:
-      output.JobSummaries != null ? de_FraudsterRegistrationJobSummaries(output.JobSummaries, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    JobSummaries: (_: any) => de_FraudsterRegistrationJobSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListFraudstersResponse
  */
 const de_ListFraudstersResponse = (output: any, context: __SerdeContext): ListFraudstersResponse => {
-  return {
-    FraudsterSummaries:
-      output.FraudsterSummaries != null ? de_FraudsterSummaries(output.FraudsterSummaries, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    FraudsterSummaries: (_: any) => de_FraudsterSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -3403,192 +2843,92 @@ const de_ListSpeakerEnrollmentJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSpeakerEnrollmentJobsResponse => {
-  return {
-    JobSummaries:
-      output.JobSummaries != null ? de_SpeakerEnrollmentJobSummaries(output.JobSummaries, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    JobSummaries: (_: any) => de_SpeakerEnrollmentJobSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListSpeakersResponse
  */
 const de_ListSpeakersResponse = (output: any, context: __SerdeContext): ListSpeakersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SpeakerSummaries:
-      output.SpeakerSummaries != null ? de_SpeakerSummaries(output.SpeakerSummaries, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    SpeakerSummaries: (_: any) => de_SpeakerSummaries(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_0ListWatchlistsResponse
  */
 const de_ListWatchlistsResponse = (output: any, context: __SerdeContext): ListWatchlistsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    WatchlistSummaries:
-      output.WatchlistSummaries != null ? de_WatchlistSummaries(output.WatchlistSummaries, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    WatchlistSummaries: (_: any) => de_WatchlistSummaries(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0OptOutSpeakerResponse
  */
 const de_OptOutSpeakerResponse = (output: any, context: __SerdeContext): OptOutSpeakerResponse => {
-  return {
-    Speaker: output.Speaker != null ? de_Speaker(output.Speaker, context) : undefined,
-  } as any;
+  return take(output, {
+    Speaker: (_: any) => de_Speaker(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0OutputDataConfig
- */
-const de_OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_OutputDataConfig omitted.
 
-/**
- * deserializeAws_json1_0RegistrationConfig
- */
-const de_RegistrationConfig = (output: any, context: __SerdeContext): RegistrationConfig => {
-  return {
-    DuplicateRegistrationAction: __expectString(output.DuplicateRegistrationAction),
-    FraudsterSimilarityThreshold: __expectInt32(output.FraudsterSimilarityThreshold),
-    WatchlistIds:
-      output.WatchlistIds != null ? de_RegistrationConfigWatchlistIds(output.WatchlistIds, context) : undefined,
-  } as any;
-};
+// de_RegistrationConfig omitted.
 
-/**
- * deserializeAws_json1_0RegistrationConfigWatchlistIds
- */
-const de_RegistrationConfigWatchlistIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RegistrationConfigWatchlistIds omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0ResponseWatchlistIds
- */
-const de_ResponseWatchlistIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResponseWatchlistIds omitted.
 
-/**
- * deserializeAws_json1_0ServerSideEncryptionConfiguration
- */
-const de_ServerSideEncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ServerSideEncryptionConfiguration => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-  } as any;
-};
+// de_ServerSideEncryptionConfiguration omitted.
 
-/**
- * deserializeAws_json1_0ServerSideEncryptionUpdateDetails
- */
-const de_ServerSideEncryptionUpdateDetails = (
-  output: any,
-  context: __SerdeContext
-): ServerSideEncryptionUpdateDetails => {
-  return {
-    Message: __expectString(output.Message),
-    OldKmsKeyId: __expectString(output.OldKmsKeyId),
-    UpdateStatus: __expectString(output.UpdateStatus),
-  } as any;
-};
+// de_ServerSideEncryptionUpdateDetails omitted.
 
-/**
- * deserializeAws_json1_0ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
 /**
  * deserializeAws_json1_0Speaker
  */
 const de_Speaker = (output: any, context: __SerdeContext): Speaker => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
-    DomainId: __expectString(output.DomainId),
-    GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
-    LastAccessedAt:
-      output.LastAccessedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedAt)))
-        : undefined,
-    Status: __expectString(output.Status),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomerSpeakerId: __expectString,
+    DomainId: __expectString,
+    GeneratedSpeakerId: __expectString,
+    LastAccessedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0SpeakerEnrollmentJob
  */
 const de_SpeakerEnrollmentJob = (output: any, context: __SerdeContext): SpeakerEnrollmentJob => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DomainId: __expectString(output.DomainId),
-    EndedAt:
-      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
-    EnrollmentConfig:
-      output.EnrollmentConfig != null ? de_EnrollmentConfig(output.EnrollmentConfig, context) : undefined,
-    FailureDetails: output.FailureDetails != null ? de_FailureDetails(output.FailureDetails, context) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobProgress: output.JobProgress != null ? de_JobProgress(output.JobProgress, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataAccessRoleArn: __expectString,
+    DomainId: __expectString,
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnrollmentConfig: _json,
+    FailureDetails: _json,
+    InputDataConfig: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobProgress: _json,
+    JobStatus: __expectString,
+    OutputDataConfig: _json,
+  }) as any;
 };
 
 /**
@@ -3598,9 +2938,6 @@ const de_SpeakerEnrollmentJobSummaries = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SpeakerEnrollmentJobSummary(entry, context);
     });
   return retVal;
@@ -3610,18 +2947,16 @@ const de_SpeakerEnrollmentJobSummaries = (output: any, context: __SerdeContext):
  * deserializeAws_json1_0SpeakerEnrollmentJobSummary
  */
 const de_SpeakerEnrollmentJobSummary = (output: any, context: __SerdeContext): SpeakerEnrollmentJobSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainId: __expectString(output.DomainId),
-    EndedAt:
-      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
-    FailureDetails: output.FailureDetails != null ? de_FailureDetails(output.FailureDetails, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobProgress: output.JobProgress != null ? de_JobProgress(output.JobProgress, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainId: __expectString,
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureDetails: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobProgress: _json,
+    JobStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -3631,9 +2966,6 @@ const de_SpeakerSummaries = (output: any, context: __SerdeContext): SpeakerSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SpeakerSummary(entry, context);
     });
   return retVal;
@@ -3643,20 +2975,15 @@ const de_SpeakerSummaries = (output: any, context: __SerdeContext): SpeakerSumma
  * deserializeAws_json1_0SpeakerSummary
  */
 const de_SpeakerSummary = (output: any, context: __SerdeContext): SpeakerSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
-    DomainId: __expectString(output.DomainId),
-    GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
-    LastAccessedAt:
-      output.LastAccessedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedAt)))
-        : undefined,
-    Status: __expectString(output.Status),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomerSpeakerId: __expectString,
+    DomainId: __expectString,
+    GeneratedSpeakerId: __expectString,
+    LastAccessedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -3666,9 +2993,9 @@ const de_StartFraudsterRegistrationJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartFraudsterRegistrationJobResponse => {
-  return {
-    Job: output.Job != null ? de_FraudsterRegistrationJob(output.Job, context) : undefined,
-  } as any;
+  return take(output, {
+    Job: (_: any) => de_FraudsterRegistrationJob(_, context),
+  }) as any;
 };
 
 /**
@@ -3678,120 +3005,59 @@ const de_StartSpeakerEnrollmentJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartSpeakerEnrollmentJobResponse => {
-  return {
-    Job: output.Job != null ? de_SpeakerEnrollmentJob(output.Job, context) : undefined,
-  } as any;
+  return take(output, {
+    Job: (_: any) => de_SpeakerEnrollmentJob(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_0UpdateDomainResponse
  */
 const de_UpdateDomainResponse = (output: any, context: __SerdeContext): UpdateDomainResponse => {
-  return {
-    Domain: output.Domain != null ? de_Domain(output.Domain, context) : undefined,
-  } as any;
+  return take(output, {
+    Domain: (_: any) => de_Domain(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdateWatchlistResponse
  */
 const de_UpdateWatchlistResponse = (output: any, context: __SerdeContext): UpdateWatchlistResponse => {
-  return {
-    Watchlist: output.Watchlist != null ? de_Watchlist(output.Watchlist, context) : undefined,
-  } as any;
+  return take(output, {
+    Watchlist: (_: any) => de_Watchlist(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_0VoiceSpoofingRisk
- */
-const de_VoiceSpoofingRisk = (output: any, context: __SerdeContext): VoiceSpoofingRisk => {
-  return {
-    RiskScore: __expectInt32(output.RiskScore),
-  } as any;
-};
+// de_VoiceSpoofingRisk omitted.
 
 /**
  * deserializeAws_json1_0Watchlist
  */
 const de_Watchlist = (output: any, context: __SerdeContext): Watchlist => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DefaultWatchlist: __expectBoolean(output.DefaultWatchlist),
-    Description: __expectString(output.Description),
-    DomainId: __expectString(output.DomainId),
-    Name: __expectString(output.Name),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-    WatchlistId: __expectString(output.WatchlistId),
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultWatchlist: __expectBoolean,
+    Description: __expectString,
+    DomainId: __expectString,
+    Name: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WatchlistId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0WatchlistDetails
- */
-const de_WatchlistDetails = (output: any, context: __SerdeContext): WatchlistDetails => {
-  return {
-    DefaultWatchlistId: __expectString(output.DefaultWatchlistId),
-  } as any;
-};
+// de_WatchlistDetails omitted.
 
 /**
  * deserializeAws_json1_0WatchlistSummaries
@@ -3800,9 +3066,6 @@ const de_WatchlistSummaries = (output: any, context: __SerdeContext): WatchlistS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WatchlistSummary(entry, context);
     });
   return retVal;
@@ -3812,17 +3075,15 @@ const de_WatchlistSummaries = (output: any, context: __SerdeContext): WatchlistS
  * deserializeAws_json1_0WatchlistSummary
  */
 const de_WatchlistSummary = (output: any, context: __SerdeContext): WatchlistSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DefaultWatchlist: __expectBoolean(output.DefaultWatchlist),
-    Description: __expectString(output.Description),
-    DomainId: __expectString(output.DomainId),
-    Name: __expectString(output.Name),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-    WatchlistId: __expectString(output.WatchlistId),
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultWatchlist: __expectBoolean,
+    Description: __expectString,
+    DomainId: __expectString,
+    Name: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WatchlistId: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -3845,6 +3106,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

@@ -5,17 +5,18 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -138,10 +139,8 @@ import {
   AllRowsWildcard,
   AlreadyExistsException,
   AuditContext,
-  BatchPermissionsFailureEntry,
   BatchPermissionsRequestEntry,
   CatalogResource,
-  ColumnLFTag,
   ColumnWildcard,
   ConcurrentModificationException,
   DatabaseResource,
@@ -151,30 +150,22 @@ import {
   DataLakeSettings,
   DataLocationResource,
   DeleteObjectInput,
-  DetailsMap,
   EntityNotFoundException,
-  ErrorDetail,
-  ExecutionStatistics,
   ExpiredException,
   FilterCondition,
   GlueEncryptionException,
   InternalServiceException,
   InvalidInputException,
   LFTag,
-  LFTagError,
   LFTagKeyResource,
   LFTagPair,
   LFTagPolicyResource,
   OperationTimeoutException,
-  OptimizerType,
-  PartitionObjects,
   PartitionValueList,
   Permission,
   PermissionType,
   PermissionTypeMismatchException,
-  PlanningStatistics,
   PrincipalPermissions,
-  PrincipalResourcePermissions,
   QueryPlanningContext,
   Resource,
   ResourceInfo,
@@ -182,20 +173,15 @@ import {
   ResourceNumberLimitExceededException,
   RowFilter,
   StatisticsNotReadyYetException,
-  StorageOptimizer,
-  TableObject,
   TableResource,
   TableWildcard,
   TableWithColumnsResource,
-  TaggedDatabase,
-  TaggedTable,
   ThrottledException,
   TransactionCanceledException,
   TransactionCommitInProgressException,
   TransactionCommittedException,
   TransactionDescription,
   VirtualObject,
-  WorkUnitRange,
   WorkUnitsNotReadyYetException,
   WriteOperation,
 } from "../models/models_0";
@@ -213,11 +199,13 @@ export const se_AddLFTagsToResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AddLFTagsToResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.LFTags != null && { LFTags: se_LFTagsList(input.LFTags, context) }),
-    ...(input.Resource != null && { Resource: se_Resource(input.Resource, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      LFTags: (_) => _json(_),
+      Resource: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -243,12 +231,14 @@ export const se_AssumeDecoratedRoleWithSAMLCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AssumeDecoratedRoleWithSAML";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DurationSeconds != null && { DurationSeconds: input.DurationSeconds }),
-    ...(input.PrincipalArn != null && { PrincipalArn: input.PrincipalArn }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.SAMLAssertion != null && { SAMLAssertion: input.SAMLAssertion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DurationSeconds: [],
+      PrincipalArn: [],
+      RoleArn: [],
+      SAMLAssertion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -273,10 +263,12 @@ export const se_BatchGrantPermissionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGrantPermissions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Entries != null && { Entries: se_BatchPermissionsRequestEntryList(input.Entries, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Entries: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -302,10 +294,12 @@ export const se_BatchRevokePermissionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchRevokePermissions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Entries != null && { Entries: se_BatchPermissionsRequestEntryList(input.Entries, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Entries: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -330,9 +324,11 @@ export const se_CancelTransactionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelTransaction";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TransactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -357,9 +353,11 @@ export const se_CommitTransactionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CommitTransaction";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TransactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -384,9 +382,11 @@ export const se_CreateDataCellsFilterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateDataCellsFilter";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TableData != null && { TableData: se_DataCellsFilter(input.TableData, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TableData: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -411,11 +411,13 @@ export const se_CreateLFTagCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLFTag";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TagValues != null && { TagValues: se_TagValueList(input.TagValues, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      TagKey: [],
+      TagValues: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -440,12 +442,14 @@ export const se_DeleteDataCellsFilterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteDataCellsFilter";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.TableCatalogId != null && { TableCatalogId: input.TableCatalogId }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DatabaseName: [],
+      Name: [],
+      TableCatalogId: [],
+      TableName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -470,10 +474,12 @@ export const se_DeleteLFTagCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLFTag";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      TagKey: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -498,13 +504,15 @@ export const se_DeleteObjectsOnCancelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteObjectsOnCancel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Objects != null && { Objects: se_VirtualObjectList(input.Objects, context) }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      DatabaseName: [],
+      Objects: (_) => _json(_),
+      TableName: [],
+      TransactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -529,9 +537,11 @@ export const se_DeregisterResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeregisterResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -556,9 +566,11 @@ export const se_DescribeResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -583,9 +595,11 @@ export const se_DescribeTransactionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeTransaction";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TransactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -610,9 +624,11 @@ export const se_ExtendTransactionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ExtendTransaction";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TransactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -637,12 +653,14 @@ export const se_GetDataCellsFilterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDataCellsFilter";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.TableCatalogId != null && { TableCatalogId: input.TableCatalogId }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DatabaseName: [],
+      Name: [],
+      TableCatalogId: [],
+      TableName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -667,9 +685,11 @@ export const se_GetDataLakeSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDataLakeSettings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -695,12 +715,14 @@ export const se_GetEffectivePermissionsForPathCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetEffectivePermissionsForPath";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      MaxResults: [],
+      NextToken: [],
+      ResourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -725,10 +747,12 @@ export const se_GetLFTagCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLFTag";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      TagKey: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -753,9 +777,11 @@ export const se_GetQueryStateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetQueryState";
   let body: any;
-  body = JSON.stringify({
-    ...(input.QueryId != null && { QueryId: input.QueryId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      QueryId: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "query-" + resolvedHostname;
@@ -787,9 +813,11 @@ export const se_GetQueryStatisticsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetQueryStatistics";
   let body: any;
-  body = JSON.stringify({
-    ...(input.QueryId != null && { QueryId: input.QueryId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      QueryId: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "query-" + resolvedHostname;
@@ -821,11 +849,13 @@ export const se_GetResourceLFTagsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetResourceLFTags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Resource != null && { Resource: se_Resource(input.Resource, context) }),
-    ...(input.ShowAssignedLFTags != null && { ShowAssignedLFTags: input.ShowAssignedLFTags }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Resource: (_) => _json(_),
+      ShowAssignedLFTags: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -850,16 +880,18 @@ export const se_GetTableObjectsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTableObjects";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PartitionPredicate != null && { PartitionPredicate: input.PartitionPredicate }),
-    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      DatabaseName: [],
+      MaxResults: [],
+      NextToken: [],
+      PartitionPredicate: [],
+      QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
+      TableName: [],
+      TransactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -885,16 +917,16 @@ export const se_GetTemporaryGluePartitionCredentialsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTemporaryGluePartitionCredentials";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuditContext != null && { AuditContext: se_AuditContext(input.AuditContext, context) }),
-    ...(input.DurationSeconds != null && { DurationSeconds: input.DurationSeconds }),
-    ...(input.Partition != null && { Partition: se_PartitionValueList(input.Partition, context) }),
-    ...(input.Permissions != null && { Permissions: se_PermissionList(input.Permissions, context) }),
-    ...(input.SupportedPermissionTypes != null && {
-      SupportedPermissionTypes: se_PermissionTypeList(input.SupportedPermissionTypes, context),
-    }),
-    ...(input.TableArn != null && { TableArn: input.TableArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AuditContext: (_) => _json(_),
+      DurationSeconds: [],
+      Partition: (_) => _json(_),
+      Permissions: (_) => _json(_),
+      SupportedPermissionTypes: (_) => _json(_),
+      TableArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -920,15 +952,15 @@ export const se_GetTemporaryGlueTableCredentialsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTemporaryGlueTableCredentials";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuditContext != null && { AuditContext: se_AuditContext(input.AuditContext, context) }),
-    ...(input.DurationSeconds != null && { DurationSeconds: input.DurationSeconds }),
-    ...(input.Permissions != null && { Permissions: se_PermissionList(input.Permissions, context) }),
-    ...(input.SupportedPermissionTypes != null && {
-      SupportedPermissionTypes: se_PermissionTypeList(input.SupportedPermissionTypes, context),
-    }),
-    ...(input.TableArn != null && { TableArn: input.TableArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AuditContext: (_) => _json(_),
+      DurationSeconds: [],
+      Permissions: (_) => _json(_),
+      SupportedPermissionTypes: (_) => _json(_),
+      TableArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -953,11 +985,13 @@ export const se_GetWorkUnitResultsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkUnitResults";
   let body: any;
-  body = JSON.stringify({
-    ...(input.QueryId != null && { QueryId: input.QueryId }),
-    ...(input.WorkUnitId != null && { WorkUnitId: input.WorkUnitId }),
-    ...(input.WorkUnitToken != null && { WorkUnitToken: input.WorkUnitToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      QueryId: [],
+      WorkUnitId: [],
+      WorkUnitToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data-" + resolvedHostname;
@@ -989,11 +1023,13 @@ export const se_GetWorkUnitsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkUnits";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.QueryId != null && { QueryId: input.QueryId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      PageSize: [],
+      QueryId: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "query-" + resolvedHostname;
@@ -1025,15 +1061,15 @@ export const se_GrantPermissionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GrantPermissions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Permissions != null && { Permissions: se_PermissionList(input.Permissions, context) }),
-    ...(input.PermissionsWithGrantOption != null && {
-      PermissionsWithGrantOption: se_PermissionList(input.PermissionsWithGrantOption, context),
-    }),
-    ...(input.Principal != null && { Principal: se_DataLakePrincipal(input.Principal, context) }),
-    ...(input.Resource != null && { Resource: se_Resource(input.Resource, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Permissions: (_) => _json(_),
+      PermissionsWithGrantOption: (_) => _json(_),
+      Principal: (_) => _json(_),
+      Resource: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1058,11 +1094,13 @@ export const se_ListDataCellsFilterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListDataCellsFilter";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Table != null && { Table: se_TableResource(input.Table, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      Table: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1087,12 +1125,14 @@ export const se_ListLFTagsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLFTags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceShareType != null && { ResourceShareType: input.ResourceShareType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      MaxResults: [],
+      NextToken: [],
+      ResourceShareType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1117,15 +1157,17 @@ export const se_ListPermissionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListPermissions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.IncludeRelated != null && { IncludeRelated: input.IncludeRelated }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Principal != null && { Principal: se_DataLakePrincipal(input.Principal, context) }),
-    ...(input.Resource != null && { Resource: se_Resource(input.Resource, context) }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      IncludeRelated: [],
+      MaxResults: [],
+      NextToken: [],
+      Principal: (_) => _json(_),
+      Resource: (_) => _json(_),
+      ResourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1150,13 +1192,13 @@ export const se_ListResourcesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListResources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FilterConditionList != null && {
-      FilterConditionList: se_FilterConditionList(input.FilterConditionList, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FilterConditionList: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1182,14 +1224,16 @@ export const se_ListTableStorageOptimizersCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTableStorageOptimizers";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StorageOptimizerType != null && { StorageOptimizerType: input.StorageOptimizerType }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      DatabaseName: [],
+      MaxResults: [],
+      NextToken: [],
+      StorageOptimizerType: [],
+      TableName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1214,12 +1258,14 @@ export const se_ListTransactionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTransactions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StatusFilter != null && { StatusFilter: input.StatusFilter }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      MaxResults: [],
+      NextToken: [],
+      StatusFilter: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1244,10 +1290,12 @@ export const se_PutDataLakeSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutDataLakeSettings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DataLakeSettings != null && { DataLakeSettings: se_DataLakeSettings(input.DataLakeSettings, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      DataLakeSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1272,12 +1320,14 @@ export const se_RegisterResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RegisterResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.UseServiceLinkedRole != null && { UseServiceLinkedRole: input.UseServiceLinkedRole }),
-    ...(input.WithFederation != null && { WithFederation: input.WithFederation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      RoleArn: [],
+      UseServiceLinkedRole: [],
+      WithFederation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1303,11 +1353,13 @@ export const se_RemoveLFTagsFromResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RemoveLFTagsFromResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.LFTags != null && { LFTags: se_LFTagsList(input.LFTags, context) }),
-    ...(input.Resource != null && { Resource: se_Resource(input.Resource, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      LFTags: (_) => _json(_),
+      Resource: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1332,15 +1384,15 @@ export const se_RevokePermissionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RevokePermissions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Permissions != null && { Permissions: se_PermissionList(input.Permissions, context) }),
-    ...(input.PermissionsWithGrantOption != null && {
-      PermissionsWithGrantOption: se_PermissionList(input.PermissionsWithGrantOption, context),
-    }),
-    ...(input.Principal != null && { Principal: se_DataLakePrincipal(input.Principal, context) }),
-    ...(input.Resource != null && { Resource: se_Resource(input.Resource, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Permissions: (_) => _json(_),
+      PermissionsWithGrantOption: (_) => _json(_),
+      Principal: (_) => _json(_),
+      Resource: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1366,12 +1418,14 @@ export const se_SearchDatabasesByLFTagsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SearchDatabasesByLFTags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Expression != null && { Expression: se_Expression(input.Expression, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Expression: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1396,12 +1450,14 @@ export const se_SearchTablesByLFTagsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SearchTablesByLFTags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Expression != null && { Expression: se_Expression(input.Expression, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      Expression: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1426,12 +1482,12 @@ export const se_StartQueryPlanningCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartQueryPlanning";
   let body: any;
-  body = JSON.stringify({
-    ...(input.QueryPlanningContext != null && {
-      QueryPlanningContext: se_QueryPlanningContext(input.QueryPlanningContext, context),
-    }),
-    ...(input.QueryString != null && { QueryString: input.QueryString }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      QueryPlanningContext: (_) => se_QueryPlanningContext(_, context),
+      QueryString: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "query-" + resolvedHostname;
@@ -1463,9 +1519,11 @@ export const se_StartTransactionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartTransaction";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TransactionType != null && { TransactionType: input.TransactionType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TransactionType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1490,9 +1548,11 @@ export const se_UpdateDataCellsFilterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateDataCellsFilter";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TableData != null && { TableData: se_DataCellsFilter(input.TableData, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TableData: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1517,12 +1577,14 @@ export const se_UpdateLFTagCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLFTag";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TagValuesToAdd != null && { TagValuesToAdd: se_TagValueList(input.TagValuesToAdd, context) }),
-    ...(input.TagValuesToDelete != null && { TagValuesToDelete: se_TagValueList(input.TagValuesToDelete, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      TagKey: [],
+      TagValuesToAdd: (_) => _json(_),
+      TagValuesToDelete: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1547,11 +1609,13 @@ export const se_UpdateResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.WithFederation != null && { WithFederation: input.WithFederation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      RoleArn: [],
+      WithFederation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1576,13 +1640,15 @@ export const se_UpdateTableObjectsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateTableObjects";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-    ...(input.WriteOperations != null && { WriteOperations: se_WriteOperationList(input.WriteOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      DatabaseName: [],
+      TableName: [],
+      TransactionId: [],
+      WriteOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1608,14 +1674,14 @@ export const se_UpdateTableStorageOptimizerCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateTableStorageOptimizer";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.StorageOptimizerConfig != null && {
-      StorageOptimizerConfig: se_StorageOptimizerConfigMap(input.StorageOptimizerConfig, context),
-    }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CatalogId: [],
+      DatabaseName: [],
+      StorageOptimizerConfig: (_) => _json(_),
+      TableName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1641,9 +1707,10 @@ export const de_AddLFTagsToResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Failures != null) {
-    contents.Failures = de_LFTagErrors(data.Failures, context);
-  }
+  const doc = take(data, {
+    Failures: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1680,10 +1747,9 @@ const de_AddLFTagsToResourceCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1703,18 +1769,13 @@ export const de_AssumeDecoratedRoleWithSAMLCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessKeyId != null) {
-    contents.AccessKeyId = __expectString(data.AccessKeyId);
-  }
-  if (data.Expiration != null) {
-    contents.Expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.Expiration)));
-  }
-  if (data.SecretAccessKey != null) {
-    contents.SecretAccessKey = __expectString(data.SecretAccessKey);
-  }
-  if (data.SessionToken != null) {
-    contents.SessionToken = __expectString(data.SessionToken);
-  }
+  const doc = take(data, {
+    AccessKeyId: __expectString,
+    Expiration: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SecretAccessKey: __expectString,
+    SessionToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1748,10 +1809,9 @@ const de_AssumeDecoratedRoleWithSAMLCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1771,9 +1831,10 @@ export const de_BatchGrantPermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Failures != null) {
-    contents.Failures = de_BatchPermissionsFailureList(data.Failures, context);
-  }
+  const doc = take(data, {
+    Failures: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1798,10 +1859,9 @@ const de_BatchGrantPermissionsCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1821,9 +1881,10 @@ export const de_BatchRevokePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Failures != null) {
-    contents.Failures = de_BatchPermissionsFailureList(data.Failures, context);
-  }
+  const doc = take(data, {
+    Failures: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1848,10 +1909,9 @@ const de_BatchRevokePermissionsCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1910,10 +1970,9 @@ const de_CancelTransactionCommandError = async (
       throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1933,9 +1992,10 @@ export const de_CommitTransactionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TransactionStatus != null) {
-    contents.TransactionStatus = __expectString(data.TransactionStatus);
-  }
+  const doc = take(data, {
+    TransactionStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1972,10 +2032,9 @@ const de_CommitTransactionCommandError = async (
       throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2034,10 +2093,9 @@ const de_CreateDataCellsFilterCommandError = async (
       throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2093,10 +2151,9 @@ const de_CreateLFTagCommandError = async (
       throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2149,10 +2206,9 @@ const de_DeleteDataCellsFilterCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2205,10 +2261,9 @@ const de_DeleteLFTagCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2270,10 +2325,9 @@ const de_DeleteObjectsOnCancelCommandError = async (
       throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2323,10 +2377,9 @@ const de_DeregisterResourceCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2346,9 +2399,10 @@ export const de_DescribeResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceInfo != null) {
-    contents.ResourceInfo = de_ResourceInfo(data.ResourceInfo, context);
-  }
+  const doc = take(data, {
+    ResourceInfo: (_) => de_ResourceInfo(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2379,10 +2433,9 @@ const de_DescribeResourceCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2402,9 +2455,10 @@ export const de_DescribeTransactionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TransactionDescription != null) {
-    contents.TransactionDescription = de_TransactionDescription(data.TransactionDescription, context);
-  }
+  const doc = take(data, {
+    TransactionDescription: (_) => de_TransactionDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2435,10 +2489,9 @@ const de_DescribeTransactionCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2497,10 +2550,9 @@ const de_ExtendTransactionCommandError = async (
       throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2520,9 +2572,10 @@ export const de_GetDataCellsFilterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataCellsFilter != null) {
-    contents.DataCellsFilter = de_DataCellsFilter(data.DataCellsFilter, context);
-  }
+  const doc = take(data, {
+    DataCellsFilter: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2556,10 +2609,9 @@ const de_GetDataCellsFilterCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2579,9 +2631,10 @@ export const de_GetDataLakeSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataLakeSettings != null) {
-    contents.DataLakeSettings = de_DataLakeSettings(data.DataLakeSettings, context);
-  }
+  const doc = take(data, {
+    DataLakeSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2609,10 +2662,9 @@ const de_GetDataLakeSettingsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2632,12 +2684,11 @@ export const de_GetEffectivePermissionsForPathCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Permissions != null) {
-    contents.Permissions = de_PrincipalResourcePermissionsList(data.Permissions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Permissions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2668,10 +2719,9 @@ const de_GetEffectivePermissionsForPathCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2691,15 +2741,12 @@ export const de_GetLFTagCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CatalogId != null) {
-    contents.CatalogId = __expectString(data.CatalogId);
-  }
-  if (data.TagKey != null) {
-    contents.TagKey = __expectString(data.TagKey);
-  }
-  if (data.TagValues != null) {
-    contents.TagValues = de_TagValueList(data.TagValues, context);
-  }
+  const doc = take(data, {
+    CatalogId: __expectString,
+    TagKey: __expectString,
+    TagValues: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2733,10 +2780,9 @@ const de_GetLFTagCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2756,12 +2802,11 @@ export const de_GetQueryStateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Error != null) {
-    contents.Error = __expectString(data.Error);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    Error: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2789,10 +2834,9 @@ const de_GetQueryStateCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2812,15 +2856,12 @@ export const de_GetQueryStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ExecutionStatistics != null) {
-    contents.ExecutionStatistics = de_ExecutionStatistics(data.ExecutionStatistics, context);
-  }
-  if (data.PlanningStatistics != null) {
-    contents.PlanningStatistics = de_PlanningStatistics(data.PlanningStatistics, context);
-  }
-  if (data.QuerySubmissionTime != null) {
-    contents.QuerySubmissionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.QuerySubmissionTime));
-  }
+  const doc = take(data, {
+    ExecutionStatistics: _json,
+    PlanningStatistics: _json,
+    QuerySubmissionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2857,10 +2898,9 @@ const de_GetQueryStatisticsCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2880,15 +2920,12 @@ export const de_GetResourceLFTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LFTagOnDatabase != null) {
-    contents.LFTagOnDatabase = de_LFTagsList(data.LFTagOnDatabase, context);
-  }
-  if (data.LFTagsOnColumns != null) {
-    contents.LFTagsOnColumns = de_ColumnLFTagsList(data.LFTagsOnColumns, context);
-  }
-  if (data.LFTagsOnTable != null) {
-    contents.LFTagsOnTable = de_LFTagsList(data.LFTagsOnTable, context);
-  }
+  const doc = take(data, {
+    LFTagOnDatabase: _json,
+    LFTagsOnColumns: _json,
+    LFTagsOnTable: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2925,10 +2962,9 @@ const de_GetResourceLFTagsCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2948,12 +2984,11 @@ export const de_GetTableObjectsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Objects != null) {
-    contents.Objects = de_PartitionedTableObjectsList(data.Objects, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Objects: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2993,10 +3028,9 @@ const de_GetTableObjectsCommandError = async (
       throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3016,18 +3050,13 @@ export const de_GetTemporaryGluePartitionCredentialsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessKeyId != null) {
-    contents.AccessKeyId = __expectString(data.AccessKeyId);
-  }
-  if (data.Expiration != null) {
-    contents.Expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.Expiration)));
-  }
-  if (data.SecretAccessKey != null) {
-    contents.SecretAccessKey = __expectString(data.SecretAccessKey);
-  }
-  if (data.SessionToken != null) {
-    contents.SessionToken = __expectString(data.SessionToken);
-  }
+  const doc = take(data, {
+    AccessKeyId: __expectString,
+    Expiration: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SecretAccessKey: __expectString,
+    SessionToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3064,10 +3093,9 @@ const de_GetTemporaryGluePartitionCredentialsCommandError = async (
       throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3087,18 +3115,13 @@ export const de_GetTemporaryGlueTableCredentialsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessKeyId != null) {
-    contents.AccessKeyId = __expectString(data.AccessKeyId);
-  }
-  if (data.Expiration != null) {
-    contents.Expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.Expiration)));
-  }
-  if (data.SecretAccessKey != null) {
-    contents.SecretAccessKey = __expectString(data.SecretAccessKey);
-  }
-  if (data.SessionToken != null) {
-    contents.SessionToken = __expectString(data.SessionToken);
-  }
+  const doc = take(data, {
+    AccessKeyId: __expectString,
+    Expiration: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SecretAccessKey: __expectString,
+    SessionToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3135,10 +3158,9 @@ const de_GetTemporaryGlueTableCredentialsCommandError = async (
       throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3193,10 +3215,9 @@ const de_GetWorkUnitResultsCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3216,15 +3237,12 @@ export const de_GetWorkUnitsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.QueryId != null) {
-    contents.QueryId = __expectString(data.QueryId);
-  }
-  if (data.WorkUnitRanges != null) {
-    contents.WorkUnitRanges = de_WorkUnitRangeList(data.WorkUnitRanges, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    QueryId: __expectString,
+    WorkUnitRanges: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3258,10 +3276,9 @@ const de_GetWorkUnitsCommandError = async (
       throw await de_WorkUnitsNotReadyYetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3308,10 +3325,9 @@ const de_GrantPermissionsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3331,12 +3347,11 @@ export const de_ListDataCellsFilterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataCellsFilters != null) {
-    contents.DataCellsFilters = de_DataCellsFilterList(data.DataCellsFilters, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DataCellsFilters: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3367,10 +3382,9 @@ const de_ListDataCellsFilterCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3390,12 +3404,11 @@ export const de_ListLFTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LFTags != null) {
-    contents.LFTags = de_LFTagsList(data.LFTags, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    LFTags: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3429,10 +3442,9 @@ const de_ListLFTagsCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3452,15 +3464,11 @@ export const de_ListPermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PrincipalResourcePermissions != null) {
-    contents.PrincipalResourcePermissions = de_PrincipalResourcePermissionsList(
-      data.PrincipalResourcePermissions,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PrincipalResourcePermissions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3488,10 +3496,9 @@ const de_ListPermissionsCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3511,12 +3518,11 @@ export const de_ListResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ResourceInfoList != null) {
-    contents.ResourceInfoList = de_ResourceInfoList(data.ResourceInfoList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ResourceInfoList: (_) => de_ResourceInfoList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3544,10 +3550,9 @@ const de_ListResourcesCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3567,12 +3572,11 @@ export const de_ListTableStorageOptimizersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.StorageOptimizerList != null) {
-    contents.StorageOptimizerList = de_StorageOptimizerList(data.StorageOptimizerList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    StorageOptimizerList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3603,10 +3607,9 @@ const de_ListTableStorageOptimizersCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3626,12 +3629,11 @@ export const de_ListTransactionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Transactions != null) {
-    contents.Transactions = de_TransactionDescriptionList(data.Transactions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Transactions: (_) => de_TransactionDescriptionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3659,10 +3661,9 @@ const de_ListTransactionsCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3706,10 +3707,9 @@ const de_PutDataLakeSettingsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3768,10 +3768,9 @@ const de_RegisterResourceCommandError = async (
       throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3791,9 +3790,10 @@ export const de_RemoveLFTagsFromResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Failures != null) {
-    contents.Failures = de_LFTagErrors(data.Failures, context);
-  }
+  const doc = take(data, {
+    Failures: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3833,10 +3833,9 @@ const de_RemoveLFTagsFromResourceCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3883,10 +3882,9 @@ const de_RevokePermissionsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3906,12 +3904,11 @@ export const de_SearchDatabasesByLFTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DatabaseList != null) {
-    contents.DatabaseList = de_DatabaseLFTagsList(data.DatabaseList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DatabaseList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3948,10 +3945,9 @@ const de_SearchDatabasesByLFTagsCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3971,12 +3967,11 @@ export const de_SearchTablesByLFTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.TableList != null) {
-    contents.TableList = de_TableLFTagsList(data.TableList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    TableList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4013,10 +4008,9 @@ const de_SearchTablesByLFTagsCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4036,9 +4030,10 @@ export const de_StartQueryPlanningCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.QueryId != null) {
-    contents.QueryId = __expectString(data.QueryId);
-  }
+  const doc = take(data, {
+    QueryId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4069,10 +4064,9 @@ const de_StartQueryPlanningCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4092,9 +4086,10 @@ export const de_StartTransactionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TransactionId != null) {
-    contents.TransactionId = __expectString(data.TransactionId);
-  }
+  const doc = take(data, {
+    TransactionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4119,10 +4114,9 @@ const de_StartTransactionCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4178,10 +4172,9 @@ const de_UpdateDataCellsFilterCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4237,10 +4230,9 @@ const de_UpdateLFTagCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4290,10 +4282,9 @@ const de_UpdateResourceCommandError = async (
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4358,10 +4349,9 @@ const de_UpdateTableObjectsCommandError = async (
       throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4381,9 +4371,10 @@ export const de_UpdateTableStorageOptimizerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Result != null) {
-    contents.Result = __expectString(data.Result);
-  }
+  const doc = take(data, {
+    Result: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4414,16 +4405,15 @@ const de_UpdateTableStorageOptimizerCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -4433,9 +4423,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4452,9 +4443,10 @@ const de_AlreadyExistsExceptionRes = async (
 ): Promise<AlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4471,9 +4463,10 @@ const de_ConcurrentModificationExceptionRes = async (
 ): Promise<ConcurrentModificationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4490,9 +4483,10 @@ const de_EntityNotFoundExceptionRes = async (
 ): Promise<EntityNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EntityNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4506,9 +4500,10 @@ const de_EntityNotFoundExceptionRes = async (
 const de_ExpiredExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ExpiredException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ExpiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4525,9 +4520,10 @@ const de_GlueEncryptionExceptionRes = async (
 ): Promise<GlueEncryptionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new GlueEncryptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4544,9 +4540,10 @@ const de_InternalServiceExceptionRes = async (
 ): Promise<InternalServiceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4563,9 +4560,10 @@ const de_InvalidInputExceptionRes = async (
 ): Promise<InvalidInputException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4582,9 +4580,10 @@ const de_OperationTimeoutExceptionRes = async (
 ): Promise<OperationTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new OperationTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4601,9 +4600,10 @@ const de_PermissionTypeMismatchExceptionRes = async (
 ): Promise<PermissionTypeMismatchException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PermissionTypeMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4620,9 +4620,10 @@ const de_ResourceNotReadyExceptionRes = async (
 ): Promise<ResourceNotReadyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4639,9 +4640,10 @@ const de_ResourceNumberLimitExceededExceptionRes = async (
 ): Promise<ResourceNumberLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNumberLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4658,9 +4660,10 @@ const de_StatisticsNotReadyYetExceptionRes = async (
 ): Promise<StatisticsNotReadyYetException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StatisticsNotReadyYetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4674,9 +4677,10 @@ const de_StatisticsNotReadyYetExceptionRes = async (
 const de_ThrottledExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottledException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4693,9 +4697,10 @@ const de_TransactionCanceledExceptionRes = async (
 ): Promise<TransactionCanceledException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TransactionCanceledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4712,9 +4717,10 @@ const de_TransactionCommitInProgressExceptionRes = async (
 ): Promise<TransactionCommitInProgressException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TransactionCommitInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4731,9 +4737,10 @@ const de_TransactionCommittedExceptionRes = async (
 ): Promise<TransactionCommittedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TransactionCommittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4750,9 +4757,10 @@ const de_WorkUnitsNotReadyYetExceptionRes = async (
 ): Promise<WorkUnitsNotReadyYetException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new WorkUnitsNotReadyYetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4760,1121 +4768,207 @@ const de_WorkUnitsNotReadyYetExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AddObjectInput
- */
-const se_AddObjectInput = (input: AddObjectInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ETag != null && { ETag: input.ETag }),
-    ...(input.PartitionValues != null && { PartitionValues: se_PartitionValuesList(input.PartitionValues, context) }),
-    ...(input.Size != null && { Size: input.Size }),
-    ...(input.Uri != null && { Uri: input.Uri }),
-  };
-};
+// se_AddObjectInput omitted.
 
-/**
- * serializeAws_restJson1AllRowsWildcard
- */
-const se_AllRowsWildcard = (input: AllRowsWildcard, context: __SerdeContext): any => {
-  return {};
-};
+// se_AllRowsWildcard omitted.
 
-/**
- * serializeAws_restJson1AuditContext
- */
-const se_AuditContext = (input: AuditContext, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalAuditContext != null && { AdditionalAuditContext: input.AdditionalAuditContext }),
-  };
-};
+// se_AuditContext omitted.
 
-/**
- * serializeAws_restJson1AuthorizedSessionTagValueList
- */
-const se_AuthorizedSessionTagValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AuthorizedSessionTagValueList omitted.
 
-/**
- * serializeAws_restJson1BatchPermissionsRequestEntry
- */
-const se_BatchPermissionsRequestEntry = (input: BatchPermissionsRequestEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Permissions != null && { Permissions: se_PermissionList(input.Permissions, context) }),
-    ...(input.PermissionsWithGrantOption != null && {
-      PermissionsWithGrantOption: se_PermissionList(input.PermissionsWithGrantOption, context),
-    }),
-    ...(input.Principal != null && { Principal: se_DataLakePrincipal(input.Principal, context) }),
-    ...(input.Resource != null && { Resource: se_Resource(input.Resource, context) }),
-  };
-};
+// se_BatchPermissionsRequestEntry omitted.
 
-/**
- * serializeAws_restJson1BatchPermissionsRequestEntryList
- */
-const se_BatchPermissionsRequestEntryList = (input: BatchPermissionsRequestEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_BatchPermissionsRequestEntry(entry, context);
-    });
-};
+// se_BatchPermissionsRequestEntryList omitted.
 
-/**
- * serializeAws_restJson1CatalogResource
- */
-const se_CatalogResource = (input: CatalogResource, context: __SerdeContext): any => {
-  return {};
-};
+// se_CatalogResource omitted.
 
-/**
- * serializeAws_restJson1ColumnNames
- */
-const se_ColumnNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ColumnNames omitted.
 
-/**
- * serializeAws_restJson1ColumnWildcard
- */
-const se_ColumnWildcard = (input: ColumnWildcard, context: __SerdeContext): any => {
-  return {
-    ...(input.ExcludedColumnNames != null && {
-      ExcludedColumnNames: se_ColumnNames(input.ExcludedColumnNames, context),
-    }),
-  };
-};
+// se_ColumnWildcard omitted.
 
-/**
- * serializeAws_restJson1DatabaseResource
- */
-const se_DatabaseResource = (input: DatabaseResource, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DatabaseResource omitted.
 
-/**
- * serializeAws_restJson1DataCellsFilter
- */
-const se_DataCellsFilter = (input: DataCellsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.ColumnNames != null && { ColumnNames: se_ColumnNames(input.ColumnNames, context) }),
-    ...(input.ColumnWildcard != null && { ColumnWildcard: se_ColumnWildcard(input.ColumnWildcard, context) }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RowFilter != null && { RowFilter: se_RowFilter(input.RowFilter, context) }),
-    ...(input.TableCatalogId != null && { TableCatalogId: input.TableCatalogId }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.VersionId != null && { VersionId: input.VersionId }),
-  };
-};
+// se_DataCellsFilter omitted.
 
-/**
- * serializeAws_restJson1DataCellsFilterResource
- */
-const se_DataCellsFilterResource = (input: DataCellsFilterResource, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.TableCatalogId != null && { TableCatalogId: input.TableCatalogId }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  };
-};
+// se_DataCellsFilterResource omitted.
 
-/**
- * serializeAws_restJson1DataLakePrincipal
- */
-const se_DataLakePrincipal = (input: DataLakePrincipal, context: __SerdeContext): any => {
-  return {
-    ...(input.DataLakePrincipalIdentifier != null && {
-      DataLakePrincipalIdentifier: input.DataLakePrincipalIdentifier,
-    }),
-  };
-};
+// se_DataLakePrincipal omitted.
 
-/**
- * serializeAws_restJson1DataLakePrincipalList
- */
-const se_DataLakePrincipalList = (input: DataLakePrincipal[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DataLakePrincipal(entry, context);
-    });
-};
+// se_DataLakePrincipalList omitted.
 
-/**
- * serializeAws_restJson1DataLakeSettings
- */
-const se_DataLakeSettings = (input: DataLakeSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowExternalDataFiltering != null && { AllowExternalDataFiltering: input.AllowExternalDataFiltering }),
-    ...(input.AuthorizedSessionTagValueList != null && {
-      AuthorizedSessionTagValueList: se_AuthorizedSessionTagValueList(input.AuthorizedSessionTagValueList, context),
-    }),
-    ...(input.CreateDatabaseDefaultPermissions != null && {
-      CreateDatabaseDefaultPermissions: se_PrincipalPermissionsList(input.CreateDatabaseDefaultPermissions, context),
-    }),
-    ...(input.CreateTableDefaultPermissions != null && {
-      CreateTableDefaultPermissions: se_PrincipalPermissionsList(input.CreateTableDefaultPermissions, context),
-    }),
-    ...(input.DataLakeAdmins != null && { DataLakeAdmins: se_DataLakePrincipalList(input.DataLakeAdmins, context) }),
-    ...(input.ExternalDataFilteringAllowList != null && {
-      ExternalDataFilteringAllowList: se_DataLakePrincipalList(input.ExternalDataFilteringAllowList, context),
-    }),
-    ...(input.Parameters != null && { Parameters: se_ParametersMap(input.Parameters, context) }),
-    ...(input.TrustedResourceOwners != null && {
-      TrustedResourceOwners: se_TrustedResourceOwners(input.TrustedResourceOwners, context),
-    }),
-  };
-};
+// se_DataLakeSettings omitted.
 
-/**
- * serializeAws_restJson1DataLocationResource
- */
-const se_DataLocationResource = (input: DataLocationResource, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DataLocationResource omitted.
 
-/**
- * serializeAws_restJson1DeleteObjectInput
- */
-const se_DeleteObjectInput = (input: DeleteObjectInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ETag != null && { ETag: input.ETag }),
-    ...(input.PartitionValues != null && { PartitionValues: se_PartitionValuesList(input.PartitionValues, context) }),
-    ...(input.Uri != null && { Uri: input.Uri }),
-  };
-};
+// se_DeleteObjectInput omitted.
 
-/**
- * serializeAws_restJson1Expression
- */
-const se_Expression = (input: LFTag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LFTag(entry, context);
-    });
-};
+// se_Expression omitted.
 
-/**
- * serializeAws_restJson1FilterCondition
- */
-const se_FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.Field != null && { Field: input.Field }),
-    ...(input.StringValueList != null && { StringValueList: se_StringValueList(input.StringValueList, context) }),
-  };
-};
+// se_FilterCondition omitted.
 
-/**
- * serializeAws_restJson1FilterConditionList
- */
-const se_FilterConditionList = (input: FilterCondition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FilterCondition(entry, context);
-    });
-};
+// se_FilterConditionList omitted.
 
-/**
- * serializeAws_restJson1LFTag
- */
-const se_LFTag = (input: LFTag, context: __SerdeContext): any => {
-  return {
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TagValues != null && { TagValues: se_TagValueList(input.TagValues, context) }),
-  };
-};
+// se_LFTag omitted.
 
-/**
- * serializeAws_restJson1LFTagKeyResource
- */
-const se_LFTagKeyResource = (input: LFTagKeyResource, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TagValues != null && { TagValues: se_TagValueList(input.TagValues, context) }),
-  };
-};
+// se_LFTagKeyResource omitted.
 
-/**
- * serializeAws_restJson1LFTagPair
- */
-const se_LFTagPair = (input: LFTagPair, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TagValues != null && { TagValues: se_TagValueList(input.TagValues, context) }),
-  };
-};
+// se_LFTagPair omitted.
 
-/**
- * serializeAws_restJson1LFTagPolicyResource
- */
-const se_LFTagPolicyResource = (input: LFTagPolicyResource, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.Expression != null && { Expression: se_Expression(input.Expression, context) }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
+// se_LFTagPolicyResource omitted.
 
-/**
- * serializeAws_restJson1LFTagsList
- */
-const se_LFTagsList = (input: LFTagPair[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LFTagPair(entry, context);
-    });
-};
+// se_LFTagsList omitted.
 
-/**
- * serializeAws_restJson1ParametersMap
- */
-const se_ParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ParametersMap omitted.
 
-/**
- * serializeAws_restJson1PartitionValueList
- */
-const se_PartitionValueList = (input: PartitionValueList, context: __SerdeContext): any => {
-  return {
-    ...(input.Values != null && { Values: se_ValueStringList(input.Values, context) }),
-  };
-};
+// se_PartitionValueList omitted.
 
-/**
- * serializeAws_restJson1PartitionValuesList
- */
-const se_PartitionValuesList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PartitionValuesList omitted.
 
-/**
- * serializeAws_restJson1PermissionList
- */
-const se_PermissionList = (input: (Permission | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PermissionList omitted.
 
-/**
- * serializeAws_restJson1PermissionTypeList
- */
-const se_PermissionTypeList = (input: (PermissionType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PermissionTypeList omitted.
 
-/**
- * serializeAws_restJson1PrincipalPermissions
- */
-const se_PrincipalPermissions = (input: PrincipalPermissions, context: __SerdeContext): any => {
-  return {
-    ...(input.Permissions != null && { Permissions: se_PermissionList(input.Permissions, context) }),
-    ...(input.Principal != null && { Principal: se_DataLakePrincipal(input.Principal, context) }),
-  };
-};
+// se_PrincipalPermissions omitted.
 
-/**
- * serializeAws_restJson1PrincipalPermissionsList
- */
-const se_PrincipalPermissionsList = (input: PrincipalPermissions[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PrincipalPermissions(entry, context);
-    });
-};
+// se_PrincipalPermissionsList omitted.
 
-/**
- * serializeAws_restJson1QueryParameterMap
- */
-const se_QueryParameterMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_QueryParameterMap omitted.
 
 /**
  * serializeAws_restJson1QueryPlanningContext
  */
 const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
-    ...(input.QueryParameters != null && { QueryParameters: se_QueryParameterMap(input.QueryParameters, context) }),
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  };
+  return take(input, {
+    CatalogId: [],
+    DatabaseName: [],
+    QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
+    QueryParameters: (_) => _json(_),
+    TransactionId: [],
+  });
 };
 
-/**
- * serializeAws_restJson1Resource
- */
-const se_Resource = (input: Resource, context: __SerdeContext): any => {
-  return {
-    ...(input.Catalog != null && { Catalog: se_CatalogResource(input.Catalog, context) }),
-    ...(input.DataCellsFilter != null && {
-      DataCellsFilter: se_DataCellsFilterResource(input.DataCellsFilter, context),
-    }),
-    ...(input.DataLocation != null && { DataLocation: se_DataLocationResource(input.DataLocation, context) }),
-    ...(input.Database != null && { Database: se_DatabaseResource(input.Database, context) }),
-    ...(input.LFTag != null && { LFTag: se_LFTagKeyResource(input.LFTag, context) }),
-    ...(input.LFTagPolicy != null && { LFTagPolicy: se_LFTagPolicyResource(input.LFTagPolicy, context) }),
-    ...(input.Table != null && { Table: se_TableResource(input.Table, context) }),
-    ...(input.TableWithColumns != null && {
-      TableWithColumns: se_TableWithColumnsResource(input.TableWithColumns, context),
-    }),
-  };
-};
+// se_Resource omitted.
 
-/**
- * serializeAws_restJson1RowFilter
- */
-const se_RowFilter = (input: RowFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AllRowsWildcard != null && { AllRowsWildcard: se_AllRowsWildcard(input.AllRowsWildcard, context) }),
-    ...(input.FilterExpression != null && { FilterExpression: input.FilterExpression }),
-  };
-};
+// se_RowFilter omitted.
 
-/**
- * serializeAws_restJson1StorageOptimizerConfig
- */
-const se_StorageOptimizerConfig = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_StorageOptimizerConfig omitted.
 
-/**
- * serializeAws_restJson1StorageOptimizerConfigMap
- */
-const se_StorageOptimizerConfigMap = (input: Record<string, Record<string, string>>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [OptimizerType | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_StorageOptimizerConfig(value, context);
-    return acc;
-  }, {});
-};
+// se_StorageOptimizerConfigMap omitted.
 
-/**
- * serializeAws_restJson1StringValueList
- */
-const se_StringValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringValueList omitted.
 
-/**
- * serializeAws_restJson1TableResource
- */
-const se_TableResource = (input: TableResource, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.TableWildcard != null && { TableWildcard: se_TableWildcard(input.TableWildcard, context) }),
-  };
-};
+// se_TableResource omitted.
 
-/**
- * serializeAws_restJson1TableWildcard
- */
-const se_TableWildcard = (input: TableWildcard, context: __SerdeContext): any => {
-  return {};
-};
+// se_TableWildcard omitted.
 
-/**
- * serializeAws_restJson1TableWithColumnsResource
- */
-const se_TableWithColumnsResource = (input: TableWithColumnsResource, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.ColumnNames != null && { ColumnNames: se_ColumnNames(input.ColumnNames, context) }),
-    ...(input.ColumnWildcard != null && { ColumnWildcard: se_ColumnWildcard(input.ColumnWildcard, context) }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_TableWithColumnsResource omitted.
 
-/**
- * serializeAws_restJson1TagValueList
- */
-const se_TagValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagValueList omitted.
 
-/**
- * serializeAws_restJson1TrustedResourceOwners
- */
-const se_TrustedResourceOwners = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TrustedResourceOwners omitted.
 
-/**
- * serializeAws_restJson1ValueStringList
- */
-const se_ValueStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ValueStringList omitted.
 
-/**
- * serializeAws_restJson1VirtualObject
- */
-const se_VirtualObject = (input: VirtualObject, context: __SerdeContext): any => {
-  return {
-    ...(input.ETag != null && { ETag: input.ETag }),
-    ...(input.Uri != null && { Uri: input.Uri }),
-  };
-};
+// se_VirtualObject omitted.
 
-/**
- * serializeAws_restJson1VirtualObjectList
- */
-const se_VirtualObjectList = (input: VirtualObject[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_VirtualObject(entry, context);
-    });
-};
+// se_VirtualObjectList omitted.
 
-/**
- * serializeAws_restJson1WriteOperation
- */
-const se_WriteOperation = (input: WriteOperation, context: __SerdeContext): any => {
-  return {
-    ...(input.AddObject != null && { AddObject: se_AddObjectInput(input.AddObject, context) }),
-    ...(input.DeleteObject != null && { DeleteObject: se_DeleteObjectInput(input.DeleteObject, context) }),
-  };
-};
+// se_WriteOperation omitted.
 
-/**
- * serializeAws_restJson1WriteOperationList
- */
-const se_WriteOperationList = (input: WriteOperation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WriteOperation(entry, context);
-    });
-};
+// se_WriteOperationList omitted.
 
-/**
- * deserializeAws_restJson1AllRowsWildcard
- */
-const de_AllRowsWildcard = (output: any, context: __SerdeContext): AllRowsWildcard => {
-  return {} as any;
-};
+// de_AllRowsWildcard omitted.
 
-/**
- * deserializeAws_restJson1AuthorizedSessionTagValueList
- */
-const de_AuthorizedSessionTagValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AuthorizedSessionTagValueList omitted.
 
-/**
- * deserializeAws_restJson1BatchPermissionsFailureEntry
- */
-const de_BatchPermissionsFailureEntry = (output: any, context: __SerdeContext): BatchPermissionsFailureEntry => {
-  return {
-    Error: output.Error != null ? de_ErrorDetail(output.Error, context) : undefined,
-    RequestEntry:
-      output.RequestEntry != null ? de_BatchPermissionsRequestEntry(output.RequestEntry, context) : undefined,
-  } as any;
-};
+// de_BatchPermissionsFailureEntry omitted.
 
-/**
- * deserializeAws_restJson1BatchPermissionsFailureList
- */
-const de_BatchPermissionsFailureList = (output: any, context: __SerdeContext): BatchPermissionsFailureEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchPermissionsFailureEntry(entry, context);
-    });
-  return retVal;
-};
+// de_BatchPermissionsFailureList omitted.
 
-/**
- * deserializeAws_restJson1BatchPermissionsRequestEntry
- */
-const de_BatchPermissionsRequestEntry = (output: any, context: __SerdeContext): BatchPermissionsRequestEntry => {
-  return {
-    Id: __expectString(output.Id),
-    Permissions: output.Permissions != null ? de_PermissionList(output.Permissions, context) : undefined,
-    PermissionsWithGrantOption:
-      output.PermissionsWithGrantOption != null
-        ? de_PermissionList(output.PermissionsWithGrantOption, context)
-        : undefined,
-    Principal: output.Principal != null ? de_DataLakePrincipal(output.Principal, context) : undefined,
-    Resource: output.Resource != null ? de_Resource(output.Resource, context) : undefined,
-  } as any;
-};
+// de_BatchPermissionsRequestEntry omitted.
 
-/**
- * deserializeAws_restJson1CatalogResource
- */
-const de_CatalogResource = (output: any, context: __SerdeContext): CatalogResource => {
-  return {} as any;
-};
+// de_CatalogResource omitted.
 
-/**
- * deserializeAws_restJson1ColumnLFTag
- */
-const de_ColumnLFTag = (output: any, context: __SerdeContext): ColumnLFTag => {
-  return {
-    LFTags: output.LFTags != null ? de_LFTagsList(output.LFTags, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ColumnLFTag omitted.
 
-/**
- * deserializeAws_restJson1ColumnLFTagsList
- */
-const de_ColumnLFTagsList = (output: any, context: __SerdeContext): ColumnLFTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ColumnLFTag(entry, context);
-    });
-  return retVal;
-};
+// de_ColumnLFTagsList omitted.
 
-/**
- * deserializeAws_restJson1ColumnNames
- */
-const de_ColumnNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ColumnNames omitted.
 
-/**
- * deserializeAws_restJson1ColumnWildcard
- */
-const de_ColumnWildcard = (output: any, context: __SerdeContext): ColumnWildcard => {
-  return {
-    ExcludedColumnNames:
-      output.ExcludedColumnNames != null ? de_ColumnNames(output.ExcludedColumnNames, context) : undefined,
-  } as any;
-};
+// de_ColumnWildcard omitted.
 
-/**
- * deserializeAws_restJson1DatabaseLFTagsList
- */
-const de_DatabaseLFTagsList = (output: any, context: __SerdeContext): TaggedDatabase[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TaggedDatabase(entry, context);
-    });
-  return retVal;
-};
+// de_DatabaseLFTagsList omitted.
 
-/**
- * deserializeAws_restJson1DatabaseResource
- */
-const de_DatabaseResource = (output: any, context: __SerdeContext): DatabaseResource => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_DatabaseResource omitted.
 
-/**
- * deserializeAws_restJson1DataCellsFilter
- */
-const de_DataCellsFilter = (output: any, context: __SerdeContext): DataCellsFilter => {
-  return {
-    ColumnNames: output.ColumnNames != null ? de_ColumnNames(output.ColumnNames, context) : undefined,
-    ColumnWildcard: output.ColumnWildcard != null ? de_ColumnWildcard(output.ColumnWildcard, context) : undefined,
-    DatabaseName: __expectString(output.DatabaseName),
-    Name: __expectString(output.Name),
-    RowFilter: output.RowFilter != null ? de_RowFilter(output.RowFilter, context) : undefined,
-    TableCatalogId: __expectString(output.TableCatalogId),
-    TableName: __expectString(output.TableName),
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
+// de_DataCellsFilter omitted.
 
-/**
- * deserializeAws_restJson1DataCellsFilterList
- */
-const de_DataCellsFilterList = (output: any, context: __SerdeContext): DataCellsFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataCellsFilter(entry, context);
-    });
-  return retVal;
-};
+// de_DataCellsFilterList omitted.
 
-/**
- * deserializeAws_restJson1DataCellsFilterResource
- */
-const de_DataCellsFilterResource = (output: any, context: __SerdeContext): DataCellsFilterResource => {
-  return {
-    DatabaseName: __expectString(output.DatabaseName),
-    Name: __expectString(output.Name),
-    TableCatalogId: __expectString(output.TableCatalogId),
-    TableName: __expectString(output.TableName),
-  } as any;
-};
+// de_DataCellsFilterResource omitted.
 
-/**
- * deserializeAws_restJson1DataLakePrincipal
- */
-const de_DataLakePrincipal = (output: any, context: __SerdeContext): DataLakePrincipal => {
-  return {
-    DataLakePrincipalIdentifier: __expectString(output.DataLakePrincipalIdentifier),
-  } as any;
-};
+// de_DataLakePrincipal omitted.
 
-/**
- * deserializeAws_restJson1DataLakePrincipalList
- */
-const de_DataLakePrincipalList = (output: any, context: __SerdeContext): DataLakePrincipal[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataLakePrincipal(entry, context);
-    });
-  return retVal;
-};
+// de_DataLakePrincipalList omitted.
 
-/**
- * deserializeAws_restJson1DataLakeSettings
- */
-const de_DataLakeSettings = (output: any, context: __SerdeContext): DataLakeSettings => {
-  return {
-    AllowExternalDataFiltering: __expectBoolean(output.AllowExternalDataFiltering),
-    AuthorizedSessionTagValueList:
-      output.AuthorizedSessionTagValueList != null
-        ? de_AuthorizedSessionTagValueList(output.AuthorizedSessionTagValueList, context)
-        : undefined,
-    CreateDatabaseDefaultPermissions:
-      output.CreateDatabaseDefaultPermissions != null
-        ? de_PrincipalPermissionsList(output.CreateDatabaseDefaultPermissions, context)
-        : undefined,
-    CreateTableDefaultPermissions:
-      output.CreateTableDefaultPermissions != null
-        ? de_PrincipalPermissionsList(output.CreateTableDefaultPermissions, context)
-        : undefined,
-    DataLakeAdmins:
-      output.DataLakeAdmins != null ? de_DataLakePrincipalList(output.DataLakeAdmins, context) : undefined,
-    ExternalDataFilteringAllowList:
-      output.ExternalDataFilteringAllowList != null
-        ? de_DataLakePrincipalList(output.ExternalDataFilteringAllowList, context)
-        : undefined,
-    Parameters: output.Parameters != null ? de_ParametersMap(output.Parameters, context) : undefined,
-    TrustedResourceOwners:
-      output.TrustedResourceOwners != null
-        ? de_TrustedResourceOwners(output.TrustedResourceOwners, context)
-        : undefined,
-  } as any;
-};
+// de_DataLakeSettings omitted.
 
-/**
- * deserializeAws_restJson1DataLocationResource
- */
-const de_DataLocationResource = (output: any, context: __SerdeContext): DataLocationResource => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
-};
+// de_DataLocationResource omitted.
 
-/**
- * deserializeAws_restJson1DetailsMap
- */
-const de_DetailsMap = (output: any, context: __SerdeContext): DetailsMap => {
-  return {
-    ResourceShare: output.ResourceShare != null ? de_ResourceShareList(output.ResourceShare, context) : undefined,
-  } as any;
-};
+// de_DetailsMap omitted.
 
-/**
- * deserializeAws_restJson1ErrorDetail
- */
-const de_ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-  } as any;
-};
+// de_ErrorDetail omitted.
 
-/**
- * deserializeAws_restJson1ExecutionStatistics
- */
-const de_ExecutionStatistics = (output: any, context: __SerdeContext): ExecutionStatistics => {
-  return {
-    AverageExecutionTimeMillis: __expectLong(output.AverageExecutionTimeMillis),
-    DataScannedBytes: __expectLong(output.DataScannedBytes),
-    WorkUnitsExecutedCount: __expectLong(output.WorkUnitsExecutedCount),
-  } as any;
-};
+// de_ExecutionStatistics omitted.
 
-/**
- * deserializeAws_restJson1Expression
- */
-const de_Expression = (output: any, context: __SerdeContext): LFTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LFTag(entry, context);
-    });
-  return retVal;
-};
+// de_Expression omitted.
 
-/**
- * deserializeAws_restJson1LFTag
- */
-const de_LFTag = (output: any, context: __SerdeContext): LFTag => {
-  return {
-    TagKey: __expectString(output.TagKey),
-    TagValues: output.TagValues != null ? de_TagValueList(output.TagValues, context) : undefined,
-  } as any;
-};
+// de_LFTag omitted.
 
-/**
- * deserializeAws_restJson1LFTagError
- */
-const de_LFTagError = (output: any, context: __SerdeContext): LFTagError => {
-  return {
-    Error: output.Error != null ? de_ErrorDetail(output.Error, context) : undefined,
-    LFTag: output.LFTag != null ? de_LFTagPair(output.LFTag, context) : undefined,
-  } as any;
-};
+// de_LFTagError omitted.
 
-/**
- * deserializeAws_restJson1LFTagErrors
- */
-const de_LFTagErrors = (output: any, context: __SerdeContext): LFTagError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LFTagError(entry, context);
-    });
-  return retVal;
-};
+// de_LFTagErrors omitted.
 
-/**
- * deserializeAws_restJson1LFTagKeyResource
- */
-const de_LFTagKeyResource = (output: any, context: __SerdeContext): LFTagKeyResource => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    TagKey: __expectString(output.TagKey),
-    TagValues: output.TagValues != null ? de_TagValueList(output.TagValues, context) : undefined,
-  } as any;
-};
+// de_LFTagKeyResource omitted.
 
-/**
- * deserializeAws_restJson1LFTagPair
- */
-const de_LFTagPair = (output: any, context: __SerdeContext): LFTagPair => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    TagKey: __expectString(output.TagKey),
-    TagValues: output.TagValues != null ? de_TagValueList(output.TagValues, context) : undefined,
-  } as any;
-};
+// de_LFTagPair omitted.
 
-/**
- * deserializeAws_restJson1LFTagPolicyResource
- */
-const de_LFTagPolicyResource = (output: any, context: __SerdeContext): LFTagPolicyResource => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    Expression: output.Expression != null ? de_Expression(output.Expression, context) : undefined,
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_LFTagPolicyResource omitted.
 
-/**
- * deserializeAws_restJson1LFTagsList
- */
-const de_LFTagsList = (output: any, context: __SerdeContext): LFTagPair[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LFTagPair(entry, context);
-    });
-  return retVal;
-};
+// de_LFTagsList omitted.
 
-/**
- * deserializeAws_restJson1ParametersMap
- */
-const de_ParametersMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ParametersMap omitted.
 
-/**
- * deserializeAws_restJson1PartitionedTableObjectsList
- */
-const de_PartitionedTableObjectsList = (output: any, context: __SerdeContext): PartitionObjects[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PartitionObjects(entry, context);
-    });
-  return retVal;
-};
+// de_PartitionedTableObjectsList omitted.
 
-/**
- * deserializeAws_restJson1PartitionObjects
- */
-const de_PartitionObjects = (output: any, context: __SerdeContext): PartitionObjects => {
-  return {
-    Objects: output.Objects != null ? de_TableObjectList(output.Objects, context) : undefined,
-    PartitionValues:
-      output.PartitionValues != null ? de_PartitionValuesList(output.PartitionValues, context) : undefined,
-  } as any;
-};
+// de_PartitionObjects omitted.
 
-/**
- * deserializeAws_restJson1PartitionValuesList
- */
-const de_PartitionValuesList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PartitionValuesList omitted.
 
-/**
- * deserializeAws_restJson1PermissionList
- */
-const de_PermissionList = (output: any, context: __SerdeContext): (Permission | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PermissionList omitted.
 
-/**
- * deserializeAws_restJson1PlanningStatistics
- */
-const de_PlanningStatistics = (output: any, context: __SerdeContext): PlanningStatistics => {
-  return {
-    EstimatedDataToScanBytes: __expectLong(output.EstimatedDataToScanBytes),
-    PlanningTimeMillis: __expectLong(output.PlanningTimeMillis),
-    QueueTimeMillis: __expectLong(output.QueueTimeMillis),
-    WorkUnitsGeneratedCount: __expectLong(output.WorkUnitsGeneratedCount),
-  } as any;
-};
+// de_PlanningStatistics omitted.
 
-/**
- * deserializeAws_restJson1PrincipalPermissions
- */
-const de_PrincipalPermissions = (output: any, context: __SerdeContext): PrincipalPermissions => {
-  return {
-    Permissions: output.Permissions != null ? de_PermissionList(output.Permissions, context) : undefined,
-    Principal: output.Principal != null ? de_DataLakePrincipal(output.Principal, context) : undefined,
-  } as any;
-};
+// de_PrincipalPermissions omitted.
 
-/**
- * deserializeAws_restJson1PrincipalPermissionsList
- */
-const de_PrincipalPermissionsList = (output: any, context: __SerdeContext): PrincipalPermissions[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PrincipalPermissions(entry, context);
-    });
-  return retVal;
-};
+// de_PrincipalPermissionsList omitted.
 
-/**
- * deserializeAws_restJson1PrincipalResourcePermissions
- */
-const de_PrincipalResourcePermissions = (output: any, context: __SerdeContext): PrincipalResourcePermissions => {
-  return {
-    AdditionalDetails: output.AdditionalDetails != null ? de_DetailsMap(output.AdditionalDetails, context) : undefined,
-    Permissions: output.Permissions != null ? de_PermissionList(output.Permissions, context) : undefined,
-    PermissionsWithGrantOption:
-      output.PermissionsWithGrantOption != null
-        ? de_PermissionList(output.PermissionsWithGrantOption, context)
-        : undefined,
-    Principal: output.Principal != null ? de_DataLakePrincipal(output.Principal, context) : undefined,
-    Resource: output.Resource != null ? de_Resource(output.Resource, context) : undefined,
-  } as any;
-};
+// de_PrincipalResourcePermissions omitted.
 
-/**
- * deserializeAws_restJson1PrincipalResourcePermissionsList
- */
-const de_PrincipalResourcePermissionsList = (output: any, context: __SerdeContext): PrincipalResourcePermissions[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PrincipalResourcePermissions(entry, context);
-    });
-  return retVal;
-};
+// de_PrincipalResourcePermissionsList omitted.
 
-/**
- * deserializeAws_restJson1Resource
- */
-const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    Catalog: output.Catalog != null ? de_CatalogResource(output.Catalog, context) : undefined,
-    DataCellsFilter:
-      output.DataCellsFilter != null ? de_DataCellsFilterResource(output.DataCellsFilter, context) : undefined,
-    DataLocation: output.DataLocation != null ? de_DataLocationResource(output.DataLocation, context) : undefined,
-    Database: output.Database != null ? de_DatabaseResource(output.Database, context) : undefined,
-    LFTag: output.LFTag != null ? de_LFTagKeyResource(output.LFTag, context) : undefined,
-    LFTagPolicy: output.LFTagPolicy != null ? de_LFTagPolicyResource(output.LFTagPolicy, context) : undefined,
-    Table: output.Table != null ? de_TableResource(output.Table, context) : undefined,
-    TableWithColumns:
-      output.TableWithColumns != null ? de_TableWithColumnsResource(output.TableWithColumns, context) : undefined,
-  } as any;
-};
+// de_Resource omitted.
 
 /**
  * deserializeAws_restJson1ResourceInfo
  */
 const de_ResourceInfo = (output: any, context: __SerdeContext): ResourceInfo => {
-  return {
-    LastModified:
-      output.LastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
-        : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-    RoleArn: __expectString(output.RoleArn),
-    WithFederation: __expectBoolean(output.WithFederation),
-  } as any;
+  return take(output, {
+    LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    RoleArn: __expectString,
+    WithFederation: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -5884,206 +4978,49 @@ const de_ResourceInfoList = (output: any, context: __SerdeContext): ResourceInfo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceInfo(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ResourceShareList
- */
-const de_ResourceShareList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceShareList omitted.
 
-/**
- * deserializeAws_restJson1RowFilter
- */
-const de_RowFilter = (output: any, context: __SerdeContext): RowFilter => {
-  return {
-    AllRowsWildcard: output.AllRowsWildcard != null ? de_AllRowsWildcard(output.AllRowsWildcard, context) : undefined,
-    FilterExpression: __expectString(output.FilterExpression),
-  } as any;
-};
+// de_RowFilter omitted.
 
-/**
- * deserializeAws_restJson1StorageOptimizer
- */
-const de_StorageOptimizer = (output: any, context: __SerdeContext): StorageOptimizer => {
-  return {
-    Config: output.Config != null ? de_StorageOptimizerConfig(output.Config, context) : undefined,
-    ErrorMessage: __expectString(output.ErrorMessage),
-    LastRunDetails: __expectString(output.LastRunDetails),
-    StorageOptimizerType: __expectString(output.StorageOptimizerType),
-    Warnings: __expectString(output.Warnings),
-  } as any;
-};
+// de_StorageOptimizer omitted.
 
-/**
- * deserializeAws_restJson1StorageOptimizerConfig
- */
-const de_StorageOptimizerConfig = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_StorageOptimizerConfig omitted.
 
-/**
- * deserializeAws_restJson1StorageOptimizerList
- */
-const de_StorageOptimizerList = (output: any, context: __SerdeContext): StorageOptimizer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StorageOptimizer(entry, context);
-    });
-  return retVal;
-};
+// de_StorageOptimizerList omitted.
 
-/**
- * deserializeAws_restJson1TableLFTagsList
- */
-const de_TableLFTagsList = (output: any, context: __SerdeContext): TaggedTable[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TaggedTable(entry, context);
-    });
-  return retVal;
-};
+// de_TableLFTagsList omitted.
 
-/**
- * deserializeAws_restJson1TableObject
- */
-const de_TableObject = (output: any, context: __SerdeContext): TableObject => {
-  return {
-    ETag: __expectString(output.ETag),
-    Size: __expectLong(output.Size),
-    Uri: __expectString(output.Uri),
-  } as any;
-};
+// de_TableObject omitted.
 
-/**
- * deserializeAws_restJson1TableObjectList
- */
-const de_TableObjectList = (output: any, context: __SerdeContext): TableObject[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TableObject(entry, context);
-    });
-  return retVal;
-};
+// de_TableObjectList omitted.
 
-/**
- * deserializeAws_restJson1TableResource
- */
-const de_TableResource = (output: any, context: __SerdeContext): TableResource => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    DatabaseName: __expectString(output.DatabaseName),
-    Name: __expectString(output.Name),
-    TableWildcard: output.TableWildcard != null ? de_TableWildcard(output.TableWildcard, context) : undefined,
-  } as any;
-};
+// de_TableResource omitted.
 
-/**
- * deserializeAws_restJson1TableWildcard
- */
-const de_TableWildcard = (output: any, context: __SerdeContext): TableWildcard => {
-  return {} as any;
-};
+// de_TableWildcard omitted.
 
-/**
- * deserializeAws_restJson1TableWithColumnsResource
- */
-const de_TableWithColumnsResource = (output: any, context: __SerdeContext): TableWithColumnsResource => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    ColumnNames: output.ColumnNames != null ? de_ColumnNames(output.ColumnNames, context) : undefined,
-    ColumnWildcard: output.ColumnWildcard != null ? de_ColumnWildcard(output.ColumnWildcard, context) : undefined,
-    DatabaseName: __expectString(output.DatabaseName),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_TableWithColumnsResource omitted.
 
-/**
- * deserializeAws_restJson1TaggedDatabase
- */
-const de_TaggedDatabase = (output: any, context: __SerdeContext): TaggedDatabase => {
-  return {
-    Database: output.Database != null ? de_DatabaseResource(output.Database, context) : undefined,
-    LFTags: output.LFTags != null ? de_LFTagsList(output.LFTags, context) : undefined,
-  } as any;
-};
+// de_TaggedDatabase omitted.
 
-/**
- * deserializeAws_restJson1TaggedTable
- */
-const de_TaggedTable = (output: any, context: __SerdeContext): TaggedTable => {
-  return {
-    LFTagOnDatabase: output.LFTagOnDatabase != null ? de_LFTagsList(output.LFTagOnDatabase, context) : undefined,
-    LFTagsOnColumns: output.LFTagsOnColumns != null ? de_ColumnLFTagsList(output.LFTagsOnColumns, context) : undefined,
-    LFTagsOnTable: output.LFTagsOnTable != null ? de_LFTagsList(output.LFTagsOnTable, context) : undefined,
-    Table: output.Table != null ? de_TableResource(output.Table, context) : undefined,
-  } as any;
-};
+// de_TaggedTable omitted.
 
-/**
- * deserializeAws_restJson1TagValueList
- */
-const de_TagValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagValueList omitted.
 
 /**
  * deserializeAws_restJson1TransactionDescription
  */
 const de_TransactionDescription = (output: any, context: __SerdeContext): TransactionDescription => {
-  return {
-    TransactionEndTime:
-      output.TransactionEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TransactionEndTime)))
-        : undefined,
-    TransactionId: __expectString(output.TransactionId),
-    TransactionStartTime:
-      output.TransactionStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TransactionStartTime)))
-        : undefined,
-    TransactionStatus: __expectString(output.TransactionStatus),
-  } as any;
+  return take(output, {
+    TransactionEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TransactionId: __expectString,
+    TransactionStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TransactionStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -6093,54 +5030,16 @@ const de_TransactionDescriptionList = (output: any, context: __SerdeContext): Tr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TransactionDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TrustedResourceOwners
- */
-const de_TrustedResourceOwners = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TrustedResourceOwners omitted.
 
-/**
- * deserializeAws_restJson1WorkUnitRange
- */
-const de_WorkUnitRange = (output: any, context: __SerdeContext): WorkUnitRange => {
-  return {
-    WorkUnitIdMax: __expectLong(output.WorkUnitIdMax),
-    WorkUnitIdMin: __expectLong(output.WorkUnitIdMin),
-    WorkUnitToken: __expectString(output.WorkUnitToken),
-  } as any;
-};
+// de_WorkUnitRange omitted.
 
-/**
- * deserializeAws_restJson1WorkUnitRangeList
- */
-const de_WorkUnitRangeList = (output: any, context: __SerdeContext): WorkUnitRange[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkUnitRange(entry, context);
-    });
-  return retVal;
-};
+// de_WorkUnitRangeList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

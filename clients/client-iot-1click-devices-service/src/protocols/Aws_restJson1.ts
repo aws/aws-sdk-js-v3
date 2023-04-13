@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,9 +10,10 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -46,7 +48,6 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UpdateDeviceStateCommandInput, UpdateDeviceStateCommandOutput } from "../commands/UpdateDeviceStateCommand";
 import { IoT1ClickDevicesServiceServiceException as __BaseException } from "../models/IoT1ClickDevicesServiceServiceException";
 import {
-  Attributes,
   Device,
   DeviceDescription,
   DeviceEvent,
@@ -121,9 +122,11 @@ export const se_FinalizeDeviceClaimCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/finalize-claim";
   resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -198,10 +201,12 @@ export const se_InvokeDeviceMethodCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/methods";
   resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeviceMethod != null && { deviceMethod: se_DeviceMethod(input.DeviceMethod, context) }),
-    ...(input.DeviceMethodParameters != null && { deviceMethodParameters: input.DeviceMethodParameters }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      deviceMethod: [, (_) => se_DeviceMethod(_, context), `DeviceMethod`],
+      deviceMethodParameters: [, , `DeviceMethodParameters`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -315,9 +320,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -398,9 +405,11 @@ export const se_UpdateDeviceStateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/state";
   resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      enabled: [, , `Enabled`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -426,12 +435,11 @@ export const de_ClaimDevicesByClaimCodeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.claimCode != null) {
-    contents.ClaimCode = __expectString(data.claimCode);
-  }
-  if (data.total != null) {
-    contents.Total = __expectInt32(data.total);
-  }
+  const doc = take(data, {
+    ClaimCode: [, __expectString, `claimCode`],
+    Total: [, __expectInt32, `total`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -459,10 +467,9 @@ const de_ClaimDevicesByClaimCodeCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -482,9 +489,10 @@ export const de_DescribeDeviceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deviceDescription != null) {
-    contents.DeviceDescription = de_DeviceDescription(data.deviceDescription, context);
-  }
+  const doc = take(data, {
+    DeviceDescription: [, (_) => de_DeviceDescription(_, context), `deviceDescription`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -512,10 +520,9 @@ const de_DescribeDeviceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -535,9 +542,10 @@ export const de_FinalizeDeviceClaimCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -571,10 +579,9 @@ const de_FinalizeDeviceClaimCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -594,9 +601,10 @@ export const de_GetDeviceMethodsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deviceMethods != null) {
-    contents.DeviceMethods = de___listOfDeviceMethod(data.deviceMethods, context);
-  }
+  const doc = take(data, {
+    DeviceMethods: [, (_) => de___listOfDeviceMethod(_, context), `deviceMethods`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -624,10 +632,9 @@ const de_GetDeviceMethodsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -647,9 +654,10 @@ export const de_InitiateDeviceClaimCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -680,10 +688,9 @@ const de_InitiateDeviceClaimCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -703,9 +710,10 @@ export const de_InvokeDeviceMethodCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deviceMethodResponse != null) {
-    contents.DeviceMethodResponse = __expectString(data.deviceMethodResponse);
-  }
+  const doc = take(data, {
+    DeviceMethodResponse: [, __expectString, `deviceMethodResponse`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -742,10 +750,9 @@ const de_InvokeDeviceMethodCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -765,12 +772,11 @@ export const de_ListDeviceEventsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.events != null) {
-    contents.Events = de___listOfDeviceEvent(data.events, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Events: [, (_) => de___listOfDeviceEvent(_, context), `events`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -801,10 +807,9 @@ const de_ListDeviceEventsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -824,12 +829,11 @@ export const de_ListDevicesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.devices != null) {
-    contents.Devices = de___listOfDeviceDescription(data.devices, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Devices: [, (_) => de___listOfDeviceDescription(_, context), `devices`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -857,10 +861,9 @@ const de_ListDevicesCommandError = async (
       throw await de_RangeNotSatisfiableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -880,9 +883,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -907,10 +911,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -957,10 +960,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -980,9 +982,10 @@ export const de_UnclaimDeviceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1010,10 +1013,9 @@ const de_UnclaimDeviceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1060,10 +1062,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1110,28 +1111,26 @@ const de_UpdateDeviceStateCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ForbiddenExceptionRes
  */
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.Code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1148,12 +1147,11 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.Code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1170,12 +1168,11 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.Code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1192,12 +1189,11 @@ const de_PreconditionFailedExceptionRes = async (
 ): Promise<PreconditionFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.Code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new PreconditionFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1214,12 +1210,11 @@ const de_RangeNotSatisfiableExceptionRes = async (
 ): Promise<RangeNotSatisfiableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.Code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new RangeNotSatisfiableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1236,12 +1231,11 @@ const de_ResourceConflictExceptionRes = async (
 ): Promise<ResourceConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.Code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1258,12 +1252,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.Code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1271,27 +1264,16 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__mapOf__string
- */
-const se___mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__string omitted.
 
 /**
  * serializeAws_restJson1DeviceMethod
  */
 const se_DeviceMethod = (input: DeviceMethod, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceType != null && { deviceType: input.DeviceType }),
-    ...(input.MethodName != null && { methodName: input.MethodName }),
-  };
+  return take(input, {
+    deviceType: [, , `DeviceType`],
+    methodName: [, , `MethodName`],
+  });
 };
 
 /**
@@ -1301,9 +1283,6 @@ const de___listOfDeviceDescription = (output: any, context: __SerdeContext): Dev
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeviceDescription(entry, context);
     });
   return retVal;
@@ -1316,9 +1295,6 @@ const de___listOfDeviceEvent = (output: any, context: __SerdeContext): DeviceEve
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeviceEvent(entry, context);
     });
   return retVal;
@@ -1331,91 +1307,61 @@ const de___listOfDeviceMethod = (output: any, context: __SerdeContext): DeviceMe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeviceMethod(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__mapOf__string
- */
-const de___mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de___mapOf__string omitted.
 
-/**
- * deserializeAws_restJson1Attributes
- */
-const de_Attributes = (output: any, context: __SerdeContext): Attributes => {
-  return {} as any;
-};
+// de_Attributes omitted.
 
 /**
  * deserializeAws_restJson1Device
  */
 const de_Device = (output: any, context: __SerdeContext): Device => {
-  return {
-    Attributes: output.attributes != null ? de_Attributes(output.attributes, context) : undefined,
-    DeviceId: __expectString(output.deviceId),
-    Type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    Attributes: [, _json, `attributes`],
+    DeviceId: [, __expectString, `deviceId`],
+    Type: [, __expectString, `type`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DeviceAttributes
- */
-const de_DeviceAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_DeviceAttributes omitted.
 
 /**
  * deserializeAws_restJson1DeviceDescription
  */
 const de_DeviceDescription = (output: any, context: __SerdeContext): DeviceDescription => {
-  return {
-    Arn: __expectString(output.arn),
-    Attributes: output.attributes != null ? de_DeviceAttributes(output.attributes, context) : undefined,
-    DeviceId: __expectString(output.deviceId),
-    Enabled: __expectBoolean(output.enabled),
-    RemainingLife: __limitedParseDouble(output.remainingLife),
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-    Type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    Attributes: [, _json, `attributes`],
+    DeviceId: [, __expectString, `deviceId`],
+    Enabled: [, __expectBoolean, `enabled`],
+    RemainingLife: [, __limitedParseDouble, `remainingLife`],
+    Tags: [, _json, `tags`],
+    Type: [, __expectString, `type`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DeviceEvent
  */
 const de_DeviceEvent = (output: any, context: __SerdeContext): DeviceEvent => {
-  return {
-    Device: output.device != null ? de_Device(output.device, context) : undefined,
-    StdEvent: __expectString(output.stdEvent),
-  } as any;
+  return take(output, {
+    Device: (_) => [, de_Device(_, context), `device`],
+    StdEvent: [, __expectString, `stdEvent`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DeviceMethod
  */
 const de_DeviceMethod = (output: any, context: __SerdeContext): DeviceMethod => {
-  return {
-    DeviceType: __expectString(output.deviceType),
-    MethodName: __expectString(output.methodName),
-  } as any;
+  return take(output, {
+    DeviceType: [, __expectString, `deviceType`],
+    MethodName: [, __expectString, `methodName`],
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

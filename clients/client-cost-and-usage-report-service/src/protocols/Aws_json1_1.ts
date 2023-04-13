@@ -1,10 +1,9 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectString as __expectString,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -33,15 +32,11 @@ import { CostAndUsageReportServiceServiceException as __BaseException } from "..
 import {
   AdditionalArtifact,
   DeleteReportDefinitionRequest,
-  DeleteReportDefinitionResponse,
   DescribeReportDefinitionsRequest,
-  DescribeReportDefinitionsResponse,
   DuplicateReportNameException,
   InternalErrorException,
   ModifyReportDefinitionRequest,
-  ModifyReportDefinitionResponse,
   PutReportDefinitionRequest,
-  PutReportDefinitionResponse,
   ReportDefinition,
   ReportLimitReachedException,
   SchemaElement,
@@ -57,7 +52,7 @@ export const se_DeleteReportDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteReportDefinition");
   let body: any;
-  body = JSON.stringify(se_DeleteReportDefinitionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -70,7 +65,7 @@ export const se_DescribeReportDefinitionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeReportDefinitions");
   let body: any;
-  body = JSON.stringify(se_DescribeReportDefinitionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -83,7 +78,7 @@ export const se_ModifyReportDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyReportDefinition");
   let body: any;
-  body = JSON.stringify(se_ModifyReportDefinitionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -96,7 +91,7 @@ export const se_PutReportDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutReportDefinition");
   let body: any;
-  body = JSON.stringify(se_PutReportDefinitionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -112,12 +107,12 @@ export const de_DeleteReportDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteReportDefinitionResponse(data, context);
+  contents = _json(data);
   const response: DeleteReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -141,10 +136,9 @@ const de_DeleteReportDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -162,12 +156,12 @@ export const de_DescribeReportDefinitionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeReportDefinitionsResponse(data, context);
+  contents = _json(data);
   const response: DescribeReportDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -188,10 +182,9 @@ const de_DescribeReportDefinitionsCommandError = async (
       throw await de_InternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -209,12 +202,12 @@ export const de_ModifyReportDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ModifyReportDefinitionResponse(data, context);
+  contents = _json(data);
   const response: ModifyReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -238,10 +231,9 @@ const de_ModifyReportDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -259,12 +251,12 @@ export const de_PutReportDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutReportDefinitionResponse(data, context);
+  contents = _json(data);
   const response: PutReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -294,10 +286,9 @@ const de_PutReportDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -311,7 +302,7 @@ const de_DuplicateReportNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateReportNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateReportNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateReportNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -327,7 +318,7 @@ const de_InternalErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -343,7 +334,7 @@ const de_ReportLimitReachedExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReportLimitReachedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReportLimitReachedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReportLimitReachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -356,7 +347,7 @@ const de_ReportLimitReachedExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -364,231 +355,43 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AdditionalArtifactList
- */
-const se_AdditionalArtifactList = (input: (AdditionalArtifact | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AdditionalArtifactList omitted.
 
-/**
- * serializeAws_json1_1DeleteReportDefinitionRequest
- */
-const se_DeleteReportDefinitionRequest = (input: DeleteReportDefinitionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ReportName != null && { ReportName: input.ReportName }),
-  };
-};
+// se_DeleteReportDefinitionRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeReportDefinitionsRequest
- */
-const se_DescribeReportDefinitionsRequest = (input: DescribeReportDefinitionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeReportDefinitionsRequest omitted.
 
-/**
- * serializeAws_json1_1ModifyReportDefinitionRequest
- */
-const se_ModifyReportDefinitionRequest = (input: ModifyReportDefinitionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ReportDefinition != null && { ReportDefinition: se_ReportDefinition(input.ReportDefinition, context) }),
-    ...(input.ReportName != null && { ReportName: input.ReportName }),
-  };
-};
+// se_ModifyReportDefinitionRequest omitted.
 
-/**
- * serializeAws_json1_1PutReportDefinitionRequest
- */
-const se_PutReportDefinitionRequest = (input: PutReportDefinitionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ReportDefinition != null && { ReportDefinition: se_ReportDefinition(input.ReportDefinition, context) }),
-  };
-};
+// se_PutReportDefinitionRequest omitted.
 
-/**
- * serializeAws_json1_1ReportDefinition
- */
-const se_ReportDefinition = (input: ReportDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalArtifacts != null && {
-      AdditionalArtifacts: se_AdditionalArtifactList(input.AdditionalArtifacts, context),
-    }),
-    ...(input.AdditionalSchemaElements != null && {
-      AdditionalSchemaElements: se_SchemaElementList(input.AdditionalSchemaElements, context),
-    }),
-    ...(input.BillingViewArn != null && { BillingViewArn: input.BillingViewArn }),
-    ...(input.Compression != null && { Compression: input.Compression }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.RefreshClosedReports != null && { RefreshClosedReports: input.RefreshClosedReports }),
-    ...(input.ReportName != null && { ReportName: input.ReportName }),
-    ...(input.ReportVersioning != null && { ReportVersioning: input.ReportVersioning }),
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Prefix != null && { S3Prefix: input.S3Prefix }),
-    ...(input.S3Region != null && { S3Region: input.S3Region }),
-    ...(input.TimeUnit != null && { TimeUnit: input.TimeUnit }),
-  };
-};
+// se_ReportDefinition omitted.
 
-/**
- * serializeAws_json1_1SchemaElementList
- */
-const se_SchemaElementList = (input: (SchemaElement | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SchemaElementList omitted.
 
-/**
- * deserializeAws_json1_1AdditionalArtifactList
- */
-const de_AdditionalArtifactList = (output: any, context: __SerdeContext): (AdditionalArtifact | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AdditionalArtifactList omitted.
 
-/**
- * deserializeAws_json1_1DeleteReportDefinitionResponse
- */
-const de_DeleteReportDefinitionResponse = (output: any, context: __SerdeContext): DeleteReportDefinitionResponse => {
-  return {
-    ResponseMessage: __expectString(output.ResponseMessage),
-  } as any;
-};
+// de_DeleteReportDefinitionResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeReportDefinitionsResponse
- */
-const de_DescribeReportDefinitionsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeReportDefinitionsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ReportDefinitions:
-      output.ReportDefinitions != null ? de_ReportDefinitionList(output.ReportDefinitions, context) : undefined,
-  } as any;
-};
+// de_DescribeReportDefinitionsResponse omitted.
 
-/**
- * deserializeAws_json1_1DuplicateReportNameException
- */
-const de_DuplicateReportNameException = (output: any, context: __SerdeContext): DuplicateReportNameException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicateReportNameException omitted.
 
-/**
- * deserializeAws_json1_1InternalErrorException
- */
-const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalErrorException omitted.
 
-/**
- * deserializeAws_json1_1ModifyReportDefinitionResponse
- */
-const de_ModifyReportDefinitionResponse = (output: any, context: __SerdeContext): ModifyReportDefinitionResponse => {
-  return {} as any;
-};
+// de_ModifyReportDefinitionResponse omitted.
 
-/**
- * deserializeAws_json1_1PutReportDefinitionResponse
- */
-const de_PutReportDefinitionResponse = (output: any, context: __SerdeContext): PutReportDefinitionResponse => {
-  return {} as any;
-};
+// de_PutReportDefinitionResponse omitted.
 
-/**
- * deserializeAws_json1_1ReportDefinition
- */
-const de_ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
-  return {
-    AdditionalArtifacts:
-      output.AdditionalArtifacts != null ? de_AdditionalArtifactList(output.AdditionalArtifacts, context) : undefined,
-    AdditionalSchemaElements:
-      output.AdditionalSchemaElements != null
-        ? de_SchemaElementList(output.AdditionalSchemaElements, context)
-        : undefined,
-    BillingViewArn: __expectString(output.BillingViewArn),
-    Compression: __expectString(output.Compression),
-    Format: __expectString(output.Format),
-    RefreshClosedReports: __expectBoolean(output.RefreshClosedReports),
-    ReportName: __expectString(output.ReportName),
-    ReportVersioning: __expectString(output.ReportVersioning),
-    S3Bucket: __expectString(output.S3Bucket),
-    S3Prefix: __expectString(output.S3Prefix),
-    S3Region: __expectString(output.S3Region),
-    TimeUnit: __expectString(output.TimeUnit),
-  } as any;
-};
+// de_ReportDefinition omitted.
 
-/**
- * deserializeAws_json1_1ReportDefinitionList
- */
-const de_ReportDefinitionList = (output: any, context: __SerdeContext): ReportDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReportDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_ReportDefinitionList omitted.
 
-/**
- * deserializeAws_json1_1ReportLimitReachedException
- */
-const de_ReportLimitReachedException = (output: any, context: __SerdeContext): ReportLimitReachedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ReportLimitReachedException omitted.
 
-/**
- * deserializeAws_json1_1SchemaElementList
- */
-const de_SchemaElementList = (output: any, context: __SerdeContext): (SchemaElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SchemaElementList omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -610,6 +413,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

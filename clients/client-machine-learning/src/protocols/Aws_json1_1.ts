@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,7 +12,8 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -84,35 +86,23 @@ import { UpdateMLModelCommandInput, UpdateMLModelCommandOutput } from "../comman
 import { MachineLearningServiceException as __BaseException } from "../models/MachineLearningServiceException";
 import {
   AddTagsInput,
-  AddTagsOutput,
   BatchPrediction,
   CreateBatchPredictionInput,
-  CreateBatchPredictionOutput,
   CreateDataSourceFromRDSInput,
-  CreateDataSourceFromRDSOutput,
   CreateDataSourceFromRedshiftInput,
-  CreateDataSourceFromRedshiftOutput,
   CreateDataSourceFromS3Input,
-  CreateDataSourceFromS3Output,
   CreateEvaluationInput,
-  CreateEvaluationOutput,
   CreateMLModelInput,
-  CreateMLModelOutput,
   CreateRealtimeEndpointInput,
   CreateRealtimeEndpointOutput,
   DataSource,
   DeleteBatchPredictionInput,
-  DeleteBatchPredictionOutput,
   DeleteDataSourceInput,
-  DeleteDataSourceOutput,
   DeleteEvaluationInput,
-  DeleteEvaluationOutput,
   DeleteMLModelInput,
-  DeleteMLModelOutput,
   DeleteRealtimeEndpointInput,
   DeleteRealtimeEndpointOutput,
   DeleteTagsInput,
-  DeleteTagsOutput,
   DescribeBatchPredictionsInput,
   DescribeBatchPredictionsOutput,
   DescribeDataSourcesInput,
@@ -122,8 +112,6 @@ import {
   DescribeMLModelsInput,
   DescribeMLModelsOutput,
   DescribeTagsInput,
-  DescribeTagsOutput,
-  DetailsAttributes,
   Evaluation,
   GetBatchPredictionInput,
   GetBatchPredictionOutput,
@@ -139,7 +127,6 @@ import {
   InvalidTagException,
   LimitExceededException,
   MLModel,
-  PerformanceMetrics,
   PredictInput,
   Prediction,
   PredictorNotMountedException,
@@ -147,24 +134,18 @@ import {
   RDSDatabase,
   RDSDatabaseCredentials,
   RDSDataSpec,
-  RDSMetadata,
   RealtimeEndpointInfo,
   RedshiftDatabase,
   RedshiftDatabaseCredentials,
   RedshiftDataSpec,
-  RedshiftMetadata,
   ResourceNotFoundException,
   S3DataSpec,
   Tag,
   TagLimitExceededException,
   UpdateBatchPredictionInput,
-  UpdateBatchPredictionOutput,
   UpdateDataSourceInput,
-  UpdateDataSourceOutput,
   UpdateEvaluationInput,
-  UpdateEvaluationOutput,
   UpdateMLModelInput,
-  UpdateMLModelOutput,
 } from "../models/models_0";
 
 /**
@@ -176,7 +157,7 @@ export const se_AddTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddTags");
   let body: any;
-  body = JSON.stringify(se_AddTagsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -189,7 +170,7 @@ export const se_CreateBatchPredictionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateBatchPrediction");
   let body: any;
-  body = JSON.stringify(se_CreateBatchPredictionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -202,7 +183,7 @@ export const se_CreateDataSourceFromRDSCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDataSourceFromRDS");
   let body: any;
-  body = JSON.stringify(se_CreateDataSourceFromRDSInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -215,7 +196,7 @@ export const se_CreateDataSourceFromRedshiftCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDataSourceFromRedshift");
   let body: any;
-  body = JSON.stringify(se_CreateDataSourceFromRedshiftInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -228,7 +209,7 @@ export const se_CreateDataSourceFromS3Command = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDataSourceFromS3");
   let body: any;
-  body = JSON.stringify(se_CreateDataSourceFromS3Input(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -241,7 +222,7 @@ export const se_CreateEvaluationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateEvaluation");
   let body: any;
-  body = JSON.stringify(se_CreateEvaluationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -254,7 +235,7 @@ export const se_CreateMLModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateMLModel");
   let body: any;
-  body = JSON.stringify(se_CreateMLModelInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -267,7 +248,7 @@ export const se_CreateRealtimeEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRealtimeEndpoint");
   let body: any;
-  body = JSON.stringify(se_CreateRealtimeEndpointInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -280,7 +261,7 @@ export const se_DeleteBatchPredictionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBatchPrediction");
   let body: any;
-  body = JSON.stringify(se_DeleteBatchPredictionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -293,7 +274,7 @@ export const se_DeleteDataSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDataSource");
   let body: any;
-  body = JSON.stringify(se_DeleteDataSourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -306,7 +287,7 @@ export const se_DeleteEvaluationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEvaluation");
   let body: any;
-  body = JSON.stringify(se_DeleteEvaluationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -319,7 +300,7 @@ export const se_DeleteMLModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteMLModel");
   let body: any;
-  body = JSON.stringify(se_DeleteMLModelInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -332,7 +313,7 @@ export const se_DeleteRealtimeEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRealtimeEndpoint");
   let body: any;
-  body = JSON.stringify(se_DeleteRealtimeEndpointInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -345,7 +326,7 @@ export const se_DeleteTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTags");
   let body: any;
-  body = JSON.stringify(se_DeleteTagsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -358,7 +339,7 @@ export const se_DescribeBatchPredictionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeBatchPredictions");
   let body: any;
-  body = JSON.stringify(se_DescribeBatchPredictionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -371,7 +352,7 @@ export const se_DescribeDataSourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDataSources");
   let body: any;
-  body = JSON.stringify(se_DescribeDataSourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -384,7 +365,7 @@ export const se_DescribeEvaluationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEvaluations");
   let body: any;
-  body = JSON.stringify(se_DescribeEvaluationsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -397,7 +378,7 @@ export const se_DescribeMLModelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeMLModels");
   let body: any;
-  body = JSON.stringify(se_DescribeMLModelsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -410,7 +391,7 @@ export const se_DescribeTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTags");
   let body: any;
-  body = JSON.stringify(se_DescribeTagsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -423,7 +404,7 @@ export const se_GetBatchPredictionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetBatchPrediction");
   let body: any;
-  body = JSON.stringify(se_GetBatchPredictionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -436,7 +417,7 @@ export const se_GetDataSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDataSource");
   let body: any;
-  body = JSON.stringify(se_GetDataSourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -449,7 +430,7 @@ export const se_GetEvaluationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEvaluation");
   let body: any;
-  body = JSON.stringify(se_GetEvaluationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -462,7 +443,7 @@ export const se_GetMLModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetMLModel");
   let body: any;
-  body = JSON.stringify(se_GetMLModelInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -475,7 +456,7 @@ export const se_PredictCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("Predict");
   let body: any;
-  body = JSON.stringify(se_PredictInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -488,7 +469,7 @@ export const se_UpdateBatchPredictionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateBatchPrediction");
   let body: any;
-  body = JSON.stringify(se_UpdateBatchPredictionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -501,7 +482,7 @@ export const se_UpdateDataSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDataSource");
   let body: any;
-  body = JSON.stringify(se_UpdateDataSourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -514,7 +495,7 @@ export const se_UpdateEvaluationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEvaluation");
   let body: any;
-  body = JSON.stringify(se_UpdateEvaluationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -543,12 +524,12 @@ export const de_AddTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddTagsOutput(data, context);
+  contents = _json(data);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -581,10 +562,9 @@ const de_AddTagsCommandError = async (
       throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -602,12 +582,12 @@ export const de_CreateBatchPredictionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateBatchPredictionOutput(data, context);
+  contents = _json(data);
   const response: CreateBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -634,10 +614,9 @@ const de_CreateBatchPredictionCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -655,12 +634,12 @@ export const de_CreateDataSourceFromRDSCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDataSourceFromRDSOutput(data, context);
+  contents = _json(data);
   const response: CreateDataSourceFromRDSCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -687,10 +666,9 @@ const de_CreateDataSourceFromRDSCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -708,12 +686,12 @@ export const de_CreateDataSourceFromRedshiftCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDataSourceFromRedshiftOutput(data, context);
+  contents = _json(data);
   const response: CreateDataSourceFromRedshiftCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -740,10 +718,9 @@ const de_CreateDataSourceFromRedshiftCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -761,12 +738,12 @@ export const de_CreateDataSourceFromS3Command = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDataSourceFromS3Output(data, context);
+  contents = _json(data);
   const response: CreateDataSourceFromS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -793,10 +770,9 @@ const de_CreateDataSourceFromS3CommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -814,12 +790,12 @@ export const de_CreateEvaluationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateEvaluationOutput(data, context);
+  contents = _json(data);
   const response: CreateEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -846,10 +822,9 @@ const de_CreateEvaluationCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -867,12 +842,12 @@ export const de_CreateMLModelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateMLModelOutput(data, context);
+  contents = _json(data);
   const response: CreateMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -899,10 +874,9 @@ const de_CreateMLModelCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -925,7 +899,7 @@ export const de_CreateRealtimeEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -952,10 +926,9 @@ const de_CreateRealtimeEndpointCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -973,12 +946,12 @@ export const de_DeleteBatchPredictionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteBatchPredictionOutput(data, context);
+  contents = _json(data);
   const response: DeleteBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1005,10 +978,9 @@ const de_DeleteBatchPredictionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1026,12 +998,12 @@ export const de_DeleteDataSourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDataSourceOutput(data, context);
+  contents = _json(data);
   const response: DeleteDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1058,10 +1030,9 @@ const de_DeleteDataSourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1079,12 +1050,12 @@ export const de_DeleteEvaluationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteEvaluationOutput(data, context);
+  contents = _json(data);
   const response: DeleteEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1111,10 +1082,9 @@ const de_DeleteEvaluationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1132,12 +1102,12 @@ export const de_DeleteMLModelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteMLModelOutput(data, context);
+  contents = _json(data);
   const response: DeleteMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1164,10 +1134,9 @@ const de_DeleteMLModelCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1190,7 +1159,7 @@ export const de_DeleteRealtimeEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1217,10 +1186,9 @@ const de_DeleteRealtimeEndpointCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1238,12 +1206,12 @@ export const de_DeleteTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTagsOutput(data, context);
+  contents = _json(data);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1273,10 +1241,9 @@ const de_DeleteTagsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1299,7 +1266,7 @@ export const de_DescribeBatchPredictionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1323,10 +1290,9 @@ const de_DescribeBatchPredictionsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1349,7 +1315,7 @@ export const de_DescribeDataSourcesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1373,10 +1339,9 @@ const de_DescribeDataSourcesCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1399,7 +1364,7 @@ export const de_DescribeEvaluationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1423,10 +1388,9 @@ const de_DescribeEvaluationsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1449,7 +1413,7 @@ export const de_DescribeMLModelsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1473,10 +1437,9 @@ const de_DescribeMLModelsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1494,12 +1457,12 @@ export const de_DescribeTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeTagsOutput(data, context);
+  contents = _json(data);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1526,10 +1489,9 @@ const de_DescribeTagsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1552,7 +1514,7 @@ export const de_GetBatchPredictionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1579,10 +1541,9 @@ const de_GetBatchPredictionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1605,7 +1566,7 @@ export const de_GetDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1632,10 +1593,9 @@ const de_GetDataSourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1658,7 +1618,7 @@ export const de_GetEvaluationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1685,10 +1645,9 @@ const de_GetEvaluationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1711,7 +1670,7 @@ export const de_GetMLModelCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1738,10 +1697,9 @@ const de_GetMLModelCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1764,7 +1722,7 @@ export const de_PredictCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1797,10 +1755,9 @@ const de_PredictCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1818,12 +1775,12 @@ export const de_UpdateBatchPredictionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateBatchPredictionOutput(data, context);
+  contents = _json(data);
   const response: UpdateBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1850,10 +1807,9 @@ const de_UpdateBatchPredictionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1871,12 +1827,12 @@ export const de_UpdateDataSourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDataSourceOutput(data, context);
+  contents = _json(data);
   const response: UpdateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1903,10 +1859,9 @@ const de_UpdateDataSourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1924,12 +1879,12 @@ export const de_UpdateEvaluationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateEvaluationOutput(data, context);
+  contents = _json(data);
   const response: UpdateEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1956,10 +1911,9 @@ const de_UpdateEvaluationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1977,12 +1931,12 @@ export const de_UpdateMLModelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateMLModelOutput(data, context);
+  contents = _json(data);
   const response: UpdateMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2009,10 +1963,9 @@ const de_UpdateMLModelCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2026,7 +1979,7 @@ const de_IdempotentParameterMismatchExceptionRes = async (
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IdempotentParameterMismatchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IdempotentParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2042,7 +1995,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2058,7 +2011,7 @@ const de_InvalidInputExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2071,7 +2024,7 @@ const de_InvalidInputExceptionRes = async (
  */
 const de_InvalidTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTagException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2087,7 +2040,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2103,7 +2056,7 @@ const de_PredictorNotMountedExceptionRes = async (
   context: __SerdeContext
 ): Promise<PredictorNotMountedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PredictorNotMountedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PredictorNotMountedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2119,7 +2072,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2135,7 +2088,7 @@ const de_TagLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2143,544 +2096,121 @@ const de_TagLimitExceededExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AddTagsInput
- */
-const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_AddTagsInput omitted.
 
-/**
- * serializeAws_json1_1CreateBatchPredictionInput
- */
-const se_CreateBatchPredictionInput = (input: CreateBatchPredictionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchPredictionDataSourceId != null && {
-      BatchPredictionDataSourceId: input.BatchPredictionDataSourceId,
-    }),
-    ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
-    ...(input.BatchPredictionName != null && { BatchPredictionName: input.BatchPredictionName }),
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-    ...(input.OutputUri != null && { OutputUri: input.OutputUri }),
-  };
-};
+// se_CreateBatchPredictionInput omitted.
 
-/**
- * serializeAws_json1_1CreateDataSourceFromRDSInput
- */
-const se_CreateDataSourceFromRDSInput = (input: CreateDataSourceFromRDSInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
-    ...(input.RDSData != null && { RDSData: se_RDSDataSpec(input.RDSData, context) }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-  };
-};
+// se_CreateDataSourceFromRDSInput omitted.
 
-/**
- * serializeAws_json1_1CreateDataSourceFromRedshiftInput
- */
-const se_CreateDataSourceFromRedshiftInput = (
-  input: CreateDataSourceFromRedshiftInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
-    ...(input.DataSpec != null && { DataSpec: se_RedshiftDataSpec(input.DataSpec, context) }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-  };
-};
+// se_CreateDataSourceFromRedshiftInput omitted.
 
-/**
- * serializeAws_json1_1CreateDataSourceFromS3Input
- */
-const se_CreateDataSourceFromS3Input = (input: CreateDataSourceFromS3Input, context: __SerdeContext): any => {
-  return {
-    ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
-    ...(input.DataSpec != null && { DataSpec: se_S3DataSpec(input.DataSpec, context) }),
-  };
-};
+// se_CreateDataSourceFromS3Input omitted.
 
-/**
- * serializeAws_json1_1CreateEvaluationInput
- */
-const se_CreateEvaluationInput = (input: CreateEvaluationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EvaluationDataSourceId != null && { EvaluationDataSourceId: input.EvaluationDataSourceId }),
-    ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
-    ...(input.EvaluationName != null && { EvaluationName: input.EvaluationName }),
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-  };
-};
+// se_CreateEvaluationInput omitted.
 
-/**
- * serializeAws_json1_1CreateMLModelInput
- */
-const se_CreateMLModelInput = (input: CreateMLModelInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-    ...(input.MLModelName != null && { MLModelName: input.MLModelName }),
-    ...(input.MLModelType != null && { MLModelType: input.MLModelType }),
-    ...(input.Parameters != null && { Parameters: se_TrainingParameters(input.Parameters, context) }),
-    ...(input.Recipe != null && { Recipe: input.Recipe }),
-    ...(input.RecipeUri != null && { RecipeUri: input.RecipeUri }),
-    ...(input.TrainingDataSourceId != null && { TrainingDataSourceId: input.TrainingDataSourceId }),
-  };
-};
+// se_CreateMLModelInput omitted.
 
-/**
- * serializeAws_json1_1CreateRealtimeEndpointInput
- */
-const se_CreateRealtimeEndpointInput = (input: CreateRealtimeEndpointInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-  };
-};
+// se_CreateRealtimeEndpointInput omitted.
 
-/**
- * serializeAws_json1_1DeleteBatchPredictionInput
- */
-const se_DeleteBatchPredictionInput = (input: DeleteBatchPredictionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
-  };
-};
+// se_DeleteBatchPredictionInput omitted.
 
-/**
- * serializeAws_json1_1DeleteDataSourceInput
- */
-const se_DeleteDataSourceInput = (input: DeleteDataSourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
-  };
-};
+// se_DeleteDataSourceInput omitted.
 
-/**
- * serializeAws_json1_1DeleteEvaluationInput
- */
-const se_DeleteEvaluationInput = (input: DeleteEvaluationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
-  };
-};
+// se_DeleteEvaluationInput omitted.
 
-/**
- * serializeAws_json1_1DeleteMLModelInput
- */
-const se_DeleteMLModelInput = (input: DeleteMLModelInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-  };
-};
+// se_DeleteMLModelInput omitted.
 
-/**
- * serializeAws_json1_1DeleteRealtimeEndpointInput
- */
-const se_DeleteRealtimeEndpointInput = (input: DeleteRealtimeEndpointInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-  };
-};
+// se_DeleteRealtimeEndpointInput omitted.
 
-/**
- * serializeAws_json1_1DeleteTagsInput
- */
-const se_DeleteTagsInput = (input: DeleteTagsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_DeleteTagsInput omitted.
 
-/**
- * serializeAws_json1_1DescribeBatchPredictionsInput
- */
-const se_DescribeBatchPredictionsInput = (input: DescribeBatchPredictionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EQ != null && { EQ: input.EQ }),
-    ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
-    ...(input.GE != null && { GE: input.GE }),
-    ...(input.GT != null && { GT: input.GT }),
-    ...(input.LE != null && { LE: input.LE }),
-    ...(input.LT != null && { LT: input.LT }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NE != null && { NE: input.NE }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_DescribeBatchPredictionsInput omitted.
 
-/**
- * serializeAws_json1_1DescribeDataSourcesInput
- */
-const se_DescribeDataSourcesInput = (input: DescribeDataSourcesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EQ != null && { EQ: input.EQ }),
-    ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
-    ...(input.GE != null && { GE: input.GE }),
-    ...(input.GT != null && { GT: input.GT }),
-    ...(input.LE != null && { LE: input.LE }),
-    ...(input.LT != null && { LT: input.LT }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NE != null && { NE: input.NE }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_DescribeDataSourcesInput omitted.
 
-/**
- * serializeAws_json1_1DescribeEvaluationsInput
- */
-const se_DescribeEvaluationsInput = (input: DescribeEvaluationsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EQ != null && { EQ: input.EQ }),
-    ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
-    ...(input.GE != null && { GE: input.GE }),
-    ...(input.GT != null && { GT: input.GT }),
-    ...(input.LE != null && { LE: input.LE }),
-    ...(input.LT != null && { LT: input.LT }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NE != null && { NE: input.NE }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_DescribeEvaluationsInput omitted.
 
-/**
- * serializeAws_json1_1DescribeMLModelsInput
- */
-const se_DescribeMLModelsInput = (input: DescribeMLModelsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EQ != null && { EQ: input.EQ }),
-    ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
-    ...(input.GE != null && { GE: input.GE }),
-    ...(input.GT != null && { GT: input.GT }),
-    ...(input.LE != null && { LE: input.LE }),
-    ...(input.LT != null && { LT: input.LT }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NE != null && { NE: input.NE }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_DescribeMLModelsInput omitted.
 
-/**
- * serializeAws_json1_1DescribeTagsInput
- */
-const se_DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
+// se_DescribeTagsInput omitted.
 
-/**
- * serializeAws_json1_1EDPSecurityGroupIds
- */
-const se_EDPSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EDPSecurityGroupIds omitted.
 
-/**
- * serializeAws_json1_1GetBatchPredictionInput
- */
-const se_GetBatchPredictionInput = (input: GetBatchPredictionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
-  };
-};
+// se_GetBatchPredictionInput omitted.
 
-/**
- * serializeAws_json1_1GetDataSourceInput
- */
-const se_GetDataSourceInput = (input: GetDataSourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
-    ...(input.Verbose != null && { Verbose: input.Verbose }),
-  };
-};
+// se_GetDataSourceInput omitted.
 
-/**
- * serializeAws_json1_1GetEvaluationInput
- */
-const se_GetEvaluationInput = (input: GetEvaluationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
-  };
-};
+// se_GetEvaluationInput omitted.
 
-/**
- * serializeAws_json1_1GetMLModelInput
- */
-const se_GetMLModelInput = (input: GetMLModelInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-    ...(input.Verbose != null && { Verbose: input.Verbose }),
-  };
-};
+// se_GetMLModelInput omitted.
 
-/**
- * serializeAws_json1_1PredictInput
- */
-const se_PredictInput = (input: PredictInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-    ...(input.PredictEndpoint != null && { PredictEndpoint: input.PredictEndpoint }),
-    ...(input.Record != null && { Record: se_Record(input.Record, context) }),
-  };
-};
+// se_PredictInput omitted.
 
-/**
- * serializeAws_json1_1RDSDatabase
- */
-const se_RDSDatabase = (input: RDSDatabase, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.InstanceIdentifier != null && { InstanceIdentifier: input.InstanceIdentifier }),
-  };
-};
+// se_RDSDatabase omitted.
 
-/**
- * serializeAws_json1_1RDSDatabaseCredentials
- */
-const se_RDSDatabaseCredentials = (input: RDSDatabaseCredentials, context: __SerdeContext): any => {
-  return {
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_RDSDatabaseCredentials omitted.
 
-/**
- * serializeAws_json1_1RDSDataSpec
- */
-const se_RDSDataSpec = (input: RDSDataSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema != null && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaUri != null && { DataSchemaUri: input.DataSchemaUri }),
-    ...(input.DatabaseCredentials != null && {
-      DatabaseCredentials: se_RDSDatabaseCredentials(input.DatabaseCredentials, context),
-    }),
-    ...(input.DatabaseInformation != null && {
-      DatabaseInformation: se_RDSDatabase(input.DatabaseInformation, context),
-    }),
-    ...(input.ResourceRole != null && { ResourceRole: input.ResourceRole }),
-    ...(input.S3StagingLocation != null && { S3StagingLocation: input.S3StagingLocation }),
-    ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: se_EDPSecurityGroupIds(input.SecurityGroupIds, context),
-    }),
-    ...(input.SelectSqlQuery != null && { SelectSqlQuery: input.SelectSqlQuery }),
-    ...(input.ServiceRole != null && { ServiceRole: input.ServiceRole }),
-    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
-  };
-};
+// se_RDSDataSpec omitted.
 
-/**
- * serializeAws_json1_1Record
- */
-const se_Record = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Record omitted.
 
-/**
- * serializeAws_json1_1RedshiftDatabase
- */
-const se_RedshiftDatabase = (input: RedshiftDatabase, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-  };
-};
+// se_RedshiftDatabase omitted.
 
-/**
- * serializeAws_json1_1RedshiftDatabaseCredentials
- */
-const se_RedshiftDatabaseCredentials = (input: RedshiftDatabaseCredentials, context: __SerdeContext): any => {
-  return {
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_RedshiftDatabaseCredentials omitted.
 
-/**
- * serializeAws_json1_1RedshiftDataSpec
- */
-const se_RedshiftDataSpec = (input: RedshiftDataSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema != null && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaUri != null && { DataSchemaUri: input.DataSchemaUri }),
-    ...(input.DatabaseCredentials != null && {
-      DatabaseCredentials: se_RedshiftDatabaseCredentials(input.DatabaseCredentials, context),
-    }),
-    ...(input.DatabaseInformation != null && {
-      DatabaseInformation: se_RedshiftDatabase(input.DatabaseInformation, context),
-    }),
-    ...(input.S3StagingLocation != null && { S3StagingLocation: input.S3StagingLocation }),
-    ...(input.SelectSqlQuery != null && { SelectSqlQuery: input.SelectSqlQuery }),
-  };
-};
+// se_RedshiftDataSpec omitted.
 
-/**
- * serializeAws_json1_1S3DataSpec
- */
-const se_S3DataSpec = (input: S3DataSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.DataLocationS3 != null && { DataLocationS3: input.DataLocationS3 }),
-    ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema != null && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaLocationS3 != null && { DataSchemaLocationS3: input.DataSchemaLocationS3 }),
-  };
-};
+// se_S3DataSpec omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TrainingParameters
- */
-const se_TrainingParameters = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TrainingParameters omitted.
 
-/**
- * serializeAws_json1_1UpdateBatchPredictionInput
- */
-const se_UpdateBatchPredictionInput = (input: UpdateBatchPredictionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
-    ...(input.BatchPredictionName != null && { BatchPredictionName: input.BatchPredictionName }),
-  };
-};
+// se_UpdateBatchPredictionInput omitted.
 
-/**
- * serializeAws_json1_1UpdateDataSourceInput
- */
-const se_UpdateDataSourceInput = (input: UpdateDataSourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
-  };
-};
+// se_UpdateDataSourceInput omitted.
 
-/**
- * serializeAws_json1_1UpdateEvaluationInput
- */
-const se_UpdateEvaluationInput = (input: UpdateEvaluationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
-    ...(input.EvaluationName != null && { EvaluationName: input.EvaluationName }),
-  };
-};
+// se_UpdateEvaluationInput omitted.
 
 /**
  * serializeAws_json1_1UpdateMLModelInput
  */
 const se_UpdateMLModelInput = (input: UpdateMLModelInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
-    ...(input.MLModelName != null && { MLModelName: input.MLModelName }),
-    ...(input.ScoreThreshold != null && { ScoreThreshold: __serializeFloat(input.ScoreThreshold) }),
-  };
+  return take(input, {
+    MLModelId: [],
+    MLModelName: [],
+    ScoreThreshold: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * deserializeAws_json1_1AddTagsOutput
- */
-const de_AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
-  return {
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_AddTagsOutput omitted.
 
 /**
  * deserializeAws_json1_1BatchPrediction
  */
 const de_BatchPrediction = (output: any, context: __SerdeContext): BatchPrediction => {
-  return {
-    BatchPredictionDataSourceId: __expectString(output.BatchPredictionDataSourceId),
-    BatchPredictionId: __expectString(output.BatchPredictionId),
-    ComputeTime: __expectLong(output.ComputeTime),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    FinishedAt:
-      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
-    InputDataLocationS3: __expectString(output.InputDataLocationS3),
-    InvalidRecordCount: __expectLong(output.InvalidRecordCount),
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    MLModelId: __expectString(output.MLModelId),
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    OutputUri: __expectString(output.OutputUri),
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
-    Status: __expectString(output.Status),
-    TotalRecordCount: __expectLong(output.TotalRecordCount),
-  } as any;
+  return take(output, {
+    BatchPredictionDataSourceId: __expectString,
+    BatchPredictionId: __expectString,
+    ComputeTime: __expectLong,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByIamUser: __expectString,
+    FinishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataLocationS3: __expectString,
+    InvalidRecordCount: __expectLong,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MLModelId: __expectString,
+    Message: __expectString,
+    Name: __expectString,
+    OutputUri: __expectString,
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    TotalRecordCount: __expectLong,
+  }) as any;
 };
 
 /**
@@ -2690,113 +2220,57 @@ const de_BatchPredictions = (output: any, context: __SerdeContext): BatchPredict
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchPrediction(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CreateBatchPredictionOutput
- */
-const de_CreateBatchPredictionOutput = (output: any, context: __SerdeContext): CreateBatchPredictionOutput => {
-  return {
-    BatchPredictionId: __expectString(output.BatchPredictionId),
-  } as any;
-};
+// de_CreateBatchPredictionOutput omitted.
 
-/**
- * deserializeAws_json1_1CreateDataSourceFromRDSOutput
- */
-const de_CreateDataSourceFromRDSOutput = (output: any, context: __SerdeContext): CreateDataSourceFromRDSOutput => {
-  return {
-    DataSourceId: __expectString(output.DataSourceId),
-  } as any;
-};
+// de_CreateDataSourceFromRDSOutput omitted.
 
-/**
- * deserializeAws_json1_1CreateDataSourceFromRedshiftOutput
- */
-const de_CreateDataSourceFromRedshiftOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateDataSourceFromRedshiftOutput => {
-  return {
-    DataSourceId: __expectString(output.DataSourceId),
-  } as any;
-};
+// de_CreateDataSourceFromRedshiftOutput omitted.
 
-/**
- * deserializeAws_json1_1CreateDataSourceFromS3Output
- */
-const de_CreateDataSourceFromS3Output = (output: any, context: __SerdeContext): CreateDataSourceFromS3Output => {
-  return {
-    DataSourceId: __expectString(output.DataSourceId),
-  } as any;
-};
+// de_CreateDataSourceFromS3Output omitted.
 
-/**
- * deserializeAws_json1_1CreateEvaluationOutput
- */
-const de_CreateEvaluationOutput = (output: any, context: __SerdeContext): CreateEvaluationOutput => {
-  return {
-    EvaluationId: __expectString(output.EvaluationId),
-  } as any;
-};
+// de_CreateEvaluationOutput omitted.
 
-/**
- * deserializeAws_json1_1CreateMLModelOutput
- */
-const de_CreateMLModelOutput = (output: any, context: __SerdeContext): CreateMLModelOutput => {
-  return {
-    MLModelId: __expectString(output.MLModelId),
-  } as any;
-};
+// de_CreateMLModelOutput omitted.
 
 /**
  * deserializeAws_json1_1CreateRealtimeEndpointOutput
  */
 const de_CreateRealtimeEndpointOutput = (output: any, context: __SerdeContext): CreateRealtimeEndpointOutput => {
-  return {
-    MLModelId: __expectString(output.MLModelId),
-    RealtimeEndpointInfo:
-      output.RealtimeEndpointInfo != null ? de_RealtimeEndpointInfo(output.RealtimeEndpointInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    MLModelId: __expectString,
+    RealtimeEndpointInfo: (_: any) => de_RealtimeEndpointInfo(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DataSource
  */
 const de_DataSource = (output: any, context: __SerdeContext): DataSource => {
-  return {
-    ComputeStatistics: __expectBoolean(output.ComputeStatistics),
-    ComputeTime: __expectLong(output.ComputeTime),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    DataLocationS3: __expectString(output.DataLocationS3),
-    DataRearrangement: __expectString(output.DataRearrangement),
-    DataSizeInBytes: __expectLong(output.DataSizeInBytes),
-    DataSourceId: __expectString(output.DataSourceId),
-    FinishedAt:
-      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    NumberOfFiles: __expectLong(output.NumberOfFiles),
-    RDSMetadata: output.RDSMetadata != null ? de_RDSMetadata(output.RDSMetadata, context) : undefined,
-    RedshiftMetadata:
-      output.RedshiftMetadata != null ? de_RedshiftMetadata(output.RedshiftMetadata, context) : undefined,
-    RoleARN: __expectString(output.RoleARN),
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    ComputeStatistics: __expectBoolean,
+    ComputeTime: __expectLong,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByIamUser: __expectString,
+    DataLocationS3: __expectString,
+    DataRearrangement: __expectString,
+    DataSizeInBytes: __expectLong,
+    DataSourceId: __expectString,
+    FinishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Name: __expectString,
+    NumberOfFiles: __expectLong,
+    RDSMetadata: _json,
+    RedshiftMetadata: _json,
+    RoleARN: __expectString,
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -2806,165 +2280,95 @@ const de_DataSources = (output: any, context: __SerdeContext): DataSource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DataSource(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DeleteBatchPredictionOutput
- */
-const de_DeleteBatchPredictionOutput = (output: any, context: __SerdeContext): DeleteBatchPredictionOutput => {
-  return {
-    BatchPredictionId: __expectString(output.BatchPredictionId),
-  } as any;
-};
+// de_DeleteBatchPredictionOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteDataSourceOutput
- */
-const de_DeleteDataSourceOutput = (output: any, context: __SerdeContext): DeleteDataSourceOutput => {
-  return {
-    DataSourceId: __expectString(output.DataSourceId),
-  } as any;
-};
+// de_DeleteDataSourceOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteEvaluationOutput
- */
-const de_DeleteEvaluationOutput = (output: any, context: __SerdeContext): DeleteEvaluationOutput => {
-  return {
-    EvaluationId: __expectString(output.EvaluationId),
-  } as any;
-};
+// de_DeleteEvaluationOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteMLModelOutput
- */
-const de_DeleteMLModelOutput = (output: any, context: __SerdeContext): DeleteMLModelOutput => {
-  return {
-    MLModelId: __expectString(output.MLModelId),
-  } as any;
-};
+// de_DeleteMLModelOutput omitted.
 
 /**
  * deserializeAws_json1_1DeleteRealtimeEndpointOutput
  */
 const de_DeleteRealtimeEndpointOutput = (output: any, context: __SerdeContext): DeleteRealtimeEndpointOutput => {
-  return {
-    MLModelId: __expectString(output.MLModelId),
-    RealtimeEndpointInfo:
-      output.RealtimeEndpointInfo != null ? de_RealtimeEndpointInfo(output.RealtimeEndpointInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    MLModelId: __expectString,
+    RealtimeEndpointInfo: (_: any) => de_RealtimeEndpointInfo(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteTagsOutput
- */
-const de_DeleteTagsOutput = (output: any, context: __SerdeContext): DeleteTagsOutput => {
-  return {
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_DeleteTagsOutput omitted.
 
 /**
  * deserializeAws_json1_1DescribeBatchPredictionsOutput
  */
 const de_DescribeBatchPredictionsOutput = (output: any, context: __SerdeContext): DescribeBatchPredictionsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? de_BatchPredictions(output.Results, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Results: (_: any) => de_BatchPredictions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeDataSourcesOutput
  */
 const de_DescribeDataSourcesOutput = (output: any, context: __SerdeContext): DescribeDataSourcesOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? de_DataSources(output.Results, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Results: (_: any) => de_DataSources(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeEvaluationsOutput
  */
 const de_DescribeEvaluationsOutput = (output: any, context: __SerdeContext): DescribeEvaluationsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? de_Evaluations(output.Results, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Results: (_: any) => de_Evaluations(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeMLModelsOutput
  */
 const de_DescribeMLModelsOutput = (output: any, context: __SerdeContext): DescribeMLModelsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? de_MLModels(output.Results, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Results: (_: any) => de_MLModels(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeTagsOutput
- */
-const de_DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
-  return {
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_DescribeTagsOutput omitted.
 
-/**
- * deserializeAws_json1_1DetailsMap
- */
-const de_DetailsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DetailsAttributes | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_DetailsMap omitted.
 
 /**
  * deserializeAws_json1_1Evaluation
  */
 const de_Evaluation = (output: any, context: __SerdeContext): Evaluation => {
-  return {
-    ComputeTime: __expectLong(output.ComputeTime),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    EvaluationDataSourceId: __expectString(output.EvaluationDataSourceId),
-    EvaluationId: __expectString(output.EvaluationId),
-    FinishedAt:
-      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
-    InputDataLocationS3: __expectString(output.InputDataLocationS3),
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    MLModelId: __expectString(output.MLModelId),
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    PerformanceMetrics:
-      output.PerformanceMetrics != null ? de_PerformanceMetrics(output.PerformanceMetrics, context) : undefined,
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    ComputeTime: __expectLong,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByIamUser: __expectString,
+    EvaluationDataSourceId: __expectString,
+    EvaluationId: __expectString,
+    FinishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataLocationS3: __expectString,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MLModelId: __expectString,
+    Message: __expectString,
+    Name: __expectString,
+    PerformanceMetrics: _json,
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -2974,9 +2378,6 @@ const de_Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Evaluation(entry, context);
     });
   return retVal;
@@ -2986,224 +2387,142 @@ const de_Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
  * deserializeAws_json1_1GetBatchPredictionOutput
  */
 const de_GetBatchPredictionOutput = (output: any, context: __SerdeContext): GetBatchPredictionOutput => {
-  return {
-    BatchPredictionDataSourceId: __expectString(output.BatchPredictionDataSourceId),
-    BatchPredictionId: __expectString(output.BatchPredictionId),
-    ComputeTime: __expectLong(output.ComputeTime),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    FinishedAt:
-      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
-    InputDataLocationS3: __expectString(output.InputDataLocationS3),
-    InvalidRecordCount: __expectLong(output.InvalidRecordCount),
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    LogUri: __expectString(output.LogUri),
-    MLModelId: __expectString(output.MLModelId),
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    OutputUri: __expectString(output.OutputUri),
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
-    Status: __expectString(output.Status),
-    TotalRecordCount: __expectLong(output.TotalRecordCount),
-  } as any;
+  return take(output, {
+    BatchPredictionDataSourceId: __expectString,
+    BatchPredictionId: __expectString,
+    ComputeTime: __expectLong,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByIamUser: __expectString,
+    FinishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataLocationS3: __expectString,
+    InvalidRecordCount: __expectLong,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogUri: __expectString,
+    MLModelId: __expectString,
+    Message: __expectString,
+    Name: __expectString,
+    OutputUri: __expectString,
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    TotalRecordCount: __expectLong,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetDataSourceOutput
  */
 const de_GetDataSourceOutput = (output: any, context: __SerdeContext): GetDataSourceOutput => {
-  return {
-    ComputeStatistics: __expectBoolean(output.ComputeStatistics),
-    ComputeTime: __expectLong(output.ComputeTime),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    DataLocationS3: __expectString(output.DataLocationS3),
-    DataRearrangement: __expectString(output.DataRearrangement),
-    DataSizeInBytes: __expectLong(output.DataSizeInBytes),
-    DataSourceId: __expectString(output.DataSourceId),
-    DataSourceSchema: __expectString(output.DataSourceSchema),
-    FinishedAt:
-      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    LogUri: __expectString(output.LogUri),
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    NumberOfFiles: __expectLong(output.NumberOfFiles),
-    RDSMetadata: output.RDSMetadata != null ? de_RDSMetadata(output.RDSMetadata, context) : undefined,
-    RedshiftMetadata:
-      output.RedshiftMetadata != null ? de_RedshiftMetadata(output.RedshiftMetadata, context) : undefined,
-    RoleARN: __expectString(output.RoleARN),
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    ComputeStatistics: __expectBoolean,
+    ComputeTime: __expectLong,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByIamUser: __expectString,
+    DataLocationS3: __expectString,
+    DataRearrangement: __expectString,
+    DataSizeInBytes: __expectLong,
+    DataSourceId: __expectString,
+    DataSourceSchema: __expectString,
+    FinishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogUri: __expectString,
+    Message: __expectString,
+    Name: __expectString,
+    NumberOfFiles: __expectLong,
+    RDSMetadata: _json,
+    RedshiftMetadata: _json,
+    RoleARN: __expectString,
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetEvaluationOutput
  */
 const de_GetEvaluationOutput = (output: any, context: __SerdeContext): GetEvaluationOutput => {
-  return {
-    ComputeTime: __expectLong(output.ComputeTime),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    EvaluationDataSourceId: __expectString(output.EvaluationDataSourceId),
-    EvaluationId: __expectString(output.EvaluationId),
-    FinishedAt:
-      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
-    InputDataLocationS3: __expectString(output.InputDataLocationS3),
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    LogUri: __expectString(output.LogUri),
-    MLModelId: __expectString(output.MLModelId),
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    PerformanceMetrics:
-      output.PerformanceMetrics != null ? de_PerformanceMetrics(output.PerformanceMetrics, context) : undefined,
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    ComputeTime: __expectLong,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByIamUser: __expectString,
+    EvaluationDataSourceId: __expectString,
+    EvaluationId: __expectString,
+    FinishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataLocationS3: __expectString,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogUri: __expectString,
+    MLModelId: __expectString,
+    Message: __expectString,
+    Name: __expectString,
+    PerformanceMetrics: _json,
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetMLModelOutput
  */
 const de_GetMLModelOutput = (output: any, context: __SerdeContext): GetMLModelOutput => {
-  return {
-    ComputeTime: __expectLong(output.ComputeTime),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    EndpointInfo: output.EndpointInfo != null ? de_RealtimeEndpointInfo(output.EndpointInfo, context) : undefined,
-    FinishedAt:
-      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
-    InputDataLocationS3: __expectString(output.InputDataLocationS3),
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    LogUri: __expectString(output.LogUri),
-    MLModelId: __expectString(output.MLModelId),
-    MLModelType: __expectString(output.MLModelType),
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    Recipe: __expectString(output.Recipe),
-    Schema: __expectString(output.Schema),
-    ScoreThreshold: __limitedParseFloat32(output.ScoreThreshold),
-    ScoreThresholdLastUpdatedAt:
-      output.ScoreThresholdLastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScoreThresholdLastUpdatedAt)))
-        : undefined,
-    SizeInBytes: __expectLong(output.SizeInBytes),
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
-    Status: __expectString(output.Status),
-    TrainingDataSourceId: __expectString(output.TrainingDataSourceId),
-    TrainingParameters:
-      output.TrainingParameters != null ? de_TrainingParameters(output.TrainingParameters, context) : undefined,
-  } as any;
+  return take(output, {
+    ComputeTime: __expectLong,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByIamUser: __expectString,
+    EndpointInfo: (_: any) => de_RealtimeEndpointInfo(_, context),
+    FinishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataLocationS3: __expectString,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogUri: __expectString,
+    MLModelId: __expectString,
+    MLModelType: __expectString,
+    Message: __expectString,
+    Name: __expectString,
+    Recipe: __expectString,
+    Schema: __expectString,
+    ScoreThreshold: __limitedParseFloat32,
+    ScoreThresholdLastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SizeInBytes: __expectLong,
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    TrainingDataSourceId: __expectString,
+    TrainingParameters: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1IdempotentParameterMismatchException
- */
-const de_IdempotentParameterMismatchException = (
-  output: any,
-  context: __SerdeContext
-): IdempotentParameterMismatchException => {
-  return {
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_IdempotentParameterMismatchException omitted.
 
-/**
- * deserializeAws_json1_1InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_1InvalidInputException
- */
-const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidInputException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTagException
- */
-const de_InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTagException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1MLModel
  */
 const de_MLModel = (output: any, context: __SerdeContext): MLModel => {
-  return {
-    Algorithm: __expectString(output.Algorithm),
-    ComputeTime: __expectLong(output.ComputeTime),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    EndpointInfo: output.EndpointInfo != null ? de_RealtimeEndpointInfo(output.EndpointInfo, context) : undefined,
-    FinishedAt:
-      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
-    InputDataLocationS3: __expectString(output.InputDataLocationS3),
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    MLModelId: __expectString(output.MLModelId),
-    MLModelType: __expectString(output.MLModelType),
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    ScoreThreshold: __limitedParseFloat32(output.ScoreThreshold),
-    ScoreThresholdLastUpdatedAt:
-      output.ScoreThresholdLastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScoreThresholdLastUpdatedAt)))
-        : undefined,
-    SizeInBytes: __expectLong(output.SizeInBytes),
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
-    Status: __expectString(output.Status),
-    TrainingDataSourceId: __expectString(output.TrainingDataSourceId),
-    TrainingParameters:
-      output.TrainingParameters != null ? de_TrainingParameters(output.TrainingParameters, context) : undefined,
-  } as any;
+  return take(output, {
+    Algorithm: __expectString,
+    ComputeTime: __expectLong,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByIamUser: __expectString,
+    EndpointInfo: (_: any) => de_RealtimeEndpointInfo(_, context),
+    FinishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataLocationS3: __expectString,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MLModelId: __expectString,
+    MLModelType: __expectString,
+    Message: __expectString,
+    Name: __expectString,
+    ScoreThreshold: __limitedParseFloat32,
+    ScoreThresholdLastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SizeInBytes: __expectLong,
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    TrainingDataSourceId: __expectString,
+    TrainingParameters: _json,
+  }) as any;
 };
 
 /**
@@ -3213,135 +2532,59 @@ const de_MLModels = (output: any, context: __SerdeContext): MLModel[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MLModel(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1PerformanceMetrics
- */
-const de_PerformanceMetrics = (output: any, context: __SerdeContext): PerformanceMetrics => {
-  return {
-    Properties: output.Properties != null ? de_PerformanceMetricsProperties(output.Properties, context) : undefined,
-  } as any;
-};
+// de_PerformanceMetrics omitted.
 
-/**
- * deserializeAws_json1_1PerformanceMetricsProperties
- */
-const de_PerformanceMetricsProperties = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_PerformanceMetricsProperties omitted.
 
 /**
  * deserializeAws_json1_1Prediction
  */
 const de_Prediction = (output: any, context: __SerdeContext): Prediction => {
-  return {
-    details: output.details != null ? de_DetailsMap(output.details, context) : undefined,
-    predictedLabel: __expectString(output.predictedLabel),
-    predictedScores:
-      output.predictedScores != null ? de_ScoreValuePerLabelMap(output.predictedScores, context) : undefined,
-    predictedValue: __limitedParseFloat32(output.predictedValue),
-  } as any;
+  return take(output, {
+    details: _json,
+    predictedLabel: __expectString,
+    predictedScores: (_: any) => de_ScoreValuePerLabelMap(_, context),
+    predictedValue: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PredictorNotMountedException
- */
-const de_PredictorNotMountedException = (output: any, context: __SerdeContext): PredictorNotMountedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PredictorNotMountedException omitted.
 
 /**
  * deserializeAws_json1_1PredictOutput
  */
 const de_PredictOutput = (output: any, context: __SerdeContext): PredictOutput => {
-  return {
-    Prediction: output.Prediction != null ? de_Prediction(output.Prediction, context) : undefined,
-  } as any;
+  return take(output, {
+    Prediction: (_: any) => de_Prediction(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RDSDatabase
- */
-const de_RDSDatabase = (output: any, context: __SerdeContext): RDSDatabase => {
-  return {
-    DatabaseName: __expectString(output.DatabaseName),
-    InstanceIdentifier: __expectString(output.InstanceIdentifier),
-  } as any;
-};
+// de_RDSDatabase omitted.
 
-/**
- * deserializeAws_json1_1RDSMetadata
- */
-const de_RDSMetadata = (output: any, context: __SerdeContext): RDSMetadata => {
-  return {
-    DataPipelineId: __expectString(output.DataPipelineId),
-    Database: output.Database != null ? de_RDSDatabase(output.Database, context) : undefined,
-    DatabaseUserName: __expectString(output.DatabaseUserName),
-    ResourceRole: __expectString(output.ResourceRole),
-    SelectSqlQuery: __expectString(output.SelectSqlQuery),
-    ServiceRole: __expectString(output.ServiceRole),
-  } as any;
-};
+// de_RDSMetadata omitted.
 
 /**
  * deserializeAws_json1_1RealtimeEndpointInfo
  */
 const de_RealtimeEndpointInfo = (output: any, context: __SerdeContext): RealtimeEndpointInfo => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    EndpointStatus: __expectString(output.EndpointStatus),
-    EndpointUrl: __expectString(output.EndpointUrl),
-    PeakRequestsPerSecond: __expectInt32(output.PeakRequestsPerSecond),
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndpointStatus: __expectString,
+    EndpointUrl: __expectString,
+    PeakRequestsPerSecond: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RedshiftDatabase
- */
-const de_RedshiftDatabase = (output: any, context: __SerdeContext): RedshiftDatabase => {
-  return {
-    ClusterIdentifier: __expectString(output.ClusterIdentifier),
-    DatabaseName: __expectString(output.DatabaseName),
-  } as any;
-};
+// de_RedshiftDatabase omitted.
 
-/**
- * deserializeAws_json1_1RedshiftMetadata
- */
-const de_RedshiftMetadata = (output: any, context: __SerdeContext): RedshiftMetadata => {
-  return {
-    DatabaseUserName: __expectString(output.DatabaseUserName),
-    RedshiftDatabase:
-      output.RedshiftDatabase != null ? de_RedshiftDatabase(output.RedshiftDatabase, context) : undefined,
-    SelectSqlQuery: __expectString(output.SelectSqlQuery),
-  } as any;
-};
+// de_RedshiftMetadata omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1ScoreValuePerLabelMap
@@ -3356,88 +2599,21 @@ const de_ScoreValuePerLabelMap = (output: any, context: __SerdeContext): Record<
   }, {});
 };
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagLimitExceededException
- */
-const de_TagLimitExceededException = (output: any, context: __SerdeContext): TagLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TagLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TrainingParameters
- */
-const de_TrainingParameters = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TrainingParameters omitted.
 
-/**
- * deserializeAws_json1_1UpdateBatchPredictionOutput
- */
-const de_UpdateBatchPredictionOutput = (output: any, context: __SerdeContext): UpdateBatchPredictionOutput => {
-  return {
-    BatchPredictionId: __expectString(output.BatchPredictionId),
-  } as any;
-};
+// de_UpdateBatchPredictionOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateDataSourceOutput
- */
-const de_UpdateDataSourceOutput = (output: any, context: __SerdeContext): UpdateDataSourceOutput => {
-  return {
-    DataSourceId: __expectString(output.DataSourceId),
-  } as any;
-};
+// de_UpdateDataSourceOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateEvaluationOutput
- */
-const de_UpdateEvaluationOutput = (output: any, context: __SerdeContext): UpdateEvaluationOutput => {
-  return {
-    EvaluationId: __expectString(output.EvaluationId),
-  } as any;
-};
+// de_UpdateEvaluationOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateMLModelOutput
- */
-const de_UpdateMLModelOutput = (output: any, context: __SerdeContext): UpdateMLModelOutput => {
-  return {
-    MLModelId: __expectString(output.MLModelId),
-  } as any;
-};
+// de_UpdateMLModelOutput omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3459,6 +2635,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

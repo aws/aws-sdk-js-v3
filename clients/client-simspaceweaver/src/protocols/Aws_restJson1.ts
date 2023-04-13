@@ -1,17 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -40,21 +41,12 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   AccessDeniedException,
-  CloudWatchLogsLogGroup,
   ConflictException,
-  Domain,
   InternalServerException,
   LaunchOverrides,
-  LiveSimulationState,
-  LogDestination,
-  LoggingConfiguration,
   ResourceNotFoundException,
   S3Location,
   ServiceQuotaExceededException,
-  SimulationAppEndpointInfo,
-  SimulationAppMetadata,
-  SimulationAppPortMapping,
-  SimulationClock,
   SimulationMetadata,
   TooManyTagsException,
   ValidationException,
@@ -261,14 +253,16 @@ export const se_StartAppCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/startapp";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.LaunchOverrides != null && { LaunchOverrides: se_LaunchOverrides(input.LaunchOverrides, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Simulation != null && { Simulation: input.Simulation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      Domain: [],
+      LaunchOverrides: (_) => _json(_),
+      Name: [],
+      Simulation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -293,9 +287,11 @@ export const se_StartClockCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/startclock";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Simulation != null && { Simulation: input.Simulation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Simulation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -320,15 +316,17 @@ export const se_StartSimulationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/startsimulation";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.MaximumDuration != null && { MaximumDuration: input.MaximumDuration }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.SchemaS3Location != null && { SchemaS3Location: se_S3Location(input.SchemaS3Location, context) }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      MaximumDuration: [],
+      Name: [],
+      RoleArn: [],
+      SchemaS3Location: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -353,11 +351,13 @@ export const se_StopAppCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stopapp";
   let body: any;
-  body = JSON.stringify({
-    ...(input.App != null && { App: input.App }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.Simulation != null && { Simulation: input.Simulation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      App: [],
+      Domain: [],
+      Simulation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -382,9 +382,11 @@ export const se_StopClockCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stopclock";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Simulation != null && { Simulation: input.Simulation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Simulation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -409,9 +411,11 @@ export const se_StopSimulationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stopsimulation";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Simulation != null && { Simulation: input.Simulation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Simulation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -437,9 +441,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -528,10 +534,9 @@ const de_DeleteAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -584,10 +589,9 @@ const de_DeleteSimulationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -607,30 +611,17 @@ export const de_DescribeAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Domain != null) {
-    contents.Domain = __expectString(data.Domain);
-  }
-  if (data.EndpointInfo != null) {
-    contents.EndpointInfo = de_SimulationAppEndpointInfo(data.EndpointInfo, context);
-  }
-  if (data.LaunchOverrides != null) {
-    contents.LaunchOverrides = de_LaunchOverrides(data.LaunchOverrides, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Simulation != null) {
-    contents.Simulation = __expectString(data.Simulation);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.TargetStatus != null) {
-    contents.TargetStatus = __expectString(data.TargetStatus);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Domain: __expectString,
+    EndpointInfo: _json,
+    LaunchOverrides: _json,
+    Name: __expectString,
+    Simulation: __expectString,
+    Status: __expectString,
+    TargetStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -661,10 +652,9 @@ const de_DescribeAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -684,45 +674,22 @@ export const de_DescribeSimulationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.ExecutionId != null) {
-    contents.ExecutionId = __expectString(data.ExecutionId);
-  }
-  if (data.LiveSimulationState != null) {
-    contents.LiveSimulationState = de_LiveSimulationState(data.LiveSimulationState, context);
-  }
-  if (data.LoggingConfiguration != null) {
-    contents.LoggingConfiguration = de_LoggingConfiguration(data.LoggingConfiguration, context);
-  }
-  if (data.MaximumDuration != null) {
-    contents.MaximumDuration = __expectString(data.MaximumDuration);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RoleArn != null) {
-    contents.RoleArn = __expectString(data.RoleArn);
-  }
-  if (data.SchemaError != null) {
-    contents.SchemaError = __expectString(data.SchemaError);
-  }
-  if (data.SchemaS3Location != null) {
-    contents.SchemaS3Location = de_S3Location(data.SchemaS3Location, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.TargetStatus != null) {
-    contents.TargetStatus = __expectString(data.TargetStatus);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    ExecutionId: __expectString,
+    LiveSimulationState: _json,
+    LoggingConfiguration: _json,
+    MaximumDuration: __expectString,
+    Name: __expectString,
+    RoleArn: __expectString,
+    SchemaError: __expectString,
+    SchemaS3Location: _json,
+    Status: __expectString,
+    TargetStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -753,10 +720,9 @@ const de_DescribeSimulationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -776,12 +742,11 @@ export const de_ListAppsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Apps != null) {
-    contents.Apps = de_SimulationAppList(data.Apps, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Apps: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -812,10 +777,9 @@ const de_ListAppsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -835,12 +799,11 @@ export const de_ListSimulationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Simulations != null) {
-    contents.Simulations = de_SimulationList(data.Simulations, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Simulations: (_) => de_SimulationList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -868,10 +831,9 @@ const de_ListSimulationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -891,9 +853,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -918,10 +881,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -941,15 +903,12 @@ export const de_StartAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Domain != null) {
-    contents.Domain = __expectString(data.Domain);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Simulation != null) {
-    contents.Simulation = __expectString(data.Simulation);
-  }
+  const doc = take(data, {
+    Domain: __expectString,
+    Name: __expectString,
+    Simulation: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -983,10 +942,9 @@ const de_StartAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1039,10 +997,9 @@ const de_StartClockCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1062,15 +1019,12 @@ export const de_StartSimulationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ExecutionId != null) {
-    contents.ExecutionId = __expectString(data.ExecutionId);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExecutionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1104,10 +1058,9 @@ const de_StartSimulationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1160,10 +1113,9 @@ const de_StopAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1216,10 +1168,9 @@ const de_StopClockCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1272,10 +1223,9 @@ const de_StopSimulationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1322,10 +1272,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1369,16 +1318,15 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1388,9 +1336,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1404,9 +1353,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1423,9 +1373,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1442,9 +1393,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1461,9 +1413,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1480,9 +1433,10 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1496,9 +1450,10 @@ const de_TooManyTagsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1506,251 +1461,47 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1LaunchCommandList
- */
-const se_LaunchCommandList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LaunchCommandList omitted.
 
-/**
- * serializeAws_restJson1LaunchOverrides
- */
-const se_LaunchOverrides = (input: LaunchOverrides, context: __SerdeContext): any => {
-  return {
-    ...(input.LaunchCommands != null && { LaunchCommands: se_LaunchCommandList(input.LaunchCommands, context) }),
-  };
-};
+// se_LaunchOverrides omitted.
 
-/**
- * serializeAws_restJson1S3Location
- */
-const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.ObjectKey != null && { ObjectKey: input.ObjectKey }),
-  };
-};
+// se_S3Location omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1AppPortMappings
- */
-const de_AppPortMappings = (output: any, context: __SerdeContext): SimulationAppPortMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SimulationAppPortMapping(entry, context);
-    });
-  return retVal;
-};
+// de_AppPortMappings omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchLogsLogGroup
- */
-const de_CloudWatchLogsLogGroup = (output: any, context: __SerdeContext): CloudWatchLogsLogGroup => {
-  return {
-    LogGroupArn: __expectString(output.LogGroupArn),
-  } as any;
-};
+// de_CloudWatchLogsLogGroup omitted.
 
-/**
- * deserializeAws_restJson1Domain
- */
-const de_Domain = (output: any, context: __SerdeContext): Domain => {
-  return {
-    Lifecycle: __expectString(output.Lifecycle),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Domain omitted.
 
-/**
- * deserializeAws_restJson1DomainList
- */
-const de_DomainList = (output: any, context: __SerdeContext): Domain[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Domain(entry, context);
-    });
-  return retVal;
-};
+// de_DomainList omitted.
 
-/**
- * deserializeAws_restJson1LaunchCommandList
- */
-const de_LaunchCommandList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LaunchCommandList omitted.
 
-/**
- * deserializeAws_restJson1LaunchOverrides
- */
-const de_LaunchOverrides = (output: any, context: __SerdeContext): LaunchOverrides => {
-  return {
-    LaunchCommands: output.LaunchCommands != null ? de_LaunchCommandList(output.LaunchCommands, context) : undefined,
-  } as any;
-};
+// de_LaunchOverrides omitted.
 
-/**
- * deserializeAws_restJson1LiveSimulationState
- */
-const de_LiveSimulationState = (output: any, context: __SerdeContext): LiveSimulationState => {
-  return {
-    Clocks: output.Clocks != null ? de_SimulationClockList(output.Clocks, context) : undefined,
-    Domains: output.Domains != null ? de_DomainList(output.Domains, context) : undefined,
-  } as any;
-};
+// de_LiveSimulationState omitted.
 
-/**
- * deserializeAws_restJson1LogDestination
- */
-const de_LogDestination = (output: any, context: __SerdeContext): LogDestination => {
-  return {
-    CloudWatchLogsLogGroup:
-      output.CloudWatchLogsLogGroup != null
-        ? de_CloudWatchLogsLogGroup(output.CloudWatchLogsLogGroup, context)
-        : undefined,
-  } as any;
-};
+// de_LogDestination omitted.
 
-/**
- * deserializeAws_restJson1LogDestinations
- */
-const de_LogDestinations = (output: any, context: __SerdeContext): LogDestination[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LogDestination(entry, context);
-    });
-  return retVal;
-};
+// de_LogDestinations omitted.
 
-/**
- * deserializeAws_restJson1LoggingConfiguration
- */
-const de_LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
-  return {
-    Destinations: output.Destinations != null ? de_LogDestinations(output.Destinations, context) : undefined,
-  } as any;
-};
+// de_LoggingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1S3Location
- */
-const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
-  return {
-    BucketName: __expectString(output.BucketName),
-    ObjectKey: __expectString(output.ObjectKey),
-  } as any;
-};
+// de_S3Location omitted.
 
-/**
- * deserializeAws_restJson1SimulationAppEndpointInfo
- */
-const de_SimulationAppEndpointInfo = (output: any, context: __SerdeContext): SimulationAppEndpointInfo => {
-  return {
-    Address: __expectString(output.Address),
-    IngressPortMappings:
-      output.IngressPortMappings != null ? de_AppPortMappings(output.IngressPortMappings, context) : undefined,
-  } as any;
-};
+// de_SimulationAppEndpointInfo omitted.
 
-/**
- * deserializeAws_restJson1SimulationAppList
- */
-const de_SimulationAppList = (output: any, context: __SerdeContext): SimulationAppMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SimulationAppMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_SimulationAppList omitted.
 
-/**
- * deserializeAws_restJson1SimulationAppMetadata
- */
-const de_SimulationAppMetadata = (output: any, context: __SerdeContext): SimulationAppMetadata => {
-  return {
-    Domain: __expectString(output.Domain),
-    Name: __expectString(output.Name),
-    Simulation: __expectString(output.Simulation),
-    Status: __expectString(output.Status),
-    TargetStatus: __expectString(output.TargetStatus),
-  } as any;
-};
+// de_SimulationAppMetadata omitted.
 
-/**
- * deserializeAws_restJson1SimulationAppPortMapping
- */
-const de_SimulationAppPortMapping = (output: any, context: __SerdeContext): SimulationAppPortMapping => {
-  return {
-    Actual: __expectInt32(output.Actual),
-    Declared: __expectInt32(output.Declared),
-  } as any;
-};
+// de_SimulationAppPortMapping omitted.
 
-/**
- * deserializeAws_restJson1SimulationClock
- */
-const de_SimulationClock = (output: any, context: __SerdeContext): SimulationClock => {
-  return {
-    Status: __expectString(output.Status),
-    TargetStatus: __expectString(output.TargetStatus),
-  } as any;
-};
+// de_SimulationClock omitted.
 
-/**
- * deserializeAws_restJson1SimulationClockList
- */
-const de_SimulationClockList = (output: any, context: __SerdeContext): SimulationClock[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SimulationClock(entry, context);
-    });
-  return retVal;
-};
+// de_SimulationClockList omitted.
 
 /**
  * deserializeAws_restJson1SimulationList
@@ -1759,9 +1510,6 @@ const de_SimulationList = (output: any, context: __SerdeContext): SimulationMeta
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SimulationMetadata(entry, context);
     });
   return retVal;
@@ -1771,30 +1519,16 @@ const de_SimulationList = (output: any, context: __SerdeContext): SimulationMeta
  * deserializeAws_restJson1SimulationMetadata
  */
 const de_SimulationMetadata = (output: any, context: __SerdeContext): SimulationMetadata => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-    TargetStatus: __expectString(output.TargetStatus),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+    TargetStatus: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

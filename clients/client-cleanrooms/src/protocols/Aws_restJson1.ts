@@ -1,10 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -12,10 +10,11 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -131,18 +130,12 @@ import {
   AnalysisRule,
   AnalysisRuleAggregation,
   AnalysisRuleList,
-  AnalysisRulePolicy,
-  AnalysisRulePolicyV1,
-  AnalysisRuleType,
-  BatchGetSchemaError,
   Collaboration,
   CollaborationSummary,
-  Column,
   ConfiguredTable,
   ConfiguredTableAnalysisRule,
   ConfiguredTableAnalysisRulePolicy,
   ConfiguredTableAnalysisRulePolicyV1,
-  ConfiguredTableAnalysisRuleType,
   ConfiguredTableAssociation,
   ConfiguredTableAssociationSummary,
   ConfiguredTableSummary,
@@ -156,15 +149,10 @@ import {
   MemberSpecification,
   MemberSummary,
   ProtectedQuery,
-  ProtectedQueryError,
-  ProtectedQueryOutput,
   ProtectedQueryOutputConfiguration,
-  ProtectedQueryResult,
   ProtectedQueryResultConfiguration,
-  ProtectedQueryS3Output,
   ProtectedQueryS3OutputConfiguration,
   ProtectedQuerySQLParameters,
-  ProtectedQueryStatistics,
   ProtectedQuerySummary,
   ResourceNotFoundException,
   ScalarFunctions,
@@ -174,7 +162,6 @@ import {
   TableReference,
   ThrottlingException,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 
 /**
@@ -200,9 +187,11 @@ export const se_BatchGetSchemaCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.names != null && { names: se_TableAliasList(input.names, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      names: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -227,20 +216,18 @@ export const se_CreateCollaborationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.creatorDisplayName != null && { creatorDisplayName: input.creatorDisplayName }),
-    ...(input.creatorMemberAbilities != null && {
-      creatorMemberAbilities: se_MemberAbilities(input.creatorMemberAbilities, context),
-    }),
-    ...(input.dataEncryptionMetadata != null && {
-      dataEncryptionMetadata: se_DataEncryptionMetadata(input.dataEncryptionMetadata, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.members != null && { members: se_MemberList(input.members, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.queryLogStatus != null && { queryLogStatus: input.queryLogStatus }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      creatorDisplayName: [],
+      creatorMemberAbilities: (_) => _json(_),
+      dataEncryptionMetadata: (_) => _json(_),
+      description: [],
+      members: (_) => _json(_),
+      name: [],
+      queryLogStatus: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -265,14 +252,16 @@ export const se_CreateConfiguredTableCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuredTables";
   let body: any;
-  body = JSON.stringify({
-    ...(input.allowedColumns != null && { allowedColumns: se_AllowedColumnList(input.allowedColumns, context) }),
-    ...(input.analysisMethod != null && { analysisMethod: input.analysisMethod }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tableReference != null && { tableReference: se_TableReference(input.tableReference, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      allowedColumns: (_) => _json(_),
+      analysisMethod: [],
+      description: [],
+      name: [],
+      tableReference: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -307,12 +296,12 @@ export const se_CreateConfiguredTableAnalysisRuleCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.analysisRulePolicy != null && {
-      analysisRulePolicy: se_ConfiguredTableAnalysisRulePolicy(input.analysisRulePolicy, context),
-    }),
-    ...(input.analysisRuleType != null && { analysisRuleType: input.analysisRuleType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      analysisRulePolicy: (_) => _json(_),
+      analysisRuleType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -347,13 +336,15 @@ export const se_CreateConfiguredTableAssociationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.configuredTableIdentifier != null && { configuredTableIdentifier: input.configuredTableIdentifier }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      configuredTableIdentifier: [],
+      description: [],
+      name: [],
+      roleArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -378,11 +369,13 @@ export const se_CreateMembershipCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships";
   let body: any;
-  body = JSON.stringify({
-    ...(input.collaborationIdentifier != null && { collaborationIdentifier: input.collaborationIdentifier }),
-    ...(input.queryLogStatus != null && { queryLogStatus: input.queryLogStatus }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      collaborationIdentifier: [],
+      queryLogStatus: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1161,13 +1154,13 @@ export const se_StartProtectedQueryCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.resultConfiguration != null && {
-      resultConfiguration: se_ProtectedQueryResultConfiguration(input.resultConfiguration, context),
-    }),
-    ...(input.sqlParameters != null && { sqlParameters: se_ProtectedQuerySQLParameters(input.sqlParameters, context) }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resultConfiguration: (_) => _json(_),
+      sqlParameters: (_) => _json(_),
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1193,9 +1186,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1259,10 +1254,12 @@ export const se_UpdateCollaborationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1297,10 +1294,12 @@ export const se_UpdateConfiguredTableCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1343,11 +1342,11 @@ export const se_UpdateConfiguredTableAnalysisRuleCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.analysisRulePolicy != null && {
-      analysisRulePolicy: se_ConfiguredTableAnalysisRulePolicy(input.analysisRulePolicy, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      analysisRulePolicy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1390,10 +1389,12 @@ export const se_UpdateConfiguredTableAssociationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      roleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1427,9 +1428,11 @@ export const se_UpdateMembershipCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.queryLogStatus != null && { queryLogStatus: input.queryLogStatus }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      queryLogStatus: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1472,9 +1475,11 @@ export const se_UpdateProtectedQueryCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.targetStatus != null && { targetStatus: input.targetStatus }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      targetStatus: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1500,12 +1505,11 @@ export const de_BatchGetSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_BatchGetSchemaErrorList(data.errors, context);
-  }
-  if (data.schemas != null) {
-    contents.schemas = de_SchemaList(data.schemas, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+    schemas: (_) => de_SchemaList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1539,10 +1543,9 @@ const de_BatchGetSchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1562,9 +1565,10 @@ export const de_CreateCollaborationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.collaboration != null) {
-    contents.collaboration = de_Collaboration(data.collaboration, context);
-  }
+  const doc = take(data, {
+    collaboration: (_) => de_Collaboration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1598,10 +1602,9 @@ const de_CreateCollaborationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1621,9 +1624,10 @@ export const de_CreateConfiguredTableCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuredTable != null) {
-    contents.configuredTable = de_ConfiguredTable(data.configuredTable, context);
-  }
+  const doc = take(data, {
+    configuredTable: (_) => de_ConfiguredTable(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1663,10 +1667,9 @@ const de_CreateConfiguredTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1686,9 +1689,10 @@ export const de_CreateConfiguredTableAnalysisRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.analysisRule != null) {
-    contents.analysisRule = de_ConfiguredTableAnalysisRule(data.analysisRule, context);
-  }
+  const doc = take(data, {
+    analysisRule: (_) => de_ConfiguredTableAnalysisRule(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1725,10 +1729,9 @@ const de_CreateConfiguredTableAnalysisRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1748,9 +1751,10 @@ export const de_CreateConfiguredTableAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuredTableAssociation != null) {
-    contents.configuredTableAssociation = de_ConfiguredTableAssociation(data.configuredTableAssociation, context);
-  }
+  const doc = take(data, {
+    configuredTableAssociation: (_) => de_ConfiguredTableAssociation(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1790,10 +1794,9 @@ const de_CreateConfiguredTableAssociationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1813,9 +1816,10 @@ export const de_CreateMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.membership != null) {
-    contents.membership = de_Membership(data.membership, context);
-  }
+  const doc = take(data, {
+    membership: (_) => de_Membership(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1855,10 +1859,9 @@ const de_CreateMembershipCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1908,10 +1911,9 @@ const de_DeleteCollaborationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1967,10 +1969,9 @@ const de_DeleteConfiguredTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2026,10 +2027,9 @@ const de_DeleteConfiguredTableAnalysisRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2085,10 +2085,9 @@ const de_DeleteConfiguredTableAssociationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2144,10 +2143,9 @@ const de_DeleteMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2203,10 +2201,9 @@ const de_DeleteMembershipCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2226,9 +2223,10 @@ export const de_GetCollaborationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.collaboration != null) {
-    contents.collaboration = de_Collaboration(data.collaboration, context);
-  }
+  const doc = take(data, {
+    collaboration: (_) => de_Collaboration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2259,10 +2257,9 @@ const de_GetCollaborationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2282,9 +2279,10 @@ export const de_GetConfiguredTableCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuredTable != null) {
-    contents.configuredTable = de_ConfiguredTable(data.configuredTable, context);
-  }
+  const doc = take(data, {
+    configuredTable: (_) => de_ConfiguredTable(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2318,10 +2316,9 @@ const de_GetConfiguredTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2341,9 +2338,10 @@ export const de_GetConfiguredTableAnalysisRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.analysisRule != null) {
-    contents.analysisRule = de_ConfiguredTableAnalysisRule(data.analysisRule, context);
-  }
+  const doc = take(data, {
+    analysisRule: (_) => de_ConfiguredTableAnalysisRule(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2377,10 +2375,9 @@ const de_GetConfiguredTableAnalysisRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2400,9 +2397,10 @@ export const de_GetConfiguredTableAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuredTableAssociation != null) {
-    contents.configuredTableAssociation = de_ConfiguredTableAssociation(data.configuredTableAssociation, context);
-  }
+  const doc = take(data, {
+    configuredTableAssociation: (_) => de_ConfiguredTableAssociation(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2436,10 +2434,9 @@ const de_GetConfiguredTableAssociationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2459,9 +2456,10 @@ export const de_GetMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.membership != null) {
-    contents.membership = de_Membership(data.membership, context);
-  }
+  const doc = take(data, {
+    membership: (_) => de_Membership(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2495,10 +2493,9 @@ const de_GetMembershipCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2518,9 +2515,10 @@ export const de_GetProtectedQueryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.protectedQuery != null) {
-    contents.protectedQuery = de_ProtectedQuery(data.protectedQuery, context);
-  }
+  const doc = take(data, {
+    protectedQuery: (_) => de_ProtectedQuery(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2554,10 +2552,9 @@ const de_GetProtectedQueryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2577,9 +2574,10 @@ export const de_GetSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.schema != null) {
-    contents.schema = de_Schema(data.schema, context);
-  }
+  const doc = take(data, {
+    schema: (_) => de_Schema(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2613,10 +2611,9 @@ const de_GetSchemaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2636,9 +2633,10 @@ export const de_GetSchemaAnalysisRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.analysisRule != null) {
-    contents.analysisRule = de_AnalysisRule(data.analysisRule, context);
-  }
+  const doc = take(data, {
+    analysisRule: (_) => de_AnalysisRule(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2672,10 +2670,9 @@ const de_GetSchemaAnalysisRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2695,12 +2692,11 @@ export const de_ListCollaborationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.collaborationList != null) {
-    contents.collaborationList = de_CollaborationSummaryList(data.collaborationList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    collaborationList: (_) => de_CollaborationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2731,10 +2727,9 @@ const de_ListCollaborationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2754,15 +2749,11 @@ export const de_ListConfiguredTableAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuredTableAssociationSummaries != null) {
-    contents.configuredTableAssociationSummaries = de_ConfiguredTableAssociationSummaryList(
-      data.configuredTableAssociationSummaries,
-      context
-    );
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    configuredTableAssociationSummaries: (_) => de_ConfiguredTableAssociationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2796,10 +2787,9 @@ const de_ListConfiguredTableAssociationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2819,12 +2809,11 @@ export const de_ListConfiguredTablesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuredTableSummaries != null) {
-    contents.configuredTableSummaries = de_ConfiguredTableSummaryList(data.configuredTableSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    configuredTableSummaries: (_) => de_ConfiguredTableSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2855,10 +2844,9 @@ const de_ListConfiguredTablesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2878,12 +2866,11 @@ export const de_ListMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.memberSummaries != null) {
-    contents.memberSummaries = de_MemberSummaryList(data.memberSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    memberSummaries: (_) => de_MemberSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2917,10 +2904,9 @@ const de_ListMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2940,12 +2926,11 @@ export const de_ListMembershipsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.membershipSummaries != null) {
-    contents.membershipSummaries = de_MembershipSummaryList(data.membershipSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    membershipSummaries: (_) => de_MembershipSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2976,10 +2961,9 @@ const de_ListMembershipsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2999,12 +2983,11 @@ export const de_ListProtectedQueriesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.protectedQueries != null) {
-    contents.protectedQueries = de_ProtectedQuerySummaryList(data.protectedQueries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    protectedQueries: (_) => de_ProtectedQuerySummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3038,10 +3021,9 @@ const de_ListProtectedQueriesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3061,12 +3043,11 @@ export const de_ListSchemasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.schemaSummaries != null) {
-    contents.schemaSummaries = de_SchemaSummaryList(data.schemaSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    schemaSummaries: (_) => de_SchemaSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3100,10 +3081,9 @@ const de_ListSchemasCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3123,9 +3103,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3150,10 +3131,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3173,9 +3153,10 @@ export const de_StartProtectedQueryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.protectedQuery != null) {
-    contents.protectedQuery = de_ProtectedQuery(data.protectedQuery, context);
-  }
+  const doc = take(data, {
+    protectedQuery: (_) => de_ProtectedQuery(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3212,10 +3193,9 @@ const de_StartProtectedQueryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3259,10 +3239,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3306,10 +3285,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3329,9 +3307,10 @@ export const de_UpdateCollaborationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.collaboration != null) {
-    contents.collaboration = de_Collaboration(data.collaboration, context);
-  }
+  const doc = take(data, {
+    collaboration: (_) => de_Collaboration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3362,10 +3341,9 @@ const de_UpdateCollaborationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3385,9 +3363,10 @@ export const de_UpdateConfiguredTableCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuredTable != null) {
-    contents.configuredTable = de_ConfiguredTable(data.configuredTable, context);
-  }
+  const doc = take(data, {
+    configuredTable: (_) => de_ConfiguredTable(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3424,10 +3403,9 @@ const de_UpdateConfiguredTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3447,9 +3425,10 @@ export const de_UpdateConfiguredTableAnalysisRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.analysisRule != null) {
-    contents.analysisRule = de_ConfiguredTableAnalysisRule(data.analysisRule, context);
-  }
+  const doc = take(data, {
+    analysisRule: (_) => de_ConfiguredTableAnalysisRule(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3486,10 +3465,9 @@ const de_UpdateConfiguredTableAnalysisRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3509,9 +3487,10 @@ export const de_UpdateConfiguredTableAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuredTableAssociation != null) {
-    contents.configuredTableAssociation = de_ConfiguredTableAssociation(data.configuredTableAssociation, context);
-  }
+  const doc = take(data, {
+    configuredTableAssociation: (_) => de_ConfiguredTableAssociation(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3548,10 +3527,9 @@ const de_UpdateConfiguredTableAssociationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3571,9 +3549,10 @@ export const de_UpdateMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.membership != null) {
-    contents.membership = de_Membership(data.membership, context);
-  }
+  const doc = take(data, {
+    membership: (_) => de_Membership(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3610,10 +3589,9 @@ const de_UpdateMembershipCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3633,9 +3611,10 @@ export const de_UpdateProtectedQueryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.protectedQuery != null) {
-    contents.protectedQuery = de_ProtectedQuery(data.protectedQuery, context);
-  }
+  const doc = take(data, {
+    protectedQuery: (_) => de_ProtectedQuery(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3672,16 +3651,15 @@ const de_UpdateProtectedQueryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3691,12 +3669,11 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3710,18 +3687,13 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3738,9 +3710,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3757,15 +3730,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3782,15 +3752,12 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaName != null) {
-    contents.quotaName = __expectString(data.quotaName);
-  }
-  if (data.quotaValue != null) {
-    contents.quotaValue = __limitedParseDouble(data.quotaValue);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaName: __expectString,
+    quotaValue: __limitedParseDouble,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3804,9 +3771,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3820,15 +3788,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3836,545 +3801,133 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AggregateColumn
- */
-const se_AggregateColumn = (input: AggregateColumn, context: __SerdeContext): any => {
-  return {
-    ...(input.columnNames != null && { columnNames: se_AnalysisRuleColumnNameList(input.columnNames, context) }),
-    ...(input.function != null && { function: input.function }),
-  };
-};
+// se_AggregateColumn omitted.
 
-/**
- * serializeAws_restJson1AggregateColumnList
- */
-const se_AggregateColumnList = (input: AggregateColumn[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AggregateColumn(entry, context);
-    });
-};
+// se_AggregateColumnList omitted.
 
-/**
- * serializeAws_restJson1AggregationConstraint
- */
-const se_AggregationConstraint = (input: AggregationConstraint, context: __SerdeContext): any => {
-  return {
-    ...(input.columnName != null && { columnName: input.columnName }),
-    ...(input.minimum != null && { minimum: input.minimum }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_AggregationConstraint omitted.
 
-/**
- * serializeAws_restJson1AggregationConstraints
- */
-const se_AggregationConstraints = (input: AggregationConstraint[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AggregationConstraint(entry, context);
-    });
-};
+// se_AggregationConstraints omitted.
 
-/**
- * serializeAws_restJson1AllowedColumnList
- */
-const se_AllowedColumnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AllowedColumnList omitted.
 
-/**
- * serializeAws_restJson1AnalysisRuleAggregation
- */
-const se_AnalysisRuleAggregation = (input: AnalysisRuleAggregation, context: __SerdeContext): any => {
-  return {
-    ...(input.aggregateColumns != null && {
-      aggregateColumns: se_AggregateColumnList(input.aggregateColumns, context),
-    }),
-    ...(input.dimensionColumns != null && {
-      dimensionColumns: se_AnalysisRuleColumnList(input.dimensionColumns, context),
-    }),
-    ...(input.joinColumns != null && { joinColumns: se_AnalysisRuleColumnList(input.joinColumns, context) }),
-    ...(input.joinRequired != null && { joinRequired: input.joinRequired }),
-    ...(input.outputConstraints != null && {
-      outputConstraints: se_AggregationConstraints(input.outputConstraints, context),
-    }),
-    ...(input.scalarFunctions != null && { scalarFunctions: se_ScalarFunctionsList(input.scalarFunctions, context) }),
-  };
-};
+// se_AnalysisRuleAggregation omitted.
 
-/**
- * serializeAws_restJson1AnalysisRuleColumnList
- */
-const se_AnalysisRuleColumnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AnalysisRuleColumnList omitted.
 
-/**
- * serializeAws_restJson1AnalysisRuleColumnNameList
- */
-const se_AnalysisRuleColumnNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AnalysisRuleColumnNameList omitted.
 
-/**
- * serializeAws_restJson1AnalysisRuleList
- */
-const se_AnalysisRuleList = (input: AnalysisRuleList, context: __SerdeContext): any => {
-  return {
-    ...(input.joinColumns != null && { joinColumns: se_AnalysisRuleColumnList(input.joinColumns, context) }),
-    ...(input.listColumns != null && { listColumns: se_AnalysisRuleColumnList(input.listColumns, context) }),
-  };
-};
+// se_AnalysisRuleList omitted.
 
-/**
- * serializeAws_restJson1ConfiguredTableAnalysisRulePolicy
- */
-const se_ConfiguredTableAnalysisRulePolicy = (
-  input: ConfiguredTableAnalysisRulePolicy,
-  context: __SerdeContext
-): any => {
-  return ConfiguredTableAnalysisRulePolicy.visit(input, {
-    v1: (value) => ({ v1: se_ConfiguredTableAnalysisRulePolicyV1(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_ConfiguredTableAnalysisRulePolicy omitted.
 
-/**
- * serializeAws_restJson1ConfiguredTableAnalysisRulePolicyV1
- */
-const se_ConfiguredTableAnalysisRulePolicyV1 = (
-  input: ConfiguredTableAnalysisRulePolicyV1,
-  context: __SerdeContext
-): any => {
-  return ConfiguredTableAnalysisRulePolicyV1.visit(input, {
-    aggregation: (value) => ({ aggregation: se_AnalysisRuleAggregation(value, context) }),
-    list: (value) => ({ list: se_AnalysisRuleList(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_ConfiguredTableAnalysisRulePolicyV1 omitted.
 
-/**
- * serializeAws_restJson1DataEncryptionMetadata
- */
-const se_DataEncryptionMetadata = (input: DataEncryptionMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.allowCleartext != null && { allowCleartext: input.allowCleartext }),
-    ...(input.allowDuplicates != null && { allowDuplicates: input.allowDuplicates }),
-    ...(input.allowJoinsOnColumnsWithDifferentNames != null && {
-      allowJoinsOnColumnsWithDifferentNames: input.allowJoinsOnColumnsWithDifferentNames,
-    }),
-    ...(input.preserveNulls != null && { preserveNulls: input.preserveNulls }),
-  };
-};
+// se_DataEncryptionMetadata omitted.
 
-/**
- * serializeAws_restJson1GlueTableReference
- */
-const se_GlueTableReference = (input: GlueTableReference, context: __SerdeContext): any => {
-  return {
-    ...(input.databaseName != null && { databaseName: input.databaseName }),
-    ...(input.tableName != null && { tableName: input.tableName }),
-  };
-};
+// se_GlueTableReference omitted.
 
-/**
- * serializeAws_restJson1MemberAbilities
- */
-const se_MemberAbilities = (input: (MemberAbility | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MemberAbilities omitted.
 
-/**
- * serializeAws_restJson1MemberList
- */
-const se_MemberList = (input: MemberSpecification[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MemberSpecification(entry, context);
-    });
-};
+// se_MemberList omitted.
 
-/**
- * serializeAws_restJson1MemberSpecification
- */
-const se_MemberSpecification = (input: MemberSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.accountId != null && { accountId: input.accountId }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.memberAbilities != null && { memberAbilities: se_MemberAbilities(input.memberAbilities, context) }),
-  };
-};
+// se_MemberSpecification omitted.
 
-/**
- * serializeAws_restJson1ProtectedQueryOutputConfiguration
- */
-const se_ProtectedQueryOutputConfiguration = (
-  input: ProtectedQueryOutputConfiguration,
-  context: __SerdeContext
-): any => {
-  return ProtectedQueryOutputConfiguration.visit(input, {
-    s3: (value) => ({ s3: se_ProtectedQueryS3OutputConfiguration(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_ProtectedQueryOutputConfiguration omitted.
 
-/**
- * serializeAws_restJson1ProtectedQueryResultConfiguration
- */
-const se_ProtectedQueryResultConfiguration = (
-  input: ProtectedQueryResultConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.outputConfiguration != null && {
-      outputConfiguration: se_ProtectedQueryOutputConfiguration(input.outputConfiguration, context),
-    }),
-  };
-};
+// se_ProtectedQueryResultConfiguration omitted.
 
-/**
- * serializeAws_restJson1ProtectedQueryS3OutputConfiguration
- */
-const se_ProtectedQueryS3OutputConfiguration = (
-  input: ProtectedQueryS3OutputConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.keyPrefix != null && { keyPrefix: input.keyPrefix }),
-    ...(input.resultFormat != null && { resultFormat: input.resultFormat }),
-  };
-};
+// se_ProtectedQueryS3OutputConfiguration omitted.
 
-/**
- * serializeAws_restJson1ProtectedQuerySQLParameters
- */
-const se_ProtectedQuerySQLParameters = (input: ProtectedQuerySQLParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.queryString != null && { queryString: input.queryString }),
-  };
-};
+// se_ProtectedQuerySQLParameters omitted.
 
-/**
- * serializeAws_restJson1ScalarFunctionsList
- */
-const se_ScalarFunctionsList = (input: (ScalarFunctions | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ScalarFunctionsList omitted.
 
-/**
- * serializeAws_restJson1TableAliasList
- */
-const se_TableAliasList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TableAliasList omitted.
 
-/**
- * serializeAws_restJson1TableReference
- */
-const se_TableReference = (input: TableReference, context: __SerdeContext): any => {
-  return TableReference.visit(input, {
-    glue: (value) => ({ glue: se_GlueTableReference(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_TableReference omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1AggregateColumn
- */
-const de_AggregateColumn = (output: any, context: __SerdeContext): AggregateColumn => {
-  return {
-    columnNames: output.columnNames != null ? de_AnalysisRuleColumnNameList(output.columnNames, context) : undefined,
-    function: __expectString(output.function),
-  } as any;
-};
+// de_AggregateColumn omitted.
 
-/**
- * deserializeAws_restJson1AggregateColumnList
- */
-const de_AggregateColumnList = (output: any, context: __SerdeContext): AggregateColumn[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AggregateColumn(entry, context);
-    });
-  return retVal;
-};
+// de_AggregateColumnList omitted.
 
-/**
- * deserializeAws_restJson1AggregationConstraint
- */
-const de_AggregationConstraint = (output: any, context: __SerdeContext): AggregationConstraint => {
-  return {
-    columnName: __expectString(output.columnName),
-    minimum: __expectInt32(output.minimum),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AggregationConstraint omitted.
 
-/**
- * deserializeAws_restJson1AggregationConstraints
- */
-const de_AggregationConstraints = (output: any, context: __SerdeContext): AggregationConstraint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AggregationConstraint(entry, context);
-    });
-  return retVal;
-};
+// de_AggregationConstraints omitted.
 
-/**
- * deserializeAws_restJson1AllowedColumnList
- */
-const de_AllowedColumnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AllowedColumnList omitted.
 
 /**
  * deserializeAws_restJson1AnalysisRule
  */
 const de_AnalysisRule = (output: any, context: __SerdeContext): AnalysisRule => {
-  return {
-    collaborationId: __expectString(output.collaborationId),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    name: __expectString(output.name),
-    policy: output.policy != null ? de_AnalysisRulePolicy(__expectUnion(output.policy), context) : undefined,
-    type: __expectString(output.type),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    policy: (_: any) => _json(__expectUnion(_)),
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AnalysisRuleAggregation
- */
-const de_AnalysisRuleAggregation = (output: any, context: __SerdeContext): AnalysisRuleAggregation => {
-  return {
-    aggregateColumns:
-      output.aggregateColumns != null ? de_AggregateColumnList(output.aggregateColumns, context) : undefined,
-    dimensionColumns:
-      output.dimensionColumns != null ? de_AnalysisRuleColumnList(output.dimensionColumns, context) : undefined,
-    joinColumns: output.joinColumns != null ? de_AnalysisRuleColumnList(output.joinColumns, context) : undefined,
-    joinRequired: __expectString(output.joinRequired),
-    outputConstraints:
-      output.outputConstraints != null ? de_AggregationConstraints(output.outputConstraints, context) : undefined,
-    scalarFunctions:
-      output.scalarFunctions != null ? de_ScalarFunctionsList(output.scalarFunctions, context) : undefined,
-  } as any;
-};
+// de_AnalysisRuleAggregation omitted.
 
-/**
- * deserializeAws_restJson1AnalysisRuleColumnList
- */
-const de_AnalysisRuleColumnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AnalysisRuleColumnList omitted.
 
-/**
- * deserializeAws_restJson1AnalysisRuleColumnNameList
- */
-const de_AnalysisRuleColumnNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AnalysisRuleColumnNameList omitted.
 
-/**
- * deserializeAws_restJson1AnalysisRuleList
- */
-const de_AnalysisRuleList = (output: any, context: __SerdeContext): AnalysisRuleList => {
-  return {
-    joinColumns: output.joinColumns != null ? de_AnalysisRuleColumnList(output.joinColumns, context) : undefined,
-    listColumns: output.listColumns != null ? de_AnalysisRuleColumnList(output.listColumns, context) : undefined,
-  } as any;
-};
+// de_AnalysisRuleList omitted.
 
-/**
- * deserializeAws_restJson1AnalysisRulePolicy
- */
-const de_AnalysisRulePolicy = (output: any, context: __SerdeContext): AnalysisRulePolicy => {
-  if (output.v1 != null) {
-    return {
-      v1: de_AnalysisRulePolicyV1(__expectUnion(output.v1), context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_AnalysisRulePolicy omitted.
 
-/**
- * deserializeAws_restJson1AnalysisRulePolicyV1
- */
-const de_AnalysisRulePolicyV1 = (output: any, context: __SerdeContext): AnalysisRulePolicyV1 => {
-  if (output.aggregation != null) {
-    return {
-      aggregation: de_AnalysisRuleAggregation(output.aggregation, context),
-    };
-  }
-  if (output.list != null) {
-    return {
-      list: de_AnalysisRuleList(output.list, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_AnalysisRulePolicyV1 omitted.
 
-/**
- * deserializeAws_restJson1AnalysisRuleTypeList
- */
-const de_AnalysisRuleTypeList = (output: any, context: __SerdeContext): (AnalysisRuleType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AnalysisRuleTypeList omitted.
 
-/**
- * deserializeAws_restJson1BatchGetSchemaError
- */
-const de_BatchGetSchemaError = (output: any, context: __SerdeContext): BatchGetSchemaError => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_BatchGetSchemaError omitted.
 
-/**
- * deserializeAws_restJson1BatchGetSchemaErrorList
- */
-const de_BatchGetSchemaErrorList = (output: any, context: __SerdeContext): BatchGetSchemaError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetSchemaError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetSchemaErrorList omitted.
 
 /**
  * deserializeAws_restJson1Collaboration
  */
 const de_Collaboration = (output: any, context: __SerdeContext): Collaboration => {
-  return {
-    arn: __expectString(output.arn),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    creatorAccountId: __expectString(output.creatorAccountId),
-    creatorDisplayName: __expectString(output.creatorDisplayName),
-    dataEncryptionMetadata:
-      output.dataEncryptionMetadata != null
-        ? de_DataEncryptionMetadata(output.dataEncryptionMetadata, context)
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    memberStatus: __expectString(output.memberStatus),
-    membershipArn: __expectString(output.membershipArn),
-    membershipId: __expectString(output.membershipId),
-    name: __expectString(output.name),
-    queryLogStatus: __expectString(output.queryLogStatus),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    creatorDisplayName: __expectString,
+    dataEncryptionMetadata: _json,
+    description: __expectString,
+    id: __expectString,
+    memberStatus: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    queryLogStatus: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CollaborationSummary
  */
 const de_CollaborationSummary = (output: any, context: __SerdeContext): CollaborationSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    creatorAccountId: __expectString(output.creatorAccountId),
-    creatorDisplayName: __expectString(output.creatorDisplayName),
-    id: __expectString(output.id),
-    memberStatus: __expectString(output.memberStatus),
-    membershipArn: __expectString(output.membershipArn),
-    membershipId: __expectString(output.membershipId),
-    name: __expectString(output.name),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    creatorDisplayName: __expectString,
+    id: __expectString,
+    memberStatus: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4384,152 +3937,70 @@ const de_CollaborationSummaryList = (output: any, context: __SerdeContext): Coll
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CollaborationSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Column
- */
-const de_Column = (output: any, context: __SerdeContext): Column => {
-  return {
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_Column omitted.
 
-/**
- * deserializeAws_restJson1ColumnList
- */
-const de_ColumnList = (output: any, context: __SerdeContext): Column[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Column(entry, context);
-    });
-  return retVal;
-};
+// de_ColumnList omitted.
 
 /**
  * deserializeAws_restJson1ConfiguredTable
  */
 const de_ConfiguredTable = (output: any, context: __SerdeContext): ConfiguredTable => {
-  return {
-    allowedColumns: output.allowedColumns != null ? de_AllowedColumnList(output.allowedColumns, context) : undefined,
-    analysisMethod: __expectString(output.analysisMethod),
-    analysisRuleTypes:
-      output.analysisRuleTypes != null
-        ? de_ConfiguredTableAnalysisRuleTypeList(output.analysisRuleTypes, context)
-        : undefined,
-    arn: __expectString(output.arn),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    tableReference:
-      output.tableReference != null ? de_TableReference(__expectUnion(output.tableReference), context) : undefined,
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    allowedColumns: _json,
+    analysisMethod: __expectString,
+    analysisRuleTypes: _json,
+    arn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    tableReference: (_: any) => _json(__expectUnion(_)),
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ConfiguredTableAnalysisRule
  */
 const de_ConfiguredTableAnalysisRule = (output: any, context: __SerdeContext): ConfiguredTableAnalysisRule => {
-  return {
-    configuredTableArn: __expectString(output.configuredTableArn),
-    configuredTableId: __expectString(output.configuredTableId),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    policy:
-      output.policy != null ? de_ConfiguredTableAnalysisRulePolicy(__expectUnion(output.policy), context) : undefined,
-    type: __expectString(output.type),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    configuredTableArn: __expectString,
+    configuredTableId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    policy: (_: any) => _json(__expectUnion(_)),
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ConfiguredTableAnalysisRulePolicy
- */
-const de_ConfiguredTableAnalysisRulePolicy = (
-  output: any,
-  context: __SerdeContext
-): ConfiguredTableAnalysisRulePolicy => {
-  if (output.v1 != null) {
-    return {
-      v1: de_ConfiguredTableAnalysisRulePolicyV1(__expectUnion(output.v1), context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ConfiguredTableAnalysisRulePolicy omitted.
 
-/**
- * deserializeAws_restJson1ConfiguredTableAnalysisRulePolicyV1
- */
-const de_ConfiguredTableAnalysisRulePolicyV1 = (
-  output: any,
-  context: __SerdeContext
-): ConfiguredTableAnalysisRulePolicyV1 => {
-  if (output.aggregation != null) {
-    return {
-      aggregation: de_AnalysisRuleAggregation(output.aggregation, context),
-    };
-  }
-  if (output.list != null) {
-    return {
-      list: de_AnalysisRuleList(output.list, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ConfiguredTableAnalysisRulePolicyV1 omitted.
 
-/**
- * deserializeAws_restJson1ConfiguredTableAnalysisRuleTypeList
- */
-const de_ConfiguredTableAnalysisRuleTypeList = (
-  output: any,
-  context: __SerdeContext
-): (ConfiguredTableAnalysisRuleType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ConfiguredTableAnalysisRuleTypeList omitted.
 
 /**
  * deserializeAws_restJson1ConfiguredTableAssociation
  */
 const de_ConfiguredTableAssociation = (output: any, context: __SerdeContext): ConfiguredTableAssociation => {
-  return {
-    arn: __expectString(output.arn),
-    configuredTableArn: __expectString(output.configuredTableArn),
-    configuredTableId: __expectString(output.configuredTableId),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    membershipArn: __expectString(output.membershipArn),
-    membershipId: __expectString(output.membershipId),
-    name: __expectString(output.name),
-    roleArn: __expectString(output.roleArn),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    configuredTableArn: __expectString,
+    configuredTableId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    roleArn: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4539,18 +4010,16 @@ const de_ConfiguredTableAssociationSummary = (
   output: any,
   context: __SerdeContext
 ): ConfiguredTableAssociationSummary => {
-  return {
-    arn: __expectString(output.arn),
-    configuredTableId: __expectString(output.configuredTableId),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    id: __expectString(output.id),
-    membershipArn: __expectString(output.membershipArn),
-    membershipId: __expectString(output.membershipId),
-    name: __expectString(output.name),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    configuredTableId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4563,9 +4032,6 @@ const de_ConfiguredTableAssociationSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfiguredTableAssociationSummary(entry, context);
     });
   return retVal;
@@ -4575,20 +4041,15 @@ const de_ConfiguredTableAssociationSummaryList = (
  * deserializeAws_restJson1ConfiguredTableSummary
  */
 const de_ConfiguredTableSummary = (output: any, context: __SerdeContext): ConfiguredTableSummary => {
-  return {
-    analysisMethod: __expectString(output.analysisMethod),
-    analysisRuleTypes:
-      output.analysisRuleTypes != null
-        ? de_ConfiguredTableAnalysisRuleTypeList(output.analysisRuleTypes, context)
-        : undefined,
-    arn: __expectString(output.arn),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    analysisMethod: __expectString,
+    analysisRuleTypes: _json,
+    arn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4598,92 +4059,54 @@ const de_ConfiguredTableSummaryList = (output: any, context: __SerdeContext): Co
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfiguredTableSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DataEncryptionMetadata
- */
-const de_DataEncryptionMetadata = (output: any, context: __SerdeContext): DataEncryptionMetadata => {
-  return {
-    allowCleartext: __expectBoolean(output.allowCleartext),
-    allowDuplicates: __expectBoolean(output.allowDuplicates),
-    allowJoinsOnColumnsWithDifferentNames: __expectBoolean(output.allowJoinsOnColumnsWithDifferentNames),
-    preserveNulls: __expectBoolean(output.preserveNulls),
-  } as any;
-};
+// de_DataEncryptionMetadata omitted.
 
-/**
- * deserializeAws_restJson1GlueTableReference
- */
-const de_GlueTableReference = (output: any, context: __SerdeContext): GlueTableReference => {
-  return {
-    databaseName: __expectString(output.databaseName),
-    tableName: __expectString(output.tableName),
-  } as any;
-};
+// de_GlueTableReference omitted.
 
-/**
- * deserializeAws_restJson1MemberAbilities
- */
-const de_MemberAbilities = (output: any, context: __SerdeContext): (MemberAbility | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MemberAbilities omitted.
 
 /**
  * deserializeAws_restJson1Membership
  */
 const de_Membership = (output: any, context: __SerdeContext): Membership => {
-  return {
-    arn: __expectString(output.arn),
-    collaborationArn: __expectString(output.collaborationArn),
-    collaborationCreatorAccountId: __expectString(output.collaborationCreatorAccountId),
-    collaborationCreatorDisplayName: __expectString(output.collaborationCreatorDisplayName),
-    collaborationId: __expectString(output.collaborationId),
-    collaborationName: __expectString(output.collaborationName),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    id: __expectString(output.id),
-    memberAbilities: output.memberAbilities != null ? de_MemberAbilities(output.memberAbilities, context) : undefined,
-    queryLogStatus: __expectString(output.queryLogStatus),
-    status: __expectString(output.status),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationCreatorAccountId: __expectString,
+    collaborationCreatorDisplayName: __expectString,
+    collaborationId: __expectString,
+    collaborationName: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    memberAbilities: _json,
+    queryLogStatus: __expectString,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MembershipSummary
  */
 const de_MembershipSummary = (output: any, context: __SerdeContext): MembershipSummary => {
-  return {
-    arn: __expectString(output.arn),
-    collaborationArn: __expectString(output.collaborationArn),
-    collaborationCreatorAccountId: __expectString(output.collaborationCreatorAccountId),
-    collaborationCreatorDisplayName: __expectString(output.collaborationCreatorDisplayName),
-    collaborationId: __expectString(output.collaborationId),
-    collaborationName: __expectString(output.collaborationName),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    id: __expectString(output.id),
-    memberAbilities: output.memberAbilities != null ? de_MemberAbilities(output.memberAbilities, context) : undefined,
-    status: __expectString(output.status),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationCreatorAccountId: __expectString,
+    collaborationCreatorDisplayName: __expectString,
+    collaborationId: __expectString,
+    collaborationName: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    memberAbilities: _json,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4693,9 +4116,6 @@ const de_MembershipSummaryList = (output: any, context: __SerdeContext): Members
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MembershipSummary(entry, context);
     });
   return retVal;
@@ -4705,18 +4125,16 @@ const de_MembershipSummaryList = (output: any, context: __SerdeContext): Members
  * deserializeAws_restJson1MemberSummary
  */
 const de_MemberSummary = (output: any, context: __SerdeContext): MemberSummary => {
-  return {
-    abilities: output.abilities != null ? de_MemberAbilities(output.abilities, context) : undefined,
-    accountId: __expectString(output.accountId),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    displayName: __expectString(output.displayName),
-    membershipArn: __expectString(output.membershipArn),
-    membershipId: __expectString(output.membershipId),
-    status: __expectString(output.status),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    abilities: _json,
+    accountId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4726,9 +4144,6 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MemberSummary(entry, context);
     });
   return retVal;
@@ -4738,139 +4153,49 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
  * deserializeAws_restJson1ProtectedQuery
  */
 const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery => {
-  return {
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    error: output.error != null ? de_ProtectedQueryError(output.error, context) : undefined,
-    id: __expectString(output.id),
-    membershipArn: __expectString(output.membershipArn),
-    membershipId: __expectString(output.membershipId),
-    result: output.result != null ? de_ProtectedQueryResult(output.result, context) : undefined,
-    resultConfiguration:
-      output.resultConfiguration != null
-        ? de_ProtectedQueryResultConfiguration(output.resultConfiguration, context)
-        : undefined,
-    sqlParameters:
-      output.sqlParameters != null ? de_ProtectedQuerySQLParameters(output.sqlParameters, context) : undefined,
-    statistics: output.statistics != null ? de_ProtectedQueryStatistics(output.statistics, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    error: _json,
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    result: _json,
+    resultConfiguration: _json,
+    sqlParameters: _json,
+    statistics: _json,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ProtectedQueryError
- */
-const de_ProtectedQueryError = (output: any, context: __SerdeContext): ProtectedQueryError => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProtectedQueryError omitted.
 
-/**
- * deserializeAws_restJson1ProtectedQueryOutput
- */
-const de_ProtectedQueryOutput = (output: any, context: __SerdeContext): ProtectedQueryOutput => {
-  if (output.s3 != null) {
-    return {
-      s3: de_ProtectedQueryS3Output(output.s3, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ProtectedQueryOutput omitted.
 
-/**
- * deserializeAws_restJson1ProtectedQueryOutputConfiguration
- */
-const de_ProtectedQueryOutputConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ProtectedQueryOutputConfiguration => {
-  if (output.s3 != null) {
-    return {
-      s3: de_ProtectedQueryS3OutputConfiguration(output.s3, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ProtectedQueryOutputConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ProtectedQueryResult
- */
-const de_ProtectedQueryResult = (output: any, context: __SerdeContext): ProtectedQueryResult => {
-  return {
-    output: output.output != null ? de_ProtectedQueryOutput(__expectUnion(output.output), context) : undefined,
-  } as any;
-};
+// de_ProtectedQueryResult omitted.
 
-/**
- * deserializeAws_restJson1ProtectedQueryResultConfiguration
- */
-const de_ProtectedQueryResultConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ProtectedQueryResultConfiguration => {
-  return {
-    outputConfiguration:
-      output.outputConfiguration != null
-        ? de_ProtectedQueryOutputConfiguration(__expectUnion(output.outputConfiguration), context)
-        : undefined,
-  } as any;
-};
+// de_ProtectedQueryResultConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ProtectedQueryS3Output
- */
-const de_ProtectedQueryS3Output = (output: any, context: __SerdeContext): ProtectedQueryS3Output => {
-  return {
-    location: __expectString(output.location),
-  } as any;
-};
+// de_ProtectedQueryS3Output omitted.
 
-/**
- * deserializeAws_restJson1ProtectedQueryS3OutputConfiguration
- */
-const de_ProtectedQueryS3OutputConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ProtectedQueryS3OutputConfiguration => {
-  return {
-    bucket: __expectString(output.bucket),
-    keyPrefix: __expectString(output.keyPrefix),
-    resultFormat: __expectString(output.resultFormat),
-  } as any;
-};
+// de_ProtectedQueryS3OutputConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ProtectedQuerySQLParameters
- */
-const de_ProtectedQuerySQLParameters = (output: any, context: __SerdeContext): ProtectedQuerySQLParameters => {
-  return {
-    queryString: __expectString(output.queryString),
-  } as any;
-};
+// de_ProtectedQuerySQLParameters omitted.
 
-/**
- * deserializeAws_restJson1ProtectedQueryStatistics
- */
-const de_ProtectedQueryStatistics = (output: any, context: __SerdeContext): ProtectedQueryStatistics => {
-  return {
-    totalDurationInMillis: __expectLong(output.totalDurationInMillis),
-  } as any;
-};
+// de_ProtectedQueryStatistics omitted.
 
 /**
  * deserializeAws_restJson1ProtectedQuerySummary
  */
 const de_ProtectedQuerySummary = (output: any, context: __SerdeContext): ProtectedQuerySummary => {
-  return {
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    id: __expectString(output.id),
-    membershipArn: __expectString(output.membershipArn),
-    membershipId: __expectString(output.membershipId),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4880,50 +4205,31 @@ const de_ProtectedQuerySummaryList = (output: any, context: __SerdeContext): Pro
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProtectedQuerySummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ScalarFunctionsList
- */
-const de_ScalarFunctionsList = (output: any, context: __SerdeContext): (ScalarFunctions | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ScalarFunctionsList omitted.
 
 /**
  * deserializeAws_restJson1Schema
  */
 const de_Schema = (output: any, context: __SerdeContext): Schema => {
-  return {
-    analysisMethod: __expectString(output.analysisMethod),
-    analysisRuleTypes:
-      output.analysisRuleTypes != null ? de_AnalysisRuleTypeList(output.analysisRuleTypes, context) : undefined,
-    collaborationArn: __expectString(output.collaborationArn),
-    collaborationId: __expectString(output.collaborationId),
-    columns: output.columns != null ? de_ColumnList(output.columns, context) : undefined,
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    creatorAccountId: __expectString(output.creatorAccountId),
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    partitionKeys: output.partitionKeys != null ? de_ColumnList(output.partitionKeys, context) : undefined,
-    type: __expectString(output.type),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    analysisMethod: __expectString,
+    analysisRuleTypes: _json,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    columns: _json,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    name: __expectString,
+    partitionKeys: _json,
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4933,9 +4239,6 @@ const de_SchemaList = (output: any, context: __SerdeContext): Schema[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Schema(entry, context);
     });
   return retVal;
@@ -4945,20 +4248,17 @@ const de_SchemaList = (output: any, context: __SerdeContext): Schema[] => {
  * deserializeAws_restJson1SchemaSummary
  */
 const de_SchemaSummary = (output: any, context: __SerdeContext): SchemaSummary => {
-  return {
-    analysisMethod: __expectString(output.analysisMethod),
-    analysisRuleTypes:
-      output.analysisRuleTypes != null ? de_AnalysisRuleTypeList(output.analysisRuleTypes, context) : undefined,
-    collaborationArn: __expectString(output.collaborationArn),
-    collaborationId: __expectString(output.collaborationId),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    creatorAccountId: __expectString(output.creatorAccountId),
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    analysisMethod: __expectString,
+    analysisRuleTypes: _json,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    name: __expectString,
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4968,63 +4268,18 @@ const de_SchemaSummaryList = (output: any, context: __SerdeContext): SchemaSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SchemaSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TableReference
- */
-const de_TableReference = (output: any, context: __SerdeContext): TableReference => {
-  if (output.glue != null) {
-    return {
-      glue: de_GlueTableReference(output.glue, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_TableReference omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

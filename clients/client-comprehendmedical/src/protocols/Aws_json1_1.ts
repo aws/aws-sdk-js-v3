@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -8,7 +9,8 @@ import {
   expectString as __expectString,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -107,7 +109,6 @@ import {
 import { ComprehendMedicalServiceException as __BaseException } from "../models/ComprehendMedicalServiceException";
 import {
   Attribute,
-  Characters,
   ComprehendMedicalAsyncJobFilter,
   ComprehendMedicalAsyncJobProperties,
   DescribeEntitiesDetectionV2JobRequest,
@@ -160,29 +161,18 @@ import {
   ServiceUnavailableException,
   SNOMEDCTAttribute,
   SNOMEDCTConcept,
-  SNOMEDCTDetails,
   SNOMEDCTEntity,
   SNOMEDCTTrait,
   StartEntitiesDetectionV2JobRequest,
-  StartEntitiesDetectionV2JobResponse,
   StartICD10CMInferenceJobRequest,
-  StartICD10CMInferenceJobResponse,
   StartPHIDetectionJobRequest,
-  StartPHIDetectionJobResponse,
   StartRxNormInferenceJobRequest,
-  StartRxNormInferenceJobResponse,
   StartSNOMEDCTInferenceJobRequest,
-  StartSNOMEDCTInferenceJobResponse,
   StopEntitiesDetectionV2JobRequest,
-  StopEntitiesDetectionV2JobResponse,
   StopICD10CMInferenceJobRequest,
-  StopICD10CMInferenceJobResponse,
   StopPHIDetectionJobRequest,
-  StopPHIDetectionJobResponse,
   StopRxNormInferenceJobRequest,
-  StopRxNormInferenceJobResponse,
   StopSNOMEDCTInferenceJobRequest,
-  StopSNOMEDCTInferenceJobResponse,
   TextSizeLimitExceededException,
   TooManyRequestsException,
   Trait,
@@ -199,7 +189,7 @@ export const se_DescribeEntitiesDetectionV2JobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEntitiesDetectionV2Job");
   let body: any;
-  body = JSON.stringify(se_DescribeEntitiesDetectionV2JobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -212,7 +202,7 @@ export const se_DescribeICD10CMInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeICD10CMInferenceJob");
   let body: any;
-  body = JSON.stringify(se_DescribeICD10CMInferenceJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -225,7 +215,7 @@ export const se_DescribePHIDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePHIDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribePHIDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -238,7 +228,7 @@ export const se_DescribeRxNormInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRxNormInferenceJob");
   let body: any;
-  body = JSON.stringify(se_DescribeRxNormInferenceJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -251,7 +241,7 @@ export const se_DescribeSNOMEDCTInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSNOMEDCTInferenceJob");
   let body: any;
-  body = JSON.stringify(se_DescribeSNOMEDCTInferenceJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -264,7 +254,7 @@ export const se_DetectEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectEntities");
   let body: any;
-  body = JSON.stringify(se_DetectEntitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -277,7 +267,7 @@ export const se_DetectEntitiesV2Command = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectEntitiesV2");
   let body: any;
-  body = JSON.stringify(se_DetectEntitiesV2Request(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -290,7 +280,7 @@ export const se_DetectPHICommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectPHI");
   let body: any;
-  body = JSON.stringify(se_DetectPHIRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -303,7 +293,7 @@ export const se_InferICD10CMCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("InferICD10CM");
   let body: any;
-  body = JSON.stringify(se_InferICD10CMRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -316,7 +306,7 @@ export const se_InferRxNormCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("InferRxNorm");
   let body: any;
-  body = JSON.stringify(se_InferRxNormRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -329,7 +319,7 @@ export const se_InferSNOMEDCTCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("InferSNOMEDCT");
   let body: any;
-  body = JSON.stringify(se_InferSNOMEDCTRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -472,7 +462,7 @@ export const se_StopEntitiesDetectionV2JobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopEntitiesDetectionV2Job");
   let body: any;
-  body = JSON.stringify(se_StopEntitiesDetectionV2JobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -485,7 +475,7 @@ export const se_StopICD10CMInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopICD10CMInferenceJob");
   let body: any;
-  body = JSON.stringify(se_StopICD10CMInferenceJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -498,7 +488,7 @@ export const se_StopPHIDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopPHIDetectionJob");
   let body: any;
-  body = JSON.stringify(se_StopPHIDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -511,7 +501,7 @@ export const se_StopRxNormInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopRxNormInferenceJob");
   let body: any;
-  body = JSON.stringify(se_StopRxNormInferenceJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -524,7 +514,7 @@ export const se_StopSNOMEDCTInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopSNOMEDCTInferenceJob");
   let body: any;
-  body = JSON.stringify(se_StopSNOMEDCTInferenceJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -545,7 +535,7 @@ export const de_DescribeEntitiesDetectionV2JobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -575,10 +565,9 @@ const de_DescribeEntitiesDetectionV2JobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -601,7 +590,7 @@ export const de_DescribeICD10CMInferenceJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -631,10 +620,9 @@ const de_DescribeICD10CMInferenceJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -657,7 +645,7 @@ export const de_DescribePHIDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -687,10 +675,9 @@ const de_DescribePHIDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -713,7 +700,7 @@ export const de_DescribeRxNormInferenceJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -743,10 +730,9 @@ const de_DescribeRxNormInferenceJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -769,7 +755,7 @@ export const de_DescribeSNOMEDCTInferenceJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -799,10 +785,9 @@ const de_DescribeSNOMEDCTInferenceJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -825,7 +810,7 @@ export const de_DetectEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -861,10 +846,9 @@ const de_DetectEntitiesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -887,7 +871,7 @@ export const de_DetectEntitiesV2Command = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -923,10 +907,9 @@ const de_DetectEntitiesV2CommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -949,7 +932,7 @@ export const de_DetectPHICommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -985,10 +968,9 @@ const de_DetectPHICommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1011,7 +993,7 @@ export const de_InferICD10CMCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1047,10 +1029,9 @@ const de_InferICD10CMCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1073,7 +1054,7 @@ export const de_InferRxNormCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1109,10 +1090,9 @@ const de_InferRxNormCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1135,7 +1115,7 @@ export const de_InferSNOMEDCTCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1171,10 +1151,9 @@ const de_InferSNOMEDCTCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1197,7 +1176,7 @@ export const de_ListEntitiesDetectionV2JobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1227,10 +1206,9 @@ const de_ListEntitiesDetectionV2JobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1253,7 +1231,7 @@ export const de_ListICD10CMInferenceJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1283,10 +1261,9 @@ const de_ListICD10CMInferenceJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1309,7 +1286,7 @@ export const de_ListPHIDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1339,10 +1316,9 @@ const de_ListPHIDetectionJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1365,7 +1341,7 @@ export const de_ListRxNormInferenceJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1395,10 +1371,9 @@ const de_ListRxNormInferenceJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1421,7 +1396,7 @@ export const de_ListSNOMEDCTInferenceJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1451,10 +1426,9 @@ const de_ListSNOMEDCTInferenceJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1472,12 +1446,12 @@ export const de_StartEntitiesDetectionV2JobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartEntitiesDetectionV2JobResponse(data, context);
+  contents = _json(data);
   const response: StartEntitiesDetectionV2JobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1507,10 +1481,9 @@ const de_StartEntitiesDetectionV2JobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1528,12 +1501,12 @@ export const de_StartICD10CMInferenceJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartICD10CMInferenceJobResponse(data, context);
+  contents = _json(data);
   const response: StartICD10CMInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1563,10 +1536,9 @@ const de_StartICD10CMInferenceJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1584,12 +1556,12 @@ export const de_StartPHIDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartPHIDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartPHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1619,10 +1591,9 @@ const de_StartPHIDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1640,12 +1611,12 @@ export const de_StartRxNormInferenceJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartRxNormInferenceJobResponse(data, context);
+  contents = _json(data);
   const response: StartRxNormInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1675,10 +1646,9 @@ const de_StartRxNormInferenceJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1696,12 +1666,12 @@ export const de_StartSNOMEDCTInferenceJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartSNOMEDCTInferenceJobResponse(data, context);
+  contents = _json(data);
   const response: StartSNOMEDCTInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1731,10 +1701,9 @@ const de_StartSNOMEDCTInferenceJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1752,12 +1721,12 @@ export const de_StopEntitiesDetectionV2JobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopEntitiesDetectionV2JobResponse(data, context);
+  contents = _json(data);
   const response: StopEntitiesDetectionV2JobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1784,10 +1753,9 @@ const de_StopEntitiesDetectionV2JobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1805,12 +1773,12 @@ export const de_StopICD10CMInferenceJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopICD10CMInferenceJobResponse(data, context);
+  contents = _json(data);
   const response: StopICD10CMInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1837,10 +1805,9 @@ const de_StopICD10CMInferenceJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1858,12 +1825,12 @@ export const de_StopPHIDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopPHIDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StopPHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1890,10 +1857,9 @@ const de_StopPHIDetectionJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1911,12 +1877,12 @@ export const de_StopRxNormInferenceJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopRxNormInferenceJobResponse(data, context);
+  contents = _json(data);
   const response: StopRxNormInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1943,10 +1909,9 @@ const de_StopRxNormInferenceJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1964,12 +1929,12 @@ export const de_StopSNOMEDCTInferenceJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopSNOMEDCTInferenceJobResponse(data, context);
+  contents = _json(data);
   const response: StopSNOMEDCTInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1999,10 +1964,9 @@ const de_StopSNOMEDCTInferenceJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2016,7 +1980,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2032,7 +1996,7 @@ const de_InvalidEncodingExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidEncodingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidEncodingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidEncodingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2048,7 +2012,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2064,7 +2028,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2080,7 +2044,7 @@ const de_ServiceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2096,7 +2060,7 @@ const de_TextSizeLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<TextSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TextSizeLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TextSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2112,7 +2076,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2125,7 +2089,7 @@ const de_TooManyRequestsExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2137,134 +2101,37 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_json1_1ComprehendMedicalAsyncJobFilter
  */
 const se_ComprehendMedicalAsyncJobFilter = (input: ComprehendMedicalAsyncJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest
- */
-const se_DescribeEntitiesDetectionV2JobRequest = (
-  input: DescribeEntitiesDetectionV2JobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeEntitiesDetectionV2JobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeICD10CMInferenceJobRequest
- */
-const se_DescribeICD10CMInferenceJobRequest = (
-  input: DescribeICD10CMInferenceJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeICD10CMInferenceJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePHIDetectionJobRequest
- */
-const se_DescribePHIDetectionJobRequest = (input: DescribePHIDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribePHIDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeRxNormInferenceJobRequest
- */
-const se_DescribeRxNormInferenceJobRequest = (
-  input: DescribeRxNormInferenceJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeRxNormInferenceJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeSNOMEDCTInferenceJobRequest
- */
-const se_DescribeSNOMEDCTInferenceJobRequest = (
-  input: DescribeSNOMEDCTInferenceJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeSNOMEDCTInferenceJobRequest omitted.
 
-/**
- * serializeAws_json1_1DetectEntitiesRequest
- */
-const se_DetectEntitiesRequest = (input: DetectEntitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectEntitiesRequest omitted.
 
-/**
- * serializeAws_json1_1DetectEntitiesV2Request
- */
-const se_DetectEntitiesV2Request = (input: DetectEntitiesV2Request, context: __SerdeContext): any => {
-  return {
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectEntitiesV2Request omitted.
 
-/**
- * serializeAws_json1_1DetectPHIRequest
- */
-const se_DetectPHIRequest = (input: DetectPHIRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectPHIRequest omitted.
 
-/**
- * serializeAws_json1_1InferICD10CMRequest
- */
-const se_InferICD10CMRequest = (input: InferICD10CMRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_InferICD10CMRequest omitted.
 
-/**
- * serializeAws_json1_1InferRxNormRequest
- */
-const se_InferRxNormRequest = (input: InferRxNormRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_InferRxNormRequest omitted.
 
-/**
- * serializeAws_json1_1InferSNOMEDCTRequest
- */
-const se_InferSNOMEDCTRequest = (input: InferSNOMEDCTRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_InferSNOMEDCTRequest omitted.
 
-/**
- * serializeAws_json1_1InputDataConfig
- */
-const se_InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-  };
-};
+// se_InputDataConfig omitted.
 
 /**
  * serializeAws_json1_1ListEntitiesDetectionV2JobsRequest
@@ -2273,66 +2140,58 @@ const se_ListEntitiesDetectionV2JobsRequest = (
   input: ListEntitiesDetectionV2JobsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_ComprehendMedicalAsyncJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_ComprehendMedicalAsyncJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListICD10CMInferenceJobsRequest
  */
 const se_ListICD10CMInferenceJobsRequest = (input: ListICD10CMInferenceJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_ComprehendMedicalAsyncJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_ComprehendMedicalAsyncJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListPHIDetectionJobsRequest
  */
 const se_ListPHIDetectionJobsRequest = (input: ListPHIDetectionJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_ComprehendMedicalAsyncJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_ComprehendMedicalAsyncJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListRxNormInferenceJobsRequest
  */
 const se_ListRxNormInferenceJobsRequest = (input: ListRxNormInferenceJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_ComprehendMedicalAsyncJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_ComprehendMedicalAsyncJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListSNOMEDCTInferenceJobsRequest
  */
 const se_ListSNOMEDCTInferenceJobsRequest = (input: ListSNOMEDCTInferenceJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_ComprehendMedicalAsyncJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_ComprehendMedicalAsyncJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1OutputDataConfig
- */
-const se_OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-  };
-};
+// se_OutputDataConfig omitted.
 
 /**
  * serializeAws_json1_1StartEntitiesDetectionV2JobRequest
@@ -2341,141 +2200,103 @@ const se_StartEntitiesDetectionV2JobRequest = (
   input: StartEntitiesDetectionV2JobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    KMSKey: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartICD10CMInferenceJobRequest
  */
 const se_StartICD10CMInferenceJobRequest = (input: StartICD10CMInferenceJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    KMSKey: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartPHIDetectionJobRequest
  */
 const se_StartPHIDetectionJobRequest = (input: StartPHIDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    KMSKey: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartRxNormInferenceJobRequest
  */
 const se_StartRxNormInferenceJobRequest = (input: StartRxNormInferenceJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    KMSKey: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartSNOMEDCTInferenceJobRequest
  */
 const se_StartSNOMEDCTInferenceJobRequest = (input: StartSNOMEDCTInferenceJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    KMSKey: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1StopEntitiesDetectionV2JobRequest
- */
-const se_StopEntitiesDetectionV2JobRequest = (
-  input: StopEntitiesDetectionV2JobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopEntitiesDetectionV2JobRequest omitted.
 
-/**
- * serializeAws_json1_1StopICD10CMInferenceJobRequest
- */
-const se_StopICD10CMInferenceJobRequest = (input: StopICD10CMInferenceJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopICD10CMInferenceJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopPHIDetectionJobRequest
- */
-const se_StopPHIDetectionJobRequest = (input: StopPHIDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopPHIDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopRxNormInferenceJobRequest
- */
-const se_StopRxNormInferenceJobRequest = (input: StopRxNormInferenceJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopRxNormInferenceJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopSNOMEDCTInferenceJobRequest
- */
-const se_StopSNOMEDCTInferenceJobRequest = (input: StopSNOMEDCTInferenceJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopSNOMEDCTInferenceJobRequest omitted.
 
 /**
  * deserializeAws_json1_1Attribute
  */
 const de_Attribute = (output: any, context: __SerdeContext): Attribute => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    Category: __expectString(output.Category),
-    EndOffset: __expectInt32(output.EndOffset),
-    Id: __expectInt32(output.Id),
-    RelationshipScore: __limitedParseFloat32(output.RelationshipScore),
-    RelationshipType: __expectString(output.RelationshipType),
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Traits: output.Traits != null ? de_TraitList(output.Traits, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    Category: __expectString,
+    EndOffset: __expectInt32,
+    Id: __expectInt32,
+    RelationshipScore: __limitedParseFloat32,
+    RelationshipType: __expectString,
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Traits: (_: any) => de_TraitList(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -2485,22 +2306,12 @@ const de_AttributeList = (output: any, context: __SerdeContext): Attribute[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Attribute(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Characters
- */
-const de_Characters = (output: any, context: __SerdeContext): Characters => {
-  return {
-    OriginalTextCharacters: __expectInt32(output.OriginalTextCharacters),
-  } as any;
-};
+// de_Characters omitted.
 
 /**
  * deserializeAws_json1_1ComprehendMedicalAsyncJobProperties
@@ -2509,28 +2320,22 @@ const de_ComprehendMedicalAsyncJobProperties = (
   output: any,
   context: __SerdeContext
 ): ComprehendMedicalAsyncJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    ExpirationTime:
-      output.ExpirationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTime)))
-        : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    KMSKey: __expectString(output.KMSKey),
-    LanguageCode: __expectString(output.LanguageCode),
-    ManifestFilePath: __expectString(output.ManifestFilePath),
-    Message: __expectString(output.Message),
-    ModelVersion: __expectString(output.ModelVersion),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpirationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    KMSKey: __expectString,
+    LanguageCode: __expectString,
+    ManifestFilePath: __expectString,
+    Message: __expectString,
+    ModelVersion: __expectString,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -2543,9 +2348,6 @@ const de_ComprehendMedicalAsyncJobPropertiesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ComprehendMedicalAsyncJobProperties(entry, context);
     });
   return retVal;
@@ -2558,12 +2360,9 @@ const de_DescribeEntitiesDetectionV2JobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEntitiesDetectionV2JobResponse => {
-  return {
-    ComprehendMedicalAsyncJobProperties:
-      output.ComprehendMedicalAsyncJobProperties != null
-        ? de_ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobProperties: (_: any) => de_ComprehendMedicalAsyncJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -2573,24 +2372,18 @@ const de_DescribeICD10CMInferenceJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeICD10CMInferenceJobResponse => {
-  return {
-    ComprehendMedicalAsyncJobProperties:
-      output.ComprehendMedicalAsyncJobProperties != null
-        ? de_ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobProperties: (_: any) => de_ComprehendMedicalAsyncJobProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribePHIDetectionJobResponse
  */
 const de_DescribePHIDetectionJobResponse = (output: any, context: __SerdeContext): DescribePHIDetectionJobResponse => {
-  return {
-    ComprehendMedicalAsyncJobProperties:
-      output.ComprehendMedicalAsyncJobProperties != null
-        ? de_ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobProperties: (_: any) => de_ComprehendMedicalAsyncJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -2600,12 +2393,9 @@ const de_DescribeRxNormInferenceJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRxNormInferenceJobResponse => {
-  return {
-    ComprehendMedicalAsyncJobProperties:
-      output.ComprehendMedicalAsyncJobProperties != null
-        ? de_ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobProperties: (_: any) => de_ComprehendMedicalAsyncJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -2615,66 +2405,61 @@ const de_DescribeSNOMEDCTInferenceJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSNOMEDCTInferenceJobResponse => {
-  return {
-    ComprehendMedicalAsyncJobProperties:
-      output.ComprehendMedicalAsyncJobProperties != null
-        ? de_ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobProperties: (_: any) => de_ComprehendMedicalAsyncJobProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectEntitiesResponse
  */
 const de_DetectEntitiesResponse = (output: any, context: __SerdeContext): DetectEntitiesResponse => {
-  return {
-    Entities: output.Entities != null ? de_EntityList(output.Entities, context) : undefined,
-    ModelVersion: __expectString(output.ModelVersion),
-    PaginationToken: __expectString(output.PaginationToken),
-    UnmappedAttributes:
-      output.UnmappedAttributes != null ? de_UnmappedAttributeList(output.UnmappedAttributes, context) : undefined,
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_EntityList(_, context),
+    ModelVersion: __expectString,
+    PaginationToken: __expectString,
+    UnmappedAttributes: (_: any) => de_UnmappedAttributeList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectEntitiesV2Response
  */
 const de_DetectEntitiesV2Response = (output: any, context: __SerdeContext): DetectEntitiesV2Response => {
-  return {
-    Entities: output.Entities != null ? de_EntityList(output.Entities, context) : undefined,
-    ModelVersion: __expectString(output.ModelVersion),
-    PaginationToken: __expectString(output.PaginationToken),
-    UnmappedAttributes:
-      output.UnmappedAttributes != null ? de_UnmappedAttributeList(output.UnmappedAttributes, context) : undefined,
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_EntityList(_, context),
+    ModelVersion: __expectString,
+    PaginationToken: __expectString,
+    UnmappedAttributes: (_: any) => de_UnmappedAttributeList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectPHIResponse
  */
 const de_DetectPHIResponse = (output: any, context: __SerdeContext): DetectPHIResponse => {
-  return {
-    Entities: output.Entities != null ? de_EntityList(output.Entities, context) : undefined,
-    ModelVersion: __expectString(output.ModelVersion),
-    PaginationToken: __expectString(output.PaginationToken),
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_EntityList(_, context),
+    ModelVersion: __expectString,
+    PaginationToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Entity
  */
 const de_Entity = (output: any, context: __SerdeContext): Entity => {
-  return {
-    Attributes: output.Attributes != null ? de_AttributeList(output.Attributes, context) : undefined,
-    BeginOffset: __expectInt32(output.BeginOffset),
-    Category: __expectString(output.Category),
-    EndOffset: __expectInt32(output.EndOffset),
-    Id: __expectInt32(output.Id),
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Traits: output.Traits != null ? de_TraitList(output.Traits, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_AttributeList(_, context),
+    BeginOffset: __expectInt32,
+    Category: __expectString,
+    EndOffset: __expectInt32,
+    Id: __expectInt32,
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Traits: (_: any) => de_TraitList(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -2684,9 +2469,6 @@ const de_EntityList = (output: any, context: __SerdeContext): Entity[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Entity(entry, context);
     });
   return retVal;
@@ -2696,18 +2478,18 @@ const de_EntityList = (output: any, context: __SerdeContext): Entity[] => {
  * deserializeAws_json1_1ICD10CMAttribute
  */
 const de_ICD10CMAttribute = (output: any, context: __SerdeContext): ICD10CMAttribute => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    Category: __expectString(output.Category),
-    EndOffset: __expectInt32(output.EndOffset),
-    Id: __expectInt32(output.Id),
-    RelationshipScore: __limitedParseFloat32(output.RelationshipScore),
-    RelationshipType: __expectString(output.RelationshipType),
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Traits: output.Traits != null ? de_ICD10CMTraitList(output.Traits, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    Category: __expectString,
+    EndOffset: __expectInt32,
+    Id: __expectInt32,
+    RelationshipScore: __limitedParseFloat32,
+    RelationshipType: __expectString,
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Traits: (_: any) => de_ICD10CMTraitList(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -2717,9 +2499,6 @@ const de_ICD10CMAttributeList = (output: any, context: __SerdeContext): ICD10CMA
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ICD10CMAttribute(entry, context);
     });
   return retVal;
@@ -2729,11 +2508,11 @@ const de_ICD10CMAttributeList = (output: any, context: __SerdeContext): ICD10CMA
  * deserializeAws_json1_1ICD10CMConcept
  */
 const de_ICD10CMConcept = (output: any, context: __SerdeContext): ICD10CMConcept => {
-  return {
-    Code: __expectString(output.Code),
-    Description: __expectString(output.Description),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Code: __expectString,
+    Description: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -2743,9 +2522,6 @@ const de_ICD10CMConceptList = (output: any, context: __SerdeContext): ICD10CMCon
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ICD10CMConcept(entry, context);
     });
   return retVal;
@@ -2755,19 +2531,18 @@ const de_ICD10CMConceptList = (output: any, context: __SerdeContext): ICD10CMCon
  * deserializeAws_json1_1ICD10CMEntity
  */
 const de_ICD10CMEntity = (output: any, context: __SerdeContext): ICD10CMEntity => {
-  return {
-    Attributes: output.Attributes != null ? de_ICD10CMAttributeList(output.Attributes, context) : undefined,
-    BeginOffset: __expectInt32(output.BeginOffset),
-    Category: __expectString(output.Category),
-    EndOffset: __expectInt32(output.EndOffset),
-    ICD10CMConcepts:
-      output.ICD10CMConcepts != null ? de_ICD10CMConceptList(output.ICD10CMConcepts, context) : undefined,
-    Id: __expectInt32(output.Id),
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Traits: output.Traits != null ? de_ICD10CMTraitList(output.Traits, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_ICD10CMAttributeList(_, context),
+    BeginOffset: __expectInt32,
+    Category: __expectString,
+    EndOffset: __expectInt32,
+    ICD10CMConcepts: (_: any) => de_ICD10CMConceptList(_, context),
+    Id: __expectInt32,
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Traits: (_: any) => de_ICD10CMTraitList(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -2777,9 +2552,6 @@ const de_ICD10CMEntityList = (output: any, context: __SerdeContext): ICD10CMEnti
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ICD10CMEntity(entry, context);
     });
   return retVal;
@@ -2789,10 +2561,10 @@ const de_ICD10CMEntityList = (output: any, context: __SerdeContext): ICD10CMEnti
  * deserializeAws_json1_1ICD10CMTrait
  */
 const de_ICD10CMTrait = (output: any, context: __SerdeContext): ICD10CMTrait => {
-  return {
-    Name: __expectString(output.Name),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Name: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -2802,9 +2574,6 @@ const de_ICD10CMTraitList = (output: any, context: __SerdeContext): ICD10CMTrait
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ICD10CMTrait(entry, context);
     });
   return retVal;
@@ -2814,73 +2583,44 @@ const de_ICD10CMTraitList = (output: any, context: __SerdeContext): ICD10CMTrait
  * deserializeAws_json1_1InferICD10CMResponse
  */
 const de_InferICD10CMResponse = (output: any, context: __SerdeContext): InferICD10CMResponse => {
-  return {
-    Entities: output.Entities != null ? de_ICD10CMEntityList(output.Entities, context) : undefined,
-    ModelVersion: __expectString(output.ModelVersion),
-    PaginationToken: __expectString(output.PaginationToken),
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_ICD10CMEntityList(_, context),
+    ModelVersion: __expectString,
+    PaginationToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1InferRxNormResponse
  */
 const de_InferRxNormResponse = (output: any, context: __SerdeContext): InferRxNormResponse => {
-  return {
-    Entities: output.Entities != null ? de_RxNormEntityList(output.Entities, context) : undefined,
-    ModelVersion: __expectString(output.ModelVersion),
-    PaginationToken: __expectString(output.PaginationToken),
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_RxNormEntityList(_, context),
+    ModelVersion: __expectString,
+    PaginationToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1InferSNOMEDCTResponse
  */
 const de_InferSNOMEDCTResponse = (output: any, context: __SerdeContext): InferSNOMEDCTResponse => {
-  return {
-    Characters: output.Characters != null ? de_Characters(output.Characters, context) : undefined,
-    Entities: output.Entities != null ? de_SNOMEDCTEntityList(output.Entities, context) : undefined,
-    ModelVersion: __expectString(output.ModelVersion),
-    PaginationToken: __expectString(output.PaginationToken),
-    SNOMEDCTDetails: output.SNOMEDCTDetails != null ? de_SNOMEDCTDetails(output.SNOMEDCTDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    Characters: _json,
+    Entities: (_: any) => de_SNOMEDCTEntityList(_, context),
+    ModelVersion: __expectString,
+    PaginationToken: __expectString,
+    SNOMEDCTDetails: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InputDataConfig
- */
-const de_InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    S3Bucket: __expectString(output.S3Bucket),
-    S3Key: __expectString(output.S3Key),
-  } as any;
-};
+// de_InputDataConfig omitted.
 
-/**
- * deserializeAws_json1_1InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_1InvalidEncodingException
- */
-const de_InvalidEncodingException = (output: any, context: __SerdeContext): InvalidEncodingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidEncodingException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
 /**
  * deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse
@@ -2889,13 +2629,10 @@ const de_ListEntitiesDetectionV2JobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListEntitiesDetectionV2JobsResponse => {
-  return {
-    ComprehendMedicalAsyncJobPropertiesList:
-      output.ComprehendMedicalAsyncJobPropertiesList != null
-        ? de_ComprehendMedicalAsyncJobPropertiesList(output.ComprehendMedicalAsyncJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobPropertiesList: (_: any) => de_ComprehendMedicalAsyncJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -2905,39 +2642,30 @@ const de_ListICD10CMInferenceJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListICD10CMInferenceJobsResponse => {
-  return {
-    ComprehendMedicalAsyncJobPropertiesList:
-      output.ComprehendMedicalAsyncJobPropertiesList != null
-        ? de_ComprehendMedicalAsyncJobPropertiesList(output.ComprehendMedicalAsyncJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobPropertiesList: (_: any) => de_ComprehendMedicalAsyncJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListPHIDetectionJobsResponse
  */
 const de_ListPHIDetectionJobsResponse = (output: any, context: __SerdeContext): ListPHIDetectionJobsResponse => {
-  return {
-    ComprehendMedicalAsyncJobPropertiesList:
-      output.ComprehendMedicalAsyncJobPropertiesList != null
-        ? de_ComprehendMedicalAsyncJobPropertiesList(output.ComprehendMedicalAsyncJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobPropertiesList: (_: any) => de_ComprehendMedicalAsyncJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListRxNormInferenceJobsResponse
  */
 const de_ListRxNormInferenceJobsResponse = (output: any, context: __SerdeContext): ListRxNormInferenceJobsResponse => {
-  return {
-    ComprehendMedicalAsyncJobPropertiesList:
-      output.ComprehendMedicalAsyncJobPropertiesList != null
-        ? de_ComprehendMedicalAsyncJobPropertiesList(output.ComprehendMedicalAsyncJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobPropertiesList: (_: any) => de_ComprehendMedicalAsyncJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -2947,48 +2675,30 @@ const de_ListSNOMEDCTInferenceJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSNOMEDCTInferenceJobsResponse => {
-  return {
-    ComprehendMedicalAsyncJobPropertiesList:
-      output.ComprehendMedicalAsyncJobPropertiesList != null
-        ? de_ComprehendMedicalAsyncJobPropertiesList(output.ComprehendMedicalAsyncJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ComprehendMedicalAsyncJobPropertiesList: (_: any) => de_ComprehendMedicalAsyncJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OutputDataConfig
- */
-const de_OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
-  return {
-    S3Bucket: __expectString(output.S3Bucket),
-    S3Key: __expectString(output.S3Key),
-  } as any;
-};
+// de_OutputDataConfig omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1RxNormAttribute
  */
 const de_RxNormAttribute = (output: any, context: __SerdeContext): RxNormAttribute => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    EndOffset: __expectInt32(output.EndOffset),
-    Id: __expectInt32(output.Id),
-    RelationshipScore: __limitedParseFloat32(output.RelationshipScore),
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Traits: output.Traits != null ? de_RxNormTraitList(output.Traits, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    EndOffset: __expectInt32,
+    Id: __expectInt32,
+    RelationshipScore: __limitedParseFloat32,
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Traits: (_: any) => de_RxNormTraitList(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -2998,9 +2708,6 @@ const de_RxNormAttributeList = (output: any, context: __SerdeContext): RxNormAtt
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RxNormAttribute(entry, context);
     });
   return retVal;
@@ -3010,11 +2717,11 @@ const de_RxNormAttributeList = (output: any, context: __SerdeContext): RxNormAtt
  * deserializeAws_json1_1RxNormConcept
  */
 const de_RxNormConcept = (output: any, context: __SerdeContext): RxNormConcept => {
-  return {
-    Code: __expectString(output.Code),
-    Description: __expectString(output.Description),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Code: __expectString,
+    Description: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -3024,9 +2731,6 @@ const de_RxNormConceptList = (output: any, context: __SerdeContext): RxNormConce
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RxNormConcept(entry, context);
     });
   return retVal;
@@ -3036,18 +2740,18 @@ const de_RxNormConceptList = (output: any, context: __SerdeContext): RxNormConce
  * deserializeAws_json1_1RxNormEntity
  */
 const de_RxNormEntity = (output: any, context: __SerdeContext): RxNormEntity => {
-  return {
-    Attributes: output.Attributes != null ? de_RxNormAttributeList(output.Attributes, context) : undefined,
-    BeginOffset: __expectInt32(output.BeginOffset),
-    Category: __expectString(output.Category),
-    EndOffset: __expectInt32(output.EndOffset),
-    Id: __expectInt32(output.Id),
-    RxNormConcepts: output.RxNormConcepts != null ? de_RxNormConceptList(output.RxNormConcepts, context) : undefined,
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Traits: output.Traits != null ? de_RxNormTraitList(output.Traits, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_RxNormAttributeList(_, context),
+    BeginOffset: __expectInt32,
+    Category: __expectString,
+    EndOffset: __expectInt32,
+    Id: __expectInt32,
+    RxNormConcepts: (_: any) => de_RxNormConceptList(_, context),
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Traits: (_: any) => de_RxNormTraitList(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3057,9 +2761,6 @@ const de_RxNormEntityList = (output: any, context: __SerdeContext): RxNormEntity
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RxNormEntity(entry, context);
     });
   return retVal;
@@ -3069,10 +2770,10 @@ const de_RxNormEntityList = (output: any, context: __SerdeContext): RxNormEntity
  * deserializeAws_json1_1RxNormTrait
  */
 const de_RxNormTrait = (output: any, context: __SerdeContext): RxNormTrait => {
-  return {
-    Name: __expectString(output.Name),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Name: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -3082,41 +2783,30 @@ const de_RxNormTraitList = (output: any, context: __SerdeContext): RxNormTrait[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RxNormTrait(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ServiceUnavailableException
- */
-const de_ServiceUnavailableException = (output: any, context: __SerdeContext): ServiceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceUnavailableException omitted.
 
 /**
  * deserializeAws_json1_1SNOMEDCTAttribute
  */
 const de_SNOMEDCTAttribute = (output: any, context: __SerdeContext): SNOMEDCTAttribute => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    Category: __expectString(output.Category),
-    EndOffset: __expectInt32(output.EndOffset),
-    Id: __expectInt32(output.Id),
-    RelationshipScore: __limitedParseFloat32(output.RelationshipScore),
-    RelationshipType: __expectString(output.RelationshipType),
-    SNOMEDCTConcepts:
-      output.SNOMEDCTConcepts != null ? de_SNOMEDCTConceptList(output.SNOMEDCTConcepts, context) : undefined,
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Traits: output.Traits != null ? de_SNOMEDCTTraitList(output.Traits, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    Category: __expectString,
+    EndOffset: __expectInt32,
+    Id: __expectInt32,
+    RelationshipScore: __limitedParseFloat32,
+    RelationshipType: __expectString,
+    SNOMEDCTConcepts: (_: any) => de_SNOMEDCTConceptList(_, context),
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Traits: (_: any) => de_SNOMEDCTTraitList(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3126,9 +2816,6 @@ const de_SNOMEDCTAttributeList = (output: any, context: __SerdeContext): SNOMEDC
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SNOMEDCTAttribute(entry, context);
     });
   return retVal;
@@ -3138,11 +2825,11 @@ const de_SNOMEDCTAttributeList = (output: any, context: __SerdeContext): SNOMEDC
  * deserializeAws_json1_1SNOMEDCTConcept
  */
 const de_SNOMEDCTConcept = (output: any, context: __SerdeContext): SNOMEDCTConcept => {
-  return {
-    Code: __expectString(output.Code),
-    Description: __expectString(output.Description),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Code: __expectString,
+    Description: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -3152,42 +2839,29 @@ const de_SNOMEDCTConceptList = (output: any, context: __SerdeContext): SNOMEDCTC
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SNOMEDCTConcept(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1SNOMEDCTDetails
- */
-const de_SNOMEDCTDetails = (output: any, context: __SerdeContext): SNOMEDCTDetails => {
-  return {
-    Edition: __expectString(output.Edition),
-    Language: __expectString(output.Language),
-    VersionDate: __expectString(output.VersionDate),
-  } as any;
-};
+// de_SNOMEDCTDetails omitted.
 
 /**
  * deserializeAws_json1_1SNOMEDCTEntity
  */
 const de_SNOMEDCTEntity = (output: any, context: __SerdeContext): SNOMEDCTEntity => {
-  return {
-    Attributes: output.Attributes != null ? de_SNOMEDCTAttributeList(output.Attributes, context) : undefined,
-    BeginOffset: __expectInt32(output.BeginOffset),
-    Category: __expectString(output.Category),
-    EndOffset: __expectInt32(output.EndOffset),
-    Id: __expectInt32(output.Id),
-    SNOMEDCTConcepts:
-      output.SNOMEDCTConcepts != null ? de_SNOMEDCTConceptList(output.SNOMEDCTConcepts, context) : undefined,
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Traits: output.Traits != null ? de_SNOMEDCTTraitList(output.Traits, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_SNOMEDCTAttributeList(_, context),
+    BeginOffset: __expectInt32,
+    Category: __expectString,
+    EndOffset: __expectInt32,
+    Id: __expectInt32,
+    SNOMEDCTConcepts: (_: any) => de_SNOMEDCTConceptList(_, context),
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Traits: (_: any) => de_SNOMEDCTTraitList(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3197,9 +2871,6 @@ const de_SNOMEDCTEntityList = (output: any, context: __SerdeContext): SNOMEDCTEn
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SNOMEDCTEntity(entry, context);
     });
   return retVal;
@@ -3209,10 +2880,10 @@ const de_SNOMEDCTEntityList = (output: any, context: __SerdeContext): SNOMEDCTEn
  * deserializeAws_json1_1SNOMEDCTTrait
  */
 const de_SNOMEDCTTrait = (output: any, context: __SerdeContext): SNOMEDCTTrait => {
-  return {
-    Name: __expectString(output.Name),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Name: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -3222,145 +2893,43 @@ const de_SNOMEDCTTraitList = (output: any, context: __SerdeContext): SNOMEDCTTra
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SNOMEDCTTrait(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1StartEntitiesDetectionV2JobResponse
- */
-const de_StartEntitiesDetectionV2JobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartEntitiesDetectionV2JobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartEntitiesDetectionV2JobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartICD10CMInferenceJobResponse
- */
-const de_StartICD10CMInferenceJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartICD10CMInferenceJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartICD10CMInferenceJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartPHIDetectionJobResponse
- */
-const de_StartPHIDetectionJobResponse = (output: any, context: __SerdeContext): StartPHIDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartPHIDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartRxNormInferenceJobResponse
- */
-const de_StartRxNormInferenceJobResponse = (output: any, context: __SerdeContext): StartRxNormInferenceJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartRxNormInferenceJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartSNOMEDCTInferenceJobResponse
- */
-const de_StartSNOMEDCTInferenceJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartSNOMEDCTInferenceJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartSNOMEDCTInferenceJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopEntitiesDetectionV2JobResponse
- */
-const de_StopEntitiesDetectionV2JobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopEntitiesDetectionV2JobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StopEntitiesDetectionV2JobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopICD10CMInferenceJobResponse
- */
-const de_StopICD10CMInferenceJobResponse = (output: any, context: __SerdeContext): StopICD10CMInferenceJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StopICD10CMInferenceJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopPHIDetectionJobResponse
- */
-const de_StopPHIDetectionJobResponse = (output: any, context: __SerdeContext): StopPHIDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StopPHIDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopRxNormInferenceJobResponse
- */
-const de_StopRxNormInferenceJobResponse = (output: any, context: __SerdeContext): StopRxNormInferenceJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StopRxNormInferenceJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopSNOMEDCTInferenceJobResponse
- */
-const de_StopSNOMEDCTInferenceJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopSNOMEDCTInferenceJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StopSNOMEDCTInferenceJobResponse omitted.
 
-/**
- * deserializeAws_json1_1TextSizeLimitExceededException
- */
-const de_TextSizeLimitExceededException = (output: any, context: __SerdeContext): TextSizeLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TextSizeLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
 /**
  * deserializeAws_json1_1Trait
  */
 const de_Trait = (output: any, context: __SerdeContext): Trait => {
-  return {
-    Name: __expectString(output.Name),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Name: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -3370,9 +2939,6 @@ const de_TraitList = (output: any, context: __SerdeContext): Trait[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Trait(entry, context);
     });
   return retVal;
@@ -3382,10 +2948,10 @@ const de_TraitList = (output: any, context: __SerdeContext): Trait[] => {
  * deserializeAws_json1_1UnmappedAttribute
  */
 const de_UnmappedAttribute = (output: any, context: __SerdeContext): UnmappedAttribute => {
-  return {
-    Attribute: output.Attribute != null ? de_Attribute(output.Attribute, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Attribute: (_: any) => de_Attribute(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3395,22 +2961,12 @@ const de_UnmappedAttributeList = (output: any, context: __SerdeContext): Unmappe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UnmappedAttribute(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3432,6 +2988,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

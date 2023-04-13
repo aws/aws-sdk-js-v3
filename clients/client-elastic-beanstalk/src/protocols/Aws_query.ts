@@ -12,7 +12,7 @@ import {
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1144,7 +1144,7 @@ export const de_AbortEnvironmentUpdateCommand = async (
   const response: AbortEnvironmentUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1165,10 +1165,9 @@ const de_AbortEnvironmentUpdateCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1191,7 +1190,7 @@ export const de_ApplyEnvironmentManagedActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1215,10 +1214,9 @@ const de_ApplyEnvironmentManagedActionCommandError = async (
       throw await de_ManagedActionInvalidStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1238,7 +1236,7 @@ export const de_AssociateEnvironmentOperationsRoleCommand = async (
   const response: AssociateEnvironmentOperationsRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1259,10 +1257,9 @@ const de_AssociateEnvironmentOperationsRoleCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1285,7 +1282,7 @@ export const de_CheckDNSAvailabilityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1301,10 +1298,9 @@ const de_CheckDNSAvailabilityCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1326,7 +1322,7 @@ export const de_ComposeEnvironmentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1350,10 +1346,9 @@ const de_ComposeEnvironmentsCommandError = async (
       throw await de_TooManyEnvironmentsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1376,7 +1371,7 @@ export const de_CreateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1397,10 +1392,9 @@ const de_CreateApplicationCommandError = async (
       throw await de_TooManyApplicationsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1423,7 +1417,7 @@ export const de_CreateApplicationVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1456,10 +1450,9 @@ const de_CreateApplicationVersionCommandError = async (
       throw await de_TooManyApplicationsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1482,7 +1475,7 @@ export const de_CreateConfigurationTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1509,10 +1502,9 @@ const de_CreateConfigurationTemplateCommandError = async (
       throw await de_TooManyConfigurationTemplatesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1535,7 +1527,7 @@ export const de_CreateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1559,10 +1551,9 @@ const de_CreateEnvironmentCommandError = async (
       throw await de_TooManyEnvironmentsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1585,7 +1576,7 @@ export const de_CreatePlatformVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1612,10 +1603,9 @@ const de_CreatePlatformVersionCommandError = async (
       throw await de_TooManyPlatformsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1638,7 +1628,7 @@ export const de_CreateStorageLocationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1665,10 +1655,9 @@ const de_CreateStorageLocationCommandError = async (
       throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1688,7 +1677,7 @@ export const de_DeleteApplicationCommand = async (
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1709,10 +1698,9 @@ const de_DeleteApplicationCommandError = async (
       throw await de_OperationInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1732,7 +1720,7 @@ export const de_DeleteApplicationVersionCommand = async (
   const response: DeleteApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1762,10 +1750,9 @@ const de_DeleteApplicationVersionCommandError = async (
       throw await de_SourceBundleDeletionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1785,7 +1772,7 @@ export const de_DeleteConfigurationTemplateCommand = async (
   const response: DeleteConfigurationTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1806,10 +1793,9 @@ const de_DeleteConfigurationTemplateCommandError = async (
       throw await de_OperationInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1829,7 +1815,7 @@ export const de_DeleteEnvironmentConfigurationCommand = async (
   const response: DeleteEnvironmentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1845,10 +1831,9 @@ const de_DeleteEnvironmentConfigurationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1870,7 +1855,7 @@ export const de_DeletePlatformVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1900,10 +1885,9 @@ const de_DeletePlatformVersionCommandError = async (
       throw await de_PlatformVersionStillReferencedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1926,7 +1910,7 @@ export const de_DescribeAccountAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1947,10 +1931,9 @@ const de_DescribeAccountAttributesCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1973,7 +1956,7 @@ export const de_DescribeApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1989,10 +1972,9 @@ const de_DescribeApplicationsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2014,7 +1996,7 @@ export const de_DescribeApplicationVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2030,10 +2012,9 @@ const de_DescribeApplicationVersionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2055,7 +2036,7 @@ export const de_DescribeConfigurationOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2076,10 +2057,9 @@ const de_DescribeConfigurationOptionsCommandError = async (
       throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2102,7 +2082,7 @@ export const de_DescribeConfigurationSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2123,10 +2103,9 @@ const de_DescribeConfigurationSettingsCommandError = async (
       throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2149,7 +2128,7 @@ export const de_DescribeEnvironmentHealthCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2173,10 +2152,9 @@ const de_DescribeEnvironmentHealthCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2202,7 +2180,7 @@ export const de_DescribeEnvironmentManagedActionHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2223,10 +2201,9 @@ const de_DescribeEnvironmentManagedActionHistoryCommandError = async (
       throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2249,7 +2226,7 @@ export const de_DescribeEnvironmentManagedActionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2270,10 +2247,9 @@ const de_DescribeEnvironmentManagedActionsCommandError = async (
       throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2296,7 +2272,7 @@ export const de_DescribeEnvironmentResourcesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2317,10 +2293,9 @@ const de_DescribeEnvironmentResourcesCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2343,7 +2318,7 @@ export const de_DescribeEnvironmentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2359,10 +2334,9 @@ const de_DescribeEnvironmentsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2384,7 +2358,7 @@ export const de_DescribeEventsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2400,10 +2374,9 @@ const de_DescribeEventsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2425,7 +2398,7 @@ export const de_DescribeInstancesHealthCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2449,10 +2422,9 @@ const de_DescribeInstancesHealthCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2475,7 +2447,7 @@ export const de_DescribePlatformVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2499,10 +2471,9 @@ const de_DescribePlatformVersionCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2522,7 +2493,7 @@ export const de_DisassociateEnvironmentOperationsRoleCommand = async (
   const response: DisassociateEnvironmentOperationsRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2543,10 +2514,9 @@ const de_DisassociateEnvironmentOperationsRoleCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2569,7 +2539,7 @@ export const de_ListAvailableSolutionStacksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2585,10 +2555,9 @@ const de_ListAvailableSolutionStacksCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2610,7 +2579,7 @@ export const de_ListPlatformBranchesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2626,10 +2595,9 @@ const de_ListPlatformBranchesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2651,7 +2619,7 @@ export const de_ListPlatformVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2675,10 +2643,9 @@ const de_ListPlatformVersionsCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2701,7 +2668,7 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2728,10 +2695,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2751,7 +2717,7 @@ export const de_RebuildEnvironmentCommand = async (
   const response: RebuildEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2772,10 +2738,9 @@ const de_RebuildEnvironmentCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2795,7 +2760,7 @@ export const de_RequestEnvironmentInfoCommand = async (
   const response: RequestEnvironmentInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2811,10 +2776,9 @@ const de_RequestEnvironmentInfoCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2833,7 +2797,7 @@ export const de_RestartAppServerCommand = async (
   const response: RestartAppServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2849,10 +2813,9 @@ const de_RestartAppServerCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2874,7 +2837,7 @@ export const de_RetrieveEnvironmentInfoCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2890,10 +2853,9 @@ const de_RetrieveEnvironmentInfoCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2912,7 +2874,7 @@ export const de_SwapEnvironmentCNAMEsCommand = async (
   const response: SwapEnvironmentCNAMEsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2928,10 +2890,9 @@ const de_SwapEnvironmentCNAMEsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2953,7 +2914,7 @@ export const de_TerminateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2974,10 +2935,9 @@ const de_TerminateEnvironmentCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3000,7 +2960,7 @@ export const de_UpdateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3016,10 +2976,9 @@ const de_UpdateApplicationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3041,7 +3000,7 @@ export const de_UpdateApplicationResourceLifecycleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3062,10 +3021,9 @@ const de_UpdateApplicationResourceLifecycleCommandError = async (
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3088,7 +3046,7 @@ export const de_UpdateApplicationVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3104,10 +3062,9 @@ const de_UpdateApplicationVersionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3129,7 +3086,7 @@ export const de_UpdateConfigurationTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3153,10 +3110,9 @@ const de_UpdateConfigurationTemplateCommandError = async (
       throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3179,7 +3135,7 @@ export const de_UpdateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3203,10 +3159,9 @@ const de_UpdateEnvironmentCommandError = async (
       throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3226,7 +3181,7 @@ export const de_UpdateTagsForResourceCommand = async (
   const response: UpdateTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3259,10 +3214,9 @@ const de_UpdateTagsForResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3285,7 +3239,7 @@ export const de_ValidateConfigurationSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3309,10 +3263,9 @@ const de_ValidateConfigurationSettingsCommandError = async (
       throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7681,6 +7634,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

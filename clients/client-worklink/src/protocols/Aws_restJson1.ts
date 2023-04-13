@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
@@ -8,10 +9,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -113,7 +115,6 @@ import {
   UpdateIdentityProviderConfigurationCommandOutput,
 } from "../commands/UpdateIdentityProviderConfigurationCommand";
 import {
-  DeviceSummary,
   DomainSummary,
   FleetSummary,
   InternalServerErrorException,
@@ -140,12 +141,14 @@ export const se_AssociateDomainCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateDomain";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AcmCertificateArn != null && { AcmCertificateArn: input.AcmCertificateArn }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AcmCertificateArn: [],
+      DisplayName: [],
+      DomainName: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -171,11 +174,13 @@ export const se_AssociateWebsiteAuthorizationProviderCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateWebsiteAuthorizationProvider";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuthorizationProviderType != null && { AuthorizationProviderType: input.AuthorizationProviderType }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AuthorizationProviderType: [],
+      DomainName: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -201,11 +206,13 @@ export const se_AssociateWebsiteCertificateAuthorityCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateWebsiteCertificateAuthority";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Certificate: [],
+      DisplayName: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -230,12 +237,14 @@ export const se_CreateFleetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createFleet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-    ...(input.OptimizeForEndUserLocation != null && { OptimizeForEndUserLocation: input.OptimizeForEndUserLocation }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DisplayName: [],
+      FleetName: [],
+      OptimizeForEndUserLocation: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -260,9 +269,11 @@ export const se_DeleteFleetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteFleet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -288,9 +299,11 @@ export const se_DescribeAuditStreamConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeAuditStreamConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -316,9 +329,11 @@ export const se_DescribeCompanyNetworkConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeCompanyNetworkConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -343,10 +358,12 @@ export const se_DescribeDeviceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDevice";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeviceId: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -372,9 +389,11 @@ export const se_DescribeDevicePolicyConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDevicePolicyConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -399,10 +418,12 @@ export const se_DescribeDomainCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDomain";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -427,9 +448,11 @@ export const se_DescribeFleetMetadataCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeFleetMetadata";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -455,9 +478,11 @@ export const se_DescribeIdentityProviderConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeIdentityProviderConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -483,10 +508,12 @@ export const se_DescribeWebsiteCertificateAuthorityCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWebsiteCertificateAuthority";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.WebsiteCaId != null && { WebsiteCaId: input.WebsiteCaId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      WebsiteCaId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -511,10 +538,12 @@ export const se_DisassociateDomainCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateDomain";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -540,10 +569,12 @@ export const se_DisassociateWebsiteAuthorizationProviderCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateWebsiteAuthorizationProvider";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuthorizationProviderId != null && { AuthorizationProviderId: input.AuthorizationProviderId }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AuthorizationProviderId: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -569,10 +600,12 @@ export const se_DisassociateWebsiteCertificateAuthorityCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateWebsiteCertificateAuthority";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.WebsiteCaId != null && { WebsiteCaId: input.WebsiteCaId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      WebsiteCaId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -597,11 +630,13 @@ export const se_ListDevicesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDevices";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -626,11 +661,13 @@ export const se_ListDomainsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDomains";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -655,10 +692,12 @@ export const se_ListFleetsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFleets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -707,11 +746,13 @@ export const se_ListWebsiteAuthorizationProvidersCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWebsiteAuthorizationProviders";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -737,11 +778,13 @@ export const se_ListWebsiteCertificateAuthoritiesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWebsiteCertificateAuthorities";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -766,10 +809,12 @@ export const se_RestoreDomainAccessCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restoreDomainAccess";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -794,10 +839,12 @@ export const se_RevokeDomainAccessCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/revokeDomainAccess";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -822,10 +869,12 @@ export const se_SignOutUserCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signOutUser";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.Username != null && { Username: input.Username }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      Username: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -851,9 +900,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -909,10 +960,12 @@ export const se_UpdateAuditStreamConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateAuditStreamConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuditStreamArn != null && { AuditStreamArn: input.AuditStreamArn }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AuditStreamArn: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -938,12 +991,14 @@ export const se_UpdateCompanyNetworkConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateCompanyNetworkConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_SecurityGroupIds(input.SecurityGroupIds, context) }),
-    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      SecurityGroupIds: (_) => _json(_),
+      SubnetIds: (_) => _json(_),
+      VpcId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -969,10 +1024,12 @@ export const se_UpdateDevicePolicyConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDevicePolicyConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeviceCaCertificate != null && { DeviceCaCertificate: input.DeviceCaCertificate }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeviceCaCertificate: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -997,11 +1054,13 @@ export const se_UpdateDomainMetadataCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDomainMetadata";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DisplayName: [],
+      DomainName: [],
+      FleetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1026,11 +1085,13 @@ export const se_UpdateFleetMetadataCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateFleetMetadata";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.OptimizeForEndUserLocation != null && { OptimizeForEndUserLocation: input.OptimizeForEndUserLocation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DisplayName: [],
+      FleetArn: [],
+      OptimizeForEndUserLocation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1056,13 +1117,13 @@ export const se_UpdateIdentityProviderConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateIdentityProviderConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FleetArn != null && { FleetArn: input.FleetArn }),
-    ...(input.IdentityProviderSamlMetadata != null && {
-      IdentityProviderSamlMetadata: input.IdentityProviderSamlMetadata,
-    }),
-    ...(input.IdentityProviderType != null && { IdentityProviderType: input.IdentityProviderType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FleetArn: [],
+      IdentityProviderSamlMetadata: [],
+      IdentityProviderType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1124,10 +1185,9 @@ const de_AssociateDomainCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1147,9 +1207,10 @@ export const de_AssociateWebsiteAuthorizationProviderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuthorizationProviderId != null) {
-    contents.AuthorizationProviderId = __expectString(data.AuthorizationProviderId);
-  }
+  const doc = take(data, {
+    AuthorizationProviderId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1186,10 +1247,9 @@ const de_AssociateWebsiteAuthorizationProviderCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1209,9 +1269,10 @@ export const de_AssociateWebsiteCertificateAuthorityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.WebsiteCaId != null) {
-    contents.WebsiteCaId = __expectString(data.WebsiteCaId);
-  }
+  const doc = take(data, {
+    WebsiteCaId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1248,10 +1309,9 @@ const de_AssociateWebsiteCertificateAuthorityCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1271,9 +1331,10 @@ export const de_CreateFleetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FleetArn != null) {
-    contents.FleetArn = __expectString(data.FleetArn);
-  }
+  const doc = take(data, {
+    FleetArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1310,10 +1371,9 @@ const de_CreateFleetCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1366,10 +1426,9 @@ const de_DeleteFleetCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1389,9 +1448,10 @@ export const de_DescribeAuditStreamConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuditStreamArn != null) {
-    contents.AuditStreamArn = __expectString(data.AuditStreamArn);
-  }
+  const doc = take(data, {
+    AuditStreamArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1425,10 +1485,9 @@ const de_DescribeAuditStreamConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1448,15 +1507,12 @@ export const de_DescribeCompanyNetworkConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SecurityGroupIds != null) {
-    contents.SecurityGroupIds = de_SecurityGroupIds(data.SecurityGroupIds, context);
-  }
-  if (data.SubnetIds != null) {
-    contents.SubnetIds = de_SubnetIds(data.SubnetIds, context);
-  }
-  if (data.VpcId != null) {
-    contents.VpcId = __expectString(data.VpcId);
-  }
+  const doc = take(data, {
+    SecurityGroupIds: _json,
+    SubnetIds: _json,
+    VpcId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1490,10 +1546,9 @@ const de_DescribeCompanyNetworkConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1513,33 +1568,18 @@ export const de_DescribeDeviceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FirstAccessedTime != null) {
-    contents.FirstAccessedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.FirstAccessedTime)));
-  }
-  if (data.LastAccessedTime != null) {
-    contents.LastAccessedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastAccessedTime)));
-  }
-  if (data.Manufacturer != null) {
-    contents.Manufacturer = __expectString(data.Manufacturer);
-  }
-  if (data.Model != null) {
-    contents.Model = __expectString(data.Model);
-  }
-  if (data.OperatingSystem != null) {
-    contents.OperatingSystem = __expectString(data.OperatingSystem);
-  }
-  if (data.OperatingSystemVersion != null) {
-    contents.OperatingSystemVersion = __expectString(data.OperatingSystemVersion);
-  }
-  if (data.PatchLevel != null) {
-    contents.PatchLevel = __expectString(data.PatchLevel);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Username != null) {
-    contents.Username = __expectString(data.Username);
-  }
+  const doc = take(data, {
+    FirstAccessedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastAccessedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Manufacturer: __expectString,
+    Model: __expectString,
+    OperatingSystem: __expectString,
+    OperatingSystemVersion: __expectString,
+    PatchLevel: __expectString,
+    Status: __expectString,
+    Username: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1573,10 +1613,9 @@ const de_DescribeDeviceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1596,9 +1635,10 @@ export const de_DescribeDevicePolicyConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeviceCaCertificate != null) {
-    contents.DeviceCaCertificate = __expectString(data.DeviceCaCertificate);
-  }
+  const doc = take(data, {
+    DeviceCaCertificate: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1632,10 +1672,9 @@ const de_DescribeDevicePolicyConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1655,21 +1694,14 @@ export const de_DescribeDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AcmCertificateArn != null) {
-    contents.AcmCertificateArn = __expectString(data.AcmCertificateArn);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.DisplayName != null) {
-    contents.DisplayName = __expectString(data.DisplayName);
-  }
-  if (data.DomainName != null) {
-    contents.DomainName = __expectString(data.DomainName);
-  }
-  if (data.DomainStatus != null) {
-    contents.DomainStatus = __expectString(data.DomainStatus);
-  }
+  const doc = take(data, {
+    AcmCertificateArn: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DisplayName: __expectString,
+    DomainName: __expectString,
+    DomainStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1703,10 +1735,9 @@ const de_DescribeDomainCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1726,30 +1757,17 @@ export const de_DescribeFleetMetadataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CompanyCode != null) {
-    contents.CompanyCode = __expectString(data.CompanyCode);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.DisplayName != null) {
-    contents.DisplayName = __expectString(data.DisplayName);
-  }
-  if (data.FleetName != null) {
-    contents.FleetName = __expectString(data.FleetName);
-  }
-  if (data.FleetStatus != null) {
-    contents.FleetStatus = __expectString(data.FleetStatus);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.OptimizeForEndUserLocation != null) {
-    contents.OptimizeForEndUserLocation = __expectBoolean(data.OptimizeForEndUserLocation);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    CompanyCode: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DisplayName: __expectString,
+    FleetName: __expectString,
+    FleetStatus: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OptimizeForEndUserLocation: __expectBoolean,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1783,10 +1801,9 @@ const de_DescribeFleetMetadataCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1806,15 +1823,12 @@ export const de_DescribeIdentityProviderConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityProviderSamlMetadata != null) {
-    contents.IdentityProviderSamlMetadata = __expectString(data.IdentityProviderSamlMetadata);
-  }
-  if (data.IdentityProviderType != null) {
-    contents.IdentityProviderType = __expectString(data.IdentityProviderType);
-  }
-  if (data.ServiceProviderSamlMetadata != null) {
-    contents.ServiceProviderSamlMetadata = __expectString(data.ServiceProviderSamlMetadata);
-  }
+  const doc = take(data, {
+    IdentityProviderSamlMetadata: __expectString,
+    IdentityProviderType: __expectString,
+    ServiceProviderSamlMetadata: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1848,10 +1862,9 @@ const de_DescribeIdentityProviderConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1871,15 +1884,12 @@ export const de_DescribeWebsiteCertificateAuthorityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Certificate != null) {
-    contents.Certificate = __expectString(data.Certificate);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.DisplayName != null) {
-    contents.DisplayName = __expectString(data.DisplayName);
-  }
+  const doc = take(data, {
+    Certificate: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DisplayName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1913,10 +1923,9 @@ const de_DescribeWebsiteCertificateAuthorityCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1969,10 +1978,9 @@ const de_DisassociateDomainCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2028,10 +2036,9 @@ const de_DisassociateWebsiteAuthorizationProviderCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2084,10 +2091,9 @@ const de_DisassociateWebsiteCertificateAuthorityCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2107,12 +2113,11 @@ export const de_ListDevicesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Devices != null) {
-    contents.Devices = de_DeviceSummaryList(data.Devices, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Devices: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2146,10 +2151,9 @@ const de_ListDevicesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2169,12 +2173,11 @@ export const de_ListDomainsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Domains != null) {
-    contents.Domains = de_DomainSummaryList(data.Domains, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Domains: (_) => de_DomainSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2208,10 +2211,9 @@ const de_ListDomainsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2231,12 +2233,11 @@ export const de_ListFleetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FleetSummaryList != null) {
-    contents.FleetSummaryList = de_FleetSummaryList(data.FleetSummaryList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    FleetSummaryList: (_) => de_FleetSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2267,10 +2268,9 @@ const de_ListFleetsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2290,9 +2290,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2314,10 +2315,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2337,15 +2337,11 @@ export const de_ListWebsiteAuthorizationProvidersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WebsiteAuthorizationProviders != null) {
-    contents.WebsiteAuthorizationProviders = de_WebsiteAuthorizationProvidersSummaryList(
-      data.WebsiteAuthorizationProviders,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    WebsiteAuthorizationProviders: (_) => de_WebsiteAuthorizationProvidersSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2379,10 +2375,9 @@ const de_ListWebsiteAuthorizationProvidersCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2402,12 +2397,11 @@ export const de_ListWebsiteCertificateAuthoritiesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WebsiteCertificateAuthorities != null) {
-    contents.WebsiteCertificateAuthorities = de_WebsiteCaSummaryList(data.WebsiteCertificateAuthorities, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    WebsiteCertificateAuthorities: (_) => de_WebsiteCaSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2438,10 +2432,9 @@ const de_ListWebsiteCertificateAuthoritiesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2494,10 +2487,9 @@ const de_RestoreDomainAccessCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2550,10 +2542,9 @@ const de_RevokeDomainAccessCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2606,10 +2597,9 @@ const de_SignOutUserCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2650,10 +2640,9 @@ const de_TagResourceCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2694,10 +2683,9 @@ const de_UntagResourceCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2750,10 +2738,9 @@ const de_UpdateAuditStreamConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2806,10 +2793,9 @@ const de_UpdateCompanyNetworkConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2862,10 +2848,9 @@ const de_UpdateDevicePolicyConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2918,10 +2903,9 @@ const de_UpdateDomainMetadataCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2974,10 +2958,9 @@ const de_UpdateFleetMetadataCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3030,16 +3013,15 @@ const de_UpdateIdentityProviderConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InternalServerErrorExceptionRes
  */
@@ -3049,9 +3031,10 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3068,9 +3051,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3087,9 +3071,10 @@ const de_ResourceAlreadyExistsExceptionRes = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3106,9 +3091,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3125,9 +3111,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3144,9 +3131,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3154,79 +3142,26 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_restJson1SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIds omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1DeviceSummary
- */
-const de_DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
-  return {
-    DeviceId: __expectString(output.DeviceId),
-    DeviceStatus: __expectString(output.DeviceStatus),
-  } as any;
-};
+// de_DeviceSummary omitted.
 
-/**
- * deserializeAws_restJson1DeviceSummaryList
- */
-const de_DeviceSummaryList = (output: any, context: __SerdeContext): DeviceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DeviceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_DeviceSummaryList omitted.
 
 /**
  * deserializeAws_restJson1DomainSummary
  */
 const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
-  return {
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    DisplayName: __expectString(output.DisplayName),
-    DomainName: __expectString(output.DomainName),
-    DomainStatus: __expectString(output.DomainStatus),
-  } as any;
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DisplayName: __expectString,
+    DomainName: __expectString,
+    DomainStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -3236,9 +3171,6 @@ const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainSummary(entry, context);
     });
   return retVal;
@@ -3248,22 +3180,16 @@ const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSumma
  * deserializeAws_restJson1FleetSummary
  */
 const de_FleetSummary = (output: any, context: __SerdeContext): FleetSummary => {
-  return {
-    CompanyCode: __expectString(output.CompanyCode),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    DisplayName: __expectString(output.DisplayName),
-    FleetArn: __expectString(output.FleetArn),
-    FleetName: __expectString(output.FleetName),
-    FleetStatus: __expectString(output.FleetStatus),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    CompanyCode: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DisplayName: __expectString,
+    FleetArn: __expectString,
+    FleetName: __expectString,
+    FleetStatus: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+  }) as any;
 };
 
 /**
@@ -3273,56 +3199,16 @@ const de_FleetSummaryList = (output: any, context: __SerdeContext): FleetSummary
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FleetSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
-/**
- * deserializeAws_restJson1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1WebsiteAuthorizationProvidersSummaryList
@@ -3334,9 +3220,6 @@ const de_WebsiteAuthorizationProvidersSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WebsiteAuthorizationProviderSummary(entry, context);
     });
   return retVal;
@@ -3349,29 +3232,23 @@ const de_WebsiteAuthorizationProviderSummary = (
   output: any,
   context: __SerdeContext
 ): WebsiteAuthorizationProviderSummary => {
-  return {
-    AuthorizationProviderId: __expectString(output.AuthorizationProviderId),
-    AuthorizationProviderType: __expectString(output.AuthorizationProviderType),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    DomainName: __expectString(output.DomainName),
-  } as any;
+  return take(output, {
+    AuthorizationProviderId: __expectString,
+    AuthorizationProviderType: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1WebsiteCaSummary
  */
 const de_WebsiteCaSummary = (output: any, context: __SerdeContext): WebsiteCaSummary => {
-  return {
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    DisplayName: __expectString(output.DisplayName),
-    WebsiteCaId: __expectString(output.WebsiteCaId),
-  } as any;
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DisplayName: __expectString,
+    WebsiteCaId: __expectString,
+  }) as any;
 };
 
 /**
@@ -3381,9 +3258,6 @@ const de_WebsiteCaSummaryList = (output: any, context: __SerdeContext): WebsiteC
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WebsiteCaSummary(entry, context);
     });
   return retVal;

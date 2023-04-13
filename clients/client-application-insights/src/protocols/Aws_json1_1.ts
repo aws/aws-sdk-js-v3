@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -10,7 +10,8 @@ import {
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -73,56 +74,35 @@ import { UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput } from "../
 import { ApplicationInsightsServiceException as __BaseException } from "../models/ApplicationInsightsServiceException";
 import {
   AccessDeniedException,
-  ApplicationComponent,
-  ApplicationInfo,
   BadRequestException,
   ConfigurationEvent,
   CreateApplicationRequest,
-  CreateApplicationResponse,
   CreateComponentRequest,
-  CreateComponentResponse,
   CreateLogPatternRequest,
-  CreateLogPatternResponse,
   DeleteApplicationRequest,
-  DeleteApplicationResponse,
   DeleteComponentRequest,
-  DeleteComponentResponse,
   DeleteLogPatternRequest,
-  DeleteLogPatternResponse,
   DescribeApplicationRequest,
-  DescribeApplicationResponse,
   DescribeComponentConfigurationRecommendationRequest,
-  DescribeComponentConfigurationRecommendationResponse,
   DescribeComponentConfigurationRequest,
-  DescribeComponentConfigurationResponse,
   DescribeComponentRequest,
-  DescribeComponentResponse,
   DescribeLogPatternRequest,
-  DescribeLogPatternResponse,
   DescribeObservationRequest,
   DescribeObservationResponse,
   DescribeProblemObservationsRequest,
   DescribeProblemObservationsResponse,
   DescribeProblemRequest,
   DescribeProblemResponse,
-  FeedbackKey,
-  FeedbackValue,
   InternalServerException,
   ListApplicationsRequest,
-  ListApplicationsResponse,
   ListComponentsRequest,
-  ListComponentsResponse,
   ListConfigurationHistoryRequest,
   ListConfigurationHistoryResponse,
   ListLogPatternSetsRequest,
-  ListLogPatternSetsResponse,
   ListLogPatternsRequest,
-  ListLogPatternsResponse,
   ListProblemsRequest,
   ListProblemsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  LogPattern,
   Observation,
   Problem,
   RelatedObservations,
@@ -130,20 +110,13 @@ import {
   ResourceNotFoundException,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TagsAlreadyExistException,
-  Tier,
   TooManyTagsException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateApplicationRequest,
-  UpdateApplicationResponse,
   UpdateComponentConfigurationRequest,
-  UpdateComponentConfigurationResponse,
   UpdateComponentRequest,
-  UpdateComponentResponse,
   UpdateLogPatternRequest,
-  UpdateLogPatternResponse,
   ValidationException,
 } from "../models/models_0";
 
@@ -156,7 +129,7 @@ export const se_CreateApplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateApplication");
   let body: any;
-  body = JSON.stringify(se_CreateApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -169,7 +142,7 @@ export const se_CreateComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateComponent");
   let body: any;
-  body = JSON.stringify(se_CreateComponentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -182,7 +155,7 @@ export const se_CreateLogPatternCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLogPattern");
   let body: any;
-  body = JSON.stringify(se_CreateLogPatternRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -195,7 +168,7 @@ export const se_DeleteApplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteApplication");
   let body: any;
-  body = JSON.stringify(se_DeleteApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -208,7 +181,7 @@ export const se_DeleteComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteComponent");
   let body: any;
-  body = JSON.stringify(se_DeleteComponentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -221,7 +194,7 @@ export const se_DeleteLogPatternCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLogPattern");
   let body: any;
-  body = JSON.stringify(se_DeleteLogPatternRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -234,7 +207,7 @@ export const se_DescribeApplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeApplication");
   let body: any;
-  body = JSON.stringify(se_DescribeApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -247,7 +220,7 @@ export const se_DescribeComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeComponent");
   let body: any;
-  body = JSON.stringify(se_DescribeComponentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -260,7 +233,7 @@ export const se_DescribeComponentConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeComponentConfiguration");
   let body: any;
-  body = JSON.stringify(se_DescribeComponentConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -273,7 +246,7 @@ export const se_DescribeComponentConfigurationRecommendationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeComponentConfigurationRecommendation");
   let body: any;
-  body = JSON.stringify(se_DescribeComponentConfigurationRecommendationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -286,7 +259,7 @@ export const se_DescribeLogPatternCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLogPattern");
   let body: any;
-  body = JSON.stringify(se_DescribeLogPatternRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -299,7 +272,7 @@ export const se_DescribeObservationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeObservation");
   let body: any;
-  body = JSON.stringify(se_DescribeObservationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -312,7 +285,7 @@ export const se_DescribeProblemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProblem");
   let body: any;
-  body = JSON.stringify(se_DescribeProblemRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -325,7 +298,7 @@ export const se_DescribeProblemObservationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProblemObservations");
   let body: any;
-  body = JSON.stringify(se_DescribeProblemObservationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -338,7 +311,7 @@ export const se_ListApplicationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListApplications");
   let body: any;
-  body = JSON.stringify(se_ListApplicationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -351,7 +324,7 @@ export const se_ListComponentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListComponents");
   let body: any;
-  body = JSON.stringify(se_ListComponentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -377,7 +350,7 @@ export const se_ListLogPatternsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLogPatterns");
   let body: any;
-  body = JSON.stringify(se_ListLogPatternsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -390,7 +363,7 @@ export const se_ListLogPatternSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLogPatternSets");
   let body: any;
-  body = JSON.stringify(se_ListLogPatternSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -416,7 +389,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -429,7 +402,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -442,7 +415,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -455,7 +428,7 @@ export const se_UpdateApplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateApplication");
   let body: any;
-  body = JSON.stringify(se_UpdateApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -468,7 +441,7 @@ export const se_UpdateComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateComponent");
   let body: any;
-  body = JSON.stringify(se_UpdateComponentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -481,7 +454,7 @@ export const se_UpdateComponentConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateComponentConfiguration");
   let body: any;
-  body = JSON.stringify(se_UpdateComponentConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -494,7 +467,7 @@ export const se_UpdateLogPatternCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateLogPattern");
   let body: any;
-  body = JSON.stringify(se_UpdateLogPatternRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -510,12 +483,12 @@ export const de_CreateApplicationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateApplicationResponse(data, context);
+  contents = _json(data);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -551,10 +524,9 @@ const de_CreateApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -572,12 +544,12 @@ export const de_CreateComponentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateComponentResponse(data, context);
+  contents = _json(data);
   const response: CreateComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -607,10 +579,9 @@ const de_CreateComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -628,12 +599,12 @@ export const de_CreateLogPatternCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLogPatternResponse(data, context);
+  contents = _json(data);
   const response: CreateLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -663,10 +634,9 @@ const de_CreateLogPatternCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -684,12 +654,12 @@ export const de_DeleteApplicationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteApplicationResponse(data, context);
+  contents = _json(data);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -719,10 +689,9 @@ const de_DeleteApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -740,12 +709,12 @@ export const de_DeleteComponentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteComponentResponse(data, context);
+  contents = _json(data);
   const response: DeleteComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -772,10 +741,9 @@ const de_DeleteComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -793,12 +761,12 @@ export const de_DeleteLogPatternCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteLogPatternResponse(data, context);
+  contents = _json(data);
   const response: DeleteLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -828,10 +796,9 @@ const de_DeleteLogPatternCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -849,12 +816,12 @@ export const de_DescribeApplicationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeApplicationResponse(data, context);
+  contents = _json(data);
   const response: DescribeApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -881,10 +848,9 @@ const de_DescribeApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -902,12 +868,12 @@ export const de_DescribeComponentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeComponentResponse(data, context);
+  contents = _json(data);
   const response: DescribeComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -934,10 +900,9 @@ const de_DescribeComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -955,12 +920,12 @@ export const de_DescribeComponentConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeComponentConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DescribeComponentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -987,10 +952,9 @@ const de_DescribeComponentConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1008,12 +972,12 @@ export const de_DescribeComponentConfigurationRecommendationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeComponentConfigurationRecommendationResponse(data, context);
+  contents = _json(data);
   const response: DescribeComponentConfigurationRecommendationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1040,10 +1004,9 @@ const de_DescribeComponentConfigurationRecommendationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1061,12 +1024,12 @@ export const de_DescribeLogPatternCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeLogPatternResponse(data, context);
+  contents = _json(data);
   const response: DescribeLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1093,10 +1056,9 @@ const de_DescribeLogPatternCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1119,7 +1081,7 @@ export const de_DescribeObservationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1146,10 +1108,9 @@ const de_DescribeObservationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1172,7 +1133,7 @@ export const de_DescribeProblemCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1199,10 +1160,9 @@ const de_DescribeProblemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1225,7 +1185,7 @@ export const de_DescribeProblemObservationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1252,10 +1212,9 @@ const de_DescribeProblemObservationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1273,12 +1232,12 @@ export const de_ListApplicationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListApplicationsResponse(data, context);
+  contents = _json(data);
   const response: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1302,10 +1261,9 @@ const de_ListApplicationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1323,12 +1281,12 @@ export const de_ListComponentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListComponentsResponse(data, context);
+  contents = _json(data);
   const response: ListComponentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1355,10 +1313,9 @@ const de_ListComponentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1381,7 +1338,7 @@ export const de_ListConfigurationHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1408,10 +1365,9 @@ const de_ListConfigurationHistoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1429,12 +1385,12 @@ export const de_ListLogPatternsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLogPatternsResponse(data, context);
+  contents = _json(data);
   const response: ListLogPatternsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1461,10 +1417,9 @@ const de_ListLogPatternsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1482,12 +1437,12 @@ export const de_ListLogPatternSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLogPatternSetsResponse(data, context);
+  contents = _json(data);
   const response: ListLogPatternSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1514,10 +1469,9 @@ const de_ListLogPatternSetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1540,7 +1494,7 @@ export const de_ListProblemsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1567,10 +1521,9 @@ const de_ListProblemsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1588,12 +1541,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1617,10 +1570,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1638,12 +1590,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1670,10 +1622,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1691,12 +1642,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1720,10 +1671,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1741,12 +1691,12 @@ export const de_UpdateApplicationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateApplicationResponse(data, context);
+  contents = _json(data);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1773,10 +1723,9 @@ const de_UpdateApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1794,12 +1743,12 @@ export const de_UpdateComponentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateComponentResponse(data, context);
+  contents = _json(data);
   const response: UpdateComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1829,10 +1778,9 @@ const de_UpdateComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1850,12 +1798,12 @@ export const de_UpdateComponentConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateComponentConfigurationResponse(data, context);
+  contents = _json(data);
   const response: UpdateComponentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1882,10 +1830,9 @@ const de_UpdateComponentConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1903,12 +1850,12 @@ export const de_UpdateLogPatternCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateLogPatternResponse(data, context);
+  contents = _json(data);
   const response: UpdateLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1938,10 +1885,9 @@ const de_UpdateLogPatternCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1955,7 +1901,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1968,7 +1914,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BadRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1984,7 +1930,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2000,7 +1946,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2016,7 +1962,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2032,7 +1978,7 @@ const de_TagsAlreadyExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<TagsAlreadyExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagsAlreadyExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagsAlreadyExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2048,7 +1994,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2061,7 +2007,7 @@ const de_TooManyTagsExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2069,456 +2015,116 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1CreateApplicationRequest
- */
-const se_CreateApplicationRequest = (input: CreateApplicationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoConfigEnabled != null && { AutoConfigEnabled: input.AutoConfigEnabled }),
-    ...(input.AutoCreate != null && { AutoCreate: input.AutoCreate }),
-    ...(input.CWEMonitorEnabled != null && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
-    ...(input.GroupingType != null && { GroupingType: input.GroupingType }),
-    ...(input.OpsCenterEnabled != null && { OpsCenterEnabled: input.OpsCenterEnabled }),
-    ...(input.OpsItemSNSTopicArn != null && { OpsItemSNSTopicArn: input.OpsItemSNSTopicArn }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateApplicationRequest omitted.
 
-/**
- * serializeAws_json1_1CreateComponentRequest
- */
-const se_CreateComponentRequest = (input: CreateComponentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.ResourceList != null && { ResourceList: se_ResourceList(input.ResourceList, context) }),
-  };
-};
+// se_CreateComponentRequest omitted.
 
-/**
- * serializeAws_json1_1CreateLogPatternRequest
- */
-const se_CreateLogPatternRequest = (input: CreateLogPatternRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Pattern != null && { Pattern: input.Pattern }),
-    ...(input.PatternName != null && { PatternName: input.PatternName }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.Rank != null && { Rank: input.Rank }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_CreateLogPatternRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteApplicationRequest
- */
-const se_DeleteApplicationRequest = (input: DeleteApplicationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_DeleteApplicationRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteComponentRequest
- */
-const se_DeleteComponentRequest = (input: DeleteComponentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_DeleteComponentRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteLogPatternRequest
- */
-const se_DeleteLogPatternRequest = (input: DeleteLogPatternRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PatternName != null && { PatternName: input.PatternName }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_DeleteLogPatternRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeApplicationRequest
- */
-const se_DescribeApplicationRequest = (input: DescribeApplicationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_DescribeApplicationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest
- */
-const se_DescribeComponentConfigurationRecommendationRequest = (
-  input: DescribeComponentConfigurationRecommendationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.Tier != null && { Tier: input.Tier }),
-  };
-};
+// se_DescribeComponentConfigurationRecommendationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeComponentConfigurationRequest
- */
-const se_DescribeComponentConfigurationRequest = (
-  input: DescribeComponentConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_DescribeComponentConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeComponentRequest
- */
-const se_DescribeComponentRequest = (input: DescribeComponentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_DescribeComponentRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeLogPatternRequest
- */
-const se_DescribeLogPatternRequest = (input: DescribeLogPatternRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PatternName != null && { PatternName: input.PatternName }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_DescribeLogPatternRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeObservationRequest
- */
-const se_DescribeObservationRequest = (input: DescribeObservationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ObservationId != null && { ObservationId: input.ObservationId }),
-  };
-};
+// se_DescribeObservationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeProblemObservationsRequest
- */
-const se_DescribeProblemObservationsRequest = (
-  input: DescribeProblemObservationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ProblemId != null && { ProblemId: input.ProblemId }),
-  };
-};
+// se_DescribeProblemObservationsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeProblemRequest
- */
-const se_DescribeProblemRequest = (input: DescribeProblemRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProblemId != null && { ProblemId: input.ProblemId }),
-  };
-};
+// se_DescribeProblemRequest omitted.
 
-/**
- * serializeAws_json1_1ListApplicationsRequest
- */
-const se_ListApplicationsRequest = (input: ListApplicationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListApplicationsRequest omitted.
 
-/**
- * serializeAws_json1_1ListComponentsRequest
- */
-const se_ListComponentsRequest = (input: ListComponentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_ListComponentsRequest omitted.
 
 /**
  * serializeAws_json1_1ListConfigurationHistoryRequest
  */
 const se_ListConfigurationHistoryRequest = (input: ListConfigurationHistoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.EventStatus != null && { EventStatus: input.EventStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EventStatus: [],
+    MaxResults: [],
+    NextToken: [],
+    ResourceGroupName: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1ListLogPatternSetsRequest
- */
-const se_ListLogPatternSetsRequest = (input: ListLogPatternSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_ListLogPatternSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListLogPatternsRequest
- */
-const se_ListLogPatternsRequest = (input: ListLogPatternsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_ListLogPatternsRequest omitted.
 
 /**
  * serializeAws_json1_1ListProblemsRequest
  */
 const se_ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    ComponentName: [],
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    ResourceGroupName: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ResourceList
- */
-const se_ResourceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceList omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateApplicationRequest
- */
-const se_UpdateApplicationRequest = (input: UpdateApplicationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoConfigEnabled != null && { AutoConfigEnabled: input.AutoConfigEnabled }),
-    ...(input.CWEMonitorEnabled != null && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
-    ...(input.OpsCenterEnabled != null && { OpsCenterEnabled: input.OpsCenterEnabled }),
-    ...(input.OpsItemSNSTopicArn != null && { OpsItemSNSTopicArn: input.OpsItemSNSTopicArn }),
-    ...(input.RemoveSNSTopic != null && { RemoveSNSTopic: input.RemoveSNSTopic }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_UpdateApplicationRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateComponentConfigurationRequest
- */
-const se_UpdateComponentConfigurationRequest = (
-  input: UpdateComponentConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AutoConfigEnabled != null && { AutoConfigEnabled: input.AutoConfigEnabled }),
-    ...(input.ComponentConfiguration != null && { ComponentConfiguration: input.ComponentConfiguration }),
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.Monitor != null && { Monitor: input.Monitor }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.Tier != null && { Tier: input.Tier }),
-  };
-};
+// se_UpdateComponentConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateComponentRequest
- */
-const se_UpdateComponentRequest = (input: UpdateComponentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.NewComponentName != null && { NewComponentName: input.NewComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.ResourceList != null && { ResourceList: se_ResourceList(input.ResourceList, context) }),
-  };
-};
+// se_UpdateComponentRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateLogPatternRequest
- */
-const se_UpdateLogPatternRequest = (input: UpdateLogPatternRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Pattern != null && { Pattern: input.Pattern }),
-    ...(input.PatternName != null && { PatternName: input.PatternName }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.Rank != null && { Rank: input.Rank }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
+// se_UpdateLogPatternRequest omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1ApplicationComponent
- */
-const de_ApplicationComponent = (output: any, context: __SerdeContext): ApplicationComponent => {
-  return {
-    ComponentName: __expectString(output.ComponentName),
-    ComponentRemarks: __expectString(output.ComponentRemarks),
-    DetectedWorkload:
-      output.DetectedWorkload != null ? de_DetectedWorkload(output.DetectedWorkload, context) : undefined,
-    Monitor: __expectBoolean(output.Monitor),
-    OsType: __expectString(output.OsType),
-    ResourceType: __expectString(output.ResourceType),
-    Tier: __expectString(output.Tier),
-  } as any;
-};
+// de_ApplicationComponent omitted.
 
-/**
- * deserializeAws_json1_1ApplicationComponentList
- */
-const de_ApplicationComponentList = (output: any, context: __SerdeContext): ApplicationComponent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ApplicationComponent(entry, context);
-    });
-  return retVal;
-};
+// de_ApplicationComponentList omitted.
 
-/**
- * deserializeAws_json1_1ApplicationInfo
- */
-const de_ApplicationInfo = (output: any, context: __SerdeContext): ApplicationInfo => {
-  return {
-    AutoConfigEnabled: __expectBoolean(output.AutoConfigEnabled),
-    CWEMonitorEnabled: __expectBoolean(output.CWEMonitorEnabled),
-    DiscoveryType: __expectString(output.DiscoveryType),
-    LifeCycle: __expectString(output.LifeCycle),
-    OpsCenterEnabled: __expectBoolean(output.OpsCenterEnabled),
-    OpsItemSNSTopicArn: __expectString(output.OpsItemSNSTopicArn),
-    Remarks: __expectString(output.Remarks),
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
+// de_ApplicationInfo omitted.
 
-/**
- * deserializeAws_json1_1ApplicationInfoList
- */
-const de_ApplicationInfoList = (output: any, context: __SerdeContext): ApplicationInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ApplicationInfo(entry, context);
-    });
-  return retVal;
-};
+// de_ApplicationInfoList omitted.
 
-/**
- * deserializeAws_json1_1BadRequestException
- */
-const de_BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_BadRequestException omitted.
 
 /**
  * deserializeAws_json1_1ConfigurationEvent
  */
 const de_ConfigurationEvent = (output: any, context: __SerdeContext): ConfigurationEvent => {
-  return {
-    EventDetail: __expectString(output.EventDetail),
-    EventResourceName: __expectString(output.EventResourceName),
-    EventResourceType: __expectString(output.EventResourceType),
-    EventStatus: __expectString(output.EventStatus),
-    EventTime:
-      output.EventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime))) : undefined,
-    MonitoredResourceARN: __expectString(output.MonitoredResourceARN),
-  } as any;
+  return take(output, {
+    EventDetail: __expectString,
+    EventResourceName: __expectString,
+    EventResourceType: __expectString,
+    EventStatus: __expectString,
+    EventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MonitoredResourceARN: __expectString,
+  }) as any;
 };
 
 /**
@@ -2528,124 +2134,40 @@ const de_ConfigurationEventList = (output: any, context: __SerdeContext): Config
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigurationEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CreateApplicationResponse
- */
-const de_CreateApplicationResponse = (output: any, context: __SerdeContext): CreateApplicationResponse => {
-  return {
-    ApplicationInfo: output.ApplicationInfo != null ? de_ApplicationInfo(output.ApplicationInfo, context) : undefined,
-  } as any;
-};
+// de_CreateApplicationResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateComponentResponse
- */
-const de_CreateComponentResponse = (output: any, context: __SerdeContext): CreateComponentResponse => {
-  return {} as any;
-};
+// de_CreateComponentResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateLogPatternResponse
- */
-const de_CreateLogPatternResponse = (output: any, context: __SerdeContext): CreateLogPatternResponse => {
-  return {
-    LogPattern: output.LogPattern != null ? de_LogPattern(output.LogPattern, context) : undefined,
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
+// de_CreateLogPatternResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteApplicationResponse
- */
-const de_DeleteApplicationResponse = (output: any, context: __SerdeContext): DeleteApplicationResponse => {
-  return {} as any;
-};
+// de_DeleteApplicationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteComponentResponse
- */
-const de_DeleteComponentResponse = (output: any, context: __SerdeContext): DeleteComponentResponse => {
-  return {} as any;
-};
+// de_DeleteComponentResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteLogPatternResponse
- */
-const de_DeleteLogPatternResponse = (output: any, context: __SerdeContext): DeleteLogPatternResponse => {
-  return {} as any;
-};
+// de_DeleteLogPatternResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeApplicationResponse
- */
-const de_DescribeApplicationResponse = (output: any, context: __SerdeContext): DescribeApplicationResponse => {
-  return {
-    ApplicationInfo: output.ApplicationInfo != null ? de_ApplicationInfo(output.ApplicationInfo, context) : undefined,
-  } as any;
-};
+// de_DescribeApplicationResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeComponentConfigurationRecommendationResponse
- */
-const de_DescribeComponentConfigurationRecommendationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeComponentConfigurationRecommendationResponse => {
-  return {
-    ComponentConfiguration: __expectString(output.ComponentConfiguration),
-  } as any;
-};
+// de_DescribeComponentConfigurationRecommendationResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeComponentConfigurationResponse
- */
-const de_DescribeComponentConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeComponentConfigurationResponse => {
-  return {
-    ComponentConfiguration: __expectString(output.ComponentConfiguration),
-    Monitor: __expectBoolean(output.Monitor),
-    Tier: __expectString(output.Tier),
-  } as any;
-};
+// de_DescribeComponentConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeComponentResponse
- */
-const de_DescribeComponentResponse = (output: any, context: __SerdeContext): DescribeComponentResponse => {
-  return {
-    ApplicationComponent:
-      output.ApplicationComponent != null ? de_ApplicationComponent(output.ApplicationComponent, context) : undefined,
-    ResourceList: output.ResourceList != null ? de_ResourceList(output.ResourceList, context) : undefined,
-  } as any;
-};
+// de_DescribeComponentResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeLogPatternResponse
- */
-const de_DescribeLogPatternResponse = (output: any, context: __SerdeContext): DescribeLogPatternResponse => {
-  return {
-    LogPattern: output.LogPattern != null ? de_LogPattern(output.LogPattern, context) : undefined,
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
+// de_DescribeLogPatternResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeObservationResponse
  */
 const de_DescribeObservationResponse = (output: any, context: __SerdeContext): DescribeObservationResponse => {
-  return {
-    Observation: output.Observation != null ? de_Observation(output.Observation, context) : undefined,
-  } as any;
+  return take(output, {
+    Observation: (_: any) => de_Observation(_, context),
+  }) as any;
 };
 
 /**
@@ -2655,85 +2177,29 @@ const de_DescribeProblemObservationsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeProblemObservationsResponse => {
-  return {
-    RelatedObservations:
-      output.RelatedObservations != null ? de_RelatedObservations(output.RelatedObservations, context) : undefined,
-  } as any;
+  return take(output, {
+    RelatedObservations: (_: any) => de_RelatedObservations(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeProblemResponse
  */
 const de_DescribeProblemResponse = (output: any, context: __SerdeContext): DescribeProblemResponse => {
-  return {
-    Problem: output.Problem != null ? de_Problem(output.Problem, context) : undefined,
-  } as any;
+  return take(output, {
+    Problem: (_: any) => de_Problem(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DetectedWorkload
- */
-const de_DetectedWorkload = (output: any, context: __SerdeContext): Record<string, Record<string, string>> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, string>>, [key, value]: [Tier | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_WorkloadMetaData(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_DetectedWorkload omitted.
 
-/**
- * deserializeAws_json1_1Feedback
- */
-const de_Feedback = (output: any, context: __SerdeContext): Record<string, FeedbackValue | string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, FeedbackValue | string>, [key, value]: [FeedbackKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_Feedback omitted.
 
-/**
- * deserializeAws_json1_1InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_1ListApplicationsResponse
- */
-const de_ListApplicationsResponse = (output: any, context: __SerdeContext): ListApplicationsResponse => {
-  return {
-    ApplicationInfoList:
-      output.ApplicationInfoList != null ? de_ApplicationInfoList(output.ApplicationInfoList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListApplicationsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListComponentsResponse
- */
-const de_ListComponentsResponse = (output: any, context: __SerdeContext): ListComponentsResponse => {
-  return {
-    ApplicationComponentList:
-      output.ApplicationComponentList != null
-        ? de_ApplicationComponentList(output.ApplicationComponentList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListComponentsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListConfigurationHistoryResponse
@@ -2742,150 +2208,86 @@ const de_ListConfigurationHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): ListConfigurationHistoryResponse => {
-  return {
-    EventList: output.EventList != null ? de_ConfigurationEventList(output.EventList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EventList: (_: any) => de_ConfigurationEventList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListLogPatternSetsResponse
- */
-const de_ListLogPatternSetsResponse = (output: any, context: __SerdeContext): ListLogPatternSetsResponse => {
-  return {
-    LogPatternSets: output.LogPatternSets != null ? de_LogPatternSetList(output.LogPatternSets, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
+// de_ListLogPatternSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListLogPatternsResponse
- */
-const de_ListLogPatternsResponse = (output: any, context: __SerdeContext): ListLogPatternsResponse => {
-  return {
-    LogPatterns: output.LogPatterns != null ? de_LogPatternList(output.LogPatterns, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
+// de_ListLogPatternsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListProblemsResponse
  */
 const de_ListProblemsResponse = (output: any, context: __SerdeContext): ListProblemsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ProblemList: output.ProblemList != null ? de_ProblemList(output.ProblemList, context) : undefined,
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ProblemList: (_: any) => de_ProblemList(_, context),
+    ResourceGroupName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1LogPattern
- */
-const de_LogPattern = (output: any, context: __SerdeContext): LogPattern => {
-  return {
-    Pattern: __expectString(output.Pattern),
-    PatternName: __expectString(output.PatternName),
-    PatternSetName: __expectString(output.PatternSetName),
-    Rank: __expectInt32(output.Rank),
-  } as any;
-};
+// de_LogPattern omitted.
 
-/**
- * deserializeAws_json1_1LogPatternList
- */
-const de_LogPatternList = (output: any, context: __SerdeContext): LogPattern[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LogPattern(entry, context);
-    });
-  return retVal;
-};
+// de_LogPatternList omitted.
 
-/**
- * deserializeAws_json1_1LogPatternSetList
- */
-const de_LogPatternSetList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LogPatternSetList omitted.
 
 /**
  * deserializeAws_json1_1Observation
  */
 const de_Observation = (output: any, context: __SerdeContext): Observation => {
-  return {
-    CloudWatchEventDetailType: __expectString(output.CloudWatchEventDetailType),
-    CloudWatchEventId: __expectString(output.CloudWatchEventId),
-    CloudWatchEventSource: __expectString(output.CloudWatchEventSource),
-    CodeDeployApplication: __expectString(output.CodeDeployApplication),
-    CodeDeployDeploymentGroup: __expectString(output.CodeDeployDeploymentGroup),
-    CodeDeployDeploymentId: __expectString(output.CodeDeployDeploymentId),
-    CodeDeployInstanceGroupId: __expectString(output.CodeDeployInstanceGroupId),
-    CodeDeployState: __expectString(output.CodeDeployState),
-    EbsCause: __expectString(output.EbsCause),
-    EbsEvent: __expectString(output.EbsEvent),
-    EbsRequestId: __expectString(output.EbsRequestId),
-    EbsResult: __expectString(output.EbsResult),
-    Ec2State: __expectString(output.Ec2State),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    HealthEventArn: __expectString(output.HealthEventArn),
-    HealthEventDescription: __expectString(output.HealthEventDescription),
-    HealthEventTypeCategory: __expectString(output.HealthEventTypeCategory),
-    HealthEventTypeCode: __expectString(output.HealthEventTypeCode),
-    HealthService: __expectString(output.HealthService),
-    Id: __expectString(output.Id),
-    LineTime:
-      output.LineTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LineTime))) : undefined,
-    LogFilter: __expectString(output.LogFilter),
-    LogGroup: __expectString(output.LogGroup),
-    LogText: __expectString(output.LogText),
-    MetricName: __expectString(output.MetricName),
-    MetricNamespace: __expectString(output.MetricNamespace),
-    RdsEventCategories: __expectString(output.RdsEventCategories),
-    RdsEventMessage: __expectString(output.RdsEventMessage),
-    S3EventName: __expectString(output.S3EventName),
-    SourceARN: __expectString(output.SourceARN),
-    SourceType: __expectString(output.SourceType),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    StatesArn: __expectString(output.StatesArn),
-    StatesExecutionArn: __expectString(output.StatesExecutionArn),
-    StatesInput: __expectString(output.StatesInput),
-    StatesStatus: __expectString(output.StatesStatus),
-    Unit: __expectString(output.Unit),
-    Value: __limitedParseDouble(output.Value),
-    XRayErrorPercent: __expectInt32(output.XRayErrorPercent),
-    XRayFaultPercent: __expectInt32(output.XRayFaultPercent),
-    XRayNodeName: __expectString(output.XRayNodeName),
-    XRayNodeType: __expectString(output.XRayNodeType),
-    XRayRequestAverageLatency: __expectLong(output.XRayRequestAverageLatency),
-    XRayRequestCount: __expectInt32(output.XRayRequestCount),
-    XRayThrottlePercent: __expectInt32(output.XRayThrottlePercent),
-  } as any;
+  return take(output, {
+    CloudWatchEventDetailType: __expectString,
+    CloudWatchEventId: __expectString,
+    CloudWatchEventSource: __expectString,
+    CodeDeployApplication: __expectString,
+    CodeDeployDeploymentGroup: __expectString,
+    CodeDeployDeploymentId: __expectString,
+    CodeDeployInstanceGroupId: __expectString,
+    CodeDeployState: __expectString,
+    EbsCause: __expectString,
+    EbsEvent: __expectString,
+    EbsRequestId: __expectString,
+    EbsResult: __expectString,
+    Ec2State: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HealthEventArn: __expectString,
+    HealthEventDescription: __expectString,
+    HealthEventTypeCategory: __expectString,
+    HealthEventTypeCode: __expectString,
+    HealthService: __expectString,
+    Id: __expectString,
+    LineTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogFilter: __expectString,
+    LogGroup: __expectString,
+    LogText: __expectString,
+    MetricName: __expectString,
+    MetricNamespace: __expectString,
+    RdsEventCategories: __expectString,
+    RdsEventMessage: __expectString,
+    S3EventName: __expectString,
+    SourceARN: __expectString,
+    SourceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StatesArn: __expectString,
+    StatesExecutionArn: __expectString,
+    StatesInput: __expectString,
+    StatesStatus: __expectString,
+    Unit: __expectString,
+    Value: __limitedParseDouble,
+    XRayErrorPercent: __expectInt32,
+    XRayFaultPercent: __expectInt32,
+    XRayNodeName: __expectString,
+    XRayNodeType: __expectString,
+    XRayRequestAverageLatency: __expectLong,
+    XRayRequestCount: __expectInt32,
+    XRayThrottlePercent: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -2895,9 +2297,6 @@ const de_ObservationList = (output: any, context: __SerdeContext): Observation[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Observation(entry, context);
     });
   return retVal;
@@ -2907,25 +2306,20 @@ const de_ObservationList = (output: any, context: __SerdeContext): Observation[]
  * deserializeAws_json1_1Problem
  */
 const de_Problem = (output: any, context: __SerdeContext): Problem => {
-  return {
-    AffectedResource: __expectString(output.AffectedResource),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    Feedback: output.Feedback != null ? de_Feedback(output.Feedback, context) : undefined,
-    Id: __expectString(output.Id),
-    Insights: __expectString(output.Insights),
-    LastRecurrenceTime:
-      output.LastRecurrenceTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRecurrenceTime)))
-        : undefined,
-    RecurringCount: __expectLong(output.RecurringCount),
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-    SeverityLevel: __expectString(output.SeverityLevel),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Status: __expectString(output.Status),
-    Title: __expectString(output.Title),
-  } as any;
+  return take(output, {
+    AffectedResource: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Feedback: _json,
+    Id: __expectString,
+    Insights: __expectString,
+    LastRecurrenceTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecurringCount: __expectLong,
+    ResourceGroupName: __expectString,
+    SeverityLevel: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Title: __expectString,
+  }) as any;
 };
 
 /**
@@ -2935,9 +2329,6 @@ const de_ProblemList = (output: any, context: __SerdeContext): Problem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Problem(entry, context);
     });
   return retVal;
@@ -2947,159 +2338,40 @@ const de_ProblemList = (output: any, context: __SerdeContext): Problem[] => {
  * deserializeAws_json1_1RelatedObservations
  */
 const de_RelatedObservations = (output: any, context: __SerdeContext): RelatedObservations => {
-  return {
-    ObservationList: output.ObservationList != null ? de_ObservationList(output.ObservationList, context) : undefined,
-  } as any;
+  return take(output, {
+    ObservationList: (_: any) => de_ObservationList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceList
- */
-const de_ResourceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceList omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TagsAlreadyExistException
- */
-const de_TagsAlreadyExistException = (output: any, context: __SerdeContext): TagsAlreadyExistException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TagsAlreadyExistException omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateApplicationResponse
- */
-const de_UpdateApplicationResponse = (output: any, context: __SerdeContext): UpdateApplicationResponse => {
-  return {
-    ApplicationInfo: output.ApplicationInfo != null ? de_ApplicationInfo(output.ApplicationInfo, context) : undefined,
-  } as any;
-};
+// de_UpdateApplicationResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateComponentConfigurationResponse
- */
-const de_UpdateComponentConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateComponentConfigurationResponse => {
-  return {} as any;
-};
+// de_UpdateComponentConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateComponentResponse
- */
-const de_UpdateComponentResponse = (output: any, context: __SerdeContext): UpdateComponentResponse => {
-  return {} as any;
-};
+// de_UpdateComponentResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateLogPatternResponse
- */
-const de_UpdateLogPatternResponse = (output: any, context: __SerdeContext): UpdateLogPatternResponse => {
-  return {
-    LogPattern: output.LogPattern != null ? de_LogPattern(output.LogPattern, context) : undefined,
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
+// de_UpdateLogPatternResponse omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_1WorkloadMetaData
- */
-const de_WorkloadMetaData = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_WorkloadMetaData omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3121,6 +2393,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

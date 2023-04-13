@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -11,10 +11,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -197,9 +198,7 @@ import {
 import {
   BatchPolicy,
   Compute,
-  ComputeResponse,
   ConcurrentDeploymentException,
-  DataSource,
   DataSourceConfig,
   DeploymentApplicationConfig,
   DeploymentConfig,
@@ -207,9 +206,7 @@ import {
   DeploymentLaunchConfig,
   Environment,
   FailedCreateSimulationJobRequest,
-  FailureSummary,
   Filter,
-  FinishedWorldsSummary,
   Fleet,
   IdempotentParameterMismatchException,
   InternalServerException,
@@ -217,7 +214,6 @@ import {
   LaunchConfig,
   LimitExceededException,
   LoggingConfig,
-  NetworkInterface,
   OutputLocation,
   PortForwardingConfig,
   PortMapping,
@@ -230,7 +226,6 @@ import {
   RobotApplicationSummary,
   RobotDeployment,
   RobotSoftwareSuite,
-  S3KeyOutput,
   S3Object,
   ServiceUnavailableException,
   SimulationApplicationConfig,
@@ -240,7 +235,6 @@ import {
   SimulationJobRequest,
   SimulationJobSummary,
   SimulationSoftwareSuite,
-  Source,
   SourceConfig,
   TemplateLocation,
   TemplateSummary,
@@ -248,11 +242,9 @@ import {
   Tool,
   UploadConfiguration,
   VPCConfig,
-  VPCConfigResponse,
   WorldConfig,
   WorldCount,
   WorldExportJobSummary,
-  WorldFailure,
   WorldGenerationJobSummary,
   WorldSummary,
 } from "../models/models_0";
@@ -271,9 +263,11 @@ export const se_BatchDeleteWorldsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batchDeleteWorlds";
   let body: any;
-  body = JSON.stringify({
-    ...(input.worlds != null && { worlds: se_Arns(input.worlds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      worlds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -299,9 +293,11 @@ export const se_BatchDescribeSimulationJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batchDescribeSimulationJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.jobs != null && { jobs: se_Arns(input.jobs, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      jobs: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -326,9 +322,11 @@ export const se_CancelDeploymentJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelDeploymentJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -353,9 +351,11 @@ export const se_CancelSimulationJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelSimulationJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -381,9 +381,11 @@ export const se_CancelSimulationJobBatchCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelSimulationJobBatch";
   let body: any;
-  body = JSON.stringify({
-    ...(input.batch != null && { batch: input.batch }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      batch: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -408,9 +410,11 @@ export const se_CancelWorldExportJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelWorldExportJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,9 +440,11 @@ export const se_CancelWorldGenerationJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelWorldGenerationJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -463,15 +469,15 @@ export const se_CreateDeploymentJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createDeploymentJob";
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.deploymentApplicationConfigs != null && {
-      deploymentApplicationConfigs: se_DeploymentApplicationConfigs(input.deploymentApplicationConfigs, context),
-    }),
-    ...(input.deploymentConfig != null && { deploymentConfig: se_DeploymentConfig(input.deploymentConfig, context) }),
-    ...(input.fleet != null && { fleet: input.fleet }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      deploymentApplicationConfigs: (_) => _json(_),
+      deploymentConfig: (_) => _json(_),
+      fleet: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -496,10 +502,12 @@ export const se_CreateFleetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createFleet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -524,12 +532,14 @@ export const se_CreateRobotCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createRobot";
   let body: any;
-  body = JSON.stringify({
-    ...(input.architecture != null && { architecture: input.architecture }),
-    ...(input.greengrassGroupId != null && { greengrassGroupId: input.greengrassGroupId }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      architecture: [],
+      greengrassGroupId: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -555,15 +565,15 @@ export const se_CreateRobotApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createRobotApplication";
   let body: any;
-  body = JSON.stringify({
-    ...(input.environment != null && { environment: se_Environment(input.environment, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.robotSoftwareSuite != null && {
-      robotSoftwareSuite: se_RobotSoftwareSuite(input.robotSoftwareSuite, context),
-    }),
-    ...(input.sources != null && { sources: se_SourceConfigs(input.sources, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      environment: (_) => _json(_),
+      name: [],
+      robotSoftwareSuite: (_) => _json(_),
+      sources: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -589,12 +599,14 @@ export const se_CreateRobotApplicationVersionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createRobotApplicationVersion";
   let body: any;
-  body = JSON.stringify({
-    ...(input.application != null && { application: input.application }),
-    ...(input.currentRevisionId != null && { currentRevisionId: input.currentRevisionId }),
-    ...(input.imageDigest != null && { imageDigest: input.imageDigest }),
-    ...(input.s3Etags != null && { s3Etags: se_S3Etags(input.s3Etags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      application: [],
+      currentRevisionId: [],
+      imageDigest: [],
+      s3Etags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -620,19 +632,17 @@ export const se_CreateSimulationApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSimulationApplication";
   let body: any;
-  body = JSON.stringify({
-    ...(input.environment != null && { environment: se_Environment(input.environment, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.renderingEngine != null && { renderingEngine: se_RenderingEngine(input.renderingEngine, context) }),
-    ...(input.robotSoftwareSuite != null && {
-      robotSoftwareSuite: se_RobotSoftwareSuite(input.robotSoftwareSuite, context),
-    }),
-    ...(input.simulationSoftwareSuite != null && {
-      simulationSoftwareSuite: se_SimulationSoftwareSuite(input.simulationSoftwareSuite, context),
-    }),
-    ...(input.sources != null && { sources: se_SourceConfigs(input.sources, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      environment: (_) => _json(_),
+      name: [],
+      renderingEngine: (_) => _json(_),
+      robotSoftwareSuite: (_) => _json(_),
+      simulationSoftwareSuite: (_) => _json(_),
+      sources: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -658,12 +668,14 @@ export const se_CreateSimulationApplicationVersionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSimulationApplicationVersion";
   let body: any;
-  body = JSON.stringify({
-    ...(input.application != null && { application: input.application }),
-    ...(input.currentRevisionId != null && { currentRevisionId: input.currentRevisionId }),
-    ...(input.imageDigest != null && { imageDigest: input.imageDigest }),
-    ...(input.s3Etags != null && { s3Etags: se_S3Etags(input.s3Etags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      application: [],
+      currentRevisionId: [],
+      imageDigest: [],
+      s3Etags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -688,24 +700,22 @@ export const se_CreateSimulationJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSimulationJob";
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.compute != null && { compute: se_Compute(input.compute, context) }),
-    ...(input.dataSources != null && { dataSources: se_DataSourceConfigs(input.dataSources, context) }),
-    ...(input.failureBehavior != null && { failureBehavior: input.failureBehavior }),
-    ...(input.iamRole != null && { iamRole: input.iamRole }),
-    ...(input.loggingConfig != null && { loggingConfig: se_LoggingConfig(input.loggingConfig, context) }),
-    ...(input.maxJobDurationInSeconds != null && { maxJobDurationInSeconds: input.maxJobDurationInSeconds }),
-    ...(input.outputLocation != null && { outputLocation: se_OutputLocation(input.outputLocation, context) }),
-    ...(input.robotApplications != null && {
-      robotApplications: se_RobotApplicationConfigs(input.robotApplications, context),
-    }),
-    ...(input.simulationApplications != null && {
-      simulationApplications: se_SimulationApplicationConfigs(input.simulationApplications, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.vpcConfig != null && { vpcConfig: se_VPCConfig(input.vpcConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      compute: (_) => _json(_),
+      dataSources: (_) => _json(_),
+      failureBehavior: [],
+      iamRole: [],
+      loggingConfig: (_) => _json(_),
+      maxJobDurationInSeconds: [],
+      outputLocation: (_) => _json(_),
+      robotApplications: (_) => _json(_),
+      simulationApplications: (_) => _json(_),
+      tags: (_) => _json(_),
+      vpcConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -730,13 +740,15 @@ export const se_CreateWorldExportJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createWorldExportJob";
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.iamRole != null && { iamRole: input.iamRole }),
-    ...(input.outputLocation != null && { outputLocation: se_OutputLocation(input.outputLocation, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.worlds != null && { worlds: se_Arns(input.worlds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      iamRole: [],
+      outputLocation: (_) => _json(_),
+      tags: (_) => _json(_),
+      worlds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -762,13 +774,15 @@ export const se_CreateWorldGenerationJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createWorldGenerationJob";
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.template != null && { template: input.template }),
-    ...(input.worldCount != null && { worldCount: se_WorldCount(input.worldCount, context) }),
-    ...(input.worldTags != null && { worldTags: se_TagMap(input.worldTags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+      template: [],
+      worldCount: (_) => _json(_),
+      worldTags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -793,13 +807,15 @@ export const se_CreateWorldTemplateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createWorldTemplate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.templateBody != null && { templateBody: input.templateBody }),
-    ...(input.templateLocation != null && { templateLocation: se_TemplateLocation(input.templateLocation, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      name: [],
+      tags: (_) => _json(_),
+      templateBody: [],
+      templateLocation: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -824,9 +840,11 @@ export const se_DeleteFleetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteFleet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.fleet != null && { fleet: input.fleet }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fleet: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -851,9 +869,11 @@ export const se_DeleteRobotCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteRobot";
   let body: any;
-  body = JSON.stringify({
-    ...(input.robot != null && { robot: input.robot }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      robot: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -879,10 +899,12 @@ export const se_DeleteRobotApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteRobotApplication";
   let body: any;
-  body = JSON.stringify({
-    ...(input.application != null && { application: input.application }),
-    ...(input.applicationVersion != null && { applicationVersion: input.applicationVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      application: [],
+      applicationVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -908,10 +930,12 @@ export const se_DeleteSimulationApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteSimulationApplication";
   let body: any;
-  body = JSON.stringify({
-    ...(input.application != null && { application: input.application }),
-    ...(input.applicationVersion != null && { applicationVersion: input.applicationVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      application: [],
+      applicationVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -936,9 +960,11 @@ export const se_DeleteWorldTemplateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteWorldTemplate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.template != null && { template: input.template }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      template: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -963,10 +989,12 @@ export const se_DeregisterRobotCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deregisterRobot";
   let body: any;
-  body = JSON.stringify({
-    ...(input.fleet != null && { fleet: input.fleet }),
-    ...(input.robot != null && { robot: input.robot }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fleet: [],
+      robot: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -991,9 +1019,11 @@ export const se_DescribeDeploymentJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDeploymentJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1018,9 +1048,11 @@ export const se_DescribeFleetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeFleet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.fleet != null && { fleet: input.fleet }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fleet: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1045,9 +1077,11 @@ export const se_DescribeRobotCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeRobot";
   let body: any;
-  body = JSON.stringify({
-    ...(input.robot != null && { robot: input.robot }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      robot: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1073,10 +1107,12 @@ export const se_DescribeRobotApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeRobotApplication";
   let body: any;
-  body = JSON.stringify({
-    ...(input.application != null && { application: input.application }),
-    ...(input.applicationVersion != null && { applicationVersion: input.applicationVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      application: [],
+      applicationVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1102,10 +1138,12 @@ export const se_DescribeSimulationApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSimulationApplication";
   let body: any;
-  body = JSON.stringify({
-    ...(input.application != null && { application: input.application }),
-    ...(input.applicationVersion != null && { applicationVersion: input.applicationVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      application: [],
+      applicationVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1130,9 +1168,11 @@ export const se_DescribeSimulationJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSimulationJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1158,9 +1198,11 @@ export const se_DescribeSimulationJobBatchCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSimulationJobBatch";
   let body: any;
-  body = JSON.stringify({
-    ...(input.batch != null && { batch: input.batch }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      batch: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1185,9 +1227,11 @@ export const se_DescribeWorldCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWorld";
   let body: any;
-  body = JSON.stringify({
-    ...(input.world != null && { world: input.world }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      world: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1213,9 +1257,11 @@ export const se_DescribeWorldExportJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWorldExportJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1241,9 +1287,11 @@ export const se_DescribeWorldGenerationJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWorldGenerationJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1268,9 +1316,11 @@ export const se_DescribeWorldTemplateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWorldTemplate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.template != null && { template: input.template }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      template: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1295,10 +1345,12 @@ export const se_GetWorldTemplateBodyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getWorldTemplateBody";
   let body: any;
-  body = JSON.stringify({
-    ...(input.generationJob != null && { generationJob: input.generationJob }),
-    ...(input.template != null && { template: input.template }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      generationJob: [],
+      template: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1323,11 +1375,13 @@ export const se_ListDeploymentJobsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDeploymentJobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1352,11 +1406,13 @@ export const se_ListFleetsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFleets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1381,12 +1437,14 @@ export const se_ListRobotApplicationsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listRobotApplications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.versionQualifier != null && { versionQualifier: input.versionQualifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      versionQualifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1411,11 +1469,13 @@ export const se_ListRobotsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listRobots";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1441,12 +1501,14 @@ export const se_ListSimulationApplicationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSimulationApplications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.versionQualifier != null && { versionQualifier: input.versionQualifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      versionQualifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1472,11 +1534,13 @@ export const se_ListSimulationJobBatchesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSimulationJobBatches";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1501,11 +1565,13 @@ export const se_ListSimulationJobsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSimulationJobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1553,11 +1619,13 @@ export const se_ListWorldExportJobsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorldExportJobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1583,11 +1651,13 @@ export const se_ListWorldGenerationJobsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorldGenerationJobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1612,11 +1682,13 @@ export const se_ListWorldsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorlds";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1641,10 +1713,12 @@ export const se_ListWorldTemplatesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorldTemplates";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1669,10 +1743,12 @@ export const se_RegisterRobotCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/registerRobot";
   let body: any;
-  body = JSON.stringify({
-    ...(input.fleet != null && { fleet: input.fleet }),
-    ...(input.robot != null && { robot: input.robot }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fleet: [],
+      robot: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1697,9 +1773,11 @@ export const se_RestartSimulationJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restartSimulationJob";
   let body: any;
-  body = JSON.stringify({
-    ...(input.job != null && { job: input.job }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      job: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1725,14 +1803,14 @@ export const se_StartSimulationJobBatchCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/startSimulationJobBatch";
   let body: any;
-  body = JSON.stringify({
-    ...(input.batchPolicy != null && { batchPolicy: se_BatchPolicy(input.batchPolicy, context) }),
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.createSimulationJobRequests != null && {
-      createSimulationJobRequests: se_CreateSimulationJobRequests(input.createSimulationJobRequests, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      batchPolicy: (_) => _json(_),
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      createSimulationJobRequests: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1757,10 +1835,12 @@ export const se_SyncDeploymentJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/syncDeploymentJob";
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.fleet != null && { fleet: input.fleet }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      fleet: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1786,9 +1866,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1844,15 +1926,15 @@ export const se_UpdateRobotApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateRobotApplication";
   let body: any;
-  body = JSON.stringify({
-    ...(input.application != null && { application: input.application }),
-    ...(input.currentRevisionId != null && { currentRevisionId: input.currentRevisionId }),
-    ...(input.environment != null && { environment: se_Environment(input.environment, context) }),
-    ...(input.robotSoftwareSuite != null && {
-      robotSoftwareSuite: se_RobotSoftwareSuite(input.robotSoftwareSuite, context),
-    }),
-    ...(input.sources != null && { sources: se_SourceConfigs(input.sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      application: [],
+      currentRevisionId: [],
+      environment: (_) => _json(_),
+      robotSoftwareSuite: (_) => _json(_),
+      sources: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1878,19 +1960,17 @@ export const se_UpdateSimulationApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateSimulationApplication";
   let body: any;
-  body = JSON.stringify({
-    ...(input.application != null && { application: input.application }),
-    ...(input.currentRevisionId != null && { currentRevisionId: input.currentRevisionId }),
-    ...(input.environment != null && { environment: se_Environment(input.environment, context) }),
-    ...(input.renderingEngine != null && { renderingEngine: se_RenderingEngine(input.renderingEngine, context) }),
-    ...(input.robotSoftwareSuite != null && {
-      robotSoftwareSuite: se_RobotSoftwareSuite(input.robotSoftwareSuite, context),
-    }),
-    ...(input.simulationSoftwareSuite != null && {
-      simulationSoftwareSuite: se_SimulationSoftwareSuite(input.simulationSoftwareSuite, context),
-    }),
-    ...(input.sources != null && { sources: se_SourceConfigs(input.sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      application: [],
+      currentRevisionId: [],
+      environment: (_) => _json(_),
+      renderingEngine: (_) => _json(_),
+      robotSoftwareSuite: (_) => _json(_),
+      simulationSoftwareSuite: (_) => _json(_),
+      sources: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1915,12 +1995,14 @@ export const se_UpdateWorldTemplateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateWorldTemplate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.name != null && { name: input.name }),
-    ...(input.template != null && { template: input.template }),
-    ...(input.templateBody != null && { templateBody: input.templateBody }),
-    ...(input.templateLocation != null && { templateLocation: se_TemplateLocation(input.templateLocation, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+      template: [],
+      templateBody: [],
+      templateLocation: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1946,9 +2028,10 @@ export const de_BatchDeleteWorldsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unprocessedWorlds != null) {
-    contents.unprocessedWorlds = de_Arns(data.unprocessedWorlds, context);
-  }
+  const doc = take(data, {
+    unprocessedWorlds: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1976,10 +2059,9 @@ const de_BatchDeleteWorldsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1999,12 +2081,11 @@ export const de_BatchDescribeSimulationJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobs != null) {
-    contents.jobs = de_SimulationJobs(data.jobs, context);
-  }
-  if (data.unprocessedJobs != null) {
-    contents.unprocessedJobs = de_Arns(data.unprocessedJobs, context);
-  }
+  const doc = take(data, {
+    jobs: (_) => de_SimulationJobs(_, context),
+    unprocessedJobs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2035,10 +2116,9 @@ const de_BatchDescribeSimulationJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2088,10 +2168,9 @@ const de_CancelDeploymentJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2141,10 +2220,9 @@ const de_CancelSimulationJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2194,10 +2272,9 @@ const de_CancelSimulationJobBatchCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2247,10 +2324,9 @@ const de_CancelWorldExportJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2300,10 +2376,9 @@ const de_CancelWorldGenerationJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2323,33 +2398,18 @@ export const de_CreateDeploymentJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.deploymentApplicationConfigs != null) {
-    contents.deploymentApplicationConfigs = de_DeploymentApplicationConfigs(data.deploymentApplicationConfigs, context);
-  }
-  if (data.deploymentConfig != null) {
-    contents.deploymentConfig = de_DeploymentConfig(data.deploymentConfig, context);
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.fleet != null) {
-    contents.fleet = __expectString(data.fleet);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentApplicationConfigs: _json,
+    deploymentConfig: _json,
+    failureCode: __expectString,
+    failureReason: __expectString,
+    fleet: __expectString,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2389,10 +2449,9 @@ const de_CreateDeploymentJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2412,18 +2471,13 @@ export const de_CreateFleetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2454,10 +2508,9 @@ const de_CreateFleetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2477,24 +2530,15 @@ export const de_CreateRobotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.architecture != null) {
-    contents.architecture = __expectString(data.architecture);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.greengrassGroupId != null) {
-    contents.greengrassGroupId = __expectString(data.greengrassGroupId);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    architecture: __expectString,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    greengrassGroupId: __expectString,
+    name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2528,10 +2572,9 @@ const de_CreateRobotCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2551,33 +2594,18 @@ export const de_CreateRobotApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  if (data.robotSoftwareSuite != null) {
-    contents.robotSoftwareSuite = de_RobotSoftwareSuite(data.robotSoftwareSuite, context);
-  }
-  if (data.sources != null) {
-    contents.sources = de_Sources(data.sources, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    environment: _json,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    revisionId: __expectString,
+    robotSoftwareSuite: _json,
+    sources: _json,
+    tags: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2614,10 +2642,9 @@ const de_CreateRobotApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2637,30 +2664,17 @@ export const de_CreateRobotApplicationVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  if (data.robotSoftwareSuite != null) {
-    contents.robotSoftwareSuite = de_RobotSoftwareSuite(data.robotSoftwareSuite, context);
-  }
-  if (data.sources != null) {
-    contents.sources = de_Sources(data.sources, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    environment: _json,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    revisionId: __expectString,
+    robotSoftwareSuite: _json,
+    sources: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2694,10 +2708,9 @@ const de_CreateRobotApplicationVersionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2717,39 +2730,20 @@ export const de_CreateSimulationApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.renderingEngine != null) {
-    contents.renderingEngine = de_RenderingEngine(data.renderingEngine, context);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  if (data.robotSoftwareSuite != null) {
-    contents.robotSoftwareSuite = de_RobotSoftwareSuite(data.robotSoftwareSuite, context);
-  }
-  if (data.simulationSoftwareSuite != null) {
-    contents.simulationSoftwareSuite = de_SimulationSoftwareSuite(data.simulationSoftwareSuite, context);
-  }
-  if (data.sources != null) {
-    contents.sources = de_Sources(data.sources, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    environment: _json,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    renderingEngine: _json,
+    revisionId: __expectString,
+    robotSoftwareSuite: _json,
+    simulationSoftwareSuite: _json,
+    sources: _json,
+    tags: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2786,10 +2780,9 @@ const de_CreateSimulationApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2809,36 +2802,19 @@ export const de_CreateSimulationApplicationVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.renderingEngine != null) {
-    contents.renderingEngine = de_RenderingEngine(data.renderingEngine, context);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  if (data.robotSoftwareSuite != null) {
-    contents.robotSoftwareSuite = de_RobotSoftwareSuite(data.robotSoftwareSuite, context);
-  }
-  if (data.simulationSoftwareSuite != null) {
-    contents.simulationSoftwareSuite = de_SimulationSoftwareSuite(data.simulationSoftwareSuite, context);
-  }
-  if (data.sources != null) {
-    contents.sources = de_Sources(data.sources, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    environment: _json,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    renderingEngine: _json,
+    revisionId: __expectString,
+    robotSoftwareSuite: _json,
+    simulationSoftwareSuite: _json,
+    sources: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2872,10 +2848,9 @@ const de_CreateSimulationApplicationVersionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2895,60 +2870,27 @@ export const de_CreateSimulationJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.compute != null) {
-    contents.compute = de_ComputeResponse(data.compute, context);
-  }
-  if (data.dataSources != null) {
-    contents.dataSources = de_DataSources(data.dataSources, context);
-  }
-  if (data.failureBehavior != null) {
-    contents.failureBehavior = __expectString(data.failureBehavior);
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.iamRole != null) {
-    contents.iamRole = __expectString(data.iamRole);
-  }
-  if (data.lastStartedAt != null) {
-    contents.lastStartedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartedAt)));
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.loggingConfig != null) {
-    contents.loggingConfig = de_LoggingConfig(data.loggingConfig, context);
-  }
-  if (data.maxJobDurationInSeconds != null) {
-    contents.maxJobDurationInSeconds = __expectLong(data.maxJobDurationInSeconds);
-  }
-  if (data.outputLocation != null) {
-    contents.outputLocation = de_OutputLocation(data.outputLocation, context);
-  }
-  if (data.robotApplications != null) {
-    contents.robotApplications = de_RobotApplicationConfigs(data.robotApplications, context);
-  }
-  if (data.simulationApplications != null) {
-    contents.simulationApplications = de_SimulationApplicationConfigs(data.simulationApplications, context);
-  }
-  if (data.simulationTimeMillis != null) {
-    contents.simulationTimeMillis = __expectLong(data.simulationTimeMillis);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.vpcConfig != null) {
-    contents.vpcConfig = de_VPCConfigResponse(data.vpcConfig, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    compute: _json,
+    dataSources: _json,
+    failureBehavior: __expectString,
+    failureCode: __expectString,
+    iamRole: __expectString,
+    lastStartedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    loggingConfig: _json,
+    maxJobDurationInSeconds: __expectLong,
+    outputLocation: _json,
+    robotApplications: _json,
+    simulationApplications: _json,
+    simulationTimeMillis: __expectLong,
+    status: __expectString,
+    tags: _json,
+    vpcConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2988,10 +2930,9 @@ const de_CreateSimulationJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3011,30 +2952,17 @@ export const de_CreateWorldExportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.iamRole != null) {
-    contents.iamRole = __expectString(data.iamRole);
-  }
-  if (data.outputLocation != null) {
-    contents.outputLocation = de_OutputLocation(data.outputLocation, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureCode: __expectString,
+    iamRole: __expectString,
+    outputLocation: _json,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3071,10 +2999,9 @@ const de_CreateWorldExportJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3094,33 +3021,18 @@ export const de_CreateWorldGenerationJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.template != null) {
-    contents.template = __expectString(data.template);
-  }
-  if (data.worldCount != null) {
-    contents.worldCount = de_WorldCount(data.worldCount, context);
-  }
-  if (data.worldTags != null) {
-    contents.worldTags = de_TagMap(data.worldTags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureCode: __expectString,
+    status: __expectString,
+    tags: _json,
+    template: __expectString,
+    worldCount: _json,
+    worldTags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3160,10 +3072,9 @@ const de_CreateWorldGenerationJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3183,21 +3094,14 @@ export const de_CreateWorldTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3234,10 +3138,9 @@ const de_CreateWorldTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3284,10 +3187,9 @@ const de_DeleteFleetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3334,10 +3236,9 @@ const de_DeleteRobotCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3384,10 +3285,9 @@ const de_DeleteRobotApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3434,10 +3334,9 @@ const de_DeleteSimulationApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3487,10 +3386,9 @@ const de_DeleteWorldTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3510,12 +3408,11 @@ export const de_DeregisterRobotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fleet != null) {
-    contents.fleet = __expectString(data.fleet);
-  }
-  if (data.robot != null) {
-    contents.robot = __expectString(data.robot);
-  }
+  const doc = take(data, {
+    fleet: __expectString,
+    robot: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3546,10 +3443,9 @@ const de_DeregisterRobotCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3569,36 +3465,19 @@ export const de_DescribeDeploymentJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.deploymentApplicationConfigs != null) {
-    contents.deploymentApplicationConfigs = de_DeploymentApplicationConfigs(data.deploymentApplicationConfigs, context);
-  }
-  if (data.deploymentConfig != null) {
-    contents.deploymentConfig = de_DeploymentConfig(data.deploymentConfig, context);
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.fleet != null) {
-    contents.fleet = __expectString(data.fleet);
-  }
-  if (data.robotDeploymentSummary != null) {
-    contents.robotDeploymentSummary = de_RobotDeploymentSummary(data.robotDeploymentSummary, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentApplicationConfigs: _json,
+    deploymentConfig: _json,
+    failureCode: __expectString,
+    failureReason: __expectString,
+    fleet: __expectString,
+    robotDeploymentSummary: (_) => de_RobotDeploymentSummary(_, context),
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3629,10 +3508,9 @@ const de_DescribeDeploymentJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3652,30 +3530,17 @@ export const de_DescribeFleetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.lastDeploymentJob != null) {
-    contents.lastDeploymentJob = __expectString(data.lastDeploymentJob);
-  }
-  if (data.lastDeploymentStatus != null) {
-    contents.lastDeploymentStatus = __expectString(data.lastDeploymentStatus);
-  }
-  if (data.lastDeploymentTime != null) {
-    contents.lastDeploymentTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastDeploymentTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.robots != null) {
-    contents.robots = de_Robots(data.robots, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentJob: __expectString,
+    lastDeploymentStatus: __expectString,
+    lastDeploymentTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    robots: (_) => de_Robots(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3706,10 +3571,9 @@ const de_DescribeFleetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3729,36 +3593,19 @@ export const de_DescribeRobotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.architecture != null) {
-    contents.architecture = __expectString(data.architecture);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.fleetArn != null) {
-    contents.fleetArn = __expectString(data.fleetArn);
-  }
-  if (data.greengrassGroupId != null) {
-    contents.greengrassGroupId = __expectString(data.greengrassGroupId);
-  }
-  if (data.lastDeploymentJob != null) {
-    contents.lastDeploymentJob = __expectString(data.lastDeploymentJob);
-  }
-  if (data.lastDeploymentTime != null) {
-    contents.lastDeploymentTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastDeploymentTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    architecture: __expectString,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fleetArn: __expectString,
+    greengrassGroupId: __expectString,
+    lastDeploymentJob: __expectString,
+    lastDeploymentTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3789,10 +3636,9 @@ const de_DescribeRobotCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3812,36 +3658,19 @@ export const de_DescribeRobotApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
-  if (data.imageDigest != null) {
-    contents.imageDigest = __expectString(data.imageDigest);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  if (data.robotSoftwareSuite != null) {
-    contents.robotSoftwareSuite = de_RobotSoftwareSuite(data.robotSoftwareSuite, context);
-  }
-  if (data.sources != null) {
-    contents.sources = de_Sources(data.sources, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    environment: _json,
+    imageDigest: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    revisionId: __expectString,
+    robotSoftwareSuite: _json,
+    sources: _json,
+    tags: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3872,10 +3701,9 @@ const de_DescribeRobotApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3895,42 +3723,21 @@ export const de_DescribeSimulationApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
-  if (data.imageDigest != null) {
-    contents.imageDigest = __expectString(data.imageDigest);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.renderingEngine != null) {
-    contents.renderingEngine = de_RenderingEngine(data.renderingEngine, context);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  if (data.robotSoftwareSuite != null) {
-    contents.robotSoftwareSuite = de_RobotSoftwareSuite(data.robotSoftwareSuite, context);
-  }
-  if (data.simulationSoftwareSuite != null) {
-    contents.simulationSoftwareSuite = de_SimulationSoftwareSuite(data.simulationSoftwareSuite, context);
-  }
-  if (data.sources != null) {
-    contents.sources = de_Sources(data.sources, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    environment: _json,
+    imageDigest: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    renderingEngine: _json,
+    revisionId: __expectString,
+    robotSoftwareSuite: _json,
+    simulationSoftwareSuite: _json,
+    sources: _json,
+    tags: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3961,10 +3768,9 @@ const de_DescribeSimulationApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3984,69 +3790,30 @@ export const de_DescribeSimulationJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.compute != null) {
-    contents.compute = de_ComputeResponse(data.compute, context);
-  }
-  if (data.dataSources != null) {
-    contents.dataSources = de_DataSources(data.dataSources, context);
-  }
-  if (data.failureBehavior != null) {
-    contents.failureBehavior = __expectString(data.failureBehavior);
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.iamRole != null) {
-    contents.iamRole = __expectString(data.iamRole);
-  }
-  if (data.lastStartedAt != null) {
-    contents.lastStartedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartedAt)));
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.loggingConfig != null) {
-    contents.loggingConfig = de_LoggingConfig(data.loggingConfig, context);
-  }
-  if (data.maxJobDurationInSeconds != null) {
-    contents.maxJobDurationInSeconds = __expectLong(data.maxJobDurationInSeconds);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.networkInterface != null) {
-    contents.networkInterface = de_NetworkInterface(data.networkInterface, context);
-  }
-  if (data.outputLocation != null) {
-    contents.outputLocation = de_OutputLocation(data.outputLocation, context);
-  }
-  if (data.robotApplications != null) {
-    contents.robotApplications = de_RobotApplicationConfigs(data.robotApplications, context);
-  }
-  if (data.simulationApplications != null) {
-    contents.simulationApplications = de_SimulationApplicationConfigs(data.simulationApplications, context);
-  }
-  if (data.simulationTimeMillis != null) {
-    contents.simulationTimeMillis = __expectLong(data.simulationTimeMillis);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.vpcConfig != null) {
-    contents.vpcConfig = de_VPCConfigResponse(data.vpcConfig, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    compute: _json,
+    dataSources: _json,
+    failureBehavior: __expectString,
+    failureCode: __expectString,
+    failureReason: __expectString,
+    iamRole: __expectString,
+    lastStartedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    loggingConfig: _json,
+    maxJobDurationInSeconds: __expectLong,
+    name: __expectString,
+    networkInterface: _json,
+    outputLocation: _json,
+    robotApplications: _json,
+    simulationApplications: _json,
+    simulationTimeMillis: __expectLong,
+    status: __expectString,
+    tags: _json,
+    vpcConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4077,10 +3844,9 @@ const de_DescribeSimulationJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4100,42 +3866,21 @@ export const de_DescribeSimulationJobBatchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.batchPolicy != null) {
-    contents.batchPolicy = de_BatchPolicy(data.batchPolicy, context);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.createdRequests != null) {
-    contents.createdRequests = de_SimulationJobSummaries(data.createdRequests, context);
-  }
-  if (data.failedRequests != null) {
-    contents.failedRequests = de_FailedCreateSimulationJobRequests(data.failedRequests, context);
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.pendingRequests != null) {
-    contents.pendingRequests = de_CreateSimulationJobRequests(data.pendingRequests, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    batchPolicy: _json,
+    clientRequestToken: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdRequests: (_) => de_SimulationJobSummaries(_, context),
+    failedRequests: (_) => de_FailedCreateSimulationJobRequests(_, context),
+    failureCode: __expectString,
+    failureReason: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pendingRequests: _json,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4163,10 +3908,9 @@ const de_DescribeSimulationJobBatchCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4186,24 +3930,15 @@ export const de_DescribeWorldCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.generationJob != null) {
-    contents.generationJob = __expectString(data.generationJob);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.template != null) {
-    contents.template = __expectString(data.template);
-  }
-  if (data.worldDescriptionBody != null) {
-    contents.worldDescriptionBody = __expectString(data.worldDescriptionBody);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    generationJob: __expectString,
+    tags: _json,
+    template: __expectString,
+    worldDescriptionBody: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4234,10 +3969,9 @@ const de_DescribeWorldCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4257,36 +3991,19 @@ export const de_DescribeWorldExportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.iamRole != null) {
-    contents.iamRole = __expectString(data.iamRole);
-  }
-  if (data.outputLocation != null) {
-    contents.outputLocation = de_OutputLocation(data.outputLocation, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.worlds != null) {
-    contents.worlds = de_Arns(data.worlds, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureCode: __expectString,
+    failureReason: __expectString,
+    iamRole: __expectString,
+    outputLocation: _json,
+    status: __expectString,
+    tags: _json,
+    worlds: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4317,10 +4034,9 @@ const de_DescribeWorldExportJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4340,39 +4056,20 @@ export const de_DescribeWorldGenerationJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.finishedWorldsSummary != null) {
-    contents.finishedWorldsSummary = de_FinishedWorldsSummary(data.finishedWorldsSummary, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.template != null) {
-    contents.template = __expectString(data.template);
-  }
-  if (data.worldCount != null) {
-    contents.worldCount = de_WorldCount(data.worldCount, context);
-  }
-  if (data.worldTags != null) {
-    contents.worldTags = de_TagMap(data.worldTags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureCode: __expectString,
+    failureReason: __expectString,
+    finishedWorldsSummary: _json,
+    status: __expectString,
+    tags: _json,
+    template: __expectString,
+    worldCount: _json,
+    worldTags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4403,10 +4100,9 @@ const de_DescribeWorldGenerationJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4426,27 +4122,16 @@ export const de_DescribeWorldTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    tags: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4477,10 +4162,9 @@ const de_DescribeWorldTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4500,9 +4184,10 @@ export const de_GetWorldTemplateBodyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.templateBody != null) {
-    contents.templateBody = __expectString(data.templateBody);
-  }
+  const doc = take(data, {
+    templateBody: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4533,10 +4218,9 @@ const de_GetWorldTemplateBodyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4556,12 +4240,11 @@ export const de_ListDeploymentJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deploymentJobs != null) {
-    contents.deploymentJobs = de_DeploymentJobs(data.deploymentJobs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    deploymentJobs: (_) => de_DeploymentJobs(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4592,10 +4275,9 @@ const de_ListDeploymentJobsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4615,12 +4297,11 @@ export const de_ListFleetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fleetDetails != null) {
-    contents.fleetDetails = de_Fleets(data.fleetDetails, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    fleetDetails: (_) => de_Fleets(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4651,10 +4332,9 @@ const de_ListFleetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4674,12 +4354,11 @@ export const de_ListRobotApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.robotApplicationSummaries != null) {
-    contents.robotApplicationSummaries = de_RobotApplicationSummaries(data.robotApplicationSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    robotApplicationSummaries: (_) => de_RobotApplicationSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4707,10 +4386,9 @@ const de_ListRobotApplicationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4730,12 +4408,11 @@ export const de_ListRobotsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.robots != null) {
-    contents.robots = de_Robots(data.robots, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    robots: (_) => de_Robots(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4766,10 +4443,9 @@ const de_ListRobotsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4789,15 +4465,11 @@ export const de_ListSimulationApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.simulationApplicationSummaries != null) {
-    contents.simulationApplicationSummaries = de_SimulationApplicationSummaries(
-      data.simulationApplicationSummaries,
-      context
-    );
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    simulationApplicationSummaries: (_) => de_SimulationApplicationSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4825,10 +4497,9 @@ const de_ListSimulationApplicationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4848,12 +4519,11 @@ export const de_ListSimulationJobBatchesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.simulationJobBatchSummaries != null) {
-    contents.simulationJobBatchSummaries = de_SimulationJobBatchSummaries(data.simulationJobBatchSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    simulationJobBatchSummaries: (_) => de_SimulationJobBatchSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4878,10 +4548,9 @@ const de_ListSimulationJobBatchesCommandError = async (
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4901,12 +4570,11 @@ export const de_ListSimulationJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.simulationJobSummaries != null) {
-    contents.simulationJobSummaries = de_SimulationJobSummaries(data.simulationJobSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    simulationJobSummaries: (_) => de_SimulationJobSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4934,10 +4602,9 @@ const de_ListSimulationJobsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4957,9 +4624,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4990,10 +4658,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5013,12 +4680,11 @@ export const de_ListWorldExportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.worldExportJobSummaries != null) {
-    contents.worldExportJobSummaries = de_WorldExportJobSummaries(data.worldExportJobSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    worldExportJobSummaries: (_) => de_WorldExportJobSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5046,10 +4712,9 @@ const de_ListWorldExportJobsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5069,12 +4734,11 @@ export const de_ListWorldGenerationJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.worldGenerationJobSummaries != null) {
-    contents.worldGenerationJobSummaries = de_WorldGenerationJobSummaries(data.worldGenerationJobSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    worldGenerationJobSummaries: (_) => de_WorldGenerationJobSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5102,10 +4766,9 @@ const de_ListWorldGenerationJobsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5125,12 +4788,11 @@ export const de_ListWorldsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.worldSummaries != null) {
-    contents.worldSummaries = de_WorldSummaries(data.worldSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    worldSummaries: (_) => de_WorldSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5158,10 +4820,9 @@ const de_ListWorldsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5181,12 +4842,11 @@ export const de_ListWorldTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templateSummaries != null) {
-    contents.templateSummaries = de_TemplateSummaries(data.templateSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templateSummaries: (_) => de_TemplateSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5214,10 +4874,9 @@ const de_ListWorldTemplatesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5237,12 +4896,11 @@ export const de_RegisterRobotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fleet != null) {
-    contents.fleet = __expectString(data.fleet);
-  }
-  if (data.robot != null) {
-    contents.robot = __expectString(data.robot);
-  }
+  const doc = take(data, {
+    fleet: __expectString,
+    robot: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5276,10 +4934,9 @@ const de_RegisterRobotCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5332,10 +4989,9 @@ const de_RestartSimulationJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5355,39 +5011,20 @@ export const de_StartSimulationJobBatchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.batchPolicy != null) {
-    contents.batchPolicy = de_BatchPolicy(data.batchPolicy, context);
-  }
-  if (data.clientRequestToken != null) {
-    contents.clientRequestToken = __expectString(data.clientRequestToken);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.createdRequests != null) {
-    contents.createdRequests = de_SimulationJobSummaries(data.createdRequests, context);
-  }
-  if (data.failedRequests != null) {
-    contents.failedRequests = de_FailedCreateSimulationJobRequests(data.failedRequests, context);
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.pendingRequests != null) {
-    contents.pendingRequests = de_CreateSimulationJobRequests(data.pendingRequests, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    batchPolicy: _json,
+    clientRequestToken: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdRequests: (_) => de_SimulationJobSummaries(_, context),
+    failedRequests: (_) => de_FailedCreateSimulationJobRequests(_, context),
+    failureCode: __expectString,
+    failureReason: __expectString,
+    pendingRequests: _json,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5421,10 +5058,9 @@ const de_StartSimulationJobBatchCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5444,30 +5080,17 @@ export const de_SyncDeploymentJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.deploymentApplicationConfigs != null) {
-    contents.deploymentApplicationConfigs = de_DeploymentApplicationConfigs(data.deploymentApplicationConfigs, context);
-  }
-  if (data.deploymentConfig != null) {
-    contents.deploymentConfig = de_DeploymentConfig(data.deploymentConfig, context);
-  }
-  if (data.failureCode != null) {
-    contents.failureCode = __expectString(data.failureCode);
-  }
-  if (data.failureReason != null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.fleet != null) {
-    contents.fleet = __expectString(data.fleet);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentApplicationConfigs: _json,
+    deploymentConfig: _json,
+    failureCode: __expectString,
+    failureReason: __expectString,
+    fleet: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5507,10 +5130,9 @@ const de_SyncDeploymentJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5560,10 +5182,9 @@ const de_TagResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5613,10 +5234,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5636,30 +5256,17 @@ export const de_UpdateRobotApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  if (data.robotSoftwareSuite != null) {
-    contents.robotSoftwareSuite = de_RobotSoftwareSuite(data.robotSoftwareSuite, context);
-  }
-  if (data.sources != null) {
-    contents.sources = de_Sources(data.sources, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    environment: _json,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    revisionId: __expectString,
+    robotSoftwareSuite: _json,
+    sources: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5693,10 +5300,9 @@ const de_UpdateRobotApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5716,36 +5322,19 @@ export const de_UpdateSimulationApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.renderingEngine != null) {
-    contents.renderingEngine = de_RenderingEngine(data.renderingEngine, context);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  if (data.robotSoftwareSuite != null) {
-    contents.robotSoftwareSuite = de_RobotSoftwareSuite(data.robotSoftwareSuite, context);
-  }
-  if (data.simulationSoftwareSuite != null) {
-    contents.simulationSoftwareSuite = de_SimulationSoftwareSuite(data.simulationSoftwareSuite, context);
-  }
-  if (data.sources != null) {
-    contents.sources = de_Sources(data.sources, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    environment: _json,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    renderingEngine: _json,
+    revisionId: __expectString,
+    robotSoftwareSuite: _json,
+    simulationSoftwareSuite: _json,
+    sources: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5779,10 +5368,9 @@ const de_UpdateSimulationApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5802,18 +5390,13 @@ export const de_UpdateWorldTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5844,16 +5427,15 @@ const de_UpdateWorldTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConcurrentDeploymentExceptionRes
  */
@@ -5863,9 +5445,10 @@ const de_ConcurrentDeploymentExceptionRes = async (
 ): Promise<ConcurrentDeploymentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentDeploymentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5882,9 +5465,10 @@ const de_IdempotentParameterMismatchExceptionRes = async (
 ): Promise<IdempotentParameterMismatchException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IdempotentParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5901,9 +5485,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5920,9 +5505,10 @@ const de_InvalidParameterExceptionRes = async (
 ): Promise<InvalidParameterException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5939,9 +5525,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5958,9 +5545,10 @@ const de_ResourceAlreadyExistsExceptionRes = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5977,9 +5565,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5996,9 +5585,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6012,9 +5602,10 @@ const de_ServiceUnavailableExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6022,769 +5613,142 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Arns
- */
-const se_Arns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Arns omitted.
 
-/**
- * serializeAws_restJson1BatchPolicy
- */
-const se_BatchPolicy = (input: BatchPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.maxConcurrency != null && { maxConcurrency: input.maxConcurrency }),
-    ...(input.timeoutInSeconds != null && { timeoutInSeconds: input.timeoutInSeconds }),
-  };
-};
+// se_BatchPolicy omitted.
 
-/**
- * serializeAws_restJson1CommandList
- */
-const se_CommandList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CommandList omitted.
 
-/**
- * serializeAws_restJson1Compute
- */
-const se_Compute = (input: Compute, context: __SerdeContext): any => {
-  return {
-    ...(input.computeType != null && { computeType: input.computeType }),
-    ...(input.gpuUnitLimit != null && { gpuUnitLimit: input.gpuUnitLimit }),
-    ...(input.simulationUnitLimit != null && { simulationUnitLimit: input.simulationUnitLimit }),
-  };
-};
+// se_Compute omitted.
 
-/**
- * serializeAws_restJson1CreateSimulationJobRequests
- */
-const se_CreateSimulationJobRequests = (input: SimulationJobRequest[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SimulationJobRequest(entry, context);
-    });
-};
+// se_CreateSimulationJobRequests omitted.
 
-/**
- * serializeAws_restJson1DataSourceConfig
- */
-const se_DataSourceConfig = (input: DataSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.destination != null && { destination: input.destination }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.s3Bucket != null && { s3Bucket: input.s3Bucket }),
-    ...(input.s3Keys != null && { s3Keys: se_S3KeysOrPrefixes(input.s3Keys, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_DataSourceConfig omitted.
 
-/**
- * serializeAws_restJson1DataSourceConfigs
- */
-const se_DataSourceConfigs = (input: DataSourceConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DataSourceConfig(entry, context);
-    });
-};
+// se_DataSourceConfigs omitted.
 
-/**
- * serializeAws_restJson1DeploymentApplicationConfig
- */
-const se_DeploymentApplicationConfig = (input: DeploymentApplicationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.application != null && { application: input.application }),
-    ...(input.applicationVersion != null && { applicationVersion: input.applicationVersion }),
-    ...(input.launchConfig != null && { launchConfig: se_DeploymentLaunchConfig(input.launchConfig, context) }),
-  };
-};
+// se_DeploymentApplicationConfig omitted.
 
-/**
- * serializeAws_restJson1DeploymentApplicationConfigs
- */
-const se_DeploymentApplicationConfigs = (input: DeploymentApplicationConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DeploymentApplicationConfig(entry, context);
-    });
-};
+// se_DeploymentApplicationConfigs omitted.
 
-/**
- * serializeAws_restJson1DeploymentConfig
- */
-const se_DeploymentConfig = (input: DeploymentConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.concurrentDeploymentPercentage != null && {
-      concurrentDeploymentPercentage: input.concurrentDeploymentPercentage,
-    }),
-    ...(input.downloadConditionFile != null && {
-      downloadConditionFile: se_S3Object(input.downloadConditionFile, context),
-    }),
-    ...(input.failureThresholdPercentage != null && { failureThresholdPercentage: input.failureThresholdPercentage }),
-    ...(input.robotDeploymentTimeoutInSeconds != null && {
-      robotDeploymentTimeoutInSeconds: input.robotDeploymentTimeoutInSeconds,
-    }),
-  };
-};
+// se_DeploymentConfig omitted.
 
-/**
- * serializeAws_restJson1DeploymentLaunchConfig
- */
-const se_DeploymentLaunchConfig = (input: DeploymentLaunchConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.environmentVariables != null && {
-      environmentVariables: se_EnvironmentVariableMap(input.environmentVariables, context),
-    }),
-    ...(input.launchFile != null && { launchFile: input.launchFile }),
-    ...(input.packageName != null && { packageName: input.packageName }),
-    ...(input.postLaunchFile != null && { postLaunchFile: input.postLaunchFile }),
-    ...(input.preLaunchFile != null && { preLaunchFile: input.preLaunchFile }),
-  };
-};
+// se_DeploymentLaunchConfig omitted.
 
-/**
- * serializeAws_restJson1Environment
- */
-const se_Environment = (input: Environment, context: __SerdeContext): any => {
-  return {
-    ...(input.uri != null && { uri: input.uri }),
-  };
-};
+// se_Environment omitted.
 
-/**
- * serializeAws_restJson1EnvironmentVariableMap
- */
-const se_EnvironmentVariableMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_EnvironmentVariableMap omitted.
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValues(input.values, context) }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1Filters
- */
-const se_Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_Filters omitted.
 
-/**
- * serializeAws_restJson1FilterValues
- */
-const se_FilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilterValues omitted.
 
-/**
- * serializeAws_restJson1LaunchConfig
- */
-const se_LaunchConfig = (input: LaunchConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.command != null && { command: se_CommandList(input.command, context) }),
-    ...(input.environmentVariables != null && {
-      environmentVariables: se_EnvironmentVariableMap(input.environmentVariables, context),
-    }),
-    ...(input.launchFile != null && { launchFile: input.launchFile }),
-    ...(input.packageName != null && { packageName: input.packageName }),
-    ...(input.portForwardingConfig != null && {
-      portForwardingConfig: se_PortForwardingConfig(input.portForwardingConfig, context),
-    }),
-    ...(input.streamUI != null && { streamUI: input.streamUI }),
-  };
-};
+// se_LaunchConfig omitted.
 
-/**
- * serializeAws_restJson1LoggingConfig
- */
-const se_LoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.recordAllRosTopics != null && { recordAllRosTopics: input.recordAllRosTopics }),
-  };
-};
+// se_LoggingConfig omitted.
 
-/**
- * serializeAws_restJson1OutputLocation
- */
-const se_OutputLocation = (input: OutputLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.s3Bucket != null && { s3Bucket: input.s3Bucket }),
-    ...(input.s3Prefix != null && { s3Prefix: input.s3Prefix }),
-  };
-};
+// se_OutputLocation omitted.
 
-/**
- * serializeAws_restJson1PortForwardingConfig
- */
-const se_PortForwardingConfig = (input: PortForwardingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.portMappings != null && { portMappings: se_PortMappingList(input.portMappings, context) }),
-  };
-};
+// se_PortForwardingConfig omitted.
 
-/**
- * serializeAws_restJson1PortMapping
- */
-const se_PortMapping = (input: PortMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.applicationPort != null && { applicationPort: input.applicationPort }),
-    ...(input.enableOnPublicIp != null && { enableOnPublicIp: input.enableOnPublicIp }),
-    ...(input.jobPort != null && { jobPort: input.jobPort }),
-  };
-};
+// se_PortMapping omitted.
 
-/**
- * serializeAws_restJson1PortMappingList
- */
-const se_PortMappingList = (input: PortMapping[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PortMapping(entry, context);
-    });
-};
+// se_PortMappingList omitted.
 
-/**
- * serializeAws_restJson1RenderingEngine
- */
-const se_RenderingEngine = (input: RenderingEngine, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_RenderingEngine omitted.
 
-/**
- * serializeAws_restJson1RobotApplicationConfig
- */
-const se_RobotApplicationConfig = (input: RobotApplicationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.application != null && { application: input.application }),
-    ...(input.applicationVersion != null && { applicationVersion: input.applicationVersion }),
-    ...(input.launchConfig != null && { launchConfig: se_LaunchConfig(input.launchConfig, context) }),
-    ...(input.tools != null && { tools: se_Tools(input.tools, context) }),
-    ...(input.uploadConfigurations != null && {
-      uploadConfigurations: se_UploadConfigurations(input.uploadConfigurations, context),
-    }),
-    ...(input.useDefaultTools != null && { useDefaultTools: input.useDefaultTools }),
-    ...(input.useDefaultUploadConfigurations != null && {
-      useDefaultUploadConfigurations: input.useDefaultUploadConfigurations,
-    }),
-  };
-};
+// se_RobotApplicationConfig omitted.
 
-/**
- * serializeAws_restJson1RobotApplicationConfigs
- */
-const se_RobotApplicationConfigs = (input: RobotApplicationConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RobotApplicationConfig(entry, context);
-    });
-};
+// se_RobotApplicationConfigs omitted.
 
-/**
- * serializeAws_restJson1RobotSoftwareSuite
- */
-const se_RobotSoftwareSuite = (input: RobotSoftwareSuite, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_RobotSoftwareSuite omitted.
 
-/**
- * serializeAws_restJson1S3Etags
- */
-const se_S3Etags = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_S3Etags omitted.
 
-/**
- * serializeAws_restJson1S3KeysOrPrefixes
- */
-const se_S3KeysOrPrefixes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_S3KeysOrPrefixes omitted.
 
-/**
- * serializeAws_restJson1S3Object
- */
-const se_S3Object = (input: S3Object, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.etag != null && { etag: input.etag }),
-    ...(input.key != null && { key: input.key }),
-  };
-};
+// se_S3Object omitted.
 
-/**
- * serializeAws_restJson1SecurityGroups
- */
-const se_SecurityGroups = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroups omitted.
 
-/**
- * serializeAws_restJson1SimulationApplicationConfig
- */
-const se_SimulationApplicationConfig = (input: SimulationApplicationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.application != null && { application: input.application }),
-    ...(input.applicationVersion != null && { applicationVersion: input.applicationVersion }),
-    ...(input.launchConfig != null && { launchConfig: se_LaunchConfig(input.launchConfig, context) }),
-    ...(input.tools != null && { tools: se_Tools(input.tools, context) }),
-    ...(input.uploadConfigurations != null && {
-      uploadConfigurations: se_UploadConfigurations(input.uploadConfigurations, context),
-    }),
-    ...(input.useDefaultTools != null && { useDefaultTools: input.useDefaultTools }),
-    ...(input.useDefaultUploadConfigurations != null && {
-      useDefaultUploadConfigurations: input.useDefaultUploadConfigurations,
-    }),
-    ...(input.worldConfigs != null && { worldConfigs: se_WorldConfigs(input.worldConfigs, context) }),
-  };
-};
+// se_SimulationApplicationConfig omitted.
 
-/**
- * serializeAws_restJson1SimulationApplicationConfigs
- */
-const se_SimulationApplicationConfigs = (input: SimulationApplicationConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SimulationApplicationConfig(entry, context);
-    });
-};
+// se_SimulationApplicationConfigs omitted.
 
-/**
- * serializeAws_restJson1SimulationJobRequest
- */
-const se_SimulationJobRequest = (input: SimulationJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.compute != null && { compute: se_Compute(input.compute, context) }),
-    ...(input.dataSources != null && { dataSources: se_DataSourceConfigs(input.dataSources, context) }),
-    ...(input.failureBehavior != null && { failureBehavior: input.failureBehavior }),
-    ...(input.iamRole != null && { iamRole: input.iamRole }),
-    ...(input.loggingConfig != null && { loggingConfig: se_LoggingConfig(input.loggingConfig, context) }),
-    ...(input.maxJobDurationInSeconds != null && { maxJobDurationInSeconds: input.maxJobDurationInSeconds }),
-    ...(input.outputLocation != null && { outputLocation: se_OutputLocation(input.outputLocation, context) }),
-    ...(input.robotApplications != null && {
-      robotApplications: se_RobotApplicationConfigs(input.robotApplications, context),
-    }),
-    ...(input.simulationApplications != null && {
-      simulationApplications: se_SimulationApplicationConfigs(input.simulationApplications, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.useDefaultApplications != null && { useDefaultApplications: input.useDefaultApplications }),
-    ...(input.vpcConfig != null && { vpcConfig: se_VPCConfig(input.vpcConfig, context) }),
-  };
-};
+// se_SimulationJobRequest omitted.
 
-/**
- * serializeAws_restJson1SimulationSoftwareSuite
- */
-const se_SimulationSoftwareSuite = (input: SimulationSoftwareSuite, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_SimulationSoftwareSuite omitted.
 
-/**
- * serializeAws_restJson1SourceConfig
- */
-const se_SourceConfig = (input: SourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.architecture != null && { architecture: input.architecture }),
-    ...(input.s3Bucket != null && { s3Bucket: input.s3Bucket }),
-    ...(input.s3Key != null && { s3Key: input.s3Key }),
-  };
-};
+// se_SourceConfig omitted.
 
-/**
- * serializeAws_restJson1SourceConfigs
- */
-const se_SourceConfigs = (input: SourceConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SourceConfig(entry, context);
-    });
-};
+// se_SourceConfigs omitted.
 
-/**
- * serializeAws_restJson1Subnets
- */
-const se_Subnets = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Subnets omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1TemplateLocation
- */
-const se_TemplateLocation = (input: TemplateLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.s3Bucket != null && { s3Bucket: input.s3Bucket }),
-    ...(input.s3Key != null && { s3Key: input.s3Key }),
-  };
-};
+// se_TemplateLocation omitted.
 
-/**
- * serializeAws_restJson1Tool
- */
-const se_Tool = (input: Tool, context: __SerdeContext): any => {
-  return {
-    ...(input.command != null && { command: input.command }),
-    ...(input.exitBehavior != null && { exitBehavior: input.exitBehavior }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.streamOutputToCloudWatch != null && { streamOutputToCloudWatch: input.streamOutputToCloudWatch }),
-    ...(input.streamUI != null && { streamUI: input.streamUI }),
-  };
-};
+// se_Tool omitted.
 
-/**
- * serializeAws_restJson1Tools
- */
-const se_Tools = (input: Tool[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tool(entry, context);
-    });
-};
+// se_Tools omitted.
 
-/**
- * serializeAws_restJson1UploadConfiguration
- */
-const se_UploadConfiguration = (input: UploadConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.path != null && { path: input.path }),
-    ...(input.uploadBehavior != null && { uploadBehavior: input.uploadBehavior }),
-  };
-};
+// se_UploadConfiguration omitted.
 
-/**
- * serializeAws_restJson1UploadConfigurations
- */
-const se_UploadConfigurations = (input: UploadConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UploadConfiguration(entry, context);
-    });
-};
+// se_UploadConfigurations omitted.
 
-/**
- * serializeAws_restJson1VPCConfig
- */
-const se_VPCConfig = (input: VPCConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.assignPublicIp != null && { assignPublicIp: input.assignPublicIp }),
-    ...(input.securityGroups != null && { securityGroups: se_SecurityGroups(input.securityGroups, context) }),
-    ...(input.subnets != null && { subnets: se_Subnets(input.subnets, context) }),
-  };
-};
+// se_VPCConfig omitted.
 
-/**
- * serializeAws_restJson1WorldConfig
- */
-const se_WorldConfig = (input: WorldConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.world != null && { world: input.world }),
-  };
-};
+// se_WorldConfig omitted.
 
-/**
- * serializeAws_restJson1WorldConfigs
- */
-const se_WorldConfigs = (input: WorldConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WorldConfig(entry, context);
-    });
-};
+// se_WorldConfigs omitted.
 
-/**
- * serializeAws_restJson1WorldCount
- */
-const se_WorldCount = (input: WorldCount, context: __SerdeContext): any => {
-  return {
-    ...(input.floorplanCount != null && { floorplanCount: input.floorplanCount }),
-    ...(input.interiorCountPerFloorplan != null && { interiorCountPerFloorplan: input.interiorCountPerFloorplan }),
-  };
-};
+// se_WorldCount omitted.
 
-/**
- * deserializeAws_restJson1Arns
- */
-const de_Arns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Arns omitted.
 
-/**
- * deserializeAws_restJson1BatchPolicy
- */
-const de_BatchPolicy = (output: any, context: __SerdeContext): BatchPolicy => {
-  return {
-    maxConcurrency: __expectInt32(output.maxConcurrency),
-    timeoutInSeconds: __expectLong(output.timeoutInSeconds),
-  } as any;
-};
+// de_BatchPolicy omitted.
 
-/**
- * deserializeAws_restJson1CommandList
- */
-const de_CommandList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CommandList omitted.
 
-/**
- * deserializeAws_restJson1Compute
- */
-const de_Compute = (output: any, context: __SerdeContext): Compute => {
-  return {
-    computeType: __expectString(output.computeType),
-    gpuUnitLimit: __expectInt32(output.gpuUnitLimit),
-    simulationUnitLimit: __expectInt32(output.simulationUnitLimit),
-  } as any;
-};
+// de_Compute omitted.
 
-/**
- * deserializeAws_restJson1ComputeResponse
- */
-const de_ComputeResponse = (output: any, context: __SerdeContext): ComputeResponse => {
-  return {
-    computeType: __expectString(output.computeType),
-    gpuUnitLimit: __expectInt32(output.gpuUnitLimit),
-    simulationUnitLimit: __expectInt32(output.simulationUnitLimit),
-  } as any;
-};
+// de_ComputeResponse omitted.
 
-/**
- * deserializeAws_restJson1CreateSimulationJobRequests
- */
-const de_CreateSimulationJobRequests = (output: any, context: __SerdeContext): SimulationJobRequest[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SimulationJobRequest(entry, context);
-    });
-  return retVal;
-};
+// de_CreateSimulationJobRequests omitted.
 
-/**
- * deserializeAws_restJson1DataSource
- */
-const de_DataSource = (output: any, context: __SerdeContext): DataSource => {
-  return {
-    destination: __expectString(output.destination),
-    name: __expectString(output.name),
-    s3Bucket: __expectString(output.s3Bucket),
-    s3Keys: output.s3Keys != null ? de_S3KeyOutputs(output.s3Keys, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_DataSource omitted.
 
-/**
- * deserializeAws_restJson1DataSourceConfig
- */
-const de_DataSourceConfig = (output: any, context: __SerdeContext): DataSourceConfig => {
-  return {
-    destination: __expectString(output.destination),
-    name: __expectString(output.name),
-    s3Bucket: __expectString(output.s3Bucket),
-    s3Keys: output.s3Keys != null ? de_S3KeysOrPrefixes(output.s3Keys, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_DataSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1DataSourceConfigs
- */
-const de_DataSourceConfigs = (output: any, context: __SerdeContext): DataSourceConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataSourceConfig(entry, context);
-    });
-  return retVal;
-};
+// de_DataSourceConfigs omitted.
 
-/**
- * deserializeAws_restJson1DataSourceNames
- */
-const de_DataSourceNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DataSourceNames omitted.
 
-/**
- * deserializeAws_restJson1DataSources
- */
-const de_DataSources = (output: any, context: __SerdeContext): DataSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataSource(entry, context);
-    });
-  return retVal;
-};
+// de_DataSources omitted.
 
-/**
- * deserializeAws_restJson1DeploymentApplicationConfig
- */
-const de_DeploymentApplicationConfig = (output: any, context: __SerdeContext): DeploymentApplicationConfig => {
-  return {
-    application: __expectString(output.application),
-    applicationVersion: __expectString(output.applicationVersion),
-    launchConfig: output.launchConfig != null ? de_DeploymentLaunchConfig(output.launchConfig, context) : undefined,
-  } as any;
-};
+// de_DeploymentApplicationConfig omitted.
 
-/**
- * deserializeAws_restJson1DeploymentApplicationConfigs
- */
-const de_DeploymentApplicationConfigs = (output: any, context: __SerdeContext): DeploymentApplicationConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DeploymentApplicationConfig(entry, context);
-    });
-  return retVal;
-};
+// de_DeploymentApplicationConfigs omitted.
 
-/**
- * deserializeAws_restJson1DeploymentConfig
- */
-const de_DeploymentConfig = (output: any, context: __SerdeContext): DeploymentConfig => {
-  return {
-    concurrentDeploymentPercentage: __expectInt32(output.concurrentDeploymentPercentage),
-    downloadConditionFile:
-      output.downloadConditionFile != null ? de_S3Object(output.downloadConditionFile, context) : undefined,
-    failureThresholdPercentage: __expectInt32(output.failureThresholdPercentage),
-    robotDeploymentTimeoutInSeconds: __expectLong(output.robotDeploymentTimeoutInSeconds),
-  } as any;
-};
+// de_DeploymentConfig omitted.
 
 /**
  * deserializeAws_restJson1DeploymentJob
  */
 const de_DeploymentJob = (output: any, context: __SerdeContext): DeploymentJob => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    deploymentApplicationConfigs:
-      output.deploymentApplicationConfigs != null
-        ? de_DeploymentApplicationConfigs(output.deploymentApplicationConfigs, context)
-        : undefined,
-    deploymentConfig:
-      output.deploymentConfig != null ? de_DeploymentConfig(output.deploymentConfig, context) : undefined,
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    fleet: __expectString(output.fleet),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentApplicationConfigs: _json,
+    deploymentConfig: _json,
+    failureCode: __expectString,
+    failureReason: __expectString,
+    fleet: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6794,49 +5758,16 @@ const de_DeploymentJobs = (output: any, context: __SerdeContext): DeploymentJob[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeploymentJob(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DeploymentLaunchConfig
- */
-const de_DeploymentLaunchConfig = (output: any, context: __SerdeContext): DeploymentLaunchConfig => {
-  return {
-    environmentVariables:
-      output.environmentVariables != null ? de_EnvironmentVariableMap(output.environmentVariables, context) : undefined,
-    launchFile: __expectString(output.launchFile),
-    packageName: __expectString(output.packageName),
-    postLaunchFile: __expectString(output.postLaunchFile),
-    preLaunchFile: __expectString(output.preLaunchFile),
-  } as any;
-};
+// de_DeploymentLaunchConfig omitted.
 
-/**
- * deserializeAws_restJson1Environment
- */
-const de_Environment = (output: any, context: __SerdeContext): Environment => {
-  return {
-    uri: __expectString(output.uri),
-  } as any;
-};
+// de_Environment omitted.
 
-/**
- * deserializeAws_restJson1EnvironmentVariableMap
- */
-const de_EnvironmentVariableMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_EnvironmentVariableMap omitted.
 
 /**
  * deserializeAws_restJson1FailedCreateSimulationJobRequest
@@ -6845,13 +5776,12 @@ const de_FailedCreateSimulationJobRequest = (
   output: any,
   context: __SerdeContext
 ): FailedCreateSimulationJobRequest => {
-  return {
-    failedAt:
-      output.failedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.failedAt))) : undefined,
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    request: output.request != null ? de_SimulationJobRequest(output.request, context) : undefined,
-  } as any;
+  return take(output, {
+    failedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureCode: __expectString,
+    failureReason: __expectString,
+    request: _json,
+  }) as any;
 };
 
 /**
@@ -6864,51 +5794,27 @@ const de_FailedCreateSimulationJobRequests = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FailedCreateSimulationJobRequest(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1FailureSummary
- */
-const de_FailureSummary = (output: any, context: __SerdeContext): FailureSummary => {
-  return {
-    failures: output.failures != null ? de_WorldFailures(output.failures, context) : undefined,
-    totalFailureCount: __expectInt32(output.totalFailureCount),
-  } as any;
-};
+// de_FailureSummary omitted.
 
-/**
- * deserializeAws_restJson1FinishedWorldsSummary
- */
-const de_FinishedWorldsSummary = (output: any, context: __SerdeContext): FinishedWorldsSummary => {
-  return {
-    failureSummary: output.failureSummary != null ? de_FailureSummary(output.failureSummary, context) : undefined,
-    finishedCount: __expectInt32(output.finishedCount),
-    succeededWorlds: output.succeededWorlds != null ? de_Arns(output.succeededWorlds, context) : undefined,
-  } as any;
-};
+// de_FinishedWorldsSummary omitted.
 
 /**
  * deserializeAws_restJson1Fleet
  */
 const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastDeploymentJob: __expectString(output.lastDeploymentJob),
-    lastDeploymentStatus: __expectString(output.lastDeploymentStatus),
-    lastDeploymentTime:
-      output.lastDeploymentTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentTime)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentJob: __expectString,
+    lastDeploymentStatus: __expectString,
+    lastDeploymentTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -6918,183 +5824,61 @@ const de_Fleets = (output: any, context: __SerdeContext): Fleet[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Fleet(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LaunchConfig
- */
-const de_LaunchConfig = (output: any, context: __SerdeContext): LaunchConfig => {
-  return {
-    command: output.command != null ? de_CommandList(output.command, context) : undefined,
-    environmentVariables:
-      output.environmentVariables != null ? de_EnvironmentVariableMap(output.environmentVariables, context) : undefined,
-    launchFile: __expectString(output.launchFile),
-    packageName: __expectString(output.packageName),
-    portForwardingConfig:
-      output.portForwardingConfig != null ? de_PortForwardingConfig(output.portForwardingConfig, context) : undefined,
-    streamUI: __expectBoolean(output.streamUI),
-  } as any;
-};
+// de_LaunchConfig omitted.
 
-/**
- * deserializeAws_restJson1LoggingConfig
- */
-const de_LoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
-  return {
-    recordAllRosTopics: __expectBoolean(output.recordAllRosTopics),
-  } as any;
-};
+// de_LoggingConfig omitted.
 
-/**
- * deserializeAws_restJson1NetworkInterface
- */
-const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  return {
-    networkInterfaceId: __expectString(output.networkInterfaceId),
-    privateIpAddress: __expectString(output.privateIpAddress),
-    publicIpAddress: __expectString(output.publicIpAddress),
-  } as any;
-};
+// de_NetworkInterface omitted.
 
-/**
- * deserializeAws_restJson1OutputLocation
- */
-const de_OutputLocation = (output: any, context: __SerdeContext): OutputLocation => {
-  return {
-    s3Bucket: __expectString(output.s3Bucket),
-    s3Prefix: __expectString(output.s3Prefix),
-  } as any;
-};
+// de_OutputLocation omitted.
 
-/**
- * deserializeAws_restJson1PortForwardingConfig
- */
-const de_PortForwardingConfig = (output: any, context: __SerdeContext): PortForwardingConfig => {
-  return {
-    portMappings: output.portMappings != null ? de_PortMappingList(output.portMappings, context) : undefined,
-  } as any;
-};
+// de_PortForwardingConfig omitted.
 
-/**
- * deserializeAws_restJson1PortMapping
- */
-const de_PortMapping = (output: any, context: __SerdeContext): PortMapping => {
-  return {
-    applicationPort: __expectInt32(output.applicationPort),
-    enableOnPublicIp: __expectBoolean(output.enableOnPublicIp),
-    jobPort: __expectInt32(output.jobPort),
-  } as any;
-};
+// de_PortMapping omitted.
 
-/**
- * deserializeAws_restJson1PortMappingList
- */
-const de_PortMappingList = (output: any, context: __SerdeContext): PortMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PortMapping(entry, context);
-    });
-  return retVal;
-};
+// de_PortMappingList omitted.
 
 /**
  * deserializeAws_restJson1ProgressDetail
  */
 const de_ProgressDetail = (output: any, context: __SerdeContext): ProgressDetail => {
-  return {
-    currentProgress: __expectString(output.currentProgress),
-    estimatedTimeRemainingSeconds: __expectInt32(output.estimatedTimeRemainingSeconds),
-    percentDone: __limitedParseFloat32(output.percentDone),
-    targetResource: __expectString(output.targetResource),
-  } as any;
+  return take(output, {
+    currentProgress: __expectString,
+    estimatedTimeRemainingSeconds: __expectInt32,
+    percentDone: __limitedParseFloat32,
+    targetResource: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RenderingEngine
- */
-const de_RenderingEngine = (output: any, context: __SerdeContext): RenderingEngine => {
-  return {
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_RenderingEngine omitted.
 
 /**
  * deserializeAws_restJson1Robot
  */
 const de_Robot = (output: any, context: __SerdeContext): Robot => {
-  return {
-    architecture: __expectString(output.architecture),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    fleetArn: __expectString(output.fleetArn),
-    greenGrassGroupId: __expectString(output.greenGrassGroupId),
-    lastDeploymentJob: __expectString(output.lastDeploymentJob),
-    lastDeploymentTime:
-      output.lastDeploymentTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    architecture: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fleetArn: __expectString,
+    greenGrassGroupId: __expectString,
+    lastDeploymentJob: __expectString,
+    lastDeploymentTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RobotApplicationConfig
- */
-const de_RobotApplicationConfig = (output: any, context: __SerdeContext): RobotApplicationConfig => {
-  return {
-    application: __expectString(output.application),
-    applicationVersion: __expectString(output.applicationVersion),
-    launchConfig: output.launchConfig != null ? de_LaunchConfig(output.launchConfig, context) : undefined,
-    tools: output.tools != null ? de_Tools(output.tools, context) : undefined,
-    uploadConfigurations:
-      output.uploadConfigurations != null ? de_UploadConfigurations(output.uploadConfigurations, context) : undefined,
-    useDefaultTools: __expectBoolean(output.useDefaultTools),
-    useDefaultUploadConfigurations: __expectBoolean(output.useDefaultUploadConfigurations),
-  } as any;
-};
+// de_RobotApplicationConfig omitted.
 
-/**
- * deserializeAws_restJson1RobotApplicationConfigs
- */
-const de_RobotApplicationConfigs = (output: any, context: __SerdeContext): RobotApplicationConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RobotApplicationConfig(entry, context);
-    });
-  return retVal;
-};
+// de_RobotApplicationConfigs omitted.
 
-/**
- * deserializeAws_restJson1RobotApplicationNames
- */
-const de_RobotApplicationNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RobotApplicationNames omitted.
 
 /**
  * deserializeAws_restJson1RobotApplicationSummaries
@@ -7103,9 +5887,6 @@ const de_RobotApplicationSummaries = (output: any, context: __SerdeContext): Rob
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RobotApplicationSummary(entry, context);
     });
   return retVal;
@@ -7115,38 +5896,28 @@ const de_RobotApplicationSummaries = (output: any, context: __SerdeContext): Rob
  * deserializeAws_restJson1RobotApplicationSummary
  */
 const de_RobotApplicationSummary = (output: any, context: __SerdeContext): RobotApplicationSummary => {
-  return {
-    arn: __expectString(output.arn),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    robotSoftwareSuite:
-      output.robotSoftwareSuite != null ? de_RobotSoftwareSuite(output.robotSoftwareSuite, context) : undefined,
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    robotSoftwareSuite: _json,
+    version: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RobotDeployment
  */
 const de_RobotDeployment = (output: any, context: __SerdeContext): RobotDeployment => {
-  return {
-    arn: __expectString(output.arn),
-    deploymentFinishTime:
-      output.deploymentFinishTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deploymentFinishTime)))
-        : undefined,
-    deploymentStartTime:
-      output.deploymentStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deploymentStartTime)))
-        : undefined,
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    progressDetail: output.progressDetail != null ? de_ProgressDetail(output.progressDetail, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    deploymentFinishTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureCode: __expectString,
+    failureReason: __expectString,
+    progressDetail: (_: any) => de_ProgressDetail(_, context),
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -7156,9 +5927,6 @@ const de_RobotDeploymentSummary = (output: any, context: __SerdeContext): RobotD
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RobotDeployment(entry, context);
     });
   return retVal;
@@ -7171,136 +5939,28 @@ const de_Robots = (output: any, context: __SerdeContext): Robot[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Robot(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1RobotSoftwareSuite
- */
-const de_RobotSoftwareSuite = (output: any, context: __SerdeContext): RobotSoftwareSuite => {
-  return {
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_RobotSoftwareSuite omitted.
 
-/**
- * deserializeAws_restJson1S3KeyOutput
- */
-const de_S3KeyOutput = (output: any, context: __SerdeContext): S3KeyOutput => {
-  return {
-    etag: __expectString(output.etag),
-    s3Key: __expectString(output.s3Key),
-  } as any;
-};
+// de_S3KeyOutput omitted.
 
-/**
- * deserializeAws_restJson1S3KeyOutputs
- */
-const de_S3KeyOutputs = (output: any, context: __SerdeContext): S3KeyOutput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_S3KeyOutput(entry, context);
-    });
-  return retVal;
-};
+// de_S3KeyOutputs omitted.
 
-/**
- * deserializeAws_restJson1S3KeysOrPrefixes
- */
-const de_S3KeysOrPrefixes = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_S3KeysOrPrefixes omitted.
 
-/**
- * deserializeAws_restJson1S3Object
- */
-const de_S3Object = (output: any, context: __SerdeContext): S3Object => {
-  return {
-    bucket: __expectString(output.bucket),
-    etag: __expectString(output.etag),
-    key: __expectString(output.key),
-  } as any;
-};
+// de_S3Object omitted.
 
-/**
- * deserializeAws_restJson1SecurityGroups
- */
-const de_SecurityGroups = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroups omitted.
 
-/**
- * deserializeAws_restJson1SimulationApplicationConfig
- */
-const de_SimulationApplicationConfig = (output: any, context: __SerdeContext): SimulationApplicationConfig => {
-  return {
-    application: __expectString(output.application),
-    applicationVersion: __expectString(output.applicationVersion),
-    launchConfig: output.launchConfig != null ? de_LaunchConfig(output.launchConfig, context) : undefined,
-    tools: output.tools != null ? de_Tools(output.tools, context) : undefined,
-    uploadConfigurations:
-      output.uploadConfigurations != null ? de_UploadConfigurations(output.uploadConfigurations, context) : undefined,
-    useDefaultTools: __expectBoolean(output.useDefaultTools),
-    useDefaultUploadConfigurations: __expectBoolean(output.useDefaultUploadConfigurations),
-    worldConfigs: output.worldConfigs != null ? de_WorldConfigs(output.worldConfigs, context) : undefined,
-  } as any;
-};
+// de_SimulationApplicationConfig omitted.
 
-/**
- * deserializeAws_restJson1SimulationApplicationConfigs
- */
-const de_SimulationApplicationConfigs = (output: any, context: __SerdeContext): SimulationApplicationConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SimulationApplicationConfig(entry, context);
-    });
-  return retVal;
-};
+// de_SimulationApplicationConfigs omitted.
 
-/**
- * deserializeAws_restJson1SimulationApplicationNames
- */
-const de_SimulationApplicationNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SimulationApplicationNames omitted.
 
 /**
  * deserializeAws_restJson1SimulationApplicationSummaries
@@ -7309,9 +5969,6 @@ const de_SimulationApplicationSummaries = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SimulationApplicationSummary(entry, context);
     });
   return retVal;
@@ -7321,61 +5978,43 @@ const de_SimulationApplicationSummaries = (output: any, context: __SerdeContext)
  * deserializeAws_restJson1SimulationApplicationSummary
  */
 const de_SimulationApplicationSummary = (output: any, context: __SerdeContext): SimulationApplicationSummary => {
-  return {
-    arn: __expectString(output.arn),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    robotSoftwareSuite:
-      output.robotSoftwareSuite != null ? de_RobotSoftwareSuite(output.robotSoftwareSuite, context) : undefined,
-    simulationSoftwareSuite:
-      output.simulationSoftwareSuite != null
-        ? de_SimulationSoftwareSuite(output.simulationSoftwareSuite, context)
-        : undefined,
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    robotSoftwareSuite: _json,
+    simulationSoftwareSuite: _json,
+    version: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SimulationJob
  */
 const de_SimulationJob = (output: any, context: __SerdeContext): SimulationJob => {
-  return {
-    arn: __expectString(output.arn),
-    clientRequestToken: __expectString(output.clientRequestToken),
-    compute: output.compute != null ? de_ComputeResponse(output.compute, context) : undefined,
-    dataSources: output.dataSources != null ? de_DataSources(output.dataSources, context) : undefined,
-    failureBehavior: __expectString(output.failureBehavior),
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    iamRole: __expectString(output.iamRole),
-    lastStartedAt:
-      output.lastStartedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStartedAt)))
-        : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    loggingConfig: output.loggingConfig != null ? de_LoggingConfig(output.loggingConfig, context) : undefined,
-    maxJobDurationInSeconds: __expectLong(output.maxJobDurationInSeconds),
-    name: __expectString(output.name),
-    networkInterface:
-      output.networkInterface != null ? de_NetworkInterface(output.networkInterface, context) : undefined,
-    outputLocation: output.outputLocation != null ? de_OutputLocation(output.outputLocation, context) : undefined,
-    robotApplications:
-      output.robotApplications != null ? de_RobotApplicationConfigs(output.robotApplications, context) : undefined,
-    simulationApplications:
-      output.simulationApplications != null
-        ? de_SimulationApplicationConfigs(output.simulationApplications, context)
-        : undefined,
-    simulationTimeMillis: __expectLong(output.simulationTimeMillis),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    vpcConfig: output.vpcConfig != null ? de_VPCConfigResponse(output.vpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    compute: _json,
+    dataSources: _json,
+    failureBehavior: __expectString,
+    failureCode: __expectString,
+    failureReason: __expectString,
+    iamRole: __expectString,
+    lastStartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    loggingConfig: _json,
+    maxJobDurationInSeconds: __expectLong,
+    name: __expectString,
+    networkInterface: _json,
+    outputLocation: _json,
+    robotApplications: _json,
+    simulationApplications: _json,
+    simulationTimeMillis: __expectLong,
+    status: __expectString,
+    tags: _json,
+    vpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -7385,9 +6024,6 @@ const de_SimulationJobBatchSummaries = (output: any, context: __SerdeContext): S
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SimulationJobBatchSummary(entry, context);
     });
   return retVal;
@@ -7397,44 +6033,18 @@ const de_SimulationJobBatchSummaries = (output: any, context: __SerdeContext): S
  * deserializeAws_restJson1SimulationJobBatchSummary
  */
 const de_SimulationJobBatchSummary = (output: any, context: __SerdeContext): SimulationJobBatchSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    createdRequestCount: __expectInt32(output.createdRequestCount),
-    failedRequestCount: __expectInt32(output.failedRequestCount),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    pendingRequestCount: __expectInt32(output.pendingRequestCount),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdRequestCount: __expectInt32,
+    failedRequestCount: __expectInt32,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pendingRequestCount: __expectInt32,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SimulationJobRequest
- */
-const de_SimulationJobRequest = (output: any, context: __SerdeContext): SimulationJobRequest => {
-  return {
-    compute: output.compute != null ? de_Compute(output.compute, context) : undefined,
-    dataSources: output.dataSources != null ? de_DataSourceConfigs(output.dataSources, context) : undefined,
-    failureBehavior: __expectString(output.failureBehavior),
-    iamRole: __expectString(output.iamRole),
-    loggingConfig: output.loggingConfig != null ? de_LoggingConfig(output.loggingConfig, context) : undefined,
-    maxJobDurationInSeconds: __expectLong(output.maxJobDurationInSeconds),
-    outputLocation: output.outputLocation != null ? de_OutputLocation(output.outputLocation, context) : undefined,
-    robotApplications:
-      output.robotApplications != null ? de_RobotApplicationConfigs(output.robotApplications, context) : undefined,
-    simulationApplications:
-      output.simulationApplications != null
-        ? de_SimulationApplicationConfigs(output.simulationApplications, context)
-        : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    useDefaultApplications: __expectBoolean(output.useDefaultApplications),
-    vpcConfig: output.vpcConfig != null ? de_VPCConfig(output.vpcConfig, context) : undefined,
-  } as any;
-};
+// de_SimulationJobRequest omitted.
 
 /**
  * deserializeAws_restJson1SimulationJobs
@@ -7443,9 +6053,6 @@ const de_SimulationJobs = (output: any, context: __SerdeContext): SimulationJob[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SimulationJob(entry, context);
     });
   return retVal;
@@ -7458,9 +6065,6 @@ const de_SimulationJobSummaries = (output: any, context: __SerdeContext): Simula
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SimulationJobSummary(entry, context);
     });
   return retVal;
@@ -7470,91 +6074,27 @@ const de_SimulationJobSummaries = (output: any, context: __SerdeContext): Simula
  * deserializeAws_restJson1SimulationJobSummary
  */
 const de_SimulationJobSummary = (output: any, context: __SerdeContext): SimulationJobSummary => {
-  return {
-    arn: __expectString(output.arn),
-    computeType: __expectString(output.computeType),
-    dataSourceNames: output.dataSourceNames != null ? de_DataSourceNames(output.dataSourceNames, context) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    robotApplicationNames:
-      output.robotApplicationNames != null
-        ? de_RobotApplicationNames(output.robotApplicationNames, context)
-        : undefined,
-    simulationApplicationNames:
-      output.simulationApplicationNames != null
-        ? de_SimulationApplicationNames(output.simulationApplicationNames, context)
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    computeType: __expectString,
+    dataSourceNames: _json,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    robotApplicationNames: _json,
+    simulationApplicationNames: _json,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SimulationSoftwareSuite
- */
-const de_SimulationSoftwareSuite = (output: any, context: __SerdeContext): SimulationSoftwareSuite => {
-  return {
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_SimulationSoftwareSuite omitted.
 
-/**
- * deserializeAws_restJson1Source
- */
-const de_Source = (output: any, context: __SerdeContext): Source => {
-  return {
-    architecture: __expectString(output.architecture),
-    etag: __expectString(output.etag),
-    s3Bucket: __expectString(output.s3Bucket),
-    s3Key: __expectString(output.s3Key),
-  } as any;
-};
+// de_Source omitted.
 
-/**
- * deserializeAws_restJson1Sources
- */
-const de_Sources = (output: any, context: __SerdeContext): Source[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Source(entry, context);
-    });
-  return retVal;
-};
+// de_Sources omitted.
 
-/**
- * deserializeAws_restJson1Subnets
- */
-const de_Subnets = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Subnets omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1TemplateSummaries
@@ -7563,9 +6103,6 @@ const de_TemplateSummaries = (output: any, context: __SerdeContext): TemplateSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TemplateSummary(entry, context);
     });
   return retVal;
@@ -7575,129 +6112,32 @@ const de_TemplateSummaries = (output: any, context: __SerdeContext): TemplateSum
  * deserializeAws_restJson1TemplateSummary
  */
 const de_TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Tool
- */
-const de_Tool = (output: any, context: __SerdeContext): Tool => {
-  return {
-    command: __expectString(output.command),
-    exitBehavior: __expectString(output.exitBehavior),
-    name: __expectString(output.name),
-    streamOutputToCloudWatch: __expectBoolean(output.streamOutputToCloudWatch),
-    streamUI: __expectBoolean(output.streamUI),
-  } as any;
-};
+// de_Tool omitted.
 
-/**
- * deserializeAws_restJson1Tools
- */
-const de_Tools = (output: any, context: __SerdeContext): Tool[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tool(entry, context);
-    });
-  return retVal;
-};
+// de_Tools omitted.
 
-/**
- * deserializeAws_restJson1UploadConfiguration
- */
-const de_UploadConfiguration = (output: any, context: __SerdeContext): UploadConfiguration => {
-  return {
-    name: __expectString(output.name),
-    path: __expectString(output.path),
-    uploadBehavior: __expectString(output.uploadBehavior),
-  } as any;
-};
+// de_UploadConfiguration omitted.
 
-/**
- * deserializeAws_restJson1UploadConfigurations
- */
-const de_UploadConfigurations = (output: any, context: __SerdeContext): UploadConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UploadConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_UploadConfigurations omitted.
 
-/**
- * deserializeAws_restJson1VPCConfig
- */
-const de_VPCConfig = (output: any, context: __SerdeContext): VPCConfig => {
-  return {
-    assignPublicIp: __expectBoolean(output.assignPublicIp),
-    securityGroups: output.securityGroups != null ? de_SecurityGroups(output.securityGroups, context) : undefined,
-    subnets: output.subnets != null ? de_Subnets(output.subnets, context) : undefined,
-  } as any;
-};
+// de_VPCConfig omitted.
 
-/**
- * deserializeAws_restJson1VPCConfigResponse
- */
-const de_VPCConfigResponse = (output: any, context: __SerdeContext): VPCConfigResponse => {
-  return {
-    assignPublicIp: __expectBoolean(output.assignPublicIp),
-    securityGroups: output.securityGroups != null ? de_SecurityGroups(output.securityGroups, context) : undefined,
-    subnets: output.subnets != null ? de_Subnets(output.subnets, context) : undefined,
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
+// de_VPCConfigResponse omitted.
 
-/**
- * deserializeAws_restJson1WorldConfig
- */
-const de_WorldConfig = (output: any, context: __SerdeContext): WorldConfig => {
-  return {
-    world: __expectString(output.world),
-  } as any;
-};
+// de_WorldConfig omitted.
 
-/**
- * deserializeAws_restJson1WorldConfigs
- */
-const de_WorldConfigs = (output: any, context: __SerdeContext): WorldConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorldConfig(entry, context);
-    });
-  return retVal;
-};
+// de_WorldConfigs omitted.
 
-/**
- * deserializeAws_restJson1WorldCount
- */
-const de_WorldCount = (output: any, context: __SerdeContext): WorldCount => {
-  return {
-    floorplanCount: __expectInt32(output.floorplanCount),
-    interiorCountPerFloorplan: __expectInt32(output.interiorCountPerFloorplan),
-  } as any;
-};
+// de_WorldCount omitted.
 
 /**
  * deserializeAws_restJson1WorldExportJobSummaries
@@ -7706,9 +6146,6 @@ const de_WorldExportJobSummaries = (output: any, context: __SerdeContext): World
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorldExportJobSummary(entry, context);
     });
   return retVal;
@@ -7718,41 +6155,18 @@ const de_WorldExportJobSummaries = (output: any, context: __SerdeContext): World
  * deserializeAws_restJson1WorldExportJobSummary
  */
 const de_WorldExportJobSummary = (output: any, context: __SerdeContext): WorldExportJobSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    outputLocation: output.outputLocation != null ? de_OutputLocation(output.outputLocation, context) : undefined,
-    status: __expectString(output.status),
-    worlds: output.worlds != null ? de_Arns(output.worlds, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    outputLocation: _json,
+    status: __expectString,
+    worlds: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1WorldFailure
- */
-const de_WorldFailure = (output: any, context: __SerdeContext): WorldFailure => {
-  return {
-    failureCode: __expectString(output.failureCode),
-    failureCount: __expectInt32(output.failureCount),
-    sampleFailureReason: __expectString(output.sampleFailureReason),
-  } as any;
-};
+// de_WorldFailure omitted.
 
-/**
- * deserializeAws_restJson1WorldFailures
- */
-const de_WorldFailures = (output: any, context: __SerdeContext): WorldFailure[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorldFailure(entry, context);
-    });
-  return retVal;
-};
+// de_WorldFailures omitted.
 
 /**
  * deserializeAws_restJson1WorldGenerationJobSummaries
@@ -7761,9 +6175,6 @@ const de_WorldGenerationJobSummaries = (output: any, context: __SerdeContext): W
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorldGenerationJobSummary(entry, context);
     });
   return retVal;
@@ -7773,16 +6184,15 @@ const de_WorldGenerationJobSummaries = (output: any, context: __SerdeContext): W
  * deserializeAws_restJson1WorldGenerationJobSummary
  */
 const de_WorldGenerationJobSummary = (output: any, context: __SerdeContext): WorldGenerationJobSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    failedWorldCount: __expectInt32(output.failedWorldCount),
-    status: __expectString(output.status),
-    succeededWorldCount: __expectInt32(output.succeededWorldCount),
-    template: __expectString(output.template),
-    worldCount: output.worldCount != null ? de_WorldCount(output.worldCount, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failedWorldCount: __expectInt32,
+    status: __expectString,
+    succeededWorldCount: __expectInt32,
+    template: __expectString,
+    worldCount: _json,
+  }) as any;
 };
 
 /**
@@ -7792,9 +6202,6 @@ const de_WorldSummaries = (output: any, context: __SerdeContext): WorldSummary[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorldSummary(entry, context);
     });
   return retVal;
@@ -7804,13 +6211,12 @@ const de_WorldSummaries = (output: any, context: __SerdeContext): WorldSummary[]
  * deserializeAws_restJson1WorldSummary
  */
 const de_WorldSummary = (output: any, context: __SerdeContext): WorldSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    generationJob: __expectString(output.generationJob),
-    template: __expectString(output.template),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    generationJob: __expectString,
+    template: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -31,7 +33,6 @@ import {
   AccessDeniedException,
   ConflictException,
   ControlOperation,
-  EnabledControlSummary,
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
@@ -52,10 +53,12 @@ export const se_DisableControlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disable-control";
   let body: any;
-  body = JSON.stringify({
-    ...(input.controlIdentifier != null && { controlIdentifier: input.controlIdentifier }),
-    ...(input.targetIdentifier != null && { targetIdentifier: input.targetIdentifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      controlIdentifier: [],
+      targetIdentifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -80,10 +83,12 @@ export const se_EnableControlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/enable-control";
   let body: any;
-  body = JSON.stringify({
-    ...(input.controlIdentifier != null && { controlIdentifier: input.controlIdentifier }),
-    ...(input.targetIdentifier != null && { targetIdentifier: input.targetIdentifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      controlIdentifier: [],
+      targetIdentifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -108,9 +113,11 @@ export const se_GetControlOperationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-control-operation";
   let body: any;
-  body = JSON.stringify({
-    ...(input.operationIdentifier != null && { operationIdentifier: input.operationIdentifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      operationIdentifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -135,11 +142,13 @@ export const se_ListEnabledControlsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-enabled-controls";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.targetIdentifier != null && { targetIdentifier: input.targetIdentifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      targetIdentifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -165,9 +174,10 @@ export const de_DisableControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.operationIdentifier != null) {
-    contents.operationIdentifier = __expectString(data.operationIdentifier);
-  }
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -207,10 +217,9 @@ const de_DisableControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -230,9 +239,10 @@ export const de_EnableControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.operationIdentifier != null) {
-    contents.operationIdentifier = __expectString(data.operationIdentifier);
-  }
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -272,10 +282,9 @@ const de_EnableControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -295,9 +304,10 @@ export const de_GetControlOperationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.controlOperation != null) {
-    contents.controlOperation = de_ControlOperation(data.controlOperation, context);
-  }
+  const doc = take(data, {
+    controlOperation: (_) => de_ControlOperation(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -331,10 +341,9 @@ const de_GetControlOperationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -354,12 +363,11 @@ export const de_ListEnabledControlsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.enabledControls != null) {
-    contents.enabledControls = de_EnabledControls(data.enabledControls, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    enabledControls: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -393,16 +401,15 @@ const de_ListEnabledControlsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -412,9 +419,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -428,9 +436,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -447,9 +456,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -466,9 +476,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -485,9 +496,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -506,15 +518,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -528,9 +537,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -542,39 +552,18 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * deserializeAws_restJson1ControlOperation
  */
 const de_ControlOperation = (output: any, context: __SerdeContext): ControlOperation => {
-  return {
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
-    operationType: __expectString(output.operationType),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-  } as any;
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    operationType: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    statusMessage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EnabledControls
- */
-const de_EnabledControls = (output: any, context: __SerdeContext): EnabledControlSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EnabledControlSummary(entry, context);
-    });
-  return retVal;
-};
+// de_EnabledControls omitted.
 
-/**
- * deserializeAws_restJson1EnabledControlSummary
- */
-const de_EnabledControlSummary = (output: any, context: __SerdeContext): EnabledControlSummary => {
-  return {
-    controlIdentifier: __expectString(output.controlIdentifier),
-  } as any;
-};
+// de_EnabledControlSummary omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

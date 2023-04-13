@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
@@ -8,9 +9,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -84,30 +86,18 @@ import { FinspaceDataServiceException as __BaseException } from "../models/Finsp
 import {
   AccessDeniedException,
   ApplicationPermission,
-  AwsCredentials,
-  ChangesetErrorInfo,
-  ChangesetSummary,
   ColumnDefinition,
   ConflictException,
-  Credentials,
-  Dataset,
   DatasetOwnerInfo,
   DataViewDestinationTypeParams,
-  DataViewErrorInfo,
-  DataViewSummary,
   InternalServerException,
   LimitExceededException,
-  PermissionGroup,
-  PermissionGroupByUser,
   PermissionGroupParams,
   ResourceNotFoundException,
   ResourcePermission,
-  S3Location,
   SchemaDefinition,
   SchemaUnion,
   ThrottlingException,
-  User,
-  UserByPermissionGroup,
   ValidationException,
 } from "../models/models_0";
 
@@ -135,9 +125,11 @@ export const se_AssociateUserToPermissionGroupCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -164,12 +156,14 @@ export const se_CreateChangesetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetId}/changesetsv2";
   resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.changeType != null && { changeType: input.changeType }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.formatParams != null && { formatParams: se_FormatParams(input.formatParams, context) }),
-    ...(input.sourceParams != null && { sourceParams: se_SourceParams(input.sourceParams, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      changeType: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      formatParams: (_) => _json(_),
+      sourceParams: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -194,18 +188,18 @@ export const se_CreateDatasetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2";
   let body: any;
-  body = JSON.stringify({
-    ...(input.alias != null && { alias: input.alias }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.datasetDescription != null && { datasetDescription: input.datasetDescription }),
-    ...(input.datasetTitle != null && { datasetTitle: input.datasetTitle }),
-    ...(input.kind != null && { kind: input.kind }),
-    ...(input.ownerInfo != null && { ownerInfo: se_DatasetOwnerInfo(input.ownerInfo, context) }),
-    ...(input.permissionGroupParams != null && {
-      permissionGroupParams: se_PermissionGroupParams(input.permissionGroupParams, context),
-    }),
-    ...(input.schemaDefinition != null && { schemaDefinition: se_SchemaUnion(input.schemaDefinition, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      datasetDescription: [],
+      datasetTitle: [],
+      kind: [],
+      ownerInfo: (_) => _json(_),
+      permissionGroupParams: (_) => _json(_),
+      schemaDefinition: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -232,18 +226,16 @@ export const se_CreateDataViewCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetId}/dataviewsv2";
   resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.asOfTimestamp != null && { asOfTimestamp: input.asOfTimestamp }),
-    ...(input.autoUpdate != null && { autoUpdate: input.autoUpdate }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.destinationTypeParams != null && {
-      destinationTypeParams: se_DataViewDestinationTypeParams(input.destinationTypeParams, context),
-    }),
-    ...(input.partitionColumns != null && {
-      partitionColumns: se_PartitionColumnList(input.partitionColumns, context),
-    }),
-    ...(input.sortColumns != null && { sortColumns: se_SortColumnList(input.sortColumns, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      asOfTimestamp: [],
+      autoUpdate: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      destinationTypeParams: (_) => _json(_),
+      partitionColumns: (_) => _json(_),
+      sortColumns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -268,14 +260,14 @@ export const se_CreatePermissionGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group";
   let body: any;
-  body = JSON.stringify({
-    ...(input.applicationPermissions != null && {
-      applicationPermissions: se_ApplicationPermissionList(input.applicationPermissions, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      applicationPermissions: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      description: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -300,15 +292,17 @@ export const se_CreateUserCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ApiAccess != null && { ApiAccess: input.ApiAccess }),
-    ...(input.apiAccessPrincipalArn != null && { apiAccessPrincipalArn: input.apiAccessPrincipalArn }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
-    ...(input.firstName != null && { firstName: input.firstName }),
-    ...(input.lastName != null && { lastName: input.lastName }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ApiAccess: [],
+      apiAccessPrincipalArn: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      emailAddress: [],
+      firstName: [],
+      lastName: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -396,9 +390,11 @@ export const se_DisableUserCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/disable";
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -461,9 +457,11 @@ export const se_EnableUserCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/enable";
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -671,9 +669,11 @@ export const se_GetWorkingLocationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workingLocationV1";
   let body: any;
-  body = JSON.stringify({
-    ...(input.locationType != null && { locationType: input.locationType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      locationType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -904,9 +904,11 @@ export const se_ResetUserPasswordCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/password";
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -935,11 +937,13 @@ export const se_UpdateChangesetCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "changesetId", () => input.changesetId!, "{changesetId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.formatParams != null && { formatParams: se_FormatParams(input.formatParams, context) }),
-    ...(input.sourceParams != null && { sourceParams: se_SourceParams(input.sourceParams, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      formatParams: (_) => _json(_),
+      sourceParams: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -965,14 +969,16 @@ export const se_UpdateDatasetCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2/{datasetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.alias != null && { alias: input.alias }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.datasetDescription != null && { datasetDescription: input.datasetDescription }),
-    ...(input.datasetTitle != null && { datasetTitle: input.datasetTitle }),
-    ...(input.kind != null && { kind: input.kind }),
-    ...(input.schemaDefinition != null && { schemaDefinition: se_SchemaUnion(input.schemaDefinition, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      datasetDescription: [],
+      datasetTitle: [],
+      kind: [],
+      schemaDefinition: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1006,14 +1012,14 @@ export const se_UpdatePermissionGroupCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.applicationPermissions != null && {
-      applicationPermissions: se_ApplicationPermissionList(input.applicationPermissions, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      applicationPermissions: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      description: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1039,14 +1045,16 @@ export const se_UpdateUserCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.apiAccess != null && { apiAccess: input.apiAccess }),
-    ...(input.apiAccessPrincipalArn != null && { apiAccessPrincipalArn: input.apiAccessPrincipalArn }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.firstName != null && { firstName: input.firstName }),
-    ...(input.lastName != null && { lastName: input.lastName }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      apiAccess: [],
+      apiAccessPrincipalArn: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      firstName: [],
+      lastName: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1111,10 +1119,9 @@ const de_AssociateUserToPermissionGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1134,12 +1141,11 @@ export const de_CreateChangesetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.changesetId != null) {
-    contents.changesetId = __expectString(data.changesetId);
-  }
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
+  const doc = take(data, {
+    changesetId: __expectString,
+    datasetId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1179,10 +1185,9 @@ const de_CreateChangesetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1202,9 +1207,10 @@ export const de_CreateDatasetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
+  const doc = take(data, {
+    datasetId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1244,10 +1250,9 @@ const de_CreateDatasetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1267,12 +1272,11 @@ export const de_CreateDataViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataViewId != null) {
-    contents.dataViewId = __expectString(data.dataViewId);
-  }
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
+  const doc = take(data, {
+    dataViewId: __expectString,
+    datasetId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1309,10 +1313,9 @@ const de_CreateDataViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1332,9 +1335,10 @@ export const de_CreatePermissionGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.permissionGroupId != null) {
-    contents.permissionGroupId = __expectString(data.permissionGroupId);
-  }
+  const doc = take(data, {
+    permissionGroupId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1371,10 +1375,9 @@ const de_CreatePermissionGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1394,9 +1397,10 @@ export const de_CreateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userId != null) {
-    contents.userId = __expectString(data.userId);
-  }
+  const doc = take(data, {
+    userId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1433,10 +1437,9 @@ const de_CreateUserCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1456,9 +1459,10 @@ export const de_DeleteDatasetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
+  const doc = take(data, {
+    datasetId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1498,10 +1502,9 @@ const de_DeleteDatasetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1521,9 +1524,10 @@ export const de_DeletePermissionGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.permissionGroupId != null) {
-    contents.permissionGroupId = __expectString(data.permissionGroupId);
-  }
+  const doc = take(data, {
+    permissionGroupId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1563,10 +1567,9 @@ const de_DeletePermissionGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1586,9 +1589,10 @@ export const de_DisableUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userId != null) {
-    contents.userId = __expectString(data.userId);
-  }
+  const doc = take(data, {
+    userId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1625,10 +1629,9 @@ const de_DisableUserCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1687,10 +1690,9 @@ const de_DisassociateUserFromPermissionGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1710,9 +1712,10 @@ export const de_EnableUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userId != null) {
-    contents.userId = __expectString(data.userId);
-  }
+  const doc = take(data, {
+    userId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1752,10 +1755,9 @@ const de_EnableUserCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1775,45 +1777,22 @@ export const de_GetChangesetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.activeFromTimestamp != null) {
-    contents.activeFromTimestamp = __expectLong(data.activeFromTimestamp);
-  }
-  if (data.activeUntilTimestamp != null) {
-    contents.activeUntilTimestamp = __expectLong(data.activeUntilTimestamp);
-  }
-  if (data.changeType != null) {
-    contents.changeType = __expectString(data.changeType);
-  }
-  if (data.changesetArn != null) {
-    contents.changesetArn = __expectString(data.changesetArn);
-  }
-  if (data.changesetId != null) {
-    contents.changesetId = __expectString(data.changesetId);
-  }
-  if (data.createTime != null) {
-    contents.createTime = __expectLong(data.createTime);
-  }
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
-  if (data.errorInfo != null) {
-    contents.errorInfo = de_ChangesetErrorInfo(data.errorInfo, context);
-  }
-  if (data.formatParams != null) {
-    contents.formatParams = de_FormatParams(data.formatParams, context);
-  }
-  if (data.sourceParams != null) {
-    contents.sourceParams = de_SourceParams(data.sourceParams, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.updatedByChangesetId != null) {
-    contents.updatedByChangesetId = __expectString(data.updatedByChangesetId);
-  }
-  if (data.updatesChangesetId != null) {
-    contents.updatesChangesetId = __expectString(data.updatesChangesetId);
-  }
+  const doc = take(data, {
+    activeFromTimestamp: __expectLong,
+    activeUntilTimestamp: __expectLong,
+    changeType: __expectString,
+    changesetArn: __expectString,
+    changesetId: __expectString,
+    createTime: __expectLong,
+    datasetId: __expectString,
+    errorInfo: _json,
+    formatParams: _json,
+    sourceParams: _json,
+    status: __expectString,
+    updatedByChangesetId: __expectString,
+    updatesChangesetId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1850,10 +1829,9 @@ const de_GetChangesetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1873,36 +1851,19 @@ export const de_GetDatasetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.alias != null) {
-    contents.alias = __expectString(data.alias);
-  }
-  if (data.createTime != null) {
-    contents.createTime = __expectLong(data.createTime);
-  }
-  if (data.datasetArn != null) {
-    contents.datasetArn = __expectString(data.datasetArn);
-  }
-  if (data.datasetDescription != null) {
-    contents.datasetDescription = __expectString(data.datasetDescription);
-  }
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
-  if (data.datasetTitle != null) {
-    contents.datasetTitle = __expectString(data.datasetTitle);
-  }
-  if (data.kind != null) {
-    contents.kind = __expectString(data.kind);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectLong(data.lastModifiedTime);
-  }
-  if (data.schemaDefinition != null) {
-    contents.schemaDefinition = de_SchemaUnion(data.schemaDefinition, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    alias: __expectString,
+    createTime: __expectLong,
+    datasetArn: __expectString,
+    datasetDescription: __expectString,
+    datasetId: __expectString,
+    datasetTitle: __expectString,
+    kind: __expectString,
+    lastModifiedTime: __expectLong,
+    schemaDefinition: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1939,10 +1900,9 @@ const de_GetDatasetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1962,42 +1922,21 @@ export const de_GetDataViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.asOfTimestamp != null) {
-    contents.asOfTimestamp = __expectLong(data.asOfTimestamp);
-  }
-  if (data.autoUpdate != null) {
-    contents.autoUpdate = __expectBoolean(data.autoUpdate);
-  }
-  if (data.createTime != null) {
-    contents.createTime = __expectLong(data.createTime);
-  }
-  if (data.dataViewArn != null) {
-    contents.dataViewArn = __expectString(data.dataViewArn);
-  }
-  if (data.dataViewId != null) {
-    contents.dataViewId = __expectString(data.dataViewId);
-  }
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
-  if (data.destinationTypeParams != null) {
-    contents.destinationTypeParams = de_DataViewDestinationTypeParams(data.destinationTypeParams, context);
-  }
-  if (data.errorInfo != null) {
-    contents.errorInfo = de_DataViewErrorInfo(data.errorInfo, context);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectLong(data.lastModifiedTime);
-  }
-  if (data.partitionColumns != null) {
-    contents.partitionColumns = de_PartitionColumnList(data.partitionColumns, context);
-  }
-  if (data.sortColumns != null) {
-    contents.sortColumns = de_SortColumnList(data.sortColumns, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    asOfTimestamp: __expectLong,
+    autoUpdate: __expectBoolean,
+    createTime: __expectLong,
+    dataViewArn: __expectString,
+    dataViewId: __expectString,
+    datasetId: __expectString,
+    destinationTypeParams: _json,
+    errorInfo: _json,
+    lastModifiedTime: __expectLong,
+    partitionColumns: _json,
+    sortColumns: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2031,10 +1970,9 @@ const de_GetDataViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2054,12 +1992,11 @@ export const de_GetExternalDataViewAccessDetailsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.credentials != null) {
-    contents.credentials = de_AwsCredentials(data.credentials, context);
-  }
-  if (data.s3Location != null) {
-    contents.s3Location = de_S3Location(data.s3Location, context);
-  }
+  const doc = take(data, {
+    credentials: _json,
+    s3Location: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2093,10 +2030,9 @@ const de_GetExternalDataViewAccessDetailsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2116,9 +2052,10 @@ export const de_GetPermissionGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.permissionGroup != null) {
-    contents.permissionGroup = de_PermissionGroup(data.permissionGroup, context);
-  }
+  const doc = take(data, {
+    permissionGroup: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2152,10 +2089,9 @@ const de_GetPermissionGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2175,12 +2111,11 @@ export const de_GetProgrammaticAccessCredentialsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.credentials != null) {
-    contents.credentials = de_Credentials(data.credentials, context);
-  }
-  if (data.durationInMinutes != null) {
-    contents.durationInMinutes = __expectLong(data.durationInMinutes);
-  }
+  const doc = take(data, {
+    credentials: _json,
+    durationInMinutes: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2211,10 +2146,9 @@ const de_GetProgrammaticAccessCredentialsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2234,45 +2168,22 @@ export const de_GetUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiAccess != null) {
-    contents.apiAccess = __expectString(data.apiAccess);
-  }
-  if (data.apiAccessPrincipalArn != null) {
-    contents.apiAccessPrincipalArn = __expectString(data.apiAccessPrincipalArn);
-  }
-  if (data.createTime != null) {
-    contents.createTime = __expectLong(data.createTime);
-  }
-  if (data.emailAddress != null) {
-    contents.emailAddress = __expectString(data.emailAddress);
-  }
-  if (data.firstName != null) {
-    contents.firstName = __expectString(data.firstName);
-  }
-  if (data.lastDisabledTime != null) {
-    contents.lastDisabledTime = __expectLong(data.lastDisabledTime);
-  }
-  if (data.lastEnabledTime != null) {
-    contents.lastEnabledTime = __expectLong(data.lastEnabledTime);
-  }
-  if (data.lastLoginTime != null) {
-    contents.lastLoginTime = __expectLong(data.lastLoginTime);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectLong(data.lastModifiedTime);
-  }
-  if (data.lastName != null) {
-    contents.lastName = __expectString(data.lastName);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
-  if (data.userId != null) {
-    contents.userId = __expectString(data.userId);
-  }
+  const doc = take(data, {
+    apiAccess: __expectString,
+    apiAccessPrincipalArn: __expectString,
+    createTime: __expectLong,
+    emailAddress: __expectString,
+    firstName: __expectString,
+    lastDisabledTime: __expectLong,
+    lastEnabledTime: __expectLong,
+    lastLoginTime: __expectLong,
+    lastModifiedTime: __expectLong,
+    lastName: __expectString,
+    status: __expectString,
+    type: __expectString,
+    userId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2306,10 +2217,9 @@ const de_GetUserCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2329,15 +2239,12 @@ export const de_GetWorkingLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.s3Bucket != null) {
-    contents.s3Bucket = __expectString(data.s3Bucket);
-  }
-  if (data.s3Path != null) {
-    contents.s3Path = __expectString(data.s3Path);
-  }
-  if (data.s3Uri != null) {
-    contents.s3Uri = __expectString(data.s3Uri);
-  }
+  const doc = take(data, {
+    s3Bucket: __expectString,
+    s3Path: __expectString,
+    s3Uri: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2368,10 +2275,9 @@ const de_GetWorkingLocationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2391,12 +2297,11 @@ export const de_ListChangesetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.changesets != null) {
-    contents.changesets = de_ChangesetList(data.changesets, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    changesets: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2433,10 +2338,9 @@ const de_ListChangesetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2456,12 +2360,11 @@ export const de_ListDatasetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.datasets != null) {
-    contents.datasets = de_DatasetList(data.datasets, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    datasets: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2495,10 +2398,9 @@ const de_ListDatasetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2518,12 +2420,11 @@ export const de_ListDataViewsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataViews != null) {
-    contents.dataViews = de_DataViewList(data.dataViews, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    dataViews: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2557,10 +2458,9 @@ const de_ListDataViewsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2580,12 +2480,11 @@ export const de_ListPermissionGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.permissionGroups != null) {
-    contents.permissionGroups = de_PermissionGroupList(data.permissionGroups, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    permissionGroups: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2616,10 +2515,9 @@ const de_ListPermissionGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2639,12 +2537,11 @@ export const de_ListPermissionGroupsByUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.permissionGroups != null) {
-    contents.permissionGroups = de_PermissionGroupByUserList(data.permissionGroups, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    permissionGroups: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2678,10 +2575,9 @@ const de_ListPermissionGroupsByUserCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2701,12 +2597,11 @@ export const de_ListUsersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.users != null) {
-    contents.users = de_UserList(data.users, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    users: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2737,10 +2632,9 @@ const de_ListUsersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2760,12 +2654,11 @@ export const de_ListUsersByPermissionGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.users != null) {
-    contents.users = de_UserByPermissionGroupList(data.users, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    users: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2799,10 +2692,9 @@ const de_ListUsersByPermissionGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2822,12 +2714,11 @@ export const de_ResetUserPasswordCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.temporaryPassword != null) {
-    contents.temporaryPassword = __expectString(data.temporaryPassword);
-  }
-  if (data.userId != null) {
-    contents.userId = __expectString(data.userId);
-  }
+  const doc = take(data, {
+    temporaryPassword: __expectString,
+    userId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2864,10 +2755,9 @@ const de_ResetUserPasswordCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2887,12 +2777,11 @@ export const de_UpdateChangesetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.changesetId != null) {
-    contents.changesetId = __expectString(data.changesetId);
-  }
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
+  const doc = take(data, {
+    changesetId: __expectString,
+    datasetId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2929,10 +2818,9 @@ const de_UpdateChangesetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2952,9 +2840,10 @@ export const de_UpdateDatasetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.datasetId != null) {
-    contents.datasetId = __expectString(data.datasetId);
-  }
+  const doc = take(data, {
+    datasetId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2991,10 +2880,9 @@ const de_UpdateDatasetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3014,9 +2902,10 @@ export const de_UpdatePermissionGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.permissionGroupId != null) {
-    contents.permissionGroupId = __expectString(data.permissionGroupId);
-  }
+  const doc = take(data, {
+    permissionGroupId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3053,10 +2942,9 @@ const de_UpdatePermissionGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3076,9 +2964,10 @@ export const de_UpdateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userId != null) {
-    contents.userId = __expectString(data.userId);
-  }
+  const doc = take(data, {
+    userId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3115,16 +3004,15 @@ const de_UpdateUserCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3134,9 +3022,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3150,12 +3039,11 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3172,9 +3060,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3191,9 +3080,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3210,12 +3100,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3229,6 +3118,8 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3242,12 +3133,11 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3255,651 +3145,101 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ApplicationPermissionList
- */
-const se_ApplicationPermissionList = (input: (ApplicationPermission | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ApplicationPermissionList omitted.
 
-/**
- * serializeAws_restJson1ColumnDefinition
- */
-const se_ColumnDefinition = (input: ColumnDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.columnDescription != null && { columnDescription: input.columnDescription }),
-    ...(input.columnName != null && { columnName: input.columnName }),
-    ...(input.dataType != null && { dataType: input.dataType }),
-  };
-};
+// se_ColumnDefinition omitted.
 
-/**
- * serializeAws_restJson1ColumnList
- */
-const se_ColumnList = (input: ColumnDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ColumnDefinition(entry, context);
-    });
-};
+// se_ColumnList omitted.
 
-/**
- * serializeAws_restJson1ColumnNameList
- */
-const se_ColumnNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ColumnNameList omitted.
 
-/**
- * serializeAws_restJson1DatasetOwnerInfo
- */
-const se_DatasetOwnerInfo = (input: DatasetOwnerInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.email != null && { email: input.email }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.phoneNumber != null && { phoneNumber: input.phoneNumber }),
-  };
-};
+// se_DatasetOwnerInfo omitted.
 
-/**
- * serializeAws_restJson1DataViewDestinationTypeParams
- */
-const se_DataViewDestinationTypeParams = (input: DataViewDestinationTypeParams, context: __SerdeContext): any => {
-  return {
-    ...(input.destinationType != null && { destinationType: input.destinationType }),
-    ...(input.s3DestinationExportFileFormat != null && {
-      s3DestinationExportFileFormat: input.s3DestinationExportFileFormat,
-    }),
-    ...(input.s3DestinationExportFileFormatOptions != null && {
-      s3DestinationExportFileFormatOptions: se_S3DestinationFormatOptions(
-        input.s3DestinationExportFileFormatOptions,
-        context
-      ),
-    }),
-  };
-};
+// se_DataViewDestinationTypeParams omitted.
 
-/**
- * serializeAws_restJson1FormatParams
- */
-const se_FormatParams = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_FormatParams omitted.
 
-/**
- * serializeAws_restJson1PartitionColumnList
- */
-const se_PartitionColumnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PartitionColumnList omitted.
 
-/**
- * serializeAws_restJson1PermissionGroupParams
- */
-const se_PermissionGroupParams = (input: PermissionGroupParams, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetPermissions != null && {
-      datasetPermissions: se_ResourcePermissionsList(input.datasetPermissions, context),
-    }),
-    ...(input.permissionGroupId != null && { permissionGroupId: input.permissionGroupId }),
-  };
-};
+// se_PermissionGroupParams omitted.
 
-/**
- * serializeAws_restJson1ResourcePermission
- */
-const se_ResourcePermission = (input: ResourcePermission, context: __SerdeContext): any => {
-  return {
-    ...(input.permission != null && { permission: input.permission }),
-  };
-};
+// se_ResourcePermission omitted.
 
-/**
- * serializeAws_restJson1ResourcePermissionsList
- */
-const se_ResourcePermissionsList = (input: ResourcePermission[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourcePermission(entry, context);
-    });
-};
+// se_ResourcePermissionsList omitted.
 
-/**
- * serializeAws_restJson1S3DestinationFormatOptions
- */
-const se_S3DestinationFormatOptions = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_S3DestinationFormatOptions omitted.
 
-/**
- * serializeAws_restJson1SchemaDefinition
- */
-const se_SchemaDefinition = (input: SchemaDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.columns != null && { columns: se_ColumnList(input.columns, context) }),
-    ...(input.primaryKeyColumns != null && { primaryKeyColumns: se_ColumnNameList(input.primaryKeyColumns, context) }),
-  };
-};
+// se_SchemaDefinition omitted.
 
-/**
- * serializeAws_restJson1SchemaUnion
- */
-const se_SchemaUnion = (input: SchemaUnion, context: __SerdeContext): any => {
-  return {
-    ...(input.tabularSchemaConfig != null && {
-      tabularSchemaConfig: se_SchemaDefinition(input.tabularSchemaConfig, context),
-    }),
-  };
-};
+// se_SchemaUnion omitted.
 
-/**
- * serializeAws_restJson1SortColumnList
- */
-const se_SortColumnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SortColumnList omitted.
 
-/**
- * serializeAws_restJson1SourceParams
- */
-const se_SourceParams = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_SourceParams omitted.
 
-/**
- * deserializeAws_restJson1ApplicationPermissionList
- */
-const de_ApplicationPermissionList = (output: any, context: __SerdeContext): (ApplicationPermission | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ApplicationPermissionList omitted.
 
-/**
- * deserializeAws_restJson1AwsCredentials
- */
-const de_AwsCredentials = (output: any, context: __SerdeContext): AwsCredentials => {
-  return {
-    accessKeyId: __expectString(output.accessKeyId),
-    expiration: __expectLong(output.expiration),
-    secretAccessKey: __expectString(output.secretAccessKey),
-    sessionToken: __expectString(output.sessionToken),
-  } as any;
-};
+// de_AwsCredentials omitted.
 
-/**
- * deserializeAws_restJson1ChangesetErrorInfo
- */
-const de_ChangesetErrorInfo = (output: any, context: __SerdeContext): ChangesetErrorInfo => {
-  return {
-    errorCategory: __expectString(output.errorCategory),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_ChangesetErrorInfo omitted.
 
-/**
- * deserializeAws_restJson1ChangesetList
- */
-const de_ChangesetList = (output: any, context: __SerdeContext): ChangesetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChangesetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChangesetList omitted.
 
-/**
- * deserializeAws_restJson1ChangesetSummary
- */
-const de_ChangesetSummary = (output: any, context: __SerdeContext): ChangesetSummary => {
-  return {
-    activeFromTimestamp: __expectLong(output.activeFromTimestamp),
-    activeUntilTimestamp: __expectLong(output.activeUntilTimestamp),
-    changeType: __expectString(output.changeType),
-    changesetArn: __expectString(output.changesetArn),
-    changesetId: __expectString(output.changesetId),
-    createTime: __expectLong(output.createTime),
-    datasetId: __expectString(output.datasetId),
-    errorInfo: output.errorInfo != null ? de_ChangesetErrorInfo(output.errorInfo, context) : undefined,
-    formatParams: output.formatParams != null ? de_FormatParams(output.formatParams, context) : undefined,
-    sourceParams: output.sourceParams != null ? de_SourceParams(output.sourceParams, context) : undefined,
-    status: __expectString(output.status),
-    updatedByChangesetId: __expectString(output.updatedByChangesetId),
-    updatesChangesetId: __expectString(output.updatesChangesetId),
-  } as any;
-};
+// de_ChangesetSummary omitted.
 
-/**
- * deserializeAws_restJson1ColumnDefinition
- */
-const de_ColumnDefinition = (output: any, context: __SerdeContext): ColumnDefinition => {
-  return {
-    columnDescription: __expectString(output.columnDescription),
-    columnName: __expectString(output.columnName),
-    dataType: __expectString(output.dataType),
-  } as any;
-};
+// de_ColumnDefinition omitted.
 
-/**
- * deserializeAws_restJson1ColumnList
- */
-const de_ColumnList = (output: any, context: __SerdeContext): ColumnDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ColumnDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_ColumnList omitted.
 
-/**
- * deserializeAws_restJson1ColumnNameList
- */
-const de_ColumnNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ColumnNameList omitted.
 
-/**
- * deserializeAws_restJson1Credentials
- */
-const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
-  return {
-    accessKeyId: __expectString(output.accessKeyId),
-    secretAccessKey: __expectString(output.secretAccessKey),
-    sessionToken: __expectString(output.sessionToken),
-  } as any;
-};
+// de_Credentials omitted.
 
-/**
- * deserializeAws_restJson1Dataset
- */
-const de_Dataset = (output: any, context: __SerdeContext): Dataset => {
-  return {
-    alias: __expectString(output.alias),
-    createTime: __expectLong(output.createTime),
-    datasetArn: __expectString(output.datasetArn),
-    datasetDescription: __expectString(output.datasetDescription),
-    datasetId: __expectString(output.datasetId),
-    datasetTitle: __expectString(output.datasetTitle),
-    kind: __expectString(output.kind),
-    lastModifiedTime: __expectLong(output.lastModifiedTime),
-    ownerInfo: output.ownerInfo != null ? de_DatasetOwnerInfo(output.ownerInfo, context) : undefined,
-    schemaDefinition: output.schemaDefinition != null ? de_SchemaUnion(output.schemaDefinition, context) : undefined,
-  } as any;
-};
+// de_Dataset omitted.
 
-/**
- * deserializeAws_restJson1DatasetList
- */
-const de_DatasetList = (output: any, context: __SerdeContext): Dataset[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Dataset(entry, context);
-    });
-  return retVal;
-};
+// de_DatasetList omitted.
 
-/**
- * deserializeAws_restJson1DatasetOwnerInfo
- */
-const de_DatasetOwnerInfo = (output: any, context: __SerdeContext): DatasetOwnerInfo => {
-  return {
-    email: __expectString(output.email),
-    name: __expectString(output.name),
-    phoneNumber: __expectString(output.phoneNumber),
-  } as any;
-};
+// de_DatasetOwnerInfo omitted.
 
-/**
- * deserializeAws_restJson1DataViewDestinationTypeParams
- */
-const de_DataViewDestinationTypeParams = (output: any, context: __SerdeContext): DataViewDestinationTypeParams => {
-  return {
-    destinationType: __expectString(output.destinationType),
-    s3DestinationExportFileFormat: __expectString(output.s3DestinationExportFileFormat),
-    s3DestinationExportFileFormatOptions:
-      output.s3DestinationExportFileFormatOptions != null
-        ? de_S3DestinationFormatOptions(output.s3DestinationExportFileFormatOptions, context)
-        : undefined,
-  } as any;
-};
+// de_DataViewDestinationTypeParams omitted.
 
-/**
- * deserializeAws_restJson1DataViewErrorInfo
- */
-const de_DataViewErrorInfo = (output: any, context: __SerdeContext): DataViewErrorInfo => {
-  return {
-    errorCategory: __expectString(output.errorCategory),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_DataViewErrorInfo omitted.
 
-/**
- * deserializeAws_restJson1DataViewList
- */
-const de_DataViewList = (output: any, context: __SerdeContext): DataViewSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataViewSummary(entry, context);
-    });
-  return retVal;
-};
+// de_DataViewList omitted.
 
-/**
- * deserializeAws_restJson1DataViewSummary
- */
-const de_DataViewSummary = (output: any, context: __SerdeContext): DataViewSummary => {
-  return {
-    asOfTimestamp: __expectLong(output.asOfTimestamp),
-    autoUpdate: __expectBoolean(output.autoUpdate),
-    createTime: __expectLong(output.createTime),
-    dataViewArn: __expectString(output.dataViewArn),
-    dataViewId: __expectString(output.dataViewId),
-    datasetId: __expectString(output.datasetId),
-    destinationTypeProperties:
-      output.destinationTypeProperties != null
-        ? de_DataViewDestinationTypeParams(output.destinationTypeProperties, context)
-        : undefined,
-    errorInfo: output.errorInfo != null ? de_DataViewErrorInfo(output.errorInfo, context) : undefined,
-    lastModifiedTime: __expectLong(output.lastModifiedTime),
-    partitionColumns:
-      output.partitionColumns != null ? de_PartitionColumnList(output.partitionColumns, context) : undefined,
-    sortColumns: output.sortColumns != null ? de_SortColumnList(output.sortColumns, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
-};
+// de_DataViewSummary omitted.
 
-/**
- * deserializeAws_restJson1FormatParams
- */
-const de_FormatParams = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_FormatParams omitted.
 
-/**
- * deserializeAws_restJson1PartitionColumnList
- */
-const de_PartitionColumnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PartitionColumnList omitted.
 
-/**
- * deserializeAws_restJson1PermissionGroup
- */
-const de_PermissionGroup = (output: any, context: __SerdeContext): PermissionGroup => {
-  return {
-    applicationPermissions:
-      output.applicationPermissions != null
-        ? de_ApplicationPermissionList(output.applicationPermissions, context)
-        : undefined,
-    createTime: __expectLong(output.createTime),
-    description: __expectString(output.description),
-    lastModifiedTime: __expectLong(output.lastModifiedTime),
-    membershipStatus: __expectString(output.membershipStatus),
-    name: __expectString(output.name),
-    permissionGroupId: __expectString(output.permissionGroupId),
-  } as any;
-};
+// de_PermissionGroup omitted.
 
-/**
- * deserializeAws_restJson1PermissionGroupByUser
- */
-const de_PermissionGroupByUser = (output: any, context: __SerdeContext): PermissionGroupByUser => {
-  return {
-    membershipStatus: __expectString(output.membershipStatus),
-    name: __expectString(output.name),
-    permissionGroupId: __expectString(output.permissionGroupId),
-  } as any;
-};
+// de_PermissionGroupByUser omitted.
 
-/**
- * deserializeAws_restJson1PermissionGroupByUserList
- */
-const de_PermissionGroupByUserList = (output: any, context: __SerdeContext): PermissionGroupByUser[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PermissionGroupByUser(entry, context);
-    });
-  return retVal;
-};
+// de_PermissionGroupByUserList omitted.
 
-/**
- * deserializeAws_restJson1PermissionGroupList
- */
-const de_PermissionGroupList = (output: any, context: __SerdeContext): PermissionGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PermissionGroup(entry, context);
-    });
-  return retVal;
-};
+// de_PermissionGroupList omitted.
 
-/**
- * deserializeAws_restJson1S3DestinationFormatOptions
- */
-const de_S3DestinationFormatOptions = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_S3DestinationFormatOptions omitted.
 
-/**
- * deserializeAws_restJson1S3Location
- */
-const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
-  return {
-    bucket: __expectString(output.bucket),
-    key: __expectString(output.key),
-  } as any;
-};
+// de_S3Location omitted.
 
-/**
- * deserializeAws_restJson1SchemaDefinition
- */
-const de_SchemaDefinition = (output: any, context: __SerdeContext): SchemaDefinition => {
-  return {
-    columns: output.columns != null ? de_ColumnList(output.columns, context) : undefined,
-    primaryKeyColumns:
-      output.primaryKeyColumns != null ? de_ColumnNameList(output.primaryKeyColumns, context) : undefined,
-  } as any;
-};
+// de_SchemaDefinition omitted.
 
-/**
- * deserializeAws_restJson1SchemaUnion
- */
-const de_SchemaUnion = (output: any, context: __SerdeContext): SchemaUnion => {
-  return {
-    tabularSchemaConfig:
-      output.tabularSchemaConfig != null ? de_SchemaDefinition(output.tabularSchemaConfig, context) : undefined,
-  } as any;
-};
+// de_SchemaUnion omitted.
 
-/**
- * deserializeAws_restJson1SortColumnList
- */
-const de_SortColumnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SortColumnList omitted.
 
-/**
- * deserializeAws_restJson1SourceParams
- */
-const de_SourceParams = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_SourceParams omitted.
 
-/**
- * deserializeAws_restJson1User
- */
-const de_User = (output: any, context: __SerdeContext): User => {
-  return {
-    apiAccess: __expectString(output.apiAccess),
-    apiAccessPrincipalArn: __expectString(output.apiAccessPrincipalArn),
-    createTime: __expectLong(output.createTime),
-    emailAddress: __expectString(output.emailAddress),
-    firstName: __expectString(output.firstName),
-    lastDisabledTime: __expectLong(output.lastDisabledTime),
-    lastEnabledTime: __expectLong(output.lastEnabledTime),
-    lastLoginTime: __expectLong(output.lastLoginTime),
-    lastModifiedTime: __expectLong(output.lastModifiedTime),
-    lastName: __expectString(output.lastName),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-    userId: __expectString(output.userId),
-  } as any;
-};
+// de_User omitted.
 
-/**
- * deserializeAws_restJson1UserByPermissionGroup
- */
-const de_UserByPermissionGroup = (output: any, context: __SerdeContext): UserByPermissionGroup => {
-  return {
-    apiAccess: __expectString(output.apiAccess),
-    apiAccessPrincipalArn: __expectString(output.apiAccessPrincipalArn),
-    emailAddress: __expectString(output.emailAddress),
-    firstName: __expectString(output.firstName),
-    lastName: __expectString(output.lastName),
-    membershipStatus: __expectString(output.membershipStatus),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-    userId: __expectString(output.userId),
-  } as any;
-};
+// de_UserByPermissionGroup omitted.
 
-/**
- * deserializeAws_restJson1UserByPermissionGroupList
- */
-const de_UserByPermissionGroupList = (output: any, context: __SerdeContext): UserByPermissionGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UserByPermissionGroup(entry, context);
-    });
-  return retVal;
-};
+// de_UserByPermissionGroupList omitted.
 
-/**
- * deserializeAws_restJson1UserList
- */
-const de_UserList = (output: any, context: __SerdeContext): User[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_User(entry, context);
-    });
-  return retVal;
-};
+// de_UserList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

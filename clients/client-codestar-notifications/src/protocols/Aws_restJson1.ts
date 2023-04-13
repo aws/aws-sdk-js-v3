@@ -1,16 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -55,17 +57,14 @@ import {
   AccessDeniedException,
   ConcurrentModificationException,
   ConfigurationException,
-  EventTypeSummary,
   InvalidNextTokenException,
   LimitExceededException,
   ListEventTypesFilter,
   ListNotificationRulesFilter,
   ListTargetsFilter,
-  NotificationRuleSummary,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
   Target,
-  TargetSummary,
   ValidationException,
 } from "../models/models_0";
 
@@ -83,16 +82,18 @@ export const se_CreateNotificationRuleCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createNotificationRule";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DetailType != null && { DetailType: input.DetailType }),
-    ...(input.EventTypeIds != null && { EventTypeIds: se_EventTypeIds(input.EventTypeIds, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Resource != null && { Resource: input.Resource }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.Targets != null && { Targets: se_Targets(input.Targets, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      DetailType: [],
+      EventTypeIds: (_) => _json(_),
+      Name: [],
+      Resource: [],
+      Status: [],
+      Tags: (_) => _json(_),
+      Targets: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -118,9 +119,11 @@ export const se_DeleteNotificationRuleCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteNotificationRule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -145,10 +148,12 @@ export const se_DeleteTargetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteTarget";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ForceUnsubscribeAll != null && { ForceUnsubscribeAll: input.ForceUnsubscribeAll }),
-    ...(input.TargetAddress != null && { TargetAddress: input.TargetAddress }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ForceUnsubscribeAll: [],
+      TargetAddress: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -174,9 +179,11 @@ export const se_DescribeNotificationRuleCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeNotificationRule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -201,11 +208,13 @@ export const se_ListEventTypesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listEventTypes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_ListEventTypesFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -230,11 +239,13 @@ export const se_ListNotificationRulesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listNotificationRules";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_ListNotificationRulesFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -259,9 +270,11 @@ export const se_ListTagsForResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listTagsForResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -286,11 +299,13 @@ export const se_ListTargetsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listTargets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_ListTargetsFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -315,11 +330,13 @@ export const se_SubscribeCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/subscribe";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Target != null && { Target: se_Target(input.Target, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      ClientRequestToken: [],
+      Target: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -344,10 +361,12 @@ export const se_TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -372,10 +391,12 @@ export const se_UnsubscribeCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/unsubscribe";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.TargetAddress != null && { TargetAddress: input.TargetAddress }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      TargetAddress: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -431,14 +452,16 @@ export const se_UpdateNotificationRuleCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateNotificationRule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.DetailType != null && { DetailType: input.DetailType }),
-    ...(input.EventTypeIds != null && { EventTypeIds: se_EventTypeIds(input.EventTypeIds, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.Targets != null && { Targets: se_Targets(input.Targets, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      DetailType: [],
+      EventTypeIds: (_) => _json(_),
+      Name: [],
+      Status: [],
+      Targets: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -464,9 +487,10 @@ export const de_CreateNotificationRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -503,10 +527,9 @@ const de_CreateNotificationRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -526,9 +549,10 @@ export const de_DeleteNotificationRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -556,10 +580,9 @@ const de_DeleteNotificationRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -600,10 +623,9 @@ const de_DeleteTargetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -623,39 +645,20 @@ export const de_DescribeNotificationRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedBy != null) {
-    contents.CreatedBy = __expectString(data.CreatedBy);
-  }
-  if (data.CreatedTimestamp != null) {
-    contents.CreatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTimestamp)));
-  }
-  if (data.DetailType != null) {
-    contents.DetailType = __expectString(data.DetailType);
-  }
-  if (data.EventTypes != null) {
-    contents.EventTypes = de_EventTypeBatch(data.EventTypes, context);
-  }
-  if (data.LastModifiedTimestamp != null) {
-    contents.LastModifiedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTimestamp)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Resource != null) {
-    contents.Resource = __expectString(data.Resource);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_Tags(data.Tags, context);
-  }
-  if (data.Targets != null) {
-    contents.Targets = de_TargetsBatch(data.Targets, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedBy: __expectString,
+    CreatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DetailType: __expectString,
+    EventTypes: _json,
+    LastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Resource: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    Targets: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -680,10 +683,9 @@ const de_DescribeNotificationRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -703,12 +705,11 @@ export const de_ListEventTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventTypes != null) {
-    contents.EventTypes = de_EventTypeBatch(data.EventTypes, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EventTypes: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -733,10 +734,9 @@ const de_ListEventTypesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -756,12 +756,11 @@ export const de_ListNotificationRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.NotificationRules != null) {
-    contents.NotificationRules = de_NotificationRuleBatch(data.NotificationRules, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    NotificationRules: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -786,10 +785,9 @@ const de_ListNotificationRulesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -809,9 +807,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -836,10 +835,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -859,12 +857,11 @@ export const de_ListTargetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Targets != null) {
-    contents.Targets = de_TargetsBatch(data.Targets, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Targets: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -889,10 +886,9 @@ const de_ListTargetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -912,9 +908,10 @@ export const de_SubscribeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -942,10 +939,9 @@ const de_SubscribeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -965,9 +961,10 @@ export const de_TagResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -998,10 +995,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1021,9 +1017,10 @@ export const de_UnsubscribeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1045,10 +1042,9 @@ const de_UnsubscribeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1098,10 +1094,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1148,16 +1143,15 @@ const de_UpdateNotificationRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1167,9 +1161,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1186,9 +1181,10 @@ const de_ConcurrentModificationExceptionRes = async (
 ): Promise<ConcurrentModificationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1205,9 +1201,10 @@ const de_ConfigurationExceptionRes = async (
 ): Promise<ConfigurationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1224,9 +1221,10 @@ const de_InvalidNextTokenExceptionRes = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1243,9 +1241,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1262,9 +1261,10 @@ const de_ResourceAlreadyExistsExceptionRes = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1281,9 +1281,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1297,9 +1298,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1307,204 +1309,39 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1EventTypeIds
- */
-const se_EventTypeIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EventTypeIds omitted.
 
-/**
- * serializeAws_restJson1ListEventTypesFilter
- */
-const se_ListEventTypesFilter = (input: ListEventTypesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ListEventTypesFilter omitted.
 
-/**
- * serializeAws_restJson1ListEventTypesFilters
- */
-const se_ListEventTypesFilters = (input: ListEventTypesFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ListEventTypesFilter(entry, context);
-    });
-};
+// se_ListEventTypesFilters omitted.
 
-/**
- * serializeAws_restJson1ListNotificationRulesFilter
- */
-const se_ListNotificationRulesFilter = (input: ListNotificationRulesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ListNotificationRulesFilter omitted.
 
-/**
- * serializeAws_restJson1ListNotificationRulesFilters
- */
-const se_ListNotificationRulesFilters = (input: ListNotificationRulesFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ListNotificationRulesFilter(entry, context);
-    });
-};
+// se_ListNotificationRulesFilters omitted.
 
-/**
- * serializeAws_restJson1ListTargetsFilter
- */
-const se_ListTargetsFilter = (input: ListTargetsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ListTargetsFilter omitted.
 
-/**
- * serializeAws_restJson1ListTargetsFilters
- */
-const se_ListTargetsFilters = (input: ListTargetsFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ListTargetsFilter(entry, context);
-    });
-};
+// se_ListTargetsFilters omitted.
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_restJson1Target
- */
-const se_Target = (input: Target, context: __SerdeContext): any => {
-  return {
-    ...(input.TargetAddress != null && { TargetAddress: input.TargetAddress }),
-    ...(input.TargetType != null && { TargetType: input.TargetType }),
-  };
-};
+// se_Target omitted.
 
-/**
- * serializeAws_restJson1Targets
- */
-const se_Targets = (input: Target[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Target(entry, context);
-    });
-};
+// se_Targets omitted.
 
-/**
- * deserializeAws_restJson1EventTypeBatch
- */
-const de_EventTypeBatch = (output: any, context: __SerdeContext): EventTypeSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventTypeSummary(entry, context);
-    });
-  return retVal;
-};
+// de_EventTypeBatch omitted.
 
-/**
- * deserializeAws_restJson1EventTypeSummary
- */
-const de_EventTypeSummary = (output: any, context: __SerdeContext): EventTypeSummary => {
-  return {
-    EventTypeId: __expectString(output.EventTypeId),
-    EventTypeName: __expectString(output.EventTypeName),
-    ResourceType: __expectString(output.ResourceType),
-    ServiceName: __expectString(output.ServiceName),
-  } as any;
-};
+// de_EventTypeSummary omitted.
 
-/**
- * deserializeAws_restJson1NotificationRuleBatch
- */
-const de_NotificationRuleBatch = (output: any, context: __SerdeContext): NotificationRuleSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NotificationRuleSummary(entry, context);
-    });
-  return retVal;
-};
+// de_NotificationRuleBatch omitted.
 
-/**
- * deserializeAws_restJson1NotificationRuleSummary
- */
-const de_NotificationRuleSummary = (output: any, context: __SerdeContext): NotificationRuleSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_NotificationRuleSummary omitted.
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_restJson1TargetsBatch
- */
-const de_TargetsBatch = (output: any, context: __SerdeContext): TargetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TargetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TargetsBatch omitted.
 
-/**
- * deserializeAws_restJson1TargetSummary
- */
-const de_TargetSummary = (output: any, context: __SerdeContext): TargetSummary => {
-  return {
-    TargetAddress: __expectString(output.TargetAddress),
-    TargetStatus: __expectString(output.TargetStatus),
-    TargetType: __expectString(output.TargetType),
-  } as any;
-};
+// de_TargetSummary omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

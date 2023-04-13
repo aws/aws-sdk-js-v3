@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,7 +11,8 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -165,15 +167,12 @@ import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from ".
 import { GlobalAcceleratorServiceException as __BaseException } from "../models/GlobalAcceleratorServiceException";
 import {
   Accelerator,
-  AcceleratorAttributes,
   AcceleratorEvent,
   AcceleratorNotDisabledException,
   AcceleratorNotFoundException,
   AccessDeniedException,
   AddCustomRoutingEndpointsRequest,
-  AddCustomRoutingEndpointsResponse,
   AddEndpointsRequest,
-  AddEndpointsResponse,
   AdvertiseByoipCidrRequest,
   AdvertiseByoipCidrResponse,
   AllowCustomRoutingTrafficRequest,
@@ -189,21 +188,13 @@ import {
   CreateCustomRoutingAcceleratorRequest,
   CreateCustomRoutingAcceleratorResponse,
   CreateCustomRoutingEndpointGroupRequest,
-  CreateCustomRoutingEndpointGroupResponse,
   CreateCustomRoutingListenerRequest,
-  CreateCustomRoutingListenerResponse,
   CreateEndpointGroupRequest,
   CreateEndpointGroupResponse,
   CreateListenerRequest,
-  CreateListenerResponse,
   CustomRoutingAccelerator,
-  CustomRoutingAcceleratorAttributes,
   CustomRoutingDestinationConfiguration,
-  CustomRoutingDestinationDescription,
   CustomRoutingEndpointConfiguration,
-  CustomRoutingEndpointDescription,
-  CustomRoutingEndpointGroup,
-  CustomRoutingListener,
   CustomRoutingProtocol,
   DeleteAcceleratorRequest,
   DeleteCustomRoutingAcceleratorRequest,
@@ -215,25 +206,18 @@ import {
   DeprovisionByoipCidrRequest,
   DeprovisionByoipCidrResponse,
   DescribeAcceleratorAttributesRequest,
-  DescribeAcceleratorAttributesResponse,
   DescribeAcceleratorRequest,
   DescribeAcceleratorResponse,
   DescribeCustomRoutingAcceleratorAttributesRequest,
-  DescribeCustomRoutingAcceleratorAttributesResponse,
   DescribeCustomRoutingAcceleratorRequest,
   DescribeCustomRoutingAcceleratorResponse,
   DescribeCustomRoutingEndpointGroupRequest,
-  DescribeCustomRoutingEndpointGroupResponse,
   DescribeCustomRoutingListenerRequest,
-  DescribeCustomRoutingListenerResponse,
   DescribeEndpointGroupRequest,
   DescribeEndpointGroupResponse,
   DescribeListenerRequest,
-  DescribeListenerResponse,
-  DestinationPortMapping,
   EndpointAlreadyExistsException,
   EndpointConfiguration,
-  EndpointDescription,
   EndpointGroup,
   EndpointGroupAlreadyExistsException,
   EndpointGroupNotFoundException,
@@ -244,7 +228,6 @@ import {
   InvalidArgumentException,
   InvalidNextTokenException,
   InvalidPortRangeException,
-  IpSet,
   LimitExceededException,
   ListAcceleratorsRequest,
   ListAcceleratorsResponse,
@@ -253,50 +236,34 @@ import {
   ListCustomRoutingAcceleratorsRequest,
   ListCustomRoutingAcceleratorsResponse,
   ListCustomRoutingEndpointGroupsRequest,
-  ListCustomRoutingEndpointGroupsResponse,
   ListCustomRoutingListenersRequest,
-  ListCustomRoutingListenersResponse,
   ListCustomRoutingPortMappingsByDestinationRequest,
-  ListCustomRoutingPortMappingsByDestinationResponse,
   ListCustomRoutingPortMappingsRequest,
-  ListCustomRoutingPortMappingsResponse,
   ListEndpointGroupsRequest,
   ListEndpointGroupsResponse,
-  Listener,
   ListenerNotFoundException,
   ListListenersRequest,
-  ListListenersResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PortMapping,
   PortOverride,
   PortRange,
-  Protocol,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResponse,
   RemoveCustomRoutingEndpointsRequest,
   RemoveEndpointsRequest,
-  SocketAddress,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TransactionInProgressException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateAcceleratorAttributesRequest,
-  UpdateAcceleratorAttributesResponse,
   UpdateAcceleratorRequest,
   UpdateAcceleratorResponse,
   UpdateCustomRoutingAcceleratorAttributesRequest,
-  UpdateCustomRoutingAcceleratorAttributesResponse,
   UpdateCustomRoutingAcceleratorRequest,
   UpdateCustomRoutingAcceleratorResponse,
   UpdateCustomRoutingListenerRequest,
-  UpdateCustomRoutingListenerResponse,
   UpdateEndpointGroupRequest,
   UpdateEndpointGroupResponse,
   UpdateListenerRequest,
-  UpdateListenerResponse,
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResponse,
 } from "../models/models_0";
@@ -310,7 +277,7 @@ export const se_AddCustomRoutingEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddCustomRoutingEndpoints");
   let body: any;
-  body = JSON.stringify(se_AddCustomRoutingEndpointsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -323,7 +290,7 @@ export const se_AddEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddEndpoints");
   let body: any;
-  body = JSON.stringify(se_AddEndpointsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -336,7 +303,7 @@ export const se_AdvertiseByoipCidrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdvertiseByoipCidr");
   let body: any;
-  body = JSON.stringify(se_AdvertiseByoipCidrRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -349,7 +316,7 @@ export const se_AllowCustomRoutingTrafficCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AllowCustomRoutingTraffic");
   let body: any;
-  body = JSON.stringify(se_AllowCustomRoutingTrafficRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -440,7 +407,7 @@ export const se_DeleteAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAccelerator");
   let body: any;
-  body = JSON.stringify(se_DeleteAcceleratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -453,7 +420,7 @@ export const se_DeleteCustomRoutingAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCustomRoutingAccelerator");
   let body: any;
-  body = JSON.stringify(se_DeleteCustomRoutingAcceleratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -466,7 +433,7 @@ export const se_DeleteCustomRoutingEndpointGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCustomRoutingEndpointGroup");
   let body: any;
-  body = JSON.stringify(se_DeleteCustomRoutingEndpointGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -479,7 +446,7 @@ export const se_DeleteCustomRoutingListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCustomRoutingListener");
   let body: any;
-  body = JSON.stringify(se_DeleteCustomRoutingListenerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -492,7 +459,7 @@ export const se_DeleteEndpointGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEndpointGroup");
   let body: any;
-  body = JSON.stringify(se_DeleteEndpointGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -505,7 +472,7 @@ export const se_DeleteListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteListener");
   let body: any;
-  body = JSON.stringify(se_DeleteListenerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -518,7 +485,7 @@ export const se_DenyCustomRoutingTrafficCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DenyCustomRoutingTraffic");
   let body: any;
-  body = JSON.stringify(se_DenyCustomRoutingTrafficRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -531,7 +498,7 @@ export const se_DeprovisionByoipCidrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeprovisionByoipCidr");
   let body: any;
-  body = JSON.stringify(se_DeprovisionByoipCidrRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -544,7 +511,7 @@ export const se_DescribeAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccelerator");
   let body: any;
-  body = JSON.stringify(se_DescribeAcceleratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -557,7 +524,7 @@ export const se_DescribeAcceleratorAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAcceleratorAttributes");
   let body: any;
-  body = JSON.stringify(se_DescribeAcceleratorAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -570,7 +537,7 @@ export const se_DescribeCustomRoutingAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCustomRoutingAccelerator");
   let body: any;
-  body = JSON.stringify(se_DescribeCustomRoutingAcceleratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -583,7 +550,7 @@ export const se_DescribeCustomRoutingAcceleratorAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCustomRoutingAcceleratorAttributes");
   let body: any;
-  body = JSON.stringify(se_DescribeCustomRoutingAcceleratorAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -596,7 +563,7 @@ export const se_DescribeCustomRoutingEndpointGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCustomRoutingEndpointGroup");
   let body: any;
-  body = JSON.stringify(se_DescribeCustomRoutingEndpointGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -609,7 +576,7 @@ export const se_DescribeCustomRoutingListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCustomRoutingListener");
   let body: any;
-  body = JSON.stringify(se_DescribeCustomRoutingListenerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -622,7 +589,7 @@ export const se_DescribeEndpointGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEndpointGroup");
   let body: any;
-  body = JSON.stringify(se_DescribeEndpointGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -635,7 +602,7 @@ export const se_DescribeListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeListener");
   let body: any;
-  body = JSON.stringify(se_DescribeListenerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -648,7 +615,7 @@ export const se_ListAcceleratorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccelerators");
   let body: any;
-  body = JSON.stringify(se_ListAcceleratorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -661,7 +628,7 @@ export const se_ListByoipCidrsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListByoipCidrs");
   let body: any;
-  body = JSON.stringify(se_ListByoipCidrsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -674,7 +641,7 @@ export const se_ListCustomRoutingAcceleratorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCustomRoutingAccelerators");
   let body: any;
-  body = JSON.stringify(se_ListCustomRoutingAcceleratorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -687,7 +654,7 @@ export const se_ListCustomRoutingEndpointGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCustomRoutingEndpointGroups");
   let body: any;
-  body = JSON.stringify(se_ListCustomRoutingEndpointGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -700,7 +667,7 @@ export const se_ListCustomRoutingListenersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCustomRoutingListeners");
   let body: any;
-  body = JSON.stringify(se_ListCustomRoutingListenersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -713,7 +680,7 @@ export const se_ListCustomRoutingPortMappingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCustomRoutingPortMappings");
   let body: any;
-  body = JSON.stringify(se_ListCustomRoutingPortMappingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -726,7 +693,7 @@ export const se_ListCustomRoutingPortMappingsByDestinationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCustomRoutingPortMappingsByDestination");
   let body: any;
-  body = JSON.stringify(se_ListCustomRoutingPortMappingsByDestinationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -739,7 +706,7 @@ export const se_ListEndpointGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEndpointGroups");
   let body: any;
-  body = JSON.stringify(se_ListEndpointGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -752,7 +719,7 @@ export const se_ListListenersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListListeners");
   let body: any;
-  body = JSON.stringify(se_ListListenersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -765,7 +732,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -778,7 +745,7 @@ export const se_ProvisionByoipCidrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ProvisionByoipCidr");
   let body: any;
-  body = JSON.stringify(se_ProvisionByoipCidrRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -791,7 +758,7 @@ export const se_RemoveCustomRoutingEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveCustomRoutingEndpoints");
   let body: any;
-  body = JSON.stringify(se_RemoveCustomRoutingEndpointsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -804,7 +771,7 @@ export const se_RemoveEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveEndpoints");
   let body: any;
-  body = JSON.stringify(se_RemoveEndpointsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -817,7 +784,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -830,7 +797,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -843,7 +810,7 @@ export const se_UpdateAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAccelerator");
   let body: any;
-  body = JSON.stringify(se_UpdateAcceleratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -856,7 +823,7 @@ export const se_UpdateAcceleratorAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAcceleratorAttributes");
   let body: any;
-  body = JSON.stringify(se_UpdateAcceleratorAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -869,7 +836,7 @@ export const se_UpdateCustomRoutingAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCustomRoutingAccelerator");
   let body: any;
-  body = JSON.stringify(se_UpdateCustomRoutingAcceleratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -882,7 +849,7 @@ export const se_UpdateCustomRoutingAcceleratorAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCustomRoutingAcceleratorAttributes");
   let body: any;
-  body = JSON.stringify(se_UpdateCustomRoutingAcceleratorAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -895,7 +862,7 @@ export const se_UpdateCustomRoutingListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCustomRoutingListener");
   let body: any;
-  body = JSON.stringify(se_UpdateCustomRoutingListenerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -921,7 +888,7 @@ export const se_UpdateListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateListener");
   let body: any;
-  body = JSON.stringify(se_UpdateListenerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -934,7 +901,7 @@ export const se_WithdrawByoipCidrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("WithdrawByoipCidr");
   let body: any;
-  body = JSON.stringify(se_WithdrawByoipCidrRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -950,12 +917,12 @@ export const de_AddCustomRoutingEndpointsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddCustomRoutingEndpointsResponse(data, context);
+  contents = _json(data);
   const response: AddCustomRoutingEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -994,10 +961,9 @@ const de_AddCustomRoutingEndpointsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1015,12 +981,12 @@ export const de_AddEndpointsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddEndpointsResponse(data, context);
+  contents = _json(data);
   const response: AddEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1056,10 +1022,9 @@ const de_AddEndpointsCommandError = async (
       throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1082,7 +1047,7 @@ export const de_AdvertiseByoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1115,10 +1080,9 @@ const de_AdvertiseByoipCidrCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1138,7 +1102,7 @@ export const de_AllowCustomRoutingTrafficCommand = async (
   const response: AllowCustomRoutingTrafficCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1165,10 +1129,9 @@ const de_AllowCustomRoutingTrafficCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1191,7 +1154,7 @@ export const de_CreateAcceleratorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1218,10 +1181,9 @@ const de_CreateAcceleratorCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1244,7 +1206,7 @@ export const de_CreateCustomRoutingAcceleratorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1274,10 +1236,9 @@ const de_CreateCustomRoutingAcceleratorCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1295,12 +1256,12 @@ export const de_CreateCustomRoutingEndpointGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateCustomRoutingEndpointGroupResponse(data, context);
+  contents = _json(data);
   const response: CreateCustomRoutingEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1342,10 +1303,9 @@ const de_CreateCustomRoutingEndpointGroupCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1363,12 +1323,12 @@ export const de_CreateCustomRoutingListenerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateCustomRoutingListenerResponse(data, context);
+  contents = _json(data);
   const response: CreateCustomRoutingListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1401,10 +1361,9 @@ const de_CreateCustomRoutingListenerCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1427,7 +1386,7 @@ export const de_CreateEndpointGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1466,10 +1425,9 @@ const de_CreateEndpointGroupCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1487,12 +1445,12 @@ export const de_CreateListenerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateListenerResponse(data, context);
+  contents = _json(data);
   const response: CreateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1525,10 +1483,9 @@ const de_CreateListenerCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1548,7 +1505,7 @@ export const de_DeleteAcceleratorCommand = async (
   const response: DeleteAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1581,10 +1538,9 @@ const de_DeleteAcceleratorCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1604,7 +1560,7 @@ export const de_DeleteCustomRoutingAcceleratorCommand = async (
   const response: DeleteCustomRoutingAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1637,10 +1593,9 @@ const de_DeleteCustomRoutingAcceleratorCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1660,7 +1615,7 @@ export const de_DeleteCustomRoutingEndpointGroupCommand = async (
   const response: DeleteCustomRoutingEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1687,10 +1642,9 @@ const de_DeleteCustomRoutingEndpointGroupCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1710,7 +1664,7 @@ export const de_DeleteCustomRoutingListenerCommand = async (
   const response: DeleteCustomRoutingListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1740,10 +1694,9 @@ const de_DeleteCustomRoutingListenerCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1763,7 +1716,7 @@ export const de_DeleteEndpointGroupCommand = async (
   const response: DeleteEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1790,10 +1743,9 @@ const de_DeleteEndpointGroupCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1813,7 +1765,7 @@ export const de_DeleteListenerCommand = async (
   const response: DeleteListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1843,10 +1795,9 @@ const de_DeleteListenerCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1866,7 +1817,7 @@ export const de_DenyCustomRoutingTrafficCommand = async (
   const response: DenyCustomRoutingTrafficCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1893,10 +1844,9 @@ const de_DenyCustomRoutingTrafficCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1919,7 +1869,7 @@ export const de_DeprovisionByoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1952,10 +1902,9 @@ const de_DeprovisionByoipCidrCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1978,7 +1927,7 @@ export const de_DescribeAcceleratorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2005,10 +1954,9 @@ const de_DescribeAcceleratorCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2026,12 +1974,12 @@ export const de_DescribeAcceleratorAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAcceleratorAttributesResponse(data, context);
+  contents = _json(data);
   const response: DescribeAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2058,10 +2006,9 @@ const de_DescribeAcceleratorAttributesCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2084,7 +2031,7 @@ export const de_DescribeCustomRoutingAcceleratorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2111,10 +2058,9 @@ const de_DescribeCustomRoutingAcceleratorCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2132,12 +2078,12 @@ export const de_DescribeCustomRoutingAcceleratorAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeCustomRoutingAcceleratorAttributesResponse(data, context);
+  contents = _json(data);
   const response: DescribeCustomRoutingAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2164,10 +2110,9 @@ const de_DescribeCustomRoutingAcceleratorAttributesCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2185,12 +2130,12 @@ export const de_DescribeCustomRoutingEndpointGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeCustomRoutingEndpointGroupResponse(data, context);
+  contents = _json(data);
   const response: DescribeCustomRoutingEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2217,10 +2162,9 @@ const de_DescribeCustomRoutingEndpointGroupCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2238,12 +2182,12 @@ export const de_DescribeCustomRoutingListenerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeCustomRoutingListenerResponse(data, context);
+  contents = _json(data);
   const response: DescribeCustomRoutingListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2270,10 +2214,9 @@ const de_DescribeCustomRoutingListenerCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2296,7 +2239,7 @@ export const de_DescribeEndpointGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2323,10 +2266,9 @@ const de_DescribeEndpointGroupCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2344,12 +2286,12 @@ export const de_DescribeListenerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeListenerResponse(data, context);
+  contents = _json(data);
   const response: DescribeListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2376,10 +2318,9 @@ const de_DescribeListenerCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2402,7 +2343,7 @@ export const de_ListAcceleratorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2429,10 +2370,9 @@ const de_ListAcceleratorsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2455,7 +2395,7 @@ export const de_ListByoipCidrsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2485,10 +2425,9 @@ const de_ListByoipCidrsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2511,7 +2450,7 @@ export const de_ListCustomRoutingAcceleratorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2538,10 +2477,9 @@ const de_ListCustomRoutingAcceleratorsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2559,12 +2497,12 @@ export const de_ListCustomRoutingEndpointGroupsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCustomRoutingEndpointGroupsResponse(data, context);
+  contents = _json(data);
   const response: ListCustomRoutingEndpointGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2594,10 +2532,9 @@ const de_ListCustomRoutingEndpointGroupsCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2615,12 +2552,12 @@ export const de_ListCustomRoutingListenersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCustomRoutingListenersResponse(data, context);
+  contents = _json(data);
   const response: ListCustomRoutingListenersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2650,10 +2587,9 @@ const de_ListCustomRoutingListenersCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2671,12 +2607,12 @@ export const de_ListCustomRoutingPortMappingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCustomRoutingPortMappingsResponse(data, context);
+  contents = _json(data);
   const response: ListCustomRoutingPortMappingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2709,10 +2645,9 @@ const de_ListCustomRoutingPortMappingsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2730,12 +2665,12 @@ export const de_ListCustomRoutingPortMappingsByDestinationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCustomRoutingPortMappingsByDestinationResponse(data, context);
+  contents = _json(data);
   const response: ListCustomRoutingPortMappingsByDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2765,10 +2700,9 @@ const de_ListCustomRoutingPortMappingsByDestinationCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2791,7 +2725,7 @@ export const de_ListEndpointGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2821,10 +2755,9 @@ const de_ListEndpointGroupsCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2842,12 +2775,12 @@ export const de_ListListenersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListListenersResponse(data, context);
+  contents = _json(data);
   const response: ListListenersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2877,10 +2810,9 @@ const de_ListListenersCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2898,12 +2830,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2930,10 +2862,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2956,7 +2887,7 @@ export const de_ProvisionByoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2989,10 +2920,9 @@ const de_ProvisionByoipCidrCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3012,7 +2942,7 @@ export const de_RemoveCustomRoutingEndpointsCommand = async (
   const response: RemoveCustomRoutingEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3048,10 +2978,9 @@ const de_RemoveCustomRoutingEndpointsCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3071,7 +3000,7 @@ export const de_RemoveEndpointsCommand = async (
   const response: RemoveEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3104,10 +3033,9 @@ const de_RemoveEndpointsCommandError = async (
       throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3125,12 +3053,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3157,10 +3085,9 @@ const de_TagResourceCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3178,12 +3105,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3210,10 +3137,9 @@ const de_UntagResourceCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3236,7 +3162,7 @@ export const de_UpdateAcceleratorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3266,10 +3192,9 @@ const de_UpdateAcceleratorCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3287,12 +3212,12 @@ export const de_UpdateAcceleratorAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateAcceleratorAttributesResponse(data, context);
+  contents = _json(data);
   const response: UpdateAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3322,10 +3247,9 @@ const de_UpdateAcceleratorAttributesCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3348,7 +3272,7 @@ export const de_UpdateCustomRoutingAcceleratorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3375,10 +3299,9 @@ const de_UpdateCustomRoutingAcceleratorCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3396,12 +3319,12 @@ export const de_UpdateCustomRoutingAcceleratorAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateCustomRoutingAcceleratorAttributesResponse(data, context);
+  contents = _json(data);
   const response: UpdateCustomRoutingAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3431,10 +3354,9 @@ const de_UpdateCustomRoutingAcceleratorAttributesCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3452,12 +3374,12 @@ export const de_UpdateCustomRoutingListenerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateCustomRoutingListenerResponse(data, context);
+  contents = _json(data);
   const response: UpdateCustomRoutingListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3490,10 +3412,9 @@ const de_UpdateCustomRoutingListenerCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3516,7 +3437,7 @@ export const de_UpdateEndpointGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3549,10 +3470,9 @@ const de_UpdateEndpointGroupCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3570,12 +3490,12 @@ export const de_UpdateListenerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateListenerResponse(data, context);
+  contents = _json(data);
   const response: UpdateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3608,10 +3528,9 @@ const de_UpdateListenerCommandError = async (
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3634,7 +3553,7 @@ export const de_WithdrawByoipCidrCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3667,10 +3586,9 @@ const de_WithdrawByoipCidrCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3684,7 +3602,7 @@ const de_AcceleratorNotDisabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<AcceleratorNotDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AcceleratorNotDisabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AcceleratorNotDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3700,7 +3618,7 @@ const de_AcceleratorNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<AcceleratorNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AcceleratorNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AcceleratorNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3716,7 +3634,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3732,7 +3650,7 @@ const de_AssociatedEndpointGroupFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<AssociatedEndpointGroupFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AssociatedEndpointGroupFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AssociatedEndpointGroupFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3748,7 +3666,7 @@ const de_AssociatedListenerFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<AssociatedListenerFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AssociatedListenerFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AssociatedListenerFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3764,7 +3682,7 @@ const de_ByoipCidrNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ByoipCidrNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ByoipCidrNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ByoipCidrNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3777,7 +3695,7 @@ const de_ByoipCidrNotFoundExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3793,7 +3711,7 @@ const de_EndpointAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<EndpointAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EndpointAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EndpointAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3809,7 +3727,7 @@ const de_EndpointGroupAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<EndpointGroupAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EndpointGroupAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EndpointGroupAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3825,7 +3743,7 @@ const de_EndpointGroupNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<EndpointGroupNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EndpointGroupNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EndpointGroupNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3841,7 +3759,7 @@ const de_EndpointNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<EndpointNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EndpointNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EndpointNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3857,7 +3775,7 @@ const de_IncorrectCidrStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<IncorrectCidrStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IncorrectCidrStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IncorrectCidrStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3873,7 +3791,7 @@ const de_InternalServiceErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServiceErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3889,7 +3807,7 @@ const de_InvalidArgumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidArgumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3905,7 +3823,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3921,7 +3839,7 @@ const de_InvalidPortRangeExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPortRangeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPortRangeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPortRangeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3937,7 +3855,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3953,7 +3871,7 @@ const de_ListenerNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ListenerNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ListenerNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ListenerNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3969,7 +3887,7 @@ const de_TransactionInProgressExceptionRes = async (
   context: __SerdeContext
 ): Promise<TransactionInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TransactionInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TransactionInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3977,76 +3895,28 @@ const de_TransactionInProgressExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AddCustomRoutingEndpointsRequest
- */
-const se_AddCustomRoutingEndpointsRequest = (input: AddCustomRoutingEndpointsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointConfigurations != null && {
-      EndpointConfigurations: se_CustomRoutingEndpointConfigurations(input.EndpointConfigurations, context),
-    }),
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-  };
-};
+// se_AddCustomRoutingEndpointsRequest omitted.
 
-/**
- * serializeAws_json1_1AddEndpointsRequest
- */
-const se_AddEndpointsRequest = (input: AddEndpointsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointConfigurations != null && {
-      EndpointConfigurations: se_EndpointConfigurations(input.EndpointConfigurations, context),
-    }),
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-  };
-};
+// se_AddEndpointsRequest omitted.
 
-/**
- * serializeAws_json1_1AdvertiseByoipCidrRequest
- */
-const se_AdvertiseByoipCidrRequest = (input: AdvertiseByoipCidrRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Cidr != null && { Cidr: input.Cidr }),
-  };
-};
+// se_AdvertiseByoipCidrRequest omitted.
 
-/**
- * serializeAws_json1_1AllowCustomRoutingTrafficRequest
- */
-const se_AllowCustomRoutingTrafficRequest = (input: AllowCustomRoutingTrafficRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowAllTrafficToEndpoint != null && { AllowAllTrafficToEndpoint: input.AllowAllTrafficToEndpoint }),
-    ...(input.DestinationAddresses != null && {
-      DestinationAddresses: se_DestinationAddresses(input.DestinationAddresses, context),
-    }),
-    ...(input.DestinationPorts != null && { DestinationPorts: se_DestinationPorts(input.DestinationPorts, context) }),
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
-  };
-};
+// se_AllowCustomRoutingTrafficRequest omitted.
 
-/**
- * serializeAws_json1_1CidrAuthorizationContext
- */
-const se_CidrAuthorizationContext = (input: CidrAuthorizationContext, context: __SerdeContext): any => {
-  return {
-    ...(input.Message != null && { Message: input.Message }),
-    ...(input.Signature != null && { Signature: input.Signature }),
-  };
-};
+// se_CidrAuthorizationContext omitted.
 
 /**
  * serializeAws_json1_1CreateAcceleratorRequest
  */
 const se_CreateAcceleratorRequest = (input: CreateAcceleratorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IpAddressType != null && { IpAddressType: input.IpAddressType }),
-    ...(input.IpAddresses != null && { IpAddresses: se_IpAddresses(input.IpAddresses, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
+  return take(input, {
+    Enabled: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IpAddressType: [],
+    IpAddresses: (_) => _json(_),
+    Name: [],
+    Tags: (_) => _json(_),
+  });
 };
 
 /**
@@ -4056,14 +3926,14 @@ const se_CreateCustomRoutingAcceleratorRequest = (
   input: CreateCustomRoutingAcceleratorRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IpAddressType != null && { IpAddressType: input.IpAddressType }),
-    ...(input.IpAddresses != null && { IpAddresses: se_IpAddresses(input.IpAddresses, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
+  return take(input, {
+    Enabled: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IpAddressType: [],
+    IpAddresses: (_) => _json(_),
+    Name: [],
+    Tags: (_) => _json(_),
+  });
 };
 
 /**
@@ -4073,14 +3943,12 @@ const se_CreateCustomRoutingEndpointGroupRequest = (
   input: CreateCustomRoutingEndpointGroupRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DestinationConfigurations != null && {
-      DestinationConfigurations: se_CustomRoutingDestinationConfigurations(input.DestinationConfigurations, context),
-    }),
-    ...(input.EndpointGroupRegion != null && { EndpointGroupRegion: input.EndpointGroupRegion }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-  };
+  return take(input, {
+    DestinationConfigurations: (_) => _json(_),
+    EndpointGroupRegion: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    ListenerArn: [],
+  });
 };
 
 /**
@@ -4090,789 +3958,207 @@ const se_CreateCustomRoutingListenerRequest = (
   input: CreateCustomRoutingListenerRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PortRanges != null && { PortRanges: se_PortRanges(input.PortRanges, context) }),
-  };
+  return take(input, {
+    AcceleratorArn: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    PortRanges: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1CreateEndpointGroupRequest
  */
 const se_CreateEndpointGroupRequest = (input: CreateEndpointGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointConfigurations != null && {
-      EndpointConfigurations: se_EndpointConfigurations(input.EndpointConfigurations, context),
-    }),
-    ...(input.EndpointGroupRegion != null && { EndpointGroupRegion: input.EndpointGroupRegion }),
-    ...(input.HealthCheckIntervalSeconds != null && { HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds }),
-    ...(input.HealthCheckPath != null && { HealthCheckPath: input.HealthCheckPath }),
-    ...(input.HealthCheckPort != null && { HealthCheckPort: input.HealthCheckPort }),
-    ...(input.HealthCheckProtocol != null && { HealthCheckProtocol: input.HealthCheckProtocol }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-    ...(input.PortOverrides != null && { PortOverrides: se_PortOverrides(input.PortOverrides, context) }),
-    ...(input.ThresholdCount != null && { ThresholdCount: input.ThresholdCount }),
-    ...(input.TrafficDialPercentage != null && {
-      TrafficDialPercentage: __serializeFloat(input.TrafficDialPercentage),
-    }),
-  };
+  return take(input, {
+    EndpointConfigurations: (_) => _json(_),
+    EndpointGroupRegion: [],
+    HealthCheckIntervalSeconds: [],
+    HealthCheckPath: [],
+    HealthCheckPort: [],
+    HealthCheckProtocol: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    ListenerArn: [],
+    PortOverrides: (_) => _json(_),
+    ThresholdCount: [],
+    TrafficDialPercentage: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_json1_1CreateListenerRequest
  */
 const se_CreateListenerRequest = (input: CreateListenerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.ClientAffinity != null && { ClientAffinity: input.ClientAffinity }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PortRanges != null && { PortRanges: se_PortRanges(input.PortRanges, context) }),
-    ...(input.Protocol != null && { Protocol: input.Protocol }),
-  };
+  return take(input, {
+    AcceleratorArn: [],
+    ClientAffinity: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    PortRanges: (_) => _json(_),
+    Protocol: [],
+  });
 };
 
-/**
- * serializeAws_json1_1CustomRoutingDestinationConfiguration
- */
-const se_CustomRoutingDestinationConfiguration = (
-  input: CustomRoutingDestinationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FromPort != null && { FromPort: input.FromPort }),
-    ...(input.Protocols != null && { Protocols: se_CustomRoutingProtocols(input.Protocols, context) }),
-    ...(input.ToPort != null && { ToPort: input.ToPort }),
-  };
-};
+// se_CustomRoutingDestinationConfiguration omitted.
 
-/**
- * serializeAws_json1_1CustomRoutingDestinationConfigurations
- */
-const se_CustomRoutingDestinationConfigurations = (
-  input: CustomRoutingDestinationConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CustomRoutingDestinationConfiguration(entry, context);
-    });
-};
+// se_CustomRoutingDestinationConfigurations omitted.
 
-/**
- * serializeAws_json1_1CustomRoutingEndpointConfiguration
- */
-const se_CustomRoutingEndpointConfiguration = (
-  input: CustomRoutingEndpointConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
-  };
-};
+// se_CustomRoutingEndpointConfiguration omitted.
 
-/**
- * serializeAws_json1_1CustomRoutingEndpointConfigurations
- */
-const se_CustomRoutingEndpointConfigurations = (
-  input: CustomRoutingEndpointConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CustomRoutingEndpointConfiguration(entry, context);
-    });
-};
+// se_CustomRoutingEndpointConfigurations omitted.
 
-/**
- * serializeAws_json1_1CustomRoutingProtocols
- */
-const se_CustomRoutingProtocols = (input: (CustomRoutingProtocol | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CustomRoutingProtocols omitted.
 
-/**
- * serializeAws_json1_1DeleteAcceleratorRequest
- */
-const se_DeleteAcceleratorRequest = (input: DeleteAcceleratorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-  };
-};
+// se_DeleteAcceleratorRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteCustomRoutingAcceleratorRequest
- */
-const se_DeleteCustomRoutingAcceleratorRequest = (
-  input: DeleteCustomRoutingAcceleratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-  };
-};
+// se_DeleteCustomRoutingAcceleratorRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteCustomRoutingEndpointGroupRequest
- */
-const se_DeleteCustomRoutingEndpointGroupRequest = (
-  input: DeleteCustomRoutingEndpointGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-  };
-};
+// se_DeleteCustomRoutingEndpointGroupRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteCustomRoutingListenerRequest
- */
-const se_DeleteCustomRoutingListenerRequest = (
-  input: DeleteCustomRoutingListenerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-  };
-};
+// se_DeleteCustomRoutingListenerRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteEndpointGroupRequest
- */
-const se_DeleteEndpointGroupRequest = (input: DeleteEndpointGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-  };
-};
+// se_DeleteEndpointGroupRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteListenerRequest
- */
-const se_DeleteListenerRequest = (input: DeleteListenerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-  };
-};
+// se_DeleteListenerRequest omitted.
 
-/**
- * serializeAws_json1_1DenyCustomRoutingTrafficRequest
- */
-const se_DenyCustomRoutingTrafficRequest = (input: DenyCustomRoutingTrafficRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DenyAllTrafficToEndpoint != null && { DenyAllTrafficToEndpoint: input.DenyAllTrafficToEndpoint }),
-    ...(input.DestinationAddresses != null && {
-      DestinationAddresses: se_DestinationAddresses(input.DestinationAddresses, context),
-    }),
-    ...(input.DestinationPorts != null && { DestinationPorts: se_DestinationPorts(input.DestinationPorts, context) }),
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
-  };
-};
+// se_DenyCustomRoutingTrafficRequest omitted.
 
-/**
- * serializeAws_json1_1DeprovisionByoipCidrRequest
- */
-const se_DeprovisionByoipCidrRequest = (input: DeprovisionByoipCidrRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Cidr != null && { Cidr: input.Cidr }),
-  };
-};
+// se_DeprovisionByoipCidrRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAcceleratorAttributesRequest
- */
-const se_DescribeAcceleratorAttributesRequest = (
-  input: DescribeAcceleratorAttributesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-  };
-};
+// se_DescribeAcceleratorAttributesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAcceleratorRequest
- */
-const se_DescribeAcceleratorRequest = (input: DescribeAcceleratorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-  };
-};
+// se_DescribeAcceleratorRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesRequest
- */
-const se_DescribeCustomRoutingAcceleratorAttributesRequest = (
-  input: DescribeCustomRoutingAcceleratorAttributesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-  };
-};
+// se_DescribeCustomRoutingAcceleratorAttributesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCustomRoutingAcceleratorRequest
- */
-const se_DescribeCustomRoutingAcceleratorRequest = (
-  input: DescribeCustomRoutingAcceleratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-  };
-};
+// se_DescribeCustomRoutingAcceleratorRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCustomRoutingEndpointGroupRequest
- */
-const se_DescribeCustomRoutingEndpointGroupRequest = (
-  input: DescribeCustomRoutingEndpointGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-  };
-};
+// se_DescribeCustomRoutingEndpointGroupRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCustomRoutingListenerRequest
- */
-const se_DescribeCustomRoutingListenerRequest = (
-  input: DescribeCustomRoutingListenerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-  };
-};
+// se_DescribeCustomRoutingListenerRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEndpointGroupRequest
- */
-const se_DescribeEndpointGroupRequest = (input: DescribeEndpointGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-  };
-};
+// se_DescribeEndpointGroupRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeListenerRequest
- */
-const se_DescribeListenerRequest = (input: DescribeListenerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-  };
-};
+// se_DescribeListenerRequest omitted.
 
-/**
- * serializeAws_json1_1DestinationAddresses
- */
-const se_DestinationAddresses = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DestinationAddresses omitted.
 
-/**
- * serializeAws_json1_1DestinationPorts
- */
-const se_DestinationPorts = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DestinationPorts omitted.
 
-/**
- * serializeAws_json1_1EndpointConfiguration
- */
-const se_EndpointConfiguration = (input: EndpointConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientIPPreservationEnabled != null && {
-      ClientIPPreservationEnabled: input.ClientIPPreservationEnabled,
-    }),
-    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
-    ...(input.Weight != null && { Weight: input.Weight }),
-  };
-};
+// se_EndpointConfiguration omitted.
 
-/**
- * serializeAws_json1_1EndpointConfigurations
- */
-const se_EndpointConfigurations = (input: EndpointConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EndpointConfiguration(entry, context);
-    });
-};
+// se_EndpointConfigurations omitted.
 
-/**
- * serializeAws_json1_1EndpointIdentifier
- */
-const se_EndpointIdentifier = (input: EndpointIdentifier, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientIPPreservationEnabled != null && {
-      ClientIPPreservationEnabled: input.ClientIPPreservationEnabled,
-    }),
-    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
-  };
-};
+// se_EndpointIdentifier omitted.
 
-/**
- * serializeAws_json1_1EndpointIdentifiers
- */
-const se_EndpointIdentifiers = (input: EndpointIdentifier[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EndpointIdentifier(entry, context);
-    });
-};
+// se_EndpointIdentifiers omitted.
 
-/**
- * serializeAws_json1_1EndpointIds
- */
-const se_EndpointIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EndpointIds omitted.
 
-/**
- * serializeAws_json1_1IpAddresses
- */
-const se_IpAddresses = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IpAddresses omitted.
 
-/**
- * serializeAws_json1_1ListAcceleratorsRequest
- */
-const se_ListAcceleratorsRequest = (input: ListAcceleratorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListAcceleratorsRequest omitted.
 
-/**
- * serializeAws_json1_1ListByoipCidrsRequest
- */
-const se_ListByoipCidrsRequest = (input: ListByoipCidrsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListByoipCidrsRequest omitted.
 
-/**
- * serializeAws_json1_1ListCustomRoutingAcceleratorsRequest
- */
-const se_ListCustomRoutingAcceleratorsRequest = (
-  input: ListCustomRoutingAcceleratorsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCustomRoutingAcceleratorsRequest omitted.
 
-/**
- * serializeAws_json1_1ListCustomRoutingEndpointGroupsRequest
- */
-const se_ListCustomRoutingEndpointGroupsRequest = (
-  input: ListCustomRoutingEndpointGroupsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCustomRoutingEndpointGroupsRequest omitted.
 
-/**
- * serializeAws_json1_1ListCustomRoutingListenersRequest
- */
-const se_ListCustomRoutingListenersRequest = (
-  input: ListCustomRoutingListenersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCustomRoutingListenersRequest omitted.
 
-/**
- * serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationRequest
- */
-const se_ListCustomRoutingPortMappingsByDestinationRequest = (
-  input: ListCustomRoutingPortMappingsByDestinationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DestinationAddress != null && { DestinationAddress: input.DestinationAddress }),
-    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCustomRoutingPortMappingsByDestinationRequest omitted.
 
-/**
- * serializeAws_json1_1ListCustomRoutingPortMappingsRequest
- */
-const se_ListCustomRoutingPortMappingsRequest = (
-  input: ListCustomRoutingPortMappingsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCustomRoutingPortMappingsRequest omitted.
 
-/**
- * serializeAws_json1_1ListEndpointGroupsRequest
- */
-const se_ListEndpointGroupsRequest = (input: ListEndpointGroupsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListEndpointGroupsRequest omitted.
 
-/**
- * serializeAws_json1_1ListListenersRequest
- */
-const se_ListListenersRequest = (input: ListListenersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListListenersRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1PortOverride
- */
-const se_PortOverride = (input: PortOverride, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointPort != null && { EndpointPort: input.EndpointPort }),
-    ...(input.ListenerPort != null && { ListenerPort: input.ListenerPort }),
-  };
-};
+// se_PortOverride omitted.
 
-/**
- * serializeAws_json1_1PortOverrides
- */
-const se_PortOverrides = (input: PortOverride[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PortOverride(entry, context);
-    });
-};
+// se_PortOverrides omitted.
 
-/**
- * serializeAws_json1_1PortRange
- */
-const se_PortRange = (input: PortRange, context: __SerdeContext): any => {
-  return {
-    ...(input.FromPort != null && { FromPort: input.FromPort }),
-    ...(input.ToPort != null && { ToPort: input.ToPort }),
-  };
-};
+// se_PortRange omitted.
 
-/**
- * serializeAws_json1_1PortRanges
- */
-const se_PortRanges = (input: PortRange[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PortRange(entry, context);
-    });
-};
+// se_PortRanges omitted.
 
-/**
- * serializeAws_json1_1ProvisionByoipCidrRequest
- */
-const se_ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Cidr != null && { Cidr: input.Cidr }),
-    ...(input.CidrAuthorizationContext != null && {
-      CidrAuthorizationContext: se_CidrAuthorizationContext(input.CidrAuthorizationContext, context),
-    }),
-  };
-};
+// se_ProvisionByoipCidrRequest omitted.
 
-/**
- * serializeAws_json1_1RemoveCustomRoutingEndpointsRequest
- */
-const se_RemoveCustomRoutingEndpointsRequest = (
-  input: RemoveCustomRoutingEndpointsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointIds != null && { EndpointIds: se_EndpointIds(input.EndpointIds, context) }),
-  };
-};
+// se_RemoveCustomRoutingEndpointsRequest omitted.
 
-/**
- * serializeAws_json1_1RemoveEndpointsRequest
- */
-const se_RemoveEndpointsRequest = (input: RemoveEndpointsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointIdentifiers != null && {
-      EndpointIdentifiers: se_EndpointIdentifiers(input.EndpointIdentifiers, context),
-    }),
-  };
-};
+// se_RemoveEndpointsRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAcceleratorAttributesRequest
- */
-const se_UpdateAcceleratorAttributesRequest = (
-  input: UpdateAcceleratorAttributesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.FlowLogsEnabled != null && { FlowLogsEnabled: input.FlowLogsEnabled }),
-    ...(input.FlowLogsS3Bucket != null && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
-    ...(input.FlowLogsS3Prefix != null && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
-  };
-};
+// se_UpdateAcceleratorAttributesRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAcceleratorRequest
- */
-const se_UpdateAcceleratorRequest = (input: UpdateAcceleratorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.IpAddressType != null && { IpAddressType: input.IpAddressType }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_UpdateAcceleratorRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesRequest
- */
-const se_UpdateCustomRoutingAcceleratorAttributesRequest = (
-  input: UpdateCustomRoutingAcceleratorAttributesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.FlowLogsEnabled != null && { FlowLogsEnabled: input.FlowLogsEnabled }),
-    ...(input.FlowLogsS3Bucket != null && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
-    ...(input.FlowLogsS3Prefix != null && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
-  };
-};
+// se_UpdateCustomRoutingAcceleratorAttributesRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateCustomRoutingAcceleratorRequest
- */
-const se_UpdateCustomRoutingAcceleratorRequest = (
-  input: UpdateCustomRoutingAcceleratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.IpAddressType != null && { IpAddressType: input.IpAddressType }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_UpdateCustomRoutingAcceleratorRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateCustomRoutingListenerRequest
- */
-const se_UpdateCustomRoutingListenerRequest = (
-  input: UpdateCustomRoutingListenerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-    ...(input.PortRanges != null && { PortRanges: se_PortRanges(input.PortRanges, context) }),
-  };
-};
+// se_UpdateCustomRoutingListenerRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateEndpointGroupRequest
  */
 const se_UpdateEndpointGroupRequest = (input: UpdateEndpointGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointConfigurations != null && {
-      EndpointConfigurations: se_EndpointConfigurations(input.EndpointConfigurations, context),
-    }),
-    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.HealthCheckIntervalSeconds != null && { HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds }),
-    ...(input.HealthCheckPath != null && { HealthCheckPath: input.HealthCheckPath }),
-    ...(input.HealthCheckPort != null && { HealthCheckPort: input.HealthCheckPort }),
-    ...(input.HealthCheckProtocol != null && { HealthCheckProtocol: input.HealthCheckProtocol }),
-    ...(input.PortOverrides != null && { PortOverrides: se_PortOverrides(input.PortOverrides, context) }),
-    ...(input.ThresholdCount != null && { ThresholdCount: input.ThresholdCount }),
-    ...(input.TrafficDialPercentage != null && {
-      TrafficDialPercentage: __serializeFloat(input.TrafficDialPercentage),
-    }),
-  };
+  return take(input, {
+    EndpointConfigurations: (_) => _json(_),
+    EndpointGroupArn: [],
+    HealthCheckIntervalSeconds: [],
+    HealthCheckPath: [],
+    HealthCheckPort: [],
+    HealthCheckProtocol: [],
+    PortOverrides: (_) => _json(_),
+    ThresholdCount: [],
+    TrafficDialPercentage: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateListenerRequest
- */
-const se_UpdateListenerRequest = (input: UpdateListenerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientAffinity != null && { ClientAffinity: input.ClientAffinity }),
-    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
-    ...(input.PortRanges != null && { PortRanges: se_PortRanges(input.PortRanges, context) }),
-    ...(input.Protocol != null && { Protocol: input.Protocol }),
-  };
-};
+// se_UpdateListenerRequest omitted.
 
-/**
- * serializeAws_json1_1WithdrawByoipCidrRequest
- */
-const se_WithdrawByoipCidrRequest = (input: WithdrawByoipCidrRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Cidr != null && { Cidr: input.Cidr }),
-  };
-};
+// se_WithdrawByoipCidrRequest omitted.
 
 /**
  * deserializeAws_json1_1Accelerator
  */
 const de_Accelerator = (output: any, context: __SerdeContext): Accelerator => {
-  return {
-    AcceleratorArn: __expectString(output.AcceleratorArn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    DnsName: __expectString(output.DnsName),
-    DualStackDnsName: __expectString(output.DualStackDnsName),
-    Enabled: __expectBoolean(output.Enabled),
-    Events: output.Events != null ? de_AcceleratorEvents(output.Events, context) : undefined,
-    IpAddressType: __expectString(output.IpAddressType),
-    IpSets: output.IpSets != null ? de_IpSets(output.IpSets, context) : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AcceleratorArn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DnsName: __expectString,
+    DualStackDnsName: __expectString,
+    Enabled: __expectBoolean,
+    Events: (_: any) => de_AcceleratorEvents(_, context),
+    IpAddressType: __expectString,
+    IpSets: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AcceleratorAttributes
- */
-const de_AcceleratorAttributes = (output: any, context: __SerdeContext): AcceleratorAttributes => {
-  return {
-    FlowLogsEnabled: __expectBoolean(output.FlowLogsEnabled),
-    FlowLogsS3Bucket: __expectString(output.FlowLogsS3Bucket),
-    FlowLogsS3Prefix: __expectString(output.FlowLogsS3Prefix),
-  } as any;
-};
+// de_AcceleratorAttributes omitted.
 
 /**
  * deserializeAws_json1_1AcceleratorEvent
  */
 const de_AcceleratorEvent = (output: any, context: __SerdeContext): AcceleratorEvent => {
-  return {
-    Message: __expectString(output.Message),
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-  } as any;
+  return take(output, {
+    Message: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4882,31 +4168,14 @@ const de_AcceleratorEvents = (output: any, context: __SerdeContext): Accelerator
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AcceleratorEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AcceleratorNotDisabledException
- */
-const de_AcceleratorNotDisabledException = (output: any, context: __SerdeContext): AcceleratorNotDisabledException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AcceleratorNotDisabledException omitted.
 
-/**
- * deserializeAws_json1_1AcceleratorNotFoundException
- */
-const de_AcceleratorNotFoundException = (output: any, context: __SerdeContext): AcceleratorNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AcceleratorNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1Accelerators
@@ -4915,103 +4184,49 @@ const de_Accelerators = (output: any, context: __SerdeContext): Accelerator[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Accelerator(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AddCustomRoutingEndpointsResponse
- */
-const de_AddCustomRoutingEndpointsResponse = (
-  output: any,
-  context: __SerdeContext
-): AddCustomRoutingEndpointsResponse => {
-  return {
-    EndpointDescriptions:
-      output.EndpointDescriptions != null
-        ? de_CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
-        : undefined,
-    EndpointGroupArn: __expectString(output.EndpointGroupArn),
-  } as any;
-};
+// de_AddCustomRoutingEndpointsResponse omitted.
 
-/**
- * deserializeAws_json1_1AddEndpointsResponse
- */
-const de_AddEndpointsResponse = (output: any, context: __SerdeContext): AddEndpointsResponse => {
-  return {
-    EndpointDescriptions:
-      output.EndpointDescriptions != null ? de_EndpointDescriptions(output.EndpointDescriptions, context) : undefined,
-    EndpointGroupArn: __expectString(output.EndpointGroupArn),
-  } as any;
-};
+// de_AddEndpointsResponse omitted.
 
 /**
  * deserializeAws_json1_1AdvertiseByoipCidrResponse
  */
 const de_AdvertiseByoipCidrResponse = (output: any, context: __SerdeContext): AdvertiseByoipCidrResponse => {
-  return {
-    ByoipCidr: output.ByoipCidr != null ? de_ByoipCidr(output.ByoipCidr, context) : undefined,
-  } as any;
+  return take(output, {
+    ByoipCidr: (_: any) => de_ByoipCidr(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AssociatedEndpointGroupFoundException
- */
-const de_AssociatedEndpointGroupFoundException = (
-  output: any,
-  context: __SerdeContext
-): AssociatedEndpointGroupFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AssociatedEndpointGroupFoundException omitted.
 
-/**
- * deserializeAws_json1_1AssociatedListenerFoundException
- */
-const de_AssociatedListenerFoundException = (
-  output: any,
-  context: __SerdeContext
-): AssociatedListenerFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AssociatedListenerFoundException omitted.
 
 /**
  * deserializeAws_json1_1ByoipCidr
  */
 const de_ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
-  return {
-    Cidr: __expectString(output.Cidr),
-    Events: output.Events != null ? de_ByoipCidrEvents(output.Events, context) : undefined,
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    Cidr: __expectString,
+    Events: (_: any) => de_ByoipCidrEvents(_, context),
+    State: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ByoipCidrEvent
  */
 const de_ByoipCidrEvent = (output: any, context: __SerdeContext): ByoipCidrEvent => {
-  return {
-    Message: __expectString(output.Message),
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-  } as any;
+  return take(output, {
+    Message: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -5021,22 +4236,12 @@ const de_ByoipCidrEvents = (output: any, context: __SerdeContext): ByoipCidrEven
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ByoipCidrEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ByoipCidrNotFoundException
- */
-const de_ByoipCidrNotFoundException = (output: any, context: __SerdeContext): ByoipCidrNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ByoipCidrNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1ByoipCidrs
@@ -5045,30 +4250,20 @@ const de_ByoipCidrs = (output: any, context: __SerdeContext): ByoipCidr[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ByoipCidr(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_1CreateAcceleratorResponse
  */
 const de_CreateAcceleratorResponse = (output: any, context: __SerdeContext): CreateAcceleratorResponse => {
-  return {
-    Accelerator: output.Accelerator != null ? de_Accelerator(output.Accelerator, context) : undefined,
-  } as any;
+  return take(output, {
+    Accelerator: (_: any) => de_Accelerator(_, context),
+  }) as any;
 };
 
 /**
@@ -5078,90 +4273,44 @@ const de_CreateCustomRoutingAcceleratorResponse = (
   output: any,
   context: __SerdeContext
 ): CreateCustomRoutingAcceleratorResponse => {
-  return {
-    Accelerator: output.Accelerator != null ? de_CustomRoutingAccelerator(output.Accelerator, context) : undefined,
-  } as any;
+  return take(output, {
+    Accelerator: (_: any) => de_CustomRoutingAccelerator(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateCustomRoutingEndpointGroupResponse
- */
-const de_CreateCustomRoutingEndpointGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateCustomRoutingEndpointGroupResponse => {
-  return {
-    EndpointGroup:
-      output.EndpointGroup != null ? de_CustomRoutingEndpointGroup(output.EndpointGroup, context) : undefined,
-  } as any;
-};
+// de_CreateCustomRoutingEndpointGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateCustomRoutingListenerResponse
- */
-const de_CreateCustomRoutingListenerResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateCustomRoutingListenerResponse => {
-  return {
-    Listener: output.Listener != null ? de_CustomRoutingListener(output.Listener, context) : undefined,
-  } as any;
-};
+// de_CreateCustomRoutingListenerResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateEndpointGroupResponse
  */
 const de_CreateEndpointGroupResponse = (output: any, context: __SerdeContext): CreateEndpointGroupResponse => {
-  return {
-    EndpointGroup: output.EndpointGroup != null ? de_EndpointGroup(output.EndpointGroup, context) : undefined,
-  } as any;
+  return take(output, {
+    EndpointGroup: (_: any) => de_EndpointGroup(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateListenerResponse
- */
-const de_CreateListenerResponse = (output: any, context: __SerdeContext): CreateListenerResponse => {
-  return {
-    Listener: output.Listener != null ? de_Listener(output.Listener, context) : undefined,
-  } as any;
-};
+// de_CreateListenerResponse omitted.
 
 /**
  * deserializeAws_json1_1CustomRoutingAccelerator
  */
 const de_CustomRoutingAccelerator = (output: any, context: __SerdeContext): CustomRoutingAccelerator => {
-  return {
-    AcceleratorArn: __expectString(output.AcceleratorArn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    DnsName: __expectString(output.DnsName),
-    Enabled: __expectBoolean(output.Enabled),
-    IpAddressType: __expectString(output.IpAddressType),
-    IpSets: output.IpSets != null ? de_IpSets(output.IpSets, context) : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AcceleratorArn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DnsName: __expectString,
+    Enabled: __expectBoolean,
+    IpAddressType: __expectString,
+    IpSets: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CustomRoutingAcceleratorAttributes
- */
-const de_CustomRoutingAcceleratorAttributes = (
-  output: any,
-  context: __SerdeContext
-): CustomRoutingAcceleratorAttributes => {
-  return {
-    FlowLogsEnabled: __expectBoolean(output.FlowLogsEnabled),
-    FlowLogsS3Bucket: __expectString(output.FlowLogsS3Bucket),
-    FlowLogsS3Prefix: __expectString(output.FlowLogsS3Prefix),
-  } as any;
-};
+// de_CustomRoutingAcceleratorAttributes omitted.
 
 /**
  * deserializeAws_json1_1CustomRoutingAccelerators
@@ -5170,196 +4319,50 @@ const de_CustomRoutingAccelerators = (output: any, context: __SerdeContext): Cus
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CustomRoutingAccelerator(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CustomRoutingDestinationDescription
- */
-const de_CustomRoutingDestinationDescription = (
-  output: any,
-  context: __SerdeContext
-): CustomRoutingDestinationDescription => {
-  return {
-    FromPort: __expectInt32(output.FromPort),
-    Protocols: output.Protocols != null ? de_Protocols(output.Protocols, context) : undefined,
-    ToPort: __expectInt32(output.ToPort),
-  } as any;
-};
+// de_CustomRoutingDestinationDescription omitted.
 
-/**
- * deserializeAws_json1_1CustomRoutingDestinationDescriptions
- */
-const de_CustomRoutingDestinationDescriptions = (
-  output: any,
-  context: __SerdeContext
-): CustomRoutingDestinationDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CustomRoutingDestinationDescription(entry, context);
-    });
-  return retVal;
-};
+// de_CustomRoutingDestinationDescriptions omitted.
 
-/**
- * deserializeAws_json1_1CustomRoutingEndpointDescription
- */
-const de_CustomRoutingEndpointDescription = (
-  output: any,
-  context: __SerdeContext
-): CustomRoutingEndpointDescription => {
-  return {
-    EndpointId: __expectString(output.EndpointId),
-  } as any;
-};
+// de_CustomRoutingEndpointDescription omitted.
 
-/**
- * deserializeAws_json1_1CustomRoutingEndpointDescriptions
- */
-const de_CustomRoutingEndpointDescriptions = (
-  output: any,
-  context: __SerdeContext
-): CustomRoutingEndpointDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CustomRoutingEndpointDescription(entry, context);
-    });
-  return retVal;
-};
+// de_CustomRoutingEndpointDescriptions omitted.
 
-/**
- * deserializeAws_json1_1CustomRoutingEndpointGroup
- */
-const de_CustomRoutingEndpointGroup = (output: any, context: __SerdeContext): CustomRoutingEndpointGroup => {
-  return {
-    DestinationDescriptions:
-      output.DestinationDescriptions != null
-        ? de_CustomRoutingDestinationDescriptions(output.DestinationDescriptions, context)
-        : undefined,
-    EndpointDescriptions:
-      output.EndpointDescriptions != null
-        ? de_CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
-        : undefined,
-    EndpointGroupArn: __expectString(output.EndpointGroupArn),
-    EndpointGroupRegion: __expectString(output.EndpointGroupRegion),
-  } as any;
-};
+// de_CustomRoutingEndpointGroup omitted.
 
-/**
- * deserializeAws_json1_1CustomRoutingEndpointGroups
- */
-const de_CustomRoutingEndpointGroups = (output: any, context: __SerdeContext): CustomRoutingEndpointGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CustomRoutingEndpointGroup(entry, context);
-    });
-  return retVal;
-};
+// de_CustomRoutingEndpointGroups omitted.
 
-/**
- * deserializeAws_json1_1CustomRoutingListener
- */
-const de_CustomRoutingListener = (output: any, context: __SerdeContext): CustomRoutingListener => {
-  return {
-    ListenerArn: __expectString(output.ListenerArn),
-    PortRanges: output.PortRanges != null ? de_PortRanges(output.PortRanges, context) : undefined,
-  } as any;
-};
+// de_CustomRoutingListener omitted.
 
-/**
- * deserializeAws_json1_1CustomRoutingListeners
- */
-const de_CustomRoutingListeners = (output: any, context: __SerdeContext): CustomRoutingListener[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CustomRoutingListener(entry, context);
-    });
-  return retVal;
-};
+// de_CustomRoutingListeners omitted.
 
-/**
- * deserializeAws_json1_1CustomRoutingProtocols
- */
-const de_CustomRoutingProtocols = (output: any, context: __SerdeContext): (CustomRoutingProtocol | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CustomRoutingProtocols omitted.
 
 /**
  * deserializeAws_json1_1DeprovisionByoipCidrResponse
  */
 const de_DeprovisionByoipCidrResponse = (output: any, context: __SerdeContext): DeprovisionByoipCidrResponse => {
-  return {
-    ByoipCidr: output.ByoipCidr != null ? de_ByoipCidr(output.ByoipCidr, context) : undefined,
-  } as any;
+  return take(output, {
+    ByoipCidr: (_: any) => de_ByoipCidr(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeAcceleratorAttributesResponse
- */
-const de_DescribeAcceleratorAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAcceleratorAttributesResponse => {
-  return {
-    AcceleratorAttributes:
-      output.AcceleratorAttributes != null
-        ? de_AcceleratorAttributes(output.AcceleratorAttributes, context)
-        : undefined,
-  } as any;
-};
+// de_DescribeAcceleratorAttributesResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeAcceleratorResponse
  */
 const de_DescribeAcceleratorResponse = (output: any, context: __SerdeContext): DescribeAcceleratorResponse => {
-  return {
-    Accelerator: output.Accelerator != null ? de_Accelerator(output.Accelerator, context) : undefined,
-  } as any;
+  return take(output, {
+    Accelerator: (_: any) => de_Accelerator(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesResponse
- */
-const de_DescribeCustomRoutingAcceleratorAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCustomRoutingAcceleratorAttributesResponse => {
-  return {
-    AcceleratorAttributes:
-      output.AcceleratorAttributes != null
-        ? de_CustomRoutingAcceleratorAttributes(output.AcceleratorAttributes, context)
-        : undefined,
-  } as any;
-};
+// de_DescribeCustomRoutingAcceleratorAttributesResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeCustomRoutingAcceleratorResponse
@@ -5368,165 +4371,57 @@ const de_DescribeCustomRoutingAcceleratorResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCustomRoutingAcceleratorResponse => {
-  return {
-    Accelerator: output.Accelerator != null ? de_CustomRoutingAccelerator(output.Accelerator, context) : undefined,
-  } as any;
+  return take(output, {
+    Accelerator: (_: any) => de_CustomRoutingAccelerator(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeCustomRoutingEndpointGroupResponse
- */
-const de_DescribeCustomRoutingEndpointGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCustomRoutingEndpointGroupResponse => {
-  return {
-    EndpointGroup:
-      output.EndpointGroup != null ? de_CustomRoutingEndpointGroup(output.EndpointGroup, context) : undefined,
-  } as any;
-};
+// de_DescribeCustomRoutingEndpointGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeCustomRoutingListenerResponse
- */
-const de_DescribeCustomRoutingListenerResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCustomRoutingListenerResponse => {
-  return {
-    Listener: output.Listener != null ? de_CustomRoutingListener(output.Listener, context) : undefined,
-  } as any;
-};
+// de_DescribeCustomRoutingListenerResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeEndpointGroupResponse
  */
 const de_DescribeEndpointGroupResponse = (output: any, context: __SerdeContext): DescribeEndpointGroupResponse => {
-  return {
-    EndpointGroup: output.EndpointGroup != null ? de_EndpointGroup(output.EndpointGroup, context) : undefined,
-  } as any;
+  return take(output, {
+    EndpointGroup: (_: any) => de_EndpointGroup(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeListenerResponse
- */
-const de_DescribeListenerResponse = (output: any, context: __SerdeContext): DescribeListenerResponse => {
-  return {
-    Listener: output.Listener != null ? de_Listener(output.Listener, context) : undefined,
-  } as any;
-};
+// de_DescribeListenerResponse omitted.
 
-/**
- * deserializeAws_json1_1DestinationPortMapping
- */
-const de_DestinationPortMapping = (output: any, context: __SerdeContext): DestinationPortMapping => {
-  return {
-    AcceleratorArn: __expectString(output.AcceleratorArn),
-    AcceleratorSocketAddresses:
-      output.AcceleratorSocketAddresses != null
-        ? de_SocketAddresses(output.AcceleratorSocketAddresses, context)
-        : undefined,
-    DestinationSocketAddress:
-      output.DestinationSocketAddress != null ? de_SocketAddress(output.DestinationSocketAddress, context) : undefined,
-    DestinationTrafficState: __expectString(output.DestinationTrafficState),
-    EndpointGroupArn: __expectString(output.EndpointGroupArn),
-    EndpointGroupRegion: __expectString(output.EndpointGroupRegion),
-    EndpointId: __expectString(output.EndpointId),
-    IpAddressType: __expectString(output.IpAddressType),
-  } as any;
-};
+// de_DestinationPortMapping omitted.
 
-/**
- * deserializeAws_json1_1DestinationPortMappings
- */
-const de_DestinationPortMappings = (output: any, context: __SerdeContext): DestinationPortMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DestinationPortMapping(entry, context);
-    });
-  return retVal;
-};
+// de_DestinationPortMappings omitted.
 
-/**
- * deserializeAws_json1_1EndpointAlreadyExistsException
- */
-const de_EndpointAlreadyExistsException = (output: any, context: __SerdeContext): EndpointAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EndpointAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1EndpointDescription
- */
-const de_EndpointDescription = (output: any, context: __SerdeContext): EndpointDescription => {
-  return {
-    ClientIPPreservationEnabled: __expectBoolean(output.ClientIPPreservationEnabled),
-    EndpointId: __expectString(output.EndpointId),
-    HealthReason: __expectString(output.HealthReason),
-    HealthState: __expectString(output.HealthState),
-    Weight: __expectInt32(output.Weight),
-  } as any;
-};
+// de_EndpointDescription omitted.
 
-/**
- * deserializeAws_json1_1EndpointDescriptions
- */
-const de_EndpointDescriptions = (output: any, context: __SerdeContext): EndpointDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EndpointDescription(entry, context);
-    });
-  return retVal;
-};
+// de_EndpointDescriptions omitted.
 
 /**
  * deserializeAws_json1_1EndpointGroup
  */
 const de_EndpointGroup = (output: any, context: __SerdeContext): EndpointGroup => {
-  return {
-    EndpointDescriptions:
-      output.EndpointDescriptions != null ? de_EndpointDescriptions(output.EndpointDescriptions, context) : undefined,
-    EndpointGroupArn: __expectString(output.EndpointGroupArn),
-    EndpointGroupRegion: __expectString(output.EndpointGroupRegion),
-    HealthCheckIntervalSeconds: __expectInt32(output.HealthCheckIntervalSeconds),
-    HealthCheckPath: __expectString(output.HealthCheckPath),
-    HealthCheckPort: __expectInt32(output.HealthCheckPort),
-    HealthCheckProtocol: __expectString(output.HealthCheckProtocol),
-    PortOverrides: output.PortOverrides != null ? de_PortOverrides(output.PortOverrides, context) : undefined,
-    ThresholdCount: __expectInt32(output.ThresholdCount),
-    TrafficDialPercentage: __limitedParseFloat32(output.TrafficDialPercentage),
-  } as any;
+  return take(output, {
+    EndpointDescriptions: _json,
+    EndpointGroupArn: __expectString,
+    EndpointGroupRegion: __expectString,
+    HealthCheckIntervalSeconds: __expectInt32,
+    HealthCheckPath: __expectString,
+    HealthCheckPort: __expectInt32,
+    HealthCheckProtocol: __expectString,
+    PortOverrides: _json,
+    ThresholdCount: __expectInt32,
+    TrafficDialPercentage: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EndpointGroupAlreadyExistsException
- */
-const de_EndpointGroupAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): EndpointGroupAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EndpointGroupAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1EndpointGroupNotFoundException
- */
-const de_EndpointGroupNotFoundException = (output: any, context: __SerdeContext): EndpointGroupNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EndpointGroupNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1EndpointGroups
@@ -5535,136 +4430,49 @@ const de_EndpointGroups = (output: any, context: __SerdeContext): EndpointGroup[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EndpointGroup(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1EndpointNotFoundException
- */
-const de_EndpointNotFoundException = (output: any, context: __SerdeContext): EndpointNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EndpointNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1IncorrectCidrStateException
- */
-const de_IncorrectCidrStateException = (output: any, context: __SerdeContext): IncorrectCidrStateException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_IncorrectCidrStateException omitted.
 
-/**
- * deserializeAws_json1_1InternalServiceErrorException
- */
-const de_InternalServiceErrorException = (output: any, context: __SerdeContext): InternalServiceErrorException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServiceErrorException omitted.
 
-/**
- * deserializeAws_json1_1InvalidArgumentException
- */
-const de_InvalidArgumentException = (output: any, context: __SerdeContext): InvalidArgumentException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidArgumentException omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPortRangeException
- */
-const de_InvalidPortRangeException = (output: any, context: __SerdeContext): InvalidPortRangeException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidPortRangeException omitted.
 
-/**
- * deserializeAws_json1_1IpAddresses
- */
-const de_IpAddresses = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IpAddresses omitted.
 
-/**
- * deserializeAws_json1_1IpSet
- */
-const de_IpSet = (output: any, context: __SerdeContext): IpSet => {
-  return {
-    IpAddressFamily: __expectString(output.IpAddressFamily),
-    IpAddresses: output.IpAddresses != null ? de_IpAddresses(output.IpAddresses, context) : undefined,
-    IpFamily: __expectString(output.IpFamily),
-  } as any;
-};
+// de_IpSet omitted.
 
-/**
- * deserializeAws_json1_1IpSets
- */
-const de_IpSets = (output: any, context: __SerdeContext): IpSet[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IpSet(entry, context);
-    });
-  return retVal;
-};
+// de_IpSets omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListAcceleratorsResponse
  */
 const de_ListAcceleratorsResponse = (output: any, context: __SerdeContext): ListAcceleratorsResponse => {
-  return {
-    Accelerators: output.Accelerators != null ? de_Accelerators(output.Accelerators, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Accelerators: (_: any) => de_Accelerators(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListByoipCidrsResponse
  */
 const de_ListByoipCidrsResponse = (output: any, context: __SerdeContext): ListByoipCidrsResponse => {
-  return {
-    ByoipCidrs: output.ByoipCidrs != null ? de_ByoipCidrs(output.ByoipCidrs, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ByoipCidrs: (_: any) => de_ByoipCidrs(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -5674,348 +4482,89 @@ const de_ListCustomRoutingAcceleratorsResponse = (
   output: any,
   context: __SerdeContext
 ): ListCustomRoutingAcceleratorsResponse => {
-  return {
-    Accelerators: output.Accelerators != null ? de_CustomRoutingAccelerators(output.Accelerators, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Accelerators: (_: any) => de_CustomRoutingAccelerators(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListCustomRoutingEndpointGroupsResponse
- */
-const de_ListCustomRoutingEndpointGroupsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCustomRoutingEndpointGroupsResponse => {
-  return {
-    EndpointGroups:
-      output.EndpointGroups != null ? de_CustomRoutingEndpointGroups(output.EndpointGroups, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListCustomRoutingEndpointGroupsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListCustomRoutingListenersResponse
- */
-const de_ListCustomRoutingListenersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCustomRoutingListenersResponse => {
-  return {
-    Listeners: output.Listeners != null ? de_CustomRoutingListeners(output.Listeners, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListCustomRoutingListenersResponse omitted.
 
-/**
- * deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationResponse
- */
-const de_ListCustomRoutingPortMappingsByDestinationResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCustomRoutingPortMappingsByDestinationResponse => {
-  return {
-    DestinationPortMappings:
-      output.DestinationPortMappings != null
-        ? de_DestinationPortMappings(output.DestinationPortMappings, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListCustomRoutingPortMappingsByDestinationResponse omitted.
 
-/**
- * deserializeAws_json1_1ListCustomRoutingPortMappingsResponse
- */
-const de_ListCustomRoutingPortMappingsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCustomRoutingPortMappingsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PortMappings: output.PortMappings != null ? de_PortMappings(output.PortMappings, context) : undefined,
-  } as any;
-};
+// de_ListCustomRoutingPortMappingsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListEndpointGroupsResponse
  */
 const de_ListEndpointGroupsResponse = (output: any, context: __SerdeContext): ListEndpointGroupsResponse => {
-  return {
-    EndpointGroups: output.EndpointGroups != null ? de_EndpointGroups(output.EndpointGroups, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EndpointGroups: (_: any) => de_EndpointGroups(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Listener
- */
-const de_Listener = (output: any, context: __SerdeContext): Listener => {
-  return {
-    ClientAffinity: __expectString(output.ClientAffinity),
-    ListenerArn: __expectString(output.ListenerArn),
-    PortRanges: output.PortRanges != null ? de_PortRanges(output.PortRanges, context) : undefined,
-    Protocol: __expectString(output.Protocol),
-  } as any;
-};
+// de_Listener omitted.
 
-/**
- * deserializeAws_json1_1ListenerNotFoundException
- */
-const de_ListenerNotFoundException = (output: any, context: __SerdeContext): ListenerNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ListenerNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1Listeners
- */
-const de_Listeners = (output: any, context: __SerdeContext): Listener[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Listener(entry, context);
-    });
-  return retVal;
-};
+// de_Listeners omitted.
 
-/**
- * deserializeAws_json1_1ListListenersResponse
- */
-const de_ListListenersResponse = (output: any, context: __SerdeContext): ListListenersResponse => {
-  return {
-    Listeners: output.Listeners != null ? de_Listeners(output.Listeners, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListListenersResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1PortMapping
- */
-const de_PortMapping = (output: any, context: __SerdeContext): PortMapping => {
-  return {
-    AcceleratorPort: __expectInt32(output.AcceleratorPort),
-    DestinationSocketAddress:
-      output.DestinationSocketAddress != null ? de_SocketAddress(output.DestinationSocketAddress, context) : undefined,
-    DestinationTrafficState: __expectString(output.DestinationTrafficState),
-    EndpointGroupArn: __expectString(output.EndpointGroupArn),
-    EndpointId: __expectString(output.EndpointId),
-    Protocols: output.Protocols != null ? de_CustomRoutingProtocols(output.Protocols, context) : undefined,
-  } as any;
-};
+// de_PortMapping omitted.
 
-/**
- * deserializeAws_json1_1PortMappings
- */
-const de_PortMappings = (output: any, context: __SerdeContext): PortMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PortMapping(entry, context);
-    });
-  return retVal;
-};
+// de_PortMappings omitted.
 
-/**
- * deserializeAws_json1_1PortOverride
- */
-const de_PortOverride = (output: any, context: __SerdeContext): PortOverride => {
-  return {
-    EndpointPort: __expectInt32(output.EndpointPort),
-    ListenerPort: __expectInt32(output.ListenerPort),
-  } as any;
-};
+// de_PortOverride omitted.
 
-/**
- * deserializeAws_json1_1PortOverrides
- */
-const de_PortOverrides = (output: any, context: __SerdeContext): PortOverride[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PortOverride(entry, context);
-    });
-  return retVal;
-};
+// de_PortOverrides omitted.
 
-/**
- * deserializeAws_json1_1PortRange
- */
-const de_PortRange = (output: any, context: __SerdeContext): PortRange => {
-  return {
-    FromPort: __expectInt32(output.FromPort),
-    ToPort: __expectInt32(output.ToPort),
-  } as any;
-};
+// de_PortRange omitted.
 
-/**
- * deserializeAws_json1_1PortRanges
- */
-const de_PortRanges = (output: any, context: __SerdeContext): PortRange[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PortRange(entry, context);
-    });
-  return retVal;
-};
+// de_PortRanges omitted.
 
-/**
- * deserializeAws_json1_1Protocols
- */
-const de_Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Protocols omitted.
 
 /**
  * deserializeAws_json1_1ProvisionByoipCidrResponse
  */
 const de_ProvisionByoipCidrResponse = (output: any, context: __SerdeContext): ProvisionByoipCidrResponse => {
-  return {
-    ByoipCidr: output.ByoipCidr != null ? de_ByoipCidr(output.ByoipCidr, context) : undefined,
-  } as any;
+  return take(output, {
+    ByoipCidr: (_: any) => de_ByoipCidr(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SocketAddress
- */
-const de_SocketAddress = (output: any, context: __SerdeContext): SocketAddress => {
-  return {
-    IpAddress: __expectString(output.IpAddress),
-    Port: __expectInt32(output.Port),
-  } as any;
-};
+// de_SocketAddress omitted.
 
-/**
- * deserializeAws_json1_1SocketAddresses
- */
-const de_SocketAddresses = (output: any, context: __SerdeContext): SocketAddress[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SocketAddress(entry, context);
-    });
-  return retVal;
-};
+// de_SocketAddresses omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_1TransactionInProgressException
- */
-const de_TransactionInProgressException = (output: any, context: __SerdeContext): TransactionInProgressException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TransactionInProgressException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateAcceleratorAttributesResponse
- */
-const de_UpdateAcceleratorAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateAcceleratorAttributesResponse => {
-  return {
-    AcceleratorAttributes:
-      output.AcceleratorAttributes != null
-        ? de_AcceleratorAttributes(output.AcceleratorAttributes, context)
-        : undefined,
-  } as any;
-};
+// de_UpdateAcceleratorAttributesResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateAcceleratorResponse
  */
 const de_UpdateAcceleratorResponse = (output: any, context: __SerdeContext): UpdateAcceleratorResponse => {
-  return {
-    Accelerator: output.Accelerator != null ? de_Accelerator(output.Accelerator, context) : undefined,
-  } as any;
+  return take(output, {
+    Accelerator: (_: any) => de_Accelerator(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesResponse
- */
-const de_UpdateCustomRoutingAcceleratorAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateCustomRoutingAcceleratorAttributesResponse => {
-  return {
-    AcceleratorAttributes:
-      output.AcceleratorAttributes != null
-        ? de_CustomRoutingAcceleratorAttributes(output.AcceleratorAttributes, context)
-        : undefined,
-  } as any;
-};
+// de_UpdateCustomRoutingAcceleratorAttributesResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateCustomRoutingAcceleratorResponse
@@ -6024,48 +4573,31 @@ const de_UpdateCustomRoutingAcceleratorResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateCustomRoutingAcceleratorResponse => {
-  return {
-    Accelerator: output.Accelerator != null ? de_CustomRoutingAccelerator(output.Accelerator, context) : undefined,
-  } as any;
+  return take(output, {
+    Accelerator: (_: any) => de_CustomRoutingAccelerator(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateCustomRoutingListenerResponse
- */
-const de_UpdateCustomRoutingListenerResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateCustomRoutingListenerResponse => {
-  return {
-    Listener: output.Listener != null ? de_CustomRoutingListener(output.Listener, context) : undefined,
-  } as any;
-};
+// de_UpdateCustomRoutingListenerResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateEndpointGroupResponse
  */
 const de_UpdateEndpointGroupResponse = (output: any, context: __SerdeContext): UpdateEndpointGroupResponse => {
-  return {
-    EndpointGroup: output.EndpointGroup != null ? de_EndpointGroup(output.EndpointGroup, context) : undefined,
-  } as any;
+  return take(output, {
+    EndpointGroup: (_: any) => de_EndpointGroup(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateListenerResponse
- */
-const de_UpdateListenerResponse = (output: any, context: __SerdeContext): UpdateListenerResponse => {
-  return {
-    Listener: output.Listener != null ? de_Listener(output.Listener, context) : undefined,
-  } as any;
-};
+// de_UpdateListenerResponse omitted.
 
 /**
  * deserializeAws_json1_1WithdrawByoipCidrResponse
  */
 const de_WithdrawByoipCidrResponse = (output: any, context: __SerdeContext): WithdrawByoipCidrResponse => {
-  return {
-    ByoipCidr: output.ByoipCidr != null ? de_ByoipCidr(output.ByoipCidr, context) : undefined,
-  } as any;
+  return take(output, {
+    ByoipCidr: (_: any) => de_ByoipCidr(_, context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -6088,6 +4620,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

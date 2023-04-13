@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,7 +12,8 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -201,33 +203,19 @@ import {
   CategoricalParameterRange,
   ContinuousParameterRange,
   CreateAutoPredictorRequest,
-  CreateAutoPredictorResponse,
   CreateDatasetGroupRequest,
-  CreateDatasetGroupResponse,
   CreateDatasetImportJobRequest,
-  CreateDatasetImportJobResponse,
   CreateDatasetRequest,
-  CreateDatasetResponse,
   CreateExplainabilityExportRequest,
-  CreateExplainabilityExportResponse,
   CreateExplainabilityRequest,
-  CreateExplainabilityResponse,
   CreateForecastExportJobRequest,
-  CreateForecastExportJobResponse,
   CreateForecastRequest,
-  CreateForecastResponse,
   CreateMonitorRequest,
-  CreateMonitorResponse,
   CreatePredictorBacktestExportJobRequest,
-  CreatePredictorBacktestExportJobResponse,
   CreatePredictorRequest,
-  CreatePredictorResponse,
   CreateWhatIfAnalysisRequest,
-  CreateWhatIfAnalysisResponse,
   CreateWhatIfForecastExportRequest,
-  CreateWhatIfForecastExportResponse,
   CreateWhatIfForecastRequest,
-  CreateWhatIfForecastResponse,
   DataConfig,
   DataDestination,
   DatasetGroupSummary,
@@ -282,7 +270,6 @@ import {
   EvaluationResult,
   ExplainabilityConfig,
   ExplainabilityExportSummary,
-  ExplainabilityInfo,
   ExplainabilitySummary,
   Featurization,
   FeaturizationConfig,
@@ -321,7 +308,6 @@ import {
   ListPredictorsRequest,
   ListPredictorsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListWhatIfAnalysesRequest,
   ListWhatIfAnalysesResponse,
   ListWhatIfForecastExportsRequest,
@@ -331,8 +317,6 @@ import {
   MetricResult,
   Metrics,
   MonitorConfig,
-  MonitorDataSource,
-  MonitorInfo,
   MonitorSummary,
   ParameterRanges,
   PredictorBacktestExportJobSummary,
@@ -342,7 +326,6 @@ import {
   PredictorExecutionDetails,
   PredictorMonitorEvaluation,
   PredictorSummary,
-  ReferencePredictorSummary,
   ResourceAlreadyExistsException,
   ResourceInUseException,
   ResourceNotFoundException,
@@ -355,7 +338,6 @@ import {
   SupplementaryFeature,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TestWindowSummary,
   TimeAlignmentBoundary,
   TimeSeriesCondition,
@@ -364,9 +346,7 @@ import {
   TimeSeriesSelector,
   TimeSeriesTransformation,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateDatasetGroupRequest,
-  UpdateDatasetGroupResponse,
   WeightedQuantileLoss,
   WhatIfAnalysisSummary,
   WhatIfForecastExportSummary,
@@ -383,7 +363,7 @@ export const se_CreateAutoPredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAutoPredictor");
   let body: any;
-  body = JSON.stringify(se_CreateAutoPredictorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -396,7 +376,7 @@ export const se_CreateDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDataset");
   let body: any;
-  body = JSON.stringify(se_CreateDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -409,7 +389,7 @@ export const se_CreateDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDatasetGroup");
   let body: any;
-  body = JSON.stringify(se_CreateDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -422,7 +402,7 @@ export const se_CreateDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDatasetImportJob");
   let body: any;
-  body = JSON.stringify(se_CreateDatasetImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -435,7 +415,7 @@ export const se_CreateExplainabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateExplainability");
   let body: any;
-  body = JSON.stringify(se_CreateExplainabilityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -448,7 +428,7 @@ export const se_CreateExplainabilityExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateExplainabilityExport");
   let body: any;
-  body = JSON.stringify(se_CreateExplainabilityExportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -461,7 +441,7 @@ export const se_CreateForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateForecast");
   let body: any;
-  body = JSON.stringify(se_CreateForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -474,7 +454,7 @@ export const se_CreateForecastExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateForecastExportJob");
   let body: any;
-  body = JSON.stringify(se_CreateForecastExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -487,7 +467,7 @@ export const se_CreateMonitorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateMonitor");
   let body: any;
-  body = JSON.stringify(se_CreateMonitorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -513,7 +493,7 @@ export const se_CreatePredictorBacktestExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePredictorBacktestExportJob");
   let body: any;
-  body = JSON.stringify(se_CreatePredictorBacktestExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -526,7 +506,7 @@ export const se_CreateWhatIfAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWhatIfAnalysis");
   let body: any;
-  body = JSON.stringify(se_CreateWhatIfAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -552,7 +532,7 @@ export const se_CreateWhatIfForecastExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWhatIfForecastExport");
   let body: any;
-  body = JSON.stringify(se_CreateWhatIfForecastExportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -565,7 +545,7 @@ export const se_DeleteDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDataset");
   let body: any;
-  body = JSON.stringify(se_DeleteDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -578,7 +558,7 @@ export const se_DeleteDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDatasetGroup");
   let body: any;
-  body = JSON.stringify(se_DeleteDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -591,7 +571,7 @@ export const se_DeleteDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDatasetImportJob");
   let body: any;
-  body = JSON.stringify(se_DeleteDatasetImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -604,7 +584,7 @@ export const se_DeleteExplainabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteExplainability");
   let body: any;
-  body = JSON.stringify(se_DeleteExplainabilityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -617,7 +597,7 @@ export const se_DeleteExplainabilityExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteExplainabilityExport");
   let body: any;
-  body = JSON.stringify(se_DeleteExplainabilityExportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -630,7 +610,7 @@ export const se_DeleteForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteForecast");
   let body: any;
-  body = JSON.stringify(se_DeleteForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -643,7 +623,7 @@ export const se_DeleteForecastExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteForecastExportJob");
   let body: any;
-  body = JSON.stringify(se_DeleteForecastExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -656,7 +636,7 @@ export const se_DeleteMonitorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteMonitor");
   let body: any;
-  body = JSON.stringify(se_DeleteMonitorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -669,7 +649,7 @@ export const se_DeletePredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePredictor");
   let body: any;
-  body = JSON.stringify(se_DeletePredictorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -682,7 +662,7 @@ export const se_DeletePredictorBacktestExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePredictorBacktestExportJob");
   let body: any;
-  body = JSON.stringify(se_DeletePredictorBacktestExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -695,7 +675,7 @@ export const se_DeleteResourceTreeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteResourceTree");
   let body: any;
-  body = JSON.stringify(se_DeleteResourceTreeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -708,7 +688,7 @@ export const se_DeleteWhatIfAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteWhatIfAnalysis");
   let body: any;
-  body = JSON.stringify(se_DeleteWhatIfAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -721,7 +701,7 @@ export const se_DeleteWhatIfForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteWhatIfForecast");
   let body: any;
-  body = JSON.stringify(se_DeleteWhatIfForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -734,7 +714,7 @@ export const se_DeleteWhatIfForecastExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteWhatIfForecastExport");
   let body: any;
-  body = JSON.stringify(se_DeleteWhatIfForecastExportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -747,7 +727,7 @@ export const se_DescribeAutoPredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAutoPredictor");
   let body: any;
-  body = JSON.stringify(se_DescribeAutoPredictorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -760,7 +740,7 @@ export const se_DescribeDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDataset");
   let body: any;
-  body = JSON.stringify(se_DescribeDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -773,7 +753,7 @@ export const se_DescribeDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDatasetGroup");
   let body: any;
-  body = JSON.stringify(se_DescribeDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -786,7 +766,7 @@ export const se_DescribeDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDatasetImportJob");
   let body: any;
-  body = JSON.stringify(se_DescribeDatasetImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -799,7 +779,7 @@ export const se_DescribeExplainabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeExplainability");
   let body: any;
-  body = JSON.stringify(se_DescribeExplainabilityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -812,7 +792,7 @@ export const se_DescribeExplainabilityExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeExplainabilityExport");
   let body: any;
-  body = JSON.stringify(se_DescribeExplainabilityExportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -825,7 +805,7 @@ export const se_DescribeForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeForecast");
   let body: any;
-  body = JSON.stringify(se_DescribeForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -838,7 +818,7 @@ export const se_DescribeForecastExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeForecastExportJob");
   let body: any;
-  body = JSON.stringify(se_DescribeForecastExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -851,7 +831,7 @@ export const se_DescribeMonitorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeMonitor");
   let body: any;
-  body = JSON.stringify(se_DescribeMonitorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -864,7 +844,7 @@ export const se_DescribePredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePredictor");
   let body: any;
-  body = JSON.stringify(se_DescribePredictorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -877,7 +857,7 @@ export const se_DescribePredictorBacktestExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePredictorBacktestExportJob");
   let body: any;
-  body = JSON.stringify(se_DescribePredictorBacktestExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -890,7 +870,7 @@ export const se_DescribeWhatIfAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeWhatIfAnalysis");
   let body: any;
-  body = JSON.stringify(se_DescribeWhatIfAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -903,7 +883,7 @@ export const se_DescribeWhatIfForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeWhatIfForecast");
   let body: any;
-  body = JSON.stringify(se_DescribeWhatIfForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -916,7 +896,7 @@ export const se_DescribeWhatIfForecastExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeWhatIfForecastExport");
   let body: any;
-  body = JSON.stringify(se_DescribeWhatIfForecastExportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -929,7 +909,7 @@ export const se_GetAccuracyMetricsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAccuracyMetrics");
   let body: any;
-  body = JSON.stringify(se_GetAccuracyMetricsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -942,7 +922,7 @@ export const se_ListDatasetGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDatasetGroups");
   let body: any;
-  body = JSON.stringify(se_ListDatasetGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -955,7 +935,7 @@ export const se_ListDatasetImportJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDatasetImportJobs");
   let body: any;
-  body = JSON.stringify(se_ListDatasetImportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -968,7 +948,7 @@ export const se_ListDatasetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDatasets");
   let body: any;
-  body = JSON.stringify(se_ListDatasetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -981,7 +961,7 @@ export const se_ListExplainabilitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListExplainabilities");
   let body: any;
-  body = JSON.stringify(se_ListExplainabilitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -994,7 +974,7 @@ export const se_ListExplainabilityExportsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListExplainabilityExports");
   let body: any;
-  body = JSON.stringify(se_ListExplainabilityExportsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1007,7 +987,7 @@ export const se_ListForecastExportJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListForecastExportJobs");
   let body: any;
-  body = JSON.stringify(se_ListForecastExportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1020,7 +1000,7 @@ export const se_ListForecastsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListForecasts");
   let body: any;
-  body = JSON.stringify(se_ListForecastsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1033,7 +1013,7 @@ export const se_ListMonitorEvaluationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListMonitorEvaluations");
   let body: any;
-  body = JSON.stringify(se_ListMonitorEvaluationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1046,7 +1026,7 @@ export const se_ListMonitorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListMonitors");
   let body: any;
-  body = JSON.stringify(se_ListMonitorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1059,7 +1039,7 @@ export const se_ListPredictorBacktestExportJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPredictorBacktestExportJobs");
   let body: any;
-  body = JSON.stringify(se_ListPredictorBacktestExportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1072,7 +1052,7 @@ export const se_ListPredictorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPredictors");
   let body: any;
-  body = JSON.stringify(se_ListPredictorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1085,7 +1065,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1098,7 +1078,7 @@ export const se_ListWhatIfAnalysesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWhatIfAnalyses");
   let body: any;
-  body = JSON.stringify(se_ListWhatIfAnalysesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1111,7 +1091,7 @@ export const se_ListWhatIfForecastExportsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWhatIfForecastExports");
   let body: any;
-  body = JSON.stringify(se_ListWhatIfForecastExportsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1124,7 +1104,7 @@ export const se_ListWhatIfForecastsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWhatIfForecasts");
   let body: any;
-  body = JSON.stringify(se_ListWhatIfForecastsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1137,7 +1117,7 @@ export const se_ResumeResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResumeResource");
   let body: any;
-  body = JSON.stringify(se_ResumeResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1150,7 +1130,7 @@ export const se_StopResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopResource");
   let body: any;
-  body = JSON.stringify(se_StopResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1163,7 +1143,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1176,7 +1156,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1189,7 +1169,7 @@ export const se_UpdateDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDatasetGroup");
   let body: any;
-  body = JSON.stringify(se_UpdateDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1205,12 +1185,12 @@ export const de_CreateAutoPredictorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAutoPredictorResponse(data, context);
+  contents = _json(data);
   const response: CreateAutoPredictorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1243,10 +1223,9 @@ const de_CreateAutoPredictorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1264,12 +1243,12 @@ export const de_CreateDatasetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDatasetResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1296,10 +1275,9 @@ const de_CreateDatasetCommandError = async (
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1317,12 +1295,12 @@ export const de_CreateDatasetGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDatasetGroupResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1355,10 +1333,9 @@ const de_CreateDatasetGroupCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1376,12 +1353,12 @@ export const de_CreateDatasetImportJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDatasetImportJobResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1414,10 +1391,9 @@ const de_CreateDatasetImportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1435,12 +1411,12 @@ export const de_CreateExplainabilityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateExplainabilityResponse(data, context);
+  contents = _json(data);
   const response: CreateExplainabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1473,10 +1449,9 @@ const de_CreateExplainabilityCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1494,12 +1469,12 @@ export const de_CreateExplainabilityExportCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateExplainabilityExportResponse(data, context);
+  contents = _json(data);
   const response: CreateExplainabilityExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1532,10 +1507,9 @@ const de_CreateExplainabilityExportCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1553,12 +1527,12 @@ export const de_CreateForecastCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateForecastResponse(data, context);
+  contents = _json(data);
   const response: CreateForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1591,10 +1565,9 @@ const de_CreateForecastCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1612,12 +1585,12 @@ export const de_CreateForecastExportJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateForecastExportJobResponse(data, context);
+  contents = _json(data);
   const response: CreateForecastExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1650,10 +1623,9 @@ const de_CreateForecastExportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1671,12 +1643,12 @@ export const de_CreateMonitorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateMonitorResponse(data, context);
+  contents = _json(data);
   const response: CreateMonitorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1709,10 +1681,9 @@ const de_CreateMonitorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1730,12 +1701,12 @@ export const de_CreatePredictorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePredictorResponse(data, context);
+  contents = _json(data);
   const response: CreatePredictorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1768,10 +1739,9 @@ const de_CreatePredictorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1789,12 +1759,12 @@ export const de_CreatePredictorBacktestExportJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePredictorBacktestExportJobResponse(data, context);
+  contents = _json(data);
   const response: CreatePredictorBacktestExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1827,10 +1797,9 @@ const de_CreatePredictorBacktestExportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1848,12 +1817,12 @@ export const de_CreateWhatIfAnalysisCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateWhatIfAnalysisResponse(data, context);
+  contents = _json(data);
   const response: CreateWhatIfAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1886,10 +1855,9 @@ const de_CreateWhatIfAnalysisCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1907,12 +1875,12 @@ export const de_CreateWhatIfForecastCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateWhatIfForecastResponse(data, context);
+  contents = _json(data);
   const response: CreateWhatIfForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1945,10 +1913,9 @@ const de_CreateWhatIfForecastCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1966,12 +1933,12 @@ export const de_CreateWhatIfForecastExportCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateWhatIfForecastExportResponse(data, context);
+  contents = _json(data);
   const response: CreateWhatIfForecastExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2004,10 +1971,9 @@ const de_CreateWhatIfForecastExportCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2027,7 +1993,7 @@ export const de_DeleteDatasetCommand = async (
   const response: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2054,10 +2020,9 @@ const de_DeleteDatasetCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2077,7 +2042,7 @@ export const de_DeleteDatasetGroupCommand = async (
   const response: DeleteDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2104,10 +2069,9 @@ const de_DeleteDatasetGroupCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2127,7 +2091,7 @@ export const de_DeleteDatasetImportJobCommand = async (
   const response: DeleteDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2154,10 +2118,9 @@ const de_DeleteDatasetImportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2177,7 +2140,7 @@ export const de_DeleteExplainabilityCommand = async (
   const response: DeleteExplainabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2204,10 +2167,9 @@ const de_DeleteExplainabilityCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2227,7 +2189,7 @@ export const de_DeleteExplainabilityExportCommand = async (
   const response: DeleteExplainabilityExportCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2254,10 +2216,9 @@ const de_DeleteExplainabilityExportCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2277,7 +2238,7 @@ export const de_DeleteForecastCommand = async (
   const response: DeleteForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2304,10 +2265,9 @@ const de_DeleteForecastCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2327,7 +2287,7 @@ export const de_DeleteForecastExportJobCommand = async (
   const response: DeleteForecastExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2354,10 +2314,9 @@ const de_DeleteForecastExportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2377,7 +2336,7 @@ export const de_DeleteMonitorCommand = async (
   const response: DeleteMonitorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2404,10 +2363,9 @@ const de_DeleteMonitorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2427,7 +2385,7 @@ export const de_DeletePredictorCommand = async (
   const response: DeletePredictorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2454,10 +2412,9 @@ const de_DeletePredictorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2477,7 +2434,7 @@ export const de_DeletePredictorBacktestExportJobCommand = async (
   const response: DeletePredictorBacktestExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2504,10 +2461,9 @@ const de_DeletePredictorBacktestExportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2527,7 +2483,7 @@ export const de_DeleteResourceTreeCommand = async (
   const response: DeleteResourceTreeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2554,10 +2510,9 @@ const de_DeleteResourceTreeCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2577,7 +2532,7 @@ export const de_DeleteWhatIfAnalysisCommand = async (
   const response: DeleteWhatIfAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2604,10 +2559,9 @@ const de_DeleteWhatIfAnalysisCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2627,7 +2581,7 @@ export const de_DeleteWhatIfForecastCommand = async (
   const response: DeleteWhatIfForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2654,10 +2608,9 @@ const de_DeleteWhatIfForecastCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2677,7 +2630,7 @@ export const de_DeleteWhatIfForecastExportCommand = async (
   const response: DeleteWhatIfForecastExportCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2704,10 +2657,9 @@ const de_DeleteWhatIfForecastExportCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2730,7 +2682,7 @@ export const de_DescribeAutoPredictorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2754,10 +2706,9 @@ const de_DescribeAutoPredictorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2780,7 +2731,7 @@ export const de_DescribeDatasetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2804,10 +2755,9 @@ const de_DescribeDatasetCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2830,7 +2780,7 @@ export const de_DescribeDatasetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2854,10 +2804,9 @@ const de_DescribeDatasetGroupCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2880,7 +2829,7 @@ export const de_DescribeDatasetImportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2904,10 +2853,9 @@ const de_DescribeDatasetImportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2930,7 +2878,7 @@ export const de_DescribeExplainabilityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2954,10 +2902,9 @@ const de_DescribeExplainabilityCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2980,7 +2927,7 @@ export const de_DescribeExplainabilityExportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3004,10 +2951,9 @@ const de_DescribeExplainabilityExportCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3030,7 +2976,7 @@ export const de_DescribeForecastCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3054,10 +3000,9 @@ const de_DescribeForecastCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3080,7 +3025,7 @@ export const de_DescribeForecastExportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3104,10 +3049,9 @@ const de_DescribeForecastExportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3130,7 +3074,7 @@ export const de_DescribeMonitorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3154,10 +3098,9 @@ const de_DescribeMonitorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3180,7 +3123,7 @@ export const de_DescribePredictorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3204,10 +3147,9 @@ const de_DescribePredictorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3230,7 +3172,7 @@ export const de_DescribePredictorBacktestExportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3254,10 +3196,9 @@ const de_DescribePredictorBacktestExportJobCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3280,7 +3221,7 @@ export const de_DescribeWhatIfAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3304,10 +3245,9 @@ const de_DescribeWhatIfAnalysisCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3330,7 +3270,7 @@ export const de_DescribeWhatIfForecastCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3354,10 +3294,9 @@ const de_DescribeWhatIfForecastCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3380,7 +3319,7 @@ export const de_DescribeWhatIfForecastExportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3404,10 +3343,9 @@ const de_DescribeWhatIfForecastExportCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3430,7 +3368,7 @@ export const de_GetAccuracyMetricsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3457,10 +3395,9 @@ const de_GetAccuracyMetricsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3483,7 +3420,7 @@ export const de_ListDatasetGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3504,10 +3441,9 @@ const de_ListDatasetGroupsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3530,7 +3466,7 @@ export const de_ListDatasetImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3554,10 +3490,9 @@ const de_ListDatasetImportJobsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3580,7 +3515,7 @@ export const de_ListDatasetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3601,10 +3536,9 @@ const de_ListDatasetsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3627,7 +3561,7 @@ export const de_ListExplainabilitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3651,10 +3585,9 @@ const de_ListExplainabilitiesCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3677,7 +3610,7 @@ export const de_ListExplainabilityExportsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3701,10 +3634,9 @@ const de_ListExplainabilityExportsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3727,7 +3659,7 @@ export const de_ListForecastExportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3751,10 +3683,9 @@ const de_ListForecastExportJobsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3777,7 +3708,7 @@ export const de_ListForecastsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3801,10 +3732,9 @@ const de_ListForecastsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3827,7 +3757,7 @@ export const de_ListMonitorEvaluationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3854,10 +3784,9 @@ const de_ListMonitorEvaluationsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3880,7 +3809,7 @@ export const de_ListMonitorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3904,10 +3833,9 @@ const de_ListMonitorsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3930,7 +3858,7 @@ export const de_ListPredictorBacktestExportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3954,10 +3882,9 @@ const de_ListPredictorBacktestExportJobsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3980,7 +3907,7 @@ export const de_ListPredictorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4004,10 +3931,9 @@ const de_ListPredictorsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4025,12 +3951,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4054,10 +3980,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4080,7 +4005,7 @@ export const de_ListWhatIfAnalysesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4104,10 +4029,9 @@ const de_ListWhatIfAnalysesCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4130,7 +4054,7 @@ export const de_ListWhatIfForecastExportsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4154,10 +4078,9 @@ const de_ListWhatIfForecastExportsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4180,7 +4103,7 @@ export const de_ListWhatIfForecastsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4204,10 +4127,9 @@ const de_ListWhatIfForecastsCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4227,7 +4149,7 @@ export const de_ResumeResourceCommand = async (
   const response: ResumeResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4257,10 +4179,9 @@ const de_ResumeResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4280,7 +4201,7 @@ export const de_StopResourceCommand = async (
   const response: StopResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4307,10 +4228,9 @@ const de_StopResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4328,12 +4248,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4360,10 +4280,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4381,12 +4300,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4410,10 +4329,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4431,12 +4349,12 @@ export const de_UpdateDatasetGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDatasetGroupResponse(data, context);
+  contents = _json(data);
   const response: UpdateDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4463,10 +4381,9 @@ const de_UpdateDatasetGroupCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4480,7 +4397,7 @@ const de_InvalidInputExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4496,7 +4413,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4512,7 +4429,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4528,7 +4445,7 @@ const de_ResourceAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4544,7 +4461,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4560,7 +4477,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4572,110 +4489,39 @@ const de_ResourceNotFoundExceptionRes = async (
  * serializeAws_json1_1Action
  */
 const se_Action = (input: Action, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.Operation != null && { Operation: input.Operation }),
-    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
-  };
+  return take(input, {
+    AttributeName: [],
+    Operation: [],
+    Value: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_1AdditionalDataset
- */
-const se_AdditionalDataset = (input: AdditionalDataset, context: __SerdeContext): any => {
-  return {
-    ...(input.Configuration != null && { Configuration: se_Configuration(input.Configuration, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_AdditionalDataset omitted.
 
-/**
- * serializeAws_json1_1AdditionalDatasets
- */
-const se_AdditionalDatasets = (input: AdditionalDataset[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AdditionalDataset(entry, context);
-    });
-};
+// se_AdditionalDatasets omitted.
 
-/**
- * serializeAws_json1_1ArnList
- */
-const se_ArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ArnList omitted.
 
-/**
- * serializeAws_json1_1AttributeConfig
- */
-const se_AttributeConfig = (input: AttributeConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.Transformations != null && { Transformations: se_Transformations(input.Transformations, context) }),
-  };
-};
+// se_AttributeConfig omitted.
 
-/**
- * serializeAws_json1_1AttributeConfigs
- */
-const se_AttributeConfigs = (input: AttributeConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AttributeConfig(entry, context);
-    });
-};
+// se_AttributeConfigs omitted.
 
-/**
- * serializeAws_json1_1CategoricalParameterRange
- */
-const se_CategoricalParameterRange = (input: CategoricalParameterRange, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_Values(input.Values, context) }),
-  };
-};
+// se_CategoricalParameterRange omitted.
 
-/**
- * serializeAws_json1_1CategoricalParameterRanges
- */
-const se_CategoricalParameterRanges = (input: CategoricalParameterRange[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CategoricalParameterRange(entry, context);
-    });
-};
+// se_CategoricalParameterRanges omitted.
 
-/**
- * serializeAws_json1_1Configuration
- */
-const se_Configuration = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_Values(value, context);
-    return acc;
-  }, {});
-};
+// se_Configuration omitted.
 
 /**
  * serializeAws_json1_1ContinuousParameterRange
  */
 const se_ContinuousParameterRange = (input: ContinuousParameterRange, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxValue != null && { MaxValue: __serializeFloat(input.MaxValue) }),
-    ...(input.MinValue != null && { MinValue: __serializeFloat(input.MinValue) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ScalingType != null && { ScalingType: input.ScalingType }),
-  };
+  return take(input, {
+    MaxValue: (_) => __serializeFloat(_),
+    MinValue: (_) => __serializeFloat(_),
+    Name: [],
+    ScalingType: [],
+  });
 };
 
 /**
@@ -4689,1144 +4535,258 @@ const se_ContinuousParameterRanges = (input: ContinuousParameterRange[], context
     });
 };
 
-/**
- * serializeAws_json1_1CreateAutoPredictorRequest
- */
-const se_CreateAutoPredictorRequest = (input: CreateAutoPredictorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataConfig != null && { DataConfig: se_DataConfig(input.DataConfig, context) }),
-    ...(input.EncryptionConfig != null && { EncryptionConfig: se_EncryptionConfig(input.EncryptionConfig, context) }),
-    ...(input.ExplainPredictor != null && { ExplainPredictor: input.ExplainPredictor }),
-    ...(input.ForecastDimensions != null && {
-      ForecastDimensions: se_ForecastDimensions(input.ForecastDimensions, context),
-    }),
-    ...(input.ForecastFrequency != null && { ForecastFrequency: input.ForecastFrequency }),
-    ...(input.ForecastHorizon != null && { ForecastHorizon: input.ForecastHorizon }),
-    ...(input.ForecastTypes != null && { ForecastTypes: se_ForecastTypes(input.ForecastTypes, context) }),
-    ...(input.MonitorConfig != null && { MonitorConfig: se_MonitorConfig(input.MonitorConfig, context) }),
-    ...(input.OptimizationMetric != null && { OptimizationMetric: input.OptimizationMetric }),
-    ...(input.PredictorName != null && { PredictorName: input.PredictorName }),
-    ...(input.ReferencePredictorArn != null && { ReferencePredictorArn: input.ReferencePredictorArn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.TimeAlignmentBoundary != null && {
-      TimeAlignmentBoundary: se_TimeAlignmentBoundary(input.TimeAlignmentBoundary, context),
-    }),
-  };
-};
+// se_CreateAutoPredictorRequest omitted.
 
-/**
- * serializeAws_json1_1CreateDatasetGroupRequest
- */
-const se_CreateDatasetGroupRequest = (input: CreateDatasetGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArns != null && { DatasetArns: se_ArnList(input.DatasetArns, context) }),
-    ...(input.DatasetGroupName != null && { DatasetGroupName: input.DatasetGroupName }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateDatasetGroupRequest omitted.
 
-/**
- * serializeAws_json1_1CreateDatasetImportJobRequest
- */
-const se_CreateDatasetImportJobRequest = (input: CreateDatasetImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSource != null && { DataSource: se_DataSource(input.DataSource, context) }),
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-    ...(input.DatasetImportJobName != null && { DatasetImportJobName: input.DatasetImportJobName }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.GeolocationFormat != null && { GeolocationFormat: input.GeolocationFormat }),
-    ...(input.ImportMode != null && { ImportMode: input.ImportMode }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.TimeZone != null && { TimeZone: input.TimeZone }),
-    ...(input.TimestampFormat != null && { TimestampFormat: input.TimestampFormat }),
-    ...(input.UseGeolocationForTimeZone != null && { UseGeolocationForTimeZone: input.UseGeolocationForTimeZone }),
-  };
-};
+// se_CreateDatasetImportJobRequest omitted.
 
-/**
- * serializeAws_json1_1CreateDatasetRequest
- */
-const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataFrequency != null && { DataFrequency: input.DataFrequency }),
-    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
-    ...(input.DatasetType != null && { DatasetType: input.DatasetType }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.EncryptionConfig != null && { EncryptionConfig: se_EncryptionConfig(input.EncryptionConfig, context) }),
-    ...(input.Schema != null && { Schema: se_Schema(input.Schema, context) }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateDatasetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateExplainabilityExportRequest
- */
-const se_CreateExplainabilityExportRequest = (
-  input: CreateExplainabilityExportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Destination != null && { Destination: se_DataDestination(input.Destination, context) }),
-    ...(input.ExplainabilityArn != null && { ExplainabilityArn: input.ExplainabilityArn }),
-    ...(input.ExplainabilityExportName != null && { ExplainabilityExportName: input.ExplainabilityExportName }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateExplainabilityExportRequest omitted.
 
-/**
- * serializeAws_json1_1CreateExplainabilityRequest
- */
-const se_CreateExplainabilityRequest = (input: CreateExplainabilityRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSource != null && { DataSource: se_DataSource(input.DataSource, context) }),
-    ...(input.EnableVisualization != null && { EnableVisualization: input.EnableVisualization }),
-    ...(input.EndDateTime != null && { EndDateTime: input.EndDateTime }),
-    ...(input.ExplainabilityConfig != null && {
-      ExplainabilityConfig: se_ExplainabilityConfig(input.ExplainabilityConfig, context),
-    }),
-    ...(input.ExplainabilityName != null && { ExplainabilityName: input.ExplainabilityName }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Schema != null && { Schema: se_Schema(input.Schema, context) }),
-    ...(input.StartDateTime != null && { StartDateTime: input.StartDateTime }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateExplainabilityRequest omitted.
 
-/**
- * serializeAws_json1_1CreateForecastExportJobRequest
- */
-const se_CreateForecastExportJobRequest = (input: CreateForecastExportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Destination != null && { Destination: se_DataDestination(input.Destination, context) }),
-    ...(input.ForecastArn != null && { ForecastArn: input.ForecastArn }),
-    ...(input.ForecastExportJobName != null && { ForecastExportJobName: input.ForecastExportJobName }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateForecastExportJobRequest omitted.
 
-/**
- * serializeAws_json1_1CreateForecastRequest
- */
-const se_CreateForecastRequest = (input: CreateForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastName != null && { ForecastName: input.ForecastName }),
-    ...(input.ForecastTypes != null && { ForecastTypes: se_ForecastTypes(input.ForecastTypes, context) }),
-    ...(input.PredictorArn != null && { PredictorArn: input.PredictorArn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.TimeSeriesSelector != null && {
-      TimeSeriesSelector: se_TimeSeriesSelector(input.TimeSeriesSelector, context),
-    }),
-  };
-};
+// se_CreateForecastRequest omitted.
 
-/**
- * serializeAws_json1_1CreateMonitorRequest
- */
-const se_CreateMonitorRequest = (input: CreateMonitorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MonitorName != null && { MonitorName: input.MonitorName }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateMonitorRequest omitted.
 
-/**
- * serializeAws_json1_1CreatePredictorBacktestExportJobRequest
- */
-const se_CreatePredictorBacktestExportJobRequest = (
-  input: CreatePredictorBacktestExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Destination != null && { Destination: se_DataDestination(input.Destination, context) }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.PredictorArn != null && { PredictorArn: input.PredictorArn }),
-    ...(input.PredictorBacktestExportJobName != null && {
-      PredictorBacktestExportJobName: input.PredictorBacktestExportJobName,
-    }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreatePredictorBacktestExportJobRequest omitted.
 
 /**
  * serializeAws_json1_1CreatePredictorRequest
  */
 const se_CreatePredictorRequest = (input: CreatePredictorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AlgorithmArn != null && { AlgorithmArn: input.AlgorithmArn }),
-    ...(input.AutoMLOverrideStrategy != null && { AutoMLOverrideStrategy: input.AutoMLOverrideStrategy }),
-    ...(input.EncryptionConfig != null && { EncryptionConfig: se_EncryptionConfig(input.EncryptionConfig, context) }),
-    ...(input.EvaluationParameters != null && {
-      EvaluationParameters: se_EvaluationParameters(input.EvaluationParameters, context),
-    }),
-    ...(input.FeaturizationConfig != null && {
-      FeaturizationConfig: se_FeaturizationConfig(input.FeaturizationConfig, context),
-    }),
-    ...(input.ForecastHorizon != null && { ForecastHorizon: input.ForecastHorizon }),
-    ...(input.ForecastTypes != null && { ForecastTypes: se_ForecastTypes(input.ForecastTypes, context) }),
-    ...(input.HPOConfig != null && { HPOConfig: se_HyperParameterTuningJobConfig(input.HPOConfig, context) }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.OptimizationMetric != null && { OptimizationMetric: input.OptimizationMetric }),
-    ...(input.PerformAutoML != null && { PerformAutoML: input.PerformAutoML }),
-    ...(input.PerformHPO != null && { PerformHPO: input.PerformHPO }),
-    ...(input.PredictorName != null && { PredictorName: input.PredictorName }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.TrainingParameters != null && {
-      TrainingParameters: se_TrainingParameters(input.TrainingParameters, context),
-    }),
-  };
+  return take(input, {
+    AlgorithmArn: [],
+    AutoMLOverrideStrategy: [],
+    EncryptionConfig: (_) => _json(_),
+    EvaluationParameters: (_) => _json(_),
+    FeaturizationConfig: (_) => _json(_),
+    ForecastHorizon: [],
+    ForecastTypes: (_) => _json(_),
+    HPOConfig: (_) => se_HyperParameterTuningJobConfig(_, context),
+    InputDataConfig: (_) => _json(_),
+    OptimizationMetric: [],
+    PerformAutoML: [],
+    PerformHPO: [],
+    PredictorName: [],
+    Tags: (_) => _json(_),
+    TrainingParameters: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1CreateWhatIfAnalysisRequest
- */
-const se_CreateWhatIfAnalysisRequest = (input: CreateWhatIfAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastArn != null && { ForecastArn: input.ForecastArn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.TimeSeriesSelector != null && {
-      TimeSeriesSelector: se_TimeSeriesSelector(input.TimeSeriesSelector, context),
-    }),
-    ...(input.WhatIfAnalysisName != null && { WhatIfAnalysisName: input.WhatIfAnalysisName }),
-  };
-};
+// se_CreateWhatIfAnalysisRequest omitted.
 
-/**
- * serializeAws_json1_1CreateWhatIfForecastExportRequest
- */
-const se_CreateWhatIfForecastExportRequest = (
-  input: CreateWhatIfForecastExportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Destination != null && { Destination: se_DataDestination(input.Destination, context) }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.WhatIfForecastArns != null && {
-      WhatIfForecastArns: se_WhatIfForecastArnListForExport(input.WhatIfForecastArns, context),
-    }),
-    ...(input.WhatIfForecastExportName != null && { WhatIfForecastExportName: input.WhatIfForecastExportName }),
-  };
-};
+// se_CreateWhatIfForecastExportRequest omitted.
 
 /**
  * serializeAws_json1_1CreateWhatIfForecastRequest
  */
 const se_CreateWhatIfForecastRequest = (input: CreateWhatIfForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.TimeSeriesReplacementsDataSource != null && {
-      TimeSeriesReplacementsDataSource: se_TimeSeriesReplacementsDataSource(
-        input.TimeSeriesReplacementsDataSource,
-        context
-      ),
-    }),
-    ...(input.TimeSeriesTransformations != null && {
-      TimeSeriesTransformations: se_TimeSeriesTransformations(input.TimeSeriesTransformations, context),
-    }),
-    ...(input.WhatIfAnalysisArn != null && { WhatIfAnalysisArn: input.WhatIfAnalysisArn }),
-    ...(input.WhatIfForecastName != null && { WhatIfForecastName: input.WhatIfForecastName }),
-  };
+  return take(input, {
+    Tags: (_) => _json(_),
+    TimeSeriesReplacementsDataSource: (_) => _json(_),
+    TimeSeriesTransformations: (_) => se_TimeSeriesTransformations(_, context),
+    WhatIfAnalysisArn: [],
+    WhatIfForecastName: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DataConfig
- */
-const se_DataConfig = (input: DataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalDatasets != null && {
-      AdditionalDatasets: se_AdditionalDatasets(input.AdditionalDatasets, context),
-    }),
-    ...(input.AttributeConfigs != null && { AttributeConfigs: se_AttributeConfigs(input.AttributeConfigs, context) }),
-    ...(input.DatasetGroupArn != null && { DatasetGroupArn: input.DatasetGroupArn }),
-  };
-};
+// se_DataConfig omitted.
 
-/**
- * serializeAws_json1_1DataDestination
- */
-const se_DataDestination = (input: DataDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Config != null && { S3Config: se_S3Config(input.S3Config, context) }),
-  };
-};
+// se_DataDestination omitted.
 
-/**
- * serializeAws_json1_1DataSource
- */
-const se_DataSource = (input: DataSource, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Config != null && { S3Config: se_S3Config(input.S3Config, context) }),
-  };
-};
+// se_DataSource omitted.
 
-/**
- * serializeAws_json1_1DeleteDatasetGroupRequest
- */
-const se_DeleteDatasetGroupRequest = (input: DeleteDatasetGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetGroupArn != null && { DatasetGroupArn: input.DatasetGroupArn }),
-  };
-};
+// se_DeleteDatasetGroupRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteDatasetImportJobRequest
- */
-const se_DeleteDatasetImportJobRequest = (input: DeleteDatasetImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetImportJobArn != null && { DatasetImportJobArn: input.DatasetImportJobArn }),
-  };
-};
+// se_DeleteDatasetImportJobRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteDatasetRequest
- */
-const se_DeleteDatasetRequest = (input: DeleteDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-  };
-};
+// se_DeleteDatasetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteExplainabilityExportRequest
- */
-const se_DeleteExplainabilityExportRequest = (
-  input: DeleteExplainabilityExportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ExplainabilityExportArn != null && { ExplainabilityExportArn: input.ExplainabilityExportArn }),
-  };
-};
+// se_DeleteExplainabilityExportRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteExplainabilityRequest
- */
-const se_DeleteExplainabilityRequest = (input: DeleteExplainabilityRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExplainabilityArn != null && { ExplainabilityArn: input.ExplainabilityArn }),
-  };
-};
+// se_DeleteExplainabilityRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteForecastExportJobRequest
- */
-const se_DeleteForecastExportJobRequest = (input: DeleteForecastExportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastExportJobArn != null && { ForecastExportJobArn: input.ForecastExportJobArn }),
-  };
-};
+// se_DeleteForecastExportJobRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteForecastRequest
- */
-const se_DeleteForecastRequest = (input: DeleteForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastArn != null && { ForecastArn: input.ForecastArn }),
-  };
-};
+// se_DeleteForecastRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteMonitorRequest
- */
-const se_DeleteMonitorRequest = (input: DeleteMonitorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MonitorArn != null && { MonitorArn: input.MonitorArn }),
-  };
-};
+// se_DeleteMonitorRequest omitted.
 
-/**
- * serializeAws_json1_1DeletePredictorBacktestExportJobRequest
- */
-const se_DeletePredictorBacktestExportJobRequest = (
-  input: DeletePredictorBacktestExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PredictorBacktestExportJobArn != null && {
-      PredictorBacktestExportJobArn: input.PredictorBacktestExportJobArn,
-    }),
-  };
-};
+// se_DeletePredictorBacktestExportJobRequest omitted.
 
-/**
- * serializeAws_json1_1DeletePredictorRequest
- */
-const se_DeletePredictorRequest = (input: DeletePredictorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PredictorArn != null && { PredictorArn: input.PredictorArn }),
-  };
-};
+// se_DeletePredictorRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteResourceTreeRequest
- */
-const se_DeleteResourceTreeRequest = (input: DeleteResourceTreeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DeleteResourceTreeRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteWhatIfAnalysisRequest
- */
-const se_DeleteWhatIfAnalysisRequest = (input: DeleteWhatIfAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.WhatIfAnalysisArn != null && { WhatIfAnalysisArn: input.WhatIfAnalysisArn }),
-  };
-};
+// se_DeleteWhatIfAnalysisRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteWhatIfForecastExportRequest
- */
-const se_DeleteWhatIfForecastExportRequest = (
-  input: DeleteWhatIfForecastExportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.WhatIfForecastExportArn != null && { WhatIfForecastExportArn: input.WhatIfForecastExportArn }),
-  };
-};
+// se_DeleteWhatIfForecastExportRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteWhatIfForecastRequest
- */
-const se_DeleteWhatIfForecastRequest = (input: DeleteWhatIfForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.WhatIfForecastArn != null && { WhatIfForecastArn: input.WhatIfForecastArn }),
-  };
-};
+// se_DeleteWhatIfForecastRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAutoPredictorRequest
- */
-const se_DescribeAutoPredictorRequest = (input: DescribeAutoPredictorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PredictorArn != null && { PredictorArn: input.PredictorArn }),
-  };
-};
+// se_DescribeAutoPredictorRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDatasetGroupRequest
- */
-const se_DescribeDatasetGroupRequest = (input: DescribeDatasetGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetGroupArn != null && { DatasetGroupArn: input.DatasetGroupArn }),
-  };
-};
+// se_DescribeDatasetGroupRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDatasetImportJobRequest
- */
-const se_DescribeDatasetImportJobRequest = (input: DescribeDatasetImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetImportJobArn != null && { DatasetImportJobArn: input.DatasetImportJobArn }),
-  };
-};
+// se_DescribeDatasetImportJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDatasetRequest
- */
-const se_DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-  };
-};
+// se_DescribeDatasetRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeExplainabilityExportRequest
- */
-const se_DescribeExplainabilityExportRequest = (
-  input: DescribeExplainabilityExportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ExplainabilityExportArn != null && { ExplainabilityExportArn: input.ExplainabilityExportArn }),
-  };
-};
+// se_DescribeExplainabilityExportRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeExplainabilityRequest
- */
-const se_DescribeExplainabilityRequest = (input: DescribeExplainabilityRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExplainabilityArn != null && { ExplainabilityArn: input.ExplainabilityArn }),
-  };
-};
+// se_DescribeExplainabilityRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeForecastExportJobRequest
- */
-const se_DescribeForecastExportJobRequest = (input: DescribeForecastExportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastExportJobArn != null && { ForecastExportJobArn: input.ForecastExportJobArn }),
-  };
-};
+// se_DescribeForecastExportJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeForecastRequest
- */
-const se_DescribeForecastRequest = (input: DescribeForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastArn != null && { ForecastArn: input.ForecastArn }),
-  };
-};
+// se_DescribeForecastRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeMonitorRequest
- */
-const se_DescribeMonitorRequest = (input: DescribeMonitorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MonitorArn != null && { MonitorArn: input.MonitorArn }),
-  };
-};
+// se_DescribeMonitorRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePredictorBacktestExportJobRequest
- */
-const se_DescribePredictorBacktestExportJobRequest = (
-  input: DescribePredictorBacktestExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PredictorBacktestExportJobArn != null && {
-      PredictorBacktestExportJobArn: input.PredictorBacktestExportJobArn,
-    }),
-  };
-};
+// se_DescribePredictorBacktestExportJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePredictorRequest
- */
-const se_DescribePredictorRequest = (input: DescribePredictorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PredictorArn != null && { PredictorArn: input.PredictorArn }),
-  };
-};
+// se_DescribePredictorRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeWhatIfAnalysisRequest
- */
-const se_DescribeWhatIfAnalysisRequest = (input: DescribeWhatIfAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.WhatIfAnalysisArn != null && { WhatIfAnalysisArn: input.WhatIfAnalysisArn }),
-  };
-};
+// se_DescribeWhatIfAnalysisRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeWhatIfForecastExportRequest
- */
-const se_DescribeWhatIfForecastExportRequest = (
-  input: DescribeWhatIfForecastExportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.WhatIfForecastExportArn != null && { WhatIfForecastExportArn: input.WhatIfForecastExportArn }),
-  };
-};
+// se_DescribeWhatIfForecastExportRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeWhatIfForecastRequest
- */
-const se_DescribeWhatIfForecastRequest = (input: DescribeWhatIfForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.WhatIfForecastArn != null && { WhatIfForecastArn: input.WhatIfForecastArn }),
-  };
-};
+// se_DescribeWhatIfForecastRequest omitted.
 
-/**
- * serializeAws_json1_1EncryptionConfig
- */
-const se_EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.KMSKeyArn != null && { KMSKeyArn: input.KMSKeyArn }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
+// se_EncryptionConfig omitted.
 
-/**
- * serializeAws_json1_1EvaluationParameters
- */
-const se_EvaluationParameters = (input: EvaluationParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.BackTestWindowOffset != null && { BackTestWindowOffset: input.BackTestWindowOffset }),
-    ...(input.NumberOfBacktestWindows != null && { NumberOfBacktestWindows: input.NumberOfBacktestWindows }),
-  };
-};
+// se_EvaluationParameters omitted.
 
-/**
- * serializeAws_json1_1ExplainabilityConfig
- */
-const se_ExplainabilityConfig = (input: ExplainabilityConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.TimePointGranularity != null && { TimePointGranularity: input.TimePointGranularity }),
-    ...(input.TimeSeriesGranularity != null && { TimeSeriesGranularity: input.TimeSeriesGranularity }),
-  };
-};
+// se_ExplainabilityConfig omitted.
 
-/**
- * serializeAws_json1_1Featurization
- */
-const se_Featurization = (input: Featurization, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.FeaturizationPipeline != null && {
-      FeaturizationPipeline: se_FeaturizationPipeline(input.FeaturizationPipeline, context),
-    }),
-  };
-};
+// se_Featurization omitted.
 
-/**
- * serializeAws_json1_1FeaturizationConfig
- */
-const se_FeaturizationConfig = (input: FeaturizationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Featurizations != null && { Featurizations: se_Featurizations(input.Featurizations, context) }),
-    ...(input.ForecastDimensions != null && {
-      ForecastDimensions: se_ForecastDimensions(input.ForecastDimensions, context),
-    }),
-    ...(input.ForecastFrequency != null && { ForecastFrequency: input.ForecastFrequency }),
-  };
-};
+// se_FeaturizationConfig omitted.
 
-/**
- * serializeAws_json1_1FeaturizationMethod
- */
-const se_FeaturizationMethod = (input: FeaturizationMethod, context: __SerdeContext): any => {
-  return {
-    ...(input.FeaturizationMethodName != null && { FeaturizationMethodName: input.FeaturizationMethodName }),
-    ...(input.FeaturizationMethodParameters != null && {
-      FeaturizationMethodParameters: se_FeaturizationMethodParameters(input.FeaturizationMethodParameters, context),
-    }),
-  };
-};
+// se_FeaturizationMethod omitted.
 
-/**
- * serializeAws_json1_1FeaturizationMethodParameters
- */
-const se_FeaturizationMethodParameters = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_FeaturizationMethodParameters omitted.
 
-/**
- * serializeAws_json1_1FeaturizationPipeline
- */
-const se_FeaturizationPipeline = (input: FeaturizationMethod[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FeaturizationMethod(entry, context);
-    });
-};
+// se_FeaturizationPipeline omitted.
 
-/**
- * serializeAws_json1_1Featurizations
- */
-const se_Featurizations = (input: Featurization[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Featurization(entry, context);
-    });
-};
+// se_Featurizations omitted.
 
-/**
- * serializeAws_json1_1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: input.Condition }),
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_json1_1Filters
- */
-const se_Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_Filters omitted.
 
-/**
- * serializeAws_json1_1ForecastDimensions
- */
-const se_ForecastDimensions = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ForecastDimensions omitted.
 
-/**
- * serializeAws_json1_1ForecastTypes
- */
-const se_ForecastTypes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ForecastTypes omitted.
 
-/**
- * serializeAws_json1_1GetAccuracyMetricsRequest
- */
-const se_GetAccuracyMetricsRequest = (input: GetAccuracyMetricsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PredictorArn != null && { PredictorArn: input.PredictorArn }),
-  };
-};
+// se_GetAccuracyMetricsRequest omitted.
 
 /**
  * serializeAws_json1_1HyperParameterTuningJobConfig
  */
 const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ParameterRanges != null && { ParameterRanges: se_ParameterRanges(input.ParameterRanges, context) }),
-  };
+  return take(input, {
+    ParameterRanges: (_) => se_ParameterRanges(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1InputDataConfig
- */
-const se_InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetGroupArn != null && { DatasetGroupArn: input.DatasetGroupArn }),
-    ...(input.SupplementaryFeatures != null && {
-      SupplementaryFeatures: se_SupplementaryFeatures(input.SupplementaryFeatures, context),
-    }),
-  };
-};
+// se_InputDataConfig omitted.
 
-/**
- * serializeAws_json1_1IntegerParameterRange
- */
-const se_IntegerParameterRange = (input: IntegerParameterRange, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxValue != null && { MaxValue: input.MaxValue }),
-    ...(input.MinValue != null && { MinValue: input.MinValue }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ScalingType != null && { ScalingType: input.ScalingType }),
-  };
-};
+// se_IntegerParameterRange omitted.
 
-/**
- * serializeAws_json1_1IntegerParameterRanges
- */
-const se_IntegerParameterRanges = (input: IntegerParameterRange[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_IntegerParameterRange(entry, context);
-    });
-};
+// se_IntegerParameterRanges omitted.
 
-/**
- * serializeAws_json1_1ListDatasetGroupsRequest
- */
-const se_ListDatasetGroupsRequest = (input: ListDatasetGroupsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDatasetGroupsRequest omitted.
 
-/**
- * serializeAws_json1_1ListDatasetImportJobsRequest
- */
-const se_ListDatasetImportJobsRequest = (input: ListDatasetImportJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDatasetImportJobsRequest omitted.
 
-/**
- * serializeAws_json1_1ListDatasetsRequest
- */
-const se_ListDatasetsRequest = (input: ListDatasetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDatasetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListExplainabilitiesRequest
- */
-const se_ListExplainabilitiesRequest = (input: ListExplainabilitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListExplainabilitiesRequest omitted.
 
-/**
- * serializeAws_json1_1ListExplainabilityExportsRequest
- */
-const se_ListExplainabilityExportsRequest = (input: ListExplainabilityExportsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListExplainabilityExportsRequest omitted.
 
-/**
- * serializeAws_json1_1ListForecastExportJobsRequest
- */
-const se_ListForecastExportJobsRequest = (input: ListForecastExportJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListForecastExportJobsRequest omitted.
 
-/**
- * serializeAws_json1_1ListForecastsRequest
- */
-const se_ListForecastsRequest = (input: ListForecastsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListForecastsRequest omitted.
 
-/**
- * serializeAws_json1_1ListMonitorEvaluationsRequest
- */
-const se_ListMonitorEvaluationsRequest = (input: ListMonitorEvaluationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MonitorArn != null && { MonitorArn: input.MonitorArn }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListMonitorEvaluationsRequest omitted.
 
-/**
- * serializeAws_json1_1ListMonitorsRequest
- */
-const se_ListMonitorsRequest = (input: ListMonitorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListMonitorsRequest omitted.
 
-/**
- * serializeAws_json1_1ListPredictorBacktestExportJobsRequest
- */
-const se_ListPredictorBacktestExportJobsRequest = (
-  input: ListPredictorBacktestExportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListPredictorBacktestExportJobsRequest omitted.
 
-/**
- * serializeAws_json1_1ListPredictorsRequest
- */
-const se_ListPredictorsRequest = (input: ListPredictorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListPredictorsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ListWhatIfAnalysesRequest
- */
-const se_ListWhatIfAnalysesRequest = (input: ListWhatIfAnalysesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListWhatIfAnalysesRequest omitted.
 
-/**
- * serializeAws_json1_1ListWhatIfForecastExportsRequest
- */
-const se_ListWhatIfForecastExportsRequest = (input: ListWhatIfForecastExportsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListWhatIfForecastExportsRequest omitted.
 
-/**
- * serializeAws_json1_1ListWhatIfForecastsRequest
- */
-const se_ListWhatIfForecastsRequest = (input: ListWhatIfForecastsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListWhatIfForecastsRequest omitted.
 
-/**
- * serializeAws_json1_1MonitorConfig
- */
-const se_MonitorConfig = (input: MonitorConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MonitorName != null && { MonitorName: input.MonitorName }),
-  };
-};
+// se_MonitorConfig omitted.
 
 /**
  * serializeAws_json1_1ParameterRanges
  */
 const se_ParameterRanges = (input: ParameterRanges, context: __SerdeContext): any => {
-  return {
-    ...(input.CategoricalParameterRanges != null && {
-      CategoricalParameterRanges: se_CategoricalParameterRanges(input.CategoricalParameterRanges, context),
-    }),
-    ...(input.ContinuousParameterRanges != null && {
-      ContinuousParameterRanges: se_ContinuousParameterRanges(input.ContinuousParameterRanges, context),
-    }),
-    ...(input.IntegerParameterRanges != null && {
-      IntegerParameterRanges: se_IntegerParameterRanges(input.IntegerParameterRanges, context),
-    }),
-  };
+  return take(input, {
+    CategoricalParameterRanges: (_) => _json(_),
+    ContinuousParameterRanges: (_) => se_ContinuousParameterRanges(_, context),
+    IntegerParameterRanges: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1ResumeResourceRequest
- */
-const se_ResumeResourceRequest = (input: ResumeResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ResumeResourceRequest omitted.
 
-/**
- * serializeAws_json1_1S3Config
- */
-const se_S3Config = (input: S3Config, context: __SerdeContext): any => {
-  return {
-    ...(input.KMSKeyArn != null && { KMSKeyArn: input.KMSKeyArn }),
-    ...(input.Path != null && { Path: input.Path }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
+// se_S3Config omitted.
 
-/**
- * serializeAws_json1_1Schema
- */
-const se_Schema = (input: Schema, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_SchemaAttributes(input.Attributes, context) }),
-  };
-};
+// se_Schema omitted.
 
-/**
- * serializeAws_json1_1SchemaAttribute
- */
-const se_SchemaAttribute = (input: SchemaAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.AttributeType != null && { AttributeType: input.AttributeType }),
-  };
-};
+// se_SchemaAttribute omitted.
 
-/**
- * serializeAws_json1_1SchemaAttributes
- */
-const se_SchemaAttributes = (input: SchemaAttribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SchemaAttribute(entry, context);
-    });
-};
+// se_SchemaAttributes omitted.
 
-/**
- * serializeAws_json1_1StopResourceRequest
- */
-const se_StopResourceRequest = (input: StopResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_StopResourceRequest omitted.
 
-/**
- * serializeAws_json1_1SupplementaryFeature
- */
-const se_SupplementaryFeature = (input: SupplementaryFeature, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_SupplementaryFeature omitted.
 
-/**
- * serializeAws_json1_1SupplementaryFeatures
- */
-const se_SupplementaryFeatures = (input: SupplementaryFeature[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SupplementaryFeature(entry, context);
-    });
-};
+// se_SupplementaryFeatures omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_1TimeAlignmentBoundary
- */
-const se_TimeAlignmentBoundary = (input: TimeAlignmentBoundary, context: __SerdeContext): any => {
-  return {
-    ...(input.DayOfMonth != null && { DayOfMonth: input.DayOfMonth }),
-    ...(input.DayOfWeek != null && { DayOfWeek: input.DayOfWeek }),
-    ...(input.Hour != null && { Hour: input.Hour }),
-    ...(input.Month != null && { Month: input.Month }),
-  };
-};
+// se_TimeAlignmentBoundary omitted.
 
-/**
- * serializeAws_json1_1TimeSeriesCondition
- */
-const se_TimeSeriesCondition = (input: TimeSeriesCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.AttributeValue != null && { AttributeValue: input.AttributeValue }),
-    ...(input.Condition != null && { Condition: input.Condition }),
-  };
-};
+// se_TimeSeriesCondition omitted.
 
-/**
- * serializeAws_json1_1TimeSeriesConditions
- */
-const se_TimeSeriesConditions = (input: TimeSeriesCondition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TimeSeriesCondition(entry, context);
-    });
-};
+// se_TimeSeriesConditions omitted.
 
-/**
- * serializeAws_json1_1TimeSeriesIdentifiers
- */
-const se_TimeSeriesIdentifiers = (input: TimeSeriesIdentifiers, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSource != null && { DataSource: se_DataSource(input.DataSource, context) }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.Schema != null && { Schema: se_Schema(input.Schema, context) }),
-  };
-};
+// se_TimeSeriesIdentifiers omitted.
 
-/**
- * serializeAws_json1_1TimeSeriesReplacementsDataSource
- */
-const se_TimeSeriesReplacementsDataSource = (input: TimeSeriesReplacementsDataSource, context: __SerdeContext): any => {
-  return {
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.S3Config != null && { S3Config: se_S3Config(input.S3Config, context) }),
-    ...(input.Schema != null && { Schema: se_Schema(input.Schema, context) }),
-    ...(input.TimestampFormat != null && { TimestampFormat: input.TimestampFormat }),
-  };
-};
+// se_TimeSeriesReplacementsDataSource omitted.
 
-/**
- * serializeAws_json1_1TimeSeriesSelector
- */
-const se_TimeSeriesSelector = (input: TimeSeriesSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.TimeSeriesIdentifiers != null && {
-      TimeSeriesIdentifiers: se_TimeSeriesIdentifiers(input.TimeSeriesIdentifiers, context),
-    }),
-  };
-};
+// se_TimeSeriesSelector omitted.
 
 /**
  * serializeAws_json1_1TimeSeriesTransformation
  */
 const se_TimeSeriesTransformation = (input: TimeSeriesTransformation, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: se_Action(input.Action, context) }),
-    ...(input.TimeSeriesConditions != null && {
-      TimeSeriesConditions: se_TimeSeriesConditions(input.TimeSeriesConditions, context),
-    }),
-  };
+  return take(input, {
+    Action: (_) => se_Action(_, context),
+    TimeSeriesConditions: (_) => _json(_),
+  });
 };
 
 /**
@@ -5840,168 +4800,56 @@ const se_TimeSeriesTransformations = (input: TimeSeriesTransformation[], context
     });
 };
 
-/**
- * serializeAws_json1_1TrainingParameters
- */
-const se_TrainingParameters = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TrainingParameters omitted.
 
-/**
- * serializeAws_json1_1Transformations
- */
-const se_Transformations = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Transformations omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateDatasetGroupRequest
- */
-const se_UpdateDatasetGroupRequest = (input: UpdateDatasetGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArns != null && { DatasetArns: se_ArnList(input.DatasetArns, context) }),
-    ...(input.DatasetGroupArn != null && { DatasetGroupArn: input.DatasetGroupArn }),
-  };
-};
+// se_UpdateDatasetGroupRequest omitted.
 
-/**
- * serializeAws_json1_1Values
- */
-const se_Values = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Values omitted.
 
-/**
- * serializeAws_json1_1WhatIfForecastArnListForExport
- */
-const se_WhatIfForecastArnListForExport = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WhatIfForecastArnListForExport omitted.
 
 /**
  * deserializeAws_json1_1Action
  */
 const de_Action = (output: any, context: __SerdeContext): Action => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    Operation: __expectString(output.Operation),
-    Value: __limitedParseDouble(output.Value),
-  } as any;
+  return take(output, {
+    AttributeName: __expectString,
+    Operation: __expectString,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AdditionalDataset
- */
-const de_AdditionalDataset = (output: any, context: __SerdeContext): AdditionalDataset => {
-  return {
-    Configuration: output.Configuration != null ? de_Configuration(output.Configuration, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_AdditionalDataset omitted.
 
-/**
- * deserializeAws_json1_1AdditionalDatasets
- */
-const de_AdditionalDatasets = (output: any, context: __SerdeContext): AdditionalDataset[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AdditionalDataset(entry, context);
-    });
-  return retVal;
-};
+// de_AdditionalDatasets omitted.
 
-/**
- * deserializeAws_json1_1ArnList
- */
-const de_ArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ArnList omitted.
 
-/**
- * deserializeAws_json1_1AttributeConfig
- */
-const de_AttributeConfig = (output: any, context: __SerdeContext): AttributeConfig => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    Transformations: output.Transformations != null ? de_Transformations(output.Transformations, context) : undefined,
-  } as any;
-};
+// de_AttributeConfig omitted.
 
-/**
- * deserializeAws_json1_1AttributeConfigs
- */
-const de_AttributeConfigs = (output: any, context: __SerdeContext): AttributeConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AttributeConfig(entry, context);
-    });
-  return retVal;
-};
+// de_AttributeConfigs omitted.
 
 /**
  * deserializeAws_json1_1Baseline
  */
 const de_Baseline = (output: any, context: __SerdeContext): Baseline => {
-  return {
-    PredictorBaseline:
-      output.PredictorBaseline != null ? de_PredictorBaseline(output.PredictorBaseline, context) : undefined,
-  } as any;
+  return take(output, {
+    PredictorBaseline: (_: any) => de_PredictorBaseline(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BaselineMetric
  */
 const de_BaselineMetric = (output: any, context: __SerdeContext): BaselineMetric => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __limitedParseDouble(output.Value),
-  } as any;
+  return take(output, {
+    Name: __expectString,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -6011,62 +4859,27 @@ const de_BaselineMetrics = (output: any, context: __SerdeContext): BaselineMetri
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BaselineMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CategoricalParameterRange
- */
-const de_CategoricalParameterRange = (output: any, context: __SerdeContext): CategoricalParameterRange => {
-  return {
-    Name: __expectString(output.Name),
-    Values: output.Values != null ? de_Values(output.Values, context) : undefined,
-  } as any;
-};
+// de_CategoricalParameterRange omitted.
 
-/**
- * deserializeAws_json1_1CategoricalParameterRanges
- */
-const de_CategoricalParameterRanges = (output: any, context: __SerdeContext): CategoricalParameterRange[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CategoricalParameterRange(entry, context);
-    });
-  return retVal;
-};
+// de_CategoricalParameterRanges omitted.
 
-/**
- * deserializeAws_json1_1Configuration
- */
-const de_Configuration = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_Values(value, context);
-    return acc;
-  }, {});
-};
+// de_Configuration omitted.
 
 /**
  * deserializeAws_json1_1ContinuousParameterRange
  */
 const de_ContinuousParameterRange = (output: any, context: __SerdeContext): ContinuousParameterRange => {
-  return {
-    MaxValue: __limitedParseDouble(output.MaxValue),
-    MinValue: __limitedParseDouble(output.MinValue),
-    Name: __expectString(output.Name),
-    ScalingType: __expectString(output.ScalingType),
-  } as any;
+  return take(output, {
+    MaxValue: __limitedParseDouble,
+    MinValue: __limitedParseDouble,
+    Name: __expectString,
+    ScalingType: __expectString,
+  }) as any;
 };
 
 /**
@@ -6076,170 +4889,42 @@ const de_ContinuousParameterRanges = (output: any, context: __SerdeContext): Con
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ContinuousParameterRange(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CreateAutoPredictorResponse
- */
-const de_CreateAutoPredictorResponse = (output: any, context: __SerdeContext): CreateAutoPredictorResponse => {
-  return {
-    PredictorArn: __expectString(output.PredictorArn),
-  } as any;
-};
+// de_CreateAutoPredictorResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateDatasetGroupResponse
- */
-const de_CreateDatasetGroupResponse = (output: any, context: __SerdeContext): CreateDatasetGroupResponse => {
-  return {
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-  } as any;
-};
+// de_CreateDatasetGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateDatasetImportJobResponse
- */
-const de_CreateDatasetImportJobResponse = (output: any, context: __SerdeContext): CreateDatasetImportJobResponse => {
-  return {
-    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
-  } as any;
-};
+// de_CreateDatasetImportJobResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateDatasetResponse
- */
-const de_CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
-  return {
-    DatasetArn: __expectString(output.DatasetArn),
-  } as any;
-};
+// de_CreateDatasetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateExplainabilityExportResponse
- */
-const de_CreateExplainabilityExportResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateExplainabilityExportResponse => {
-  return {
-    ExplainabilityExportArn: __expectString(output.ExplainabilityExportArn),
-  } as any;
-};
+// de_CreateExplainabilityExportResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateExplainabilityResponse
- */
-const de_CreateExplainabilityResponse = (output: any, context: __SerdeContext): CreateExplainabilityResponse => {
-  return {
-    ExplainabilityArn: __expectString(output.ExplainabilityArn),
-  } as any;
-};
+// de_CreateExplainabilityResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateForecastExportJobResponse
- */
-const de_CreateForecastExportJobResponse = (output: any, context: __SerdeContext): CreateForecastExportJobResponse => {
-  return {
-    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
-  } as any;
-};
+// de_CreateForecastExportJobResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateForecastResponse
- */
-const de_CreateForecastResponse = (output: any, context: __SerdeContext): CreateForecastResponse => {
-  return {
-    ForecastArn: __expectString(output.ForecastArn),
-  } as any;
-};
+// de_CreateForecastResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateMonitorResponse
- */
-const de_CreateMonitorResponse = (output: any, context: __SerdeContext): CreateMonitorResponse => {
-  return {
-    MonitorArn: __expectString(output.MonitorArn),
-  } as any;
-};
+// de_CreateMonitorResponse omitted.
 
-/**
- * deserializeAws_json1_1CreatePredictorBacktestExportJobResponse
- */
-const de_CreatePredictorBacktestExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePredictorBacktestExportJobResponse => {
-  return {
-    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
-  } as any;
-};
+// de_CreatePredictorBacktestExportJobResponse omitted.
 
-/**
- * deserializeAws_json1_1CreatePredictorResponse
- */
-const de_CreatePredictorResponse = (output: any, context: __SerdeContext): CreatePredictorResponse => {
-  return {
-    PredictorArn: __expectString(output.PredictorArn),
-  } as any;
-};
+// de_CreatePredictorResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateWhatIfAnalysisResponse
- */
-const de_CreateWhatIfAnalysisResponse = (output: any, context: __SerdeContext): CreateWhatIfAnalysisResponse => {
-  return {
-    WhatIfAnalysisArn: __expectString(output.WhatIfAnalysisArn),
-  } as any;
-};
+// de_CreateWhatIfAnalysisResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateWhatIfForecastExportResponse
- */
-const de_CreateWhatIfForecastExportResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateWhatIfForecastExportResponse => {
-  return {
-    WhatIfForecastExportArn: __expectString(output.WhatIfForecastExportArn),
-  } as any;
-};
+// de_CreateWhatIfForecastExportResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateWhatIfForecastResponse
- */
-const de_CreateWhatIfForecastResponse = (output: any, context: __SerdeContext): CreateWhatIfForecastResponse => {
-  return {
-    WhatIfForecastArn: __expectString(output.WhatIfForecastArn),
-  } as any;
-};
+// de_CreateWhatIfForecastResponse omitted.
 
-/**
- * deserializeAws_json1_1DataConfig
- */
-const de_DataConfig = (output: any, context: __SerdeContext): DataConfig => {
-  return {
-    AdditionalDatasets:
-      output.AdditionalDatasets != null ? de_AdditionalDatasets(output.AdditionalDatasets, context) : undefined,
-    AttributeConfigs:
-      output.AttributeConfigs != null ? de_AttributeConfigs(output.AttributeConfigs, context) : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-  } as any;
-};
+// de_DataConfig omitted.
 
-/**
- * deserializeAws_json1_1DataDestination
- */
-const de_DataDestination = (output: any, context: __SerdeContext): DataDestination => {
-  return {
-    S3Config: output.S3Config != null ? de_S3Config(output.S3Config, context) : undefined,
-  } as any;
-};
+// de_DataDestination omitted.
 
 /**
  * deserializeAws_json1_1DatasetGroups
@@ -6248,9 +4933,6 @@ const de_DatasetGroups = (output: any, context: __SerdeContext): DatasetGroupSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DatasetGroupSummary(entry, context);
     });
   return retVal;
@@ -6260,18 +4942,12 @@ const de_DatasetGroups = (output: any, context: __SerdeContext): DatasetGroupSum
  * deserializeAws_json1_1DatasetGroupSummary
  */
 const de_DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    DatasetGroupName: __expectString(output.DatasetGroupName),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetGroupArn: __expectString,
+    DatasetGroupName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -6281,9 +4957,6 @@ const de_DatasetImportJobs = (output: any, context: __SerdeContext): DatasetImpo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DatasetImportJobSummary(entry, context);
     });
   return retVal;
@@ -6293,22 +4966,16 @@ const de_DatasetImportJobs = (output: any, context: __SerdeContext): DatasetImpo
  * deserializeAws_json1_1DatasetImportJobSummary
  */
 const de_DatasetImportJobSummary = (output: any, context: __SerdeContext): DatasetImportJobSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataSource: output.DataSource != null ? de_DataSource(output.DataSource, context) : undefined,
-    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
-    DatasetImportJobName: __expectString(output.DatasetImportJobName),
-    ImportMode: __expectString(output.ImportMode),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataSource: _json,
+    DatasetImportJobArn: __expectString,
+    DatasetImportJobName: __expectString,
+    ImportMode: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6318,9 +4985,6 @@ const de_Datasets = (output: any, context: __SerdeContext): DatasetSummary[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DatasetSummary(entry, context);
     });
   return retVal;
@@ -6330,93 +4994,58 @@ const de_Datasets = (output: any, context: __SerdeContext): DatasetSummary[] => 
  * deserializeAws_json1_1DatasetSummary
  */
 const de_DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetArn: __expectString(output.DatasetArn),
-    DatasetName: __expectString(output.DatasetName),
-    DatasetType: __expectString(output.DatasetType),
-    Domain: __expectString(output.Domain),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetArn: __expectString,
+    DatasetName: __expectString,
+    DatasetType: __expectString,
+    Domain: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DataSource
- */
-const de_DataSource = (output: any, context: __SerdeContext): DataSource => {
-  return {
-    S3Config: output.S3Config != null ? de_S3Config(output.S3Config, context) : undefined,
-  } as any;
-};
+// de_DataSource omitted.
 
 /**
  * deserializeAws_json1_1DescribeAutoPredictorResponse
  */
 const de_DescribeAutoPredictorResponse = (output: any, context: __SerdeContext): DescribeAutoPredictorResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataConfig: output.DataConfig != null ? de_DataConfig(output.DataConfig, context) : undefined,
-    DatasetImportJobArns:
-      output.DatasetImportJobArns != null ? de_ArnList(output.DatasetImportJobArns, context) : undefined,
-    EncryptionConfig:
-      output.EncryptionConfig != null ? de_EncryptionConfig(output.EncryptionConfig, context) : undefined,
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    ExplainabilityInfo:
-      output.ExplainabilityInfo != null ? de_ExplainabilityInfo(output.ExplainabilityInfo, context) : undefined,
-    ForecastDimensions:
-      output.ForecastDimensions != null ? de_ForecastDimensions(output.ForecastDimensions, context) : undefined,
-    ForecastFrequency: __expectString(output.ForecastFrequency),
-    ForecastHorizon: __expectInt32(output.ForecastHorizon),
-    ForecastTypes: output.ForecastTypes != null ? de_ForecastTypes(output.ForecastTypes, context) : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    MonitorInfo: output.MonitorInfo != null ? de_MonitorInfo(output.MonitorInfo, context) : undefined,
-    OptimizationMetric: __expectString(output.OptimizationMetric),
-    PredictorArn: __expectString(output.PredictorArn),
-    PredictorName: __expectString(output.PredictorName),
-    ReferencePredictorSummary:
-      output.ReferencePredictorSummary != null
-        ? de_ReferencePredictorSummary(output.ReferencePredictorSummary, context)
-        : undefined,
-    Status: __expectString(output.Status),
-    TimeAlignmentBoundary:
-      output.TimeAlignmentBoundary != null
-        ? de_TimeAlignmentBoundary(output.TimeAlignmentBoundary, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataConfig: _json,
+    DatasetImportJobArns: _json,
+    EncryptionConfig: _json,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ExplainabilityInfo: _json,
+    ForecastDimensions: _json,
+    ForecastFrequency: __expectString,
+    ForecastHorizon: __expectInt32,
+    ForecastTypes: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    MonitorInfo: _json,
+    OptimizationMetric: __expectString,
+    PredictorArn: __expectString,
+    PredictorName: __expectString,
+    ReferencePredictorSummary: _json,
+    Status: __expectString,
+    TimeAlignmentBoundary: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeDatasetGroupResponse
  */
 const de_DescribeDatasetGroupResponse = (output: any, context: __SerdeContext): DescribeDatasetGroupResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetArns: output.DatasetArns != null ? de_ArnList(output.DatasetArns, context) : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    DatasetGroupName: __expectString(output.DatasetGroupName),
-    Domain: __expectString(output.Domain),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetArns: _json,
+    DatasetGroupArn: __expectString,
+    DatasetGroupName: __expectString,
+    Domain: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6426,56 +5055,43 @@ const de_DescribeDatasetImportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDatasetImportJobResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataSize: __limitedParseDouble(output.DataSize),
-    DataSource: output.DataSource != null ? de_DataSource(output.DataSource, context) : undefined,
-    DatasetArn: __expectString(output.DatasetArn),
-    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
-    DatasetImportJobName: __expectString(output.DatasetImportJobName),
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    FieldStatistics: output.FieldStatistics != null ? de_FieldStatistics(output.FieldStatistics, context) : undefined,
-    Format: __expectString(output.Format),
-    GeolocationFormat: __expectString(output.GeolocationFormat),
-    ImportMode: __expectString(output.ImportMode),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    TimeZone: __expectString(output.TimeZone),
-    TimestampFormat: __expectString(output.TimestampFormat),
-    UseGeolocationForTimeZone: __expectBoolean(output.UseGeolocationForTimeZone),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataSize: __limitedParseDouble,
+    DataSource: _json,
+    DatasetArn: __expectString,
+    DatasetImportJobArn: __expectString,
+    DatasetImportJobName: __expectString,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    FieldStatistics: (_: any) => de_FieldStatistics(_, context),
+    Format: __expectString,
+    GeolocationFormat: __expectString,
+    ImportMode: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    TimeZone: __expectString,
+    TimestampFormat: __expectString,
+    UseGeolocationForTimeZone: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeDatasetResponse
  */
 const de_DescribeDatasetResponse = (output: any, context: __SerdeContext): DescribeDatasetResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataFrequency: __expectString(output.DataFrequency),
-    DatasetArn: __expectString(output.DatasetArn),
-    DatasetName: __expectString(output.DatasetName),
-    DatasetType: __expectString(output.DatasetType),
-    Domain: __expectString(output.Domain),
-    EncryptionConfig:
-      output.EncryptionConfig != null ? de_EncryptionConfig(output.EncryptionConfig, context) : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Schema: output.Schema != null ? de_Schema(output.Schema, context) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataFrequency: __expectString,
+    DatasetArn: __expectString,
+    DatasetName: __expectString,
+    DatasetType: __expectString,
+    Domain: __expectString,
+    EncryptionConfig: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Schema: _json,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6485,52 +5101,39 @@ const de_DescribeExplainabilityExportResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeExplainabilityExportResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination: output.Destination != null ? de_DataDestination(output.Destination, context) : undefined,
-    ExplainabilityArn: __expectString(output.ExplainabilityArn),
-    ExplainabilityExportArn: __expectString(output.ExplainabilityExportArn),
-    ExplainabilityExportName: __expectString(output.ExplainabilityExportName),
-    Format: __expectString(output.Format),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    ExplainabilityArn: __expectString,
+    ExplainabilityExportArn: __expectString,
+    ExplainabilityExportName: __expectString,
+    Format: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeExplainabilityResponse
  */
 const de_DescribeExplainabilityResponse = (output: any, context: __SerdeContext): DescribeExplainabilityResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataSource: output.DataSource != null ? de_DataSource(output.DataSource, context) : undefined,
-    EnableVisualization: __expectBoolean(output.EnableVisualization),
-    EndDateTime: __expectString(output.EndDateTime),
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    ExplainabilityArn: __expectString(output.ExplainabilityArn),
-    ExplainabilityConfig:
-      output.ExplainabilityConfig != null ? de_ExplainabilityConfig(output.ExplainabilityConfig, context) : undefined,
-    ExplainabilityName: __expectString(output.ExplainabilityName),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    ResourceArn: __expectString(output.ResourceArn),
-    Schema: output.Schema != null ? de_Schema(output.Schema, context) : undefined,
-    StartDateTime: __expectString(output.StartDateTime),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataSource: _json,
+    EnableVisualization: __expectBoolean,
+    EndDateTime: __expectString,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ExplainabilityArn: __expectString,
+    ExplainabilityConfig: _json,
+    ExplainabilityName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    ResourceArn: __expectString,
+    Schema: _json,
+    StartDateTime: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6540,77 +5143,55 @@ const de_DescribeForecastExportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeForecastExportJobResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination: output.Destination != null ? de_DataDestination(output.Destination, context) : undefined,
-    ForecastArn: __expectString(output.ForecastArn),
-    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
-    ForecastExportJobName: __expectString(output.ForecastExportJobName),
-    Format: __expectString(output.Format),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    ForecastArn: __expectString,
+    ForecastExportJobArn: __expectString,
+    ForecastExportJobName: __expectString,
+    Format: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeForecastResponse
  */
 const de_DescribeForecastResponse = (output: any, context: __SerdeContext): DescribeForecastResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    ForecastArn: __expectString(output.ForecastArn),
-    ForecastName: __expectString(output.ForecastName),
-    ForecastTypes: output.ForecastTypes != null ? de_ForecastTypes(output.ForecastTypes, context) : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorArn: __expectString(output.PredictorArn),
-    Status: __expectString(output.Status),
-    TimeSeriesSelector:
-      output.TimeSeriesSelector != null ? de_TimeSeriesSelector(output.TimeSeriesSelector, context) : undefined,
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetGroupArn: __expectString,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ForecastArn: __expectString,
+    ForecastName: __expectString,
+    ForecastTypes: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorArn: __expectString,
+    Status: __expectString,
+    TimeSeriesSelector: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeMonitorResponse
  */
 const de_DescribeMonitorResponse = (output: any, context: __SerdeContext): DescribeMonitorResponse => {
-  return {
-    Baseline: output.Baseline != null ? de_Baseline(output.Baseline, context) : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    EstimatedEvaluationTimeRemainingInMinutes: __expectLong(output.EstimatedEvaluationTimeRemainingInMinutes),
-    LastEvaluationState: __expectString(output.LastEvaluationState),
-    LastEvaluationTime:
-      output.LastEvaluationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEvaluationTime)))
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    MonitorArn: __expectString(output.MonitorArn),
-    MonitorName: __expectString(output.MonitorName),
-    ResourceArn: __expectString(output.ResourceArn),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Baseline: (_: any) => de_Baseline(_, context),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EstimatedEvaluationTimeRemainingInMinutes: __expectLong,
+    LastEvaluationState: __expectString,
+    LastEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    MonitorArn: __expectString,
+    MonitorName: __expectString,
+    ResourceArn: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6620,94 +5201,66 @@ const de_DescribePredictorBacktestExportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribePredictorBacktestExportJobResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination: output.Destination != null ? de_DataDestination(output.Destination, context) : undefined,
-    Format: __expectString(output.Format),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorArn: __expectString(output.PredictorArn),
-    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
-    PredictorBacktestExportJobName: __expectString(output.PredictorBacktestExportJobName),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    Format: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorArn: __expectString,
+    PredictorBacktestExportJobArn: __expectString,
+    PredictorBacktestExportJobName: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribePredictorResponse
  */
 const de_DescribePredictorResponse = (output: any, context: __SerdeContext): DescribePredictorResponse => {
-  return {
-    AlgorithmArn: __expectString(output.AlgorithmArn),
-    AutoMLAlgorithmArns:
-      output.AutoMLAlgorithmArns != null ? de_ArnList(output.AutoMLAlgorithmArns, context) : undefined,
-    AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetImportJobArns:
-      output.DatasetImportJobArns != null ? de_ArnList(output.DatasetImportJobArns, context) : undefined,
-    EncryptionConfig:
-      output.EncryptionConfig != null ? de_EncryptionConfig(output.EncryptionConfig, context) : undefined,
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    EvaluationParameters:
-      output.EvaluationParameters != null ? de_EvaluationParameters(output.EvaluationParameters, context) : undefined,
-    FeaturizationConfig:
-      output.FeaturizationConfig != null ? de_FeaturizationConfig(output.FeaturizationConfig, context) : undefined,
-    ForecastHorizon: __expectInt32(output.ForecastHorizon),
-    ForecastTypes: output.ForecastTypes != null ? de_ForecastTypes(output.ForecastTypes, context) : undefined,
-    HPOConfig: output.HPOConfig != null ? de_HyperParameterTuningJobConfig(output.HPOConfig, context) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    IsAutoPredictor: __expectBoolean(output.IsAutoPredictor),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    OptimizationMetric: __expectString(output.OptimizationMetric),
-    PerformAutoML: __expectBoolean(output.PerformAutoML),
-    PerformHPO: __expectBoolean(output.PerformHPO),
-    PredictorArn: __expectString(output.PredictorArn),
-    PredictorExecutionDetails:
-      output.PredictorExecutionDetails != null
-        ? de_PredictorExecutionDetails(output.PredictorExecutionDetails, context)
-        : undefined,
-    PredictorName: __expectString(output.PredictorName),
-    Status: __expectString(output.Status),
-    TrainingParameters:
-      output.TrainingParameters != null ? de_TrainingParameters(output.TrainingParameters, context) : undefined,
-  } as any;
+  return take(output, {
+    AlgorithmArn: __expectString,
+    AutoMLAlgorithmArns: _json,
+    AutoMLOverrideStrategy: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetImportJobArns: _json,
+    EncryptionConfig: _json,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    EvaluationParameters: _json,
+    FeaturizationConfig: _json,
+    ForecastHorizon: __expectInt32,
+    ForecastTypes: _json,
+    HPOConfig: (_: any) => de_HyperParameterTuningJobConfig(_, context),
+    InputDataConfig: _json,
+    IsAutoPredictor: __expectBoolean,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    OptimizationMetric: __expectString,
+    PerformAutoML: __expectBoolean,
+    PerformHPO: __expectBoolean,
+    PredictorArn: __expectString,
+    PredictorExecutionDetails: (_: any) => de_PredictorExecutionDetails(_, context),
+    PredictorName: __expectString,
+    Status: __expectString,
+    TrainingParameters: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeWhatIfAnalysisResponse
  */
 const de_DescribeWhatIfAnalysisResponse = (output: any, context: __SerdeContext): DescribeWhatIfAnalysisResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    ForecastArn: __expectString(output.ForecastArn),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    TimeSeriesSelector:
-      output.TimeSeriesSelector != null ? de_TimeSeriesSelector(output.TimeSeriesSelector, context) : undefined,
-    WhatIfAnalysisArn: __expectString(output.WhatIfAnalysisArn),
-    WhatIfAnalysisName: __expectString(output.WhatIfAnalysisName),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ForecastArn: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    TimeSeriesSelector: _json,
+    WhatIfAnalysisArn: __expectString,
+    WhatIfAnalysisName: __expectString,
+  }) as any;
 };
 
 /**
@@ -6717,79 +5270,52 @@ const de_DescribeWhatIfForecastExportResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeWhatIfForecastExportResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination: output.Destination != null ? de_DataDestination(output.Destination, context) : undefined,
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    Format: __expectString(output.Format),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    WhatIfForecastArns:
-      output.WhatIfForecastArns != null ? de_LongArnList(output.WhatIfForecastArns, context) : undefined,
-    WhatIfForecastExportArn: __expectString(output.WhatIfForecastExportArn),
-    WhatIfForecastExportName: __expectString(output.WhatIfForecastExportName),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    Format: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    WhatIfForecastArns: _json,
+    WhatIfForecastExportArn: __expectString,
+    WhatIfForecastExportName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeWhatIfForecastResponse
  */
 const de_DescribeWhatIfForecastResponse = (output: any, context: __SerdeContext): DescribeWhatIfForecastResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    ForecastTypes: output.ForecastTypes != null ? de_ForecastTypes(output.ForecastTypes, context) : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    TimeSeriesReplacementsDataSource:
-      output.TimeSeriesReplacementsDataSource != null
-        ? de_TimeSeriesReplacementsDataSource(output.TimeSeriesReplacementsDataSource, context)
-        : undefined,
-    TimeSeriesTransformations:
-      output.TimeSeriesTransformations != null
-        ? de_TimeSeriesTransformations(output.TimeSeriesTransformations, context)
-        : undefined,
-    WhatIfAnalysisArn: __expectString(output.WhatIfAnalysisArn),
-    WhatIfForecastArn: __expectString(output.WhatIfForecastArn),
-    WhatIfForecastName: __expectString(output.WhatIfForecastName),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ForecastTypes: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    TimeSeriesReplacementsDataSource: _json,
+    TimeSeriesTransformations: (_: any) => de_TimeSeriesTransformations(_, context),
+    WhatIfAnalysisArn: __expectString,
+    WhatIfForecastArn: __expectString,
+    WhatIfForecastName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EncryptionConfig
- */
-const de_EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
-  return {
-    KMSKeyArn: __expectString(output.KMSKeyArn),
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_EncryptionConfig omitted.
 
 /**
  * deserializeAws_json1_1ErrorMetric
  */
 const de_ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
-  return {
-    ForecastType: __expectString(output.ForecastType),
-    MAPE: __limitedParseDouble(output.MAPE),
-    MASE: __limitedParseDouble(output.MASE),
-    RMSE: __limitedParseDouble(output.RMSE),
-    WAPE: __limitedParseDouble(output.WAPE),
-  } as any;
+  return take(output, {
+    ForecastType: __expectString,
+    MAPE: __limitedParseDouble,
+    MASE: __limitedParseDouble,
+    RMSE: __limitedParseDouble,
+    WAPE: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -6799,32 +5325,21 @@ const de_ErrorMetrics = (output: any, context: __SerdeContext): ErrorMetric[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ErrorMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1EvaluationParameters
- */
-const de_EvaluationParameters = (output: any, context: __SerdeContext): EvaluationParameters => {
-  return {
-    BackTestWindowOffset: __expectInt32(output.BackTestWindowOffset),
-    NumberOfBacktestWindows: __expectInt32(output.NumberOfBacktestWindows),
-  } as any;
-};
+// de_EvaluationParameters omitted.
 
 /**
  * deserializeAws_json1_1EvaluationResult
  */
 const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
-  return {
-    AlgorithmArn: __expectString(output.AlgorithmArn),
-    TestWindows: output.TestWindows != null ? de_TestWindows(output.TestWindows, context) : undefined,
-  } as any;
+  return take(output, {
+    AlgorithmArn: __expectString,
+    TestWindows: (_: any) => de_TestWindows(_, context),
+  }) as any;
 };
 
 /**
@@ -6834,23 +5349,12 @@ const de_Explainabilities = (output: any, context: __SerdeContext): Explainabili
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ExplainabilitySummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ExplainabilityConfig
- */
-const de_ExplainabilityConfig = (output: any, context: __SerdeContext): ExplainabilityConfig => {
-  return {
-    TimePointGranularity: __expectString(output.TimePointGranularity),
-    TimeSeriesGranularity: __expectString(output.TimeSeriesGranularity),
-  } as any;
-};
+// de_ExplainabilityConfig omitted.
 
 /**
  * deserializeAws_json1_1ExplainabilityExports
@@ -6859,9 +5363,6 @@ const de_ExplainabilityExports = (output: any, context: __SerdeContext): Explain
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ExplainabilityExportSummary(entry, context);
     });
   return retVal;
@@ -6871,136 +5372,46 @@ const de_ExplainabilityExports = (output: any, context: __SerdeContext): Explain
  * deserializeAws_json1_1ExplainabilityExportSummary
  */
 const de_ExplainabilityExportSummary = (output: any, context: __SerdeContext): ExplainabilityExportSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination: output.Destination != null ? de_DataDestination(output.Destination, context) : undefined,
-    ExplainabilityExportArn: __expectString(output.ExplainabilityExportArn),
-    ExplainabilityExportName: __expectString(output.ExplainabilityExportName),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    ExplainabilityExportArn: __expectString,
+    ExplainabilityExportName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ExplainabilityInfo
- */
-const de_ExplainabilityInfo = (output: any, context: __SerdeContext): ExplainabilityInfo => {
-  return {
-    ExplainabilityArn: __expectString(output.ExplainabilityArn),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_ExplainabilityInfo omitted.
 
 /**
  * deserializeAws_json1_1ExplainabilitySummary
  */
 const de_ExplainabilitySummary = (output: any, context: __SerdeContext): ExplainabilitySummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    ExplainabilityArn: __expectString(output.ExplainabilityArn),
-    ExplainabilityConfig:
-      output.ExplainabilityConfig != null ? de_ExplainabilityConfig(output.ExplainabilityConfig, context) : undefined,
-    ExplainabilityName: __expectString(output.ExplainabilityName),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    ResourceArn: __expectString(output.ResourceArn),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExplainabilityArn: __expectString,
+    ExplainabilityConfig: _json,
+    ExplainabilityName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    ResourceArn: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Featurization
- */
-const de_Featurization = (output: any, context: __SerdeContext): Featurization => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    FeaturizationPipeline:
-      output.FeaturizationPipeline != null
-        ? de_FeaturizationPipeline(output.FeaturizationPipeline, context)
-        : undefined,
-  } as any;
-};
+// de_Featurization omitted.
 
-/**
- * deserializeAws_json1_1FeaturizationConfig
- */
-const de_FeaturizationConfig = (output: any, context: __SerdeContext): FeaturizationConfig => {
-  return {
-    Featurizations: output.Featurizations != null ? de_Featurizations(output.Featurizations, context) : undefined,
-    ForecastDimensions:
-      output.ForecastDimensions != null ? de_ForecastDimensions(output.ForecastDimensions, context) : undefined,
-    ForecastFrequency: __expectString(output.ForecastFrequency),
-  } as any;
-};
+// de_FeaturizationConfig omitted.
 
-/**
- * deserializeAws_json1_1FeaturizationMethod
- */
-const de_FeaturizationMethod = (output: any, context: __SerdeContext): FeaturizationMethod => {
-  return {
-    FeaturizationMethodName: __expectString(output.FeaturizationMethodName),
-    FeaturizationMethodParameters:
-      output.FeaturizationMethodParameters != null
-        ? de_FeaturizationMethodParameters(output.FeaturizationMethodParameters, context)
-        : undefined,
-  } as any;
-};
+// de_FeaturizationMethod omitted.
 
-/**
- * deserializeAws_json1_1FeaturizationMethodParameters
- */
-const de_FeaturizationMethodParameters = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_FeaturizationMethodParameters omitted.
 
-/**
- * deserializeAws_json1_1FeaturizationPipeline
- */
-const de_FeaturizationPipeline = (output: any, context: __SerdeContext): FeaturizationMethod[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FeaturizationMethod(entry, context);
-    });
-  return retVal;
-};
+// de_FeaturizationPipeline omitted.
 
-/**
- * deserializeAws_json1_1Featurizations
- */
-const de_Featurizations = (output: any, context: __SerdeContext): Featurization[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Featurization(entry, context);
-    });
-  return retVal;
-};
+// de_Featurizations omitted.
 
 /**
  * deserializeAws_json1_1FieldStatistics
@@ -7015,20 +5426,7 @@ const de_FieldStatistics = (output: any, context: __SerdeContext): Record<string
   }, {});
 };
 
-/**
- * deserializeAws_json1_1ForecastDimensions
- */
-const de_ForecastDimensions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ForecastDimensions omitted.
 
 /**
  * deserializeAws_json1_1ForecastExportJobs
@@ -7037,9 +5435,6 @@ const de_ForecastExportJobs = (output: any, context: __SerdeContext): ForecastEx
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ForecastExportJobSummary(entry, context);
     });
   return retVal;
@@ -7049,21 +5444,15 @@ const de_ForecastExportJobs = (output: any, context: __SerdeContext): ForecastEx
  * deserializeAws_json1_1ForecastExportJobSummary
  */
 const de_ForecastExportJobSummary = (output: any, context: __SerdeContext): ForecastExportJobSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination: output.Destination != null ? de_DataDestination(output.Destination, context) : undefined,
-    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
-    ForecastExportJobName: __expectString(output.ForecastExportJobName),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    ForecastExportJobArn: __expectString,
+    ForecastExportJobName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -7073,9 +5462,6 @@ const de_Forecasts = (output: any, context: __SerdeContext): ForecastSummary[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ForecastSummary(entry, context);
     });
   return retVal;
@@ -7085,171 +5471,92 @@ const de_Forecasts = (output: any, context: __SerdeContext): ForecastSummary[] =
  * deserializeAws_json1_1ForecastSummary
  */
 const de_ForecastSummary = (output: any, context: __SerdeContext): ForecastSummary => {
-  return {
-    CreatedUsingAutoPredictor: __expectBoolean(output.CreatedUsingAutoPredictor),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    ForecastArn: __expectString(output.ForecastArn),
-    ForecastName: __expectString(output.ForecastName),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorArn: __expectString(output.PredictorArn),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreatedUsingAutoPredictor: __expectBoolean,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetGroupArn: __expectString,
+    ForecastArn: __expectString,
+    ForecastName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorArn: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ForecastTypes
- */
-const de_ForecastTypes = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ForecastTypes omitted.
 
 /**
  * deserializeAws_json1_1GetAccuracyMetricsResponse
  */
 const de_GetAccuracyMetricsResponse = (output: any, context: __SerdeContext): GetAccuracyMetricsResponse => {
-  return {
-    AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
-    IsAutoPredictor: __expectBoolean(output.IsAutoPredictor),
-    OptimizationMetric: __expectString(output.OptimizationMetric),
-    PredictorEvaluationResults:
-      output.PredictorEvaluationResults != null
-        ? de_PredictorEvaluationResults(output.PredictorEvaluationResults, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AutoMLOverrideStrategy: __expectString,
+    IsAutoPredictor: __expectBoolean,
+    OptimizationMetric: __expectString,
+    PredictorEvaluationResults: (_: any) => de_PredictorEvaluationResults(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1HyperParameterTuningJobConfig
  */
 const de_HyperParameterTuningJobConfig = (output: any, context: __SerdeContext): HyperParameterTuningJobConfig => {
-  return {
-    ParameterRanges: output.ParameterRanges != null ? de_ParameterRanges(output.ParameterRanges, context) : undefined,
-  } as any;
+  return take(output, {
+    ParameterRanges: (_: any) => de_ParameterRanges(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InputDataConfig
- */
-const de_InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    SupplementaryFeatures:
-      output.SupplementaryFeatures != null
-        ? de_SupplementaryFeatures(output.SupplementaryFeatures, context)
-        : undefined,
-  } as any;
-};
+// de_InputDataConfig omitted.
 
-/**
- * deserializeAws_json1_1IntegerParameterRange
- */
-const de_IntegerParameterRange = (output: any, context: __SerdeContext): IntegerParameterRange => {
-  return {
-    MaxValue: __expectInt32(output.MaxValue),
-    MinValue: __expectInt32(output.MinValue),
-    Name: __expectString(output.Name),
-    ScalingType: __expectString(output.ScalingType),
-  } as any;
-};
+// de_IntegerParameterRange omitted.
 
-/**
- * deserializeAws_json1_1IntegerParameterRanges
- */
-const de_IntegerParameterRanges = (output: any, context: __SerdeContext): IntegerParameterRange[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IntegerParameterRange(entry, context);
-    });
-  return retVal;
-};
+// de_IntegerParameterRanges omitted.
 
-/**
- * deserializeAws_json1_1InvalidInputException
- */
-const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidInputException omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListDatasetGroupsResponse
  */
 const de_ListDatasetGroupsResponse = (output: any, context: __SerdeContext): ListDatasetGroupsResponse => {
-  return {
-    DatasetGroups: output.DatasetGroups != null ? de_DatasetGroups(output.DatasetGroups, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DatasetGroups: (_: any) => de_DatasetGroups(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListDatasetImportJobsResponse
  */
 const de_ListDatasetImportJobsResponse = (output: any, context: __SerdeContext): ListDatasetImportJobsResponse => {
-  return {
-    DatasetImportJobs:
-      output.DatasetImportJobs != null ? de_DatasetImportJobs(output.DatasetImportJobs, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DatasetImportJobs: (_: any) => de_DatasetImportJobs(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListDatasetsResponse
  */
 const de_ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
-  return {
-    Datasets: output.Datasets != null ? de_Datasets(output.Datasets, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Datasets: (_: any) => de_Datasets(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListExplainabilitiesResponse
  */
 const de_ListExplainabilitiesResponse = (output: any, context: __SerdeContext): ListExplainabilitiesResponse => {
-  return {
-    Explainabilities:
-      output.Explainabilities != null ? de_Explainabilities(output.Explainabilities, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Explainabilities: (_: any) => de_Explainabilities(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -7259,57 +5566,50 @@ const de_ListExplainabilityExportsResponse = (
   output: any,
   context: __SerdeContext
 ): ListExplainabilityExportsResponse => {
-  return {
-    ExplainabilityExports:
-      output.ExplainabilityExports != null
-        ? de_ExplainabilityExports(output.ExplainabilityExports, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ExplainabilityExports: (_: any) => de_ExplainabilityExports(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListForecastExportJobsResponse
  */
 const de_ListForecastExportJobsResponse = (output: any, context: __SerdeContext): ListForecastExportJobsResponse => {
-  return {
-    ForecastExportJobs:
-      output.ForecastExportJobs != null ? de_ForecastExportJobs(output.ForecastExportJobs, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ForecastExportJobs: (_: any) => de_ForecastExportJobs(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListForecastsResponse
  */
 const de_ListForecastsResponse = (output: any, context: __SerdeContext): ListForecastsResponse => {
-  return {
-    Forecasts: output.Forecasts != null ? de_Forecasts(output.Forecasts, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Forecasts: (_: any) => de_Forecasts(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListMonitorEvaluationsResponse
  */
 const de_ListMonitorEvaluationsResponse = (output: any, context: __SerdeContext): ListMonitorEvaluationsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PredictorMonitorEvaluations:
-      output.PredictorMonitorEvaluations != null
-        ? de_PredictorMonitorEvaluations(output.PredictorMonitorEvaluations, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    PredictorMonitorEvaluations: (_: any) => de_PredictorMonitorEvaluations(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListMonitorsResponse
  */
 const de_ListMonitorsResponse = (output: any, context: __SerdeContext): ListMonitorsResponse => {
-  return {
-    Monitors: output.Monitors != null ? de_Monitors(output.Monitors, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Monitors: (_: any) => de_Monitors(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -7319,42 +5619,32 @@ const de_ListPredictorBacktestExportJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPredictorBacktestExportJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PredictorBacktestExportJobs:
-      output.PredictorBacktestExportJobs != null
-        ? de_PredictorBacktestExportJobs(output.PredictorBacktestExportJobs, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    PredictorBacktestExportJobs: (_: any) => de_PredictorBacktestExportJobs(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListPredictorsResponse
  */
 const de_ListPredictorsResponse = (output: any, context: __SerdeContext): ListPredictorsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Predictors: output.Predictors != null ? de_Predictors(output.Predictors, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Predictors: (_: any) => de_Predictors(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1ListWhatIfAnalysesResponse
  */
 const de_ListWhatIfAnalysesResponse = (output: any, context: __SerdeContext): ListWhatIfAnalysesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    WhatIfAnalyses: output.WhatIfAnalyses != null ? de_WhatIfAnalyses(output.WhatIfAnalyses, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    WhatIfAnalyses: (_: any) => de_WhatIfAnalyses(_, context),
+  }) as any;
 };
 
 /**
@@ -7364,48 +5654,32 @@ const de_ListWhatIfForecastExportsResponse = (
   output: any,
   context: __SerdeContext
 ): ListWhatIfForecastExportsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    WhatIfForecastExports:
-      output.WhatIfForecastExports != null
-        ? de_WhatIfForecastExports(output.WhatIfForecastExports, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    WhatIfForecastExports: (_: any) => de_WhatIfForecastExports(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListWhatIfForecastsResponse
  */
 const de_ListWhatIfForecastsResponse = (output: any, context: __SerdeContext): ListWhatIfForecastsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    WhatIfForecasts: output.WhatIfForecasts != null ? de_WhatIfForecasts(output.WhatIfForecasts, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    WhatIfForecasts: (_: any) => de_WhatIfForecasts(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1LongArnList
- */
-const de_LongArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LongArnList omitted.
 
 /**
  * deserializeAws_json1_1MetricResult
  */
 const de_MetricResult = (output: any, context: __SerdeContext): MetricResult => {
-  return {
-    MetricName: __expectString(output.MetricName),
-    MetricValue: __limitedParseDouble(output.MetricValue),
-  } as any;
+  return take(output, {
+    MetricName: __expectString,
+    MetricValue: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -7415,9 +5689,6 @@ const de_MetricResults = (output: any, context: __SerdeContext): MetricResult[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MetricResult(entry, context);
     });
   return retVal;
@@ -7427,37 +5698,17 @@ const de_MetricResults = (output: any, context: __SerdeContext): MetricResult[] 
  * deserializeAws_json1_1Metrics
  */
 const de_Metrics = (output: any, context: __SerdeContext): Metrics => {
-  return {
-    AverageWeightedQuantileLoss: __limitedParseDouble(output.AverageWeightedQuantileLoss),
-    ErrorMetrics: output.ErrorMetrics != null ? de_ErrorMetrics(output.ErrorMetrics, context) : undefined,
-    RMSE: __limitedParseDouble(output.RMSE),
-    WeightedQuantileLosses:
-      output.WeightedQuantileLosses != null
-        ? de_WeightedQuantileLosses(output.WeightedQuantileLosses, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AverageWeightedQuantileLoss: __limitedParseDouble,
+    ErrorMetrics: (_: any) => de_ErrorMetrics(_, context),
+    RMSE: __limitedParseDouble,
+    WeightedQuantileLosses: (_: any) => de_WeightedQuantileLosses(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1MonitorDataSource
- */
-const de_MonitorDataSource = (output: any, context: __SerdeContext): MonitorDataSource => {
-  return {
-    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
-    ForecastArn: __expectString(output.ForecastArn),
-    PredictorArn: __expectString(output.PredictorArn),
-  } as any;
-};
+// de_MonitorDataSource omitted.
 
-/**
- * deserializeAws_json1_1MonitorInfo
- */
-const de_MonitorInfo = (output: any, context: __SerdeContext): MonitorInfo => {
-  return {
-    MonitorArn: __expectString(output.MonitorArn),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_MonitorInfo omitted.
 
 /**
  * deserializeAws_json1_1Monitors
@@ -7466,9 +5717,6 @@ const de_Monitors = (output: any, context: __SerdeContext): MonitorSummary[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MonitorSummary(entry, context);
     });
   return retVal;
@@ -7478,40 +5726,25 @@ const de_Monitors = (output: any, context: __SerdeContext): MonitorSummary[] => 
  * deserializeAws_json1_1MonitorSummary
  */
 const de_MonitorSummary = (output: any, context: __SerdeContext): MonitorSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    MonitorArn: __expectString(output.MonitorArn),
-    MonitorName: __expectString(output.MonitorName),
-    ResourceArn: __expectString(output.ResourceArn),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MonitorArn: __expectString,
+    MonitorName: __expectString,
+    ResourceArn: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ParameterRanges
  */
 const de_ParameterRanges = (output: any, context: __SerdeContext): ParameterRanges => {
-  return {
-    CategoricalParameterRanges:
-      output.CategoricalParameterRanges != null
-        ? de_CategoricalParameterRanges(output.CategoricalParameterRanges, context)
-        : undefined,
-    ContinuousParameterRanges:
-      output.ContinuousParameterRanges != null
-        ? de_ContinuousParameterRanges(output.ContinuousParameterRanges, context)
-        : undefined,
-    IntegerParameterRanges:
-      output.IntegerParameterRanges != null
-        ? de_IntegerParameterRanges(output.IntegerParameterRanges, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CategoricalParameterRanges: _json,
+    ContinuousParameterRanges: (_: any) => de_ContinuousParameterRanges(_, context),
+    IntegerParameterRanges: _json,
+  }) as any;
 };
 
 /**
@@ -7521,9 +5754,6 @@ const de_PredictorBacktestExportJobs = (output: any, context: __SerdeContext): P
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PredictorBacktestExportJobSummary(entry, context);
     });
   return retVal;
@@ -7536,30 +5766,24 @@ const de_PredictorBacktestExportJobSummary = (
   output: any,
   context: __SerdeContext
 ): PredictorBacktestExportJobSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination: output.Destination != null ? de_DataDestination(output.Destination, context) : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
-    PredictorBacktestExportJobName: __expectString(output.PredictorBacktestExportJobName),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorBacktestExportJobArn: __expectString,
+    PredictorBacktestExportJobName: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1PredictorBaseline
  */
 const de_PredictorBaseline = (output: any, context: __SerdeContext): PredictorBaseline => {
-  return {
-    BaselineMetrics: output.BaselineMetrics != null ? de_BaselineMetrics(output.BaselineMetrics, context) : undefined,
-  } as any;
+  return take(output, {
+    BaselineMetrics: (_: any) => de_BaselineMetrics(_, context),
+  }) as any;
 };
 
 /**
@@ -7569,9 +5793,6 @@ const de_PredictorEvaluationResults = (output: any, context: __SerdeContext): Ev
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EvaluationResult(entry, context);
     });
   return retVal;
@@ -7581,31 +5802,29 @@ const de_PredictorEvaluationResults = (output: any, context: __SerdeContext): Ev
  * deserializeAws_json1_1PredictorEvent
  */
 const de_PredictorEvent = (output: any, context: __SerdeContext): PredictorEvent => {
-  return {
-    Datetime:
-      output.Datetime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Datetime))) : undefined,
-    Detail: __expectString(output.Detail),
-  } as any;
+  return take(output, {
+    Datetime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Detail: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1PredictorExecution
  */
 const de_PredictorExecution = (output: any, context: __SerdeContext): PredictorExecution => {
-  return {
-    AlgorithmArn: __expectString(output.AlgorithmArn),
-    TestWindows: output.TestWindows != null ? de_TestWindowDetails(output.TestWindows, context) : undefined,
-  } as any;
+  return take(output, {
+    AlgorithmArn: __expectString,
+    TestWindows: (_: any) => de_TestWindowDetails(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1PredictorExecutionDetails
  */
 const de_PredictorExecutionDetails = (output: any, context: __SerdeContext): PredictorExecutionDetails => {
-  return {
-    PredictorExecutions:
-      output.PredictorExecutions != null ? de_PredictorExecutions(output.PredictorExecutions, context) : undefined,
-  } as any;
+  return take(output, {
+    PredictorExecutions: (_: any) => de_PredictorExecutions(_, context),
+  }) as any;
 };
 
 /**
@@ -7615,9 +5834,6 @@ const de_PredictorExecutions = (output: any, context: __SerdeContext): Predictor
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PredictorExecution(entry, context);
     });
   return retVal;
@@ -7627,29 +5843,19 @@ const de_PredictorExecutions = (output: any, context: __SerdeContext): Predictor
  * deserializeAws_json1_1PredictorMonitorEvaluation
  */
 const de_PredictorMonitorEvaluation = (output: any, context: __SerdeContext): PredictorMonitorEvaluation => {
-  return {
-    EvaluationState: __expectString(output.EvaluationState),
-    EvaluationTime:
-      output.EvaluationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    MetricResults: output.MetricResults != null ? de_MetricResults(output.MetricResults, context) : undefined,
-    MonitorArn: __expectString(output.MonitorArn),
-    MonitorDataSource:
-      output.MonitorDataSource != null ? de_MonitorDataSource(output.MonitorDataSource, context) : undefined,
-    NumItemsEvaluated: __expectLong(output.NumItemsEvaluated),
-    PredictorEvent: output.PredictorEvent != null ? de_PredictorEvent(output.PredictorEvent, context) : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-    WindowEndDatetime:
-      output.WindowEndDatetime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.WindowEndDatetime)))
-        : undefined,
-    WindowStartDatetime:
-      output.WindowStartDatetime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.WindowStartDatetime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    EvaluationState: __expectString,
+    EvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    MetricResults: (_: any) => de_MetricResults(_, context),
+    MonitorArn: __expectString,
+    MonitorDataSource: _json,
+    NumItemsEvaluated: __expectLong,
+    PredictorEvent: (_: any) => de_PredictorEvent(_, context),
+    ResourceArn: __expectString,
+    WindowEndDatetime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WindowStartDatetime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -7659,9 +5865,6 @@ const de_PredictorMonitorEvaluations = (output: any, context: __SerdeContext): P
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PredictorMonitorEvaluation(entry, context);
     });
   return retVal;
@@ -7674,9 +5877,6 @@ const de_Predictors = (output: any, context: __SerdeContext): PredictorSummary[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PredictorSummary(entry, context);
     });
   return retVal;
@@ -7686,186 +5886,64 @@ const de_Predictors = (output: any, context: __SerdeContext): PredictorSummary[]
  * deserializeAws_json1_1PredictorSummary
  */
 const de_PredictorSummary = (output: any, context: __SerdeContext): PredictorSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    IsAutoPredictor: __expectBoolean(output.IsAutoPredictor),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorArn: __expectString(output.PredictorArn),
-    PredictorName: __expectString(output.PredictorName),
-    ReferencePredictorSummary:
-      output.ReferencePredictorSummary != null
-        ? de_ReferencePredictorSummary(output.ReferencePredictorSummary, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetGroupArn: __expectString,
+    IsAutoPredictor: __expectBoolean,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorArn: __expectString,
+    PredictorName: __expectString,
+    ReferencePredictorSummary: _json,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ReferencePredictorSummary
- */
-const de_ReferencePredictorSummary = (output: any, context: __SerdeContext): ReferencePredictorSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_ReferencePredictorSummary omitted.
 
-/**
- * deserializeAws_json1_1ResourceAlreadyExistsException
- */
-const de_ResourceAlreadyExistsException = (output: any, context: __SerdeContext): ResourceAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1S3Config
- */
-const de_S3Config = (output: any, context: __SerdeContext): S3Config => {
-  return {
-    KMSKeyArn: __expectString(output.KMSKeyArn),
-    Path: __expectString(output.Path),
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_S3Config omitted.
 
-/**
- * deserializeAws_json1_1Schema
- */
-const de_Schema = (output: any, context: __SerdeContext): Schema => {
-  return {
-    Attributes: output.Attributes != null ? de_SchemaAttributes(output.Attributes, context) : undefined,
-  } as any;
-};
+// de_Schema omitted.
 
-/**
- * deserializeAws_json1_1SchemaAttribute
- */
-const de_SchemaAttribute = (output: any, context: __SerdeContext): SchemaAttribute => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    AttributeType: __expectString(output.AttributeType),
-  } as any;
-};
+// de_SchemaAttribute omitted.
 
-/**
- * deserializeAws_json1_1SchemaAttributes
- */
-const de_SchemaAttributes = (output: any, context: __SerdeContext): SchemaAttribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SchemaAttribute(entry, context);
-    });
-  return retVal;
-};
+// de_SchemaAttributes omitted.
 
 /**
  * deserializeAws_json1_1Statistics
  */
 const de_Statistics = (output: any, context: __SerdeContext): Statistics => {
-  return {
-    Avg: __limitedParseDouble(output.Avg),
-    Count: __expectInt32(output.Count),
-    CountDistinct: __expectInt32(output.CountDistinct),
-    CountDistinctLong: __expectLong(output.CountDistinctLong),
-    CountLong: __expectLong(output.CountLong),
-    CountNan: __expectInt32(output.CountNan),
-    CountNanLong: __expectLong(output.CountNanLong),
-    CountNull: __expectInt32(output.CountNull),
-    CountNullLong: __expectLong(output.CountNullLong),
-    Max: __expectString(output.Max),
-    Min: __expectString(output.Min),
-    Stddev: __limitedParseDouble(output.Stddev),
-  } as any;
+  return take(output, {
+    Avg: __limitedParseDouble,
+    Count: __expectInt32,
+    CountDistinct: __expectInt32,
+    CountDistinctLong: __expectLong,
+    CountLong: __expectLong,
+    CountNan: __expectInt32,
+    CountNanLong: __expectLong,
+    CountNull: __expectInt32,
+    CountNullLong: __expectLong,
+    Max: __expectString,
+    Min: __expectString,
+    Stddev: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SupplementaryFeature
- */
-const de_SupplementaryFeature = (output: any, context: __SerdeContext): SupplementaryFeature => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_SupplementaryFeature omitted.
 
-/**
- * deserializeAws_json1_1SupplementaryFeatures
- */
-const de_SupplementaryFeatures = (output: any, context: __SerdeContext): SupplementaryFeature[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SupplementaryFeature(entry, context);
-    });
-  return retVal;
-};
+// de_SupplementaryFeatures omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
 /**
  * deserializeAws_json1_1TestWindowDetails
@@ -7874,9 +5952,6 @@ const de_TestWindowDetails = (output: any, context: __SerdeContext): TestWindowS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TestWindowSummary(entry, context);
     });
   return retVal;
@@ -7889,9 +5964,6 @@ const de_TestWindows = (output: any, context: __SerdeContext): WindowSummary[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WindowSummary(entry, context);
     });
   return retVal;
@@ -7901,105 +5973,34 @@ const de_TestWindows = (output: any, context: __SerdeContext): WindowSummary[] =
  * deserializeAws_json1_1TestWindowSummary
  */
 const de_TestWindowSummary = (output: any, context: __SerdeContext): TestWindowSummary => {
-  return {
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    TestWindowEnd:
-      output.TestWindowEnd != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowEnd)))
-        : undefined,
-    TestWindowStart:
-      output.TestWindowStart != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowStart)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Message: __expectString,
+    Status: __expectString,
+    TestWindowEnd: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TestWindowStart: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1TimeAlignmentBoundary
- */
-const de_TimeAlignmentBoundary = (output: any, context: __SerdeContext): TimeAlignmentBoundary => {
-  return {
-    DayOfMonth: __expectInt32(output.DayOfMonth),
-    DayOfWeek: __expectString(output.DayOfWeek),
-    Hour: __expectInt32(output.Hour),
-    Month: __expectString(output.Month),
-  } as any;
-};
+// de_TimeAlignmentBoundary omitted.
 
-/**
- * deserializeAws_json1_1TimeSeriesCondition
- */
-const de_TimeSeriesCondition = (output: any, context: __SerdeContext): TimeSeriesCondition => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    AttributeValue: __expectString(output.AttributeValue),
-    Condition: __expectString(output.Condition),
-  } as any;
-};
+// de_TimeSeriesCondition omitted.
 
-/**
- * deserializeAws_json1_1TimeSeriesConditions
- */
-const de_TimeSeriesConditions = (output: any, context: __SerdeContext): TimeSeriesCondition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TimeSeriesCondition(entry, context);
-    });
-  return retVal;
-};
+// de_TimeSeriesConditions omitted.
 
-/**
- * deserializeAws_json1_1TimeSeriesIdentifiers
- */
-const de_TimeSeriesIdentifiers = (output: any, context: __SerdeContext): TimeSeriesIdentifiers => {
-  return {
-    DataSource: output.DataSource != null ? de_DataSource(output.DataSource, context) : undefined,
-    Format: __expectString(output.Format),
-    Schema: output.Schema != null ? de_Schema(output.Schema, context) : undefined,
-  } as any;
-};
+// de_TimeSeriesIdentifiers omitted.
 
-/**
- * deserializeAws_json1_1TimeSeriesReplacementsDataSource
- */
-const de_TimeSeriesReplacementsDataSource = (
-  output: any,
-  context: __SerdeContext
-): TimeSeriesReplacementsDataSource => {
-  return {
-    Format: __expectString(output.Format),
-    S3Config: output.S3Config != null ? de_S3Config(output.S3Config, context) : undefined,
-    Schema: output.Schema != null ? de_Schema(output.Schema, context) : undefined,
-    TimestampFormat: __expectString(output.TimestampFormat),
-  } as any;
-};
+// de_TimeSeriesReplacementsDataSource omitted.
 
-/**
- * deserializeAws_json1_1TimeSeriesSelector
- */
-const de_TimeSeriesSelector = (output: any, context: __SerdeContext): TimeSeriesSelector => {
-  return {
-    TimeSeriesIdentifiers:
-      output.TimeSeriesIdentifiers != null
-        ? de_TimeSeriesIdentifiers(output.TimeSeriesIdentifiers, context)
-        : undefined,
-  } as any;
-};
+// de_TimeSeriesSelector omitted.
 
 /**
  * deserializeAws_json1_1TimeSeriesTransformation
  */
 const de_TimeSeriesTransformation = (output: any, context: __SerdeContext): TimeSeriesTransformation => {
-  return {
-    Action: output.Action != null ? de_Action(output.Action, context) : undefined,
-    TimeSeriesConditions:
-      output.TimeSeriesConditions != null ? de_TimeSeriesConditions(output.TimeSeriesConditions, context) : undefined,
-  } as any;
+  return take(output, {
+    Action: (_: any) => de_Action(_, context),
+    TimeSeriesConditions: _json,
+  }) as any;
 };
 
 /**
@@ -8009,77 +6010,29 @@ const de_TimeSeriesTransformations = (output: any, context: __SerdeContext): Tim
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TimeSeriesTransformation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1TrainingParameters
- */
-const de_TrainingParameters = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TrainingParameters omitted.
 
-/**
- * deserializeAws_json1_1Transformations
- */
-const de_Transformations = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Transformations omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateDatasetGroupResponse
- */
-const de_UpdateDatasetGroupResponse = (output: any, context: __SerdeContext): UpdateDatasetGroupResponse => {
-  return {} as any;
-};
+// de_UpdateDatasetGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1Values
- */
-const de_Values = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Values omitted.
 
 /**
  * deserializeAws_json1_1WeightedQuantileLoss
  */
 const de_WeightedQuantileLoss = (output: any, context: __SerdeContext): WeightedQuantileLoss => {
-  return {
-    LossValue: __limitedParseDouble(output.LossValue),
-    Quantile: __limitedParseDouble(output.Quantile),
-  } as any;
+  return take(output, {
+    LossValue: __limitedParseDouble,
+    Quantile: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -8089,9 +6042,6 @@ const de_WeightedQuantileLosses = (output: any, context: __SerdeContext): Weight
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WeightedQuantileLoss(entry, context);
     });
   return retVal;
@@ -8104,9 +6054,6 @@ const de_WhatIfAnalyses = (output: any, context: __SerdeContext): WhatIfAnalysis
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WhatIfAnalysisSummary(entry, context);
     });
   return retVal;
@@ -8116,37 +6063,18 @@ const de_WhatIfAnalyses = (output: any, context: __SerdeContext): WhatIfAnalysis
  * deserializeAws_json1_1WhatIfAnalysisSummary
  */
 const de_WhatIfAnalysisSummary = (output: any, context: __SerdeContext): WhatIfAnalysisSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    ForecastArn: __expectString(output.ForecastArn),
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    WhatIfAnalysisArn: __expectString(output.WhatIfAnalysisArn),
-    WhatIfAnalysisName: __expectString(output.WhatIfAnalysisName),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ForecastArn: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    WhatIfAnalysisArn: __expectString,
+    WhatIfAnalysisName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1WhatIfForecastArnListForExport
- */
-const de_WhatIfForecastArnListForExport = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WhatIfForecastArnListForExport omitted.
 
 /**
  * deserializeAws_json1_1WhatIfForecastExports
@@ -8155,9 +6083,6 @@ const de_WhatIfForecastExports = (output: any, context: __SerdeContext): WhatIfF
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WhatIfForecastExportSummary(entry, context);
     });
   return retVal;
@@ -8167,25 +6092,16 @@ const de_WhatIfForecastExports = (output: any, context: __SerdeContext): WhatIfF
  * deserializeAws_json1_1WhatIfForecastExportSummary
  */
 const de_WhatIfForecastExportSummary = (output: any, context: __SerdeContext): WhatIfForecastExportSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination: output.Destination != null ? de_DataDestination(output.Destination, context) : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    WhatIfForecastArns:
-      output.WhatIfForecastArns != null
-        ? de_WhatIfForecastArnListForExport(output.WhatIfForecastArns, context)
-        : undefined,
-    WhatIfForecastExportArn: __expectString(output.WhatIfForecastExportArn),
-    WhatIfForecastExportName: __expectString(output.WhatIfForecastExportName),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    WhatIfForecastArns: _json,
+    WhatIfForecastExportArn: __expectString,
+    WhatIfForecastExportName: __expectString,
+  }) as any;
 };
 
 /**
@@ -8195,9 +6111,6 @@ const de_WhatIfForecasts = (output: any, context: __SerdeContext): WhatIfForecas
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WhatIfForecastSummary(entry, context);
     });
   return retVal;
@@ -8207,40 +6120,28 @@ const de_WhatIfForecasts = (output: any, context: __SerdeContext): WhatIfForecas
  * deserializeAws_json1_1WhatIfForecastSummary
  */
 const de_WhatIfForecastSummary = (output: any, context: __SerdeContext): WhatIfForecastSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    WhatIfAnalysisArn: __expectString(output.WhatIfAnalysisArn),
-    WhatIfForecastArn: __expectString(output.WhatIfForecastArn),
-    WhatIfForecastName: __expectString(output.WhatIfForecastName),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    WhatIfAnalysisArn: __expectString,
+    WhatIfForecastArn: __expectString,
+    WhatIfForecastName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1WindowSummary
  */
 const de_WindowSummary = (output: any, context: __SerdeContext): WindowSummary => {
-  return {
-    EvaluationType: __expectString(output.EvaluationType),
-    ItemCount: __expectInt32(output.ItemCount),
-    Metrics: output.Metrics != null ? de_Metrics(output.Metrics, context) : undefined,
-    TestWindowEnd:
-      output.TestWindowEnd != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowEnd)))
-        : undefined,
-    TestWindowStart:
-      output.TestWindowStart != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowStart)))
-        : undefined,
-  } as any;
+  return take(output, {
+    EvaluationType: __expectString,
+    ItemCount: __expectInt32,
+    Metrics: (_: any) => de_Metrics(_, context),
+    TestWindowEnd: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TestWindowStart: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -8263,6 +6164,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

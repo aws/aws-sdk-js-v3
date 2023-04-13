@@ -1,16 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -171,10 +173,6 @@ import {
   EulaAcceptance,
   InternalServerErrorException,
   LaunchProfile,
-  LaunchProfileInitialization,
-  LaunchProfileInitializationActiveDirectory,
-  LaunchProfileInitializationScript,
-  LaunchProfileMembership,
   LicenseServiceConfiguration,
   NewLaunchProfileMember,
   NewStudioMember,
@@ -182,12 +180,9 @@ import {
   ScriptParameterKeyValue,
   ServiceQuotaExceededException,
   SharedFileSystemConfiguration,
-  StreamConfiguration,
   StreamConfigurationCreate,
   StreamConfigurationSessionBackup,
   StreamConfigurationSessionStorage,
-  StreamingImage,
-  StreamingImageEncryptionConfiguration,
   StreamingInstanceType,
   StreamingSession,
   StreamingSessionBackup,
@@ -200,10 +195,8 @@ import {
   StudioComponentInitializationScript,
   StudioComponentSummary,
   StudioEncryptionConfiguration,
-  StudioMembership,
   ThrottlingException,
   ValidationException,
-  ValidationResult,
   VolumeConfiguration,
 } from "../models/models_0";
 import { NimbleServiceException as __BaseException } from "../models/NimbleServiceException";
@@ -225,9 +218,11 @@ export const se_AcceptEulasCommand = async (
     "/2020-08-01/studios/{studioId}/eula-acceptances";
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.eulaIds != null && { eulaIds: se_EulaIdList(input.eulaIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      eulaIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -256,21 +251,17 @@ export const se_CreateLaunchProfileCommand = async (
     "/2020-08-01/studios/{studioId}/launch-profiles";
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.ec2SubnetIds != null && { ec2SubnetIds: se_EC2SubnetIdList(input.ec2SubnetIds, context) }),
-    ...(input.launchProfileProtocolVersions != null && {
-      launchProfileProtocolVersions: se_LaunchProfileProtocolVersionList(input.launchProfileProtocolVersions, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.streamConfiguration != null && {
-      streamConfiguration: se_StreamConfigurationCreate(input.streamConfiguration, context),
-    }),
-    ...(input.studioComponentIds != null && {
-      studioComponentIds: se_LaunchProfileStudioComponentIdList(input.studioComponentIds, context),
-    }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      ec2SubnetIds: (_) => _json(_),
+      launchProfileProtocolVersions: (_) => _json(_),
+      name: [],
+      streamConfiguration: (_) => _json(_),
+      studioComponentIds: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -299,12 +290,14 @@ export const se_CreateStreamingImageCommand = async (
     "/2020-08-01/studios/{studioId}/streaming-images";
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.ec2ImageId != null && { ec2ImageId: input.ec2ImageId }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      ec2ImageId: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -333,13 +326,15 @@ export const se_CreateStreamingSessionCommand = async (
     "/2020-08-01/studios/{studioId}/streaming-sessions";
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ec2InstanceType != null && { ec2InstanceType: input.ec2InstanceType }),
-    ...(input.launchProfileId != null && { launchProfileId: input.launchProfileId }),
-    ...(input.ownedBy != null && { ownedBy: input.ownedBy }),
-    ...(input.streamingImageId != null && { streamingImageId: input.streamingImageId }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ec2InstanceType: [],
+      launchProfileId: [],
+      ownedBy: [],
+      streamingImageId: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -369,9 +364,11 @@ export const se_CreateStreamingSessionStreamCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.expirationInSeconds != null && { expirationInSeconds: input.expirationInSeconds }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      expirationInSeconds: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -397,16 +394,16 @@ export const se_CreateStudioCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
   let body: any;
-  body = JSON.stringify({
-    ...(input.adminRoleArn != null && { adminRoleArn: input.adminRoleArn }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.studioEncryptionConfiguration != null && {
-      studioEncryptionConfiguration: se_StudioEncryptionConfiguration(input.studioEncryptionConfiguration, context),
-    }),
-    ...(input.studioName != null && { studioName: input.studioName }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-    ...(input.userRoleArn != null && { userRoleArn: input.userRoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      adminRoleArn: [],
+      displayName: [],
+      studioEncryptionConfiguration: (_) => _json(_),
+      studioName: [],
+      tags: (_) => _json(_),
+      userRoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -435,29 +432,21 @@ export const se_CreateStudioComponentCommand = async (
     "/2020-08-01/studios/{studioId}/studio-components";
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.configuration != null && {
-      configuration: se_StudioComponentConfiguration(input.configuration, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.ec2SecurityGroupIds != null && {
-      ec2SecurityGroupIds: se_StudioComponentSecurityGroupIdList(input.ec2SecurityGroupIds, context),
-    }),
-    ...(input.initializationScripts != null && {
-      initializationScripts: se_StudioComponentInitializationScriptList(input.initializationScripts, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.runtimeRoleArn != null && { runtimeRoleArn: input.runtimeRoleArn }),
-    ...(input.scriptParameters != null && {
-      scriptParameters: se_StudioComponentScriptParameterKeyValueList(input.scriptParameters, context),
-    }),
-    ...(input.secureInitializationRoleArn != null && {
-      secureInitializationRoleArn: input.secureInitializationRoleArn,
-    }),
-    ...(input.subtype != null && { subtype: input.subtype }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      configuration: (_) => _json(_),
+      description: [],
+      ec2SecurityGroupIds: (_) => _json(_),
+      initializationScripts: (_) => _json(_),
+      name: [],
+      runtimeRoleArn: [],
+      scriptParameters: (_) => _json(_),
+      secureInitializationRoleArn: [],
+      subtype: [],
+      tags: (_) => _json(_),
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1408,10 +1397,12 @@ export const se_PutLaunchProfileMembersCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.identityStoreId != null && { identityStoreId: input.identityStoreId }),
-    ...(input.members != null && { members: se_NewLaunchProfileMemberList(input.members, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      identityStoreId: [],
+      members: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1439,10 +1430,12 @@ export const se_PutStudioMembersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}/membership";
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.identityStoreId != null && { identityStoreId: input.identityStoreId }),
-    ...(input.members != null && { members: se_NewStudioMemberList(input.members, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      identityStoreId: [],
+      members: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1472,9 +1465,11 @@ export const se_StartStreamingSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.backupId != null && { backupId: input.backupId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backupId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1531,9 +1526,11 @@ export const se_StopStreamingSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.volumeRetentionMode != null && { volumeRetentionMode: input.volumeRetentionMode }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      volumeRetentionMode: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1560,9 +1557,11 @@ export const se_TagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1630,19 +1629,15 @@ export const se_UpdateLaunchProfileCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.launchProfileProtocolVersions != null && {
-      launchProfileProtocolVersions: se_LaunchProfileProtocolVersionList(input.launchProfileProtocolVersions, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.streamConfiguration != null && {
-      streamConfiguration: se_StreamConfigurationCreate(input.streamConfiguration, context),
-    }),
-    ...(input.studioComponentIds != null && {
-      studioComponentIds: se_LaunchProfileStudioComponentIdList(input.studioComponentIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      launchProfileProtocolVersions: (_) => _json(_),
+      name: [],
+      streamConfiguration: (_) => _json(_),
+      studioComponentIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1680,9 +1675,11 @@ export const se_UpdateLaunchProfileMemberCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "principalId", () => input.principalId!, "{principalId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.persona != null && { persona: input.persona }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      persona: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1719,10 +1716,12 @@ export const se_UpdateStreamingImageCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1750,11 +1749,13 @@ export const se_UpdateStudioCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.adminRoleArn != null && { adminRoleArn: input.adminRoleArn }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.userRoleArn != null && { userRoleArn: input.userRoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      adminRoleArn: [],
+      displayName: [],
+      userRoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1791,28 +1792,20 @@ export const se_UpdateStudioComponentCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.configuration != null && {
-      configuration: se_StudioComponentConfiguration(input.configuration, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.ec2SecurityGroupIds != null && {
-      ec2SecurityGroupIds: se_StudioComponentSecurityGroupIdList(input.ec2SecurityGroupIds, context),
-    }),
-    ...(input.initializationScripts != null && {
-      initializationScripts: se_StudioComponentInitializationScriptList(input.initializationScripts, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.runtimeRoleArn != null && { runtimeRoleArn: input.runtimeRoleArn }),
-    ...(input.scriptParameters != null && {
-      scriptParameters: se_StudioComponentScriptParameterKeyValueList(input.scriptParameters, context),
-    }),
-    ...(input.secureInitializationRoleArn != null && {
-      secureInitializationRoleArn: input.secureInitializationRoleArn,
-    }),
-    ...(input.subtype != null && { subtype: input.subtype }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      configuration: (_) => _json(_),
+      description: [],
+      ec2SecurityGroupIds: (_) => _json(_),
+      initializationScripts: (_) => _json(_),
+      name: [],
+      runtimeRoleArn: [],
+      scriptParameters: (_) => _json(_),
+      secureInitializationRoleArn: [],
+      subtype: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1838,9 +1831,10 @@ export const de_AcceptEulasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.eulaAcceptances != null) {
-    contents.eulaAcceptances = de_EulaAcceptanceList(data.eulaAcceptances, context);
-  }
+  const doc = take(data, {
+    eulaAcceptances: (_) => de_EulaAcceptanceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1880,10 +1874,9 @@ const de_AcceptEulasCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1903,9 +1896,10 @@ export const de_CreateLaunchProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launchProfile != null) {
-    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
-  }
+  const doc = take(data, {
+    launchProfile: (_) => de_LaunchProfile(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1945,10 +1939,9 @@ const de_CreateLaunchProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1968,9 +1961,10 @@ export const de_CreateStreamingImageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.streamingImage != null) {
-    contents.streamingImage = de_StreamingImage(data.streamingImage, context);
-  }
+  const doc = take(data, {
+    streamingImage: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2010,10 +2004,9 @@ const de_CreateStreamingImageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2033,9 +2026,10 @@ export const de_CreateStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = de_StreamingSession(data.session, context);
-  }
+  const doc = take(data, {
+    session: (_) => de_StreamingSession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2075,10 +2069,9 @@ const de_CreateStreamingSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2098,9 +2091,10 @@ export const de_CreateStreamingSessionStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.stream != null) {
-    contents.stream = de_StreamingSessionStream(data.stream, context);
-  }
+  const doc = take(data, {
+    stream: (_) => de_StreamingSessionStream(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2140,10 +2134,9 @@ const de_CreateStreamingSessionStreamCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2163,9 +2156,10 @@ export const de_CreateStudioCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studio != null) {
-    contents.studio = de_Studio(data.studio, context);
-  }
+  const doc = take(data, {
+    studio: (_) => de_Studio(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2205,10 +2199,9 @@ const de_CreateStudioCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2228,9 +2221,10 @@ export const de_CreateStudioComponentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studioComponent != null) {
-    contents.studioComponent = de_StudioComponent(data.studioComponent, context);
-  }
+  const doc = take(data, {
+    studioComponent: (_) => de_StudioComponent(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2270,10 +2264,9 @@ const de_CreateStudioComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2293,9 +2286,10 @@ export const de_DeleteLaunchProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launchProfile != null) {
-    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
-  }
+  const doc = take(data, {
+    launchProfile: (_) => de_LaunchProfile(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2335,10 +2329,9 @@ const de_DeleteLaunchProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2397,10 +2390,9 @@ const de_DeleteLaunchProfileMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2420,9 +2412,10 @@ export const de_DeleteStreamingImageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.streamingImage != null) {
-    contents.streamingImage = de_StreamingImage(data.streamingImage, context);
-  }
+  const doc = take(data, {
+    streamingImage: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2462,10 +2455,9 @@ const de_DeleteStreamingImageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2485,9 +2477,10 @@ export const de_DeleteStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = de_StreamingSession(data.session, context);
-  }
+  const doc = take(data, {
+    session: (_) => de_StreamingSession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2527,10 +2520,9 @@ const de_DeleteStreamingSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2550,9 +2542,10 @@ export const de_DeleteStudioCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studio != null) {
-    contents.studio = de_Studio(data.studio, context);
-  }
+  const doc = take(data, {
+    studio: (_) => de_Studio(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2592,10 +2585,9 @@ const de_DeleteStudioCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2615,9 +2607,10 @@ export const de_DeleteStudioComponentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studioComponent != null) {
-    contents.studioComponent = de_StudioComponent(data.studioComponent, context);
-  }
+  const doc = take(data, {
+    studioComponent: (_) => de_StudioComponent(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2657,10 +2650,9 @@ const de_DeleteStudioComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2719,10 +2711,9 @@ const de_DeleteStudioMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2742,9 +2733,10 @@ export const de_GetEulaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.eula != null) {
-    contents.eula = de_Eula(data.eula, context);
-  }
+  const doc = take(data, {
+    eula: (_) => de_Eula(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2784,10 +2776,9 @@ const de_GetEulaCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2807,9 +2798,10 @@ export const de_GetLaunchProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launchProfile != null) {
-    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
-  }
+  const doc = take(data, {
+    launchProfile: (_) => de_LaunchProfile(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2849,10 +2841,9 @@ const de_GetLaunchProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2872,15 +2863,12 @@ export const de_GetLaunchProfileDetailsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launchProfile != null) {
-    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
-  }
-  if (data.streamingImages != null) {
-    contents.streamingImages = de_StreamingImageList(data.streamingImages, context);
-  }
-  if (data.studioComponentSummaries != null) {
-    contents.studioComponentSummaries = de_StudioComponentSummaryList(data.studioComponentSummaries, context);
-  }
+  const doc = take(data, {
+    launchProfile: (_) => de_LaunchProfile(_, context),
+    streamingImages: _json,
+    studioComponentSummaries: (_) => de_StudioComponentSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2920,10 +2908,9 @@ const de_GetLaunchProfileDetailsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2943,9 +2930,10 @@ export const de_GetLaunchProfileInitializationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launchProfileInitialization != null) {
-    contents.launchProfileInitialization = de_LaunchProfileInitialization(data.launchProfileInitialization, context);
-  }
+  const doc = take(data, {
+    launchProfileInitialization: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2985,10 +2973,9 @@ const de_GetLaunchProfileInitializationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3008,9 +2995,10 @@ export const de_GetLaunchProfileMemberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.member != null) {
-    contents.member = de_LaunchProfileMembership(data.member, context);
-  }
+  const doc = take(data, {
+    member: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3050,10 +3038,9 @@ const de_GetLaunchProfileMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3073,9 +3060,10 @@ export const de_GetStreamingImageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.streamingImage != null) {
-    contents.streamingImage = de_StreamingImage(data.streamingImage, context);
-  }
+  const doc = take(data, {
+    streamingImage: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3115,10 +3103,9 @@ const de_GetStreamingImageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3138,9 +3125,10 @@ export const de_GetStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = de_StreamingSession(data.session, context);
-  }
+  const doc = take(data, {
+    session: (_) => de_StreamingSession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3180,10 +3168,9 @@ const de_GetStreamingSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3203,9 +3190,10 @@ export const de_GetStreamingSessionBackupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.streamingSessionBackup != null) {
-    contents.streamingSessionBackup = de_StreamingSessionBackup(data.streamingSessionBackup, context);
-  }
+  const doc = take(data, {
+    streamingSessionBackup: (_) => de_StreamingSessionBackup(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3242,10 +3230,9 @@ const de_GetStreamingSessionBackupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3265,9 +3252,10 @@ export const de_GetStreamingSessionStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.stream != null) {
-    contents.stream = de_StreamingSessionStream(data.stream, context);
-  }
+  const doc = take(data, {
+    stream: (_) => de_StreamingSessionStream(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3307,10 +3295,9 @@ const de_GetStreamingSessionStreamCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3330,9 +3317,10 @@ export const de_GetStudioCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studio != null) {
-    contents.studio = de_Studio(data.studio, context);
-  }
+  const doc = take(data, {
+    studio: (_) => de_Studio(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3372,10 +3360,9 @@ const de_GetStudioCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3395,9 +3382,10 @@ export const de_GetStudioComponentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studioComponent != null) {
-    contents.studioComponent = de_StudioComponent(data.studioComponent, context);
-  }
+  const doc = take(data, {
+    studioComponent: (_) => de_StudioComponent(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3437,10 +3425,9 @@ const de_GetStudioComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3460,9 +3447,10 @@ export const de_GetStudioMemberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.member != null) {
-    contents.member = de_StudioMembership(data.member, context);
-  }
+  const doc = take(data, {
+    member: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3502,10 +3490,9 @@ const de_GetStudioMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3525,12 +3512,11 @@ export const de_ListEulaAcceptancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.eulaAcceptances != null) {
-    contents.eulaAcceptances = de_EulaAcceptanceList(data.eulaAcceptances, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    eulaAcceptances: (_) => de_EulaAcceptanceList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3570,10 +3556,9 @@ const de_ListEulaAcceptancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3593,12 +3578,11 @@ export const de_ListEulasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.eulas != null) {
-    contents.eulas = de_EulaList(data.eulas, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    eulas: (_) => de_EulaList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3638,10 +3622,9 @@ const de_ListEulasCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3661,12 +3644,11 @@ export const de_ListLaunchProfileMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.members != null) {
-    contents.members = de_LaunchProfileMembershipList(data.members, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    members: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3706,10 +3688,9 @@ const de_ListLaunchProfileMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3729,12 +3710,11 @@ export const de_ListLaunchProfilesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launchProfiles != null) {
-    contents.launchProfiles = de_LaunchProfileList(data.launchProfiles, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    launchProfiles: (_) => de_LaunchProfileList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3774,10 +3754,9 @@ const de_ListLaunchProfilesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3797,12 +3776,11 @@ export const de_ListStreamingImagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.streamingImages != null) {
-    contents.streamingImages = de_StreamingImageList(data.streamingImages, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    streamingImages: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3842,10 +3820,9 @@ const de_ListStreamingImagesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3865,12 +3842,11 @@ export const de_ListStreamingSessionBackupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.streamingSessionBackups != null) {
-    contents.streamingSessionBackups = de_StreamingSessionBackupList(data.streamingSessionBackups, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    streamingSessionBackups: (_) => de_StreamingSessionBackupList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3907,10 +3883,9 @@ const de_ListStreamingSessionBackupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3930,12 +3905,11 @@ export const de_ListStreamingSessionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.sessions != null) {
-    contents.sessions = de_StreamingSessionList(data.sessions, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    sessions: (_) => de_StreamingSessionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3975,10 +3949,9 @@ const de_ListStreamingSessionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3998,12 +3971,11 @@ export const de_ListStudioComponentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.studioComponents != null) {
-    contents.studioComponents = de_StudioComponentList(data.studioComponents, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    studioComponents: (_) => de_StudioComponentList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4043,10 +4015,9 @@ const de_ListStudioComponentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4066,12 +4037,11 @@ export const de_ListStudioMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.members != null) {
-    contents.members = de_StudioMembershipList(data.members, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    members: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4111,10 +4081,9 @@ const de_ListStudioMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4134,12 +4103,11 @@ export const de_ListStudiosCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.studios != null) {
-    contents.studios = de_StudioList(data.studios, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    studios: (_) => de_StudioList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4179,10 +4147,9 @@ const de_ListStudiosCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4202,9 +4169,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4244,10 +4212,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4306,10 +4273,9 @@ const de_PutLaunchProfileMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4368,10 +4334,9 @@ const de_PutStudioMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4391,9 +4356,10 @@ export const de_StartStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = de_StreamingSession(data.session, context);
-  }
+  const doc = take(data, {
+    session: (_) => de_StreamingSession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4433,10 +4399,9 @@ const de_StartStreamingSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4456,9 +4421,10 @@ export const de_StartStudioSSOConfigurationRepairCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studio != null) {
-    contents.studio = de_Studio(data.studio, context);
-  }
+  const doc = take(data, {
+    studio: (_) => de_Studio(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4498,10 +4464,9 @@ const de_StartStudioSSOConfigurationRepairCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4521,9 +4486,10 @@ export const de_StopStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = de_StreamingSession(data.session, context);
-  }
+  const doc = take(data, {
+    session: (_) => de_StreamingSession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4563,10 +4529,9 @@ const de_StopStreamingSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4625,10 +4590,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4687,10 +4651,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4710,9 +4673,10 @@ export const de_UpdateLaunchProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launchProfile != null) {
-    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
-  }
+  const doc = take(data, {
+    launchProfile: (_) => de_LaunchProfile(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4752,10 +4716,9 @@ const de_UpdateLaunchProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4775,9 +4738,10 @@ export const de_UpdateLaunchProfileMemberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.member != null) {
-    contents.member = de_LaunchProfileMembership(data.member, context);
-  }
+  const doc = take(data, {
+    member: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4817,10 +4781,9 @@ const de_UpdateLaunchProfileMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4840,9 +4803,10 @@ export const de_UpdateStreamingImageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.streamingImage != null) {
-    contents.streamingImage = de_StreamingImage(data.streamingImage, context);
-  }
+  const doc = take(data, {
+    streamingImage: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4882,10 +4846,9 @@ const de_UpdateStreamingImageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4905,9 +4868,10 @@ export const de_UpdateStudioCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studio != null) {
-    contents.studio = de_Studio(data.studio, context);
-  }
+  const doc = take(data, {
+    studio: (_) => de_Studio(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4947,10 +4911,9 @@ const de_UpdateStudioCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4970,9 +4933,10 @@ export const de_UpdateStudioComponentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.studioComponent != null) {
-    contents.studioComponent = de_StudioComponent(data.studioComponent, context);
-  }
+  const doc = take(data, {
+    studioComponent: (_) => de_StudioComponent(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5012,16 +4976,15 @@ const de_UpdateStudioComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -5031,15 +4994,12 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.context != null) {
-    contents.context = de_ExceptionContext(data.context, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    context: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5053,15 +5013,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.context != null) {
-    contents.context = de_ExceptionContext(data.context, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    context: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5078,15 +5035,12 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.context != null) {
-    contents.context = de_ExceptionContext(data.context, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    context: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5103,15 +5057,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.context != null) {
-    contents.context = de_ExceptionContext(data.context, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    context: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5128,15 +5079,12 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.context != null) {
-    contents.context = de_ExceptionContext(data.context, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    context: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5150,15 +5098,12 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.context != null) {
-    contents.context = de_ExceptionContext(data.context, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    context: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5172,15 +5117,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.context != null) {
-    contents.context = de_ExceptionContext(data.context, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    context: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5188,494 +5130,102 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ActiveDirectoryComputerAttribute
- */
-const se_ActiveDirectoryComputerAttribute = (input: ActiveDirectoryComputerAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_ActiveDirectoryComputerAttribute omitted.
 
-/**
- * serializeAws_restJson1ActiveDirectoryComputerAttributeList
- */
-const se_ActiveDirectoryComputerAttributeList = (
-  input: ActiveDirectoryComputerAttribute[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ActiveDirectoryComputerAttribute(entry, context);
-    });
-};
+// se_ActiveDirectoryComputerAttributeList omitted.
 
-/**
- * serializeAws_restJson1ActiveDirectoryConfiguration
- */
-const se_ActiveDirectoryConfiguration = (input: ActiveDirectoryConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.computerAttributes != null && {
-      computerAttributes: se_ActiveDirectoryComputerAttributeList(input.computerAttributes, context),
-    }),
-    ...(input.directoryId != null && { directoryId: input.directoryId }),
-    ...(input.organizationalUnitDistinguishedName != null && {
-      organizationalUnitDistinguishedName: input.organizationalUnitDistinguishedName,
-    }),
-  };
-};
+// se_ActiveDirectoryConfiguration omitted.
 
-/**
- * serializeAws_restJson1ComputeFarmConfiguration
- */
-const se_ComputeFarmConfiguration = (input: ComputeFarmConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.activeDirectoryUser != null && { activeDirectoryUser: input.activeDirectoryUser }),
-    ...(input.endpoint != null && { endpoint: input.endpoint }),
-  };
-};
+// se_ComputeFarmConfiguration omitted.
 
-/**
- * serializeAws_restJson1EC2SubnetIdList
- */
-const se_EC2SubnetIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EC2SubnetIdList omitted.
 
-/**
- * serializeAws_restJson1EulaIdList
- */
-const se_EulaIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EulaIdList omitted.
 
-/**
- * serializeAws_restJson1LaunchProfileProtocolVersionList
- */
-const se_LaunchProfileProtocolVersionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LaunchProfileProtocolVersionList omitted.
 
-/**
- * serializeAws_restJson1LaunchProfileStudioComponentIdList
- */
-const se_LaunchProfileStudioComponentIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LaunchProfileStudioComponentIdList omitted.
 
-/**
- * serializeAws_restJson1LicenseServiceConfiguration
- */
-const se_LicenseServiceConfiguration = (input: LicenseServiceConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.endpoint != null && { endpoint: input.endpoint }),
-  };
-};
+// se_LicenseServiceConfiguration omitted.
 
-/**
- * serializeAws_restJson1NewLaunchProfileMember
- */
-const se_NewLaunchProfileMember = (input: NewLaunchProfileMember, context: __SerdeContext): any => {
-  return {
-    ...(input.persona != null && { persona: input.persona }),
-    ...(input.principalId != null && { principalId: input.principalId }),
-  };
-};
+// se_NewLaunchProfileMember omitted.
 
-/**
- * serializeAws_restJson1NewLaunchProfileMemberList
- */
-const se_NewLaunchProfileMemberList = (input: NewLaunchProfileMember[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_NewLaunchProfileMember(entry, context);
-    });
-};
+// se_NewLaunchProfileMemberList omitted.
 
-/**
- * serializeAws_restJson1NewStudioMember
- */
-const se_NewStudioMember = (input: NewStudioMember, context: __SerdeContext): any => {
-  return {
-    ...(input.persona != null && { persona: input.persona }),
-    ...(input.principalId != null && { principalId: input.principalId }),
-  };
-};
+// se_NewStudioMember omitted.
 
-/**
- * serializeAws_restJson1NewStudioMemberList
- */
-const se_NewStudioMemberList = (input: NewStudioMember[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_NewStudioMember(entry, context);
-    });
-};
+// se_NewStudioMemberList omitted.
 
-/**
- * serializeAws_restJson1ScriptParameterKeyValue
- */
-const se_ScriptParameterKeyValue = (input: ScriptParameterKeyValue, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_ScriptParameterKeyValue omitted.
 
-/**
- * serializeAws_restJson1SharedFileSystemConfiguration
- */
-const se_SharedFileSystemConfiguration = (input: SharedFileSystemConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.endpoint != null && { endpoint: input.endpoint }),
-    ...(input.fileSystemId != null && { fileSystemId: input.fileSystemId }),
-    ...(input.linuxMountPoint != null && { linuxMountPoint: input.linuxMountPoint }),
-    ...(input.shareName != null && { shareName: input.shareName }),
-    ...(input.windowsMountDrive != null && { windowsMountDrive: input.windowsMountDrive }),
-  };
-};
+// se_SharedFileSystemConfiguration omitted.
 
-/**
- * serializeAws_restJson1StreamConfigurationCreate
- */
-const se_StreamConfigurationCreate = (input: StreamConfigurationCreate, context: __SerdeContext): any => {
-  return {
-    ...(input.automaticTerminationMode != null && { automaticTerminationMode: input.automaticTerminationMode }),
-    ...(input.clipboardMode != null && { clipboardMode: input.clipboardMode }),
-    ...(input.ec2InstanceTypes != null && {
-      ec2InstanceTypes: se_StreamingInstanceTypeList(input.ec2InstanceTypes, context),
-    }),
-    ...(input.maxSessionLengthInMinutes != null && { maxSessionLengthInMinutes: input.maxSessionLengthInMinutes }),
-    ...(input.maxStoppedSessionLengthInMinutes != null && {
-      maxStoppedSessionLengthInMinutes: input.maxStoppedSessionLengthInMinutes,
-    }),
-    ...(input.sessionBackup != null && {
-      sessionBackup: se_StreamConfigurationSessionBackup(input.sessionBackup, context),
-    }),
-    ...(input.sessionPersistenceMode != null && { sessionPersistenceMode: input.sessionPersistenceMode }),
-    ...(input.sessionStorage != null && {
-      sessionStorage: se_StreamConfigurationSessionStorage(input.sessionStorage, context),
-    }),
-    ...(input.streamingImageIds != null && {
-      streamingImageIds: se_StreamingImageIdList(input.streamingImageIds, context),
-    }),
-    ...(input.volumeConfiguration != null && {
-      volumeConfiguration: se_VolumeConfiguration(input.volumeConfiguration, context),
-    }),
-  };
-};
+// se_StreamConfigurationCreate omitted.
 
-/**
- * serializeAws_restJson1StreamConfigurationSessionBackup
- */
-const se_StreamConfigurationSessionBackup = (input: StreamConfigurationSessionBackup, context: __SerdeContext): any => {
-  return {
-    ...(input.maxBackupsToRetain != null && { maxBackupsToRetain: input.maxBackupsToRetain }),
-    ...(input.mode != null && { mode: input.mode }),
-  };
-};
+// se_StreamConfigurationSessionBackup omitted.
 
-/**
- * serializeAws_restJson1StreamConfigurationSessionStorage
- */
-const se_StreamConfigurationSessionStorage = (
-  input: StreamConfigurationSessionStorage,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.mode != null && { mode: se_StreamingSessionStorageModeList(input.mode, context) }),
-    ...(input.root != null && { root: se_StreamingSessionStorageRoot(input.root, context) }),
-  };
-};
+// se_StreamConfigurationSessionStorage omitted.
 
-/**
- * serializeAws_restJson1StreamingImageIdList
- */
-const se_StreamingImageIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StreamingImageIdList omitted.
 
-/**
- * serializeAws_restJson1StreamingInstanceTypeList
- */
-const se_StreamingInstanceTypeList = (input: (StreamingInstanceType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StreamingInstanceTypeList omitted.
 
-/**
- * serializeAws_restJson1StreamingSessionStorageModeList
- */
-const se_StreamingSessionStorageModeList = (
-  input: (StreamingSessionStorageMode | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StreamingSessionStorageModeList omitted.
 
-/**
- * serializeAws_restJson1StreamingSessionStorageRoot
- */
-const se_StreamingSessionStorageRoot = (input: StreamingSessionStorageRoot, context: __SerdeContext): any => {
-  return {
-    ...(input.linux != null && { linux: input.linux }),
-    ...(input.windows != null && { windows: input.windows }),
-  };
-};
+// se_StreamingSessionStorageRoot omitted.
 
-/**
- * serializeAws_restJson1StudioComponentConfiguration
- */
-const se_StudioComponentConfiguration = (input: StudioComponentConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.activeDirectoryConfiguration != null && {
-      activeDirectoryConfiguration: se_ActiveDirectoryConfiguration(input.activeDirectoryConfiguration, context),
-    }),
-    ...(input.computeFarmConfiguration != null && {
-      computeFarmConfiguration: se_ComputeFarmConfiguration(input.computeFarmConfiguration, context),
-    }),
-    ...(input.licenseServiceConfiguration != null && {
-      licenseServiceConfiguration: se_LicenseServiceConfiguration(input.licenseServiceConfiguration, context),
-    }),
-    ...(input.sharedFileSystemConfiguration != null && {
-      sharedFileSystemConfiguration: se_SharedFileSystemConfiguration(input.sharedFileSystemConfiguration, context),
-    }),
-  };
-};
+// se_StudioComponentConfiguration omitted.
 
-/**
- * serializeAws_restJson1StudioComponentInitializationScript
- */
-const se_StudioComponentInitializationScript = (
-  input: StudioComponentInitializationScript,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.launchProfileProtocolVersion != null && {
-      launchProfileProtocolVersion: input.launchProfileProtocolVersion,
-    }),
-    ...(input.platform != null && { platform: input.platform }),
-    ...(input.runContext != null && { runContext: input.runContext }),
-    ...(input.script != null && { script: input.script }),
-  };
-};
+// se_StudioComponentInitializationScript omitted.
 
-/**
- * serializeAws_restJson1StudioComponentInitializationScriptList
- */
-const se_StudioComponentInitializationScriptList = (
-  input: StudioComponentInitializationScript[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StudioComponentInitializationScript(entry, context);
-    });
-};
+// se_StudioComponentInitializationScriptList omitted.
 
-/**
- * serializeAws_restJson1StudioComponentScriptParameterKeyValueList
- */
-const se_StudioComponentScriptParameterKeyValueList = (
-  input: ScriptParameterKeyValue[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ScriptParameterKeyValue(entry, context);
-    });
-};
+// se_StudioComponentScriptParameterKeyValueList omitted.
 
-/**
- * serializeAws_restJson1StudioComponentSecurityGroupIdList
- */
-const se_StudioComponentSecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StudioComponentSecurityGroupIdList omitted.
 
-/**
- * serializeAws_restJson1StudioEncryptionConfiguration
- */
-const se_StudioEncryptionConfiguration = (input: StudioEncryptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.keyArn != null && { keyArn: input.keyArn }),
-    ...(input.keyType != null && { keyType: input.keyType }),
-  };
-};
+// se_StudioEncryptionConfiguration omitted.
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_restJson1VolumeConfiguration
- */
-const se_VolumeConfiguration = (input: VolumeConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.iops != null && { iops: input.iops }),
-    ...(input.size != null && { size: input.size }),
-    ...(input.throughput != null && { throughput: input.throughput }),
-  };
-};
+// se_VolumeConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ActiveDirectoryComputerAttribute
- */
-const de_ActiveDirectoryComputerAttribute = (
-  output: any,
-  context: __SerdeContext
-): ActiveDirectoryComputerAttribute => {
-  return {
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_ActiveDirectoryComputerAttribute omitted.
 
-/**
- * deserializeAws_restJson1ActiveDirectoryComputerAttributeList
- */
-const de_ActiveDirectoryComputerAttributeList = (
-  output: any,
-  context: __SerdeContext
-): ActiveDirectoryComputerAttribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ActiveDirectoryComputerAttribute(entry, context);
-    });
-  return retVal;
-};
+// de_ActiveDirectoryComputerAttributeList omitted.
 
-/**
- * deserializeAws_restJson1ActiveDirectoryConfiguration
- */
-const de_ActiveDirectoryConfiguration = (output: any, context: __SerdeContext): ActiveDirectoryConfiguration => {
-  return {
-    computerAttributes:
-      output.computerAttributes != null
-        ? de_ActiveDirectoryComputerAttributeList(output.computerAttributes, context)
-        : undefined,
-    directoryId: __expectString(output.directoryId),
-    organizationalUnitDistinguishedName: __expectString(output.organizationalUnitDistinguishedName),
-  } as any;
-};
+// de_ActiveDirectoryConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ActiveDirectoryDnsIpAddressList
- */
-const de_ActiveDirectoryDnsIpAddressList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ActiveDirectoryDnsIpAddressList omitted.
 
-/**
- * deserializeAws_restJson1ComputeFarmConfiguration
- */
-const de_ComputeFarmConfiguration = (output: any, context: __SerdeContext): ComputeFarmConfiguration => {
-  return {
-    activeDirectoryUser: __expectString(output.activeDirectoryUser),
-    endpoint: __expectString(output.endpoint),
-  } as any;
-};
+// de_ComputeFarmConfiguration omitted.
 
-/**
- * deserializeAws_restJson1EC2SubnetIdList
- */
-const de_EC2SubnetIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EC2SubnetIdList omitted.
 
 /**
  * deserializeAws_restJson1Eula
  */
 const de_Eula = (output: any, context: __SerdeContext): Eula => {
-  return {
-    content: __expectString(output.content),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    eulaId: __expectString(output.eulaId),
-    name: __expectString(output.name),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    content: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    eulaId: __expectString,
+    name: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EulaAcceptance
  */
 const de_EulaAcceptance = (output: any, context: __SerdeContext): EulaAcceptance => {
-  return {
-    acceptedAt:
-      output.acceptedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.acceptedAt)) : undefined,
-    acceptedBy: __expectString(output.acceptedBy),
-    accepteeId: __expectString(output.accepteeId),
-    eulaAcceptanceId: __expectString(output.eulaAcceptanceId),
-    eulaId: __expectString(output.eulaId),
-  } as any;
+  return take(output, {
+    acceptedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    acceptedBy: __expectString,
+    accepteeId: __expectString,
+    eulaAcceptanceId: __expectString,
+    eulaId: __expectString,
+  }) as any;
 };
 
 /**
@@ -5685,28 +5235,12 @@ const de_EulaAcceptanceList = (output: any, context: __SerdeContext): EulaAccept
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EulaAcceptance(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EulaIdList
- */
-const de_EulaIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EulaIdList omitted.
 
 /**
  * deserializeAws_restJson1EulaList
@@ -5715,146 +5249,45 @@ const de_EulaList = (output: any, context: __SerdeContext): Eula[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Eula(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ExceptionContext
- */
-const de_ExceptionContext = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ExceptionContext omitted.
 
 /**
  * deserializeAws_restJson1LaunchProfile
  */
 const de_LaunchProfile = (output: any, context: __SerdeContext): LaunchProfile => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    createdBy: __expectString(output.createdBy),
-    description: __expectString(output.description),
-    ec2SubnetIds: output.ec2SubnetIds != null ? de_EC2SubnetIdList(output.ec2SubnetIds, context) : undefined,
-    launchProfileId: __expectString(output.launchProfileId),
-    launchProfileProtocolVersions:
-      output.launchProfileProtocolVersions != null
-        ? de_LaunchProfileProtocolVersionList(output.launchProfileProtocolVersions, context)
-        : undefined,
-    name: __expectString(output.name),
-    state: __expectString(output.state),
-    statusCode: __expectString(output.statusCode),
-    statusMessage: __expectString(output.statusMessage),
-    streamConfiguration:
-      output.streamConfiguration != null ? de_StreamConfiguration(output.streamConfiguration, context) : undefined,
-    studioComponentIds:
-      output.studioComponentIds != null
-        ? de_LaunchProfileStudioComponentIdList(output.studioComponentIds, context)
-        : undefined,
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-    updatedBy: __expectString(output.updatedBy),
-    validationResults:
-      output.validationResults != null ? de_ValidationResults(output.validationResults, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    ec2SubnetIds: _json,
+    launchProfileId: __expectString,
+    launchProfileProtocolVersions: _json,
+    name: __expectString,
+    state: __expectString,
+    statusCode: __expectString,
+    statusMessage: __expectString,
+    streamConfiguration: _json,
+    studioComponentIds: _json,
+    tags: _json,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
+    validationResults: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LaunchProfileInitialization
- */
-const de_LaunchProfileInitialization = (output: any, context: __SerdeContext): LaunchProfileInitialization => {
-  return {
-    activeDirectory:
-      output.activeDirectory != null
-        ? de_LaunchProfileInitializationActiveDirectory(output.activeDirectory, context)
-        : undefined,
-    ec2SecurityGroupIds:
-      output.ec2SecurityGroupIds != null
-        ? de_LaunchProfileSecurityGroupIdList(output.ec2SecurityGroupIds, context)
-        : undefined,
-    launchProfileId: __expectString(output.launchProfileId),
-    launchProfileProtocolVersion: __expectString(output.launchProfileProtocolVersion),
-    launchPurpose: __expectString(output.launchPurpose),
-    name: __expectString(output.name),
-    platform: __expectString(output.platform),
-    systemInitializationScripts:
-      output.systemInitializationScripts != null
-        ? de_LaunchProfileInitializationScriptList(output.systemInitializationScripts, context)
-        : undefined,
-    userInitializationScripts:
-      output.userInitializationScripts != null
-        ? de_LaunchProfileInitializationScriptList(output.userInitializationScripts, context)
-        : undefined,
-  } as any;
-};
+// de_LaunchProfileInitialization omitted.
 
-/**
- * deserializeAws_restJson1LaunchProfileInitializationActiveDirectory
- */
-const de_LaunchProfileInitializationActiveDirectory = (
-  output: any,
-  context: __SerdeContext
-): LaunchProfileInitializationActiveDirectory => {
-  return {
-    computerAttributes:
-      output.computerAttributes != null
-        ? de_ActiveDirectoryComputerAttributeList(output.computerAttributes, context)
-        : undefined,
-    directoryId: __expectString(output.directoryId),
-    directoryName: __expectString(output.directoryName),
-    dnsIpAddresses:
-      output.dnsIpAddresses != null ? de_ActiveDirectoryDnsIpAddressList(output.dnsIpAddresses, context) : undefined,
-    organizationalUnitDistinguishedName: __expectString(output.organizationalUnitDistinguishedName),
-    studioComponentId: __expectString(output.studioComponentId),
-    studioComponentName: __expectString(output.studioComponentName),
-  } as any;
-};
+// de_LaunchProfileInitializationActiveDirectory omitted.
 
-/**
- * deserializeAws_restJson1LaunchProfileInitializationScript
- */
-const de_LaunchProfileInitializationScript = (
-  output: any,
-  context: __SerdeContext
-): LaunchProfileInitializationScript => {
-  return {
-    runtimeRoleArn: __expectString(output.runtimeRoleArn),
-    script: __expectString(output.script),
-    secureInitializationRoleArn: __expectString(output.secureInitializationRoleArn),
-    studioComponentId: __expectString(output.studioComponentId),
-    studioComponentName: __expectString(output.studioComponentName),
-  } as any;
-};
+// de_LaunchProfileInitializationScript omitted.
 
-/**
- * deserializeAws_restJson1LaunchProfileInitializationScriptList
- */
-const de_LaunchProfileInitializationScriptList = (
-  output: any,
-  context: __SerdeContext
-): LaunchProfileInitializationScript[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LaunchProfileInitializationScript(entry, context);
-    });
-  return retVal;
-};
+// de_LaunchProfileInitializationScriptList omitted.
 
 /**
  * deserializeAws_restJson1LaunchProfileList
@@ -5863,307 +5296,94 @@ const de_LaunchProfileList = (output: any, context: __SerdeContext): LaunchProfi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LaunchProfile(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LaunchProfileMembership
- */
-const de_LaunchProfileMembership = (output: any, context: __SerdeContext): LaunchProfileMembership => {
-  return {
-    identityStoreId: __expectString(output.identityStoreId),
-    persona: __expectString(output.persona),
-    principalId: __expectString(output.principalId),
-    sid: __expectString(output.sid),
-  } as any;
-};
+// de_LaunchProfileMembership omitted.
 
-/**
- * deserializeAws_restJson1LaunchProfileMembershipList
- */
-const de_LaunchProfileMembershipList = (output: any, context: __SerdeContext): LaunchProfileMembership[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LaunchProfileMembership(entry, context);
-    });
-  return retVal;
-};
+// de_LaunchProfileMembershipList omitted.
 
-/**
- * deserializeAws_restJson1LaunchProfileProtocolVersionList
- */
-const de_LaunchProfileProtocolVersionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LaunchProfileProtocolVersionList omitted.
 
-/**
- * deserializeAws_restJson1LaunchProfileSecurityGroupIdList
- */
-const de_LaunchProfileSecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LaunchProfileSecurityGroupIdList omitted.
 
-/**
- * deserializeAws_restJson1LaunchProfileStudioComponentIdList
- */
-const de_LaunchProfileStudioComponentIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LaunchProfileStudioComponentIdList omitted.
 
-/**
- * deserializeAws_restJson1LicenseServiceConfiguration
- */
-const de_LicenseServiceConfiguration = (output: any, context: __SerdeContext): LicenseServiceConfiguration => {
-  return {
-    endpoint: __expectString(output.endpoint),
-  } as any;
-};
+// de_LicenseServiceConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ScriptParameterKeyValue
- */
-const de_ScriptParameterKeyValue = (output: any, context: __SerdeContext): ScriptParameterKeyValue => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_ScriptParameterKeyValue omitted.
 
-/**
- * deserializeAws_restJson1SharedFileSystemConfiguration
- */
-const de_SharedFileSystemConfiguration = (output: any, context: __SerdeContext): SharedFileSystemConfiguration => {
-  return {
-    endpoint: __expectString(output.endpoint),
-    fileSystemId: __expectString(output.fileSystemId),
-    linuxMountPoint: __expectString(output.linuxMountPoint),
-    shareName: __expectString(output.shareName),
-    windowsMountDrive: __expectString(output.windowsMountDrive),
-  } as any;
-};
+// de_SharedFileSystemConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StreamConfiguration
- */
-const de_StreamConfiguration = (output: any, context: __SerdeContext): StreamConfiguration => {
-  return {
-    automaticTerminationMode: __expectString(output.automaticTerminationMode),
-    clipboardMode: __expectString(output.clipboardMode),
-    ec2InstanceTypes:
-      output.ec2InstanceTypes != null ? de_StreamingInstanceTypeList(output.ec2InstanceTypes, context) : undefined,
-    maxSessionLengthInMinutes: __expectInt32(output.maxSessionLengthInMinutes),
-    maxStoppedSessionLengthInMinutes: __expectInt32(output.maxStoppedSessionLengthInMinutes),
-    sessionBackup:
-      output.sessionBackup != null ? de_StreamConfigurationSessionBackup(output.sessionBackup, context) : undefined,
-    sessionPersistenceMode: __expectString(output.sessionPersistenceMode),
-    sessionStorage:
-      output.sessionStorage != null ? de_StreamConfigurationSessionStorage(output.sessionStorage, context) : undefined,
-    streamingImageIds:
-      output.streamingImageIds != null ? de_StreamingImageIdList(output.streamingImageIds, context) : undefined,
-    volumeConfiguration:
-      output.volumeConfiguration != null ? de_VolumeConfiguration(output.volumeConfiguration, context) : undefined,
-  } as any;
-};
+// de_StreamConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StreamConfigurationSessionBackup
- */
-const de_StreamConfigurationSessionBackup = (
-  output: any,
-  context: __SerdeContext
-): StreamConfigurationSessionBackup => {
-  return {
-    maxBackupsToRetain: __expectInt32(output.maxBackupsToRetain),
-    mode: __expectString(output.mode),
-  } as any;
-};
+// de_StreamConfigurationSessionBackup omitted.
 
-/**
- * deserializeAws_restJson1StreamConfigurationSessionStorage
- */
-const de_StreamConfigurationSessionStorage = (
-  output: any,
-  context: __SerdeContext
-): StreamConfigurationSessionStorage => {
-  return {
-    mode: output.mode != null ? de_StreamingSessionStorageModeList(output.mode, context) : undefined,
-    root: output.root != null ? de_StreamingSessionStorageRoot(output.root, context) : undefined,
-  } as any;
-};
+// de_StreamConfigurationSessionStorage omitted.
 
-/**
- * deserializeAws_restJson1StreamingImage
- */
-const de_StreamingImage = (output: any, context: __SerdeContext): StreamingImage => {
-  return {
-    arn: __expectString(output.arn),
-    description: __expectString(output.description),
-    ec2ImageId: __expectString(output.ec2ImageId),
-    encryptionConfiguration:
-      output.encryptionConfiguration != null
-        ? de_StreamingImageEncryptionConfiguration(output.encryptionConfiguration, context)
-        : undefined,
-    eulaIds: output.eulaIds != null ? de_EulaIdList(output.eulaIds, context) : undefined,
-    name: __expectString(output.name),
-    owner: __expectString(output.owner),
-    platform: __expectString(output.platform),
-    state: __expectString(output.state),
-    statusCode: __expectString(output.statusCode),
-    statusMessage: __expectString(output.statusMessage),
-    streamingImageId: __expectString(output.streamingImageId),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_StreamingImage omitted.
 
-/**
- * deserializeAws_restJson1StreamingImageEncryptionConfiguration
- */
-const de_StreamingImageEncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): StreamingImageEncryptionConfiguration => {
-  return {
-    keyArn: __expectString(output.keyArn),
-    keyType: __expectString(output.keyType),
-  } as any;
-};
+// de_StreamingImageEncryptionConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StreamingImageIdList
- */
-const de_StreamingImageIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StreamingImageIdList omitted.
 
-/**
- * deserializeAws_restJson1StreamingImageList
- */
-const de_StreamingImageList = (output: any, context: __SerdeContext): StreamingImage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StreamingImage(entry, context);
-    });
-  return retVal;
-};
+// de_StreamingImageList omitted.
 
-/**
- * deserializeAws_restJson1StreamingInstanceTypeList
- */
-const de_StreamingInstanceTypeList = (output: any, context: __SerdeContext): (StreamingInstanceType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StreamingInstanceTypeList omitted.
 
 /**
  * deserializeAws_restJson1StreamingSession
  */
 const de_StreamingSession = (output: any, context: __SerdeContext): StreamingSession => {
-  return {
-    arn: __expectString(output.arn),
-    automaticTerminationMode: __expectString(output.automaticTerminationMode),
-    backupMode: __expectString(output.backupMode),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    createdBy: __expectString(output.createdBy),
-    ec2InstanceType: __expectString(output.ec2InstanceType),
-    launchProfileId: __expectString(output.launchProfileId),
-    maxBackupsToRetain: __expectInt32(output.maxBackupsToRetain),
-    ownedBy: __expectString(output.ownedBy),
-    sessionId: __expectString(output.sessionId),
-    sessionPersistenceMode: __expectString(output.sessionPersistenceMode),
-    startedAt:
-      output.startedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startedAt)) : undefined,
-    startedBy: __expectString(output.startedBy),
-    startedFromBackupId: __expectString(output.startedFromBackupId),
-    state: __expectString(output.state),
-    statusCode: __expectString(output.statusCode),
-    statusMessage: __expectString(output.statusMessage),
-    stopAt: output.stopAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stopAt)) : undefined,
-    stoppedAt:
-      output.stoppedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stoppedAt)) : undefined,
-    stoppedBy: __expectString(output.stoppedBy),
-    streamingImageId: __expectString(output.streamingImageId),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    terminateAt:
-      output.terminateAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.terminateAt)) : undefined,
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-    updatedBy: __expectString(output.updatedBy),
-    volumeConfiguration:
-      output.volumeConfiguration != null ? de_VolumeConfiguration(output.volumeConfiguration, context) : undefined,
-    volumeRetentionMode: __expectString(output.volumeRetentionMode),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    automaticTerminationMode: __expectString,
+    backupMode: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    ec2InstanceType: __expectString,
+    launchProfileId: __expectString,
+    maxBackupsToRetain: __expectInt32,
+    ownedBy: __expectString,
+    sessionId: __expectString,
+    sessionPersistenceMode: __expectString,
+    startedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    startedBy: __expectString,
+    startedFromBackupId: __expectString,
+    state: __expectString,
+    statusCode: __expectString,
+    statusMessage: __expectString,
+    stopAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    stoppedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    stoppedBy: __expectString,
+    streamingImageId: __expectString,
+    tags: _json,
+    terminateAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
+    volumeConfiguration: _json,
+    volumeRetentionMode: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1StreamingSessionBackup
  */
 const de_StreamingSessionBackup = (output: any, context: __SerdeContext): StreamingSessionBackup => {
-  return {
-    arn: __expectString(output.arn),
-    backupId: __expectString(output.backupId),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    launchProfileId: __expectString(output.launchProfileId),
-    ownedBy: __expectString(output.ownedBy),
-    sessionId: __expectString(output.sessionId),
-    state: __expectString(output.state),
-    statusCode: __expectString(output.statusCode),
-    statusMessage: __expectString(output.statusMessage),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    backupId: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    launchProfileId: __expectString,
+    ownedBy: __expectString,
+    sessionId: __expectString,
+    state: __expectString,
+    statusCode: __expectString,
+    statusMessage: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 /**
@@ -6173,9 +5393,6 @@ const de_StreamingSessionBackupList = (output: any, context: __SerdeContext): St
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StreamingSessionBackup(entry, context);
     });
   return retVal;
@@ -6188,185 +5405,88 @@ const de_StreamingSessionList = (output: any, context: __SerdeContext): Streamin
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StreamingSession(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1StreamingSessionStorageModeList
- */
-const de_StreamingSessionStorageModeList = (
-  output: any,
-  context: __SerdeContext
-): (StreamingSessionStorageMode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StreamingSessionStorageModeList omitted.
 
-/**
- * deserializeAws_restJson1StreamingSessionStorageRoot
- */
-const de_StreamingSessionStorageRoot = (output: any, context: __SerdeContext): StreamingSessionStorageRoot => {
-  return {
-    linux: __expectString(output.linux),
-    windows: __expectString(output.windows),
-  } as any;
-};
+// de_StreamingSessionStorageRoot omitted.
 
 /**
  * deserializeAws_restJson1StreamingSessionStream
  */
 const de_StreamingSessionStream = (output: any, context: __SerdeContext): StreamingSessionStream => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    createdBy: __expectString(output.createdBy),
-    expiresAt:
-      output.expiresAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.expiresAt)) : undefined,
-    ownedBy: __expectString(output.ownedBy),
-    state: __expectString(output.state),
-    statusCode: __expectString(output.statusCode),
-    streamId: __expectString(output.streamId),
-    url: __expectString(output.url),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    expiresAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ownedBy: __expectString,
+    state: __expectString,
+    statusCode: __expectString,
+    streamId: __expectString,
+    url: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Studio
  */
 const de_Studio = (output: any, context: __SerdeContext): Studio => {
-  return {
-    adminRoleArn: __expectString(output.adminRoleArn),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    displayName: __expectString(output.displayName),
-    homeRegion: __expectString(output.homeRegion),
-    ssoClientId: __expectString(output.ssoClientId),
-    state: __expectString(output.state),
-    statusCode: __expectString(output.statusCode),
-    statusMessage: __expectString(output.statusMessage),
-    studioEncryptionConfiguration:
-      output.studioEncryptionConfiguration != null
-        ? de_StudioEncryptionConfiguration(output.studioEncryptionConfiguration, context)
-        : undefined,
-    studioId: __expectString(output.studioId),
-    studioName: __expectString(output.studioName),
-    studioUrl: __expectString(output.studioUrl),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-    userRoleArn: __expectString(output.userRoleArn),
-  } as any;
+  return take(output, {
+    adminRoleArn: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    displayName: __expectString,
+    homeRegion: __expectString,
+    ssoClientId: __expectString,
+    state: __expectString,
+    statusCode: __expectString,
+    statusMessage: __expectString,
+    studioEncryptionConfiguration: _json,
+    studioId: __expectString,
+    studioName: __expectString,
+    studioUrl: __expectString,
+    tags: _json,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    userRoleArn: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1StudioComponent
  */
 const de_StudioComponent = (output: any, context: __SerdeContext): StudioComponent => {
-  return {
-    arn: __expectString(output.arn),
-    configuration:
-      output.configuration != null ? de_StudioComponentConfiguration(output.configuration, context) : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    createdBy: __expectString(output.createdBy),
-    description: __expectString(output.description),
-    ec2SecurityGroupIds:
-      output.ec2SecurityGroupIds != null
-        ? de_StudioComponentSecurityGroupIdList(output.ec2SecurityGroupIds, context)
-        : undefined,
-    initializationScripts:
-      output.initializationScripts != null
-        ? de_StudioComponentInitializationScriptList(output.initializationScripts, context)
-        : undefined,
-    name: __expectString(output.name),
-    runtimeRoleArn: __expectString(output.runtimeRoleArn),
-    scriptParameters:
-      output.scriptParameters != null
-        ? de_StudioComponentScriptParameterKeyValueList(output.scriptParameters, context)
-        : undefined,
-    secureInitializationRoleArn: __expectString(output.secureInitializationRoleArn),
-    state: __expectString(output.state),
-    statusCode: __expectString(output.statusCode),
-    statusMessage: __expectString(output.statusMessage),
-    studioComponentId: __expectString(output.studioComponentId),
-    subtype: __expectString(output.subtype),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-    updatedBy: __expectString(output.updatedBy),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    configuration: _json,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    ec2SecurityGroupIds: _json,
+    initializationScripts: _json,
+    name: __expectString,
+    runtimeRoleArn: __expectString,
+    scriptParameters: _json,
+    secureInitializationRoleArn: __expectString,
+    state: __expectString,
+    statusCode: __expectString,
+    statusMessage: __expectString,
+    studioComponentId: __expectString,
+    subtype: __expectString,
+    tags: _json,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1StudioComponentConfiguration
- */
-const de_StudioComponentConfiguration = (output: any, context: __SerdeContext): StudioComponentConfiguration => {
-  return {
-    activeDirectoryConfiguration:
-      output.activeDirectoryConfiguration != null
-        ? de_ActiveDirectoryConfiguration(output.activeDirectoryConfiguration, context)
-        : undefined,
-    computeFarmConfiguration:
-      output.computeFarmConfiguration != null
-        ? de_ComputeFarmConfiguration(output.computeFarmConfiguration, context)
-        : undefined,
-    licenseServiceConfiguration:
-      output.licenseServiceConfiguration != null
-        ? de_LicenseServiceConfiguration(output.licenseServiceConfiguration, context)
-        : undefined,
-    sharedFileSystemConfiguration:
-      output.sharedFileSystemConfiguration != null
-        ? de_SharedFileSystemConfiguration(output.sharedFileSystemConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_StudioComponentConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StudioComponentInitializationScript
- */
-const de_StudioComponentInitializationScript = (
-  output: any,
-  context: __SerdeContext
-): StudioComponentInitializationScript => {
-  return {
-    launchProfileProtocolVersion: __expectString(output.launchProfileProtocolVersion),
-    platform: __expectString(output.platform),
-    runContext: __expectString(output.runContext),
-    script: __expectString(output.script),
-  } as any;
-};
+// de_StudioComponentInitializationScript omitted.
 
-/**
- * deserializeAws_restJson1StudioComponentInitializationScriptList
- */
-const de_StudioComponentInitializationScriptList = (
-  output: any,
-  context: __SerdeContext
-): StudioComponentInitializationScript[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StudioComponentInitializationScript(entry, context);
-    });
-  return retVal;
-};
+// de_StudioComponentInitializationScriptList omitted.
 
 /**
  * deserializeAws_restJson1StudioComponentList
@@ -6375,64 +5495,30 @@ const de_StudioComponentList = (output: any, context: __SerdeContext): StudioCom
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StudioComponent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1StudioComponentScriptParameterKeyValueList
- */
-const de_StudioComponentScriptParameterKeyValueList = (
-  output: any,
-  context: __SerdeContext
-): ScriptParameterKeyValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ScriptParameterKeyValue(entry, context);
-    });
-  return retVal;
-};
+// de_StudioComponentScriptParameterKeyValueList omitted.
 
-/**
- * deserializeAws_restJson1StudioComponentSecurityGroupIdList
- */
-const de_StudioComponentSecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StudioComponentSecurityGroupIdList omitted.
 
 /**
  * deserializeAws_restJson1StudioComponentSummary
  */
 const de_StudioComponentSummary = (output: any, context: __SerdeContext): StudioComponentSummary => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    createdBy: __expectString(output.createdBy),
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    studioComponentId: __expectString(output.studioComponentId),
-    subtype: __expectString(output.subtype),
-    type: __expectString(output.type),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-    updatedBy: __expectString(output.updatedBy),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    name: __expectString,
+    studioComponentId: __expectString,
+    subtype: __expectString,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
+  }) as any;
 };
 
 /**
@@ -6442,23 +5528,12 @@ const de_StudioComponentSummaryList = (output: any, context: __SerdeContext): St
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StudioComponentSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1StudioEncryptionConfiguration
- */
-const de_StudioEncryptionConfiguration = (output: any, context: __SerdeContext): StudioEncryptionConfiguration => {
-  return {
-    keyArn: __expectString(output.keyArn),
-    keyType: __expectString(output.keyType),
-  } as any;
-};
+// de_StudioEncryptionConfiguration omitted.
 
 /**
  * deserializeAws_restJson1StudioList
@@ -6467,91 +5542,22 @@ const de_StudioList = (output: any, context: __SerdeContext): Studio[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Studio(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1StudioMembership
- */
-const de_StudioMembership = (output: any, context: __SerdeContext): StudioMembership => {
-  return {
-    identityStoreId: __expectString(output.identityStoreId),
-    persona: __expectString(output.persona),
-    principalId: __expectString(output.principalId),
-    sid: __expectString(output.sid),
-  } as any;
-};
+// de_StudioMembership omitted.
 
-/**
- * deserializeAws_restJson1StudioMembershipList
- */
-const de_StudioMembershipList = (output: any, context: __SerdeContext): StudioMembership[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StudioMembership(entry, context);
-    });
-  return retVal;
-};
+// de_StudioMembershipList omitted.
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_restJson1ValidationResult
- */
-const de_ValidationResult = (output: any, context: __SerdeContext): ValidationResult => {
-  return {
-    state: __expectString(output.state),
-    statusCode: __expectString(output.statusCode),
-    statusMessage: __expectString(output.statusMessage),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_ValidationResult omitted.
 
-/**
- * deserializeAws_restJson1ValidationResults
- */
-const de_ValidationResults = (output: any, context: __SerdeContext): ValidationResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationResult(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationResults omitted.
 
-/**
- * deserializeAws_restJson1VolumeConfiguration
- */
-const de_VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
-  return {
-    iops: __expectInt32(output.iops),
-    size: __expectInt32(output.size),
-    throughput: __expectInt32(output.throughput),
-  } as any;
-};
+// de_VolumeConfiguration omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

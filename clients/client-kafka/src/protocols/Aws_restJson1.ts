@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,10 +11,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -186,9 +188,11 @@ export const se_BatchAssociateScramSecretCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.SecretArnList != null && { secretArnList: se___listOf__string(input.SecretArnList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      secretArnList: [, (_) => _json(_), `SecretArnList`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -215,9 +219,11 @@ export const se_BatchDisassociateScramSecretCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.SecretArnList != null && { secretArnList: se___listOf__string(input.SecretArnList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      secretArnList: [, (_) => _json(_), `SecretArnList`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -242,26 +248,22 @@ export const se_CreateClusterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BrokerNodeGroupInfo != null && {
-      brokerNodeGroupInfo: se_BrokerNodeGroupInfo(input.BrokerNodeGroupInfo, context),
-    }),
-    ...(input.ClientAuthentication != null && {
-      clientAuthentication: se_ClientAuthentication(input.ClientAuthentication, context),
-    }),
-    ...(input.ClusterName != null && { clusterName: input.ClusterName }),
-    ...(input.ConfigurationInfo != null && {
-      configurationInfo: se_ConfigurationInfo(input.ConfigurationInfo, context),
-    }),
-    ...(input.EncryptionInfo != null && { encryptionInfo: se_EncryptionInfo(input.EncryptionInfo, context) }),
-    ...(input.EnhancedMonitoring != null && { enhancedMonitoring: input.EnhancedMonitoring }),
-    ...(input.KafkaVersion != null && { kafkaVersion: input.KafkaVersion }),
-    ...(input.LoggingInfo != null && { loggingInfo: se_LoggingInfo(input.LoggingInfo, context) }),
-    ...(input.NumberOfBrokerNodes != null && { numberOfBrokerNodes: input.NumberOfBrokerNodes }),
-    ...(input.OpenMonitoring != null && { openMonitoring: se_OpenMonitoringInfo(input.OpenMonitoring, context) }),
-    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      brokerNodeGroupInfo: [, (_) => se_BrokerNodeGroupInfo(_, context), `BrokerNodeGroupInfo`],
+      clientAuthentication: [, (_) => se_ClientAuthentication(_, context), `ClientAuthentication`],
+      clusterName: [, , `ClusterName`],
+      configurationInfo: [, (_) => se_ConfigurationInfo(_, context), `ConfigurationInfo`],
+      encryptionInfo: [, (_) => se_EncryptionInfo(_, context), `EncryptionInfo`],
+      enhancedMonitoring: [, , `EnhancedMonitoring`],
+      kafkaVersion: [, , `KafkaVersion`],
+      loggingInfo: [, (_) => se_LoggingInfo(_, context), `LoggingInfo`],
+      numberOfBrokerNodes: [, , `NumberOfBrokerNodes`],
+      openMonitoring: [, (_) => se_OpenMonitoringInfo(_, context), `OpenMonitoring`],
+      storageMode: [, , `StorageMode`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -286,12 +288,14 @@ export const se_CreateClusterV2Command = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClusterName != null && { clusterName: input.ClusterName }),
-    ...(input.Provisioned != null && { provisioned: se_ProvisionedRequest(input.Provisioned, context) }),
-    ...(input.Serverless != null && { serverless: se_ServerlessRequest(input.Serverless, context) }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clusterName: [, , `ClusterName`],
+      provisioned: [, (_) => se_ProvisionedRequest(_, context), `Provisioned`],
+      serverless: [, (_) => se_ServerlessRequest(_, context), `Serverless`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -316,12 +320,14 @@ export const se_CreateConfigurationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.KafkaVersions != null && { kafkaVersions: se___listOf__string(input.KafkaVersions, context) }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.ServerProperties != null && { serverProperties: context.base64Encoder(input.ServerProperties) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+      kafkaVersions: [, (_) => _json(_), `KafkaVersions`],
+      name: [, , `Name`],
+      serverProperties: [, (_) => context.base64Encoder(_), `ServerProperties`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -829,9 +835,11 @@ export const se_RebootBrokerCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/reboot-broker";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BrokerIds != null && { brokerIds: se___listOf__string(input.BrokerIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      brokerIds: [, (_) => _json(_), `BrokerIds`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -857,9 +865,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -916,10 +926,12 @@ export const se_UpdateBrokerCountCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/count";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-    ...(input.TargetNumberOfBrokerNodes != null && { targetNumberOfBrokerNodes: input.TargetNumberOfBrokerNodes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      currentVersion: [, , `CurrentVersion`],
+      targetNumberOfBrokerNodes: [, , `TargetNumberOfBrokerNodes`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -946,12 +958,12 @@ export const se_UpdateBrokerStorageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/storage";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-    ...(input.TargetBrokerEBSVolumeInfo != null && {
-      targetBrokerEBSVolumeInfo: se___listOfBrokerEBSVolumeInfo(input.TargetBrokerEBSVolumeInfo, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      currentVersion: [, , `CurrentVersion`],
+      targetBrokerEBSVolumeInfo: [, (_) => se___listOfBrokerEBSVolumeInfo(_, context), `TargetBrokerEBSVolumeInfo`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -978,10 +990,12 @@ export const se_UpdateBrokerTypeCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/type";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-    ...(input.TargetInstanceType != null && { targetInstanceType: input.TargetInstanceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      currentVersion: [, , `CurrentVersion`],
+      targetInstanceType: [, , `TargetInstanceType`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1008,12 +1022,12 @@ export const se_UpdateClusterConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/configuration";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationInfo != null && {
-      configurationInfo: se_ConfigurationInfo(input.ConfigurationInfo, context),
-    }),
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      configurationInfo: [, (_) => se_ConfigurationInfo(_, context), `ConfigurationInfo`],
+      currentVersion: [, , `CurrentVersion`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1040,13 +1054,13 @@ export const se_UpdateClusterKafkaVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/version";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationInfo != null && {
-      configurationInfo: se_ConfigurationInfo(input.ConfigurationInfo, context),
-    }),
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-    ...(input.TargetKafkaVersion != null && { targetKafkaVersion: input.TargetKafkaVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      configurationInfo: [, (_) => se_ConfigurationInfo(_, context), `ConfigurationInfo`],
+      currentVersion: [, , `CurrentVersion`],
+      targetKafkaVersion: [, , `TargetKafkaVersion`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1072,10 +1086,12 @@ export const se_UpdateConfigurationCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.ServerProperties != null && { serverProperties: context.base64Encoder(input.ServerProperties) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+      serverProperties: [, (_) => context.base64Encoder(_), `ServerProperties`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1102,10 +1118,12 @@ export const se_UpdateConnectivityCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/connectivity";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConnectivityInfo != null && { connectivityInfo: se_ConnectivityInfo(input.ConnectivityInfo, context) }),
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      connectivityInfo: [, (_) => se_ConnectivityInfo(_, context), `ConnectivityInfo`],
+      currentVersion: [, , `CurrentVersion`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1132,12 +1150,14 @@ export const se_UpdateMonitoringCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/monitoring";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-    ...(input.EnhancedMonitoring != null && { enhancedMonitoring: input.EnhancedMonitoring }),
-    ...(input.LoggingInfo != null && { loggingInfo: se_LoggingInfo(input.LoggingInfo, context) }),
-    ...(input.OpenMonitoring != null && { openMonitoring: se_OpenMonitoringInfo(input.OpenMonitoring, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      currentVersion: [, , `CurrentVersion`],
+      enhancedMonitoring: [, , `EnhancedMonitoring`],
+      loggingInfo: [, (_) => se_LoggingInfo(_, context), `LoggingInfo`],
+      openMonitoring: [, (_) => se_OpenMonitoringInfo(_, context), `OpenMonitoring`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1164,13 +1184,13 @@ export const se_UpdateSecurityCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/security";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClientAuthentication != null && {
-      clientAuthentication: se_ClientAuthentication(input.ClientAuthentication, context),
-    }),
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-    ...(input.EncryptionInfo != null && { encryptionInfo: se_EncryptionInfo(input.EncryptionInfo, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientAuthentication: [, (_) => se_ClientAuthentication(_, context), `ClientAuthentication`],
+      currentVersion: [, , `CurrentVersion`],
+      encryptionInfo: [, (_) => se_EncryptionInfo(_, context), `EncryptionInfo`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1197,14 +1217,14 @@ export const se_UpdateStorageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/storage";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
-    ...(input.ProvisionedThroughput != null && {
-      provisionedThroughput: se_ProvisionedThroughput(input.ProvisionedThroughput, context),
-    }),
-    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
-    ...(input.VolumeSizeGB != null && { volumeSizeGB: input.VolumeSizeGB }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      currentVersion: [, , `CurrentVersion`],
+      provisionedThroughput: [, (_) => se_ProvisionedThroughput(_, context), `ProvisionedThroughput`],
+      storageMode: [, , `StorageMode`],
+      volumeSizeGB: [, , `VolumeSizeGB`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1230,12 +1250,11 @@ export const de_BatchAssociateScramSecretCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.unprocessedScramSecrets != null) {
-    contents.UnprocessedScramSecrets = de___listOfUnprocessedScramSecret(data.unprocessedScramSecrets, context);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    UnprocessedScramSecrets: [, (_) => de___listOfUnprocessedScramSecret(_, context), `unprocessedScramSecrets`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1275,10 +1294,9 @@ const de_BatchAssociateScramSecretCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1298,12 +1316,11 @@ export const de_BatchDisassociateScramSecretCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.unprocessedScramSecrets != null) {
-    contents.UnprocessedScramSecrets = de___listOfUnprocessedScramSecret(data.unprocessedScramSecrets, context);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    UnprocessedScramSecrets: [, (_) => de___listOfUnprocessedScramSecret(_, context), `unprocessedScramSecrets`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1343,10 +1360,9 @@ const de_BatchDisassociateScramSecretCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1366,15 +1382,12 @@ export const de_CreateClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterName != null) {
-    contents.ClusterName = __expectString(data.clusterName);
-  }
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterName: [, __expectString, `clusterName`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1414,10 +1427,9 @@ const de_CreateClusterCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1437,18 +1449,13 @@ export const de_CreateClusterV2Command = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterName != null) {
-    contents.ClusterName = __expectString(data.clusterName);
-  }
-  if (data.clusterType != null) {
-    contents.ClusterType = __expectString(data.clusterType);
-  }
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterName: [, __expectString, `clusterName`],
+    ClusterType: [, __expectString, `clusterType`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1488,10 +1495,9 @@ const de_CreateClusterV2CommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1511,21 +1517,14 @@ export const de_CreateConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.latestRevision != null) {
-    contents.LatestRevision = de_ConfigurationRevision(data.latestRevision, context);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreationTime: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    LatestRevision: [, (_) => de_ConfigurationRevision(_, context), `latestRevision`],
+    Name: [, __expectString, `name`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1565,10 +1564,9 @@ const de_CreateConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1588,12 +1586,11 @@ export const de_DeleteClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1624,10 +1621,9 @@ const de_DeleteClusterCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1647,12 +1643,11 @@ export const de_DeleteConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1683,10 +1678,9 @@ const de_DeleteConfigurationCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1706,9 +1700,10 @@ export const de_DescribeClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterInfo != null) {
-    contents.ClusterInfo = de_ClusterInfo(data.clusterInfo, context);
-  }
+  const doc = take(data, {
+    ClusterInfo: [, (_) => de_ClusterInfo(_, context), `clusterInfo`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1742,10 +1737,9 @@ const de_DescribeClusterCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1765,9 +1759,10 @@ export const de_DescribeClusterOperationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterOperationInfo != null) {
-    contents.ClusterOperationInfo = de_ClusterOperationInfo(data.clusterOperationInfo, context);
-  }
+  const doc = take(data, {
+    ClusterOperationInfo: [, (_) => de_ClusterOperationInfo(_, context), `clusterOperationInfo`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1801,10 +1796,9 @@ const de_DescribeClusterOperationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1824,9 +1818,10 @@ export const de_DescribeClusterV2Command = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterInfo != null) {
-    contents.ClusterInfo = de_Cluster(data.clusterInfo, context);
-  }
+  const doc = take(data, {
+    ClusterInfo: [, (_) => de_Cluster(_, context), `clusterInfo`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1860,10 +1855,9 @@ const de_DescribeClusterV2CommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1883,27 +1877,16 @@ export const de_DescribeConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.Description = __expectString(data.description);
-  }
-  if (data.kafkaVersions != null) {
-    contents.KafkaVersions = de___listOf__string(data.kafkaVersions, context);
-  }
-  if (data.latestRevision != null) {
-    contents.LatestRevision = de_ConfigurationRevision(data.latestRevision, context);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.state != null) {
-    contents.State = __expectString(data.state);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreationTime: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    Description: [, __expectString, `description`],
+    KafkaVersions: [, _json, `kafkaVersions`],
+    LatestRevision: [, (_) => de_ConfigurationRevision(_, context), `latestRevision`],
+    Name: [, __expectString, `name`],
+    State: [, __expectString, `state`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1940,10 +1923,9 @@ const de_DescribeConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1963,21 +1945,14 @@ export const de_DescribeConfigurationRevisionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.Description = __expectString(data.description);
-  }
-  if (data.revision != null) {
-    contents.Revision = __expectLong(data.revision);
-  }
-  if (data.serverProperties != null) {
-    contents.ServerProperties = context.base64Decoder(data.serverProperties);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreationTime: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    Description: [, __expectString, `description`],
+    Revision: [, __expectLong, `revision`],
+    ServerProperties: [, context.base64Decoder, `serverProperties`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2014,10 +1989,9 @@ const de_DescribeConfigurationRevisionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2037,27 +2011,16 @@ export const de_GetBootstrapBrokersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bootstrapBrokerString != null) {
-    contents.BootstrapBrokerString = __expectString(data.bootstrapBrokerString);
-  }
-  if (data.bootstrapBrokerStringPublicSaslIam != null) {
-    contents.BootstrapBrokerStringPublicSaslIam = __expectString(data.bootstrapBrokerStringPublicSaslIam);
-  }
-  if (data.bootstrapBrokerStringPublicSaslScram != null) {
-    contents.BootstrapBrokerStringPublicSaslScram = __expectString(data.bootstrapBrokerStringPublicSaslScram);
-  }
-  if (data.bootstrapBrokerStringPublicTls != null) {
-    contents.BootstrapBrokerStringPublicTls = __expectString(data.bootstrapBrokerStringPublicTls);
-  }
-  if (data.bootstrapBrokerStringSaslIam != null) {
-    contents.BootstrapBrokerStringSaslIam = __expectString(data.bootstrapBrokerStringSaslIam);
-  }
-  if (data.bootstrapBrokerStringSaslScram != null) {
-    contents.BootstrapBrokerStringSaslScram = __expectString(data.bootstrapBrokerStringSaslScram);
-  }
-  if (data.bootstrapBrokerStringTls != null) {
-    contents.BootstrapBrokerStringTls = __expectString(data.bootstrapBrokerStringTls);
-  }
+  const doc = take(data, {
+    BootstrapBrokerString: [, __expectString, `bootstrapBrokerString`],
+    BootstrapBrokerStringPublicSaslIam: [, __expectString, `bootstrapBrokerStringPublicSaslIam`],
+    BootstrapBrokerStringPublicSaslScram: [, __expectString, `bootstrapBrokerStringPublicSaslScram`],
+    BootstrapBrokerStringPublicTls: [, __expectString, `bootstrapBrokerStringPublicTls`],
+    BootstrapBrokerStringSaslIam: [, __expectString, `bootstrapBrokerStringSaslIam`],
+    BootstrapBrokerStringSaslScram: [, __expectString, `bootstrapBrokerStringSaslScram`],
+    BootstrapBrokerStringTls: [, __expectString, `bootstrapBrokerStringTls`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2091,10 +2054,9 @@ const de_GetBootstrapBrokersCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2114,9 +2076,10 @@ export const de_GetCompatibleKafkaVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.compatibleKafkaVersions != null) {
-    contents.CompatibleKafkaVersions = de___listOfCompatibleKafkaVersion(data.compatibleKafkaVersions, context);
-  }
+  const doc = take(data, {
+    CompatibleKafkaVersions: [, (_) => de___listOfCompatibleKafkaVersion(_, context), `compatibleKafkaVersions`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2156,10 +2119,9 @@ const de_GetCompatibleKafkaVersionsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2179,12 +2141,11 @@ export const de_ListClusterOperationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterOperationInfoList != null) {
-    contents.ClusterOperationInfoList = de___listOfClusterOperationInfo(data.clusterOperationInfoList, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    ClusterOperationInfoList: [, (_) => de___listOfClusterOperationInfo(_, context), `clusterOperationInfoList`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2215,10 +2176,9 @@ const de_ListClusterOperationsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2238,12 +2198,11 @@ export const de_ListClustersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterInfoList != null) {
-    contents.ClusterInfoList = de___listOfClusterInfo(data.clusterInfoList, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    ClusterInfoList: [, (_) => de___listOfClusterInfo(_, context), `clusterInfoList`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2274,10 +2233,9 @@ const de_ListClustersCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2297,12 +2255,11 @@ export const de_ListClustersV2Command = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterInfoList != null) {
-    contents.ClusterInfoList = de___listOfCluster(data.clusterInfoList, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    ClusterInfoList: [, (_) => de___listOfCluster(_, context), `clusterInfoList`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2333,10 +2290,9 @@ const de_ListClustersV2CommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2356,12 +2312,11 @@ export const de_ListConfigurationRevisionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.revisions != null) {
-    contents.Revisions = de___listOfConfigurationRevision(data.revisions, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Revisions: [, (_) => de___listOfConfigurationRevision(_, context), `revisions`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2398,10 +2353,9 @@ const de_ListConfigurationRevisionsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2421,12 +2375,11 @@ export const de_ListConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurations != null) {
-    contents.Configurations = de___listOfConfiguration(data.configurations, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Configurations: [, (_) => de___listOfConfiguration(_, context), `configurations`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2460,10 +2413,9 @@ const de_ListConfigurationsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2483,12 +2435,11 @@ export const de_ListKafkaVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.kafkaVersions != null) {
-    contents.KafkaVersions = de___listOfKafkaVersion(data.kafkaVersions, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    KafkaVersions: [, (_) => de___listOfKafkaVersion(_, context), `kafkaVersions`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2519,10 +2470,9 @@ const de_ListKafkaVersionsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2542,12 +2492,11 @@ export const de_ListNodesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.nodeInfoList != null) {
-    contents.NodeInfoList = de___listOfNodeInfo(data.nodeInfoList, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    NodeInfoList: [, (_) => de___listOfNodeInfo(_, context), `nodeInfoList`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2578,10 +2527,9 @@ const de_ListNodesCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2601,12 +2549,11 @@ export const de_ListScramSecretsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.secretArnList != null) {
-    contents.SecretArnList = de___listOf__string(data.secretArnList, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    SecretArnList: [, _json, `secretArnList`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2646,10 +2593,9 @@ const de_ListScramSecretsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2669,9 +2615,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2699,10 +2646,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2722,12 +2668,11 @@ export const de_RebootBrokerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2767,10 +2712,9 @@ const de_RebootBrokerCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2817,10 +2761,9 @@ const de_TagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2867,10 +2810,9 @@ const de_UntagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2890,12 +2832,11 @@ export const de_UpdateBrokerCountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2929,10 +2870,9 @@ const de_UpdateBrokerCountCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2952,12 +2892,11 @@ export const de_UpdateBrokerStorageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2991,10 +2930,9 @@ const de_UpdateBrokerStorageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3014,12 +2952,11 @@ export const de_UpdateBrokerTypeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3059,10 +2996,9 @@ const de_UpdateBrokerTypeCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3082,12 +3018,11 @@ export const de_UpdateClusterConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3124,10 +3059,9 @@ const de_UpdateClusterConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3147,12 +3081,11 @@ export const de_UpdateClusterKafkaVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3192,10 +3125,9 @@ const de_UpdateClusterKafkaVersionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3215,12 +3147,11 @@ export const de_UpdateConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.latestRevision != null) {
-    contents.LatestRevision = de_ConfigurationRevision(data.latestRevision, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    LatestRevision: [, (_) => de_ConfigurationRevision(_, context), `latestRevision`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3257,10 +3188,9 @@ const de_UpdateConfigurationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3280,12 +3210,11 @@ export const de_UpdateConnectivityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3322,10 +3251,9 @@ const de_UpdateConnectivityCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3345,12 +3273,11 @@ export const de_UpdateMonitoringCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3384,10 +3311,9 @@ const de_UpdateMonitoringCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3407,12 +3333,11 @@ export const de_UpdateSecurityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3452,10 +3377,9 @@ const de_UpdateSecurityCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3475,12 +3399,11 @@ export const de_UpdateStorageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusterArn != null) {
-    contents.ClusterArn = __expectString(data.clusterArn);
-  }
-  if (data.clusterOperationArn != null) {
-    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
-  }
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3520,28 +3443,26 @@ const de_UpdateStorageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.invalidParameter != null) {
-    contents.InvalidParameter = __expectString(data.invalidParameter);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    InvalidParameter: [, __expectString, `invalidParameter`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3555,12 +3476,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.invalidParameter != null) {
-    contents.InvalidParameter = __expectString(data.invalidParameter);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    InvalidParameter: [, __expectString, `invalidParameter`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3574,12 +3494,11 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.invalidParameter != null) {
-    contents.InvalidParameter = __expectString(data.invalidParameter);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    InvalidParameter: [, __expectString, `invalidParameter`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3596,12 +3515,11 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.invalidParameter != null) {
-    contents.InvalidParameter = __expectString(data.invalidParameter);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    InvalidParameter: [, __expectString, `invalidParameter`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3615,12 +3533,11 @@ const de_InternalServerErrorExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.invalidParameter != null) {
-    contents.InvalidParameter = __expectString(data.invalidParameter);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    InvalidParameter: [, __expectString, `invalidParameter`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3637,12 +3554,11 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.invalidParameter != null) {
-    contents.InvalidParameter = __expectString(data.invalidParameter);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    InvalidParameter: [, __expectString, `invalidParameter`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3659,12 +3575,11 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.invalidParameter != null) {
-    contents.InvalidParameter = __expectString(data.invalidParameter);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    InvalidParameter: [, __expectString, `invalidParameter`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3681,12 +3596,11 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.invalidParameter != null) {
-    contents.InvalidParameter = __expectString(data.invalidParameter);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    InvalidParameter: [, __expectString, `invalidParameter`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3694,16 +3608,7 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOf__string
- */
-const se___listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__string omitted.
 
 /**
  * serializeAws_restJson1__listOfBrokerEBSVolumeInfo
@@ -3727,362 +3632,322 @@ const se___listOfVpcConfig = (input: VpcConfig[], context: __SerdeContext): any 
     });
 };
 
-/**
- * serializeAws_restJson1__mapOf__string
- */
-const se___mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__string omitted.
 
 /**
  * serializeAws_restJson1BrokerEBSVolumeInfo
  */
 const se_BrokerEBSVolumeInfo = (input: BrokerEBSVolumeInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.KafkaBrokerNodeId != null && { kafkaBrokerNodeId: input.KafkaBrokerNodeId }),
-    ...(input.ProvisionedThroughput != null && {
-      provisionedThroughput: se_ProvisionedThroughput(input.ProvisionedThroughput, context),
-    }),
-    ...(input.VolumeSizeGB != null && { volumeSizeGB: input.VolumeSizeGB }),
-  };
+  return take(input, {
+    kafkaBrokerNodeId: [, , `KafkaBrokerNodeId`],
+    provisionedThroughput: [, (_) => se_ProvisionedThroughput(_, context), `ProvisionedThroughput`],
+    volumeSizeGB: [, , `VolumeSizeGB`],
+  });
 };
 
 /**
  * serializeAws_restJson1BrokerLogs
  */
 const se_BrokerLogs = (input: BrokerLogs, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLogs != null && { cloudWatchLogs: se_CloudWatchLogs(input.CloudWatchLogs, context) }),
-    ...(input.Firehose != null && { firehose: se_Firehose(input.Firehose, context) }),
-    ...(input.S3 != null && { s3: se_S3(input.S3, context) }),
-  };
+  return take(input, {
+    cloudWatchLogs: [, (_) => se_CloudWatchLogs(_, context), `CloudWatchLogs`],
+    firehose: [, (_) => se_Firehose(_, context), `Firehose`],
+    s3: [, (_) => se_S3(_, context), `S3`],
+  });
 };
 
 /**
  * serializeAws_restJson1BrokerNodeGroupInfo
  */
 const se_BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.BrokerAZDistribution != null && { brokerAZDistribution: input.BrokerAZDistribution }),
-    ...(input.ClientSubnets != null && { clientSubnets: se___listOf__string(input.ClientSubnets, context) }),
-    ...(input.ConnectivityInfo != null && { connectivityInfo: se_ConnectivityInfo(input.ConnectivityInfo, context) }),
-    ...(input.InstanceType != null && { instanceType: input.InstanceType }),
-    ...(input.SecurityGroups != null && { securityGroups: se___listOf__string(input.SecurityGroups, context) }),
-    ...(input.StorageInfo != null && { storageInfo: se_StorageInfo(input.StorageInfo, context) }),
-  };
+  return take(input, {
+    brokerAZDistribution: [, , `BrokerAZDistribution`],
+    clientSubnets: [, (_) => _json(_), `ClientSubnets`],
+    connectivityInfo: [, (_) => se_ConnectivityInfo(_, context), `ConnectivityInfo`],
+    instanceType: [, , `InstanceType`],
+    securityGroups: [, (_) => _json(_), `SecurityGroups`],
+    storageInfo: [, (_) => se_StorageInfo(_, context), `StorageInfo`],
+  });
 };
 
 /**
  * serializeAws_restJson1ClientAuthentication
  */
 const se_ClientAuthentication = (input: ClientAuthentication, context: __SerdeContext): any => {
-  return {
-    ...(input.Sasl != null && { sasl: se_Sasl(input.Sasl, context) }),
-    ...(input.Tls != null && { tls: se_Tls(input.Tls, context) }),
-    ...(input.Unauthenticated != null && { unauthenticated: se_Unauthenticated(input.Unauthenticated, context) }),
-  };
+  return take(input, {
+    sasl: [, (_) => se_Sasl(_, context), `Sasl`],
+    tls: [, (_) => se_Tls(_, context), `Tls`],
+    unauthenticated: [, (_) => se_Unauthenticated(_, context), `Unauthenticated`],
+  });
 };
 
 /**
  * serializeAws_restJson1CloudWatchLogs
  */
 const se_CloudWatchLogs = (input: CloudWatchLogs, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-    ...(input.LogGroup != null && { logGroup: input.LogGroup }),
-  };
+  return take(input, {
+    enabled: [, , `Enabled`],
+    logGroup: [, , `LogGroup`],
+  });
 };
 
 /**
  * serializeAws_restJson1ConfigurationInfo
  */
 const se_ConfigurationInfo = (input: ConfigurationInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { arn: input.Arn }),
-    ...(input.Revision != null && { revision: input.Revision }),
-  };
+  return take(input, {
+    arn: [, , `Arn`],
+    revision: [, , `Revision`],
+  });
 };
 
 /**
  * serializeAws_restJson1ConnectivityInfo
  */
 const se_ConnectivityInfo = (input: ConnectivityInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.PublicAccess != null && { publicAccess: se_PublicAccess(input.PublicAccess, context) }),
-  };
+  return take(input, {
+    publicAccess: [, (_) => se_PublicAccess(_, context), `PublicAccess`],
+  });
 };
 
 /**
  * serializeAws_restJson1EBSStorageInfo
  */
 const se_EBSStorageInfo = (input: EBSStorageInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.ProvisionedThroughput != null && {
-      provisionedThroughput: se_ProvisionedThroughput(input.ProvisionedThroughput, context),
-    }),
-    ...(input.VolumeSize != null && { volumeSize: input.VolumeSize }),
-  };
+  return take(input, {
+    provisionedThroughput: [, (_) => se_ProvisionedThroughput(_, context), `ProvisionedThroughput`],
+    volumeSize: [, , `VolumeSize`],
+  });
 };
 
 /**
  * serializeAws_restJson1EncryptionAtRest
  */
 const se_EncryptionAtRest = (input: EncryptionAtRest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataVolumeKMSKeyId != null && { dataVolumeKMSKeyId: input.DataVolumeKMSKeyId }),
-  };
+  return take(input, {
+    dataVolumeKMSKeyId: [, , `DataVolumeKMSKeyId`],
+  });
 };
 
 /**
  * serializeAws_restJson1EncryptionInfo
  */
 const se_EncryptionInfo = (input: EncryptionInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionAtRest != null && { encryptionAtRest: se_EncryptionAtRest(input.EncryptionAtRest, context) }),
-    ...(input.EncryptionInTransit != null && {
-      encryptionInTransit: se_EncryptionInTransit(input.EncryptionInTransit, context),
-    }),
-  };
+  return take(input, {
+    encryptionAtRest: [, (_) => se_EncryptionAtRest(_, context), `EncryptionAtRest`],
+    encryptionInTransit: [, (_) => se_EncryptionInTransit(_, context), `EncryptionInTransit`],
+  });
 };
 
 /**
  * serializeAws_restJson1EncryptionInTransit
  */
 const se_EncryptionInTransit = (input: EncryptionInTransit, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientBroker != null && { clientBroker: input.ClientBroker }),
-    ...(input.InCluster != null && { inCluster: input.InCluster }),
-  };
+  return take(input, {
+    clientBroker: [, , `ClientBroker`],
+    inCluster: [, , `InCluster`],
+  });
 };
 
 /**
  * serializeAws_restJson1Firehose
  */
 const se_Firehose = (input: Firehose, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStream != null && { deliveryStream: input.DeliveryStream }),
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-  };
+  return take(input, {
+    deliveryStream: [, , `DeliveryStream`],
+    enabled: [, , `Enabled`],
+  });
 };
 
 /**
  * serializeAws_restJson1Iam
  */
 const se_Iam = (input: Iam, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-  };
+  return take(input, {
+    enabled: [, , `Enabled`],
+  });
 };
 
 /**
  * serializeAws_restJson1JmxExporterInfo
  */
 const se_JmxExporterInfo = (input: JmxExporterInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.EnabledInBroker != null && { enabledInBroker: input.EnabledInBroker }),
-  };
+  return take(input, {
+    enabledInBroker: [, , `EnabledInBroker`],
+  });
 };
 
 /**
  * serializeAws_restJson1LoggingInfo
  */
 const se_LoggingInfo = (input: LoggingInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.BrokerLogs != null && { brokerLogs: se_BrokerLogs(input.BrokerLogs, context) }),
-  };
+  return take(input, {
+    brokerLogs: [, (_) => se_BrokerLogs(_, context), `BrokerLogs`],
+  });
 };
 
 /**
  * serializeAws_restJson1NodeExporterInfo
  */
 const se_NodeExporterInfo = (input: NodeExporterInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.EnabledInBroker != null && { enabledInBroker: input.EnabledInBroker }),
-  };
+  return take(input, {
+    enabledInBroker: [, , `EnabledInBroker`],
+  });
 };
 
 /**
  * serializeAws_restJson1OpenMonitoringInfo
  */
 const se_OpenMonitoringInfo = (input: OpenMonitoringInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.Prometheus != null && { prometheus: se_PrometheusInfo(input.Prometheus, context) }),
-  };
+  return take(input, {
+    prometheus: [, (_) => se_PrometheusInfo(_, context), `Prometheus`],
+  });
 };
 
 /**
  * serializeAws_restJson1PrometheusInfo
  */
 const se_PrometheusInfo = (input: PrometheusInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.JmxExporter != null && { jmxExporter: se_JmxExporterInfo(input.JmxExporter, context) }),
-    ...(input.NodeExporter != null && { nodeExporter: se_NodeExporterInfo(input.NodeExporter, context) }),
-  };
+  return take(input, {
+    jmxExporter: [, (_) => se_JmxExporterInfo(_, context), `JmxExporter`],
+    nodeExporter: [, (_) => se_NodeExporterInfo(_, context), `NodeExporter`],
+  });
 };
 
 /**
  * serializeAws_restJson1ProvisionedRequest
  */
 const se_ProvisionedRequest = (input: ProvisionedRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BrokerNodeGroupInfo != null && {
-      brokerNodeGroupInfo: se_BrokerNodeGroupInfo(input.BrokerNodeGroupInfo, context),
-    }),
-    ...(input.ClientAuthentication != null && {
-      clientAuthentication: se_ClientAuthentication(input.ClientAuthentication, context),
-    }),
-    ...(input.ConfigurationInfo != null && {
-      configurationInfo: se_ConfigurationInfo(input.ConfigurationInfo, context),
-    }),
-    ...(input.EncryptionInfo != null && { encryptionInfo: se_EncryptionInfo(input.EncryptionInfo, context) }),
-    ...(input.EnhancedMonitoring != null && { enhancedMonitoring: input.EnhancedMonitoring }),
-    ...(input.KafkaVersion != null && { kafkaVersion: input.KafkaVersion }),
-    ...(input.LoggingInfo != null && { loggingInfo: se_LoggingInfo(input.LoggingInfo, context) }),
-    ...(input.NumberOfBrokerNodes != null && { numberOfBrokerNodes: input.NumberOfBrokerNodes }),
-    ...(input.OpenMonitoring != null && { openMonitoring: se_OpenMonitoringInfo(input.OpenMonitoring, context) }),
-    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
-  };
+  return take(input, {
+    brokerNodeGroupInfo: [, (_) => se_BrokerNodeGroupInfo(_, context), `BrokerNodeGroupInfo`],
+    clientAuthentication: [, (_) => se_ClientAuthentication(_, context), `ClientAuthentication`],
+    configurationInfo: [, (_) => se_ConfigurationInfo(_, context), `ConfigurationInfo`],
+    encryptionInfo: [, (_) => se_EncryptionInfo(_, context), `EncryptionInfo`],
+    enhancedMonitoring: [, , `EnhancedMonitoring`],
+    kafkaVersion: [, , `KafkaVersion`],
+    loggingInfo: [, (_) => se_LoggingInfo(_, context), `LoggingInfo`],
+    numberOfBrokerNodes: [, , `NumberOfBrokerNodes`],
+    openMonitoring: [, (_) => se_OpenMonitoringInfo(_, context), `OpenMonitoring`],
+    storageMode: [, , `StorageMode`],
+  });
 };
 
 /**
  * serializeAws_restJson1ProvisionedThroughput
  */
 const se_ProvisionedThroughput = (input: ProvisionedThroughput, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-    ...(input.VolumeThroughput != null && { volumeThroughput: input.VolumeThroughput }),
-  };
+  return take(input, {
+    enabled: [, , `Enabled`],
+    volumeThroughput: [, , `VolumeThroughput`],
+  });
 };
 
 /**
  * serializeAws_restJson1PublicAccess
  */
 const se_PublicAccess = (input: PublicAccess, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { type: input.Type }),
-  };
+  return take(input, {
+    type: [, , `Type`],
+  });
 };
 
 /**
  * serializeAws_restJson1S3
  */
 const se_S3 = (input: S3, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { bucket: input.Bucket }),
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-    ...(input.Prefix != null && { prefix: input.Prefix }),
-  };
+  return take(input, {
+    bucket: [, , `Bucket`],
+    enabled: [, , `Enabled`],
+    prefix: [, , `Prefix`],
+  });
 };
 
 /**
  * serializeAws_restJson1Sasl
  */
 const se_Sasl = (input: Sasl, context: __SerdeContext): any => {
-  return {
-    ...(input.Iam != null && { iam: se_Iam(input.Iam, context) }),
-    ...(input.Scram != null && { scram: se_Scram(input.Scram, context) }),
-  };
+  return take(input, {
+    iam: [, (_) => se_Iam(_, context), `Iam`],
+    scram: [, (_) => se_Scram(_, context), `Scram`],
+  });
 };
 
 /**
  * serializeAws_restJson1Scram
  */
 const se_Scram = (input: Scram, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-  };
+  return take(input, {
+    enabled: [, , `Enabled`],
+  });
 };
 
 /**
  * serializeAws_restJson1ServerlessClientAuthentication
  */
 const se_ServerlessClientAuthentication = (input: ServerlessClientAuthentication, context: __SerdeContext): any => {
-  return {
-    ...(input.Sasl != null && { sasl: se_ServerlessSasl(input.Sasl, context) }),
-  };
+  return take(input, {
+    sasl: [, (_) => se_ServerlessSasl(_, context), `Sasl`],
+  });
 };
 
 /**
  * serializeAws_restJson1ServerlessRequest
  */
 const se_ServerlessRequest = (input: ServerlessRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientAuthentication != null && {
-      clientAuthentication: se_ServerlessClientAuthentication(input.ClientAuthentication, context),
-    }),
-    ...(input.VpcConfigs != null && { vpcConfigs: se___listOfVpcConfig(input.VpcConfigs, context) }),
-  };
+  return take(input, {
+    clientAuthentication: [, (_) => se_ServerlessClientAuthentication(_, context), `ClientAuthentication`],
+    vpcConfigs: [, (_) => se___listOfVpcConfig(_, context), `VpcConfigs`],
+  });
 };
 
 /**
  * serializeAws_restJson1ServerlessSasl
  */
 const se_ServerlessSasl = (input: ServerlessSasl, context: __SerdeContext): any => {
-  return {
-    ...(input.Iam != null && { iam: se_Iam(input.Iam, context) }),
-  };
+  return take(input, {
+    iam: [, (_) => se_Iam(_, context), `Iam`],
+  });
 };
 
 /**
  * serializeAws_restJson1StorageInfo
  */
 const se_StorageInfo = (input: StorageInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.EbsStorageInfo != null && { ebsStorageInfo: se_EBSStorageInfo(input.EbsStorageInfo, context) }),
-  };
+  return take(input, {
+    ebsStorageInfo: [, (_) => se_EBSStorageInfo(_, context), `EbsStorageInfo`],
+  });
 };
 
 /**
  * serializeAws_restJson1Tls
  */
 const se_Tls = (input: Tls, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateAuthorityArnList != null && {
-      certificateAuthorityArnList: se___listOf__string(input.CertificateAuthorityArnList, context),
-    }),
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-  };
+  return take(input, {
+    certificateAuthorityArnList: [, (_) => _json(_), `CertificateAuthorityArnList`],
+    enabled: [, , `Enabled`],
+  });
 };
 
 /**
  * serializeAws_restJson1Unauthenticated
  */
 const se_Unauthenticated = (input: Unauthenticated, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { enabled: input.Enabled }),
-  };
+  return take(input, {
+    enabled: [, , `Enabled`],
+  });
 };
 
 /**
  * serializeAws_restJson1VpcConfig
  */
 const se_VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIds != null && { securityGroupIds: se___listOf__string(input.SecurityGroupIds, context) }),
-    ...(input.SubnetIds != null && { subnetIds: se___listOf__string(input.SubnetIds, context) }),
-  };
+  return take(input, {
+    securityGroupIds: [, (_) => _json(_), `SecurityGroupIds`],
+    subnetIds: [, (_) => _json(_), `SubnetIds`],
+  });
 };
 
-/**
- * deserializeAws_restJson1__listOf__string
- */
-const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__string omitted.
 
 /**
  * deserializeAws_restJson1__listOfBrokerEBSVolumeInfo
@@ -4091,9 +3956,6 @@ const de___listOfBrokerEBSVolumeInfo = (output: any, context: __SerdeContext): B
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BrokerEBSVolumeInfo(entry, context);
     });
   return retVal;
@@ -4106,9 +3968,6 @@ const de___listOfCluster = (output: any, context: __SerdeContext): Cluster[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Cluster(entry, context);
     });
   return retVal;
@@ -4121,9 +3980,6 @@ const de___listOfClusterInfo = (output: any, context: __SerdeContext): ClusterIn
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ClusterInfo(entry, context);
     });
   return retVal;
@@ -4136,9 +3992,6 @@ const de___listOfClusterOperationInfo = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ClusterOperationInfo(entry, context);
     });
   return retVal;
@@ -4151,9 +4004,6 @@ const de___listOfClusterOperationStep = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ClusterOperationStep(entry, context);
     });
   return retVal;
@@ -4166,9 +4016,6 @@ const de___listOfCompatibleKafkaVersion = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CompatibleKafkaVersion(entry, context);
     });
   return retVal;
@@ -4181,9 +4028,6 @@ const de___listOfConfiguration = (output: any, context: __SerdeContext): Configu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Configuration(entry, context);
     });
   return retVal;
@@ -4196,9 +4040,6 @@ const de___listOfConfigurationRevision = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigurationRevision(entry, context);
     });
   return retVal;
@@ -4211,9 +4052,6 @@ const de___listOfKafkaVersion = (output: any, context: __SerdeContext): KafkaVer
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_KafkaVersion(entry, context);
     });
   return retVal;
@@ -4226,9 +4064,6 @@ const de___listOfNodeInfo = (output: any, context: __SerdeContext): NodeInfo[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NodeInfo(entry, context);
     });
   return retVal;
@@ -4241,9 +4076,6 @@ const de___listOfUnprocessedScramSecret = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UnprocessedScramSecret(entry, context);
     });
   return retVal;
@@ -4256,654 +4088,595 @@ const de___listOfVpcConfig = (output: any, context: __SerdeContext): VpcConfig[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VpcConfig(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__mapOf__string
- */
-const de___mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de___mapOf__string omitted.
 
 /**
  * deserializeAws_restJson1BrokerEBSVolumeInfo
  */
 const de_BrokerEBSVolumeInfo = (output: any, context: __SerdeContext): BrokerEBSVolumeInfo => {
-  return {
-    KafkaBrokerNodeId: __expectString(output.kafkaBrokerNodeId),
-    ProvisionedThroughput:
-      output.provisionedThroughput != null
-        ? de_ProvisionedThroughput(output.provisionedThroughput, context)
-        : undefined,
-    VolumeSizeGB: __expectInt32(output.volumeSizeGB),
-  } as any;
+  return take(output, {
+    KafkaBrokerNodeId: [, __expectString, `kafkaBrokerNodeId`],
+    ProvisionedThroughput: (_) => [, de_ProvisionedThroughput(_, context), `provisionedThroughput`],
+    VolumeSizeGB: [, __expectInt32, `volumeSizeGB`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BrokerLogs
  */
 const de_BrokerLogs = (output: any, context: __SerdeContext): BrokerLogs => {
-  return {
-    CloudWatchLogs: output.cloudWatchLogs != null ? de_CloudWatchLogs(output.cloudWatchLogs, context) : undefined,
-    Firehose: output.firehose != null ? de_Firehose(output.firehose, context) : undefined,
-    S3: output.s3 != null ? de_S3(output.s3, context) : undefined,
-  } as any;
+  return take(output, {
+    CloudWatchLogs: (_) => [, de_CloudWatchLogs(_, context), `cloudWatchLogs`],
+    Firehose: (_) => [, de_Firehose(_, context), `firehose`],
+    S3: (_) => [, de_S3(_, context), `s3`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BrokerNodeGroupInfo
  */
 const de_BrokerNodeGroupInfo = (output: any, context: __SerdeContext): BrokerNodeGroupInfo => {
-  return {
-    BrokerAZDistribution: __expectString(output.brokerAZDistribution),
-    ClientSubnets: output.clientSubnets != null ? de___listOf__string(output.clientSubnets, context) : undefined,
-    ConnectivityInfo:
-      output.connectivityInfo != null ? de_ConnectivityInfo(output.connectivityInfo, context) : undefined,
-    InstanceType: __expectString(output.instanceType),
-    SecurityGroups: output.securityGroups != null ? de___listOf__string(output.securityGroups, context) : undefined,
-    StorageInfo: output.storageInfo != null ? de_StorageInfo(output.storageInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    BrokerAZDistribution: [, __expectString, `brokerAZDistribution`],
+    ClientSubnets: [, _json, `clientSubnets`],
+    ConnectivityInfo: (_) => [, de_ConnectivityInfo(_, context), `connectivityInfo`],
+    InstanceType: [, __expectString, `instanceType`],
+    SecurityGroups: [, _json, `securityGroups`],
+    StorageInfo: (_) => [, de_StorageInfo(_, context), `storageInfo`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BrokerNodeInfo
  */
 const de_BrokerNodeInfo = (output: any, context: __SerdeContext): BrokerNodeInfo => {
-  return {
-    AttachedENIId: __expectString(output.attachedENIId),
-    BrokerId: __limitedParseDouble(output.brokerId),
-    ClientSubnet: __expectString(output.clientSubnet),
-    ClientVpcIpAddress: __expectString(output.clientVpcIpAddress),
-    CurrentBrokerSoftwareInfo:
-      output.currentBrokerSoftwareInfo != null
-        ? de_BrokerSoftwareInfo(output.currentBrokerSoftwareInfo, context)
-        : undefined,
-    Endpoints: output.endpoints != null ? de___listOf__string(output.endpoints, context) : undefined,
-  } as any;
+  return take(output, {
+    AttachedENIId: [, __expectString, `attachedENIId`],
+    BrokerId: [, __limitedParseDouble, `brokerId`],
+    ClientSubnet: [, __expectString, `clientSubnet`],
+    ClientVpcIpAddress: [, __expectString, `clientVpcIpAddress`],
+    CurrentBrokerSoftwareInfo: (_) => [, de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
+    Endpoints: [, _json, `endpoints`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BrokerSoftwareInfo
  */
 const de_BrokerSoftwareInfo = (output: any, context: __SerdeContext): BrokerSoftwareInfo => {
-  return {
-    ConfigurationArn: __expectString(output.configurationArn),
-    ConfigurationRevision: __expectLong(output.configurationRevision),
-    KafkaVersion: __expectString(output.kafkaVersion),
-  } as any;
+  return take(output, {
+    ConfigurationArn: [, __expectString, `configurationArn`],
+    ConfigurationRevision: [, __expectLong, `configurationRevision`],
+    KafkaVersion: [, __expectString, `kafkaVersion`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ClientAuthentication
  */
 const de_ClientAuthentication = (output: any, context: __SerdeContext): ClientAuthentication => {
-  return {
-    Sasl: output.sasl != null ? de_Sasl(output.sasl, context) : undefined,
-    Tls: output.tls != null ? de_Tls(output.tls, context) : undefined,
-    Unauthenticated: output.unauthenticated != null ? de_Unauthenticated(output.unauthenticated, context) : undefined,
-  } as any;
+  return take(output, {
+    Sasl: (_) => [, de_Sasl(_, context), `sasl`],
+    Tls: (_) => [, de_Tls(_, context), `tls`],
+    Unauthenticated: (_) => [, de_Unauthenticated(_, context), `unauthenticated`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CloudWatchLogs
  */
 const de_CloudWatchLogs = (output: any, context: __SerdeContext): CloudWatchLogs => {
-  return {
-    Enabled: __expectBoolean(output.enabled),
-    LogGroup: __expectString(output.logGroup),
-  } as any;
+  return take(output, {
+    Enabled: [, __expectBoolean, `enabled`],
+    LogGroup: [, __expectString, `logGroup`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Cluster
  */
 const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
-  return {
-    ActiveOperationArn: __expectString(output.activeOperationArn),
-    ClusterArn: __expectString(output.clusterArn),
-    ClusterName: __expectString(output.clusterName),
-    ClusterType: __expectString(output.clusterType),
-    CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    CurrentVersion: __expectString(output.currentVersion),
-    Provisioned: output.provisioned != null ? de_Provisioned(output.provisioned, context) : undefined,
-    Serverless: output.serverless != null ? de_Serverless(output.serverless, context) : undefined,
-    State: __expectString(output.state),
-    StateInfo: output.stateInfo != null ? de_StateInfo(output.stateInfo, context) : undefined,
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ActiveOperationArn: [, __expectString, `activeOperationArn`],
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterName: [, __expectString, `clusterName`],
+    ClusterType: [, __expectString, `clusterType`],
+    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    CurrentVersion: [, __expectString, `currentVersion`],
+    Provisioned: (_) => [, de_Provisioned(_, context), `provisioned`],
+    Serverless: (_) => [, de_Serverless(_, context), `serverless`],
+    State: [, __expectString, `state`],
+    StateInfo: (_) => [, de_StateInfo(_, context), `stateInfo`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ClusterInfo
  */
 const de_ClusterInfo = (output: any, context: __SerdeContext): ClusterInfo => {
-  return {
-    ActiveOperationArn: __expectString(output.activeOperationArn),
-    BrokerNodeGroupInfo:
-      output.brokerNodeGroupInfo != null ? de_BrokerNodeGroupInfo(output.brokerNodeGroupInfo, context) : undefined,
-    ClientAuthentication:
-      output.clientAuthentication != null ? de_ClientAuthentication(output.clientAuthentication, context) : undefined,
-    ClusterArn: __expectString(output.clusterArn),
-    ClusterName: __expectString(output.clusterName),
-    CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    CurrentBrokerSoftwareInfo:
-      output.currentBrokerSoftwareInfo != null
-        ? de_BrokerSoftwareInfo(output.currentBrokerSoftwareInfo, context)
-        : undefined,
-    CurrentVersion: __expectString(output.currentVersion),
-    EncryptionInfo: output.encryptionInfo != null ? de_EncryptionInfo(output.encryptionInfo, context) : undefined,
-    EnhancedMonitoring: __expectString(output.enhancedMonitoring),
-    LoggingInfo: output.loggingInfo != null ? de_LoggingInfo(output.loggingInfo, context) : undefined,
-    NumberOfBrokerNodes: __expectInt32(output.numberOfBrokerNodes),
-    OpenMonitoring: output.openMonitoring != null ? de_OpenMonitoring(output.openMonitoring, context) : undefined,
-    State: __expectString(output.state),
-    StateInfo: output.stateInfo != null ? de_StateInfo(output.stateInfo, context) : undefined,
-    StorageMode: __expectString(output.storageMode),
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-    ZookeeperConnectString: __expectString(output.zookeeperConnectString),
-    ZookeeperConnectStringTls: __expectString(output.zookeeperConnectStringTls),
-  } as any;
+  return take(output, {
+    ActiveOperationArn: [, __expectString, `activeOperationArn`],
+    BrokerNodeGroupInfo: (_) => [, de_BrokerNodeGroupInfo(_, context), `brokerNodeGroupInfo`],
+    ClientAuthentication: (_) => [, de_ClientAuthentication(_, context), `clientAuthentication`],
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterName: [, __expectString, `clusterName`],
+    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    CurrentBrokerSoftwareInfo: (_) => [, de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
+    CurrentVersion: [, __expectString, `currentVersion`],
+    EncryptionInfo: (_) => [, de_EncryptionInfo(_, context), `encryptionInfo`],
+    EnhancedMonitoring: [, __expectString, `enhancedMonitoring`],
+    LoggingInfo: (_) => [, de_LoggingInfo(_, context), `loggingInfo`],
+    NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
+    OpenMonitoring: (_) => [, de_OpenMonitoring(_, context), `openMonitoring`],
+    State: [, __expectString, `state`],
+    StateInfo: (_) => [, de_StateInfo(_, context), `stateInfo`],
+    StorageMode: [, __expectString, `storageMode`],
+    Tags: [, _json, `tags`],
+    ZookeeperConnectString: [, __expectString, `zookeeperConnectString`],
+    ZookeeperConnectStringTls: [, __expectString, `zookeeperConnectStringTls`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ClusterOperationInfo
  */
 const de_ClusterOperationInfo = (output: any, context: __SerdeContext): ClusterOperationInfo => {
-  return {
-    ClientRequestId: __expectString(output.clientRequestId),
-    ClusterArn: __expectString(output.clusterArn),
-    CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    EndTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
-    ErrorInfo: output.errorInfo != null ? de_ErrorInfo(output.errorInfo, context) : undefined,
-    OperationArn: __expectString(output.operationArn),
-    OperationState: __expectString(output.operationState),
-    OperationSteps:
-      output.operationSteps != null ? de___listOfClusterOperationStep(output.operationSteps, context) : undefined,
-    OperationType: __expectString(output.operationType),
-    SourceClusterInfo:
-      output.sourceClusterInfo != null ? de_MutableClusterInfo(output.sourceClusterInfo, context) : undefined,
-    TargetClusterInfo:
-      output.targetClusterInfo != null ? de_MutableClusterInfo(output.targetClusterInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    ClientRequestId: [, __expectString, `clientRequestId`],
+    ClusterArn: [, __expectString, `clusterArn`],
+    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    EndTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `endTime`],
+    ErrorInfo: (_) => [, de_ErrorInfo(_, context), `errorInfo`],
+    OperationArn: [, __expectString, `operationArn`],
+    OperationState: [, __expectString, `operationState`],
+    OperationSteps: (_) => [, de___listOfClusterOperationStep(_, context), `operationSteps`],
+    OperationType: [, __expectString, `operationType`],
+    SourceClusterInfo: (_) => [, de_MutableClusterInfo(_, context), `sourceClusterInfo`],
+    TargetClusterInfo: (_) => [, de_MutableClusterInfo(_, context), `targetClusterInfo`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ClusterOperationStep
  */
 const de_ClusterOperationStep = (output: any, context: __SerdeContext): ClusterOperationStep => {
-  return {
-    StepInfo: output.stepInfo != null ? de_ClusterOperationStepInfo(output.stepInfo, context) : undefined,
-    StepName: __expectString(output.stepName),
-  } as any;
+  return take(output, {
+    StepInfo: (_) => [, de_ClusterOperationStepInfo(_, context), `stepInfo`],
+    StepName: [, __expectString, `stepName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ClusterOperationStepInfo
  */
 const de_ClusterOperationStepInfo = (output: any, context: __SerdeContext): ClusterOperationStepInfo => {
-  return {
-    StepStatus: __expectString(output.stepStatus),
-  } as any;
+  return take(output, {
+    StepStatus: [, __expectString, `stepStatus`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CompatibleKafkaVersion
  */
 const de_CompatibleKafkaVersion = (output: any, context: __SerdeContext): CompatibleKafkaVersion => {
-  return {
-    SourceVersion: __expectString(output.sourceVersion),
-    TargetVersions: output.targetVersions != null ? de___listOf__string(output.targetVersions, context) : undefined,
-  } as any;
+  return take(output, {
+    SourceVersion: [, __expectString, `sourceVersion`],
+    TargetVersions: [, _json, `targetVersions`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Configuration
  */
 const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
-  return {
-    Arn: __expectString(output.arn),
-    CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    Description: __expectString(output.description),
-    KafkaVersions: output.kafkaVersions != null ? de___listOf__string(output.kafkaVersions, context) : undefined,
-    LatestRevision:
-      output.latestRevision != null ? de_ConfigurationRevision(output.latestRevision, context) : undefined,
-    Name: __expectString(output.name),
-    State: __expectString(output.state),
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    Description: [, __expectString, `description`],
+    KafkaVersions: [, _json, `kafkaVersions`],
+    LatestRevision: (_) => [, de_ConfigurationRevision(_, context), `latestRevision`],
+    Name: [, __expectString, `name`],
+    State: [, __expectString, `state`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ConfigurationInfo
  */
 const de_ConfigurationInfo = (output: any, context: __SerdeContext): ConfigurationInfo => {
-  return {
-    Arn: __expectString(output.arn),
-    Revision: __expectLong(output.revision),
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    Revision: [, __expectLong, `revision`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ConfigurationRevision
  */
 const de_ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
-  return {
-    CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    Description: __expectString(output.description),
-    Revision: __expectLong(output.revision),
-  } as any;
+  return take(output, {
+    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    Description: [, __expectString, `description`],
+    Revision: [, __expectLong, `revision`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ConnectivityInfo
  */
 const de_ConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo => {
-  return {
-    PublicAccess: output.publicAccess != null ? de_PublicAccess(output.publicAccess, context) : undefined,
-  } as any;
+  return take(output, {
+    PublicAccess: (_) => [, de_PublicAccess(_, context), `publicAccess`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EBSStorageInfo
  */
 const de_EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
-  return {
-    ProvisionedThroughput:
-      output.provisionedThroughput != null
-        ? de_ProvisionedThroughput(output.provisionedThroughput, context)
-        : undefined,
-    VolumeSize: __expectInt32(output.volumeSize),
-  } as any;
+  return take(output, {
+    ProvisionedThroughput: (_) => [, de_ProvisionedThroughput(_, context), `provisionedThroughput`],
+    VolumeSize: [, __expectInt32, `volumeSize`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EncryptionAtRest
  */
 const de_EncryptionAtRest = (output: any, context: __SerdeContext): EncryptionAtRest => {
-  return {
-    DataVolumeKMSKeyId: __expectString(output.dataVolumeKMSKeyId),
-  } as any;
+  return take(output, {
+    DataVolumeKMSKeyId: [, __expectString, `dataVolumeKMSKeyId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EncryptionInfo
  */
 const de_EncryptionInfo = (output: any, context: __SerdeContext): EncryptionInfo => {
-  return {
-    EncryptionAtRest:
-      output.encryptionAtRest != null ? de_EncryptionAtRest(output.encryptionAtRest, context) : undefined,
-    EncryptionInTransit:
-      output.encryptionInTransit != null ? de_EncryptionInTransit(output.encryptionInTransit, context) : undefined,
-  } as any;
+  return take(output, {
+    EncryptionAtRest: (_) => [, de_EncryptionAtRest(_, context), `encryptionAtRest`],
+    EncryptionInTransit: (_) => [, de_EncryptionInTransit(_, context), `encryptionInTransit`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EncryptionInTransit
  */
 const de_EncryptionInTransit = (output: any, context: __SerdeContext): EncryptionInTransit => {
-  return {
-    ClientBroker: __expectString(output.clientBroker),
-    InCluster: __expectBoolean(output.inCluster),
-  } as any;
+  return take(output, {
+    ClientBroker: [, __expectString, `clientBroker`],
+    InCluster: [, __expectBoolean, `inCluster`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ErrorInfo
  */
 const de_ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
-  return {
-    ErrorCode: __expectString(output.errorCode),
-    ErrorString: __expectString(output.errorString),
-  } as any;
+  return take(output, {
+    ErrorCode: [, __expectString, `errorCode`],
+    ErrorString: [, __expectString, `errorString`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Firehose
  */
 const de_Firehose = (output: any, context: __SerdeContext): Firehose => {
-  return {
-    DeliveryStream: __expectString(output.deliveryStream),
-    Enabled: __expectBoolean(output.enabled),
-  } as any;
+  return take(output, {
+    DeliveryStream: [, __expectString, `deliveryStream`],
+    Enabled: [, __expectBoolean, `enabled`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Iam
  */
 const de_Iam = (output: any, context: __SerdeContext): Iam => {
-  return {
-    Enabled: __expectBoolean(output.enabled),
-  } as any;
+  return take(output, {
+    Enabled: [, __expectBoolean, `enabled`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1JmxExporter
  */
 const de_JmxExporter = (output: any, context: __SerdeContext): JmxExporter => {
-  return {
-    EnabledInBroker: __expectBoolean(output.enabledInBroker),
-  } as any;
+  return take(output, {
+    EnabledInBroker: [, __expectBoolean, `enabledInBroker`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1JmxExporterInfo
  */
 const de_JmxExporterInfo = (output: any, context: __SerdeContext): JmxExporterInfo => {
-  return {
-    EnabledInBroker: __expectBoolean(output.enabledInBroker),
-  } as any;
+  return take(output, {
+    EnabledInBroker: [, __expectBoolean, `enabledInBroker`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1KafkaVersion
  */
 const de_KafkaVersion = (output: any, context: __SerdeContext): KafkaVersion => {
-  return {
-    Status: __expectString(output.status),
-    Version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    Status: [, __expectString, `status`],
+    Version: [, __expectString, `version`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LoggingInfo
  */
 const de_LoggingInfo = (output: any, context: __SerdeContext): LoggingInfo => {
-  return {
-    BrokerLogs: output.brokerLogs != null ? de_BrokerLogs(output.brokerLogs, context) : undefined,
-  } as any;
+  return take(output, {
+    BrokerLogs: (_) => [, de_BrokerLogs(_, context), `brokerLogs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MutableClusterInfo
  */
 const de_MutableClusterInfo = (output: any, context: __SerdeContext): MutableClusterInfo => {
-  return {
-    BrokerEBSVolumeInfo:
-      output.brokerEBSVolumeInfo != null
-        ? de___listOfBrokerEBSVolumeInfo(output.brokerEBSVolumeInfo, context)
-        : undefined,
-    ClientAuthentication:
-      output.clientAuthentication != null ? de_ClientAuthentication(output.clientAuthentication, context) : undefined,
-    ConfigurationInfo:
-      output.configurationInfo != null ? de_ConfigurationInfo(output.configurationInfo, context) : undefined,
-    ConnectivityInfo:
-      output.connectivityInfo != null ? de_ConnectivityInfo(output.connectivityInfo, context) : undefined,
-    EncryptionInfo: output.encryptionInfo != null ? de_EncryptionInfo(output.encryptionInfo, context) : undefined,
-    EnhancedMonitoring: __expectString(output.enhancedMonitoring),
-    InstanceType: __expectString(output.instanceType),
-    KafkaVersion: __expectString(output.kafkaVersion),
-    LoggingInfo: output.loggingInfo != null ? de_LoggingInfo(output.loggingInfo, context) : undefined,
-    NumberOfBrokerNodes: __expectInt32(output.numberOfBrokerNodes),
-    OpenMonitoring: output.openMonitoring != null ? de_OpenMonitoring(output.openMonitoring, context) : undefined,
-    StorageMode: __expectString(output.storageMode),
-  } as any;
+  return take(output, {
+    BrokerEBSVolumeInfo: (_) => [, de___listOfBrokerEBSVolumeInfo(_, context), `brokerEBSVolumeInfo`],
+    ClientAuthentication: (_) => [, de_ClientAuthentication(_, context), `clientAuthentication`],
+    ConfigurationInfo: (_) => [, de_ConfigurationInfo(_, context), `configurationInfo`],
+    ConnectivityInfo: (_) => [, de_ConnectivityInfo(_, context), `connectivityInfo`],
+    EncryptionInfo: (_) => [, de_EncryptionInfo(_, context), `encryptionInfo`],
+    EnhancedMonitoring: [, __expectString, `enhancedMonitoring`],
+    InstanceType: [, __expectString, `instanceType`],
+    KafkaVersion: [, __expectString, `kafkaVersion`],
+    LoggingInfo: (_) => [, de_LoggingInfo(_, context), `loggingInfo`],
+    NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
+    OpenMonitoring: (_) => [, de_OpenMonitoring(_, context), `openMonitoring`],
+    StorageMode: [, __expectString, `storageMode`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1NodeExporter
  */
 const de_NodeExporter = (output: any, context: __SerdeContext): NodeExporter => {
-  return {
-    EnabledInBroker: __expectBoolean(output.enabledInBroker),
-  } as any;
+  return take(output, {
+    EnabledInBroker: [, __expectBoolean, `enabledInBroker`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1NodeExporterInfo
  */
 const de_NodeExporterInfo = (output: any, context: __SerdeContext): NodeExporterInfo => {
-  return {
-    EnabledInBroker: __expectBoolean(output.enabledInBroker),
-  } as any;
+  return take(output, {
+    EnabledInBroker: [, __expectBoolean, `enabledInBroker`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1NodeInfo
  */
 const de_NodeInfo = (output: any, context: __SerdeContext): NodeInfo => {
-  return {
-    AddedToClusterTime: __expectString(output.addedToClusterTime),
-    BrokerNodeInfo: output.brokerNodeInfo != null ? de_BrokerNodeInfo(output.brokerNodeInfo, context) : undefined,
-    InstanceType: __expectString(output.instanceType),
-    NodeARN: __expectString(output.nodeARN),
-    NodeType: __expectString(output.nodeType),
-    ZookeeperNodeInfo:
-      output.zookeeperNodeInfo != null ? de_ZookeeperNodeInfo(output.zookeeperNodeInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    AddedToClusterTime: [, __expectString, `addedToClusterTime`],
+    BrokerNodeInfo: (_) => [, de_BrokerNodeInfo(_, context), `brokerNodeInfo`],
+    InstanceType: [, __expectString, `instanceType`],
+    NodeARN: [, __expectString, `nodeARN`],
+    NodeType: [, __expectString, `nodeType`],
+    ZookeeperNodeInfo: (_) => [, de_ZookeeperNodeInfo(_, context), `zookeeperNodeInfo`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1OpenMonitoring
  */
 const de_OpenMonitoring = (output: any, context: __SerdeContext): OpenMonitoring => {
-  return {
-    Prometheus: output.prometheus != null ? de_Prometheus(output.prometheus, context) : undefined,
-  } as any;
+  return take(output, {
+    Prometheus: (_) => [, de_Prometheus(_, context), `prometheus`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1OpenMonitoringInfo
  */
 const de_OpenMonitoringInfo = (output: any, context: __SerdeContext): OpenMonitoringInfo => {
-  return {
-    Prometheus: output.prometheus != null ? de_PrometheusInfo(output.prometheus, context) : undefined,
-  } as any;
+  return take(output, {
+    Prometheus: (_) => [, de_PrometheusInfo(_, context), `prometheus`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Prometheus
  */
 const de_Prometheus = (output: any, context: __SerdeContext): Prometheus => {
-  return {
-    JmxExporter: output.jmxExporter != null ? de_JmxExporter(output.jmxExporter, context) : undefined,
-    NodeExporter: output.nodeExporter != null ? de_NodeExporter(output.nodeExporter, context) : undefined,
-  } as any;
+  return take(output, {
+    JmxExporter: (_) => [, de_JmxExporter(_, context), `jmxExporter`],
+    NodeExporter: (_) => [, de_NodeExporter(_, context), `nodeExporter`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PrometheusInfo
  */
 const de_PrometheusInfo = (output: any, context: __SerdeContext): PrometheusInfo => {
-  return {
-    JmxExporter: output.jmxExporter != null ? de_JmxExporterInfo(output.jmxExporter, context) : undefined,
-    NodeExporter: output.nodeExporter != null ? de_NodeExporterInfo(output.nodeExporter, context) : undefined,
-  } as any;
+  return take(output, {
+    JmxExporter: (_) => [, de_JmxExporterInfo(_, context), `jmxExporter`],
+    NodeExporter: (_) => [, de_NodeExporterInfo(_, context), `nodeExporter`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Provisioned
  */
 const de_Provisioned = (output: any, context: __SerdeContext): Provisioned => {
-  return {
-    BrokerNodeGroupInfo:
-      output.brokerNodeGroupInfo != null ? de_BrokerNodeGroupInfo(output.brokerNodeGroupInfo, context) : undefined,
-    ClientAuthentication:
-      output.clientAuthentication != null ? de_ClientAuthentication(output.clientAuthentication, context) : undefined,
-    CurrentBrokerSoftwareInfo:
-      output.currentBrokerSoftwareInfo != null
-        ? de_BrokerSoftwareInfo(output.currentBrokerSoftwareInfo, context)
-        : undefined,
-    EncryptionInfo: output.encryptionInfo != null ? de_EncryptionInfo(output.encryptionInfo, context) : undefined,
-    EnhancedMonitoring: __expectString(output.enhancedMonitoring),
-    LoggingInfo: output.loggingInfo != null ? de_LoggingInfo(output.loggingInfo, context) : undefined,
-    NumberOfBrokerNodes: __expectInt32(output.numberOfBrokerNodes),
-    OpenMonitoring: output.openMonitoring != null ? de_OpenMonitoringInfo(output.openMonitoring, context) : undefined,
-    StorageMode: __expectString(output.storageMode),
-    ZookeeperConnectString: __expectString(output.zookeeperConnectString),
-    ZookeeperConnectStringTls: __expectString(output.zookeeperConnectStringTls),
-  } as any;
+  return take(output, {
+    BrokerNodeGroupInfo: (_) => [, de_BrokerNodeGroupInfo(_, context), `brokerNodeGroupInfo`],
+    ClientAuthentication: (_) => [, de_ClientAuthentication(_, context), `clientAuthentication`],
+    CurrentBrokerSoftwareInfo: (_) => [, de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
+    EncryptionInfo: (_) => [, de_EncryptionInfo(_, context), `encryptionInfo`],
+    EnhancedMonitoring: [, __expectString, `enhancedMonitoring`],
+    LoggingInfo: (_) => [, de_LoggingInfo(_, context), `loggingInfo`],
+    NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
+    OpenMonitoring: (_) => [, de_OpenMonitoringInfo(_, context), `openMonitoring`],
+    StorageMode: [, __expectString, `storageMode`],
+    ZookeeperConnectString: [, __expectString, `zookeeperConnectString`],
+    ZookeeperConnectStringTls: [, __expectString, `zookeeperConnectStringTls`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ProvisionedThroughput
  */
 const de_ProvisionedThroughput = (output: any, context: __SerdeContext): ProvisionedThroughput => {
-  return {
-    Enabled: __expectBoolean(output.enabled),
-    VolumeThroughput: __expectInt32(output.volumeThroughput),
-  } as any;
+  return take(output, {
+    Enabled: [, __expectBoolean, `enabled`],
+    VolumeThroughput: [, __expectInt32, `volumeThroughput`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PublicAccess
  */
 const de_PublicAccess = (output: any, context: __SerdeContext): PublicAccess => {
-  return {
-    Type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    Type: [, __expectString, `type`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1S3
  */
 const de_S3 = (output: any, context: __SerdeContext): S3 => {
-  return {
-    Bucket: __expectString(output.bucket),
-    Enabled: __expectBoolean(output.enabled),
-    Prefix: __expectString(output.prefix),
-  } as any;
+  return take(output, {
+    Bucket: [, __expectString, `bucket`],
+    Enabled: [, __expectBoolean, `enabled`],
+    Prefix: [, __expectString, `prefix`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Sasl
  */
 const de_Sasl = (output: any, context: __SerdeContext): Sasl => {
-  return {
-    Iam: output.iam != null ? de_Iam(output.iam, context) : undefined,
-    Scram: output.scram != null ? de_Scram(output.scram, context) : undefined,
-  } as any;
+  return take(output, {
+    Iam: (_) => [, de_Iam(_, context), `iam`],
+    Scram: (_) => [, de_Scram(_, context), `scram`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Scram
  */
 const de_Scram = (output: any, context: __SerdeContext): Scram => {
-  return {
-    Enabled: __expectBoolean(output.enabled),
-  } as any;
+  return take(output, {
+    Enabled: [, __expectBoolean, `enabled`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Serverless
  */
 const de_Serverless = (output: any, context: __SerdeContext): Serverless => {
-  return {
-    ClientAuthentication:
-      output.clientAuthentication != null
-        ? de_ServerlessClientAuthentication(output.clientAuthentication, context)
-        : undefined,
-    VpcConfigs: output.vpcConfigs != null ? de___listOfVpcConfig(output.vpcConfigs, context) : undefined,
-  } as any;
+  return take(output, {
+    ClientAuthentication: (_) => [, de_ServerlessClientAuthentication(_, context), `clientAuthentication`],
+    VpcConfigs: (_) => [, de___listOfVpcConfig(_, context), `vpcConfigs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ServerlessClientAuthentication
  */
 const de_ServerlessClientAuthentication = (output: any, context: __SerdeContext): ServerlessClientAuthentication => {
-  return {
-    Sasl: output.sasl != null ? de_ServerlessSasl(output.sasl, context) : undefined,
-  } as any;
+  return take(output, {
+    Sasl: (_) => [, de_ServerlessSasl(_, context), `sasl`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ServerlessSasl
  */
 const de_ServerlessSasl = (output: any, context: __SerdeContext): ServerlessSasl => {
-  return {
-    Iam: output.iam != null ? de_Iam(output.iam, context) : undefined,
-  } as any;
+  return take(output, {
+    Iam: (_) => [, de_Iam(_, context), `iam`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1StateInfo
  */
 const de_StateInfo = (output: any, context: __SerdeContext): StateInfo => {
-  return {
-    Code: __expectString(output.code),
-    Message: __expectString(output.message),
-  } as any;
+  return take(output, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1StorageInfo
  */
 const de_StorageInfo = (output: any, context: __SerdeContext): StorageInfo => {
-  return {
-    EbsStorageInfo: output.ebsStorageInfo != null ? de_EBSStorageInfo(output.ebsStorageInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    EbsStorageInfo: (_) => [, de_EBSStorageInfo(_, context), `ebsStorageInfo`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Tls
  */
 const de_Tls = (output: any, context: __SerdeContext): Tls => {
-  return {
-    CertificateAuthorityArnList:
-      output.certificateAuthorityArnList != null
-        ? de___listOf__string(output.certificateAuthorityArnList, context)
-        : undefined,
-    Enabled: __expectBoolean(output.enabled),
-  } as any;
+  return take(output, {
+    CertificateAuthorityArnList: [, _json, `certificateAuthorityArnList`],
+    Enabled: [, __expectBoolean, `enabled`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Unauthenticated
  */
 const de_Unauthenticated = (output: any, context: __SerdeContext): Unauthenticated => {
-  return {
-    Enabled: __expectBoolean(output.enabled),
-  } as any;
+  return take(output, {
+    Enabled: [, __expectBoolean, `enabled`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1UnprocessedScramSecret
  */
 const de_UnprocessedScramSecret = (output: any, context: __SerdeContext): UnprocessedScramSecret => {
-  return {
-    ErrorCode: __expectString(output.errorCode),
-    ErrorMessage: __expectString(output.errorMessage),
-    SecretArn: __expectString(output.secretArn),
-  } as any;
+  return take(output, {
+    ErrorCode: [, __expectString, `errorCode`],
+    ErrorMessage: [, __expectString, `errorMessage`],
+    SecretArn: [, __expectString, `secretArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1VpcConfig
  */
 const de_VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
-  return {
-    SecurityGroupIds:
-      output.securityGroupIds != null ? de___listOf__string(output.securityGroupIds, context) : undefined,
-    SubnetIds: output.subnetIds != null ? de___listOf__string(output.subnetIds, context) : undefined,
-  } as any;
+  return take(output, {
+    SecurityGroupIds: [, _json, `securityGroupIds`],
+    SubnetIds: [, _json, `subnetIds`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ZookeeperNodeInfo
  */
 const de_ZookeeperNodeInfo = (output: any, context: __SerdeContext): ZookeeperNodeInfo => {
-  return {
-    AttachedENIId: __expectString(output.attachedENIId),
-    ClientVpcIpAddress: __expectString(output.clientVpcIpAddress),
-    Endpoints: output.endpoints != null ? de___listOf__string(output.endpoints, context) : undefined,
-    ZookeeperId: __limitedParseDouble(output.zookeeperId),
-    ZookeeperVersion: __expectString(output.zookeeperVersion),
-  } as any;
+  return take(output, {
+    AttachedENIId: [, __expectString, `attachedENIId`],
+    ClientVpcIpAddress: [, __expectString, `clientVpcIpAddress`],
+    Endpoints: [, _json, `endpoints`],
+    ZookeeperId: [, __limitedParseDouble, `zookeeperId`],
+    ZookeeperVersion: [, __expectString, `zookeeperVersion`],
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -30,10 +31,7 @@ import {
   AccessDeniedException,
   ConflictException,
   Endpoint,
-  FailedReason,
   InternalServerException,
-  NetworkInterface,
-  Outpost,
   OutpostOfflineException,
   ResourceNotFoundException,
   ThrottlingException,
@@ -55,13 +53,15 @@ export const se_CreateEndpointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/S3Outposts/CreateEndpoint";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessType != null && { AccessType: input.AccessType }),
-    ...(input.CustomerOwnedIpv4Pool != null && { CustomerOwnedIpv4Pool: input.CustomerOwnedIpv4Pool }),
-    ...(input.OutpostId != null && { OutpostId: input.OutpostId }),
-    ...(input.SecurityGroupId != null && { SecurityGroupId: input.SecurityGroupId }),
-    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessType: [],
+      CustomerOwnedIpv4Pool: [],
+      OutpostId: [],
+      SecurityGroupId: [],
+      SubnetId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -200,9 +200,10 @@ export const de_CreateEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EndpointArn != null) {
-    contents.EndpointArn = __expectString(data.EndpointArn);
-  }
+  const doc = take(data, {
+    EndpointArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -242,10 +243,9 @@ const de_CreateEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -301,10 +301,9 @@ const de_DeleteEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -324,12 +323,11 @@ export const de_ListEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Endpoints != null) {
-    contents.Endpoints = de_Endpoints(data.Endpoints, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Endpoints: (_) => de_Endpoints(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -363,10 +361,9 @@ const de_ListEndpointsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -386,12 +383,11 @@ export const de_ListOutpostsWithS3Command = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Outposts != null) {
-    contents.Outposts = de_Outposts(data.Outposts, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Outposts: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -422,10 +418,9 @@ const de_ListOutpostsWithS3CommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -445,12 +440,11 @@ export const de_ListSharedEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Endpoints != null) {
-    contents.Endpoints = de_Endpoints(data.Endpoints, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Endpoints: (_) => de_Endpoints(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -484,16 +478,15 @@ const de_ListSharedEndpointsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -503,9 +496,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -519,9 +513,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -538,9 +533,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -557,9 +553,10 @@ const de_OutpostOfflineExceptionRes = async (
 ): Promise<OutpostOfflineException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new OutpostOfflineException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -576,9 +573,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -592,9 +590,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -608,9 +607,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -622,24 +622,20 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * deserializeAws_restJson1Endpoint
  */
 const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
-  return {
-    AccessType: __expectString(output.AccessType),
-    CidrBlock: __expectString(output.CidrBlock),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    CustomerOwnedIpv4Pool: __expectString(output.CustomerOwnedIpv4Pool),
-    EndpointArn: __expectString(output.EndpointArn),
-    FailedReason: output.FailedReason != null ? de_FailedReason(output.FailedReason, context) : undefined,
-    NetworkInterfaces:
-      output.NetworkInterfaces != null ? de_NetworkInterfaces(output.NetworkInterfaces, context) : undefined,
-    OutpostsId: __expectString(output.OutpostsId),
-    SecurityGroupId: __expectString(output.SecurityGroupId),
-    Status: __expectString(output.Status),
-    SubnetId: __expectString(output.SubnetId),
-    VpcId: __expectString(output.VpcId),
-  } as any;
+  return take(output, {
+    AccessType: __expectString,
+    CidrBlock: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomerOwnedIpv4Pool: __expectString,
+    EndpointArn: __expectString,
+    FailedReason: _json,
+    NetworkInterfaces: _json,
+    OutpostsId: __expectString,
+    SecurityGroupId: __expectString,
+    Status: __expectString,
+    SubnetId: __expectString,
+    VpcId: __expectString,
+  }) as any;
 };
 
 /**
@@ -649,74 +645,20 @@ const de_Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Endpoint(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1FailedReason
- */
-const de_FailedReason = (output: any, context: __SerdeContext): FailedReason => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_FailedReason omitted.
 
-/**
- * deserializeAws_restJson1NetworkInterface
- */
-const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  return {
-    NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
-  } as any;
-};
+// de_NetworkInterface omitted.
 
-/**
- * deserializeAws_restJson1NetworkInterfaces
- */
-const de_NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NetworkInterface(entry, context);
-    });
-  return retVal;
-};
+// de_NetworkInterfaces omitted.
 
-/**
- * deserializeAws_restJson1Outpost
- */
-const de_Outpost = (output: any, context: __SerdeContext): Outpost => {
-  return {
-    CapacityInBytes: __expectLong(output.CapacityInBytes),
-    OutpostArn: __expectString(output.OutpostArn),
-    OutpostId: __expectString(output.OutpostId),
-    OwnerId: __expectString(output.OwnerId),
-  } as any;
-};
+// de_Outpost omitted.
 
-/**
- * deserializeAws_restJson1Outposts
- */
-const de_Outposts = (output: any, context: __SerdeContext): Outpost[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Outpost(entry, context);
-    });
-  return retVal;
-};
+// de_Outposts omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

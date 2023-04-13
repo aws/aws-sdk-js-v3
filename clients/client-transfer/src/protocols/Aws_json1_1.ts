@@ -1,15 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -101,19 +100,12 @@ import {
   ConflictException,
   CopyStepDetails,
   CreateAccessRequest,
-  CreateAccessResponse,
   CreateAgreementRequest,
-  CreateAgreementResponse,
   CreateConnectorRequest,
-  CreateConnectorResponse,
   CreateProfileRequest,
-  CreateProfileResponse,
   CreateServerRequest,
-  CreateServerResponse,
   CreateUserRequest,
-  CreateUserResponse,
   CreateWorkflowRequest,
-  CreateWorkflowResponse,
   CustomStepDetails,
   DecryptStepDetails,
   DeleteAccessRequest,
@@ -128,132 +120,76 @@ import {
   DeleteUserRequest,
   DeleteWorkflowRequest,
   DescribeAccessRequest,
-  DescribeAccessResponse,
   DescribeAgreementRequest,
-  DescribeAgreementResponse,
   DescribeCertificateRequest,
   DescribeCertificateResponse,
   DescribeConnectorRequest,
-  DescribeConnectorResponse,
-  DescribedAccess,
-  DescribedAgreement,
   DescribedCertificate,
-  DescribedConnector,
-  DescribedExecution,
   DescribedHostKey,
-  DescribedProfile,
-  DescribedSecurityPolicy,
-  DescribedServer,
   DescribedUser,
-  DescribedWorkflow,
   DescribeExecutionRequest,
-  DescribeExecutionResponse,
   DescribeHostKeyRequest,
   DescribeHostKeyResponse,
   DescribeProfileRequest,
-  DescribeProfileResponse,
   DescribeSecurityPolicyRequest,
-  DescribeSecurityPolicyResponse,
   DescribeServerRequest,
-  DescribeServerResponse,
   DescribeUserRequest,
   DescribeUserResponse,
   DescribeWorkflowRequest,
-  DescribeWorkflowResponse,
   EfsFileLocation,
   EndpointDetails,
-  ExecutionError,
-  ExecutionResults,
-  ExecutionStepResult,
-  FileLocation,
   HomeDirectoryMapEntry,
   IdentityProviderDetails,
   ImportCertificateRequest,
-  ImportCertificateResponse,
   ImportHostKeyRequest,
-  ImportHostKeyResponse,
   ImportSshPublicKeyRequest,
-  ImportSshPublicKeyResponse,
   InputFileLocation,
   InternalServiceError,
   InvalidNextTokenException,
   InvalidRequestException,
   ListAccessesRequest,
-  ListAccessesResponse,
   ListAgreementsRequest,
-  ListAgreementsResponse,
   ListCertificatesRequest,
   ListCertificatesResponse,
   ListConnectorsRequest,
-  ListConnectorsResponse,
-  ListedAccess,
-  ListedAgreement,
   ListedCertificate,
-  ListedConnector,
-  ListedExecution,
   ListedHostKey,
-  ListedProfile,
-  ListedServer,
-  ListedUser,
-  ListedWorkflow,
   ListExecutionsRequest,
-  ListExecutionsResponse,
   ListHostKeysRequest,
   ListHostKeysResponse,
   ListProfilesRequest,
-  ListProfilesResponse,
   ListSecurityPoliciesRequest,
-  ListSecurityPoliciesResponse,
   ListServersRequest,
-  ListServersResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListUsersRequest,
-  ListUsersResponse,
   ListWorkflowsRequest,
-  ListWorkflowsResponse,
-  LoggingConfiguration,
   PosixProfile,
   Protocol,
   ProtocolDetails,
   ResourceExistsException,
   ResourceNotFoundException,
-  S3FileLocation,
   S3InputFileLocation,
   S3Tag,
   SendWorkflowStepStateRequest,
-  SendWorkflowStepStateResponse,
-  ServiceMetadata,
   ServiceUnavailableException,
   SshPublicKey,
   StartFileTransferRequest,
-  StartFileTransferResponse,
   StartServerRequest,
   StopServerRequest,
   Tag,
   TagResourceRequest,
   TagStepDetails,
   TestIdentityProviderRequest,
-  TestIdentityProviderResponse,
   ThrottlingException,
   UntagResourceRequest,
   UpdateAccessRequest,
-  UpdateAccessResponse,
   UpdateAgreementRequest,
-  UpdateAgreementResponse,
   UpdateCertificateRequest,
-  UpdateCertificateResponse,
   UpdateConnectorRequest,
-  UpdateConnectorResponse,
   UpdateHostKeyRequest,
-  UpdateHostKeyResponse,
   UpdateProfileRequest,
-  UpdateProfileResponse,
   UpdateServerRequest,
-  UpdateServerResponse,
   UpdateUserRequest,
-  UpdateUserResponse,
-  UserDetails,
   WorkflowDetail,
   WorkflowDetails,
   WorkflowStep,
@@ -269,7 +205,7 @@ export const se_CreateAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAccess");
   let body: any;
-  body = JSON.stringify(se_CreateAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -282,7 +218,7 @@ export const se_CreateAgreementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAgreement");
   let body: any;
-  body = JSON.stringify(se_CreateAgreementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -295,7 +231,7 @@ export const se_CreateConnectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateConnector");
   let body: any;
-  body = JSON.stringify(se_CreateConnectorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -308,7 +244,7 @@ export const se_CreateProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateProfile");
   let body: any;
-  body = JSON.stringify(se_CreateProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -321,7 +257,7 @@ export const se_CreateServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateServer");
   let body: any;
-  body = JSON.stringify(se_CreateServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -334,7 +270,7 @@ export const se_CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUser");
   let body: any;
-  body = JSON.stringify(se_CreateUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -347,7 +283,7 @@ export const se_CreateWorkflowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWorkflow");
   let body: any;
-  body = JSON.stringify(se_CreateWorkflowRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -360,7 +296,7 @@ export const se_DeleteAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAccess");
   let body: any;
-  body = JSON.stringify(se_DeleteAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -373,7 +309,7 @@ export const se_DeleteAgreementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAgreement");
   let body: any;
-  body = JSON.stringify(se_DeleteAgreementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -386,7 +322,7 @@ export const se_DeleteCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCertificate");
   let body: any;
-  body = JSON.stringify(se_DeleteCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -399,7 +335,7 @@ export const se_DeleteConnectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConnector");
   let body: any;
-  body = JSON.stringify(se_DeleteConnectorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -412,7 +348,7 @@ export const se_DeleteHostKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteHostKey");
   let body: any;
-  body = JSON.stringify(se_DeleteHostKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -425,7 +361,7 @@ export const se_DeleteProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProfile");
   let body: any;
-  body = JSON.stringify(se_DeleteProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -438,7 +374,7 @@ export const se_DeleteServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteServer");
   let body: any;
-  body = JSON.stringify(se_DeleteServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -451,7 +387,7 @@ export const se_DeleteSshPublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSshPublicKey");
   let body: any;
-  body = JSON.stringify(se_DeleteSshPublicKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -464,7 +400,7 @@ export const se_DeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
-  body = JSON.stringify(se_DeleteUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -477,7 +413,7 @@ export const se_DeleteWorkflowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteWorkflow");
   let body: any;
-  body = JSON.stringify(se_DeleteWorkflowRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -490,7 +426,7 @@ export const se_DescribeAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccess");
   let body: any;
-  body = JSON.stringify(se_DescribeAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -503,7 +439,7 @@ export const se_DescribeAgreementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAgreement");
   let body: any;
-  body = JSON.stringify(se_DescribeAgreementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -516,7 +452,7 @@ export const se_DescribeCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCertificate");
   let body: any;
-  body = JSON.stringify(se_DescribeCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -529,7 +465,7 @@ export const se_DescribeConnectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConnector");
   let body: any;
-  body = JSON.stringify(se_DescribeConnectorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -542,7 +478,7 @@ export const se_DescribeExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeExecution");
   let body: any;
-  body = JSON.stringify(se_DescribeExecutionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -555,7 +491,7 @@ export const se_DescribeHostKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeHostKey");
   let body: any;
-  body = JSON.stringify(se_DescribeHostKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -568,7 +504,7 @@ export const se_DescribeProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProfile");
   let body: any;
-  body = JSON.stringify(se_DescribeProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -581,7 +517,7 @@ export const se_DescribeSecurityPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSecurityPolicy");
   let body: any;
-  body = JSON.stringify(se_DescribeSecurityPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -594,7 +530,7 @@ export const se_DescribeServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeServer");
   let body: any;
-  body = JSON.stringify(se_DescribeServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -607,7 +543,7 @@ export const se_DescribeUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeUser");
   let body: any;
-  body = JSON.stringify(se_DescribeUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -620,7 +556,7 @@ export const se_DescribeWorkflowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeWorkflow");
   let body: any;
-  body = JSON.stringify(se_DescribeWorkflowRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -646,7 +582,7 @@ export const se_ImportHostKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportHostKey");
   let body: any;
-  body = JSON.stringify(se_ImportHostKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -659,7 +595,7 @@ export const se_ImportSshPublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportSshPublicKey");
   let body: any;
-  body = JSON.stringify(se_ImportSshPublicKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -672,7 +608,7 @@ export const se_ListAccessesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccesses");
   let body: any;
-  body = JSON.stringify(se_ListAccessesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -685,7 +621,7 @@ export const se_ListAgreementsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAgreements");
   let body: any;
-  body = JSON.stringify(se_ListAgreementsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -698,7 +634,7 @@ export const se_ListCertificatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCertificates");
   let body: any;
-  body = JSON.stringify(se_ListCertificatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -711,7 +647,7 @@ export const se_ListConnectorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListConnectors");
   let body: any;
-  body = JSON.stringify(se_ListConnectorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -724,7 +660,7 @@ export const se_ListExecutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListExecutions");
   let body: any;
-  body = JSON.stringify(se_ListExecutionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -737,7 +673,7 @@ export const se_ListHostKeysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHostKeys");
   let body: any;
-  body = JSON.stringify(se_ListHostKeysRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -750,7 +686,7 @@ export const se_ListProfilesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProfiles");
   let body: any;
-  body = JSON.stringify(se_ListProfilesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -763,7 +699,7 @@ export const se_ListSecurityPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSecurityPolicies");
   let body: any;
-  body = JSON.stringify(se_ListSecurityPoliciesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -776,7 +712,7 @@ export const se_ListServersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServers");
   let body: any;
-  body = JSON.stringify(se_ListServersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -789,7 +725,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -802,7 +738,7 @@ export const se_ListUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUsers");
   let body: any;
-  body = JSON.stringify(se_ListUsersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -815,7 +751,7 @@ export const se_ListWorkflowsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWorkflows");
   let body: any;
-  body = JSON.stringify(se_ListWorkflowsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -828,7 +764,7 @@ export const se_SendWorkflowStepStateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendWorkflowStepState");
   let body: any;
-  body = JSON.stringify(se_SendWorkflowStepStateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -841,7 +777,7 @@ export const se_StartFileTransferCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartFileTransfer");
   let body: any;
-  body = JSON.stringify(se_StartFileTransferRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -854,7 +790,7 @@ export const se_StartServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartServer");
   let body: any;
-  body = JSON.stringify(se_StartServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -867,7 +803,7 @@ export const se_StopServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopServer");
   let body: any;
-  body = JSON.stringify(se_StopServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -880,7 +816,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -893,7 +829,7 @@ export const se_TestIdentityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TestIdentityProvider");
   let body: any;
-  body = JSON.stringify(se_TestIdentityProviderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -906,7 +842,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -919,7 +855,7 @@ export const se_UpdateAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAccess");
   let body: any;
-  body = JSON.stringify(se_UpdateAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -932,7 +868,7 @@ export const se_UpdateAgreementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAgreement");
   let body: any;
-  body = JSON.stringify(se_UpdateAgreementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -958,7 +894,7 @@ export const se_UpdateConnectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateConnector");
   let body: any;
-  body = JSON.stringify(se_UpdateConnectorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -971,7 +907,7 @@ export const se_UpdateHostKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateHostKey");
   let body: any;
-  body = JSON.stringify(se_UpdateHostKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -984,7 +920,7 @@ export const se_UpdateProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateProfile");
   let body: any;
-  body = JSON.stringify(se_UpdateProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -997,7 +933,7 @@ export const se_UpdateServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateServer");
   let body: any;
-  body = JSON.stringify(se_UpdateServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1010,7 +946,7 @@ export const se_UpdateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateUser");
   let body: any;
-  body = JSON.stringify(se_UpdateUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1026,12 +962,12 @@ export const de_CreateAccessCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAccessResponse(data, context);
+  contents = _json(data);
   const response: CreateAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1064,10 +1000,9 @@ const de_CreateAccessCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1085,12 +1020,12 @@ export const de_CreateAgreementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAgreementResponse(data, context);
+  contents = _json(data);
   const response: CreateAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1126,10 +1061,9 @@ const de_CreateAgreementCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1147,12 +1081,12 @@ export const de_CreateConnectorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateConnectorResponse(data, context);
+  contents = _json(data);
   const response: CreateConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1188,10 +1122,9 @@ const de_CreateConnectorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1209,12 +1142,12 @@ export const de_CreateProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateProfileResponse(data, context);
+  contents = _json(data);
   const response: CreateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1247,10 +1180,9 @@ const de_CreateProfileCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1268,12 +1200,12 @@ export const de_CreateServerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateServerResponse(data, context);
+  contents = _json(data);
   const response: CreateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1312,10 +1244,9 @@ const de_CreateServerCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1333,12 +1264,12 @@ export const de_CreateUserCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateUserResponse(data, context);
+  contents = _json(data);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1371,10 +1302,9 @@ const de_CreateUserCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1392,12 +1322,12 @@ export const de_CreateWorkflowCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateWorkflowResponse(data, context);
+  contents = _json(data);
   const response: CreateWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1433,10 +1363,9 @@ const de_CreateWorkflowCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1456,7 +1385,7 @@ export const de_DeleteAccessCommand = async (
   const response: DeleteAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1486,10 +1415,9 @@ const de_DeleteAccessCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1509,7 +1437,7 @@ export const de_DeleteAgreementCommand = async (
   const response: DeleteAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1539,10 +1467,9 @@ const de_DeleteAgreementCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1562,7 +1489,7 @@ export const de_DeleteCertificateCommand = async (
   const response: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1592,10 +1519,9 @@ const de_DeleteCertificateCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1615,7 +1541,7 @@ export const de_DeleteConnectorCommand = async (
   const response: DeleteConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1645,10 +1571,9 @@ const de_DeleteConnectorCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1668,7 +1593,7 @@ export const de_DeleteHostKeyCommand = async (
   const response: DeleteHostKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1701,10 +1626,9 @@ const de_DeleteHostKeyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1724,7 +1648,7 @@ export const de_DeleteProfileCommand = async (
   const response: DeleteProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1754,10 +1678,9 @@ const de_DeleteProfileCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1777,7 +1700,7 @@ export const de_DeleteServerCommand = async (
   const response: DeleteServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1810,10 +1733,9 @@ const de_DeleteServerCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1833,7 +1755,7 @@ export const de_DeleteSshPublicKeyCommand = async (
   const response: DeleteSshPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1866,10 +1788,9 @@ const de_DeleteSshPublicKeyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1889,7 +1810,7 @@ export const de_DeleteUserCommand = async (
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1919,10 +1840,9 @@ const de_DeleteUserCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1942,7 +1862,7 @@ export const de_DeleteWorkflowCommand = async (
   const response: DeleteWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1975,10 +1895,9 @@ const de_DeleteWorkflowCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1996,12 +1915,12 @@ export const de_DescribeAccessCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAccessResponse(data, context);
+  contents = _json(data);
   const response: DescribeAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2031,10 +1950,9 @@ const de_DescribeAccessCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2052,12 +1970,12 @@ export const de_DescribeAgreementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAgreementResponse(data, context);
+  contents = _json(data);
   const response: DescribeAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2087,10 +2005,9 @@ const de_DescribeAgreementCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2113,7 +2030,7 @@ export const de_DescribeCertificateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2143,10 +2060,9 @@ const de_DescribeCertificateCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2164,12 +2080,12 @@ export const de_DescribeConnectorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeConnectorResponse(data, context);
+  contents = _json(data);
   const response: DescribeConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2199,10 +2115,9 @@ const de_DescribeConnectorCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2220,12 +2135,12 @@ export const de_DescribeExecutionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeExecutionResponse(data, context);
+  contents = _json(data);
   const response: DescribeExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2255,10 +2170,9 @@ const de_DescribeExecutionCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2281,7 +2195,7 @@ export const de_DescribeHostKeyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2311,10 +2225,9 @@ const de_DescribeHostKeyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2332,12 +2245,12 @@ export const de_DescribeProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeProfileResponse(data, context);
+  contents = _json(data);
   const response: DescribeProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2367,10 +2280,9 @@ const de_DescribeProfileCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2388,12 +2300,12 @@ export const de_DescribeSecurityPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeSecurityPolicyResponse(data, context);
+  contents = _json(data);
   const response: DescribeSecurityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2423,10 +2335,9 @@ const de_DescribeSecurityPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2444,12 +2355,12 @@ export const de_DescribeServerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeServerResponse(data, context);
+  contents = _json(data);
   const response: DescribeServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2479,10 +2390,9 @@ const de_DescribeServerCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2505,7 +2415,7 @@ export const de_DescribeUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2535,10 +2445,9 @@ const de_DescribeUserCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2556,12 +2465,12 @@ export const de_DescribeWorkflowCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeWorkflowResponse(data, context);
+  contents = _json(data);
   const response: DescribeWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2591,10 +2500,9 @@ const de_DescribeWorkflowCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2612,12 +2520,12 @@ export const de_ImportCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportCertificateResponse(data, context);
+  contents = _json(data);
   const response: ImportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2647,10 +2555,9 @@ const de_ImportCertificateCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2668,12 +2575,12 @@ export const de_ImportHostKeyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportHostKeyResponse(data, context);
+  contents = _json(data);
   const response: ImportHostKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2709,10 +2616,9 @@ const de_ImportHostKeyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2730,12 +2636,12 @@ export const de_ImportSshPublicKeyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportSshPublicKeyResponse(data, context);
+  contents = _json(data);
   const response: ImportSshPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2771,10 +2677,9 @@ const de_ImportSshPublicKeyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2792,12 +2697,12 @@ export const de_ListAccessesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAccessesResponse(data, context);
+  contents = _json(data);
   const response: ListAccessesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2830,10 +2735,9 @@ const de_ListAccessesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2851,12 +2755,12 @@ export const de_ListAgreementsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAgreementsResponse(data, context);
+  contents = _json(data);
   const response: ListAgreementsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2889,10 +2793,9 @@ const de_ListAgreementsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2915,7 +2818,7 @@ export const de_ListCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2948,10 +2851,9 @@ const de_ListCertificatesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2969,12 +2871,12 @@ export const de_ListConnectorsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListConnectorsResponse(data, context);
+  contents = _json(data);
   const response: ListConnectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3007,10 +2909,9 @@ const de_ListConnectorsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3028,12 +2929,12 @@ export const de_ListExecutionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListExecutionsResponse(data, context);
+  contents = _json(data);
   const response: ListExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3066,10 +2967,9 @@ const de_ListExecutionsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3092,7 +2992,7 @@ export const de_ListHostKeysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3125,10 +3025,9 @@ const de_ListHostKeysCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3146,12 +3045,12 @@ export const de_ListProfilesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListProfilesResponse(data, context);
+  contents = _json(data);
   const response: ListProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3184,10 +3083,9 @@ const de_ListProfilesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3205,12 +3103,12 @@ export const de_ListSecurityPoliciesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListSecurityPoliciesResponse(data, context);
+  contents = _json(data);
   const response: ListSecurityPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3240,10 +3138,9 @@ const de_ListSecurityPoliciesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3261,12 +3158,12 @@ export const de_ListServersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListServersResponse(data, context);
+  contents = _json(data);
   const response: ListServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3296,10 +3193,9 @@ const de_ListServersCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3317,12 +3213,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3352,10 +3248,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3373,12 +3268,12 @@ export const de_ListUsersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListUsersResponse(data, context);
+  contents = _json(data);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3411,10 +3306,9 @@ const de_ListUsersCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3432,12 +3326,12 @@ export const de_ListWorkflowsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListWorkflowsResponse(data, context);
+  contents = _json(data);
   const response: ListWorkflowsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3467,10 +3361,9 @@ const de_ListWorkflowsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3488,12 +3381,12 @@ export const de_SendWorkflowStepStateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SendWorkflowStepStateResponse(data, context);
+  contents = _json(data);
   const response: SendWorkflowStepStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3529,10 +3422,9 @@ const de_SendWorkflowStepStateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3550,12 +3442,12 @@ export const de_StartFileTransferCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartFileTransferResponse(data, context);
+  contents = _json(data);
   const response: StartFileTransferCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3588,10 +3480,9 @@ const de_StartFileTransferCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3611,7 +3502,7 @@ export const de_StartServerCommand = async (
   const response: StartServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3644,10 +3535,9 @@ const de_StartServerCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3667,7 +3557,7 @@ export const de_StopServerCommand = async (
   const response: StopServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3700,10 +3590,9 @@ const de_StopServerCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3723,7 +3612,7 @@ export const de_TagResourceCommand = async (
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3753,10 +3642,9 @@ const de_TagResourceCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3774,12 +3662,12 @@ export const de_TestIdentityProviderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TestIdentityProviderResponse(data, context);
+  contents = _json(data);
   const response: TestIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3809,10 +3697,9 @@ const de_TestIdentityProviderCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3832,7 +3719,7 @@ export const de_UntagResourceCommand = async (
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3862,10 +3749,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3883,12 +3769,12 @@ export const de_UpdateAccessCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateAccessResponse(data, context);
+  contents = _json(data);
   const response: UpdateAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3924,10 +3810,9 @@ const de_UpdateAccessCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3945,12 +3830,12 @@ export const de_UpdateAgreementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateAgreementResponse(data, context);
+  contents = _json(data);
   const response: UpdateAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3986,10 +3871,9 @@ const de_UpdateAgreementCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4007,12 +3891,12 @@ export const de_UpdateCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateCertificateResponse(data, context);
+  contents = _json(data);
   const response: UpdateCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4045,10 +3929,9 @@ const de_UpdateCertificateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4066,12 +3949,12 @@ export const de_UpdateConnectorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateConnectorResponse(data, context);
+  contents = _json(data);
   const response: UpdateConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4107,10 +3990,9 @@ const de_UpdateConnectorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4128,12 +4010,12 @@ export const de_UpdateHostKeyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateHostKeyResponse(data, context);
+  contents = _json(data);
   const response: UpdateHostKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4166,10 +4048,9 @@ const de_UpdateHostKeyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4187,12 +4068,12 @@ export const de_UpdateProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateProfileResponse(data, context);
+  contents = _json(data);
   const response: UpdateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4225,10 +4106,9 @@ const de_UpdateProfileCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4246,12 +4126,12 @@ export const de_UpdateServerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateServerResponse(data, context);
+  contents = _json(data);
   const response: UpdateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4293,10 +4173,9 @@ const de_UpdateServerCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4314,12 +4193,12 @@ export const de_UpdateUserCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateUserResponse(data, context);
+  contents = _json(data);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4352,10 +4231,9 @@ const de_UpdateUserCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4369,7 +4247,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4382,7 +4260,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4398,7 +4276,7 @@ const de_InternalServiceErrorRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServiceError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4414,7 +4292,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4430,7 +4308,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4446,7 +4324,7 @@ const de_ResourceExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4462,7 +4340,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4478,7 +4356,7 @@ const de_ServiceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4491,7 +4369,7 @@ const de_ServiceUnavailableExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4499,1899 +4377,435 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AddressAllocationIds
- */
-const se_AddressAllocationIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AddressAllocationIds omitted.
 
-/**
- * serializeAws_json1_1As2ConnectorConfig
- */
-const se_As2ConnectorConfig = (input: As2ConnectorConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Compression != null && { Compression: input.Compression }),
-    ...(input.EncryptionAlgorithm != null && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
-    ...(input.LocalProfileId != null && { LocalProfileId: input.LocalProfileId }),
-    ...(input.MdnResponse != null && { MdnResponse: input.MdnResponse }),
-    ...(input.MdnSigningAlgorithm != null && { MdnSigningAlgorithm: input.MdnSigningAlgorithm }),
-    ...(input.MessageSubject != null && { MessageSubject: input.MessageSubject }),
-    ...(input.PartnerProfileId != null && { PartnerProfileId: input.PartnerProfileId }),
-    ...(input.SigningAlgorithm != null && { SigningAlgorithm: input.SigningAlgorithm }),
-  };
-};
+// se_As2ConnectorConfig omitted.
 
-/**
- * serializeAws_json1_1As2Transports
- */
-const se_As2Transports = (input: (As2Transport | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_As2Transports omitted.
 
-/**
- * serializeAws_json1_1CertificateIds
- */
-const se_CertificateIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CertificateIds omitted.
 
-/**
- * serializeAws_json1_1CopyStepDetails
- */
-const se_CopyStepDetails = (input: CopyStepDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationFileLocation != null && {
-      DestinationFileLocation: se_InputFileLocation(input.DestinationFileLocation, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.OverwriteExisting != null && { OverwriteExisting: input.OverwriteExisting }),
-    ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
-  };
-};
+// se_CopyStepDetails omitted.
 
-/**
- * serializeAws_json1_1CreateAccessRequest
- */
-const se_CreateAccessRequest = (input: CreateAccessRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.HomeDirectory != null && { HomeDirectory: input.HomeDirectory }),
-    ...(input.HomeDirectoryMappings != null && {
-      HomeDirectoryMappings: se_HomeDirectoryMappings(input.HomeDirectoryMappings, context),
-    }),
-    ...(input.HomeDirectoryType != null && { HomeDirectoryType: input.HomeDirectoryType }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PosixProfile != null && { PosixProfile: se_PosixProfile(input.PosixProfile, context) }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_CreateAccessRequest omitted.
 
-/**
- * serializeAws_json1_1CreateAgreementRequest
- */
-const se_CreateAgreementRequest = (input: CreateAgreementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessRole != null && { AccessRole: input.AccessRole }),
-    ...(input.BaseDirectory != null && { BaseDirectory: input.BaseDirectory }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LocalProfileId != null && { LocalProfileId: input.LocalProfileId }),
-    ...(input.PartnerProfileId != null && { PartnerProfileId: input.PartnerProfileId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateAgreementRequest omitted.
 
-/**
- * serializeAws_json1_1CreateConnectorRequest
- */
-const se_CreateConnectorRequest = (input: CreateConnectorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessRole != null && { AccessRole: input.AccessRole }),
-    ...(input.As2Config != null && { As2Config: se_As2ConnectorConfig(input.As2Config, context) }),
-    ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
+// se_CreateConnectorRequest omitted.
 
-/**
- * serializeAws_json1_1CreateProfileRequest
- */
-const se_CreateProfileRequest = (input: CreateProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.As2Id != null && { As2Id: input.As2Id }),
-    ...(input.CertificateIds != null && { CertificateIds: se_CertificateIds(input.CertificateIds, context) }),
-    ...(input.ProfileType != null && { ProfileType: input.ProfileType }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateProfileRequest omitted.
 
-/**
- * serializeAws_json1_1CreateServerRequest
- */
-const se_CreateServerRequest = (input: CreateServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.EndpointDetails != null && { EndpointDetails: se_EndpointDetails(input.EndpointDetails, context) }),
-    ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
-    ...(input.HostKey != null && { HostKey: input.HostKey }),
-    ...(input.IdentityProviderDetails != null && {
-      IdentityProviderDetails: se_IdentityProviderDetails(input.IdentityProviderDetails, context),
-    }),
-    ...(input.IdentityProviderType != null && { IdentityProviderType: input.IdentityProviderType }),
-    ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
-    ...(input.PostAuthenticationLoginBanner != null && {
-      PostAuthenticationLoginBanner: input.PostAuthenticationLoginBanner,
-    }),
-    ...(input.PreAuthenticationLoginBanner != null && {
-      PreAuthenticationLoginBanner: input.PreAuthenticationLoginBanner,
-    }),
-    ...(input.ProtocolDetails != null && { ProtocolDetails: se_ProtocolDetails(input.ProtocolDetails, context) }),
-    ...(input.Protocols != null && { Protocols: se_Protocols(input.Protocols, context) }),
-    ...(input.SecurityPolicyName != null && { SecurityPolicyName: input.SecurityPolicyName }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.WorkflowDetails != null && { WorkflowDetails: se_WorkflowDetails(input.WorkflowDetails, context) }),
-  };
-};
+// se_CreateServerRequest omitted.
 
-/**
- * serializeAws_json1_1CreateUserRequest
- */
-const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HomeDirectory != null && { HomeDirectory: input.HomeDirectory }),
-    ...(input.HomeDirectoryMappings != null && {
-      HomeDirectoryMappings: se_HomeDirectoryMappings(input.HomeDirectoryMappings, context),
-    }),
-    ...(input.HomeDirectoryType != null && { HomeDirectoryType: input.HomeDirectoryType }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PosixProfile != null && { PosixProfile: se_PosixProfile(input.PosixProfile, context) }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.SshPublicKeyBody != null && { SshPublicKeyBody: input.SshPublicKeyBody }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_CreateUserRequest omitted.
 
-/**
- * serializeAws_json1_1CreateWorkflowRequest
- */
-const se_CreateWorkflowRequest = (input: CreateWorkflowRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.OnExceptionSteps != null && { OnExceptionSteps: se_WorkflowSteps(input.OnExceptionSteps, context) }),
-    ...(input.Steps != null && { Steps: se_WorkflowSteps(input.Steps, context) }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateWorkflowRequest omitted.
 
-/**
- * serializeAws_json1_1CustomStepDetails
- */
-const se_CustomStepDetails = (input: CustomStepDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
-    ...(input.Target != null && { Target: input.Target }),
-    ...(input.TimeoutSeconds != null && { TimeoutSeconds: input.TimeoutSeconds }),
-  };
-};
+// se_CustomStepDetails omitted.
 
-/**
- * serializeAws_json1_1DecryptStepDetails
- */
-const se_DecryptStepDetails = (input: DecryptStepDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationFileLocation != null && {
-      DestinationFileLocation: se_InputFileLocation(input.DestinationFileLocation, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.OverwriteExisting != null && { OverwriteExisting: input.OverwriteExisting }),
-    ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DecryptStepDetails omitted.
 
-/**
- * serializeAws_json1_1DeleteAccessRequest
- */
-const se_DeleteAccessRequest = (input: DeleteAccessRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_DeleteAccessRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteAgreementRequest
- */
-const se_DeleteAgreementRequest = (input: DeleteAgreementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AgreementId != null && { AgreementId: input.AgreementId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_DeleteAgreementRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteCertificateRequest
- */
-const se_DeleteCertificateRequest = (input: DeleteCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
-  };
-};
+// se_DeleteCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteConnectorRequest
- */
-const se_DeleteConnectorRequest = (input: DeleteConnectorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
-  };
-};
+// se_DeleteConnectorRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteHostKeyRequest
- */
-const se_DeleteHostKeyRequest = (input: DeleteHostKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_DeleteHostKeyRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteProfileRequest
- */
-const se_DeleteProfileRequest = (input: DeleteProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProfileId != null && { ProfileId: input.ProfileId }),
-  };
-};
+// se_DeleteProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteServerRequest
- */
-const se_DeleteServerRequest = (input: DeleteServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_DeleteServerRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteSshPublicKeyRequest
- */
-const se_DeleteSshPublicKeyRequest = (input: DeleteSshPublicKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.SshPublicKeyId != null && { SshPublicKeyId: input.SshPublicKeyId }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_DeleteSshPublicKeyRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteStepDetails
- */
-const se_DeleteStepDetails = (input: DeleteStepDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
-  };
-};
+// se_DeleteStepDetails omitted.
 
-/**
- * serializeAws_json1_1DeleteUserRequest
- */
-const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_DeleteUserRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteWorkflowRequest
- */
-const se_DeleteWorkflowRequest = (input: DeleteWorkflowRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
-  };
-};
+// se_DeleteWorkflowRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAccessRequest
- */
-const se_DescribeAccessRequest = (input: DescribeAccessRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_DescribeAccessRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAgreementRequest
- */
-const se_DescribeAgreementRequest = (input: DescribeAgreementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AgreementId != null && { AgreementId: input.AgreementId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_DescribeAgreementRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCertificateRequest
- */
-const se_DescribeCertificateRequest = (input: DescribeCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
-  };
-};
+// se_DescribeCertificateRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeConnectorRequest
- */
-const se_DescribeConnectorRequest = (input: DescribeConnectorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
-  };
-};
+// se_DescribeConnectorRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeExecutionRequest
- */
-const se_DescribeExecutionRequest = (input: DescribeExecutionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExecutionId != null && { ExecutionId: input.ExecutionId }),
-    ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
-  };
-};
+// se_DescribeExecutionRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeHostKeyRequest
- */
-const se_DescribeHostKeyRequest = (input: DescribeHostKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_DescribeHostKeyRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeProfileRequest
- */
-const se_DescribeProfileRequest = (input: DescribeProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProfileId != null && { ProfileId: input.ProfileId }),
-  };
-};
+// se_DescribeProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeSecurityPolicyRequest
- */
-const se_DescribeSecurityPolicyRequest = (input: DescribeSecurityPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityPolicyName != null && { SecurityPolicyName: input.SecurityPolicyName }),
-  };
-};
+// se_DescribeSecurityPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeServerRequest
- */
-const se_DescribeServerRequest = (input: DescribeServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_DescribeServerRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeUserRequest
- */
-const se_DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_DescribeUserRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeWorkflowRequest
- */
-const se_DescribeWorkflowRequest = (input: DescribeWorkflowRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
-  };
-};
+// se_DescribeWorkflowRequest omitted.
 
-/**
- * serializeAws_json1_1EfsFileLocation
- */
-const se_EfsFileLocation = (input: EfsFileLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
-    ...(input.Path != null && { Path: input.Path }),
-  };
-};
+// se_EfsFileLocation omitted.
 
-/**
- * serializeAws_json1_1EndpointDetails
- */
-const se_EndpointDetails = (input: EndpointDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.AddressAllocationIds != null && {
-      AddressAllocationIds: se_AddressAllocationIds(input.AddressAllocationIds, context),
-    }),
-    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_SecurityGroupIds(input.SecurityGroupIds, context) }),
-    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcEndpointId != null && { VpcEndpointId: input.VpcEndpointId }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  };
-};
+// se_EndpointDetails omitted.
 
-/**
- * serializeAws_json1_1FilePaths
- */
-const se_FilePaths = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilePaths omitted.
 
-/**
- * serializeAws_json1_1HomeDirectoryMapEntry
- */
-const se_HomeDirectoryMapEntry = (input: HomeDirectoryMapEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Entry != null && { Entry: input.Entry }),
-    ...(input.Target != null && { Target: input.Target }),
-  };
-};
+// se_HomeDirectoryMapEntry omitted.
 
-/**
- * serializeAws_json1_1HomeDirectoryMappings
- */
-const se_HomeDirectoryMappings = (input: HomeDirectoryMapEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HomeDirectoryMapEntry(entry, context);
-    });
-};
+// se_HomeDirectoryMappings omitted.
 
-/**
- * serializeAws_json1_1IdentityProviderDetails
- */
-const se_IdentityProviderDetails = (input: IdentityProviderDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Function != null && { Function: input.Function }),
-    ...(input.InvocationRole != null && { InvocationRole: input.InvocationRole }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
+// se_IdentityProviderDetails omitted.
 
 /**
  * serializeAws_json1_1ImportCertificateRequest
  */
 const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ActiveDate != null && { ActiveDate: Math.round(input.ActiveDate.getTime() / 1000) }),
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.CertificateChain != null && { CertificateChain: input.CertificateChain }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.InactiveDate != null && { InactiveDate: Math.round(input.InactiveDate.getTime() / 1000) }),
-    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.Usage != null && { Usage: input.Usage }),
-  };
+  return take(input, {
+    ActiveDate: (_) => Math.round(_.getTime() / 1000),
+    Certificate: [],
+    CertificateChain: [],
+    Description: [],
+    InactiveDate: (_) => Math.round(_.getTime() / 1000),
+    PrivateKey: [],
+    Tags: (_) => _json(_),
+    Usage: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ImportHostKeyRequest
- */
-const se_ImportHostKeyRequest = (input: ImportHostKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.HostKeyBody != null && { HostKeyBody: input.HostKeyBody }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_ImportHostKeyRequest omitted.
 
-/**
- * serializeAws_json1_1ImportSshPublicKeyRequest
- */
-const se_ImportSshPublicKeyRequest = (input: ImportSshPublicKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.SshPublicKeyBody != null && { SshPublicKeyBody: input.SshPublicKeyBody }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_ImportSshPublicKeyRequest omitted.
 
-/**
- * serializeAws_json1_1InputFileLocation
- */
-const se_InputFileLocation = (input: InputFileLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.EfsFileLocation != null && { EfsFileLocation: se_EfsFileLocation(input.EfsFileLocation, context) }),
-    ...(input.S3FileLocation != null && { S3FileLocation: se_S3InputFileLocation(input.S3FileLocation, context) }),
-  };
-};
+// se_InputFileLocation omitted.
 
-/**
- * serializeAws_json1_1ListAccessesRequest
- */
-const se_ListAccessesRequest = (input: ListAccessesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_ListAccessesRequest omitted.
 
-/**
- * serializeAws_json1_1ListAgreementsRequest
- */
-const se_ListAgreementsRequest = (input: ListAgreementsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_ListAgreementsRequest omitted.
 
-/**
- * serializeAws_json1_1ListCertificatesRequest
- */
-const se_ListCertificatesRequest = (input: ListCertificatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCertificatesRequest omitted.
 
-/**
- * serializeAws_json1_1ListConnectorsRequest
- */
-const se_ListConnectorsRequest = (input: ListConnectorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListConnectorsRequest omitted.
 
-/**
- * serializeAws_json1_1ListExecutionsRequest
- */
-const se_ListExecutionsRequest = (input: ListExecutionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
-  };
-};
+// se_ListExecutionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListHostKeysRequest
- */
-const se_ListHostKeysRequest = (input: ListHostKeysRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_ListHostKeysRequest omitted.
 
-/**
- * serializeAws_json1_1ListProfilesRequest
- */
-const se_ListProfilesRequest = (input: ListProfilesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ProfileType != null && { ProfileType: input.ProfileType }),
-  };
-};
+// se_ListProfilesRequest omitted.
 
-/**
- * serializeAws_json1_1ListSecurityPoliciesRequest
- */
-const se_ListSecurityPoliciesRequest = (input: ListSecurityPoliciesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListSecurityPoliciesRequest omitted.
 
-/**
- * serializeAws_json1_1ListServersRequest
- */
-const se_ListServersRequest = (input: ListServersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListServersRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ListUsersRequest
- */
-const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_ListUsersRequest omitted.
 
-/**
- * serializeAws_json1_1ListWorkflowsRequest
- */
-const se_ListWorkflowsRequest = (input: ListWorkflowsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListWorkflowsRequest omitted.
 
-/**
- * serializeAws_json1_1OnPartialUploadWorkflowDetails
- */
-const se_OnPartialUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WorkflowDetail(entry, context);
-    });
-};
+// se_OnPartialUploadWorkflowDetails omitted.
 
-/**
- * serializeAws_json1_1OnUploadWorkflowDetails
- */
-const se_OnUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WorkflowDetail(entry, context);
-    });
-};
+// se_OnUploadWorkflowDetails omitted.
 
-/**
- * serializeAws_json1_1PosixProfile
- */
-const se_PosixProfile = (input: PosixProfile, context: __SerdeContext): any => {
-  return {
-    ...(input.Gid != null && { Gid: input.Gid }),
-    ...(input.SecondaryGids != null && { SecondaryGids: se_SecondaryGids(input.SecondaryGids, context) }),
-    ...(input.Uid != null && { Uid: input.Uid }),
-  };
-};
+// se_PosixProfile omitted.
 
-/**
- * serializeAws_json1_1ProtocolDetails
- */
-const se_ProtocolDetails = (input: ProtocolDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.As2Transports != null && { As2Transports: se_As2Transports(input.As2Transports, context) }),
-    ...(input.PassiveIp != null && { PassiveIp: input.PassiveIp }),
-    ...(input.SetStatOption != null && { SetStatOption: input.SetStatOption }),
-    ...(input.TlsSessionResumptionMode != null && { TlsSessionResumptionMode: input.TlsSessionResumptionMode }),
-  };
-};
+// se_ProtocolDetails omitted.
 
-/**
- * serializeAws_json1_1Protocols
- */
-const se_Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Protocols omitted.
 
-/**
- * serializeAws_json1_1S3InputFileLocation
- */
-const se_S3InputFileLocation = (input: S3InputFileLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.Key != null && { Key: input.Key }),
-  };
-};
+// se_S3InputFileLocation omitted.
 
-/**
- * serializeAws_json1_1S3Tag
- */
-const se_S3Tag = (input: S3Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_S3Tag omitted.
 
-/**
- * serializeAws_json1_1S3Tags
- */
-const se_S3Tags = (input: S3Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_S3Tag(entry, context);
-    });
-};
+// se_S3Tags omitted.
 
-/**
- * serializeAws_json1_1SecondaryGids
- */
-const se_SecondaryGids = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecondaryGids omitted.
 
-/**
- * serializeAws_json1_1SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_json1_1SendWorkflowStepStateRequest
- */
-const se_SendWorkflowStepStateRequest = (input: SendWorkflowStepStateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExecutionId != null && { ExecutionId: input.ExecutionId }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.Token != null && { Token: input.Token }),
-    ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
-  };
-};
+// se_SendWorkflowStepStateRequest omitted.
 
-/**
- * serializeAws_json1_1StartFileTransferRequest
- */
-const se_StartFileTransferRequest = (input: StartFileTransferRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
-    ...(input.SendFilePaths != null && { SendFilePaths: se_FilePaths(input.SendFilePaths, context) }),
-  };
-};
+// se_StartFileTransferRequest omitted.
 
-/**
- * serializeAws_json1_1StartServerRequest
- */
-const se_StartServerRequest = (input: StartServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_StartServerRequest omitted.
 
-/**
- * serializeAws_json1_1StopServerRequest
- */
-const se_StopServerRequest = (input: StopServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_StopServerRequest omitted.
 
-/**
- * serializeAws_json1_1SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIds omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_1TagStepDetails
- */
-const se_TagStepDetails = (input: TagStepDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
-    ...(input.Tags != null && { Tags: se_S3Tags(input.Tags, context) }),
-  };
-};
+// se_TagStepDetails omitted.
 
-/**
- * serializeAws_json1_1TestIdentityProviderRequest
- */
-const se_TestIdentityProviderRequest = (input: TestIdentityProviderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.ServerProtocol != null && { ServerProtocol: input.ServerProtocol }),
-    ...(input.SourceIp != null && { SourceIp: input.SourceIp }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-    ...(input.UserPassword != null && { UserPassword: input.UserPassword }),
-  };
-};
+// se_TestIdentityProviderRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAccessRequest
- */
-const se_UpdateAccessRequest = (input: UpdateAccessRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.HomeDirectory != null && { HomeDirectory: input.HomeDirectory }),
-    ...(input.HomeDirectoryMappings != null && {
-      HomeDirectoryMappings: se_HomeDirectoryMappings(input.HomeDirectoryMappings, context),
-    }),
-    ...(input.HomeDirectoryType != null && { HomeDirectoryType: input.HomeDirectoryType }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PosixProfile != null && { PosixProfile: se_PosixProfile(input.PosixProfile, context) }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_UpdateAccessRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAgreementRequest
- */
-const se_UpdateAgreementRequest = (input: UpdateAgreementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessRole != null && { AccessRole: input.AccessRole }),
-    ...(input.AgreementId != null && { AgreementId: input.AgreementId }),
-    ...(input.BaseDirectory != null && { BaseDirectory: input.BaseDirectory }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LocalProfileId != null && { LocalProfileId: input.LocalProfileId }),
-    ...(input.PartnerProfileId != null && { PartnerProfileId: input.PartnerProfileId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_UpdateAgreementRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateCertificateRequest
  */
 const se_UpdateCertificateRequest = (input: UpdateCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ActiveDate != null && { ActiveDate: Math.round(input.ActiveDate.getTime() / 1000) }),
-    ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.InactiveDate != null && { InactiveDate: Math.round(input.InactiveDate.getTime() / 1000) }),
-  };
+  return take(input, {
+    ActiveDate: (_) => Math.round(_.getTime() / 1000),
+    CertificateId: [],
+    Description: [],
+    InactiveDate: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateConnectorRequest
- */
-const se_UpdateConnectorRequest = (input: UpdateConnectorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessRole != null && { AccessRole: input.AccessRole }),
-    ...(input.As2Config != null && { As2Config: se_As2ConnectorConfig(input.As2Config, context) }),
-    ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
-    ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
+// se_UpdateConnectorRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateHostKeyRequest
- */
-const se_UpdateHostKeyRequest = (input: UpdateHostKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
+// se_UpdateHostKeyRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateProfileRequest
- */
-const se_UpdateProfileRequest = (input: UpdateProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateIds != null && { CertificateIds: se_CertificateIds(input.CertificateIds, context) }),
-    ...(input.ProfileId != null && { ProfileId: input.ProfileId }),
-  };
-};
+// se_UpdateProfileRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateServerRequest
- */
-const se_UpdateServerRequest = (input: UpdateServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.EndpointDetails != null && { EndpointDetails: se_EndpointDetails(input.EndpointDetails, context) }),
-    ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
-    ...(input.HostKey != null && { HostKey: input.HostKey }),
-    ...(input.IdentityProviderDetails != null && {
-      IdentityProviderDetails: se_IdentityProviderDetails(input.IdentityProviderDetails, context),
-    }),
-    ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
-    ...(input.PostAuthenticationLoginBanner != null && {
-      PostAuthenticationLoginBanner: input.PostAuthenticationLoginBanner,
-    }),
-    ...(input.PreAuthenticationLoginBanner != null && {
-      PreAuthenticationLoginBanner: input.PreAuthenticationLoginBanner,
-    }),
-    ...(input.ProtocolDetails != null && { ProtocolDetails: se_ProtocolDetails(input.ProtocolDetails, context) }),
-    ...(input.Protocols != null && { Protocols: se_Protocols(input.Protocols, context) }),
-    ...(input.SecurityPolicyName != null && { SecurityPolicyName: input.SecurityPolicyName }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.WorkflowDetails != null && { WorkflowDetails: se_WorkflowDetails(input.WorkflowDetails, context) }),
-  };
-};
+// se_UpdateServerRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateUserRequest
- */
-const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HomeDirectory != null && { HomeDirectory: input.HomeDirectory }),
-    ...(input.HomeDirectoryMappings != null && {
-      HomeDirectoryMappings: se_HomeDirectoryMappings(input.HomeDirectoryMappings, context),
-    }),
-    ...(input.HomeDirectoryType != null && { HomeDirectoryType: input.HomeDirectoryType }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PosixProfile != null && { PosixProfile: se_PosixProfile(input.PosixProfile, context) }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_UpdateUserRequest omitted.
 
-/**
- * serializeAws_json1_1WorkflowDetail
- */
-const se_WorkflowDetail = (input: WorkflowDetail, context: __SerdeContext): any => {
-  return {
-    ...(input.ExecutionRole != null && { ExecutionRole: input.ExecutionRole }),
-    ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
-  };
-};
+// se_WorkflowDetail omitted.
 
-/**
- * serializeAws_json1_1WorkflowDetails
- */
-const se_WorkflowDetails = (input: WorkflowDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.OnPartialUpload != null && {
-      OnPartialUpload: se_OnPartialUploadWorkflowDetails(input.OnPartialUpload, context),
-    }),
-    ...(input.OnUpload != null && { OnUpload: se_OnUploadWorkflowDetails(input.OnUpload, context) }),
-  };
-};
+// se_WorkflowDetails omitted.
 
-/**
- * serializeAws_json1_1WorkflowStep
- */
-const se_WorkflowStep = (input: WorkflowStep, context: __SerdeContext): any => {
-  return {
-    ...(input.CopyStepDetails != null && { CopyStepDetails: se_CopyStepDetails(input.CopyStepDetails, context) }),
-    ...(input.CustomStepDetails != null && {
-      CustomStepDetails: se_CustomStepDetails(input.CustomStepDetails, context),
-    }),
-    ...(input.DecryptStepDetails != null && {
-      DecryptStepDetails: se_DecryptStepDetails(input.DecryptStepDetails, context),
-    }),
-    ...(input.DeleteStepDetails != null && {
-      DeleteStepDetails: se_DeleteStepDetails(input.DeleteStepDetails, context),
-    }),
-    ...(input.TagStepDetails != null && { TagStepDetails: se_TagStepDetails(input.TagStepDetails, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_WorkflowStep omitted.
 
-/**
- * serializeAws_json1_1WorkflowSteps
- */
-const se_WorkflowSteps = (input: WorkflowStep[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WorkflowStep(entry, context);
-    });
-};
+// se_WorkflowSteps omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AddressAllocationIds
- */
-const de_AddressAllocationIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AddressAllocationIds omitted.
 
-/**
- * deserializeAws_json1_1As2ConnectorConfig
- */
-const de_As2ConnectorConfig = (output: any, context: __SerdeContext): As2ConnectorConfig => {
-  return {
-    Compression: __expectString(output.Compression),
-    EncryptionAlgorithm: __expectString(output.EncryptionAlgorithm),
-    LocalProfileId: __expectString(output.LocalProfileId),
-    MdnResponse: __expectString(output.MdnResponse),
-    MdnSigningAlgorithm: __expectString(output.MdnSigningAlgorithm),
-    MessageSubject: __expectString(output.MessageSubject),
-    PartnerProfileId: __expectString(output.PartnerProfileId),
-    SigningAlgorithm: __expectString(output.SigningAlgorithm),
-  } as any;
-};
+// de_As2ConnectorConfig omitted.
 
-/**
- * deserializeAws_json1_1As2Transports
- */
-const de_As2Transports = (output: any, context: __SerdeContext): (As2Transport | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_As2Transports omitted.
 
-/**
- * deserializeAws_json1_1CertificateIds
- */
-const de_CertificateIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CertificateIds omitted.
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_1CopyStepDetails
- */
-const de_CopyStepDetails = (output: any, context: __SerdeContext): CopyStepDetails => {
-  return {
-    DestinationFileLocation:
-      output.DestinationFileLocation != null
-        ? de_InputFileLocation(output.DestinationFileLocation, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    OverwriteExisting: __expectString(output.OverwriteExisting),
-    SourceFileLocation: __expectString(output.SourceFileLocation),
-  } as any;
-};
+// de_CopyStepDetails omitted.
 
-/**
- * deserializeAws_json1_1CreateAccessResponse
- */
-const de_CreateAccessResponse = (output: any, context: __SerdeContext): CreateAccessResponse => {
-  return {
-    ExternalId: __expectString(output.ExternalId),
-    ServerId: __expectString(output.ServerId),
-  } as any;
-};
+// de_CreateAccessResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateAgreementResponse
- */
-const de_CreateAgreementResponse = (output: any, context: __SerdeContext): CreateAgreementResponse => {
-  return {
-    AgreementId: __expectString(output.AgreementId),
-  } as any;
-};
+// de_CreateAgreementResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateConnectorResponse
- */
-const de_CreateConnectorResponse = (output: any, context: __SerdeContext): CreateConnectorResponse => {
-  return {
-    ConnectorId: __expectString(output.ConnectorId),
-  } as any;
-};
+// de_CreateConnectorResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateProfileResponse
- */
-const de_CreateProfileResponse = (output: any, context: __SerdeContext): CreateProfileResponse => {
-  return {
-    ProfileId: __expectString(output.ProfileId),
-  } as any;
-};
+// de_CreateProfileResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateServerResponse
- */
-const de_CreateServerResponse = (output: any, context: __SerdeContext): CreateServerResponse => {
-  return {
-    ServerId: __expectString(output.ServerId),
-  } as any;
-};
+// de_CreateServerResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateUserResponse
- */
-const de_CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
-  return {
-    ServerId: __expectString(output.ServerId),
-    UserName: __expectString(output.UserName),
-  } as any;
-};
+// de_CreateUserResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateWorkflowResponse
- */
-const de_CreateWorkflowResponse = (output: any, context: __SerdeContext): CreateWorkflowResponse => {
-  return {
-    WorkflowId: __expectString(output.WorkflowId),
-  } as any;
-};
+// de_CreateWorkflowResponse omitted.
 
-/**
- * deserializeAws_json1_1CustomStepDetails
- */
-const de_CustomStepDetails = (output: any, context: __SerdeContext): CustomStepDetails => {
-  return {
-    Name: __expectString(output.Name),
-    SourceFileLocation: __expectString(output.SourceFileLocation),
-    Target: __expectString(output.Target),
-    TimeoutSeconds: __expectInt32(output.TimeoutSeconds),
-  } as any;
-};
+// de_CustomStepDetails omitted.
 
-/**
- * deserializeAws_json1_1DecryptStepDetails
- */
-const de_DecryptStepDetails = (output: any, context: __SerdeContext): DecryptStepDetails => {
-  return {
-    DestinationFileLocation:
-      output.DestinationFileLocation != null
-        ? de_InputFileLocation(output.DestinationFileLocation, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    OverwriteExisting: __expectString(output.OverwriteExisting),
-    SourceFileLocation: __expectString(output.SourceFileLocation),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_DecryptStepDetails omitted.
 
-/**
- * deserializeAws_json1_1DeleteStepDetails
- */
-const de_DeleteStepDetails = (output: any, context: __SerdeContext): DeleteStepDetails => {
-  return {
-    Name: __expectString(output.Name),
-    SourceFileLocation: __expectString(output.SourceFileLocation),
-  } as any;
-};
+// de_DeleteStepDetails omitted.
 
-/**
- * deserializeAws_json1_1DescribeAccessResponse
- */
-const de_DescribeAccessResponse = (output: any, context: __SerdeContext): DescribeAccessResponse => {
-  return {
-    Access: output.Access != null ? de_DescribedAccess(output.Access, context) : undefined,
-    ServerId: __expectString(output.ServerId),
-  } as any;
-};
+// de_DescribeAccessResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeAgreementResponse
- */
-const de_DescribeAgreementResponse = (output: any, context: __SerdeContext): DescribeAgreementResponse => {
-  return {
-    Agreement: output.Agreement != null ? de_DescribedAgreement(output.Agreement, context) : undefined,
-  } as any;
-};
+// de_DescribeAgreementResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeCertificateResponse
  */
 const de_DescribeCertificateResponse = (output: any, context: __SerdeContext): DescribeCertificateResponse => {
-  return {
-    Certificate: output.Certificate != null ? de_DescribedCertificate(output.Certificate, context) : undefined,
-  } as any;
+  return take(output, {
+    Certificate: (_: any) => de_DescribedCertificate(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeConnectorResponse
- */
-const de_DescribeConnectorResponse = (output: any, context: __SerdeContext): DescribeConnectorResponse => {
-  return {
-    Connector: output.Connector != null ? de_DescribedConnector(output.Connector, context) : undefined,
-  } as any;
-};
+// de_DescribeConnectorResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribedAccess
- */
-const de_DescribedAccess = (output: any, context: __SerdeContext): DescribedAccess => {
-  return {
-    ExternalId: __expectString(output.ExternalId),
-    HomeDirectory: __expectString(output.HomeDirectory),
-    HomeDirectoryMappings:
-      output.HomeDirectoryMappings != null
-        ? de_HomeDirectoryMappings(output.HomeDirectoryMappings, context)
-        : undefined,
-    HomeDirectoryType: __expectString(output.HomeDirectoryType),
-    Policy: __expectString(output.Policy),
-    PosixProfile: output.PosixProfile != null ? de_PosixProfile(output.PosixProfile, context) : undefined,
-    Role: __expectString(output.Role),
-  } as any;
-};
+// de_DescribedAccess omitted.
 
-/**
- * deserializeAws_json1_1DescribedAgreement
- */
-const de_DescribedAgreement = (output: any, context: __SerdeContext): DescribedAgreement => {
-  return {
-    AccessRole: __expectString(output.AccessRole),
-    AgreementId: __expectString(output.AgreementId),
-    Arn: __expectString(output.Arn),
-    BaseDirectory: __expectString(output.BaseDirectory),
-    Description: __expectString(output.Description),
-    LocalProfileId: __expectString(output.LocalProfileId),
-    PartnerProfileId: __expectString(output.PartnerProfileId),
-    ServerId: __expectString(output.ServerId),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_DescribedAgreement omitted.
 
 /**
  * deserializeAws_json1_1DescribedCertificate
  */
 const de_DescribedCertificate = (output: any, context: __SerdeContext): DescribedCertificate => {
-  return {
-    ActiveDate:
-      output.ActiveDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ActiveDate))) : undefined,
-    Arn: __expectString(output.Arn),
-    Certificate: __expectString(output.Certificate),
-    CertificateChain: __expectString(output.CertificateChain),
-    CertificateId: __expectString(output.CertificateId),
-    Description: __expectString(output.Description),
-    InactiveDate:
-      output.InactiveDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InactiveDate)))
-        : undefined,
-    NotAfterDate:
-      output.NotAfterDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfterDate)))
-        : undefined,
-    NotBeforeDate:
-      output.NotBeforeDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBeforeDate)))
-        : undefined,
-    Serial: __expectString(output.Serial),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-    Type: __expectString(output.Type),
-    Usage: __expectString(output.Usage),
-  } as any;
+  return take(output, {
+    ActiveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Arn: __expectString,
+    Certificate: __expectString,
+    CertificateChain: __expectString,
+    CertificateId: __expectString,
+    Description: __expectString,
+    InactiveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotAfterDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotBeforeDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Serial: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    Type: __expectString,
+    Usage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribedConnector
- */
-const de_DescribedConnector = (output: any, context: __SerdeContext): DescribedConnector => {
-  return {
-    AccessRole: __expectString(output.AccessRole),
-    Arn: __expectString(output.Arn),
-    As2Config: output.As2Config != null ? de_As2ConnectorConfig(output.As2Config, context) : undefined,
-    ConnectorId: __expectString(output.ConnectorId),
-    LoggingRole: __expectString(output.LoggingRole),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_DescribedConnector omitted.
 
-/**
- * deserializeAws_json1_1DescribedExecution
- */
-const de_DescribedExecution = (output: any, context: __SerdeContext): DescribedExecution => {
-  return {
-    ExecutionId: __expectString(output.ExecutionId),
-    ExecutionRole: __expectString(output.ExecutionRole),
-    InitialFileLocation:
-      output.InitialFileLocation != null ? de_FileLocation(output.InitialFileLocation, context) : undefined,
-    LoggingConfiguration:
-      output.LoggingConfiguration != null ? de_LoggingConfiguration(output.LoggingConfiguration, context) : undefined,
-    PosixProfile: output.PosixProfile != null ? de_PosixProfile(output.PosixProfile, context) : undefined,
-    Results: output.Results != null ? de_ExecutionResults(output.Results, context) : undefined,
-    ServiceMetadata: output.ServiceMetadata != null ? de_ServiceMetadata(output.ServiceMetadata, context) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DescribedExecution omitted.
 
 /**
  * deserializeAws_json1_1DescribedHostKey
  */
 const de_DescribedHostKey = (output: any, context: __SerdeContext): DescribedHostKey => {
-  return {
-    Arn: __expectString(output.Arn),
-    DateImported:
-      output.DateImported != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateImported)))
-        : undefined,
-    Description: __expectString(output.Description),
-    HostKeyFingerprint: __expectString(output.HostKeyFingerprint),
-    HostKeyId: __expectString(output.HostKeyId),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    DateImported: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    HostKeyFingerprint: __expectString,
+    HostKeyId: __expectString,
+    Tags: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribedProfile
- */
-const de_DescribedProfile = (output: any, context: __SerdeContext): DescribedProfile => {
-  return {
-    Arn: __expectString(output.Arn),
-    As2Id: __expectString(output.As2Id),
-    CertificateIds: output.CertificateIds != null ? de_CertificateIds(output.CertificateIds, context) : undefined,
-    ProfileId: __expectString(output.ProfileId),
-    ProfileType: __expectString(output.ProfileType),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_DescribedProfile omitted.
 
-/**
- * deserializeAws_json1_1DescribedSecurityPolicy
- */
-const de_DescribedSecurityPolicy = (output: any, context: __SerdeContext): DescribedSecurityPolicy => {
-  return {
-    Fips: __expectBoolean(output.Fips),
-    SecurityPolicyName: __expectString(output.SecurityPolicyName),
-    SshCiphers: output.SshCiphers != null ? de_SecurityPolicyOptions(output.SshCiphers, context) : undefined,
-    SshKexs: output.SshKexs != null ? de_SecurityPolicyOptions(output.SshKexs, context) : undefined,
-    SshMacs: output.SshMacs != null ? de_SecurityPolicyOptions(output.SshMacs, context) : undefined,
-    TlsCiphers: output.TlsCiphers != null ? de_SecurityPolicyOptions(output.TlsCiphers, context) : undefined,
-  } as any;
-};
+// de_DescribedSecurityPolicy omitted.
 
-/**
- * deserializeAws_json1_1DescribedServer
- */
-const de_DescribedServer = (output: any, context: __SerdeContext): DescribedServer => {
-  return {
-    Arn: __expectString(output.Arn),
-    Certificate: __expectString(output.Certificate),
-    Domain: __expectString(output.Domain),
-    EndpointDetails: output.EndpointDetails != null ? de_EndpointDetails(output.EndpointDetails, context) : undefined,
-    EndpointType: __expectString(output.EndpointType),
-    HostKeyFingerprint: __expectString(output.HostKeyFingerprint),
-    IdentityProviderDetails:
-      output.IdentityProviderDetails != null
-        ? de_IdentityProviderDetails(output.IdentityProviderDetails, context)
-        : undefined,
-    IdentityProviderType: __expectString(output.IdentityProviderType),
-    LoggingRole: __expectString(output.LoggingRole),
-    PostAuthenticationLoginBanner: __expectString(output.PostAuthenticationLoginBanner),
-    PreAuthenticationLoginBanner: __expectString(output.PreAuthenticationLoginBanner),
-    ProtocolDetails: output.ProtocolDetails != null ? de_ProtocolDetails(output.ProtocolDetails, context) : undefined,
-    Protocols: output.Protocols != null ? de_Protocols(output.Protocols, context) : undefined,
-    SecurityPolicyName: __expectString(output.SecurityPolicyName),
-    ServerId: __expectString(output.ServerId),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-    UserCount: __expectInt32(output.UserCount),
-    WorkflowDetails: output.WorkflowDetails != null ? de_WorkflowDetails(output.WorkflowDetails, context) : undefined,
-  } as any;
-};
+// de_DescribedServer omitted.
 
 /**
  * deserializeAws_json1_1DescribedUser
  */
 const de_DescribedUser = (output: any, context: __SerdeContext): DescribedUser => {
-  return {
-    Arn: __expectString(output.Arn),
-    HomeDirectory: __expectString(output.HomeDirectory),
-    HomeDirectoryMappings:
-      output.HomeDirectoryMappings != null
-        ? de_HomeDirectoryMappings(output.HomeDirectoryMappings, context)
-        : undefined,
-    HomeDirectoryType: __expectString(output.HomeDirectoryType),
-    Policy: __expectString(output.Policy),
-    PosixProfile: output.PosixProfile != null ? de_PosixProfile(output.PosixProfile, context) : undefined,
-    Role: __expectString(output.Role),
-    SshPublicKeys: output.SshPublicKeys != null ? de_SshPublicKeys(output.SshPublicKeys, context) : undefined,
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-    UserName: __expectString(output.UserName),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    HomeDirectory: __expectString,
+    HomeDirectoryMappings: _json,
+    HomeDirectoryType: __expectString,
+    Policy: __expectString,
+    PosixProfile: _json,
+    Role: __expectString,
+    SshPublicKeys: (_: any) => de_SshPublicKeys(_, context),
+    Tags: _json,
+    UserName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribedWorkflow
- */
-const de_DescribedWorkflow = (output: any, context: __SerdeContext): DescribedWorkflow => {
-  return {
-    Arn: __expectString(output.Arn),
-    Description: __expectString(output.Description),
-    OnExceptionSteps: output.OnExceptionSteps != null ? de_WorkflowSteps(output.OnExceptionSteps, context) : undefined,
-    Steps: output.Steps != null ? de_WorkflowSteps(output.Steps, context) : undefined,
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-    WorkflowId: __expectString(output.WorkflowId),
-  } as any;
-};
+// de_DescribedWorkflow omitted.
 
-/**
- * deserializeAws_json1_1DescribeExecutionResponse
- */
-const de_DescribeExecutionResponse = (output: any, context: __SerdeContext): DescribeExecutionResponse => {
-  return {
-    Execution: output.Execution != null ? de_DescribedExecution(output.Execution, context) : undefined,
-    WorkflowId: __expectString(output.WorkflowId),
-  } as any;
-};
+// de_DescribeExecutionResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeHostKeyResponse
  */
 const de_DescribeHostKeyResponse = (output: any, context: __SerdeContext): DescribeHostKeyResponse => {
-  return {
-    HostKey: output.HostKey != null ? de_DescribedHostKey(output.HostKey, context) : undefined,
-  } as any;
+  return take(output, {
+    HostKey: (_: any) => de_DescribedHostKey(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeProfileResponse
- */
-const de_DescribeProfileResponse = (output: any, context: __SerdeContext): DescribeProfileResponse => {
-  return {
-    Profile: output.Profile != null ? de_DescribedProfile(output.Profile, context) : undefined,
-  } as any;
-};
+// de_DescribeProfileResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeSecurityPolicyResponse
- */
-const de_DescribeSecurityPolicyResponse = (output: any, context: __SerdeContext): DescribeSecurityPolicyResponse => {
-  return {
-    SecurityPolicy:
-      output.SecurityPolicy != null ? de_DescribedSecurityPolicy(output.SecurityPolicy, context) : undefined,
-  } as any;
-};
+// de_DescribeSecurityPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeServerResponse
- */
-const de_DescribeServerResponse = (output: any, context: __SerdeContext): DescribeServerResponse => {
-  return {
-    Server: output.Server != null ? de_DescribedServer(output.Server, context) : undefined,
-  } as any;
-};
+// de_DescribeServerResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeUserResponse
  */
 const de_DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
-  return {
-    ServerId: __expectString(output.ServerId),
-    User: output.User != null ? de_DescribedUser(output.User, context) : undefined,
-  } as any;
+  return take(output, {
+    ServerId: __expectString,
+    User: (_: any) => de_DescribedUser(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeWorkflowResponse
- */
-const de_DescribeWorkflowResponse = (output: any, context: __SerdeContext): DescribeWorkflowResponse => {
-  return {
-    Workflow: output.Workflow != null ? de_DescribedWorkflow(output.Workflow, context) : undefined,
-  } as any;
-};
+// de_DescribeWorkflowResponse omitted.
 
-/**
- * deserializeAws_json1_1EfsFileLocation
- */
-const de_EfsFileLocation = (output: any, context: __SerdeContext): EfsFileLocation => {
-  return {
-    FileSystemId: __expectString(output.FileSystemId),
-    Path: __expectString(output.Path),
-  } as any;
-};
+// de_EfsFileLocation omitted.
 
-/**
- * deserializeAws_json1_1EndpointDetails
- */
-const de_EndpointDetails = (output: any, context: __SerdeContext): EndpointDetails => {
-  return {
-    AddressAllocationIds:
-      output.AddressAllocationIds != null ? de_AddressAllocationIds(output.AddressAllocationIds, context) : undefined,
-    SecurityGroupIds:
-      output.SecurityGroupIds != null ? de_SecurityGroupIds(output.SecurityGroupIds, context) : undefined,
-    SubnetIds: output.SubnetIds != null ? de_SubnetIds(output.SubnetIds, context) : undefined,
-    VpcEndpointId: __expectString(output.VpcEndpointId),
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_EndpointDetails omitted.
 
-/**
- * deserializeAws_json1_1ExecutionError
- */
-const de_ExecutionError = (output: any, context: __SerdeContext): ExecutionError => {
-  return {
-    Message: __expectString(output.Message),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ExecutionError omitted.
 
-/**
- * deserializeAws_json1_1ExecutionResults
- */
-const de_ExecutionResults = (output: any, context: __SerdeContext): ExecutionResults => {
-  return {
-    OnExceptionSteps:
-      output.OnExceptionSteps != null ? de_ExecutionStepResults(output.OnExceptionSteps, context) : undefined,
-    Steps: output.Steps != null ? de_ExecutionStepResults(output.Steps, context) : undefined,
-  } as any;
-};
+// de_ExecutionResults omitted.
 
-/**
- * deserializeAws_json1_1ExecutionStepResult
- */
-const de_ExecutionStepResult = (output: any, context: __SerdeContext): ExecutionStepResult => {
-  return {
-    Error: output.Error != null ? de_ExecutionError(output.Error, context) : undefined,
-    Outputs: __expectString(output.Outputs),
-    StepType: __expectString(output.StepType),
-  } as any;
-};
+// de_ExecutionStepResult omitted.
 
-/**
- * deserializeAws_json1_1ExecutionStepResults
- */
-const de_ExecutionStepResults = (output: any, context: __SerdeContext): ExecutionStepResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExecutionStepResult(entry, context);
-    });
-  return retVal;
-};
+// de_ExecutionStepResults omitted.
 
-/**
- * deserializeAws_json1_1FileLocation
- */
-const de_FileLocation = (output: any, context: __SerdeContext): FileLocation => {
-  return {
-    EfsFileLocation: output.EfsFileLocation != null ? de_EfsFileLocation(output.EfsFileLocation, context) : undefined,
-    S3FileLocation: output.S3FileLocation != null ? de_S3FileLocation(output.S3FileLocation, context) : undefined,
-  } as any;
-};
+// de_FileLocation omitted.
 
-/**
- * deserializeAws_json1_1HomeDirectoryMapEntry
- */
-const de_HomeDirectoryMapEntry = (output: any, context: __SerdeContext): HomeDirectoryMapEntry => {
-  return {
-    Entry: __expectString(output.Entry),
-    Target: __expectString(output.Target),
-  } as any;
-};
+// de_HomeDirectoryMapEntry omitted.
 
-/**
- * deserializeAws_json1_1HomeDirectoryMappings
- */
-const de_HomeDirectoryMappings = (output: any, context: __SerdeContext): HomeDirectoryMapEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HomeDirectoryMapEntry(entry, context);
-    });
-  return retVal;
-};
+// de_HomeDirectoryMappings omitted.
 
-/**
- * deserializeAws_json1_1IdentityProviderDetails
- */
-const de_IdentityProviderDetails = (output: any, context: __SerdeContext): IdentityProviderDetails => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-    Function: __expectString(output.Function),
-    InvocationRole: __expectString(output.InvocationRole),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_IdentityProviderDetails omitted.
 
-/**
- * deserializeAws_json1_1ImportCertificateResponse
- */
-const de_ImportCertificateResponse = (output: any, context: __SerdeContext): ImportCertificateResponse => {
-  return {
-    CertificateId: __expectString(output.CertificateId),
-  } as any;
-};
+// de_ImportCertificateResponse omitted.
 
-/**
- * deserializeAws_json1_1ImportHostKeyResponse
- */
-const de_ImportHostKeyResponse = (output: any, context: __SerdeContext): ImportHostKeyResponse => {
-  return {
-    HostKeyId: __expectString(output.HostKeyId),
-    ServerId: __expectString(output.ServerId),
-  } as any;
-};
+// de_ImportHostKeyResponse omitted.
 
-/**
- * deserializeAws_json1_1ImportSshPublicKeyResponse
- */
-const de_ImportSshPublicKeyResponse = (output: any, context: __SerdeContext): ImportSshPublicKeyResponse => {
-  return {
-    ServerId: __expectString(output.ServerId),
-    SshPublicKeyId: __expectString(output.SshPublicKeyId),
-    UserName: __expectString(output.UserName),
-  } as any;
-};
+// de_ImportSshPublicKeyResponse omitted.
 
-/**
- * deserializeAws_json1_1InputFileLocation
- */
-const de_InputFileLocation = (output: any, context: __SerdeContext): InputFileLocation => {
-  return {
-    EfsFileLocation: output.EfsFileLocation != null ? de_EfsFileLocation(output.EfsFileLocation, context) : undefined,
-    S3FileLocation: output.S3FileLocation != null ? de_S3InputFileLocation(output.S3FileLocation, context) : undefined,
-  } as any;
-};
+// de_InputFileLocation omitted.
 
-/**
- * deserializeAws_json1_1InternalServiceError
- */
-const de_InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServiceError omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-/**
- * deserializeAws_json1_1ListAccessesResponse
- */
-const de_ListAccessesResponse = (output: any, context: __SerdeContext): ListAccessesResponse => {
-  return {
-    Accesses: output.Accesses != null ? de_ListedAccesses(output.Accesses, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    ServerId: __expectString(output.ServerId),
-  } as any;
-};
+// de_ListAccessesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListAgreementsResponse
- */
-const de_ListAgreementsResponse = (output: any, context: __SerdeContext): ListAgreementsResponse => {
-  return {
-    Agreements: output.Agreements != null ? de_ListedAgreements(output.Agreements, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListAgreementsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListCertificatesResponse
  */
 const de_ListCertificatesResponse = (output: any, context: __SerdeContext): ListCertificatesResponse => {
-  return {
-    Certificates: output.Certificates != null ? de_ListedCertificates(output.Certificates, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Certificates: (_: any) => de_ListedCertificates(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListConnectorsResponse
- */
-const de_ListConnectorsResponse = (output: any, context: __SerdeContext): ListConnectorsResponse => {
-  return {
-    Connectors: output.Connectors != null ? de_ListedConnectors(output.Connectors, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListConnectorsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListedAccess
- */
-const de_ListedAccess = (output: any, context: __SerdeContext): ListedAccess => {
-  return {
-    ExternalId: __expectString(output.ExternalId),
-    HomeDirectory: __expectString(output.HomeDirectory),
-    HomeDirectoryType: __expectString(output.HomeDirectoryType),
-    Role: __expectString(output.Role),
-  } as any;
-};
+// de_ListedAccess omitted.
 
-/**
- * deserializeAws_json1_1ListedAccesses
- */
-const de_ListedAccesses = (output: any, context: __SerdeContext): ListedAccess[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListedAccess(entry, context);
-    });
-  return retVal;
-};
+// de_ListedAccesses omitted.
 
-/**
- * deserializeAws_json1_1ListedAgreement
- */
-const de_ListedAgreement = (output: any, context: __SerdeContext): ListedAgreement => {
-  return {
-    AgreementId: __expectString(output.AgreementId),
-    Arn: __expectString(output.Arn),
-    Description: __expectString(output.Description),
-    LocalProfileId: __expectString(output.LocalProfileId),
-    PartnerProfileId: __expectString(output.PartnerProfileId),
-    ServerId: __expectString(output.ServerId),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_ListedAgreement omitted.
 
-/**
- * deserializeAws_json1_1ListedAgreements
- */
-const de_ListedAgreements = (output: any, context: __SerdeContext): ListedAgreement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListedAgreement(entry, context);
-    });
-  return retVal;
-};
+// de_ListedAgreements omitted.
 
 /**
  * deserializeAws_json1_1ListedCertificate
  */
 const de_ListedCertificate = (output: any, context: __SerdeContext): ListedCertificate => {
-  return {
-    ActiveDate:
-      output.ActiveDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ActiveDate))) : undefined,
-    Arn: __expectString(output.Arn),
-    CertificateId: __expectString(output.CertificateId),
-    Description: __expectString(output.Description),
-    InactiveDate:
-      output.InactiveDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InactiveDate)))
-        : undefined,
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-    Usage: __expectString(output.Usage),
-  } as any;
+  return take(output, {
+    ActiveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Arn: __expectString,
+    CertificateId: __expectString,
+    Description: __expectString,
+    InactiveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Type: __expectString,
+    Usage: __expectString,
+  }) as any;
 };
 
 /**
@@ -6401,83 +4815,31 @@ const de_ListedCertificates = (output: any, context: __SerdeContext): ListedCert
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListedCertificate(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ListedConnector
- */
-const de_ListedConnector = (output: any, context: __SerdeContext): ListedConnector => {
-  return {
-    Arn: __expectString(output.Arn),
-    ConnectorId: __expectString(output.ConnectorId),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_ListedConnector omitted.
 
-/**
- * deserializeAws_json1_1ListedConnectors
- */
-const de_ListedConnectors = (output: any, context: __SerdeContext): ListedConnector[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListedConnector(entry, context);
-    });
-  return retVal;
-};
+// de_ListedConnectors omitted.
 
-/**
- * deserializeAws_json1_1ListedExecution
- */
-const de_ListedExecution = (output: any, context: __SerdeContext): ListedExecution => {
-  return {
-    ExecutionId: __expectString(output.ExecutionId),
-    InitialFileLocation:
-      output.InitialFileLocation != null ? de_FileLocation(output.InitialFileLocation, context) : undefined,
-    ServiceMetadata: output.ServiceMetadata != null ? de_ServiceMetadata(output.ServiceMetadata, context) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_ListedExecution omitted.
 
-/**
- * deserializeAws_json1_1ListedExecutions
- */
-const de_ListedExecutions = (output: any, context: __SerdeContext): ListedExecution[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListedExecution(entry, context);
-    });
-  return retVal;
-};
+// de_ListedExecutions omitted.
 
 /**
  * deserializeAws_json1_1ListedHostKey
  */
 const de_ListedHostKey = (output: any, context: __SerdeContext): ListedHostKey => {
-  return {
-    Arn: __expectString(output.Arn),
-    DateImported:
-      output.DateImported != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateImported)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Fingerprint: __expectString(output.Fingerprint),
-    HostKeyId: __expectString(output.HostKeyId),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    DateImported: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Fingerprint: __expectString,
+    HostKeyId: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -6487,456 +4849,99 @@ const de_ListedHostKeys = (output: any, context: __SerdeContext): ListedHostKey[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListedHostKey(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ListedProfile
- */
-const de_ListedProfile = (output: any, context: __SerdeContext): ListedProfile => {
-  return {
-    Arn: __expectString(output.Arn),
-    As2Id: __expectString(output.As2Id),
-    ProfileId: __expectString(output.ProfileId),
-    ProfileType: __expectString(output.ProfileType),
-  } as any;
-};
+// de_ListedProfile omitted.
 
-/**
- * deserializeAws_json1_1ListedProfiles
- */
-const de_ListedProfiles = (output: any, context: __SerdeContext): ListedProfile[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListedProfile(entry, context);
-    });
-  return retVal;
-};
+// de_ListedProfiles omitted.
 
-/**
- * deserializeAws_json1_1ListedServer
- */
-const de_ListedServer = (output: any, context: __SerdeContext): ListedServer => {
-  return {
-    Arn: __expectString(output.Arn),
-    Domain: __expectString(output.Domain),
-    EndpointType: __expectString(output.EndpointType),
-    IdentityProviderType: __expectString(output.IdentityProviderType),
-    LoggingRole: __expectString(output.LoggingRole),
-    ServerId: __expectString(output.ServerId),
-    State: __expectString(output.State),
-    UserCount: __expectInt32(output.UserCount),
-  } as any;
-};
+// de_ListedServer omitted.
 
-/**
- * deserializeAws_json1_1ListedServers
- */
-const de_ListedServers = (output: any, context: __SerdeContext): ListedServer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListedServer(entry, context);
-    });
-  return retVal;
-};
+// de_ListedServers omitted.
 
-/**
- * deserializeAws_json1_1ListedUser
- */
-const de_ListedUser = (output: any, context: __SerdeContext): ListedUser => {
-  return {
-    Arn: __expectString(output.Arn),
-    HomeDirectory: __expectString(output.HomeDirectory),
-    HomeDirectoryType: __expectString(output.HomeDirectoryType),
-    Role: __expectString(output.Role),
-    SshPublicKeyCount: __expectInt32(output.SshPublicKeyCount),
-    UserName: __expectString(output.UserName),
-  } as any;
-};
+// de_ListedUser omitted.
 
-/**
- * deserializeAws_json1_1ListedUsers
- */
-const de_ListedUsers = (output: any, context: __SerdeContext): ListedUser[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListedUser(entry, context);
-    });
-  return retVal;
-};
+// de_ListedUsers omitted.
 
-/**
- * deserializeAws_json1_1ListedWorkflow
- */
-const de_ListedWorkflow = (output: any, context: __SerdeContext): ListedWorkflow => {
-  return {
-    Arn: __expectString(output.Arn),
-    Description: __expectString(output.Description),
-    WorkflowId: __expectString(output.WorkflowId),
-  } as any;
-};
+// de_ListedWorkflow omitted.
 
-/**
- * deserializeAws_json1_1ListedWorkflows
- */
-const de_ListedWorkflows = (output: any, context: __SerdeContext): ListedWorkflow[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListedWorkflow(entry, context);
-    });
-  return retVal;
-};
+// de_ListedWorkflows omitted.
 
-/**
- * deserializeAws_json1_1ListExecutionsResponse
- */
-const de_ListExecutionsResponse = (output: any, context: __SerdeContext): ListExecutionsResponse => {
-  return {
-    Executions: output.Executions != null ? de_ListedExecutions(output.Executions, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    WorkflowId: __expectString(output.WorkflowId),
-  } as any;
-};
+// de_ListExecutionsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListHostKeysResponse
  */
 const de_ListHostKeysResponse = (output: any, context: __SerdeContext): ListHostKeysResponse => {
-  return {
-    HostKeys: output.HostKeys != null ? de_ListedHostKeys(output.HostKeys, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    ServerId: __expectString(output.ServerId),
-  } as any;
+  return take(output, {
+    HostKeys: (_: any) => de_ListedHostKeys(_, context),
+    NextToken: __expectString,
+    ServerId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListProfilesResponse
- */
-const de_ListProfilesResponse = (output: any, context: __SerdeContext): ListProfilesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Profiles: output.Profiles != null ? de_ListedProfiles(output.Profiles, context) : undefined,
-  } as any;
-};
+// de_ListProfilesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListSecurityPoliciesResponse
- */
-const de_ListSecurityPoliciesResponse = (output: any, context: __SerdeContext): ListSecurityPoliciesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SecurityPolicyNames:
-      output.SecurityPolicyNames != null ? de_SecurityPolicyNames(output.SecurityPolicyNames, context) : undefined,
-  } as any;
-};
+// de_ListSecurityPoliciesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListServersResponse
- */
-const de_ListServersResponse = (output: any, context: __SerdeContext): ListServersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Servers: output.Servers != null ? de_ListedServers(output.Servers, context) : undefined,
-  } as any;
-};
+// de_ListServersResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Arn: __expectString(output.Arn),
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1ListUsersResponse
- */
-const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ServerId: __expectString(output.ServerId),
-    Users: output.Users != null ? de_ListedUsers(output.Users, context) : undefined,
-  } as any;
-};
+// de_ListUsersResponse omitted.
 
-/**
- * deserializeAws_json1_1ListWorkflowsResponse
- */
-const de_ListWorkflowsResponse = (output: any, context: __SerdeContext): ListWorkflowsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Workflows: output.Workflows != null ? de_ListedWorkflows(output.Workflows, context) : undefined,
-  } as any;
-};
+// de_ListWorkflowsResponse omitted.
 
-/**
- * deserializeAws_json1_1LoggingConfiguration
- */
-const de_LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
-  return {
-    LogGroupName: __expectString(output.LogGroupName),
-    LoggingRole: __expectString(output.LoggingRole),
-  } as any;
-};
+// de_LoggingConfiguration omitted.
 
-/**
- * deserializeAws_json1_1OnPartialUploadWorkflowDetails
- */
-const de_OnPartialUploadWorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkflowDetail(entry, context);
-    });
-  return retVal;
-};
+// de_OnPartialUploadWorkflowDetails omitted.
 
-/**
- * deserializeAws_json1_1OnUploadWorkflowDetails
- */
-const de_OnUploadWorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkflowDetail(entry, context);
-    });
-  return retVal;
-};
+// de_OnUploadWorkflowDetails omitted.
 
-/**
- * deserializeAws_json1_1PosixProfile
- */
-const de_PosixProfile = (output: any, context: __SerdeContext): PosixProfile => {
-  return {
-    Gid: __expectLong(output.Gid),
-    SecondaryGids: output.SecondaryGids != null ? de_SecondaryGids(output.SecondaryGids, context) : undefined,
-    Uid: __expectLong(output.Uid),
-  } as any;
-};
+// de_PosixProfile omitted.
 
-/**
- * deserializeAws_json1_1ProtocolDetails
- */
-const de_ProtocolDetails = (output: any, context: __SerdeContext): ProtocolDetails => {
-  return {
-    As2Transports: output.As2Transports != null ? de_As2Transports(output.As2Transports, context) : undefined,
-    PassiveIp: __expectString(output.PassiveIp),
-    SetStatOption: __expectString(output.SetStatOption),
-    TlsSessionResumptionMode: __expectString(output.TlsSessionResumptionMode),
-  } as any;
-};
+// de_ProtocolDetails omitted.
 
-/**
- * deserializeAws_json1_1Protocols
- */
-const de_Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Protocols omitted.
 
-/**
- * deserializeAws_json1_1ResourceExistsException
- */
-const de_ResourceExistsException = (output: any, context: __SerdeContext): ResourceExistsException => {
-  return {
-    Message: __expectString(output.Message),
-    Resource: __expectString(output.Resource),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ResourceExistsException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    Resource: __expectString(output.Resource),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1S3FileLocation
- */
-const de_S3FileLocation = (output: any, context: __SerdeContext): S3FileLocation => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    Etag: __expectString(output.Etag),
-    Key: __expectString(output.Key),
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
+// de_S3FileLocation omitted.
 
-/**
- * deserializeAws_json1_1S3InputFileLocation
- */
-const de_S3InputFileLocation = (output: any, context: __SerdeContext): S3InputFileLocation => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    Key: __expectString(output.Key),
-  } as any;
-};
+// de_S3InputFileLocation omitted.
 
-/**
- * deserializeAws_json1_1S3Tag
- */
-const de_S3Tag = (output: any, context: __SerdeContext): S3Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_S3Tag omitted.
 
-/**
- * deserializeAws_json1_1S3Tags
- */
-const de_S3Tags = (output: any, context: __SerdeContext): S3Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_S3Tag(entry, context);
-    });
-  return retVal;
-};
+// de_S3Tags omitted.
 
-/**
- * deserializeAws_json1_1SecondaryGids
- */
-const de_SecondaryGids = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectLong(entry) as any;
-    });
-  return retVal;
-};
+// de_SecondaryGids omitted.
 
-/**
- * deserializeAws_json1_1SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
-/**
- * deserializeAws_json1_1SecurityPolicyNames
- */
-const de_SecurityPolicyNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityPolicyNames omitted.
 
-/**
- * deserializeAws_json1_1SecurityPolicyOptions
- */
-const de_SecurityPolicyOptions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityPolicyOptions omitted.
 
-/**
- * deserializeAws_json1_1SendWorkflowStepStateResponse
- */
-const de_SendWorkflowStepStateResponse = (output: any, context: __SerdeContext): SendWorkflowStepStateResponse => {
-  return {} as any;
-};
+// de_SendWorkflowStepStateResponse omitted.
 
-/**
- * deserializeAws_json1_1ServiceMetadata
- */
-const de_ServiceMetadata = (output: any, context: __SerdeContext): ServiceMetadata => {
-  return {
-    UserDetails: output.UserDetails != null ? de_UserDetails(output.UserDetails, context) : undefined,
-  } as any;
-};
+// de_ServiceMetadata omitted.
 
-/**
- * deserializeAws_json1_1ServiceUnavailableException
- */
-const de_ServiceUnavailableException = (output: any, context: __SerdeContext): ServiceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceUnavailableException omitted.
 
 /**
  * deserializeAws_json1_1SshPublicKey
  */
 const de_SshPublicKey = (output: any, context: __SerdeContext): SshPublicKey => {
-  return {
-    DateImported:
-      output.DateImported != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateImported)))
-        : undefined,
-    SshPublicKeyBody: __expectString(output.SshPublicKeyBody),
-    SshPublicKeyId: __expectString(output.SshPublicKeyId),
-  } as any;
+  return take(output, {
+    DateImported: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SshPublicKeyBody: __expectString,
+    SshPublicKeyId: __expectString,
+  }) as any;
 };
 
 /**
@@ -6946,233 +4951,50 @@ const de_SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SshPublicKey(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1StartFileTransferResponse
- */
-const de_StartFileTransferResponse = (output: any, context: __SerdeContext): StartFileTransferResponse => {
-  return {
-    TransferId: __expectString(output.TransferId),
-  } as any;
-};
+// de_StartFileTransferResponse omitted.
 
-/**
- * deserializeAws_json1_1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_1TagStepDetails
- */
-const de_TagStepDetails = (output: any, context: __SerdeContext): TagStepDetails => {
-  return {
-    Name: __expectString(output.Name),
-    SourceFileLocation: __expectString(output.SourceFileLocation),
-    Tags: output.Tags != null ? de_S3Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_TagStepDetails omitted.
 
-/**
- * deserializeAws_json1_1TestIdentityProviderResponse
- */
-const de_TestIdentityProviderResponse = (output: any, context: __SerdeContext): TestIdentityProviderResponse => {
-  return {
-    Message: __expectString(output.Message),
-    Response: __expectString(output.Response),
-    StatusCode: __expectInt32(output.StatusCode),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_TestIdentityProviderResponse omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    RetryAfterSeconds: __expectString(output.RetryAfterSeconds),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1UpdateAccessResponse
- */
-const de_UpdateAccessResponse = (output: any, context: __SerdeContext): UpdateAccessResponse => {
-  return {
-    ExternalId: __expectString(output.ExternalId),
-    ServerId: __expectString(output.ServerId),
-  } as any;
-};
+// de_UpdateAccessResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateAgreementResponse
- */
-const de_UpdateAgreementResponse = (output: any, context: __SerdeContext): UpdateAgreementResponse => {
-  return {
-    AgreementId: __expectString(output.AgreementId),
-  } as any;
-};
+// de_UpdateAgreementResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateCertificateResponse
- */
-const de_UpdateCertificateResponse = (output: any, context: __SerdeContext): UpdateCertificateResponse => {
-  return {
-    CertificateId: __expectString(output.CertificateId),
-  } as any;
-};
+// de_UpdateCertificateResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateConnectorResponse
- */
-const de_UpdateConnectorResponse = (output: any, context: __SerdeContext): UpdateConnectorResponse => {
-  return {
-    ConnectorId: __expectString(output.ConnectorId),
-  } as any;
-};
+// de_UpdateConnectorResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateHostKeyResponse
- */
-const de_UpdateHostKeyResponse = (output: any, context: __SerdeContext): UpdateHostKeyResponse => {
-  return {
-    HostKeyId: __expectString(output.HostKeyId),
-    ServerId: __expectString(output.ServerId),
-  } as any;
-};
+// de_UpdateHostKeyResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateProfileResponse
- */
-const de_UpdateProfileResponse = (output: any, context: __SerdeContext): UpdateProfileResponse => {
-  return {
-    ProfileId: __expectString(output.ProfileId),
-  } as any;
-};
+// de_UpdateProfileResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateServerResponse
- */
-const de_UpdateServerResponse = (output: any, context: __SerdeContext): UpdateServerResponse => {
-  return {
-    ServerId: __expectString(output.ServerId),
-  } as any;
-};
+// de_UpdateServerResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateUserResponse
- */
-const de_UpdateUserResponse = (output: any, context: __SerdeContext): UpdateUserResponse => {
-  return {
-    ServerId: __expectString(output.ServerId),
-    UserName: __expectString(output.UserName),
-  } as any;
-};
+// de_UpdateUserResponse omitted.
 
-/**
- * deserializeAws_json1_1UserDetails
- */
-const de_UserDetails = (output: any, context: __SerdeContext): UserDetails => {
-  return {
-    ServerId: __expectString(output.ServerId),
-    SessionId: __expectString(output.SessionId),
-    UserName: __expectString(output.UserName),
-  } as any;
-};
+// de_UserDetails omitted.
 
-/**
- * deserializeAws_json1_1WorkflowDetail
- */
-const de_WorkflowDetail = (output: any, context: __SerdeContext): WorkflowDetail => {
-  return {
-    ExecutionRole: __expectString(output.ExecutionRole),
-    WorkflowId: __expectString(output.WorkflowId),
-  } as any;
-};
+// de_WorkflowDetail omitted.
 
-/**
- * deserializeAws_json1_1WorkflowDetails
- */
-const de_WorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetails => {
-  return {
-    OnPartialUpload:
-      output.OnPartialUpload != null ? de_OnPartialUploadWorkflowDetails(output.OnPartialUpload, context) : undefined,
-    OnUpload: output.OnUpload != null ? de_OnUploadWorkflowDetails(output.OnUpload, context) : undefined,
-  } as any;
-};
+// de_WorkflowDetails omitted.
 
-/**
- * deserializeAws_json1_1WorkflowStep
- */
-const de_WorkflowStep = (output: any, context: __SerdeContext): WorkflowStep => {
-  return {
-    CopyStepDetails: output.CopyStepDetails != null ? de_CopyStepDetails(output.CopyStepDetails, context) : undefined,
-    CustomStepDetails:
-      output.CustomStepDetails != null ? de_CustomStepDetails(output.CustomStepDetails, context) : undefined,
-    DecryptStepDetails:
-      output.DecryptStepDetails != null ? de_DecryptStepDetails(output.DecryptStepDetails, context) : undefined,
-    DeleteStepDetails:
-      output.DeleteStepDetails != null ? de_DeleteStepDetails(output.DeleteStepDetails, context) : undefined,
-    TagStepDetails: output.TagStepDetails != null ? de_TagStepDetails(output.TagStepDetails, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_WorkflowStep omitted.
 
-/**
- * deserializeAws_json1_1WorkflowSteps
- */
-const de_WorkflowSteps = (output: any, context: __SerdeContext): WorkflowStep[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkflowStep(entry, context);
-    });
-  return retVal;
-};
+// de_WorkflowSteps omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -7194,6 +5016,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

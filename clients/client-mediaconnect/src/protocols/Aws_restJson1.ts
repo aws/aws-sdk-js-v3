@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -8,10 +9,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -216,9 +218,11 @@ export const se_AddBridgeOutputsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}/outputs";
   resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Outputs != null && { outputs: se___listOfAddBridgeOutputRequest(input.Outputs, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      outputs: [, (_) => se___listOfAddBridgeOutputRequest(_, context), `Outputs`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -245,9 +249,11 @@ export const se_AddBridgeSourcesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}/sources";
   resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Sources != null && { sources: se___listOfAddBridgeSourceRequest(input.Sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      sources: [, (_) => se___listOfAddBridgeSourceRequest(_, context), `Sources`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -274,9 +280,11 @@ export const se_AddFlowMediaStreamsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/mediaStreams";
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MediaStreams != null && { mediaStreams: se___listOfAddMediaStreamRequest(input.MediaStreams, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      mediaStreams: [, (_) => se___listOfAddMediaStreamRequest(_, context), `MediaStreams`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -303,9 +311,11 @@ export const se_AddFlowOutputsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/outputs";
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Outputs != null && { outputs: se___listOfAddOutputRequest(input.Outputs, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      outputs: [, (_) => se___listOfAddOutputRequest(_, context), `Outputs`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -332,9 +342,11 @@ export const se_AddFlowSourcesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/source";
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Sources != null && { sources: se___listOfSetSourceRequest(input.Sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      sources: [, (_) => se___listOfSetSourceRequest(_, context), `Sources`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -361,9 +373,11 @@ export const se_AddFlowVpcInterfacesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/vpcInterfaces";
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.VpcInterfaces != null && { vpcInterfaces: se___listOfVpcInterfaceRequest(input.VpcInterfaces, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      vpcInterfaces: [, (_) => se___listOfVpcInterfaceRequest(_, context), `VpcInterfaces`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -388,21 +402,17 @@ export const se_CreateBridgeCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EgressGatewayBridge != null && {
-      egressGatewayBridge: se_AddEgressGatewayBridgeRequest(input.EgressGatewayBridge, context),
-    }),
-    ...(input.IngressGatewayBridge != null && {
-      ingressGatewayBridge: se_AddIngressGatewayBridgeRequest(input.IngressGatewayBridge, context),
-    }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Outputs != null && { outputs: se___listOfAddBridgeOutputRequest(input.Outputs, context) }),
-    ...(input.PlacementArn != null && { placementArn: input.PlacementArn }),
-    ...(input.SourceFailoverConfig != null && {
-      sourceFailoverConfig: se_FailoverConfig(input.SourceFailoverConfig, context),
-    }),
-    ...(input.Sources != null && { sources: se___listOfAddBridgeSourceRequest(input.Sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      egressGatewayBridge: [, (_) => se_AddEgressGatewayBridgeRequest(_, context), `EgressGatewayBridge`],
+      ingressGatewayBridge: [, (_) => se_AddIngressGatewayBridgeRequest(_, context), `IngressGatewayBridge`],
+      name: [, , `Name`],
+      outputs: [, (_) => se___listOfAddBridgeOutputRequest(_, context), `Outputs`],
+      placementArn: [, , `PlacementArn`],
+      sourceFailoverConfig: [, (_) => se_FailoverConfig(_, context), `SourceFailoverConfig`],
+      sources: [, (_) => se___listOfAddBridgeSourceRequest(_, context), `Sources`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -427,22 +437,20 @@ export const se_CreateFlowCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AvailabilityZone != null && { availabilityZone: input.AvailabilityZone }),
-    ...(input.Entitlements != null && {
-      entitlements: se___listOfGrantEntitlementRequest(input.Entitlements, context),
-    }),
-    ...(input.Maintenance != null && { maintenance: se_AddMaintenance(input.Maintenance, context) }),
-    ...(input.MediaStreams != null && { mediaStreams: se___listOfAddMediaStreamRequest(input.MediaStreams, context) }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Outputs != null && { outputs: se___listOfAddOutputRequest(input.Outputs, context) }),
-    ...(input.Source != null && { source: se_SetSourceRequest(input.Source, context) }),
-    ...(input.SourceFailoverConfig != null && {
-      sourceFailoverConfig: se_FailoverConfig(input.SourceFailoverConfig, context),
-    }),
-    ...(input.Sources != null && { sources: se___listOfSetSourceRequest(input.Sources, context) }),
-    ...(input.VpcInterfaces != null && { vpcInterfaces: se___listOfVpcInterfaceRequest(input.VpcInterfaces, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      availabilityZone: [, , `AvailabilityZone`],
+      entitlements: [, (_) => se___listOfGrantEntitlementRequest(_, context), `Entitlements`],
+      maintenance: [, (_) => se_AddMaintenance(_, context), `Maintenance`],
+      mediaStreams: [, (_) => se___listOfAddMediaStreamRequest(_, context), `MediaStreams`],
+      name: [, , `Name`],
+      outputs: [, (_) => se___listOfAddOutputRequest(_, context), `Outputs`],
+      source: [, (_) => se_SetSourceRequest(_, context), `Source`],
+      sourceFailoverConfig: [, (_) => se_FailoverConfig(_, context), `SourceFailoverConfig`],
+      sources: [, (_) => se___listOfSetSourceRequest(_, context), `Sources`],
+      vpcInterfaces: [, (_) => se___listOfVpcInterfaceRequest(_, context), `VpcInterfaces`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -467,11 +475,13 @@ export const se_CreateGatewayCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/gateways";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EgressCidrBlocks != null && { egressCidrBlocks: se___listOf__string(input.EgressCidrBlocks, context) }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Networks != null && { networks: se___listOfGatewayNetwork(input.Networks, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      egressCidrBlocks: [, (_) => _json(_), `EgressCidrBlocks`],
+      name: [, , `Name`],
+      networks: [, (_) => se___listOfGatewayNetwork(_, context), `Networks`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -761,11 +771,11 @@ export const se_GrantFlowEntitlementsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/entitlements";
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Entitlements != null && {
-      entitlements: se___listOfGrantEntitlementRequest(input.Entitlements, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      entitlements: [, (_) => se___listOfGrantEntitlementRequest(_, context), `Entitlements`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1006,10 +1016,12 @@ export const se_PurchaseOfferingCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/offerings/{OfferingArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "OfferingArn", () => input.OfferingArn!, "{OfferingArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ReservationName != null && { reservationName: input.ReservationName }),
-    ...(input.Start != null && { start: input.Start }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      reservationName: [, , `ReservationName`],
+      start: [, , `Start`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1283,9 +1295,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1341,17 +1355,13 @@ export const se_UpdateBridgeCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.EgressGatewayBridge != null && {
-      egressGatewayBridge: se_UpdateEgressGatewayBridgeRequest(input.EgressGatewayBridge, context),
-    }),
-    ...(input.IngressGatewayBridge != null && {
-      ingressGatewayBridge: se_UpdateIngressGatewayBridgeRequest(input.IngressGatewayBridge, context),
-    }),
-    ...(input.SourceFailoverConfig != null && {
-      sourceFailoverConfig: se_UpdateFailoverConfig(input.SourceFailoverConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      egressGatewayBridge: [, (_) => se_UpdateEgressGatewayBridgeRequest(_, context), `EgressGatewayBridge`],
+      ingressGatewayBridge: [, (_) => se_UpdateIngressGatewayBridgeRequest(_, context), `IngressGatewayBridge`],
+      sourceFailoverConfig: [, (_) => se_UpdateFailoverConfig(_, context), `SourceFailoverConfig`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1380,11 +1390,11 @@ export const se_UpdateBridgeOutputCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "OutputName", () => input.OutputName!, "{OutputName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.NetworkOutput != null && {
-      networkOutput: se_UpdateBridgeNetworkOutputRequest(input.NetworkOutput, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      networkOutput: [, (_) => se_UpdateBridgeNetworkOutputRequest(_, context), `NetworkOutput`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1413,12 +1423,12 @@ export const se_UpdateBridgeSourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "SourceName", () => input.SourceName!, "{SourceName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FlowSource != null && { flowSource: se_UpdateBridgeFlowSourceRequest(input.FlowSource, context) }),
-    ...(input.NetworkSource != null && {
-      networkSource: se_UpdateBridgeNetworkSourceRequest(input.NetworkSource, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      flowSource: [, (_) => se_UpdateBridgeFlowSourceRequest(_, context), `FlowSource`],
+      networkSource: [, (_) => se_UpdateBridgeNetworkSourceRequest(_, context), `NetworkSource`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1445,9 +1455,11 @@ export const se_UpdateBridgeStateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}/state";
   resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DesiredState != null && { desiredState: input.DesiredState }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      desiredState: [, , `DesiredState`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1473,12 +1485,12 @@ export const se_UpdateFlowCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Maintenance != null && { maintenance: se_UpdateMaintenance(input.Maintenance, context) }),
-    ...(input.SourceFailoverConfig != null && {
-      sourceFailoverConfig: se_UpdateFailoverConfig(input.SourceFailoverConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maintenance: [, (_) => se_UpdateMaintenance(_, context), `Maintenance`],
+      sourceFailoverConfig: [, (_) => se_UpdateFailoverConfig(_, context), `SourceFailoverConfig`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1514,12 +1526,14 @@ export const se_UpdateFlowEntitlementCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.Encryption != null && { encryption: se_UpdateEncryption(input.Encryption, context) }),
-    ...(input.EntitlementStatus != null && { entitlementStatus: input.EntitlementStatus }),
-    ...(input.Subscribers != null && { subscribers: se___listOf__string(input.Subscribers, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+      encryption: [, (_) => se_UpdateEncryption(_, context), `Encryption`],
+      entitlementStatus: [, , `EntitlementStatus`],
+      subscribers: [, (_) => _json(_), `Subscribers`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1555,13 +1569,15 @@ export const se_UpdateFlowMediaStreamCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attributes != null && { attributes: se_MediaStreamAttributesRequest(input.Attributes, context) }),
-    ...(input.ClockRate != null && { clockRate: input.ClockRate }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.MediaStreamType != null && { mediaStreamType: input.MediaStreamType }),
-    ...(input.VideoFormat != null && { videoFormat: input.VideoFormat }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      attributes: [, (_) => se_MediaStreamAttributesRequest(_, context), `Attributes`],
+      clockRate: [, , `ClockRate`],
+      description: [, , `Description`],
+      mediaStreamType: [, , `MediaStreamType`],
+      videoFormat: [, , `VideoFormat`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1589,30 +1605,29 @@ export const se_UpdateFlowOutputCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "OutputArn", () => input.OutputArn!, "{OutputArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CidrAllowList != null && { cidrAllowList: se___listOf__string(input.CidrAllowList, context) }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.Destination != null && { destination: input.Destination }),
-    ...(input.Encryption != null && { encryption: se_UpdateEncryption(input.Encryption, context) }),
-    ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
-    ...(input.MediaStreamOutputConfigurations != null && {
-      mediaStreamOutputConfigurations: se___listOfMediaStreamOutputConfigurationRequest(
-        input.MediaStreamOutputConfigurations,
-        context
-      ),
-    }),
-    ...(input.MinLatency != null && { minLatency: input.MinLatency }),
-    ...(input.Port != null && { port: input.Port }),
-    ...(input.Protocol != null && { protocol: input.Protocol }),
-    ...(input.RemoteId != null && { remoteId: input.RemoteId }),
-    ...(input.SenderControlPort != null && { senderControlPort: input.SenderControlPort }),
-    ...(input.SenderIpAddress != null && { senderIpAddress: input.SenderIpAddress }),
-    ...(input.SmoothingLatency != null && { smoothingLatency: input.SmoothingLatency }),
-    ...(input.StreamId != null && { streamId: input.StreamId }),
-    ...(input.VpcInterfaceAttachment != null && {
-      vpcInterfaceAttachment: se_VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cidrAllowList: [, (_) => _json(_), `CidrAllowList`],
+      description: [, , `Description`],
+      destination: [, , `Destination`],
+      encryption: [, (_) => se_UpdateEncryption(_, context), `Encryption`],
+      maxLatency: [, , `MaxLatency`],
+      mediaStreamOutputConfigurations: [
+        ,
+        (_) => se___listOfMediaStreamOutputConfigurationRequest(_, context),
+        `MediaStreamOutputConfigurations`,
+      ],
+      minLatency: [, , `MinLatency`],
+      port: [, , `Port`],
+      protocol: [, , `Protocol`],
+      remoteId: [, , `RemoteId`],
+      senderControlPort: [, , `SenderControlPort`],
+      senderIpAddress: [, , `SenderIpAddress`],
+      smoothingLatency: [, , `SmoothingLatency`],
+      streamId: [, , `StreamId`],
+      vpcInterfaceAttachment: [, (_) => se_VpcInterfaceAttachment(_, context), `VpcInterfaceAttachment`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1640,33 +1655,32 @@ export const se_UpdateFlowSourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "SourceArn", () => input.SourceArn!, "{SourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Decryption != null && { decryption: se_UpdateEncryption(input.Decryption, context) }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.EntitlementArn != null && { entitlementArn: input.EntitlementArn }),
-    ...(input.GatewayBridgeSource != null && {
-      gatewayBridgeSource: se_UpdateGatewayBridgeSourceRequest(input.GatewayBridgeSource, context),
-    }),
-    ...(input.IngestPort != null && { ingestPort: input.IngestPort }),
-    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
-    ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
-    ...(input.MaxSyncBuffer != null && { maxSyncBuffer: input.MaxSyncBuffer }),
-    ...(input.MediaStreamSourceConfigurations != null && {
-      mediaStreamSourceConfigurations: se___listOfMediaStreamSourceConfigurationRequest(
-        input.MediaStreamSourceConfigurations,
-        context
-      ),
-    }),
-    ...(input.MinLatency != null && { minLatency: input.MinLatency }),
-    ...(input.Protocol != null && { protocol: input.Protocol }),
-    ...(input.SenderControlPort != null && { senderControlPort: input.SenderControlPort }),
-    ...(input.SenderIpAddress != null && { senderIpAddress: input.SenderIpAddress }),
-    ...(input.SourceListenerAddress != null && { sourceListenerAddress: input.SourceListenerAddress }),
-    ...(input.SourceListenerPort != null && { sourceListenerPort: input.SourceListenerPort }),
-    ...(input.StreamId != null && { streamId: input.StreamId }),
-    ...(input.VpcInterfaceName != null && { vpcInterfaceName: input.VpcInterfaceName }),
-    ...(input.WhitelistCidr != null && { whitelistCidr: input.WhitelistCidr }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      decryption: [, (_) => se_UpdateEncryption(_, context), `Decryption`],
+      description: [, , `Description`],
+      entitlementArn: [, , `EntitlementArn`],
+      gatewayBridgeSource: [, (_) => se_UpdateGatewayBridgeSourceRequest(_, context), `GatewayBridgeSource`],
+      ingestPort: [, , `IngestPort`],
+      maxBitrate: [, , `MaxBitrate`],
+      maxLatency: [, , `MaxLatency`],
+      maxSyncBuffer: [, , `MaxSyncBuffer`],
+      mediaStreamSourceConfigurations: [
+        ,
+        (_) => se___listOfMediaStreamSourceConfigurationRequest(_, context),
+        `MediaStreamSourceConfigurations`,
+      ],
+      minLatency: [, , `MinLatency`],
+      protocol: [, , `Protocol`],
+      senderControlPort: [, , `SenderControlPort`],
+      senderIpAddress: [, , `SenderIpAddress`],
+      sourceListenerAddress: [, , `SourceListenerAddress`],
+      sourceListenerPort: [, , `SourceListenerPort`],
+      streamId: [, , `StreamId`],
+      vpcInterfaceName: [, , `VpcInterfaceName`],
+      whitelistCidr: [, , `WhitelistCidr`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1701,9 +1715,11 @@ export const se_UpdateGatewayInstanceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BridgePlacement != null && { bridgePlacement: input.BridgePlacement }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      bridgePlacement: [, , `BridgePlacement`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1729,12 +1745,11 @@ export const de_AddBridgeOutputsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgeArn != null) {
-    contents.BridgeArn = __expectString(data.bridgeArn);
-  }
-  if (data.outputs != null) {
-    contents.Outputs = de___listOfBridgeOutput(data.outputs, context);
-  }
+  const doc = take(data, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    Outputs: [, (_) => de___listOfBridgeOutput(_, context), `outputs`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1774,10 +1789,9 @@ const de_AddBridgeOutputsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1797,12 +1811,11 @@ export const de_AddBridgeSourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgeArn != null) {
-    contents.BridgeArn = __expectString(data.bridgeArn);
-  }
-  if (data.sources != null) {
-    contents.Sources = de___listOfBridgeSource(data.sources, context);
-  }
+  const doc = take(data, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    Sources: [, (_) => de___listOfBridgeSource(_, context), `sources`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1842,10 +1855,9 @@ const de_AddBridgeSourcesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1865,12 +1877,11 @@ export const de_AddFlowMediaStreamsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.mediaStreams != null) {
-    contents.MediaStreams = de___listOfMediaStream(data.mediaStreams, context);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    MediaStreams: [, (_) => de___listOfMediaStream(_, context), `mediaStreams`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1907,10 +1918,9 @@ const de_AddFlowMediaStreamsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1930,12 +1940,11 @@ export const de_AddFlowOutputsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.outputs != null) {
-    contents.Outputs = de___listOfOutput(data.outputs, context);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    Outputs: [, (_) => de___listOfOutput(_, context), `outputs`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1975,10 +1984,9 @@ const de_AddFlowOutputsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1998,12 +2006,11 @@ export const de_AddFlowSourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.sources != null) {
-    contents.Sources = de___listOfSource(data.sources, context);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    Sources: [, (_) => de___listOfSource(_, context), `sources`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2040,10 +2047,9 @@ const de_AddFlowSourcesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2063,12 +2069,11 @@ export const de_AddFlowVpcInterfacesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.vpcInterfaces != null) {
-    contents.VpcInterfaces = de___listOfVpcInterface(data.vpcInterfaces, context);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    VpcInterfaces: [, (_) => de___listOfVpcInterface(_, context), `vpcInterfaces`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2105,10 +2110,9 @@ const de_AddFlowVpcInterfacesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2128,9 +2132,10 @@ export const de_CreateBridgeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridge != null) {
-    contents.Bridge = de_Bridge(data.bridge, context);
-  }
+  const doc = take(data, {
+    Bridge: [, (_) => de_Bridge(_, context), `bridge`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2170,10 +2175,9 @@ const de_CreateBridgeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2193,9 +2197,10 @@ export const de_CreateFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flow != null) {
-    contents.Flow = de_Flow(data.flow, context);
-  }
+  const doc = take(data, {
+    Flow: [, (_) => de_Flow(_, context), `flow`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2232,10 +2237,9 @@ const de_CreateFlowCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2255,9 +2259,10 @@ export const de_CreateGatewayCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gateway != null) {
-    contents.Gateway = de_Gateway(data.gateway, context);
-  }
+  const doc = take(data, {
+    Gateway: [, (_) => de_Gateway(_, context), `gateway`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2297,10 +2302,9 @@ const de_CreateGatewayCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2320,9 +2324,10 @@ export const de_DeleteBridgeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgeArn != null) {
-    contents.BridgeArn = __expectString(data.bridgeArn);
-  }
+  const doc = take(data, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2362,10 +2367,9 @@ const de_DeleteBridgeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2385,12 +2389,11 @@ export const de_DeleteFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2427,10 +2430,9 @@ const de_DeleteFlowCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2450,9 +2452,10 @@ export const de_DeleteGatewayCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gatewayArn != null) {
-    contents.GatewayArn = __expectString(data.gatewayArn);
-  }
+  const doc = take(data, {
+    GatewayArn: [, __expectString, `gatewayArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2492,10 +2495,9 @@ const de_DeleteGatewayCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2515,12 +2517,11 @@ export const de_DeregisterGatewayInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gatewayInstanceArn != null) {
-    contents.GatewayInstanceArn = __expectString(data.gatewayInstanceArn);
-  }
-  if (data.instanceState != null) {
-    contents.InstanceState = __expectString(data.instanceState);
-  }
+  const doc = take(data, {
+    GatewayInstanceArn: [, __expectString, `gatewayInstanceArn`],
+    InstanceState: [, __expectString, `instanceState`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2560,10 +2561,9 @@ const de_DeregisterGatewayInstanceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2583,9 +2583,10 @@ export const de_DescribeBridgeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridge != null) {
-    contents.Bridge = de_Bridge(data.bridge, context);
-  }
+  const doc = take(data, {
+    Bridge: [, (_) => de_Bridge(_, context), `bridge`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2625,10 +2626,9 @@ const de_DescribeBridgeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2648,12 +2648,11 @@ export const de_DescribeFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flow != null) {
-    contents.Flow = de_Flow(data.flow, context);
-  }
-  if (data.messages != null) {
-    contents.Messages = de_Messages(data.messages, context);
-  }
+  const doc = take(data, {
+    Flow: [, (_) => de_Flow(_, context), `flow`],
+    Messages: [, (_) => de_Messages(_, context), `messages`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2690,10 +2689,9 @@ const de_DescribeFlowCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2713,9 +2711,10 @@ export const de_DescribeGatewayCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gateway != null) {
-    contents.Gateway = de_Gateway(data.gateway, context);
-  }
+  const doc = take(data, {
+    Gateway: [, (_) => de_Gateway(_, context), `gateway`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2755,10 +2754,9 @@ const de_DescribeGatewayCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2778,9 +2776,10 @@ export const de_DescribeGatewayInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gatewayInstance != null) {
-    contents.GatewayInstance = de_GatewayInstance(data.gatewayInstance, context);
-  }
+  const doc = take(data, {
+    GatewayInstance: [, (_) => de_GatewayInstance(_, context), `gatewayInstance`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2820,10 +2819,9 @@ const de_DescribeGatewayInstanceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2843,9 +2841,10 @@ export const de_DescribeOfferingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.offering != null) {
-    contents.Offering = de_Offering(data.offering, context);
-  }
+  const doc = take(data, {
+    Offering: [, (_) => de_Offering(_, context), `offering`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2879,10 +2878,9 @@ const de_DescribeOfferingCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2902,9 +2900,10 @@ export const de_DescribeReservationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.reservation != null) {
-    contents.Reservation = de_Reservation(data.reservation, context);
-  }
+  const doc = take(data, {
+    Reservation: [, (_) => de_Reservation(_, context), `reservation`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2938,10 +2937,9 @@ const de_DescribeReservationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2961,12 +2959,11 @@ export const de_GrantFlowEntitlementsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.entitlements != null) {
-    contents.Entitlements = de___listOfEntitlement(data.entitlements, context);
-  }
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
+  const doc = take(data, {
+    Entitlements: [, (_) => de___listOfEntitlement(_, context), `entitlements`],
+    FlowArn: [, __expectString, `flowArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3006,10 +3003,9 @@ const de_GrantFlowEntitlementsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3029,12 +3025,11 @@ export const de_ListBridgesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridges != null) {
-    contents.Bridges = de___listOfListedBridge(data.bridges, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Bridges: [, (_) => de___listOfListedBridge(_, context), `bridges`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3068,10 +3063,9 @@ const de_ListBridgesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3091,12 +3085,11 @@ export const de_ListEntitlementsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.entitlements != null) {
-    contents.Entitlements = de___listOfListedEntitlement(data.entitlements, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Entitlements: [, (_) => de___listOfListedEntitlement(_, context), `entitlements`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3127,10 +3120,9 @@ const de_ListEntitlementsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3150,12 +3142,11 @@ export const de_ListFlowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flows != null) {
-    contents.Flows = de___listOfListedFlow(data.flows, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Flows: [, (_) => de___listOfListedFlow(_, context), `flows`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3186,10 +3177,9 @@ const de_ListFlowsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3209,12 +3199,11 @@ export const de_ListGatewayInstancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.instances != null) {
-    contents.Instances = de___listOfListedGatewayInstance(data.instances, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Instances: [, (_) => de___listOfListedGatewayInstance(_, context), `instances`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3248,10 +3237,9 @@ const de_ListGatewayInstancesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3271,12 +3259,11 @@ export const de_ListGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gateways != null) {
-    contents.Gateways = de___listOfListedGateway(data.gateways, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Gateways: [, (_) => de___listOfListedGateway(_, context), `gateways`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3310,10 +3297,9 @@ const de_ListGatewaysCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3333,12 +3319,11 @@ export const de_ListOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.offerings != null) {
-    contents.Offerings = de___listOfOffering(data.offerings, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Offerings: [, (_) => de___listOfOffering(_, context), `offerings`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3369,10 +3354,9 @@ const de_ListOfferingsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3392,12 +3376,11 @@ export const de_ListReservationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.reservations != null) {
-    contents.Reservations = de___listOfReservation(data.reservations, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Reservations: [, (_) => de___listOfReservation(_, context), `reservations`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3428,10 +3411,9 @@ const de_ListReservationsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3451,9 +3433,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3481,10 +3464,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3504,9 +3486,10 @@ export const de_PurchaseOfferingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.reservation != null) {
-    contents.Reservation = de_Reservation(data.reservation, context);
-  }
+  const doc = take(data, {
+    Reservation: [, (_) => de_Reservation(_, context), `reservation`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3543,10 +3526,9 @@ const de_PurchaseOfferingCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3566,12 +3548,11 @@ export const de_RemoveBridgeOutputCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgeArn != null) {
-    contents.BridgeArn = __expectString(data.bridgeArn);
-  }
-  if (data.outputName != null) {
-    contents.OutputName = __expectString(data.outputName);
-  }
+  const doc = take(data, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    OutputName: [, __expectString, `outputName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3611,10 +3592,9 @@ const de_RemoveBridgeOutputCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3634,12 +3614,11 @@ export const de_RemoveBridgeSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgeArn != null) {
-    contents.BridgeArn = __expectString(data.bridgeArn);
-  }
-  if (data.sourceName != null) {
-    contents.SourceName = __expectString(data.sourceName);
-  }
+  const doc = take(data, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    SourceName: [, __expectString, `sourceName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3679,10 +3658,9 @@ const de_RemoveBridgeSourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3702,12 +3680,11 @@ export const de_RemoveFlowMediaStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.mediaStreamName != null) {
-    contents.MediaStreamName = __expectString(data.mediaStreamName);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    MediaStreamName: [, __expectString, `mediaStreamName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3744,10 +3721,9 @@ const de_RemoveFlowMediaStreamCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3767,12 +3743,11 @@ export const de_RemoveFlowOutputCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.outputArn != null) {
-    contents.OutputArn = __expectString(data.outputArn);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    OutputArn: [, __expectString, `outputArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3809,10 +3784,9 @@ const de_RemoveFlowOutputCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3832,12 +3806,11 @@ export const de_RemoveFlowSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.sourceArn != null) {
-    contents.SourceArn = __expectString(data.sourceArn);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    SourceArn: [, __expectString, `sourceArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3874,10 +3847,9 @@ const de_RemoveFlowSourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3897,15 +3869,12 @@ export const de_RemoveFlowVpcInterfaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.nonDeletedNetworkInterfaceIds != null) {
-    contents.NonDeletedNetworkInterfaceIds = de___listOf__string(data.nonDeletedNetworkInterfaceIds, context);
-  }
-  if (data.vpcInterfaceName != null) {
-    contents.VpcInterfaceName = __expectString(data.vpcInterfaceName);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    NonDeletedNetworkInterfaceIds: [, _json, `nonDeletedNetworkInterfaceIds`],
+    VpcInterfaceName: [, __expectString, `vpcInterfaceName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3942,10 +3911,9 @@ const de_RemoveFlowVpcInterfaceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3965,12 +3933,11 @@ export const de_RevokeFlowEntitlementCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.entitlementArn != null) {
-    contents.EntitlementArn = __expectString(data.entitlementArn);
-  }
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
+  const doc = take(data, {
+    EntitlementArn: [, __expectString, `entitlementArn`],
+    FlowArn: [, __expectString, `flowArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4007,10 +3974,9 @@ const de_RevokeFlowEntitlementCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4030,12 +3996,11 @@ export const de_StartFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4072,10 +4037,9 @@ const de_StartFlowCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4095,12 +4059,11 @@ export const de_StopFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4137,10 +4100,9 @@ const de_StopFlowCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4187,10 +4149,9 @@ const de_TagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4237,10 +4198,9 @@ const de_UntagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4260,9 +4220,10 @@ export const de_UpdateBridgeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridge != null) {
-    contents.Bridge = de_Bridge(data.bridge, context);
-  }
+  const doc = take(data, {
+    Bridge: [, (_) => de_Bridge(_, context), `bridge`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4302,10 +4263,9 @@ const de_UpdateBridgeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4325,12 +4285,11 @@ export const de_UpdateBridgeOutputCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgeArn != null) {
-    contents.BridgeArn = __expectString(data.bridgeArn);
-  }
-  if (data.output != null) {
-    contents.Output = de_BridgeOutput(data.output, context);
-  }
+  const doc = take(data, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    Output: [, (_) => de_BridgeOutput(_, context), `output`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4370,10 +4329,9 @@ const de_UpdateBridgeOutputCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4393,12 +4351,11 @@ export const de_UpdateBridgeSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgeArn != null) {
-    contents.BridgeArn = __expectString(data.bridgeArn);
-  }
-  if (data.source != null) {
-    contents.Source = de_BridgeSource(data.source, context);
-  }
+  const doc = take(data, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    Source: [, (_) => de_BridgeSource(_, context), `source`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4438,10 +4395,9 @@ const de_UpdateBridgeSourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4461,12 +4417,11 @@ export const de_UpdateBridgeStateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgeArn != null) {
-    contents.BridgeArn = __expectString(data.bridgeArn);
-  }
-  if (data.desiredState != null) {
-    contents.DesiredState = __expectString(data.desiredState);
-  }
+  const doc = take(data, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    DesiredState: [, __expectString, `desiredState`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4506,10 +4461,9 @@ const de_UpdateBridgeStateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4529,9 +4483,10 @@ export const de_UpdateFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flow != null) {
-    contents.Flow = de_Flow(data.flow, context);
-  }
+  const doc = take(data, {
+    Flow: [, (_) => de_Flow(_, context), `flow`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4568,10 +4523,9 @@ const de_UpdateFlowCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4591,12 +4545,11 @@ export const de_UpdateFlowEntitlementCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.entitlement != null) {
-    contents.Entitlement = de_Entitlement(data.entitlement, context);
-  }
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
+  const doc = take(data, {
+    Entitlement: [, (_) => de_Entitlement(_, context), `entitlement`],
+    FlowArn: [, __expectString, `flowArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4633,10 +4586,9 @@ const de_UpdateFlowEntitlementCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4656,12 +4608,11 @@ export const de_UpdateFlowMediaStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.mediaStream != null) {
-    contents.MediaStream = de_MediaStream(data.mediaStream, context);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    MediaStream: [, (_) => de_MediaStream(_, context), `mediaStream`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4698,10 +4649,9 @@ const de_UpdateFlowMediaStreamCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4721,12 +4671,11 @@ export const de_UpdateFlowOutputCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.output != null) {
-    contents.Output = de_Output(data.output, context);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    Output: [, (_) => de_Output(_, context), `output`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4763,10 +4712,9 @@ const de_UpdateFlowOutputCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4786,12 +4734,11 @@ export const de_UpdateFlowSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flowArn != null) {
-    contents.FlowArn = __expectString(data.flowArn);
-  }
-  if (data.source != null) {
-    contents.Source = de_Source(data.source, context);
-  }
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    Source: [, (_) => de_Source(_, context), `source`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4828,10 +4775,9 @@ const de_UpdateFlowSourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4851,12 +4797,11 @@ export const de_UpdateGatewayInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bridgePlacement != null) {
-    contents.BridgePlacement = __expectString(data.bridgePlacement);
-  }
-  if (data.gatewayInstanceArn != null) {
-    contents.GatewayInstanceArn = __expectString(data.gatewayInstanceArn);
-  }
+  const doc = take(data, {
+    BridgePlacement: [, __expectString, `bridgePlacement`],
+    GatewayInstanceArn: [, __expectString, `gatewayInstanceArn`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4896,16 +4841,15 @@ const de_UpdateGatewayInstanceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AddFlowOutputs420ExceptionRes
  */
@@ -4915,9 +4859,10 @@ const de_AddFlowOutputs420ExceptionRes = async (
 ): Promise<AddFlowOutputs420Exception> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new AddFlowOutputs420Exception({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4931,9 +4876,10 @@ const de_AddFlowOutputs420ExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4947,9 +4893,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4966,9 +4913,10 @@ const de_CreateBridge420ExceptionRes = async (
 ): Promise<CreateBridge420Exception> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new CreateBridge420Exception({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4985,9 +4933,10 @@ const de_CreateFlow420ExceptionRes = async (
 ): Promise<CreateFlow420Exception> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new CreateFlow420Exception({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5004,9 +4953,10 @@ const de_CreateGateway420ExceptionRes = async (
 ): Promise<CreateGateway420Exception> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new CreateGateway420Exception({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5020,9 +4970,10 @@ const de_CreateGateway420ExceptionRes = async (
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5039,9 +4990,10 @@ const de_GrantFlowEntitlements420ExceptionRes = async (
 ): Promise<GrantFlowEntitlements420Exception> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new GrantFlowEntitlements420Exception({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5058,9 +5010,10 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5074,9 +5027,10 @@ const de_InternalServerErrorExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5093,9 +5047,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5112,9 +5067,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5122,16 +5078,7 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOf__string
- */
-const se___listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__string omitted.
 
 /**
  * serializeAws_restJson1__listOfAddBridgeOutputRequest
@@ -5274,276 +5221,252 @@ const se___listOfVpcInterfaceRequest = (input: VpcInterfaceRequest[], context: _
     });
 };
 
-/**
- * serializeAws_restJson1__mapOf__string
- */
-const se___mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__string omitted.
 
 /**
  * serializeAws_restJson1AddBridgeFlowSourceRequest
  */
 const se_AddBridgeFlowSourceRequest = (input: AddBridgeFlowSourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FlowArn != null && { flowArn: input.FlowArn }),
-    ...(input.FlowVpcInterfaceAttachment != null && {
-      flowVpcInterfaceAttachment: se_VpcInterfaceAttachment(input.FlowVpcInterfaceAttachment, context),
-    }),
-    ...(input.Name != null && { name: input.Name }),
-  };
+  return take(input, {
+    flowArn: [, , `FlowArn`],
+    flowVpcInterfaceAttachment: [, (_) => se_VpcInterfaceAttachment(_, context), `FlowVpcInterfaceAttachment`],
+    name: [, , `Name`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddBridgeNetworkOutputRequest
  */
 const se_AddBridgeNetworkOutputRequest = (input: AddBridgeNetworkOutputRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IpAddress != null && { ipAddress: input.IpAddress }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.NetworkName != null && { networkName: input.NetworkName }),
-    ...(input.Port != null && { port: input.Port }),
-    ...(input.Protocol != null && { protocol: input.Protocol }),
-    ...(input.Ttl != null && { ttl: input.Ttl }),
-  };
+  return take(input, {
+    ipAddress: [, , `IpAddress`],
+    name: [, , `Name`],
+    networkName: [, , `NetworkName`],
+    port: [, , `Port`],
+    protocol: [, , `Protocol`],
+    ttl: [, , `Ttl`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddBridgeNetworkSourceRequest
  */
 const se_AddBridgeNetworkSourceRequest = (input: AddBridgeNetworkSourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MulticastIp != null && { multicastIp: input.MulticastIp }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.NetworkName != null && { networkName: input.NetworkName }),
-    ...(input.Port != null && { port: input.Port }),
-    ...(input.Protocol != null && { protocol: input.Protocol }),
-  };
+  return take(input, {
+    multicastIp: [, , `MulticastIp`],
+    name: [, , `Name`],
+    networkName: [, , `NetworkName`],
+    port: [, , `Port`],
+    protocol: [, , `Protocol`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddBridgeOutputRequest
  */
 const se_AddBridgeOutputRequest = (input: AddBridgeOutputRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.NetworkOutput != null && {
-      networkOutput: se_AddBridgeNetworkOutputRequest(input.NetworkOutput, context),
-    }),
-  };
+  return take(input, {
+    networkOutput: [, (_) => se_AddBridgeNetworkOutputRequest(_, context), `NetworkOutput`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddBridgeSourceRequest
  */
 const se_AddBridgeSourceRequest = (input: AddBridgeSourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FlowSource != null && { flowSource: se_AddBridgeFlowSourceRequest(input.FlowSource, context) }),
-    ...(input.NetworkSource != null && {
-      networkSource: se_AddBridgeNetworkSourceRequest(input.NetworkSource, context),
-    }),
-  };
+  return take(input, {
+    flowSource: [, (_) => se_AddBridgeFlowSourceRequest(_, context), `FlowSource`],
+    networkSource: [, (_) => se_AddBridgeNetworkSourceRequest(_, context), `NetworkSource`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddEgressGatewayBridgeRequest
  */
 const se_AddEgressGatewayBridgeRequest = (input: AddEgressGatewayBridgeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
-  };
+  return take(input, {
+    maxBitrate: [, , `MaxBitrate`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddIngressGatewayBridgeRequest
  */
 const se_AddIngressGatewayBridgeRequest = (input: AddIngressGatewayBridgeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
-    ...(input.MaxOutputs != null && { maxOutputs: input.MaxOutputs }),
-  };
+  return take(input, {
+    maxBitrate: [, , `MaxBitrate`],
+    maxOutputs: [, , `MaxOutputs`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddMaintenance
  */
 const se_AddMaintenance = (input: AddMaintenance, context: __SerdeContext): any => {
-  return {
-    ...(input.MaintenanceDay != null && { maintenanceDay: input.MaintenanceDay }),
-    ...(input.MaintenanceStartHour != null && { maintenanceStartHour: input.MaintenanceStartHour }),
-  };
+  return take(input, {
+    maintenanceDay: [, , `MaintenanceDay`],
+    maintenanceStartHour: [, , `MaintenanceStartHour`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddMediaStreamRequest
  */
 const se_AddMediaStreamRequest = (input: AddMediaStreamRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { attributes: se_MediaStreamAttributesRequest(input.Attributes, context) }),
-    ...(input.ClockRate != null && { clockRate: input.ClockRate }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.MediaStreamId != null && { mediaStreamId: input.MediaStreamId }),
-    ...(input.MediaStreamName != null && { mediaStreamName: input.MediaStreamName }),
-    ...(input.MediaStreamType != null && { mediaStreamType: input.MediaStreamType }),
-    ...(input.VideoFormat != null && { videoFormat: input.VideoFormat }),
-  };
+  return take(input, {
+    attributes: [, (_) => se_MediaStreamAttributesRequest(_, context), `Attributes`],
+    clockRate: [, , `ClockRate`],
+    description: [, , `Description`],
+    mediaStreamId: [, , `MediaStreamId`],
+    mediaStreamName: [, , `MediaStreamName`],
+    mediaStreamType: [, , `MediaStreamType`],
+    videoFormat: [, , `VideoFormat`],
+  });
 };
 
 /**
  * serializeAws_restJson1AddOutputRequest
  */
 const se_AddOutputRequest = (input: AddOutputRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CidrAllowList != null && { cidrAllowList: se___listOf__string(input.CidrAllowList, context) }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.Destination != null && { destination: input.Destination }),
-    ...(input.Encryption != null && { encryption: se_Encryption(input.Encryption, context) }),
-    ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
-    ...(input.MediaStreamOutputConfigurations != null && {
-      mediaStreamOutputConfigurations: se___listOfMediaStreamOutputConfigurationRequest(
-        input.MediaStreamOutputConfigurations,
-        context
-      ),
-    }),
-    ...(input.MinLatency != null && { minLatency: input.MinLatency }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Port != null && { port: input.Port }),
-    ...(input.Protocol != null && { protocol: input.Protocol }),
-    ...(input.RemoteId != null && { remoteId: input.RemoteId }),
-    ...(input.SenderControlPort != null && { senderControlPort: input.SenderControlPort }),
-    ...(input.SmoothingLatency != null && { smoothingLatency: input.SmoothingLatency }),
-    ...(input.StreamId != null && { streamId: input.StreamId }),
-    ...(input.VpcInterfaceAttachment != null && {
-      vpcInterfaceAttachment: se_VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
-    }),
-  };
+  return take(input, {
+    cidrAllowList: [, (_) => _json(_), `CidrAllowList`],
+    description: [, , `Description`],
+    destination: [, , `Destination`],
+    encryption: [, (_) => se_Encryption(_, context), `Encryption`],
+    maxLatency: [, , `MaxLatency`],
+    mediaStreamOutputConfigurations: [
+      ,
+      (_) => se___listOfMediaStreamOutputConfigurationRequest(_, context),
+      `MediaStreamOutputConfigurations`,
+    ],
+    minLatency: [, , `MinLatency`],
+    name: [, , `Name`],
+    port: [, , `Port`],
+    protocol: [, , `Protocol`],
+    remoteId: [, , `RemoteId`],
+    senderControlPort: [, , `SenderControlPort`],
+    smoothingLatency: [, , `SmoothingLatency`],
+    streamId: [, , `StreamId`],
+    vpcInterfaceAttachment: [, (_) => se_VpcInterfaceAttachment(_, context), `VpcInterfaceAttachment`],
+  });
 };
 
 /**
  * serializeAws_restJson1DestinationConfigurationRequest
  */
 const se_DestinationConfigurationRequest = (input: DestinationConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationIp != null && { destinationIp: input.DestinationIp }),
-    ...(input.DestinationPort != null && { destinationPort: input.DestinationPort }),
-    ...(input.Interface != null && { interface: se_InterfaceRequest(input.Interface, context) }),
-  };
+  return take(input, {
+    destinationIp: [, , `DestinationIp`],
+    destinationPort: [, , `DestinationPort`],
+    interface: [, (_) => se_InterfaceRequest(_, context), `Interface`],
+  });
 };
 
 /**
  * serializeAws_restJson1EncodingParametersRequest
  */
 const se_EncodingParametersRequest = (input: EncodingParametersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CompressionFactor != null && { compressionFactor: __serializeFloat(input.CompressionFactor) }),
-    ...(input.EncoderProfile != null && { encoderProfile: input.EncoderProfile }),
-  };
+  return take(input, {
+    compressionFactor: [, (_) => __serializeFloat(_), `CompressionFactor`],
+    encoderProfile: [, , `EncoderProfile`],
+  });
 };
 
 /**
  * serializeAws_restJson1Encryption
  */
 const se_Encryption = (input: Encryption, context: __SerdeContext): any => {
-  return {
-    ...(input.Algorithm != null && { algorithm: input.Algorithm }),
-    ...(input.ConstantInitializationVector != null && {
-      constantInitializationVector: input.ConstantInitializationVector,
-    }),
-    ...(input.DeviceId != null && { deviceId: input.DeviceId }),
-    ...(input.KeyType != null && { keyType: input.KeyType }),
-    ...(input.Region != null && { region: input.Region }),
-    ...(input.ResourceId != null && { resourceId: input.ResourceId }),
-    ...(input.RoleArn != null && { roleArn: input.RoleArn }),
-    ...(input.SecretArn != null && { secretArn: input.SecretArn }),
-    ...(input.Url != null && { url: input.Url }),
-  };
+  return take(input, {
+    algorithm: [, , `Algorithm`],
+    constantInitializationVector: [, , `ConstantInitializationVector`],
+    deviceId: [, , `DeviceId`],
+    keyType: [, , `KeyType`],
+    region: [, , `Region`],
+    resourceId: [, , `ResourceId`],
+    roleArn: [, , `RoleArn`],
+    secretArn: [, , `SecretArn`],
+    url: [, , `Url`],
+  });
 };
 
 /**
  * serializeAws_restJson1FailoverConfig
  */
 const se_FailoverConfig = (input: FailoverConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FailoverMode != null && { failoverMode: input.FailoverMode }),
-    ...(input.RecoveryWindow != null && { recoveryWindow: input.RecoveryWindow }),
-    ...(input.SourcePriority != null && { sourcePriority: se_SourcePriority(input.SourcePriority, context) }),
-    ...(input.State != null && { state: input.State }),
-  };
+  return take(input, {
+    failoverMode: [, , `FailoverMode`],
+    recoveryWindow: [, , `RecoveryWindow`],
+    sourcePriority: [, (_) => se_SourcePriority(_, context), `SourcePriority`],
+    state: [, , `State`],
+  });
 };
 
 /**
  * serializeAws_restJson1FmtpRequest
  */
 const se_FmtpRequest = (input: FmtpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelOrder != null && { channelOrder: input.ChannelOrder }),
-    ...(input.Colorimetry != null && { colorimetry: input.Colorimetry }),
-    ...(input.ExactFramerate != null && { exactFramerate: input.ExactFramerate }),
-    ...(input.Par != null && { par: input.Par }),
-    ...(input.Range != null && { range: input.Range }),
-    ...(input.ScanMode != null && { scanMode: input.ScanMode }),
-    ...(input.Tcs != null && { tcs: input.Tcs }),
-  };
+  return take(input, {
+    channelOrder: [, , `ChannelOrder`],
+    colorimetry: [, , `Colorimetry`],
+    exactFramerate: [, , `ExactFramerate`],
+    par: [, , `Par`],
+    range: [, , `Range`],
+    scanMode: [, , `ScanMode`],
+    tcs: [, , `Tcs`],
+  });
 };
 
 /**
  * serializeAws_restJson1GatewayNetwork
  */
 const se_GatewayNetwork = (input: GatewayNetwork, context: __SerdeContext): any => {
-  return {
-    ...(input.CidrBlock != null && { cidrBlock: input.CidrBlock }),
-    ...(input.Name != null && { name: input.Name }),
-  };
+  return take(input, {
+    cidrBlock: [, , `CidrBlock`],
+    name: [, , `Name`],
+  });
 };
 
 /**
  * serializeAws_restJson1GrantEntitlementRequest
  */
 const se_GrantEntitlementRequest = (input: GrantEntitlementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataTransferSubscriberFeePercent != null && {
-      dataTransferSubscriberFeePercent: input.DataTransferSubscriberFeePercent,
-    }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.Encryption != null && { encryption: se_Encryption(input.Encryption, context) }),
-    ...(input.EntitlementStatus != null && { entitlementStatus: input.EntitlementStatus }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Subscribers != null && { subscribers: se___listOf__string(input.Subscribers, context) }),
-  };
+  return take(input, {
+    dataTransferSubscriberFeePercent: [, , `DataTransferSubscriberFeePercent`],
+    description: [, , `Description`],
+    encryption: [, (_) => se_Encryption(_, context), `Encryption`],
+    entitlementStatus: [, , `EntitlementStatus`],
+    name: [, , `Name`],
+    subscribers: [, (_) => _json(_), `Subscribers`],
+  });
 };
 
 /**
  * serializeAws_restJson1InputConfigurationRequest
  */
 const se_InputConfigurationRequest = (input: InputConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InputPort != null && { inputPort: input.InputPort }),
-    ...(input.Interface != null && { interface: se_InterfaceRequest(input.Interface, context) }),
-  };
+  return take(input, {
+    inputPort: [, , `InputPort`],
+    interface: [, (_) => se_InterfaceRequest(_, context), `Interface`],
+  });
 };
 
 /**
  * serializeAws_restJson1InterfaceRequest
  */
 const se_InterfaceRequest = (input: InterfaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { name: input.Name }),
-  };
+  return take(input, {
+    name: [, , `Name`],
+  });
 };
 
 /**
  * serializeAws_restJson1MediaStreamAttributesRequest
  */
 const se_MediaStreamAttributesRequest = (input: MediaStreamAttributesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Fmtp != null && { fmtp: se_FmtpRequest(input.Fmtp, context) }),
-    ...(input.Lang != null && { lang: input.Lang }),
-  };
+  return take(input, {
+    fmtp: [, (_) => se_FmtpRequest(_, context), `Fmtp`],
+    lang: [, , `Lang`],
+  });
 };
 
 /**
@@ -5553,16 +5476,16 @@ const se_MediaStreamOutputConfigurationRequest = (
   input: MediaStreamOutputConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DestinationConfigurations != null && {
-      destinationConfigurations: se___listOfDestinationConfigurationRequest(input.DestinationConfigurations, context),
-    }),
-    ...(input.EncodingName != null && { encodingName: input.EncodingName }),
-    ...(input.EncodingParameters != null && {
-      encodingParameters: se_EncodingParametersRequest(input.EncodingParameters, context),
-    }),
-    ...(input.MediaStreamName != null && { mediaStreamName: input.MediaStreamName }),
-  };
+  return take(input, {
+    destinationConfigurations: [
+      ,
+      (_) => se___listOfDestinationConfigurationRequest(_, context),
+      `DestinationConfigurations`,
+    ],
+    encodingName: [, , `EncodingName`],
+    encodingParameters: [, (_) => se_EncodingParametersRequest(_, context), `EncodingParameters`],
+    mediaStreamName: [, , `MediaStreamName`],
+  });
 };
 
 /**
@@ -5572,157 +5495,144 @@ const se_MediaStreamSourceConfigurationRequest = (
   input: MediaStreamSourceConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.EncodingName != null && { encodingName: input.EncodingName }),
-    ...(input.InputConfigurations != null && {
-      inputConfigurations: se___listOfInputConfigurationRequest(input.InputConfigurations, context),
-    }),
-    ...(input.MediaStreamName != null && { mediaStreamName: input.MediaStreamName }),
-  };
+  return take(input, {
+    encodingName: [, , `EncodingName`],
+    inputConfigurations: [, (_) => se___listOfInputConfigurationRequest(_, context), `InputConfigurations`],
+    mediaStreamName: [, , `MediaStreamName`],
+  });
 };
 
 /**
  * serializeAws_restJson1SetGatewayBridgeSourceRequest
  */
 const se_SetGatewayBridgeSourceRequest = (input: SetGatewayBridgeSourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BridgeArn != null && { bridgeArn: input.BridgeArn }),
-    ...(input.VpcInterfaceAttachment != null && {
-      vpcInterfaceAttachment: se_VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
-    }),
-  };
+  return take(input, {
+    bridgeArn: [, , `BridgeArn`],
+    vpcInterfaceAttachment: [, (_) => se_VpcInterfaceAttachment(_, context), `VpcInterfaceAttachment`],
+  });
 };
 
 /**
  * serializeAws_restJson1SetSourceRequest
  */
 const se_SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Decryption != null && { decryption: se_Encryption(input.Decryption, context) }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.EntitlementArn != null && { entitlementArn: input.EntitlementArn }),
-    ...(input.GatewayBridgeSource != null && {
-      gatewayBridgeSource: se_SetGatewayBridgeSourceRequest(input.GatewayBridgeSource, context),
-    }),
-    ...(input.IngestPort != null && { ingestPort: input.IngestPort }),
-    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
-    ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
-    ...(input.MaxSyncBuffer != null && { maxSyncBuffer: input.MaxSyncBuffer }),
-    ...(input.MediaStreamSourceConfigurations != null && {
-      mediaStreamSourceConfigurations: se___listOfMediaStreamSourceConfigurationRequest(
-        input.MediaStreamSourceConfigurations,
-        context
-      ),
-    }),
-    ...(input.MinLatency != null && { minLatency: input.MinLatency }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Protocol != null && { protocol: input.Protocol }),
-    ...(input.SenderControlPort != null && { senderControlPort: input.SenderControlPort }),
-    ...(input.SenderIpAddress != null && { senderIpAddress: input.SenderIpAddress }),
-    ...(input.SourceListenerAddress != null && { sourceListenerAddress: input.SourceListenerAddress }),
-    ...(input.SourceListenerPort != null && { sourceListenerPort: input.SourceListenerPort }),
-    ...(input.StreamId != null && { streamId: input.StreamId }),
-    ...(input.VpcInterfaceName != null && { vpcInterfaceName: input.VpcInterfaceName }),
-    ...(input.WhitelistCidr != null && { whitelistCidr: input.WhitelistCidr }),
-  };
+  return take(input, {
+    decryption: [, (_) => se_Encryption(_, context), `Decryption`],
+    description: [, , `Description`],
+    entitlementArn: [, , `EntitlementArn`],
+    gatewayBridgeSource: [, (_) => se_SetGatewayBridgeSourceRequest(_, context), `GatewayBridgeSource`],
+    ingestPort: [, , `IngestPort`],
+    maxBitrate: [, , `MaxBitrate`],
+    maxLatency: [, , `MaxLatency`],
+    maxSyncBuffer: [, , `MaxSyncBuffer`],
+    mediaStreamSourceConfigurations: [
+      ,
+      (_) => se___listOfMediaStreamSourceConfigurationRequest(_, context),
+      `MediaStreamSourceConfigurations`,
+    ],
+    minLatency: [, , `MinLatency`],
+    name: [, , `Name`],
+    protocol: [, , `Protocol`],
+    senderControlPort: [, , `SenderControlPort`],
+    senderIpAddress: [, , `SenderIpAddress`],
+    sourceListenerAddress: [, , `SourceListenerAddress`],
+    sourceListenerPort: [, , `SourceListenerPort`],
+    streamId: [, , `StreamId`],
+    vpcInterfaceName: [, , `VpcInterfaceName`],
+    whitelistCidr: [, , `WhitelistCidr`],
+  });
 };
 
 /**
  * serializeAws_restJson1SourcePriority
  */
 const se_SourcePriority = (input: SourcePriority, context: __SerdeContext): any => {
-  return {
-    ...(input.PrimarySource != null && { primarySource: input.PrimarySource }),
-  };
+  return take(input, {
+    primarySource: [, , `PrimarySource`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateBridgeFlowSourceRequest
  */
 const se_UpdateBridgeFlowSourceRequest = (input: UpdateBridgeFlowSourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FlowArn != null && { flowArn: input.FlowArn }),
-    ...(input.FlowVpcInterfaceAttachment != null && {
-      flowVpcInterfaceAttachment: se_VpcInterfaceAttachment(input.FlowVpcInterfaceAttachment, context),
-    }),
-  };
+  return take(input, {
+    flowArn: [, , `FlowArn`],
+    flowVpcInterfaceAttachment: [, (_) => se_VpcInterfaceAttachment(_, context), `FlowVpcInterfaceAttachment`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateBridgeNetworkOutputRequest
  */
 const se_UpdateBridgeNetworkOutputRequest = (input: UpdateBridgeNetworkOutputRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IpAddress != null && { ipAddress: input.IpAddress }),
-    ...(input.NetworkName != null && { networkName: input.NetworkName }),
-    ...(input.Port != null && { port: input.Port }),
-    ...(input.Protocol != null && { protocol: input.Protocol }),
-    ...(input.Ttl != null && { ttl: input.Ttl }),
-  };
+  return take(input, {
+    ipAddress: [, , `IpAddress`],
+    networkName: [, , `NetworkName`],
+    port: [, , `Port`],
+    protocol: [, , `Protocol`],
+    ttl: [, , `Ttl`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateBridgeNetworkSourceRequest
  */
 const se_UpdateBridgeNetworkSourceRequest = (input: UpdateBridgeNetworkSourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MulticastIp != null && { multicastIp: input.MulticastIp }),
-    ...(input.NetworkName != null && { networkName: input.NetworkName }),
-    ...(input.Port != null && { port: input.Port }),
-    ...(input.Protocol != null && { protocol: input.Protocol }),
-  };
+  return take(input, {
+    multicastIp: [, , `MulticastIp`],
+    networkName: [, , `NetworkName`],
+    port: [, , `Port`],
+    protocol: [, , `Protocol`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateEgressGatewayBridgeRequest
  */
 const se_UpdateEgressGatewayBridgeRequest = (input: UpdateEgressGatewayBridgeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
-  };
+  return take(input, {
+    maxBitrate: [, , `MaxBitrate`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateEncryption
  */
 const se_UpdateEncryption = (input: UpdateEncryption, context: __SerdeContext): any => {
-  return {
-    ...(input.Algorithm != null && { algorithm: input.Algorithm }),
-    ...(input.ConstantInitializationVector != null && {
-      constantInitializationVector: input.ConstantInitializationVector,
-    }),
-    ...(input.DeviceId != null && { deviceId: input.DeviceId }),
-    ...(input.KeyType != null && { keyType: input.KeyType }),
-    ...(input.Region != null && { region: input.Region }),
-    ...(input.ResourceId != null && { resourceId: input.ResourceId }),
-    ...(input.RoleArn != null && { roleArn: input.RoleArn }),
-    ...(input.SecretArn != null && { secretArn: input.SecretArn }),
-    ...(input.Url != null && { url: input.Url }),
-  };
+  return take(input, {
+    algorithm: [, , `Algorithm`],
+    constantInitializationVector: [, , `ConstantInitializationVector`],
+    deviceId: [, , `DeviceId`],
+    keyType: [, , `KeyType`],
+    region: [, , `Region`],
+    resourceId: [, , `ResourceId`],
+    roleArn: [, , `RoleArn`],
+    secretArn: [, , `SecretArn`],
+    url: [, , `Url`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateFailoverConfig
  */
 const se_UpdateFailoverConfig = (input: UpdateFailoverConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FailoverMode != null && { failoverMode: input.FailoverMode }),
-    ...(input.RecoveryWindow != null && { recoveryWindow: input.RecoveryWindow }),
-    ...(input.SourcePriority != null && { sourcePriority: se_SourcePriority(input.SourcePriority, context) }),
-    ...(input.State != null && { state: input.State }),
-  };
+  return take(input, {
+    failoverMode: [, , `FailoverMode`],
+    recoveryWindow: [, , `RecoveryWindow`],
+    sourcePriority: [, (_) => se_SourcePriority(_, context), `SourcePriority`],
+    state: [, , `State`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateGatewayBridgeSourceRequest
  */
 const se_UpdateGatewayBridgeSourceRequest = (input: UpdateGatewayBridgeSourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BridgeArn != null && { bridgeArn: input.BridgeArn }),
-    ...(input.VpcInterfaceAttachment != null && {
-      vpcInterfaceAttachment: se_VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
-    }),
-  };
+  return take(input, {
+    bridgeArn: [, , `BridgeArn`],
+    vpcInterfaceAttachment: [, (_) => se_VpcInterfaceAttachment(_, context), `VpcInterfaceAttachment`],
+  });
 };
 
 /**
@@ -5732,74 +5642,48 @@ const se_UpdateIngressGatewayBridgeRequest = (
   input: UpdateIngressGatewayBridgeRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
-    ...(input.MaxOutputs != null && { maxOutputs: input.MaxOutputs }),
-  };
+  return take(input, {
+    maxBitrate: [, , `MaxBitrate`],
+    maxOutputs: [, , `MaxOutputs`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateMaintenance
  */
 const se_UpdateMaintenance = (input: UpdateMaintenance, context: __SerdeContext): any => {
-  return {
-    ...(input.MaintenanceDay != null && { maintenanceDay: input.MaintenanceDay }),
-    ...(input.MaintenanceScheduledDate != null && { maintenanceScheduledDate: input.MaintenanceScheduledDate }),
-    ...(input.MaintenanceStartHour != null && { maintenanceStartHour: input.MaintenanceStartHour }),
-  };
+  return take(input, {
+    maintenanceDay: [, , `MaintenanceDay`],
+    maintenanceScheduledDate: [, , `MaintenanceScheduledDate`],
+    maintenanceStartHour: [, , `MaintenanceStartHour`],
+  });
 };
 
 /**
  * serializeAws_restJson1VpcInterfaceAttachment
  */
 const se_VpcInterfaceAttachment = (input: VpcInterfaceAttachment, context: __SerdeContext): any => {
-  return {
-    ...(input.VpcInterfaceName != null && { vpcInterfaceName: input.VpcInterfaceName }),
-  };
+  return take(input, {
+    vpcInterfaceName: [, , `VpcInterfaceName`],
+  });
 };
 
 /**
  * serializeAws_restJson1VpcInterfaceRequest
  */
 const se_VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.NetworkInterfaceType != null && { networkInterfaceType: input.NetworkInterfaceType }),
-    ...(input.RoleArn != null && { roleArn: input.RoleArn }),
-    ...(input.SecurityGroupIds != null && { securityGroupIds: se___listOf__string(input.SecurityGroupIds, context) }),
-    ...(input.SubnetId != null && { subnetId: input.SubnetId }),
-  };
+  return take(input, {
+    name: [, , `Name`],
+    networkInterfaceType: [, , `NetworkInterfaceType`],
+    roleArn: [, , `RoleArn`],
+    securityGroupIds: [, (_) => _json(_), `SecurityGroupIds`],
+    subnetId: [, , `SubnetId`],
+  });
 };
 
-/**
- * deserializeAws_restJson1__listOf__integer
- */
-const de___listOf__integer = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__integer omitted.
 
-/**
- * deserializeAws_restJson1__listOf__string
- */
-const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__string omitted.
 
 /**
  * deserializeAws_restJson1__listOfBridgeOutput
@@ -5808,9 +5692,6 @@ const de___listOfBridgeOutput = (output: any, context: __SerdeContext): BridgeOu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BridgeOutput(entry, context);
     });
   return retVal;
@@ -5823,9 +5704,6 @@ const de___listOfBridgeSource = (output: any, context: __SerdeContext): BridgeSo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BridgeSource(entry, context);
     });
   return retVal;
@@ -5838,9 +5716,6 @@ const de___listOfDestinationConfiguration = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DestinationConfiguration(entry, context);
     });
   return retVal;
@@ -5853,9 +5728,6 @@ const de___listOfEntitlement = (output: any, context: __SerdeContext): Entitleme
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Entitlement(entry, context);
     });
   return retVal;
@@ -5868,9 +5740,6 @@ const de___listOfGatewayNetwork = (output: any, context: __SerdeContext): Gatewa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_GatewayNetwork(entry, context);
     });
   return retVal;
@@ -5883,9 +5752,6 @@ const de___listOfInputConfiguration = (output: any, context: __SerdeContext): In
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_InputConfiguration(entry, context);
     });
   return retVal;
@@ -5898,9 +5764,6 @@ const de___listOfListedBridge = (output: any, context: __SerdeContext): ListedBr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListedBridge(entry, context);
     });
   return retVal;
@@ -5913,9 +5776,6 @@ const de___listOfListedEntitlement = (output: any, context: __SerdeContext): Lis
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListedEntitlement(entry, context);
     });
   return retVal;
@@ -5928,9 +5788,6 @@ const de___listOfListedFlow = (output: any, context: __SerdeContext): ListedFlow
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListedFlow(entry, context);
     });
   return retVal;
@@ -5943,9 +5800,6 @@ const de___listOfListedGateway = (output: any, context: __SerdeContext): ListedG
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListedGateway(entry, context);
     });
   return retVal;
@@ -5958,9 +5812,6 @@ const de___listOfListedGatewayInstance = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ListedGatewayInstance(entry, context);
     });
   return retVal;
@@ -5973,9 +5824,6 @@ const de___listOfMediaStream = (output: any, context: __SerdeContext): MediaStre
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MediaStream(entry, context);
     });
   return retVal;
@@ -5991,9 +5839,6 @@ const de___listOfMediaStreamOutputConfiguration = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MediaStreamOutputConfiguration(entry, context);
     });
   return retVal;
@@ -6009,9 +5854,6 @@ const de___listOfMediaStreamSourceConfiguration = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MediaStreamSourceConfiguration(entry, context);
     });
   return retVal;
@@ -6024,9 +5866,6 @@ const de___listOfMessageDetail = (output: any, context: __SerdeContext): Message
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MessageDetail(entry, context);
     });
   return retVal;
@@ -6039,9 +5878,6 @@ const de___listOfOffering = (output: any, context: __SerdeContext): Offering[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Offering(entry, context);
     });
   return retVal;
@@ -6054,9 +5890,6 @@ const de___listOfOutput = (output: any, context: __SerdeContext): Output[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Output(entry, context);
     });
   return retVal;
@@ -6069,9 +5902,6 @@ const de___listOfReservation = (output: any, context: __SerdeContext): Reservati
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Reservation(entry, context);
     });
   return retVal;
@@ -6084,9 +5914,6 @@ const de___listOfSource = (output: any, context: __SerdeContext): Source[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Source(entry, context);
     });
   return retVal;
@@ -6099,635 +5926,590 @@ const de___listOfVpcInterface = (output: any, context: __SerdeContext): VpcInter
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VpcInterface(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__mapOf__string
- */
-const de___mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de___mapOf__string omitted.
 
 /**
  * deserializeAws_restJson1Bridge
  */
 const de_Bridge = (output: any, context: __SerdeContext): Bridge => {
-  return {
-    BridgeArn: __expectString(output.bridgeArn),
-    BridgeMessages:
-      output.bridgeMessages != null ? de___listOfMessageDetail(output.bridgeMessages, context) : undefined,
-    BridgeState: __expectString(output.bridgeState),
-    EgressGatewayBridge:
-      output.egressGatewayBridge != null ? de_EgressGatewayBridge(output.egressGatewayBridge, context) : undefined,
-    IngressGatewayBridge:
-      output.ingressGatewayBridge != null ? de_IngressGatewayBridge(output.ingressGatewayBridge, context) : undefined,
-    Name: __expectString(output.name),
-    Outputs: output.outputs != null ? de___listOfBridgeOutput(output.outputs, context) : undefined,
-    PlacementArn: __expectString(output.placementArn),
-    SourceFailoverConfig:
-      output.sourceFailoverConfig != null ? de_FailoverConfig(output.sourceFailoverConfig, context) : undefined,
-    Sources: output.sources != null ? de___listOfBridgeSource(output.sources, context) : undefined,
-  } as any;
+  return take(output, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    BridgeMessages: (_) => [, de___listOfMessageDetail(_, context), `bridgeMessages`],
+    BridgeState: [, __expectString, `bridgeState`],
+    EgressGatewayBridge: (_) => [, de_EgressGatewayBridge(_, context), `egressGatewayBridge`],
+    IngressGatewayBridge: (_) => [, de_IngressGatewayBridge(_, context), `ingressGatewayBridge`],
+    Name: [, __expectString, `name`],
+    Outputs: (_) => [, de___listOfBridgeOutput(_, context), `outputs`],
+    PlacementArn: [, __expectString, `placementArn`],
+    SourceFailoverConfig: (_) => [, de_FailoverConfig(_, context), `sourceFailoverConfig`],
+    Sources: (_) => [, de___listOfBridgeSource(_, context), `sources`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BridgeFlowOutput
  */
 const de_BridgeFlowOutput = (output: any, context: __SerdeContext): BridgeFlowOutput => {
-  return {
-    FlowArn: __expectString(output.flowArn),
-    FlowSourceArn: __expectString(output.flowSourceArn),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    FlowArn: [, __expectString, `flowArn`],
+    FlowSourceArn: [, __expectString, `flowSourceArn`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BridgeFlowSource
  */
 const de_BridgeFlowSource = (output: any, context: __SerdeContext): BridgeFlowSource => {
-  return {
-    FlowArn: __expectString(output.flowArn),
-    FlowVpcInterfaceAttachment:
-      output.flowVpcInterfaceAttachment != null
-        ? de_VpcInterfaceAttachment(output.flowVpcInterfaceAttachment, context)
-        : undefined,
-    Name: __expectString(output.name),
-    OutputArn: __expectString(output.outputArn),
-  } as any;
+  return take(output, {
+    FlowArn: [, __expectString, `flowArn`],
+    FlowVpcInterfaceAttachment: (_) => [, de_VpcInterfaceAttachment(_, context), `flowVpcInterfaceAttachment`],
+    Name: [, __expectString, `name`],
+    OutputArn: [, __expectString, `outputArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BridgeNetworkOutput
  */
 const de_BridgeNetworkOutput = (output: any, context: __SerdeContext): BridgeNetworkOutput => {
-  return {
-    IpAddress: __expectString(output.ipAddress),
-    Name: __expectString(output.name),
-    NetworkName: __expectString(output.networkName),
-    Port: __expectInt32(output.port),
-    Protocol: __expectString(output.protocol),
-    Ttl: __expectInt32(output.ttl),
-  } as any;
+  return take(output, {
+    IpAddress: [, __expectString, `ipAddress`],
+    Name: [, __expectString, `name`],
+    NetworkName: [, __expectString, `networkName`],
+    Port: [, __expectInt32, `port`],
+    Protocol: [, __expectString, `protocol`],
+    Ttl: [, __expectInt32, `ttl`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BridgeNetworkSource
  */
 const de_BridgeNetworkSource = (output: any, context: __SerdeContext): BridgeNetworkSource => {
-  return {
-    MulticastIp: __expectString(output.multicastIp),
-    Name: __expectString(output.name),
-    NetworkName: __expectString(output.networkName),
-    Port: __expectInt32(output.port),
-    Protocol: __expectString(output.protocol),
-  } as any;
+  return take(output, {
+    MulticastIp: [, __expectString, `multicastIp`],
+    Name: [, __expectString, `name`],
+    NetworkName: [, __expectString, `networkName`],
+    Port: [, __expectInt32, `port`],
+    Protocol: [, __expectString, `protocol`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BridgeOutput
  */
 const de_BridgeOutput = (output: any, context: __SerdeContext): BridgeOutput => {
-  return {
-    FlowOutput: output.flowOutput != null ? de_BridgeFlowOutput(output.flowOutput, context) : undefined,
-    NetworkOutput: output.networkOutput != null ? de_BridgeNetworkOutput(output.networkOutput, context) : undefined,
-  } as any;
+  return take(output, {
+    FlowOutput: (_) => [, de_BridgeFlowOutput(_, context), `flowOutput`],
+    NetworkOutput: (_) => [, de_BridgeNetworkOutput(_, context), `networkOutput`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BridgeSource
  */
 const de_BridgeSource = (output: any, context: __SerdeContext): BridgeSource => {
-  return {
-    FlowSource: output.flowSource != null ? de_BridgeFlowSource(output.flowSource, context) : undefined,
-    NetworkSource: output.networkSource != null ? de_BridgeNetworkSource(output.networkSource, context) : undefined,
-  } as any;
+  return take(output, {
+    FlowSource: (_) => [, de_BridgeFlowSource(_, context), `flowSource`],
+    NetworkSource: (_) => [, de_BridgeNetworkSource(_, context), `networkSource`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DestinationConfiguration
  */
 const de_DestinationConfiguration = (output: any, context: __SerdeContext): DestinationConfiguration => {
-  return {
-    DestinationIp: __expectString(output.destinationIp),
-    DestinationPort: __expectInt32(output.destinationPort),
-    Interface: output.interface != null ? de_Interface(output.interface, context) : undefined,
-    OutboundIp: __expectString(output.outboundIp),
-  } as any;
+  return take(output, {
+    DestinationIp: [, __expectString, `destinationIp`],
+    DestinationPort: [, __expectInt32, `destinationPort`],
+    Interface: (_) => [, de_Interface(_, context), `interface`],
+    OutboundIp: [, __expectString, `outboundIp`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EgressGatewayBridge
  */
 const de_EgressGatewayBridge = (output: any, context: __SerdeContext): EgressGatewayBridge => {
-  return {
-    InstanceId: __expectString(output.instanceId),
-    MaxBitrate: __expectInt32(output.maxBitrate),
-  } as any;
+  return take(output, {
+    InstanceId: [, __expectString, `instanceId`],
+    MaxBitrate: [, __expectInt32, `maxBitrate`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EncodingParameters
  */
 const de_EncodingParameters = (output: any, context: __SerdeContext): EncodingParameters => {
-  return {
-    CompressionFactor: __limitedParseDouble(output.compressionFactor),
-    EncoderProfile: __expectString(output.encoderProfile),
-  } as any;
+  return take(output, {
+    CompressionFactor: [, __limitedParseDouble, `compressionFactor`],
+    EncoderProfile: [, __expectString, `encoderProfile`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Encryption
  */
 const de_Encryption = (output: any, context: __SerdeContext): Encryption => {
-  return {
-    Algorithm: __expectString(output.algorithm),
-    ConstantInitializationVector: __expectString(output.constantInitializationVector),
-    DeviceId: __expectString(output.deviceId),
-    KeyType: __expectString(output.keyType),
-    Region: __expectString(output.region),
-    ResourceId: __expectString(output.resourceId),
-    RoleArn: __expectString(output.roleArn),
-    SecretArn: __expectString(output.secretArn),
-    Url: __expectString(output.url),
-  } as any;
+  return take(output, {
+    Algorithm: [, __expectString, `algorithm`],
+    ConstantInitializationVector: [, __expectString, `constantInitializationVector`],
+    DeviceId: [, __expectString, `deviceId`],
+    KeyType: [, __expectString, `keyType`],
+    Region: [, __expectString, `region`],
+    ResourceId: [, __expectString, `resourceId`],
+    RoleArn: [, __expectString, `roleArn`],
+    SecretArn: [, __expectString, `secretArn`],
+    Url: [, __expectString, `url`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Entitlement
  */
 const de_Entitlement = (output: any, context: __SerdeContext): Entitlement => {
-  return {
-    DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
-    Description: __expectString(output.description),
-    Encryption: output.encryption != null ? de_Encryption(output.encryption, context) : undefined,
-    EntitlementArn: __expectString(output.entitlementArn),
-    EntitlementStatus: __expectString(output.entitlementStatus),
-    Name: __expectString(output.name),
-    Subscribers: output.subscribers != null ? de___listOf__string(output.subscribers, context) : undefined,
-  } as any;
+  return take(output, {
+    DataTransferSubscriberFeePercent: [, __expectInt32, `dataTransferSubscriberFeePercent`],
+    Description: [, __expectString, `description`],
+    Encryption: (_) => [, de_Encryption(_, context), `encryption`],
+    EntitlementArn: [, __expectString, `entitlementArn`],
+    EntitlementStatus: [, __expectString, `entitlementStatus`],
+    Name: [, __expectString, `name`],
+    Subscribers: [, _json, `subscribers`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1FailoverConfig
  */
 const de_FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig => {
-  return {
-    FailoverMode: __expectString(output.failoverMode),
-    RecoveryWindow: __expectInt32(output.recoveryWindow),
-    SourcePriority: output.sourcePriority != null ? de_SourcePriority(output.sourcePriority, context) : undefined,
-    State: __expectString(output.state),
-  } as any;
+  return take(output, {
+    FailoverMode: [, __expectString, `failoverMode`],
+    RecoveryWindow: [, __expectInt32, `recoveryWindow`],
+    SourcePriority: (_) => [, de_SourcePriority(_, context), `sourcePriority`],
+    State: [, __expectString, `state`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Flow
  */
 const de_Flow = (output: any, context: __SerdeContext): Flow => {
-  return {
-    AvailabilityZone: __expectString(output.availabilityZone),
-    Description: __expectString(output.description),
-    EgressIp: __expectString(output.egressIp),
-    Entitlements: output.entitlements != null ? de___listOfEntitlement(output.entitlements, context) : undefined,
-    FlowArn: __expectString(output.flowArn),
-    Maintenance: output.maintenance != null ? de_Maintenance(output.maintenance, context) : undefined,
-    MediaStreams: output.mediaStreams != null ? de___listOfMediaStream(output.mediaStreams, context) : undefined,
-    Name: __expectString(output.name),
-    Outputs: output.outputs != null ? de___listOfOutput(output.outputs, context) : undefined,
-    Source: output.source != null ? de_Source(output.source, context) : undefined,
-    SourceFailoverConfig:
-      output.sourceFailoverConfig != null ? de_FailoverConfig(output.sourceFailoverConfig, context) : undefined,
-    Sources: output.sources != null ? de___listOfSource(output.sources, context) : undefined,
-    Status: __expectString(output.status),
-    VpcInterfaces: output.vpcInterfaces != null ? de___listOfVpcInterface(output.vpcInterfaces, context) : undefined,
-  } as any;
+  return take(output, {
+    AvailabilityZone: [, __expectString, `availabilityZone`],
+    Description: [, __expectString, `description`],
+    EgressIp: [, __expectString, `egressIp`],
+    Entitlements: (_) => [, de___listOfEntitlement(_, context), `entitlements`],
+    FlowArn: [, __expectString, `flowArn`],
+    Maintenance: (_) => [, de_Maintenance(_, context), `maintenance`],
+    MediaStreams: (_) => [, de___listOfMediaStream(_, context), `mediaStreams`],
+    Name: [, __expectString, `name`],
+    Outputs: (_) => [, de___listOfOutput(_, context), `outputs`],
+    Source: (_) => [, de_Source(_, context), `source`],
+    SourceFailoverConfig: (_) => [, de_FailoverConfig(_, context), `sourceFailoverConfig`],
+    Sources: (_) => [, de___listOfSource(_, context), `sources`],
+    Status: [, __expectString, `status`],
+    VpcInterfaces: (_) => [, de___listOfVpcInterface(_, context), `vpcInterfaces`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Fmtp
  */
 const de_Fmtp = (output: any, context: __SerdeContext): Fmtp => {
-  return {
-    ChannelOrder: __expectString(output.channelOrder),
-    Colorimetry: __expectString(output.colorimetry),
-    ExactFramerate: __expectString(output.exactFramerate),
-    Par: __expectString(output.par),
-    Range: __expectString(output.range),
-    ScanMode: __expectString(output.scanMode),
-    Tcs: __expectString(output.tcs),
-  } as any;
+  return take(output, {
+    ChannelOrder: [, __expectString, `channelOrder`],
+    Colorimetry: [, __expectString, `colorimetry`],
+    ExactFramerate: [, __expectString, `exactFramerate`],
+    Par: [, __expectString, `par`],
+    Range: [, __expectString, `range`],
+    ScanMode: [, __expectString, `scanMode`],
+    Tcs: [, __expectString, `tcs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Gateway
  */
 const de_Gateway = (output: any, context: __SerdeContext): Gateway => {
-  return {
-    EgressCidrBlocks:
-      output.egressCidrBlocks != null ? de___listOf__string(output.egressCidrBlocks, context) : undefined,
-    GatewayArn: __expectString(output.gatewayArn),
-    GatewayMessages:
-      output.gatewayMessages != null ? de___listOfMessageDetail(output.gatewayMessages, context) : undefined,
-    GatewayState: __expectString(output.gatewayState),
-    Name: __expectString(output.name),
-    Networks: output.networks != null ? de___listOfGatewayNetwork(output.networks, context) : undefined,
-  } as any;
+  return take(output, {
+    EgressCidrBlocks: [, _json, `egressCidrBlocks`],
+    GatewayArn: [, __expectString, `gatewayArn`],
+    GatewayMessages: (_) => [, de___listOfMessageDetail(_, context), `gatewayMessages`],
+    GatewayState: [, __expectString, `gatewayState`],
+    Name: [, __expectString, `name`],
+    Networks: (_) => [, de___listOfGatewayNetwork(_, context), `networks`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1GatewayBridgeSource
  */
 const de_GatewayBridgeSource = (output: any, context: __SerdeContext): GatewayBridgeSource => {
-  return {
-    BridgeArn: __expectString(output.bridgeArn),
-    VpcInterfaceAttachment:
-      output.vpcInterfaceAttachment != null
-        ? de_VpcInterfaceAttachment(output.vpcInterfaceAttachment, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    VpcInterfaceAttachment: (_) => [, de_VpcInterfaceAttachment(_, context), `vpcInterfaceAttachment`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1GatewayInstance
  */
 const de_GatewayInstance = (output: any, context: __SerdeContext): GatewayInstance => {
-  return {
-    BridgePlacement: __expectString(output.bridgePlacement),
-    ConnectionStatus: __expectString(output.connectionStatus),
-    GatewayArn: __expectString(output.gatewayArn),
-    GatewayInstanceArn: __expectString(output.gatewayInstanceArn),
-    InstanceId: __expectString(output.instanceId),
-    InstanceMessages:
-      output.instanceMessages != null ? de___listOfMessageDetail(output.instanceMessages, context) : undefined,
-    InstanceState: __expectString(output.instanceState),
-    RunningBridgeCount: __expectInt32(output.runningBridgeCount),
-  } as any;
+  return take(output, {
+    BridgePlacement: [, __expectString, `bridgePlacement`],
+    ConnectionStatus: [, __expectString, `connectionStatus`],
+    GatewayArn: [, __expectString, `gatewayArn`],
+    GatewayInstanceArn: [, __expectString, `gatewayInstanceArn`],
+    InstanceId: [, __expectString, `instanceId`],
+    InstanceMessages: (_) => [, de___listOfMessageDetail(_, context), `instanceMessages`],
+    InstanceState: [, __expectString, `instanceState`],
+    RunningBridgeCount: [, __expectInt32, `runningBridgeCount`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1GatewayNetwork
  */
 const de_GatewayNetwork = (output: any, context: __SerdeContext): GatewayNetwork => {
-  return {
-    CidrBlock: __expectString(output.cidrBlock),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    CidrBlock: [, __expectString, `cidrBlock`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1IngressGatewayBridge
  */
 const de_IngressGatewayBridge = (output: any, context: __SerdeContext): IngressGatewayBridge => {
-  return {
-    InstanceId: __expectString(output.instanceId),
-    MaxBitrate: __expectInt32(output.maxBitrate),
-    MaxOutputs: __expectInt32(output.maxOutputs),
-  } as any;
+  return take(output, {
+    InstanceId: [, __expectString, `instanceId`],
+    MaxBitrate: [, __expectInt32, `maxBitrate`],
+    MaxOutputs: [, __expectInt32, `maxOutputs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1InputConfiguration
  */
 const de_InputConfiguration = (output: any, context: __SerdeContext): InputConfiguration => {
-  return {
-    InputIp: __expectString(output.inputIp),
-    InputPort: __expectInt32(output.inputPort),
-    Interface: output.interface != null ? de_Interface(output.interface, context) : undefined,
-  } as any;
+  return take(output, {
+    InputIp: [, __expectString, `inputIp`],
+    InputPort: [, __expectInt32, `inputPort`],
+    Interface: (_) => [, de_Interface(_, context), `interface`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Interface
  */
 const de_Interface = (output: any, context: __SerdeContext): Interface => {
-  return {
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ListedBridge
  */
 const de_ListedBridge = (output: any, context: __SerdeContext): ListedBridge => {
-  return {
-    BridgeArn: __expectString(output.bridgeArn),
-    BridgeState: __expectString(output.bridgeState),
-    BridgeType: __expectString(output.bridgeType),
-    Name: __expectString(output.name),
-    PlacementArn: __expectString(output.placementArn),
-  } as any;
+  return take(output, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    BridgeState: [, __expectString, `bridgeState`],
+    BridgeType: [, __expectString, `bridgeType`],
+    Name: [, __expectString, `name`],
+    PlacementArn: [, __expectString, `placementArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ListedEntitlement
  */
 const de_ListedEntitlement = (output: any, context: __SerdeContext): ListedEntitlement => {
-  return {
-    DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
-    EntitlementArn: __expectString(output.entitlementArn),
-    EntitlementName: __expectString(output.entitlementName),
-  } as any;
+  return take(output, {
+    DataTransferSubscriberFeePercent: [, __expectInt32, `dataTransferSubscriberFeePercent`],
+    EntitlementArn: [, __expectString, `entitlementArn`],
+    EntitlementName: [, __expectString, `entitlementName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ListedFlow
  */
 const de_ListedFlow = (output: any, context: __SerdeContext): ListedFlow => {
-  return {
-    AvailabilityZone: __expectString(output.availabilityZone),
-    Description: __expectString(output.description),
-    FlowArn: __expectString(output.flowArn),
-    Maintenance: output.maintenance != null ? de_Maintenance(output.maintenance, context) : undefined,
-    Name: __expectString(output.name),
-    SourceType: __expectString(output.sourceType),
-    Status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    AvailabilityZone: [, __expectString, `availabilityZone`],
+    Description: [, __expectString, `description`],
+    FlowArn: [, __expectString, `flowArn`],
+    Maintenance: (_) => [, de_Maintenance(_, context), `maintenance`],
+    Name: [, __expectString, `name`],
+    SourceType: [, __expectString, `sourceType`],
+    Status: [, __expectString, `status`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ListedGateway
  */
 const de_ListedGateway = (output: any, context: __SerdeContext): ListedGateway => {
-  return {
-    GatewayArn: __expectString(output.gatewayArn),
-    GatewayState: __expectString(output.gatewayState),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    GatewayArn: [, __expectString, `gatewayArn`],
+    GatewayState: [, __expectString, `gatewayState`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ListedGatewayInstance
  */
 const de_ListedGatewayInstance = (output: any, context: __SerdeContext): ListedGatewayInstance => {
-  return {
-    GatewayArn: __expectString(output.gatewayArn),
-    GatewayInstanceArn: __expectString(output.gatewayInstanceArn),
-    InstanceId: __expectString(output.instanceId),
-    InstanceState: __expectString(output.instanceState),
-  } as any;
+  return take(output, {
+    GatewayArn: [, __expectString, `gatewayArn`],
+    GatewayInstanceArn: [, __expectString, `gatewayInstanceArn`],
+    InstanceId: [, __expectString, `instanceId`],
+    InstanceState: [, __expectString, `instanceState`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Maintenance
  */
 const de_Maintenance = (output: any, context: __SerdeContext): Maintenance => {
-  return {
-    MaintenanceDay: __expectString(output.maintenanceDay),
-    MaintenanceDeadline: __expectString(output.maintenanceDeadline),
-    MaintenanceScheduledDate: __expectString(output.maintenanceScheduledDate),
-    MaintenanceStartHour: __expectString(output.maintenanceStartHour),
-  } as any;
+  return take(output, {
+    MaintenanceDay: [, __expectString, `maintenanceDay`],
+    MaintenanceDeadline: [, __expectString, `maintenanceDeadline`],
+    MaintenanceScheduledDate: [, __expectString, `maintenanceScheduledDate`],
+    MaintenanceStartHour: [, __expectString, `maintenanceStartHour`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MediaStream
  */
 const de_MediaStream = (output: any, context: __SerdeContext): MediaStream => {
-  return {
-    Attributes: output.attributes != null ? de_MediaStreamAttributes(output.attributes, context) : undefined,
-    ClockRate: __expectInt32(output.clockRate),
-    Description: __expectString(output.description),
-    Fmt: __expectInt32(output.fmt),
-    MediaStreamId: __expectInt32(output.mediaStreamId),
-    MediaStreamName: __expectString(output.mediaStreamName),
-    MediaStreamType: __expectString(output.mediaStreamType),
-    VideoFormat: __expectString(output.videoFormat),
-  } as any;
+  return take(output, {
+    Attributes: (_) => [, de_MediaStreamAttributes(_, context), `attributes`],
+    ClockRate: [, __expectInt32, `clockRate`],
+    Description: [, __expectString, `description`],
+    Fmt: [, __expectInt32, `fmt`],
+    MediaStreamId: [, __expectInt32, `mediaStreamId`],
+    MediaStreamName: [, __expectString, `mediaStreamName`],
+    MediaStreamType: [, __expectString, `mediaStreamType`],
+    VideoFormat: [, __expectString, `videoFormat`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MediaStreamAttributes
  */
 const de_MediaStreamAttributes = (output: any, context: __SerdeContext): MediaStreamAttributes => {
-  return {
-    Fmtp: output.fmtp != null ? de_Fmtp(output.fmtp, context) : undefined,
-    Lang: __expectString(output.lang),
-  } as any;
+  return take(output, {
+    Fmtp: (_) => [, de_Fmtp(_, context), `fmtp`],
+    Lang: [, __expectString, `lang`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MediaStreamOutputConfiguration
  */
 const de_MediaStreamOutputConfiguration = (output: any, context: __SerdeContext): MediaStreamOutputConfiguration => {
-  return {
-    DestinationConfigurations:
-      output.destinationConfigurations != null
-        ? de___listOfDestinationConfiguration(output.destinationConfigurations, context)
-        : undefined,
-    EncodingName: __expectString(output.encodingName),
-    EncodingParameters:
-      output.encodingParameters != null ? de_EncodingParameters(output.encodingParameters, context) : undefined,
-    MediaStreamName: __expectString(output.mediaStreamName),
-  } as any;
+  return take(output, {
+    DestinationConfigurations: (_) => [, de___listOfDestinationConfiguration(_, context), `destinationConfigurations`],
+    EncodingName: [, __expectString, `encodingName`],
+    EncodingParameters: (_) => [, de_EncodingParameters(_, context), `encodingParameters`],
+    MediaStreamName: [, __expectString, `mediaStreamName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MediaStreamSourceConfiguration
  */
 const de_MediaStreamSourceConfiguration = (output: any, context: __SerdeContext): MediaStreamSourceConfiguration => {
-  return {
-    EncodingName: __expectString(output.encodingName),
-    InputConfigurations:
-      output.inputConfigurations != null
-        ? de___listOfInputConfiguration(output.inputConfigurations, context)
-        : undefined,
-    MediaStreamName: __expectString(output.mediaStreamName),
-  } as any;
+  return take(output, {
+    EncodingName: [, __expectString, `encodingName`],
+    InputConfigurations: (_) => [, de___listOfInputConfiguration(_, context), `inputConfigurations`],
+    MediaStreamName: [, __expectString, `mediaStreamName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MessageDetail
  */
 const de_MessageDetail = (output: any, context: __SerdeContext): MessageDetail => {
-  return {
-    Code: __expectString(output.code),
-    Message: __expectString(output.message),
-    ResourceName: __expectString(output.resourceName),
-  } as any;
+  return take(output, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+    ResourceName: [, __expectString, `resourceName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Messages
  */
 const de_Messages = (output: any, context: __SerdeContext): Messages => {
-  return {
-    Errors: output.errors != null ? de___listOf__string(output.errors, context) : undefined,
-  } as any;
+  return take(output, {
+    Errors: [, _json, `errors`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Offering
  */
 const de_Offering = (output: any, context: __SerdeContext): Offering => {
-  return {
-    CurrencyCode: __expectString(output.currencyCode),
-    Duration: __expectInt32(output.duration),
-    DurationUnits: __expectString(output.durationUnits),
-    OfferingArn: __expectString(output.offeringArn),
-    OfferingDescription: __expectString(output.offeringDescription),
-    PricePerUnit: __expectString(output.pricePerUnit),
-    PriceUnits: __expectString(output.priceUnits),
-    ResourceSpecification:
-      output.resourceSpecification != null
-        ? de_ResourceSpecification(output.resourceSpecification, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CurrencyCode: [, __expectString, `currencyCode`],
+    Duration: [, __expectInt32, `duration`],
+    DurationUnits: [, __expectString, `durationUnits`],
+    OfferingArn: [, __expectString, `offeringArn`],
+    OfferingDescription: [, __expectString, `offeringDescription`],
+    PricePerUnit: [, __expectString, `pricePerUnit`],
+    PriceUnits: [, __expectString, `priceUnits`],
+    ResourceSpecification: (_) => [, de_ResourceSpecification(_, context), `resourceSpecification`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Output
  */
 const de_Output = (output: any, context: __SerdeContext): Output => {
-  return {
-    BridgeArn: __expectString(output.bridgeArn),
-    BridgePorts: output.bridgePorts != null ? de___listOf__integer(output.bridgePorts, context) : undefined,
-    DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
-    Description: __expectString(output.description),
-    Destination: __expectString(output.destination),
-    Encryption: output.encryption != null ? de_Encryption(output.encryption, context) : undefined,
-    EntitlementArn: __expectString(output.entitlementArn),
-    ListenerAddress: __expectString(output.listenerAddress),
-    MediaLiveInputArn: __expectString(output.mediaLiveInputArn),
-    MediaStreamOutputConfigurations:
-      output.mediaStreamOutputConfigurations != null
-        ? de___listOfMediaStreamOutputConfiguration(output.mediaStreamOutputConfigurations, context)
-        : undefined,
-    Name: __expectString(output.name),
-    OutputArn: __expectString(output.outputArn),
-    Port: __expectInt32(output.port),
-    Transport: output.transport != null ? de_Transport(output.transport, context) : undefined,
-    VpcInterfaceAttachment:
-      output.vpcInterfaceAttachment != null
-        ? de_VpcInterfaceAttachment(output.vpcInterfaceAttachment, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    BridgeArn: [, __expectString, `bridgeArn`],
+    BridgePorts: [, _json, `bridgePorts`],
+    DataTransferSubscriberFeePercent: [, __expectInt32, `dataTransferSubscriberFeePercent`],
+    Description: [, __expectString, `description`],
+    Destination: [, __expectString, `destination`],
+    Encryption: (_) => [, de_Encryption(_, context), `encryption`],
+    EntitlementArn: [, __expectString, `entitlementArn`],
+    ListenerAddress: [, __expectString, `listenerAddress`],
+    MediaLiveInputArn: [, __expectString, `mediaLiveInputArn`],
+    MediaStreamOutputConfigurations: (_) => [
+      ,
+      de___listOfMediaStreamOutputConfiguration(_, context),
+      `mediaStreamOutputConfigurations`,
+    ],
+    Name: [, __expectString, `name`],
+    OutputArn: [, __expectString, `outputArn`],
+    Port: [, __expectInt32, `port`],
+    Transport: (_) => [, de_Transport(_, context), `transport`],
+    VpcInterfaceAttachment: (_) => [, de_VpcInterfaceAttachment(_, context), `vpcInterfaceAttachment`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Reservation
  */
 const de_Reservation = (output: any, context: __SerdeContext): Reservation => {
-  return {
-    CurrencyCode: __expectString(output.currencyCode),
-    Duration: __expectInt32(output.duration),
-    DurationUnits: __expectString(output.durationUnits),
-    End: __expectString(output.end),
-    OfferingArn: __expectString(output.offeringArn),
-    OfferingDescription: __expectString(output.offeringDescription),
-    PricePerUnit: __expectString(output.pricePerUnit),
-    PriceUnits: __expectString(output.priceUnits),
-    ReservationArn: __expectString(output.reservationArn),
-    ReservationName: __expectString(output.reservationName),
-    ReservationState: __expectString(output.reservationState),
-    ResourceSpecification:
-      output.resourceSpecification != null
-        ? de_ResourceSpecification(output.resourceSpecification, context)
-        : undefined,
-    Start: __expectString(output.start),
-  } as any;
+  return take(output, {
+    CurrencyCode: [, __expectString, `currencyCode`],
+    Duration: [, __expectInt32, `duration`],
+    DurationUnits: [, __expectString, `durationUnits`],
+    End: [, __expectString, `end`],
+    OfferingArn: [, __expectString, `offeringArn`],
+    OfferingDescription: [, __expectString, `offeringDescription`],
+    PricePerUnit: [, __expectString, `pricePerUnit`],
+    PriceUnits: [, __expectString, `priceUnits`],
+    ReservationArn: [, __expectString, `reservationArn`],
+    ReservationName: [, __expectString, `reservationName`],
+    ReservationState: [, __expectString, `reservationState`],
+    ResourceSpecification: (_) => [, de_ResourceSpecification(_, context), `resourceSpecification`],
+    Start: [, __expectString, `start`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ResourceSpecification
  */
 const de_ResourceSpecification = (output: any, context: __SerdeContext): ResourceSpecification => {
-  return {
-    ReservedBitrate: __expectInt32(output.reservedBitrate),
-    ResourceType: __expectString(output.resourceType),
-  } as any;
+  return take(output, {
+    ReservedBitrate: [, __expectInt32, `reservedBitrate`],
+    ResourceType: [, __expectString, `resourceType`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Source
  */
 const de_Source = (output: any, context: __SerdeContext): Source => {
-  return {
-    DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
-    Decryption: output.decryption != null ? de_Encryption(output.decryption, context) : undefined,
-    Description: __expectString(output.description),
-    EntitlementArn: __expectString(output.entitlementArn),
-    GatewayBridgeSource:
-      output.gatewayBridgeSource != null ? de_GatewayBridgeSource(output.gatewayBridgeSource, context) : undefined,
-    IngestIp: __expectString(output.ingestIp),
-    IngestPort: __expectInt32(output.ingestPort),
-    MediaStreamSourceConfigurations:
-      output.mediaStreamSourceConfigurations != null
-        ? de___listOfMediaStreamSourceConfiguration(output.mediaStreamSourceConfigurations, context)
-        : undefined,
-    Name: __expectString(output.name),
-    SenderControlPort: __expectInt32(output.senderControlPort),
-    SenderIpAddress: __expectString(output.senderIpAddress),
-    SourceArn: __expectString(output.sourceArn),
-    Transport: output.transport != null ? de_Transport(output.transport, context) : undefined,
-    VpcInterfaceName: __expectString(output.vpcInterfaceName),
-    WhitelistCidr: __expectString(output.whitelistCidr),
-  } as any;
+  return take(output, {
+    DataTransferSubscriberFeePercent: [, __expectInt32, `dataTransferSubscriberFeePercent`],
+    Decryption: (_) => [, de_Encryption(_, context), `decryption`],
+    Description: [, __expectString, `description`],
+    EntitlementArn: [, __expectString, `entitlementArn`],
+    GatewayBridgeSource: (_) => [, de_GatewayBridgeSource(_, context), `gatewayBridgeSource`],
+    IngestIp: [, __expectString, `ingestIp`],
+    IngestPort: [, __expectInt32, `ingestPort`],
+    MediaStreamSourceConfigurations: (_) => [
+      ,
+      de___listOfMediaStreamSourceConfiguration(_, context),
+      `mediaStreamSourceConfigurations`,
+    ],
+    Name: [, __expectString, `name`],
+    SenderControlPort: [, __expectInt32, `senderControlPort`],
+    SenderIpAddress: [, __expectString, `senderIpAddress`],
+    SourceArn: [, __expectString, `sourceArn`],
+    Transport: (_) => [, de_Transport(_, context), `transport`],
+    VpcInterfaceName: [, __expectString, `vpcInterfaceName`],
+    WhitelistCidr: [, __expectString, `whitelistCidr`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SourcePriority
  */
 const de_SourcePriority = (output: any, context: __SerdeContext): SourcePriority => {
-  return {
-    PrimarySource: __expectString(output.primarySource),
-  } as any;
+  return take(output, {
+    PrimarySource: [, __expectString, `primarySource`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Transport
  */
 const de_Transport = (output: any, context: __SerdeContext): Transport => {
-  return {
-    CidrAllowList: output.cidrAllowList != null ? de___listOf__string(output.cidrAllowList, context) : undefined,
-    MaxBitrate: __expectInt32(output.maxBitrate),
-    MaxLatency: __expectInt32(output.maxLatency),
-    MaxSyncBuffer: __expectInt32(output.maxSyncBuffer),
-    MinLatency: __expectInt32(output.minLatency),
-    Protocol: __expectString(output.protocol),
-    RemoteId: __expectString(output.remoteId),
-    SenderControlPort: __expectInt32(output.senderControlPort),
-    SenderIpAddress: __expectString(output.senderIpAddress),
-    SmoothingLatency: __expectInt32(output.smoothingLatency),
-    SourceListenerAddress: __expectString(output.sourceListenerAddress),
-    SourceListenerPort: __expectInt32(output.sourceListenerPort),
-    StreamId: __expectString(output.streamId),
-  } as any;
+  return take(output, {
+    CidrAllowList: [, _json, `cidrAllowList`],
+    MaxBitrate: [, __expectInt32, `maxBitrate`],
+    MaxLatency: [, __expectInt32, `maxLatency`],
+    MaxSyncBuffer: [, __expectInt32, `maxSyncBuffer`],
+    MinLatency: [, __expectInt32, `minLatency`],
+    Protocol: [, __expectString, `protocol`],
+    RemoteId: [, __expectString, `remoteId`],
+    SenderControlPort: [, __expectInt32, `senderControlPort`],
+    SenderIpAddress: [, __expectString, `senderIpAddress`],
+    SmoothingLatency: [, __expectInt32, `smoothingLatency`],
+    SourceListenerAddress: [, __expectString, `sourceListenerAddress`],
+    SourceListenerPort: [, __expectInt32, `sourceListenerPort`],
+    StreamId: [, __expectString, `streamId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1VpcInterface
  */
 const de_VpcInterface = (output: any, context: __SerdeContext): VpcInterface => {
-  return {
-    Name: __expectString(output.name),
-    NetworkInterfaceIds:
-      output.networkInterfaceIds != null ? de___listOf__string(output.networkInterfaceIds, context) : undefined,
-    NetworkInterfaceType: __expectString(output.networkInterfaceType),
-    RoleArn: __expectString(output.roleArn),
-    SecurityGroupIds:
-      output.securityGroupIds != null ? de___listOf__string(output.securityGroupIds, context) : undefined,
-    SubnetId: __expectString(output.subnetId),
-  } as any;
+  return take(output, {
+    Name: [, __expectString, `name`],
+    NetworkInterfaceIds: [, _json, `networkInterfaceIds`],
+    NetworkInterfaceType: [, __expectString, `networkInterfaceType`],
+    RoleArn: [, __expectString, `roleArn`],
+    SecurityGroupIds: [, _json, `securityGroupIds`],
+    SubnetId: [, __expectString, `subnetId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1VpcInterfaceAttachment
  */
 const de_VpcInterfaceAttachment = (output: any, context: __SerdeContext): VpcInterfaceAttachment => {
-  return {
-    VpcInterfaceName: __expectString(output.vpcInterfaceName),
-  } as any;
+  return take(output, {
+    VpcInterfaceName: [, __expectString, `vpcInterfaceName`],
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

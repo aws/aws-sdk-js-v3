@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
+  map,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -21,16 +23,7 @@ import {
   GetDeviceRegistrationCommandOutput,
 } from "../commands/GetDeviceRegistrationCommand";
 import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "../commands/SendHeartbeatCommand";
-import {
-  Checksum,
-  Definition,
-  DeploymentModel,
-  DeploymentResult,
-  EdgeDeployment,
-  EdgeMetric,
-  InternalServiceException,
-  Model,
-} from "../models/models_0";
+import { DeploymentModel, DeploymentResult, EdgeMetric, InternalServiceException, Model } from "../models/models_0";
 import { SagemakerEdgeServiceException as __BaseException } from "../models/SagemakerEdgeServiceException";
 
 /**
@@ -46,10 +39,12 @@ export const se_GetDeploymentsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDeployments";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
-    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeviceFleetName: [],
+      DeviceName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -74,10 +69,12 @@ export const se_GetDeviceRegistrationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDeviceRegistration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
-    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeviceFleetName: [],
+      DeviceName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -102,14 +99,16 @@ export const se_SendHeartbeatCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendHeartbeat";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AgentMetrics != null && { AgentMetrics: se_EdgeMetrics(input.AgentMetrics, context) }),
-    ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
-    ...(input.DeploymentResult != null && { DeploymentResult: se_DeploymentResult(input.DeploymentResult, context) }),
-    ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
-    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-    ...(input.Models != null && { Models: se_Models(input.Models, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AgentMetrics: (_) => se_EdgeMetrics(_, context),
+      AgentVersion: [],
+      DeploymentResult: (_) => se_DeploymentResult(_, context),
+      DeviceFleetName: [],
+      DeviceName: [],
+      Models: (_) => se_Models(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -135,9 +134,10 @@ export const de_GetDeploymentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Deployments != null) {
-    contents.Deployments = de_EdgeDeployments(data.Deployments, context);
-  }
+  const doc = take(data, {
+    Deployments: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -159,10 +159,9 @@ const de_GetDeploymentsCommandError = async (
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -182,12 +181,11 @@ export const de_GetDeviceRegistrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CacheTTL != null) {
-    contents.CacheTTL = __expectString(data.CacheTTL);
-  }
-  if (data.DeviceRegistration != null) {
-    contents.DeviceRegistration = __expectString(data.DeviceRegistration);
-  }
+  const doc = take(data, {
+    CacheTTL: __expectString,
+    DeviceRegistration: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -209,10 +207,9 @@ const de_GetDeviceRegistrationCommandError = async (
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -253,16 +250,15 @@ const de_SendHeartbeatCommandError = async (
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InternalServiceExceptionRes
  */
@@ -272,9 +268,10 @@ const de_InternalServiceExceptionRes = async (
 ): Promise<InternalServiceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -282,59 +279,34 @@ const de_InternalServiceExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1DeploymentModel
- */
-const se_DeploymentModel = (input: DeploymentModel, context: __SerdeContext): any => {
-  return {
-    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
-    ...(input.ModelHandle != null && { ModelHandle: input.ModelHandle }),
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-    ...(input.ModelVersion != null && { ModelVersion: input.ModelVersion }),
-    ...(input.RollbackFailureReason != null && { RollbackFailureReason: input.RollbackFailureReason }),
-    ...(input.State != null && { State: input.State }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
-  };
-};
+// se_DeploymentModel omitted.
 
-/**
- * serializeAws_restJson1DeploymentModels
- */
-const se_DeploymentModels = (input: DeploymentModel[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DeploymentModel(entry, context);
-    });
-};
+// se_DeploymentModels omitted.
 
 /**
  * serializeAws_restJson1DeploymentResult
  */
 const se_DeploymentResult = (input: DeploymentResult, context: __SerdeContext): any => {
-  return {
-    ...(input.DeploymentEndTime != null && { DeploymentEndTime: Math.round(input.DeploymentEndTime.getTime() / 1000) }),
-    ...(input.DeploymentModels != null && { DeploymentModels: se_DeploymentModels(input.DeploymentModels, context) }),
-    ...(input.DeploymentName != null && { DeploymentName: input.DeploymentName }),
-    ...(input.DeploymentStartTime != null && {
-      DeploymentStartTime: Math.round(input.DeploymentStartTime.getTime() / 1000),
-    }),
-    ...(input.DeploymentStatus != null && { DeploymentStatus: input.DeploymentStatus }),
-    ...(input.DeploymentStatusMessage != null && { DeploymentStatusMessage: input.DeploymentStatusMessage }),
-  };
+  return take(input, {
+    DeploymentEndTime: (_) => Math.round(_.getTime() / 1000),
+    DeploymentModels: (_) => _json(_),
+    DeploymentName: [],
+    DeploymentStartTime: (_) => Math.round(_.getTime() / 1000),
+    DeploymentStatus: [],
+    DeploymentStatusMessage: [],
+  });
 };
 
 /**
  * serializeAws_restJson1EdgeMetric
  */
 const se_EdgeMetric = (input: EdgeMetric, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimension != null && { Dimension: input.Dimension }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
-  };
+  return take(input, {
+    Dimension: [],
+    MetricName: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Value: (_) => __serializeFloat(_),
+  });
 };
 
 /**
@@ -352,13 +324,13 @@ const se_EdgeMetrics = (input: EdgeMetric[], context: __SerdeContext): any => {
  * serializeAws_restJson1Model
  */
 const se_Model = (input: Model, context: __SerdeContext): any => {
-  return {
-    ...(input.LatestInference != null && { LatestInference: Math.round(input.LatestInference.getTime() / 1000) }),
-    ...(input.LatestSampleTime != null && { LatestSampleTime: Math.round(input.LatestSampleTime.getTime() / 1000) }),
-    ...(input.ModelMetrics != null && { ModelMetrics: se_EdgeMetrics(input.ModelMetrics, context) }),
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-    ...(input.ModelVersion != null && { ModelVersion: input.ModelVersion }),
-  };
+  return take(input, {
+    LatestInference: (_) => Math.round(_.getTime() / 1000),
+    LatestSampleTime: (_) => Math.round(_.getTime() / 1000),
+    ModelMetrics: (_) => se_EdgeMetrics(_, context),
+    ModelName: [],
+    ModelVersion: [],
+  });
 };
 
 /**
@@ -372,69 +344,15 @@ const se_Models = (input: Model[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * deserializeAws_restJson1Checksum
- */
-const de_Checksum = (output: any, context: __SerdeContext): Checksum => {
-  return {
-    Sum: __expectString(output.Sum),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Checksum omitted.
 
-/**
- * deserializeAws_restJson1Definition
- */
-const de_Definition = (output: any, context: __SerdeContext): Definition => {
-  return {
-    Checksum: output.Checksum != null ? de_Checksum(output.Checksum, context) : undefined,
-    ModelHandle: __expectString(output.ModelHandle),
-    S3Url: __expectString(output.S3Url),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_Definition omitted.
 
-/**
- * deserializeAws_restJson1Definitions
- */
-const de_Definitions = (output: any, context: __SerdeContext): Definition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Definition(entry, context);
-    });
-  return retVal;
-};
+// de_Definitions omitted.
 
-/**
- * deserializeAws_restJson1EdgeDeployment
- */
-const de_EdgeDeployment = (output: any, context: __SerdeContext): EdgeDeployment => {
-  return {
-    Definitions: output.Definitions != null ? de_Definitions(output.Definitions, context) : undefined,
-    DeploymentName: __expectString(output.DeploymentName),
-    FailureHandlingPolicy: __expectString(output.FailureHandlingPolicy),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_EdgeDeployment omitted.
 
-/**
- * deserializeAws_restJson1EdgeDeployments
- */
-const de_EdgeDeployments = (output: any, context: __SerdeContext): EdgeDeployment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EdgeDeployment(entry, context);
-    });
-  return retVal;
-};
+// de_EdgeDeployments omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

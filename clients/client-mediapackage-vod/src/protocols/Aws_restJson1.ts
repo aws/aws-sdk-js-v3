@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,9 +9,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -111,9 +113,11 @@ export const se_ConfigureLogsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/packaging_groups/{Id}/configure_logs";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.EgressAccessLogs != null && { egressAccessLogs: se_EgressAccessLogs(input.EgressAccessLogs, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      egressAccessLogs: [, (_) => se_EgressAccessLogs(_, context), `EgressAccessLogs`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -138,14 +142,16 @@ export const se_CreateAssetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Id != null && { id: input.Id }),
-    ...(input.PackagingGroupId != null && { packagingGroupId: input.PackagingGroupId }),
-    ...(input.ResourceId != null && { resourceId: input.ResourceId }),
-    ...(input.SourceArn != null && { sourceArn: input.SourceArn }),
-    ...(input.SourceRoleArn != null && { sourceRoleArn: input.SourceRoleArn }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      id: [, , `Id`],
+      packagingGroupId: [, , `PackagingGroupId`],
+      resourceId: [, , `ResourceId`],
+      sourceArn: [, , `SourceArn`],
+      sourceRoleArn: [, , `SourceRoleArn`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -171,15 +177,17 @@ export const se_CreatePackagingConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/packaging_configurations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CmafPackage != null && { cmafPackage: se_CmafPackage(input.CmafPackage, context) }),
-    ...(input.DashPackage != null && { dashPackage: se_DashPackage(input.DashPackage, context) }),
-    ...(input.HlsPackage != null && { hlsPackage: se_HlsPackage(input.HlsPackage, context) }),
-    ...(input.Id != null && { id: input.Id }),
-    ...(input.MssPackage != null && { mssPackage: se_MssPackage(input.MssPackage, context) }),
-    ...(input.PackagingGroupId != null && { packagingGroupId: input.PackagingGroupId }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cmafPackage: [, (_) => se_CmafPackage(_, context), `CmafPackage`],
+      dashPackage: [, (_) => se_DashPackage(_, context), `DashPackage`],
+      hlsPackage: [, (_) => se_HlsPackage(_, context), `HlsPackage`],
+      id: [, , `Id`],
+      mssPackage: [, (_) => se_MssPackage(_, context), `MssPackage`],
+      packagingGroupId: [, , `PackagingGroupId`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -204,12 +212,14 @@ export const se_CreatePackagingGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/packaging_groups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Authorization != null && { authorization: se_Authorization(input.Authorization, context) }),
-    ...(input.EgressAccessLogs != null && { egressAccessLogs: se_EgressAccessLogs(input.EgressAccessLogs, context) }),
-    ...(input.Id != null && { id: input.Id }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authorization: [, (_) => se_Authorization(_, context), `Authorization`],
+      egressAccessLogs: [, (_) => se_EgressAccessLogs(_, context), `EgressAccessLogs`],
+      id: [, , `Id`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -482,9 +492,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -540,9 +552,11 @@ export const se_UpdatePackagingGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/packaging_groups/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Authorization != null && { authorization: se_Authorization(input.Authorization, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authorization: [, (_) => se_Authorization(_, context), `Authorization`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -568,27 +582,16 @@ export const de_ConfigureLogsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.authorization != null) {
-    contents.Authorization = de_Authorization(data.authorization, context);
-  }
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.domainName != null) {
-    contents.DomainName = __expectString(data.domainName);
-  }
-  if (data.egressAccessLogs != null) {
-    contents.EgressAccessLogs = de_EgressAccessLogs(data.egressAccessLogs, context);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    Authorization: [, (_) => de_Authorization(_, context), `authorization`],
+    CreatedAt: [, __expectString, `createdAt`],
+    DomainName: [, __expectString, `domainName`],
+    EgressAccessLogs: [, (_) => de_EgressAccessLogs(_, context), `egressAccessLogs`],
+    Id: [, __expectString, `id`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -625,10 +628,9 @@ const de_ConfigureLogsCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -648,33 +650,18 @@ export const de_CreateAssetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.egressEndpoints != null) {
-    contents.EgressEndpoints = de___listOfEgressEndpoint(data.egressEndpoints, context);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.packagingGroupId != null) {
-    contents.PackagingGroupId = __expectString(data.packagingGroupId);
-  }
-  if (data.resourceId != null) {
-    contents.ResourceId = __expectString(data.resourceId);
-  }
-  if (data.sourceArn != null) {
-    contents.SourceArn = __expectString(data.sourceArn);
-  }
-  if (data.sourceRoleArn != null) {
-    contents.SourceRoleArn = __expectString(data.sourceRoleArn);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, __expectString, `createdAt`],
+    EgressEndpoints: [, (_) => de___listOfEgressEndpoint(_, context), `egressEndpoints`],
+    Id: [, __expectString, `id`],
+    PackagingGroupId: [, __expectString, `packagingGroupId`],
+    ResourceId: [, __expectString, `resourceId`],
+    SourceArn: [, __expectString, `sourceArn`],
+    SourceRoleArn: [, __expectString, `sourceRoleArn`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -711,10 +698,9 @@ const de_CreateAssetCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -734,33 +720,18 @@ export const de_CreatePackagingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.cmafPackage != null) {
-    contents.CmafPackage = de_CmafPackage(data.cmafPackage, context);
-  }
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.dashPackage != null) {
-    contents.DashPackage = de_DashPackage(data.dashPackage, context);
-  }
-  if (data.hlsPackage != null) {
-    contents.HlsPackage = de_HlsPackage(data.hlsPackage, context);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.mssPackage != null) {
-    contents.MssPackage = de_MssPackage(data.mssPackage, context);
-  }
-  if (data.packagingGroupId != null) {
-    contents.PackagingGroupId = __expectString(data.packagingGroupId);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CmafPackage: [, (_) => de_CmafPackage(_, context), `cmafPackage`],
+    CreatedAt: [, __expectString, `createdAt`],
+    DashPackage: [, (_) => de_DashPackage(_, context), `dashPackage`],
+    HlsPackage: [, (_) => de_HlsPackage(_, context), `hlsPackage`],
+    Id: [, __expectString, `id`],
+    MssPackage: [, (_) => de_MssPackage(_, context), `mssPackage`],
+    PackagingGroupId: [, __expectString, `packagingGroupId`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -797,10 +768,9 @@ const de_CreatePackagingConfigurationCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -820,27 +790,16 @@ export const de_CreatePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.authorization != null) {
-    contents.Authorization = de_Authorization(data.authorization, context);
-  }
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.domainName != null) {
-    contents.DomainName = __expectString(data.domainName);
-  }
-  if (data.egressAccessLogs != null) {
-    contents.EgressAccessLogs = de_EgressAccessLogs(data.egressAccessLogs, context);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    Authorization: [, (_) => de_Authorization(_, context), `authorization`],
+    CreatedAt: [, __expectString, `createdAt`],
+    DomainName: [, __expectString, `domainName`],
+    EgressAccessLogs: [, (_) => de_EgressAccessLogs(_, context), `egressAccessLogs`],
+    Id: [, __expectString, `id`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -877,10 +836,9 @@ const de_CreatePackagingGroupCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -936,10 +894,9 @@ const de_DeleteAssetCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -995,10 +952,9 @@ const de_DeletePackagingConfigurationCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1054,10 +1010,9 @@ const de_DeletePackagingGroupCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1077,33 +1032,18 @@ export const de_DescribeAssetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.egressEndpoints != null) {
-    contents.EgressEndpoints = de___listOfEgressEndpoint(data.egressEndpoints, context);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.packagingGroupId != null) {
-    contents.PackagingGroupId = __expectString(data.packagingGroupId);
-  }
-  if (data.resourceId != null) {
-    contents.ResourceId = __expectString(data.resourceId);
-  }
-  if (data.sourceArn != null) {
-    contents.SourceArn = __expectString(data.sourceArn);
-  }
-  if (data.sourceRoleArn != null) {
-    contents.SourceRoleArn = __expectString(data.sourceRoleArn);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, __expectString, `createdAt`],
+    EgressEndpoints: [, (_) => de___listOfEgressEndpoint(_, context), `egressEndpoints`],
+    Id: [, __expectString, `id`],
+    PackagingGroupId: [, __expectString, `packagingGroupId`],
+    ResourceId: [, __expectString, `resourceId`],
+    SourceArn: [, __expectString, `sourceArn`],
+    SourceRoleArn: [, __expectString, `sourceRoleArn`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1140,10 +1080,9 @@ const de_DescribeAssetCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1163,33 +1102,18 @@ export const de_DescribePackagingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.cmafPackage != null) {
-    contents.CmafPackage = de_CmafPackage(data.cmafPackage, context);
-  }
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.dashPackage != null) {
-    contents.DashPackage = de_DashPackage(data.dashPackage, context);
-  }
-  if (data.hlsPackage != null) {
-    contents.HlsPackage = de_HlsPackage(data.hlsPackage, context);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.mssPackage != null) {
-    contents.MssPackage = de_MssPackage(data.mssPackage, context);
-  }
-  if (data.packagingGroupId != null) {
-    contents.PackagingGroupId = __expectString(data.packagingGroupId);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CmafPackage: [, (_) => de_CmafPackage(_, context), `cmafPackage`],
+    CreatedAt: [, __expectString, `createdAt`],
+    DashPackage: [, (_) => de_DashPackage(_, context), `dashPackage`],
+    HlsPackage: [, (_) => de_HlsPackage(_, context), `hlsPackage`],
+    Id: [, __expectString, `id`],
+    MssPackage: [, (_) => de_MssPackage(_, context), `mssPackage`],
+    PackagingGroupId: [, __expectString, `packagingGroupId`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1226,10 +1150,9 @@ const de_DescribePackagingConfigurationCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1249,30 +1172,17 @@ export const de_DescribePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.approximateAssetCount != null) {
-    contents.ApproximateAssetCount = __expectInt32(data.approximateAssetCount);
-  }
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.authorization != null) {
-    contents.Authorization = de_Authorization(data.authorization, context);
-  }
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.domainName != null) {
-    contents.DomainName = __expectString(data.domainName);
-  }
-  if (data.egressAccessLogs != null) {
-    contents.EgressAccessLogs = de_EgressAccessLogs(data.egressAccessLogs, context);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    ApproximateAssetCount: [, __expectInt32, `approximateAssetCount`],
+    Arn: [, __expectString, `arn`],
+    Authorization: [, (_) => de_Authorization(_, context), `authorization`],
+    CreatedAt: [, __expectString, `createdAt`],
+    DomainName: [, __expectString, `domainName`],
+    EgressAccessLogs: [, (_) => de_EgressAccessLogs(_, context), `egressAccessLogs`],
+    Id: [, __expectString, `id`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1309,10 +1219,9 @@ const de_DescribePackagingGroupCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1332,12 +1241,11 @@ export const de_ListAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assets != null) {
-    contents.Assets = de___listOfAssetShallow(data.assets, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Assets: [, (_) => de___listOfAssetShallow(_, context), `assets`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1374,10 +1282,9 @@ const de_ListAssetsCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1397,12 +1304,11 @@ export const de_ListPackagingConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.packagingConfigurations != null) {
-    contents.PackagingConfigurations = de___listOfPackagingConfiguration(data.packagingConfigurations, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    PackagingConfigurations: [, (_) => de___listOfPackagingConfiguration(_, context), `packagingConfigurations`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1439,10 +1345,9 @@ const de_ListPackagingConfigurationsCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1462,12 +1367,11 @@ export const de_ListPackagingGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.packagingGroups != null) {
-    contents.PackagingGroups = de___listOfPackagingGroup(data.packagingGroups, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    PackagingGroups: [, (_) => de___listOfPackagingGroup(_, context), `packagingGroups`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1504,10 +1408,9 @@ const de_ListPackagingGroupsCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1527,9 +1430,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1546,10 +1450,9 @@ const de_ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1584,10 +1487,9 @@ const de_TagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1622,10 +1524,9 @@ const de_UntagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1644,30 +1545,17 @@ export const de_UpdatePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.approximateAssetCount != null) {
-    contents.ApproximateAssetCount = __expectInt32(data.approximateAssetCount);
-  }
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.authorization != null) {
-    contents.Authorization = de_Authorization(data.authorization, context);
-  }
-  if (data.createdAt != null) {
-    contents.CreatedAt = __expectString(data.createdAt);
-  }
-  if (data.domainName != null) {
-    contents.DomainName = __expectString(data.domainName);
-  }
-  if (data.egressAccessLogs != null) {
-    contents.EgressAccessLogs = de_EgressAccessLogs(data.egressAccessLogs, context);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    ApproximateAssetCount: [, __expectInt32, `approximateAssetCount`],
+    Arn: [, __expectString, `arn`],
+    Authorization: [, (_) => de_Authorization(_, context), `authorization`],
+    CreatedAt: [, __expectString, `createdAt`],
+    DomainName: [, __expectString, `domainName`],
+    EgressAccessLogs: [, (_) => de_EgressAccessLogs(_, context), `egressAccessLogs`],
+    Id: [, __expectString, `id`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1704,25 +1592,25 @@ const de_UpdatePackagingGroupCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ForbiddenExceptionRes
  */
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1739,9 +1627,10 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1755,9 +1644,10 @@ const de_InternalServerErrorExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1774,9 +1664,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1793,9 +1684,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1812,9 +1704,10 @@ const de_UnprocessableEntityExceptionRes = async (
 ): Promise<UnprocessableEntityException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new UnprocessableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1822,30 +1715,9 @@ const de_UnprocessableEntityExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOf__PeriodTriggersElement
- */
-const se___listOf__PeriodTriggersElement = (
-  input: (__PeriodTriggersElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__PeriodTriggersElement omitted.
 
-/**
- * serializeAws_restJson1__listOf__string
- */
-const se___listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__string omitted.
 
 /**
  * serializeAws_restJson1__listOfDashManifest
@@ -1880,261 +1752,197 @@ const se___listOfMssManifest = (input: MssManifest[], context: __SerdeContext): 
     });
 };
 
-/**
- * serializeAws_restJson1__mapOf__string
- */
-const se___mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__string omitted.
 
 /**
  * serializeAws_restJson1Authorization
  */
 const se_Authorization = (input: Authorization, context: __SerdeContext): any => {
-  return {
-    ...(input.CdnIdentifierSecret != null && { cdnIdentifierSecret: input.CdnIdentifierSecret }),
-    ...(input.SecretsRoleArn != null && { secretsRoleArn: input.SecretsRoleArn }),
-  };
+  return take(input, {
+    cdnIdentifierSecret: [, , `CdnIdentifierSecret`],
+    secretsRoleArn: [, , `SecretsRoleArn`],
+  });
 };
 
 /**
  * serializeAws_restJson1CmafEncryption
  */
 const se_CmafEncryption = (input: CmafEncryption, context: __SerdeContext): any => {
-  return {
-    ...(input.ConstantInitializationVector != null && {
-      constantInitializationVector: input.ConstantInitializationVector,
-    }),
-    ...(input.SpekeKeyProvider != null && { spekeKeyProvider: se_SpekeKeyProvider(input.SpekeKeyProvider, context) }),
-  };
+  return take(input, {
+    constantInitializationVector: [, , `ConstantInitializationVector`],
+    spekeKeyProvider: [, (_) => se_SpekeKeyProvider(_, context), `SpekeKeyProvider`],
+  });
 };
 
 /**
  * serializeAws_restJson1CmafPackage
  */
 const se_CmafPackage = (input: CmafPackage, context: __SerdeContext): any => {
-  return {
-    ...(input.Encryption != null && { encryption: se_CmafEncryption(input.Encryption, context) }),
-    ...(input.HlsManifests != null && { hlsManifests: se___listOfHlsManifest(input.HlsManifests, context) }),
-    ...(input.IncludeEncoderConfigurationInSegments != null && {
-      includeEncoderConfigurationInSegments: input.IncludeEncoderConfigurationInSegments,
-    }),
-    ...(input.SegmentDurationSeconds != null && { segmentDurationSeconds: input.SegmentDurationSeconds }),
-  };
+  return take(input, {
+    encryption: [, (_) => se_CmafEncryption(_, context), `Encryption`],
+    hlsManifests: [, (_) => se___listOfHlsManifest(_, context), `HlsManifests`],
+    includeEncoderConfigurationInSegments: [, , `IncludeEncoderConfigurationInSegments`],
+    segmentDurationSeconds: [, , `SegmentDurationSeconds`],
+  });
 };
 
 /**
  * serializeAws_restJson1DashEncryption
  */
 const se_DashEncryption = (input: DashEncryption, context: __SerdeContext): any => {
-  return {
-    ...(input.SpekeKeyProvider != null && { spekeKeyProvider: se_SpekeKeyProvider(input.SpekeKeyProvider, context) }),
-  };
+  return take(input, {
+    spekeKeyProvider: [, (_) => se_SpekeKeyProvider(_, context), `SpekeKeyProvider`],
+  });
 };
 
 /**
  * serializeAws_restJson1DashManifest
  */
 const se_DashManifest = (input: DashManifest, context: __SerdeContext): any => {
-  return {
-    ...(input.ManifestLayout != null && { manifestLayout: input.ManifestLayout }),
-    ...(input.ManifestName != null && { manifestName: input.ManifestName }),
-    ...(input.MinBufferTimeSeconds != null && { minBufferTimeSeconds: input.MinBufferTimeSeconds }),
-    ...(input.Profile != null && { profile: input.Profile }),
-    ...(input.ScteMarkersSource != null && { scteMarkersSource: input.ScteMarkersSource }),
-    ...(input.StreamSelection != null && { streamSelection: se_StreamSelection(input.StreamSelection, context) }),
-  };
+  return take(input, {
+    manifestLayout: [, , `ManifestLayout`],
+    manifestName: [, , `ManifestName`],
+    minBufferTimeSeconds: [, , `MinBufferTimeSeconds`],
+    profile: [, , `Profile`],
+    scteMarkersSource: [, , `ScteMarkersSource`],
+    streamSelection: [, (_) => se_StreamSelection(_, context), `StreamSelection`],
+  });
 };
 
 /**
  * serializeAws_restJson1DashPackage
  */
 const se_DashPackage = (input: DashPackage, context: __SerdeContext): any => {
-  return {
-    ...(input.DashManifests != null && { dashManifests: se___listOfDashManifest(input.DashManifests, context) }),
-    ...(input.Encryption != null && { encryption: se_DashEncryption(input.Encryption, context) }),
-    ...(input.IncludeEncoderConfigurationInSegments != null && {
-      includeEncoderConfigurationInSegments: input.IncludeEncoderConfigurationInSegments,
-    }),
-    ...(input.IncludeIframeOnlyStream != null && { includeIframeOnlyStream: input.IncludeIframeOnlyStream }),
-    ...(input.PeriodTriggers != null && {
-      periodTriggers: se___listOf__PeriodTriggersElement(input.PeriodTriggers, context),
-    }),
-    ...(input.SegmentDurationSeconds != null && { segmentDurationSeconds: input.SegmentDurationSeconds }),
-    ...(input.SegmentTemplateFormat != null && { segmentTemplateFormat: input.SegmentTemplateFormat }),
-  };
+  return take(input, {
+    dashManifests: [, (_) => se___listOfDashManifest(_, context), `DashManifests`],
+    encryption: [, (_) => se_DashEncryption(_, context), `Encryption`],
+    includeEncoderConfigurationInSegments: [, , `IncludeEncoderConfigurationInSegments`],
+    includeIframeOnlyStream: [, , `IncludeIframeOnlyStream`],
+    periodTriggers: [, (_) => _json(_), `PeriodTriggers`],
+    segmentDurationSeconds: [, , `SegmentDurationSeconds`],
+    segmentTemplateFormat: [, , `SegmentTemplateFormat`],
+  });
 };
 
 /**
  * serializeAws_restJson1EgressAccessLogs
  */
 const se_EgressAccessLogs = (input: EgressAccessLogs, context: __SerdeContext): any => {
-  return {
-    ...(input.LogGroupName != null && { logGroupName: input.LogGroupName }),
-  };
+  return take(input, {
+    logGroupName: [, , `LogGroupName`],
+  });
 };
 
 /**
  * serializeAws_restJson1EncryptionContractConfiguration
  */
 const se_EncryptionContractConfiguration = (input: EncryptionContractConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.PresetSpeke20Audio != null && { presetSpeke20Audio: input.PresetSpeke20Audio }),
-    ...(input.PresetSpeke20Video != null && { presetSpeke20Video: input.PresetSpeke20Video }),
-  };
+  return take(input, {
+    presetSpeke20Audio: [, , `PresetSpeke20Audio`],
+    presetSpeke20Video: [, , `PresetSpeke20Video`],
+  });
 };
 
 /**
  * serializeAws_restJson1HlsEncryption
  */
 const se_HlsEncryption = (input: HlsEncryption, context: __SerdeContext): any => {
-  return {
-    ...(input.ConstantInitializationVector != null && {
-      constantInitializationVector: input.ConstantInitializationVector,
-    }),
-    ...(input.EncryptionMethod != null && { encryptionMethod: input.EncryptionMethod }),
-    ...(input.SpekeKeyProvider != null && { spekeKeyProvider: se_SpekeKeyProvider(input.SpekeKeyProvider, context) }),
-  };
+  return take(input, {
+    constantInitializationVector: [, , `ConstantInitializationVector`],
+    encryptionMethod: [, , `EncryptionMethod`],
+    spekeKeyProvider: [, (_) => se_SpekeKeyProvider(_, context), `SpekeKeyProvider`],
+  });
 };
 
 /**
  * serializeAws_restJson1HlsManifest
  */
 const se_HlsManifest = (input: HlsManifest, context: __SerdeContext): any => {
-  return {
-    ...(input.AdMarkers != null && { adMarkers: input.AdMarkers }),
-    ...(input.IncludeIframeOnlyStream != null && { includeIframeOnlyStream: input.IncludeIframeOnlyStream }),
-    ...(input.ManifestName != null && { manifestName: input.ManifestName }),
-    ...(input.ProgramDateTimeIntervalSeconds != null && {
-      programDateTimeIntervalSeconds: input.ProgramDateTimeIntervalSeconds,
-    }),
-    ...(input.RepeatExtXKey != null && { repeatExtXKey: input.RepeatExtXKey }),
-    ...(input.StreamSelection != null && { streamSelection: se_StreamSelection(input.StreamSelection, context) }),
-  };
+  return take(input, {
+    adMarkers: [, , `AdMarkers`],
+    includeIframeOnlyStream: [, , `IncludeIframeOnlyStream`],
+    manifestName: [, , `ManifestName`],
+    programDateTimeIntervalSeconds: [, , `ProgramDateTimeIntervalSeconds`],
+    repeatExtXKey: [, , `RepeatExtXKey`],
+    streamSelection: [, (_) => se_StreamSelection(_, context), `StreamSelection`],
+  });
 };
 
 /**
  * serializeAws_restJson1HlsPackage
  */
 const se_HlsPackage = (input: HlsPackage, context: __SerdeContext): any => {
-  return {
-    ...(input.Encryption != null && { encryption: se_HlsEncryption(input.Encryption, context) }),
-    ...(input.HlsManifests != null && { hlsManifests: se___listOfHlsManifest(input.HlsManifests, context) }),
-    ...(input.IncludeDvbSubtitles != null && { includeDvbSubtitles: input.IncludeDvbSubtitles }),
-    ...(input.SegmentDurationSeconds != null && { segmentDurationSeconds: input.SegmentDurationSeconds }),
-    ...(input.UseAudioRenditionGroup != null && { useAudioRenditionGroup: input.UseAudioRenditionGroup }),
-  };
+  return take(input, {
+    encryption: [, (_) => se_HlsEncryption(_, context), `Encryption`],
+    hlsManifests: [, (_) => se___listOfHlsManifest(_, context), `HlsManifests`],
+    includeDvbSubtitles: [, , `IncludeDvbSubtitles`],
+    segmentDurationSeconds: [, , `SegmentDurationSeconds`],
+    useAudioRenditionGroup: [, , `UseAudioRenditionGroup`],
+  });
 };
 
 /**
  * serializeAws_restJson1MssEncryption
  */
 const se_MssEncryption = (input: MssEncryption, context: __SerdeContext): any => {
-  return {
-    ...(input.SpekeKeyProvider != null && { spekeKeyProvider: se_SpekeKeyProvider(input.SpekeKeyProvider, context) }),
-  };
+  return take(input, {
+    spekeKeyProvider: [, (_) => se_SpekeKeyProvider(_, context), `SpekeKeyProvider`],
+  });
 };
 
 /**
  * serializeAws_restJson1MssManifest
  */
 const se_MssManifest = (input: MssManifest, context: __SerdeContext): any => {
-  return {
-    ...(input.ManifestName != null && { manifestName: input.ManifestName }),
-    ...(input.StreamSelection != null && { streamSelection: se_StreamSelection(input.StreamSelection, context) }),
-  };
+  return take(input, {
+    manifestName: [, , `ManifestName`],
+    streamSelection: [, (_) => se_StreamSelection(_, context), `StreamSelection`],
+  });
 };
 
 /**
  * serializeAws_restJson1MssPackage
  */
 const se_MssPackage = (input: MssPackage, context: __SerdeContext): any => {
-  return {
-    ...(input.Encryption != null && { encryption: se_MssEncryption(input.Encryption, context) }),
-    ...(input.MssManifests != null && { mssManifests: se___listOfMssManifest(input.MssManifests, context) }),
-    ...(input.SegmentDurationSeconds != null && { segmentDurationSeconds: input.SegmentDurationSeconds }),
-  };
+  return take(input, {
+    encryption: [, (_) => se_MssEncryption(_, context), `Encryption`],
+    mssManifests: [, (_) => se___listOfMssManifest(_, context), `MssManifests`],
+    segmentDurationSeconds: [, , `SegmentDurationSeconds`],
+  });
 };
 
 /**
  * serializeAws_restJson1SpekeKeyProvider
  */
 const se_SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionContractConfiguration != null && {
-      encryptionContractConfiguration: se_EncryptionContractConfiguration(
-        input.EncryptionContractConfiguration,
-        context
-      ),
-    }),
-    ...(input.RoleArn != null && { roleArn: input.RoleArn }),
-    ...(input.SystemIds != null && { systemIds: se___listOf__string(input.SystemIds, context) }),
-    ...(input.Url != null && { url: input.Url }),
-  };
+  return take(input, {
+    encryptionContractConfiguration: [
+      ,
+      (_) => se_EncryptionContractConfiguration(_, context),
+      `EncryptionContractConfiguration`,
+    ],
+    roleArn: [, , `RoleArn`],
+    systemIds: [, (_) => _json(_), `SystemIds`],
+    url: [, , `Url`],
+  });
 };
 
 /**
  * serializeAws_restJson1StreamSelection
  */
 const se_StreamSelection = (input: StreamSelection, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxVideoBitsPerSecond != null && { maxVideoBitsPerSecond: input.MaxVideoBitsPerSecond }),
-    ...(input.MinVideoBitsPerSecond != null && { minVideoBitsPerSecond: input.MinVideoBitsPerSecond }),
-    ...(input.StreamOrder != null && { streamOrder: input.StreamOrder }),
-  };
+  return take(input, {
+    maxVideoBitsPerSecond: [, , `MaxVideoBitsPerSecond`],
+    minVideoBitsPerSecond: [, , `MinVideoBitsPerSecond`],
+    streamOrder: [, , `StreamOrder`],
+  });
 };
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * deserializeAws_restJson1__listOf__PeriodTriggersElement
- */
-const de___listOf__PeriodTriggersElement = (
-  output: any,
-  context: __SerdeContext
-): (__PeriodTriggersElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__PeriodTriggersElement omitted.
 
-/**
- * deserializeAws_restJson1__listOf__string
- */
-const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__string omitted.
 
 /**
  * deserializeAws_restJson1__listOfAssetShallow
@@ -2143,9 +1951,6 @@ const de___listOfAssetShallow = (output: any, context: __SerdeContext): AssetSha
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssetShallow(entry, context);
     });
   return retVal;
@@ -2158,9 +1963,6 @@ const de___listOfDashManifest = (output: any, context: __SerdeContext): DashMani
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DashManifest(entry, context);
     });
   return retVal;
@@ -2173,9 +1975,6 @@ const de___listOfEgressEndpoint = (output: any, context: __SerdeContext): Egress
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EgressEndpoint(entry, context);
     });
   return retVal;
@@ -2188,9 +1987,6 @@ const de___listOfHlsManifest = (output: any, context: __SerdeContext): HlsManife
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_HlsManifest(entry, context);
     });
   return retVal;
@@ -2203,9 +1999,6 @@ const de___listOfMssManifest = (output: any, context: __SerdeContext): MssManife
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MssManifest(entry, context);
     });
   return retVal;
@@ -2218,9 +2011,6 @@ const de___listOfPackagingConfiguration = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PackagingConfiguration(entry, context);
     });
   return retVal;
@@ -2233,288 +2023,258 @@ const de___listOfPackagingGroup = (output: any, context: __SerdeContext): Packag
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PackagingGroup(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__mapOf__string
- */
-const de___mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de___mapOf__string omitted.
 
 /**
  * deserializeAws_restJson1AssetShallow
  */
 const de_AssetShallow = (output: any, context: __SerdeContext): AssetShallow => {
-  return {
-    Arn: __expectString(output.arn),
-    CreatedAt: __expectString(output.createdAt),
-    Id: __expectString(output.id),
-    PackagingGroupId: __expectString(output.packagingGroupId),
-    ResourceId: __expectString(output.resourceId),
-    SourceArn: __expectString(output.sourceArn),
-    SourceRoleArn: __expectString(output.sourceRoleArn),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, __expectString, `createdAt`],
+    Id: [, __expectString, `id`],
+    PackagingGroupId: [, __expectString, `packagingGroupId`],
+    ResourceId: [, __expectString, `resourceId`],
+    SourceArn: [, __expectString, `sourceArn`],
+    SourceRoleArn: [, __expectString, `sourceRoleArn`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Authorization
  */
 const de_Authorization = (output: any, context: __SerdeContext): Authorization => {
-  return {
-    CdnIdentifierSecret: __expectString(output.cdnIdentifierSecret),
-    SecretsRoleArn: __expectString(output.secretsRoleArn),
-  } as any;
+  return take(output, {
+    CdnIdentifierSecret: [, __expectString, `cdnIdentifierSecret`],
+    SecretsRoleArn: [, __expectString, `secretsRoleArn`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CmafEncryption
  */
 const de_CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption => {
-  return {
-    ConstantInitializationVector: __expectString(output.constantInitializationVector),
-    SpekeKeyProvider:
-      output.spekeKeyProvider != null ? de_SpekeKeyProvider(output.spekeKeyProvider, context) : undefined,
-  } as any;
+  return take(output, {
+    ConstantInitializationVector: [, __expectString, `constantInitializationVector`],
+    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CmafPackage
  */
 const de_CmafPackage = (output: any, context: __SerdeContext): CmafPackage => {
-  return {
-    Encryption: output.encryption != null ? de_CmafEncryption(output.encryption, context) : undefined,
-    HlsManifests: output.hlsManifests != null ? de___listOfHlsManifest(output.hlsManifests, context) : undefined,
-    IncludeEncoderConfigurationInSegments: __expectBoolean(output.includeEncoderConfigurationInSegments),
-    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
-  } as any;
+  return take(output, {
+    Encryption: (_) => [, de_CmafEncryption(_, context), `encryption`],
+    HlsManifests: (_) => [, de___listOfHlsManifest(_, context), `hlsManifests`],
+    IncludeEncoderConfigurationInSegments: [, __expectBoolean, `includeEncoderConfigurationInSegments`],
+    SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DashEncryption
  */
 const de_DashEncryption = (output: any, context: __SerdeContext): DashEncryption => {
-  return {
-    SpekeKeyProvider:
-      output.spekeKeyProvider != null ? de_SpekeKeyProvider(output.spekeKeyProvider, context) : undefined,
-  } as any;
+  return take(output, {
+    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DashManifest
  */
 const de_DashManifest = (output: any, context: __SerdeContext): DashManifest => {
-  return {
-    ManifestLayout: __expectString(output.manifestLayout),
-    ManifestName: __expectString(output.manifestName),
-    MinBufferTimeSeconds: __expectInt32(output.minBufferTimeSeconds),
-    Profile: __expectString(output.profile),
-    ScteMarkersSource: __expectString(output.scteMarkersSource),
-    StreamSelection: output.streamSelection != null ? de_StreamSelection(output.streamSelection, context) : undefined,
-  } as any;
+  return take(output, {
+    ManifestLayout: [, __expectString, `manifestLayout`],
+    ManifestName: [, __expectString, `manifestName`],
+    MinBufferTimeSeconds: [, __expectInt32, `minBufferTimeSeconds`],
+    Profile: [, __expectString, `profile`],
+    ScteMarkersSource: [, __expectString, `scteMarkersSource`],
+    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DashPackage
  */
 const de_DashPackage = (output: any, context: __SerdeContext): DashPackage => {
-  return {
-    DashManifests: output.dashManifests != null ? de___listOfDashManifest(output.dashManifests, context) : undefined,
-    Encryption: output.encryption != null ? de_DashEncryption(output.encryption, context) : undefined,
-    IncludeEncoderConfigurationInSegments: __expectBoolean(output.includeEncoderConfigurationInSegments),
-    IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
-    PeriodTriggers:
-      output.periodTriggers != null ? de___listOf__PeriodTriggersElement(output.periodTriggers, context) : undefined,
-    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
-    SegmentTemplateFormat: __expectString(output.segmentTemplateFormat),
-  } as any;
+  return take(output, {
+    DashManifests: (_) => [, de___listOfDashManifest(_, context), `dashManifests`],
+    Encryption: (_) => [, de_DashEncryption(_, context), `encryption`],
+    IncludeEncoderConfigurationInSegments: [, __expectBoolean, `includeEncoderConfigurationInSegments`],
+    IncludeIframeOnlyStream: [, __expectBoolean, `includeIframeOnlyStream`],
+    PeriodTriggers: [, _json, `periodTriggers`],
+    SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
+    SegmentTemplateFormat: [, __expectString, `segmentTemplateFormat`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EgressAccessLogs
  */
 const de_EgressAccessLogs = (output: any, context: __SerdeContext): EgressAccessLogs => {
-  return {
-    LogGroupName: __expectString(output.logGroupName),
-  } as any;
+  return take(output, {
+    LogGroupName: [, __expectString, `logGroupName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EgressEndpoint
  */
 const de_EgressEndpoint = (output: any, context: __SerdeContext): EgressEndpoint => {
-  return {
-    PackagingConfigurationId: __expectString(output.packagingConfigurationId),
-    Status: __expectString(output.status),
-    Url: __expectString(output.url),
-  } as any;
+  return take(output, {
+    PackagingConfigurationId: [, __expectString, `packagingConfigurationId`],
+    Status: [, __expectString, `status`],
+    Url: [, __expectString, `url`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EncryptionContractConfiguration
  */
 const de_EncryptionContractConfiguration = (output: any, context: __SerdeContext): EncryptionContractConfiguration => {
-  return {
-    PresetSpeke20Audio: __expectString(output.presetSpeke20Audio),
-    PresetSpeke20Video: __expectString(output.presetSpeke20Video),
-  } as any;
+  return take(output, {
+    PresetSpeke20Audio: [, __expectString, `presetSpeke20Audio`],
+    PresetSpeke20Video: [, __expectString, `presetSpeke20Video`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1HlsEncryption
  */
 const de_HlsEncryption = (output: any, context: __SerdeContext): HlsEncryption => {
-  return {
-    ConstantInitializationVector: __expectString(output.constantInitializationVector),
-    EncryptionMethod: __expectString(output.encryptionMethod),
-    SpekeKeyProvider:
-      output.spekeKeyProvider != null ? de_SpekeKeyProvider(output.spekeKeyProvider, context) : undefined,
-  } as any;
+  return take(output, {
+    ConstantInitializationVector: [, __expectString, `constantInitializationVector`],
+    EncryptionMethod: [, __expectString, `encryptionMethod`],
+    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1HlsManifest
  */
 const de_HlsManifest = (output: any, context: __SerdeContext): HlsManifest => {
-  return {
-    AdMarkers: __expectString(output.adMarkers),
-    IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
-    ManifestName: __expectString(output.manifestName),
-    ProgramDateTimeIntervalSeconds: __expectInt32(output.programDateTimeIntervalSeconds),
-    RepeatExtXKey: __expectBoolean(output.repeatExtXKey),
-    StreamSelection: output.streamSelection != null ? de_StreamSelection(output.streamSelection, context) : undefined,
-  } as any;
+  return take(output, {
+    AdMarkers: [, __expectString, `adMarkers`],
+    IncludeIframeOnlyStream: [, __expectBoolean, `includeIframeOnlyStream`],
+    ManifestName: [, __expectString, `manifestName`],
+    ProgramDateTimeIntervalSeconds: [, __expectInt32, `programDateTimeIntervalSeconds`],
+    RepeatExtXKey: [, __expectBoolean, `repeatExtXKey`],
+    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1HlsPackage
  */
 const de_HlsPackage = (output: any, context: __SerdeContext): HlsPackage => {
-  return {
-    Encryption: output.encryption != null ? de_HlsEncryption(output.encryption, context) : undefined,
-    HlsManifests: output.hlsManifests != null ? de___listOfHlsManifest(output.hlsManifests, context) : undefined,
-    IncludeDvbSubtitles: __expectBoolean(output.includeDvbSubtitles),
-    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
-    UseAudioRenditionGroup: __expectBoolean(output.useAudioRenditionGroup),
-  } as any;
+  return take(output, {
+    Encryption: (_) => [, de_HlsEncryption(_, context), `encryption`],
+    HlsManifests: (_) => [, de___listOfHlsManifest(_, context), `hlsManifests`],
+    IncludeDvbSubtitles: [, __expectBoolean, `includeDvbSubtitles`],
+    SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
+    UseAudioRenditionGroup: [, __expectBoolean, `useAudioRenditionGroup`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MssEncryption
  */
 const de_MssEncryption = (output: any, context: __SerdeContext): MssEncryption => {
-  return {
-    SpekeKeyProvider:
-      output.spekeKeyProvider != null ? de_SpekeKeyProvider(output.spekeKeyProvider, context) : undefined,
-  } as any;
+  return take(output, {
+    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MssManifest
  */
 const de_MssManifest = (output: any, context: __SerdeContext): MssManifest => {
-  return {
-    ManifestName: __expectString(output.manifestName),
-    StreamSelection: output.streamSelection != null ? de_StreamSelection(output.streamSelection, context) : undefined,
-  } as any;
+  return take(output, {
+    ManifestName: [, __expectString, `manifestName`],
+    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MssPackage
  */
 const de_MssPackage = (output: any, context: __SerdeContext): MssPackage => {
-  return {
-    Encryption: output.encryption != null ? de_MssEncryption(output.encryption, context) : undefined,
-    MssManifests: output.mssManifests != null ? de___listOfMssManifest(output.mssManifests, context) : undefined,
-    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
-  } as any;
+  return take(output, {
+    Encryption: (_) => [, de_MssEncryption(_, context), `encryption`],
+    MssManifests: (_) => [, de___listOfMssManifest(_, context), `mssManifests`],
+    SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PackagingConfiguration
  */
 const de_PackagingConfiguration = (output: any, context: __SerdeContext): PackagingConfiguration => {
-  return {
-    Arn: __expectString(output.arn),
-    CmafPackage: output.cmafPackage != null ? de_CmafPackage(output.cmafPackage, context) : undefined,
-    CreatedAt: __expectString(output.createdAt),
-    DashPackage: output.dashPackage != null ? de_DashPackage(output.dashPackage, context) : undefined,
-    HlsPackage: output.hlsPackage != null ? de_HlsPackage(output.hlsPackage, context) : undefined,
-    Id: __expectString(output.id),
-    MssPackage: output.mssPackage != null ? de_MssPackage(output.mssPackage, context) : undefined,
-    PackagingGroupId: __expectString(output.packagingGroupId),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CmafPackage: (_) => [, de_CmafPackage(_, context), `cmafPackage`],
+    CreatedAt: [, __expectString, `createdAt`],
+    DashPackage: (_) => [, de_DashPackage(_, context), `dashPackage`],
+    HlsPackage: (_) => [, de_HlsPackage(_, context), `hlsPackage`],
+    Id: [, __expectString, `id`],
+    MssPackage: (_) => [, de_MssPackage(_, context), `mssPackage`],
+    PackagingGroupId: [, __expectString, `packagingGroupId`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PackagingGroup
  */
 const de_PackagingGroup = (output: any, context: __SerdeContext): PackagingGroup => {
-  return {
-    ApproximateAssetCount: __expectInt32(output.approximateAssetCount),
-    Arn: __expectString(output.arn),
-    Authorization: output.authorization != null ? de_Authorization(output.authorization, context) : undefined,
-    CreatedAt: __expectString(output.createdAt),
-    DomainName: __expectString(output.domainName),
-    EgressAccessLogs:
-      output.egressAccessLogs != null ? de_EgressAccessLogs(output.egressAccessLogs, context) : undefined,
-    Id: __expectString(output.id),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ApproximateAssetCount: [, __expectInt32, `approximateAssetCount`],
+    Arn: [, __expectString, `arn`],
+    Authorization: (_) => [, de_Authorization(_, context), `authorization`],
+    CreatedAt: [, __expectString, `createdAt`],
+    DomainName: [, __expectString, `domainName`],
+    EgressAccessLogs: (_) => [, de_EgressAccessLogs(_, context), `egressAccessLogs`],
+    Id: [, __expectString, `id`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SpekeKeyProvider
  */
 const de_SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
-  return {
-    EncryptionContractConfiguration:
-      output.encryptionContractConfiguration != null
-        ? de_EncryptionContractConfiguration(output.encryptionContractConfiguration, context)
-        : undefined,
-    RoleArn: __expectString(output.roleArn),
-    SystemIds: output.systemIds != null ? de___listOf__string(output.systemIds, context) : undefined,
-    Url: __expectString(output.url),
-  } as any;
+  return take(output, {
+    EncryptionContractConfiguration: (_) => [
+      ,
+      de_EncryptionContractConfiguration(_, context),
+      `encryptionContractConfiguration`,
+    ],
+    RoleArn: [, __expectString, `roleArn`],
+    SystemIds: [, _json, `systemIds`],
+    Url: [, __expectString, `url`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1StreamSelection
  */
 const de_StreamSelection = (output: any, context: __SerdeContext): StreamSelection => {
-  return {
-    MaxVideoBitsPerSecond: __expectInt32(output.maxVideoBitsPerSecond),
-    MinVideoBitsPerSecond: __expectInt32(output.minVideoBitsPerSecond),
-    StreamOrder: __expectString(output.streamOrder),
-  } as any;
+  return take(output, {
+    MaxVideoBitsPerSecond: [, __expectInt32, `maxVideoBitsPerSecond`],
+    MinVideoBitsPerSecond: [, __expectInt32, `minVideoBitsPerSecond`],
+    StreamOrder: [, __expectString, `streamOrder`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

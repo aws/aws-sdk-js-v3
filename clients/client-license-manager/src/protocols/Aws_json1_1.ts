@@ -1,15 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -158,81 +159,51 @@ import {
 import { LicenseManagerServiceException as __BaseException } from "../models/LicenseManagerServiceException";
 import {
   AcceptGrantRequest,
-  AcceptGrantResponse,
   AccessDeniedException,
   AllowedOperation,
   AuthorizationException,
   AutomatedDiscoveryInformation,
   BorrowConfiguration,
   CheckInLicenseRequest,
-  CheckInLicenseResponse,
   CheckoutBorrowLicenseRequest,
-  CheckoutBorrowLicenseResponse,
   CheckoutLicenseRequest,
-  CheckoutLicenseResponse,
   ConflictException,
-  ConsumedLicenseSummary,
   ConsumptionConfiguration,
   CreateGrantRequest,
-  CreateGrantResponse,
   CreateGrantVersionRequest,
-  CreateGrantVersionResponse,
   CreateLicenseConfigurationRequest,
-  CreateLicenseConfigurationResponse,
   CreateLicenseConversionTaskForResourceRequest,
-  CreateLicenseConversionTaskForResourceResponse,
   CreateLicenseManagerReportGeneratorRequest,
-  CreateLicenseManagerReportGeneratorResponse,
   CreateLicenseRequest,
-  CreateLicenseResponse,
   CreateLicenseVersionRequest,
-  CreateLicenseVersionResponse,
   CreateTokenRequest,
-  CreateTokenResponse,
   DatetimeRange,
   DeleteGrantRequest,
-  DeleteGrantResponse,
   DeleteLicenseConfigurationRequest,
-  DeleteLicenseConfigurationResponse,
   DeleteLicenseManagerReportGeneratorRequest,
-  DeleteLicenseManagerReportGeneratorResponse,
   DeleteLicenseRequest,
-  DeleteLicenseResponse,
   DeleteTokenRequest,
-  DeleteTokenResponse,
   Entitlement,
   EntitlementData,
   EntitlementNotAllowedException,
-  EntitlementUsage,
   ExtendLicenseConsumptionRequest,
-  ExtendLicenseConsumptionResponse,
   FailedDependencyException,
   Filter,
   FilterLimitExceededException,
   GetAccessTokenRequest,
-  GetAccessTokenResponse,
   GetGrantRequest,
-  GetGrantResponse,
   GetLicenseConfigurationRequest,
   GetLicenseConfigurationResponse,
   GetLicenseConversionTaskRequest,
   GetLicenseConversionTaskResponse,
   GetLicenseManagerReportGeneratorRequest,
-  GetLicenseManagerReportGeneratorResponse,
   GetLicenseRequest,
-  GetLicenseResponse,
   GetLicenseUsageRequest,
-  GetLicenseUsageResponse,
   GetServiceSettingsRequest,
-  GetServiceSettingsResponse,
-  Grant,
-  GrantedLicense,
   InvalidParameterValueException,
   InvalidResourceStateException,
   InventoryFilter,
   Issuer,
-  IssuerDetails,
-  License,
   LicenseConfiguration,
   LicenseConfigurationAssociation,
   LicenseConfigurationUsage,
@@ -240,12 +211,10 @@ import {
   LicenseConversionTask,
   LicenseOperationFailure,
   LicenseSpecification,
-  LicenseUsage,
   LicenseUsageException,
   ListAssociationsForLicenseConfigurationRequest,
   ListAssociationsForLicenseConfigurationResponse,
   ListDistributedGrantsRequest,
-  ListDistributedGrantsResponse,
   ListFailuresForLicenseConfigurationOperationsRequest,
   ListFailuresForLicenseConfigurationOperationsResponse,
   ListLicenseConfigurationsRequest,
@@ -253,30 +222,18 @@ import {
   ListLicenseConversionTasksRequest,
   ListLicenseConversionTasksResponse,
   ListLicenseManagerReportGeneratorsRequest,
-  ListLicenseManagerReportGeneratorsResponse,
   ListLicenseSpecificationsForResourceRequest,
-  ListLicenseSpecificationsForResourceResponse,
   ListLicensesRequest,
-  ListLicensesResponse,
   ListLicenseVersionsRequest,
-  ListLicenseVersionsResponse,
   ListReceivedGrantsForOrganizationRequest,
-  ListReceivedGrantsForOrganizationResponse,
   ListReceivedGrantsRequest,
-  ListReceivedGrantsResponse,
   ListReceivedLicensesForOrganizationRequest,
-  ListReceivedLicensesForOrganizationResponse,
   ListReceivedLicensesRequest,
-  ListReceivedLicensesResponse,
   ListResourceInventoryRequest,
-  ListResourceInventoryResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTokensRequest,
-  ListTokensResponse,
   ListUsageForLicenseConfigurationRequest,
   ListUsageForLicenseConfigurationResponse,
-  ManagedResourceSummary,
   Metadata,
   NoEntitlementsAllowedException,
   Options,
@@ -285,34 +242,22 @@ import {
   ProductInformationFilter,
   ProvisionalConfiguration,
   RateLimitExceededException,
-  ReceivedMetadata,
   RedirectException,
   RejectGrantRequest,
-  RejectGrantResponse,
   ReportContext,
   ReportFrequency,
-  ReportGenerator,
   ReportType,
-  ResourceInventory,
   ResourceLimitExceededException,
   ResourceNotFoundException,
-  S3Location,
   ServerInternalException,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
-  TokenData,
   UnsupportedDigitalSignatureMethodException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateLicenseConfigurationRequest,
-  UpdateLicenseConfigurationResponse,
   UpdateLicenseManagerReportGeneratorRequest,
-  UpdateLicenseManagerReportGeneratorResponse,
   UpdateLicenseSpecificationsForResourceRequest,
-  UpdateLicenseSpecificationsForResourceResponse,
   UpdateServiceSettingsRequest,
-  UpdateServiceSettingsResponse,
   ValidationException,
 } from "../models/models_0";
 
@@ -325,7 +270,7 @@ export const se_AcceptGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptGrant");
   let body: any;
-  body = JSON.stringify(se_AcceptGrantRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -338,7 +283,7 @@ export const se_CheckInLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CheckInLicense");
   let body: any;
-  body = JSON.stringify(se_CheckInLicenseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -351,7 +296,7 @@ export const se_CheckoutBorrowLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CheckoutBorrowLicense");
   let body: any;
-  body = JSON.stringify(se_CheckoutBorrowLicenseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -364,7 +309,7 @@ export const se_CheckoutLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CheckoutLicense");
   let body: any;
-  body = JSON.stringify(se_CheckoutLicenseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -377,7 +322,7 @@ export const se_CreateGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateGrant");
   let body: any;
-  body = JSON.stringify(se_CreateGrantRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -390,7 +335,7 @@ export const se_CreateGrantVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateGrantVersion");
   let body: any;
-  body = JSON.stringify(se_CreateGrantVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -403,7 +348,7 @@ export const se_CreateLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLicense");
   let body: any;
-  body = JSON.stringify(se_CreateLicenseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -416,7 +361,7 @@ export const se_CreateLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLicenseConfiguration");
   let body: any;
-  body = JSON.stringify(se_CreateLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -429,7 +374,7 @@ export const se_CreateLicenseConversionTaskForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLicenseConversionTaskForResource");
   let body: any;
-  body = JSON.stringify(se_CreateLicenseConversionTaskForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -442,7 +387,7 @@ export const se_CreateLicenseManagerReportGeneratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLicenseManagerReportGenerator");
   let body: any;
-  body = JSON.stringify(se_CreateLicenseManagerReportGeneratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -455,7 +400,7 @@ export const se_CreateLicenseVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLicenseVersion");
   let body: any;
-  body = JSON.stringify(se_CreateLicenseVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -468,7 +413,7 @@ export const se_CreateTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateToken");
   let body: any;
-  body = JSON.stringify(se_CreateTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -481,7 +426,7 @@ export const se_DeleteGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteGrant");
   let body: any;
-  body = JSON.stringify(se_DeleteGrantRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -494,7 +439,7 @@ export const se_DeleteLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLicense");
   let body: any;
-  body = JSON.stringify(se_DeleteLicenseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -507,7 +452,7 @@ export const se_DeleteLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLicenseConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -520,7 +465,7 @@ export const se_DeleteLicenseManagerReportGeneratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLicenseManagerReportGenerator");
   let body: any;
-  body = JSON.stringify(se_DeleteLicenseManagerReportGeneratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -533,7 +478,7 @@ export const se_DeleteTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteToken");
   let body: any;
-  body = JSON.stringify(se_DeleteTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -546,7 +491,7 @@ export const se_ExtendLicenseConsumptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExtendLicenseConsumption");
   let body: any;
-  body = JSON.stringify(se_ExtendLicenseConsumptionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -559,7 +504,7 @@ export const se_GetAccessTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAccessToken");
   let body: any;
-  body = JSON.stringify(se_GetAccessTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -572,7 +517,7 @@ export const se_GetGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetGrant");
   let body: any;
-  body = JSON.stringify(se_GetGrantRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -585,7 +530,7 @@ export const se_GetLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLicense");
   let body: any;
-  body = JSON.stringify(se_GetLicenseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -598,7 +543,7 @@ export const se_GetLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLicenseConfiguration");
   let body: any;
-  body = JSON.stringify(se_GetLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -611,7 +556,7 @@ export const se_GetLicenseConversionTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLicenseConversionTask");
   let body: any;
-  body = JSON.stringify(se_GetLicenseConversionTaskRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -624,7 +569,7 @@ export const se_GetLicenseManagerReportGeneratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLicenseManagerReportGenerator");
   let body: any;
-  body = JSON.stringify(se_GetLicenseManagerReportGeneratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -637,7 +582,7 @@ export const se_GetLicenseUsageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLicenseUsage");
   let body: any;
-  body = JSON.stringify(se_GetLicenseUsageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -650,7 +595,7 @@ export const se_GetServiceSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceSettings");
   let body: any;
-  body = JSON.stringify(se_GetServiceSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -663,7 +608,7 @@ export const se_ListAssociationsForLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAssociationsForLicenseConfiguration");
   let body: any;
-  body = JSON.stringify(se_ListAssociationsForLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -676,7 +621,7 @@ export const se_ListDistributedGrantsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDistributedGrants");
   let body: any;
-  body = JSON.stringify(se_ListDistributedGrantsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -689,7 +634,7 @@ export const se_ListFailuresForLicenseConfigurationOperationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFailuresForLicenseConfigurationOperations");
   let body: any;
-  body = JSON.stringify(se_ListFailuresForLicenseConfigurationOperationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -702,7 +647,7 @@ export const se_ListLicenseConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLicenseConfigurations");
   let body: any;
-  body = JSON.stringify(se_ListLicenseConfigurationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -715,7 +660,7 @@ export const se_ListLicenseConversionTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLicenseConversionTasks");
   let body: any;
-  body = JSON.stringify(se_ListLicenseConversionTasksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -728,7 +673,7 @@ export const se_ListLicenseManagerReportGeneratorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLicenseManagerReportGenerators");
   let body: any;
-  body = JSON.stringify(se_ListLicenseManagerReportGeneratorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -741,7 +686,7 @@ export const se_ListLicensesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLicenses");
   let body: any;
-  body = JSON.stringify(se_ListLicensesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -754,7 +699,7 @@ export const se_ListLicenseSpecificationsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLicenseSpecificationsForResource");
   let body: any;
-  body = JSON.stringify(se_ListLicenseSpecificationsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -767,7 +712,7 @@ export const se_ListLicenseVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLicenseVersions");
   let body: any;
-  body = JSON.stringify(se_ListLicenseVersionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -780,7 +725,7 @@ export const se_ListReceivedGrantsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListReceivedGrants");
   let body: any;
-  body = JSON.stringify(se_ListReceivedGrantsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -793,7 +738,7 @@ export const se_ListReceivedGrantsForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListReceivedGrantsForOrganization");
   let body: any;
-  body = JSON.stringify(se_ListReceivedGrantsForOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -806,7 +751,7 @@ export const se_ListReceivedLicensesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListReceivedLicenses");
   let body: any;
-  body = JSON.stringify(se_ListReceivedLicensesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -819,7 +764,7 @@ export const se_ListReceivedLicensesForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListReceivedLicensesForOrganization");
   let body: any;
-  body = JSON.stringify(se_ListReceivedLicensesForOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -832,7 +777,7 @@ export const se_ListResourceInventoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListResourceInventory");
   let body: any;
-  body = JSON.stringify(se_ListResourceInventoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -845,7 +790,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -858,7 +803,7 @@ export const se_ListTokensCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTokens");
   let body: any;
-  body = JSON.stringify(se_ListTokensRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -871,7 +816,7 @@ export const se_ListUsageForLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUsageForLicenseConfiguration");
   let body: any;
-  body = JSON.stringify(se_ListUsageForLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -884,7 +829,7 @@ export const se_RejectGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RejectGrant");
   let body: any;
-  body = JSON.stringify(se_RejectGrantRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -897,7 +842,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -910,7 +855,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -923,7 +868,7 @@ export const se_UpdateLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateLicenseConfiguration");
   let body: any;
-  body = JSON.stringify(se_UpdateLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -936,7 +881,7 @@ export const se_UpdateLicenseManagerReportGeneratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateLicenseManagerReportGenerator");
   let body: any;
-  body = JSON.stringify(se_UpdateLicenseManagerReportGeneratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -949,7 +894,7 @@ export const se_UpdateLicenseSpecificationsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateLicenseSpecificationsForResource");
   let body: any;
-  body = JSON.stringify(se_UpdateLicenseSpecificationsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -962,7 +907,7 @@ export const se_UpdateServiceSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateServiceSettings");
   let body: any;
-  body = JSON.stringify(se_UpdateServiceSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -978,12 +923,12 @@ export const de_AcceptGrantCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AcceptGrantResponse(data, context);
+  contents = _json(data);
   const response: AcceptGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1022,10 +967,9 @@ const de_AcceptGrantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1043,12 +987,12 @@ export const de_CheckInLicenseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CheckInLicenseResponse(data, context);
+  contents = _json(data);
   const response: CheckInLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1090,10 +1034,9 @@ const de_CheckInLicenseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1111,12 +1054,12 @@ export const de_CheckoutBorrowLicenseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CheckoutBorrowLicenseResponse(data, context);
+  contents = _json(data);
   const response: CheckoutBorrowLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1167,10 +1110,9 @@ const de_CheckoutBorrowLicenseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1188,12 +1130,12 @@ export const de_CheckoutLicenseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CheckoutLicenseResponse(data, context);
+  contents = _json(data);
   const response: CheckoutLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1241,10 +1183,9 @@ const de_CheckoutLicenseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1262,12 +1203,12 @@ export const de_CreateGrantCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateGrantResponse(data, context);
+  contents = _json(data);
   const response: CreateGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1306,10 +1247,9 @@ const de_CreateGrantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1327,12 +1267,12 @@ export const de_CreateGrantVersionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateGrantVersionResponse(data, context);
+  contents = _json(data);
   const response: CreateGrantVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1371,10 +1311,9 @@ const de_CreateGrantVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1392,12 +1331,12 @@ export const de_CreateLicenseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLicenseResponse(data, context);
+  contents = _json(data);
   const response: CreateLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1436,10 +1375,9 @@ const de_CreateLicenseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1457,12 +1395,12 @@ export const de_CreateLicenseConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLicenseConfigurationResponse(data, context);
+  contents = _json(data);
   const response: CreateLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1498,10 +1436,9 @@ const de_CreateLicenseConfigurationCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1519,12 +1456,12 @@ export const de_CreateLicenseConversionTaskForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLicenseConversionTaskForResourceResponse(data, context);
+  contents = _json(data);
   const response: CreateLicenseConversionTaskForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1560,10 +1497,9 @@ const de_CreateLicenseConversionTaskForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1581,12 +1517,12 @@ export const de_CreateLicenseManagerReportGeneratorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLicenseManagerReportGeneratorResponse(data, context);
+  contents = _json(data);
   const response: CreateLicenseManagerReportGeneratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1628,10 +1564,9 @@ const de_CreateLicenseManagerReportGeneratorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1649,12 +1584,12 @@ export const de_CreateLicenseVersionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLicenseVersionResponse(data, context);
+  contents = _json(data);
   const response: CreateLicenseVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1696,10 +1631,9 @@ const de_CreateLicenseVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1717,12 +1651,12 @@ export const de_CreateTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateTokenResponse(data, context);
+  contents = _json(data);
   const response: CreateTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1764,10 +1698,9 @@ const de_CreateTokenCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1785,12 +1718,12 @@ export const de_DeleteGrantCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteGrantResponse(data, context);
+  contents = _json(data);
   const response: DeleteGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1829,10 +1762,9 @@ const de_DeleteGrantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1850,12 +1782,12 @@ export const de_DeleteLicenseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteLicenseResponse(data, context);
+  contents = _json(data);
   const response: DeleteLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1897,10 +1829,9 @@ const de_DeleteLicenseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1918,12 +1849,12 @@ export const de_DeleteLicenseConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteLicenseConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DeleteLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1956,10 +1887,9 @@ const de_DeleteLicenseConfigurationCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1977,12 +1907,12 @@ export const de_DeleteLicenseManagerReportGeneratorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteLicenseManagerReportGeneratorResponse(data, context);
+  contents = _json(data);
   const response: DeleteLicenseManagerReportGeneratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2024,10 +1954,9 @@ const de_DeleteLicenseManagerReportGeneratorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2045,12 +1974,12 @@ export const de_DeleteTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTokenResponse(data, context);
+  contents = _json(data);
   const response: DeleteTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2089,10 +2018,9 @@ const de_DeleteTokenCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2110,12 +2038,12 @@ export const de_ExtendLicenseConsumptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ExtendLicenseConsumptionResponse(data, context);
+  contents = _json(data);
   const response: ExtendLicenseConsumptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2154,10 +2082,9 @@ const de_ExtendLicenseConsumptionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2175,12 +2102,12 @@ export const de_GetAccessTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAccessTokenResponse(data, context);
+  contents = _json(data);
   const response: GetAccessTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2213,10 +2140,9 @@ const de_GetAccessTokenCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2234,12 +2160,12 @@ export const de_GetGrantCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetGrantResponse(data, context);
+  contents = _json(data);
   const response: GetGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2278,10 +2204,9 @@ const de_GetGrantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2299,12 +2224,12 @@ export const de_GetLicenseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetLicenseResponse(data, context);
+  contents = _json(data);
   const response: GetLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2340,10 +2265,9 @@ const de_GetLicenseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2366,7 +2290,7 @@ export const de_GetLicenseConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2399,10 +2323,9 @@ const de_GetLicenseConfigurationCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2425,7 +2348,7 @@ export const de_GetLicenseConversionTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2458,10 +2381,9 @@ const de_GetLicenseConversionTaskCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2479,12 +2401,12 @@ export const de_GetLicenseManagerReportGeneratorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetLicenseManagerReportGeneratorResponse(data, context);
+  contents = _json(data);
   const response: GetLicenseManagerReportGeneratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2526,10 +2448,9 @@ const de_GetLicenseManagerReportGeneratorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2547,12 +2468,12 @@ export const de_GetLicenseUsageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetLicenseUsageResponse(data, context);
+  contents = _json(data);
   const response: GetLicenseUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2588,10 +2509,9 @@ const de_GetLicenseUsageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2609,12 +2529,12 @@ export const de_GetServiceSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetServiceSettingsResponse(data, context);
+  contents = _json(data);
   const response: GetServiceSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2644,10 +2564,9 @@ const de_GetServiceSettingsCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2670,7 +2589,7 @@ export const de_ListAssociationsForLicenseConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2706,10 +2625,9 @@ const de_ListAssociationsForLicenseConfigurationCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2727,12 +2645,12 @@ export const de_ListDistributedGrantsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDistributedGrantsResponse(data, context);
+  contents = _json(data);
   const response: ListDistributedGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2771,10 +2689,9 @@ const de_ListDistributedGrantsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2797,7 +2714,7 @@ export const de_ListFailuresForLicenseConfigurationOperationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2830,10 +2747,9 @@ const de_ListFailuresForLicenseConfigurationOperationsCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2856,7 +2772,7 @@ export const de_ListLicenseConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2892,10 +2808,9 @@ const de_ListLicenseConfigurationsCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2918,7 +2833,7 @@ export const de_ListLicenseConversionTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2951,10 +2866,9 @@ const de_ListLicenseConversionTasksCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2972,12 +2886,12 @@ export const de_ListLicenseManagerReportGeneratorsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLicenseManagerReportGeneratorsResponse(data, context);
+  contents = _json(data);
   const response: ListLicenseManagerReportGeneratorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3019,10 +2933,9 @@ const de_ListLicenseManagerReportGeneratorsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3040,12 +2953,12 @@ export const de_ListLicensesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLicensesResponse(data, context);
+  contents = _json(data);
   const response: ListLicensesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3081,10 +2994,9 @@ const de_ListLicensesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3102,12 +3014,12 @@ export const de_ListLicenseSpecificationsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLicenseSpecificationsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListLicenseSpecificationsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3140,10 +3052,9 @@ const de_ListLicenseSpecificationsForResourceCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3161,12 +3072,12 @@ export const de_ListLicenseVersionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLicenseVersionsResponse(data, context);
+  contents = _json(data);
   const response: ListLicenseVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3199,10 +3110,9 @@ const de_ListLicenseVersionsCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3220,12 +3130,12 @@ export const de_ListReceivedGrantsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListReceivedGrantsResponse(data, context);
+  contents = _json(data);
   const response: ListReceivedGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3264,10 +3174,9 @@ const de_ListReceivedGrantsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3285,12 +3194,12 @@ export const de_ListReceivedGrantsForOrganizationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListReceivedGrantsForOrganizationResponse(data, context);
+  contents = _json(data);
   const response: ListReceivedGrantsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3329,10 +3238,9 @@ const de_ListReceivedGrantsForOrganizationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3350,12 +3258,12 @@ export const de_ListReceivedLicensesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListReceivedLicensesResponse(data, context);
+  contents = _json(data);
   const response: ListReceivedLicensesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3394,10 +3302,9 @@ const de_ListReceivedLicensesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3415,12 +3322,12 @@ export const de_ListReceivedLicensesForOrganizationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListReceivedLicensesForOrganizationResponse(data, context);
+  contents = _json(data);
   const response: ListReceivedLicensesForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3459,10 +3366,9 @@ const de_ListReceivedLicensesForOrganizationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3480,12 +3386,12 @@ export const de_ListResourceInventoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListResourceInventoryResponse(data, context);
+  contents = _json(data);
   const response: ListResourceInventoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3524,10 +3430,9 @@ const de_ListResourceInventoryCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3545,12 +3450,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3583,10 +3488,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3604,12 +3508,12 @@ export const de_ListTokensCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTokensResponse(data, context);
+  contents = _json(data);
   const response: ListTokensCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3642,10 +3546,9 @@ const de_ListTokensCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3668,7 +3571,7 @@ export const de_ListUsageForLicenseConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3704,10 +3607,9 @@ const de_ListUsageForLicenseConfigurationCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3725,12 +3627,12 @@ export const de_RejectGrantCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RejectGrantResponse(data, context);
+  contents = _json(data);
   const response: RejectGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3769,10 +3671,9 @@ const de_RejectGrantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3790,12 +3691,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3828,10 +3729,9 @@ const de_TagResourceCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3849,12 +3749,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3887,10 +3787,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3908,12 +3807,12 @@ export const de_UpdateLicenseConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateLicenseConfigurationResponse(data, context);
+  contents = _json(data);
   const response: UpdateLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3949,10 +3848,9 @@ const de_UpdateLicenseConfigurationCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3970,12 +3868,12 @@ export const de_UpdateLicenseManagerReportGeneratorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateLicenseManagerReportGeneratorResponse(data, context);
+  contents = _json(data);
   const response: UpdateLicenseManagerReportGeneratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4017,10 +3915,9 @@ const de_UpdateLicenseManagerReportGeneratorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4038,12 +3935,12 @@ export const de_UpdateLicenseSpecificationsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateLicenseSpecificationsForResourceResponse(data, context);
+  contents = _json(data);
   const response: UpdateLicenseSpecificationsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4082,10 +3979,9 @@ const de_UpdateLicenseSpecificationsForResourceCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4103,12 +3999,12 @@ export const de_UpdateServiceSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateServiceSettingsResponse(data, context);
+  contents = _json(data);
   const response: UpdateServiceSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4141,10 +4037,9 @@ const de_UpdateServiceSettingsCommandError = async (
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4158,7 +4053,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4174,7 +4069,7 @@ const de_AuthorizationExceptionRes = async (
   context: __SerdeContext
 ): Promise<AuthorizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AuthorizationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AuthorizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4187,7 +4082,7 @@ const de_AuthorizationExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4203,7 +4098,7 @@ const de_EntitlementNotAllowedExceptionRes = async (
   context: __SerdeContext
 ): Promise<EntitlementNotAllowedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EntitlementNotAllowedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EntitlementNotAllowedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4219,7 +4114,7 @@ const de_FailedDependencyExceptionRes = async (
   context: __SerdeContext
 ): Promise<FailedDependencyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FailedDependencyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FailedDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4235,7 +4130,7 @@ const de_FilterLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<FilterLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FilterLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FilterLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4251,7 +4146,7 @@ const de_InvalidParameterValueExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterValueException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4267,7 +4162,7 @@ const de_InvalidResourceStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidResourceStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidResourceStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidResourceStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4283,7 +4178,7 @@ const de_LicenseUsageExceptionRes = async (
   context: __SerdeContext
 ): Promise<LicenseUsageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LicenseUsageException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LicenseUsageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4299,7 +4194,7 @@ const de_NoEntitlementsAllowedExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoEntitlementsAllowedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoEntitlementsAllowedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoEntitlementsAllowedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4315,7 +4210,7 @@ const de_RateLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<RateLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RateLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RateLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4328,7 +4223,7 @@ const de_RateLimitExceededExceptionRes = async (
  */
 const de_RedirectExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<RedirectException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RedirectException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RedirectException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4344,7 +4239,7 @@ const de_ResourceLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4360,7 +4255,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4376,7 +4271,7 @@ const de_ServerInternalExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServerInternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServerInternalException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServerInternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4392,7 +4287,7 @@ const de_UnsupportedDigitalSignatureMethodExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedDigitalSignatureMethodException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedDigitalSignatureMethodException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedDigitalSignatureMethodException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4405,7 +4300,7 @@ const de_UnsupportedDigitalSignatureMethodExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4413,1571 +4308,290 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AcceptGrantRequest
- */
-const se_AcceptGrantRequest = (input: AcceptGrantRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1AllowedOperationList
- */
-const se_AllowedOperationList = (input: (AllowedOperation | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ArnList
- */
-const se_ArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1BorrowConfiguration
- */
-const se_BorrowConfiguration = (input: BorrowConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowEarlyCheckIn != null && { AllowEarlyCheckIn: input.AllowEarlyCheckIn }),
-    ...(input.MaxTimeToLiveInMinutes != null && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
-  };
-};
-
-/**
- * serializeAws_json1_1CheckInLicenseRequest
- */
-const se_CheckInLicenseRequest = (input: CheckInLicenseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
-    ...(input.LicenseConsumptionToken != null && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1CheckoutBorrowLicenseRequest
- */
-const se_CheckoutBorrowLicenseRequest = (input: CheckoutBorrowLicenseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CheckoutMetadata != null && { CheckoutMetadata: se_MetadataList(input.CheckoutMetadata, context) }),
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.DigitalSignatureMethod != null && { DigitalSignatureMethod: input.DigitalSignatureMethod }),
-    ...(input.Entitlements != null && { Entitlements: se_EntitlementDataList(input.Entitlements, context) }),
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.NodeId != null && { NodeId: input.NodeId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CheckoutLicenseRequest
- */
-const se_CheckoutLicenseRequest = (input: CheckoutLicenseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
-    ...(input.CheckoutType != null && { CheckoutType: input.CheckoutType }),
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.Entitlements != null && { Entitlements: se_EntitlementDataList(input.Entitlements, context) }),
-    ...(input.KeyFingerprint != null && { KeyFingerprint: input.KeyFingerprint }),
-    ...(input.NodeId != null && { NodeId: input.NodeId }),
-    ...(input.ProductSKU != null && { ProductSKU: input.ProductSKU }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConsumptionConfiguration
- */
-const se_ConsumptionConfiguration = (input: ConsumptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.BorrowConfiguration != null && {
-      BorrowConfiguration: se_BorrowConfiguration(input.BorrowConfiguration, context),
-    }),
-    ...(input.ProvisionalConfiguration != null && {
-      ProvisionalConfiguration: se_ProvisionalConfiguration(input.ProvisionalConfiguration, context),
-    }),
-    ...(input.RenewType != null && { RenewType: input.RenewType }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateGrantRequest
- */
-const se_CreateGrantRequest = (input: CreateGrantRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowedOperations != null && {
-      AllowedOperations: se_AllowedOperationList(input.AllowedOperations, context),
-    }),
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.GrantName != null && { GrantName: input.GrantName }),
-    ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.Principals != null && { Principals: se_PrincipalArnList(input.Principals, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateGrantVersionRequest
- */
-const se_CreateGrantVersionRequest = (input: CreateGrantVersionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowedOperations != null && {
-      AllowedOperations: se_AllowedOperationList(input.AllowedOperations, context),
-    }),
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
-    ...(input.GrantName != null && { GrantName: input.GrantName }),
-    ...(input.Options != null && { Options: se_Options(input.Options, context) }),
-    ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateLicenseConfigurationRequest
- */
-const se_CreateLicenseConfigurationRequest = (
-  input: CreateLicenseConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisassociateWhenNotFound != null && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
-    ...(input.LicenseCount != null && { LicenseCount: input.LicenseCount }),
-    ...(input.LicenseCountHardLimit != null && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
-    ...(input.LicenseCountingType != null && { LicenseCountingType: input.LicenseCountingType }),
-    ...(input.LicenseRules != null && { LicenseRules: se_StringList(input.LicenseRules, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ProductInformationList != null && {
-      ProductInformationList: se_ProductInformationList(input.ProductInformationList, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateLicenseConversionTaskForResourceRequest
- */
-const se_CreateLicenseConversionTaskForResourceRequest = (
-  input: CreateLicenseConversionTaskForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DestinationLicenseContext != null && {
-      DestinationLicenseContext: se_LicenseConversionContext(input.DestinationLicenseContext, context),
-    }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.SourceLicenseContext != null && {
-      SourceLicenseContext: se_LicenseConversionContext(input.SourceLicenseContext, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateLicenseManagerReportGeneratorRequest
- */
-const se_CreateLicenseManagerReportGeneratorRequest = (
-  input: CreateLicenseManagerReportGeneratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.ReportContext != null && { ReportContext: se_ReportContext(input.ReportContext, context) }),
-    ...(input.ReportFrequency != null && { ReportFrequency: se_ReportFrequency(input.ReportFrequency, context) }),
-    ...(input.ReportGeneratorName != null && { ReportGeneratorName: input.ReportGeneratorName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: se_ReportTypeList(input.Type, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateLicenseRequest
- */
-const se_CreateLicenseRequest = (input: CreateLicenseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.ConsumptionConfiguration != null && {
-      ConsumptionConfiguration: se_ConsumptionConfiguration(input.ConsumptionConfiguration, context),
-    }),
-    ...(input.Entitlements != null && { Entitlements: se_EntitlementList(input.Entitlements, context) }),
-    ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
-    ...(input.Issuer != null && { Issuer: se_Issuer(input.Issuer, context) }),
-    ...(input.LicenseMetadata != null && { LicenseMetadata: se_MetadataList(input.LicenseMetadata, context) }),
-    ...(input.LicenseName != null && { LicenseName: input.LicenseName }),
-    ...(input.ProductName != null && { ProductName: input.ProductName }),
-    ...(input.ProductSKU != null && { ProductSKU: input.ProductSKU }),
-    ...(input.Validity != null && { Validity: se_DatetimeRange(input.Validity, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateLicenseVersionRequest
- */
-const se_CreateLicenseVersionRequest = (input: CreateLicenseVersionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.ConsumptionConfiguration != null && {
-      ConsumptionConfiguration: se_ConsumptionConfiguration(input.ConsumptionConfiguration, context),
-    }),
-    ...(input.Entitlements != null && { Entitlements: se_EntitlementList(input.Entitlements, context) }),
-    ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
-    ...(input.Issuer != null && { Issuer: se_Issuer(input.Issuer, context) }),
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.LicenseMetadata != null && { LicenseMetadata: se_MetadataList(input.LicenseMetadata, context) }),
-    ...(input.LicenseName != null && { LicenseName: input.LicenseName }),
-    ...(input.ProductName != null && { ProductName: input.ProductName }),
-    ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.Validity != null && { Validity: se_DatetimeRange(input.Validity, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateTokenRequest
- */
-const se_CreateTokenRequest = (input: CreateTokenRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.ExpirationInDays != null && { ExpirationInDays: input.ExpirationInDays }),
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.RoleArns != null && { RoleArns: se_ArnList(input.RoleArns, context) }),
-    ...(input.TokenProperties != null && { TokenProperties: se_MaxSize3StringList(input.TokenProperties, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DatetimeRange
- */
-const se_DatetimeRange = (input: DatetimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.Begin != null && { Begin: input.Begin }),
-    ...(input.End != null && { End: input.End }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteGrantRequest
- */
-const se_DeleteGrantRequest = (input: DeleteGrantRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
-    ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteLicenseConfigurationRequest
- */
-const se_DeleteLicenseConfigurationRequest = (
-  input: DeleteLicenseConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest
- */
-const se_DeleteLicenseManagerReportGeneratorRequest = (
-  input: DeleteLicenseManagerReportGeneratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LicenseManagerReportGeneratorArn != null && {
-      LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteLicenseRequest
- */
-const se_DeleteLicenseRequest = (input: DeleteLicenseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteTokenRequest
- */
-const se_DeleteTokenRequest = (input: DeleteTokenRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.TokenId != null && { TokenId: input.TokenId }),
-  };
-};
-
-/**
- * serializeAws_json1_1Entitlement
- */
-const se_Entitlement = (input: Entitlement, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowCheckIn != null && { AllowCheckIn: input.AllowCheckIn }),
-    ...(input.MaxCount != null && { MaxCount: input.MaxCount }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Overage != null && { Overage: input.Overage }),
-    ...(input.Unit != null && { Unit: input.Unit }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1EntitlementData
- */
-const se_EntitlementData = (input: EntitlementData, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Unit != null && { Unit: input.Unit }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1EntitlementDataList
- */
-const se_EntitlementDataList = (input: EntitlementData[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EntitlementData(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1EntitlementList
- */
-const se_EntitlementList = (input: Entitlement[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Entitlement(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ExtendLicenseConsumptionRequest
- */
-const se_ExtendLicenseConsumptionRequest = (input: ExtendLicenseConsumptionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.LicenseConsumptionToken != null && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValues(input.Values, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1FilterList
- */
-const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1Filters
- */
-const se_Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1FilterValues
- */
-const se_FilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1GetAccessTokenRequest
- */
-const se_GetAccessTokenRequest = (input: GetAccessTokenRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Token != null && { Token: input.Token }),
-    ...(input.TokenProperties != null && { TokenProperties: se_MaxSize3StringList(input.TokenProperties, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetGrantRequest
- */
-const se_GetGrantRequest = (input: GetGrantRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetLicenseConfigurationRequest
- */
-const se_GetLicenseConfigurationRequest = (input: GetLicenseConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetLicenseConversionTaskRequest
- */
-const se_GetLicenseConversionTaskRequest = (input: GetLicenseConversionTaskRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LicenseConversionTaskId != null && { LicenseConversionTaskId: input.LicenseConversionTaskId }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetLicenseManagerReportGeneratorRequest
- */
-const se_GetLicenseManagerReportGeneratorRequest = (
-  input: GetLicenseManagerReportGeneratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LicenseManagerReportGeneratorArn != null && {
-      LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetLicenseRequest
- */
-const se_GetLicenseRequest = (input: GetLicenseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetLicenseUsageRequest
- */
-const se_GetLicenseUsageRequest = (input: GetLicenseUsageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetServiceSettingsRequest
- */
-const se_GetServiceSettingsRequest = (input: GetServiceSettingsRequest, context: __SerdeContext): any => {
-  return {};
-};
-
-/**
- * serializeAws_json1_1InventoryFilter
- */
-const se_InventoryFilter = (input: InventoryFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: input.Condition }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1InventoryFilterList
- */
-const se_InventoryFilterList = (input: InventoryFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_InventoryFilter(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1Issuer
- */
-const se_Issuer = (input: Issuer, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SignKey != null && { SignKey: input.SignKey }),
-  };
-};
-
-/**
- * serializeAws_json1_1LicenseConversionContext
- */
-const se_LicenseConversionContext = (input: LicenseConversionContext, context: __SerdeContext): any => {
-  return {
-    ...(input.UsageOperation != null && { UsageOperation: input.UsageOperation }),
-  };
-};
-
-/**
- * serializeAws_json1_1LicenseSpecification
- */
-const se_LicenseSpecification = (input: LicenseSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.AmiAssociationScope != null && { AmiAssociationScope: input.AmiAssociationScope }),
-    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1LicenseSpecifications
- */
-const se_LicenseSpecifications = (input: LicenseSpecification[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LicenseSpecification(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest
- */
-const se_ListAssociationsForLicenseConfigurationRequest = (
-  input: ListAssociationsForLicenseConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListDistributedGrantsRequest
- */
-const se_ListDistributedGrantsRequest = (input: ListDistributedGrantsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.GrantArns != null && { GrantArns: se_ArnList(input.GrantArns, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest
- */
-const se_ListFailuresForLicenseConfigurationOperationsRequest = (
-  input: ListFailuresForLicenseConfigurationOperationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListLicenseConfigurationsRequest
- */
-const se_ListLicenseConfigurationsRequest = (input: ListLicenseConfigurationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.LicenseConfigurationArns != null && {
-      LicenseConfigurationArns: se_StringList(input.LicenseConfigurationArns, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListLicenseConversionTasksRequest
- */
-const se_ListLicenseConversionTasksRequest = (
-  input: ListLicenseConversionTasksRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListLicenseManagerReportGeneratorsRequest
- */
-const se_ListLicenseManagerReportGeneratorsRequest = (
-  input: ListLicenseManagerReportGeneratorsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListLicenseSpecificationsForResourceRequest
- */
-const se_ListLicenseSpecificationsForResourceRequest = (
-  input: ListLicenseSpecificationsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListLicensesRequest
- */
-const se_ListLicensesRequest = (input: ListLicensesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.LicenseArns != null && { LicenseArns: se_ArnList(input.LicenseArns, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListLicenseVersionsRequest
- */
-const se_ListLicenseVersionsRequest = (input: ListLicenseVersionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListReceivedGrantsForOrganizationRequest
- */
-const se_ListReceivedGrantsForOrganizationRequest = (
-  input: ListReceivedGrantsForOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListReceivedGrantsRequest
- */
-const se_ListReceivedGrantsRequest = (input: ListReceivedGrantsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.GrantArns != null && { GrantArns: se_ArnList(input.GrantArns, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListReceivedLicensesForOrganizationRequest
- */
-const se_ListReceivedLicensesForOrganizationRequest = (
-  input: ListReceivedLicensesForOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListReceivedLicensesRequest
- */
-const se_ListReceivedLicensesRequest = (input: ListReceivedLicensesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.LicenseArns != null && { LicenseArns: se_ArnList(input.LicenseArns, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListResourceInventoryRequest
- */
-const se_ListResourceInventoryRequest = (input: ListResourceInventoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_InventoryFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListTokensRequest
- */
-const se_ListTokensRequest = (input: ListTokensRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TokenIds != null && { TokenIds: se_StringList(input.TokenIds, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListUsageForLicenseConfigurationRequest
- */
-const se_ListUsageForLicenseConfigurationRequest = (
-  input: ListUsageForLicenseConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1MaxSize3StringList
- */
-const se_MaxSize3StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1Metadata
- */
-const se_Metadata = (input: Metadata, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1MetadataList
- */
-const se_MetadataList = (input: Metadata[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Metadata(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1Options
- */
-const se_Options = (input: Options, context: __SerdeContext): any => {
-  return {
-    ...(input.ActivationOverrideBehavior != null && { ActivationOverrideBehavior: input.ActivationOverrideBehavior }),
-  };
-};
-
-/**
- * serializeAws_json1_1OrganizationConfiguration
- */
-const se_OrganizationConfiguration = (input: OrganizationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.EnableIntegration != null && { EnableIntegration: input.EnableIntegration }),
-  };
-};
-
-/**
- * serializeAws_json1_1PrincipalArnList
- */
-const se_PrincipalArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ProductInformation
- */
-const se_ProductInformation = (input: ProductInformation, context: __SerdeContext): any => {
-  return {
-    ...(input.ProductInformationFilterList != null && {
-      ProductInformationFilterList: se_ProductInformationFilterList(input.ProductInformationFilterList, context),
-    }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
-
-/**
- * serializeAws_json1_1ProductInformationFilter
- */
-const se_ProductInformationFilter = (input: ProductInformationFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.ProductInformationFilterComparator != null && {
-      ProductInformationFilterComparator: input.ProductInformationFilterComparator,
-    }),
-    ...(input.ProductInformationFilterName != null && {
-      ProductInformationFilterName: input.ProductInformationFilterName,
-    }),
-    ...(input.ProductInformationFilterValue != null && {
-      ProductInformationFilterValue: se_StringList(input.ProductInformationFilterValue, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1ProductInformationFilterList
- */
-const se_ProductInformationFilterList = (input: ProductInformationFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ProductInformationFilter(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ProductInformationList
- */
-const se_ProductInformationList = (input: ProductInformation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ProductInformation(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ProvisionalConfiguration
- */
-const se_ProvisionalConfiguration = (input: ProvisionalConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxTimeToLiveInMinutes != null && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
-  };
-};
-
-/**
- * serializeAws_json1_1RejectGrantRequest
- */
-const se_RejectGrantRequest = (input: RejectGrantRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1ReportContext
- */
-const se_ReportContext = (input: ReportContext, context: __SerdeContext): any => {
-  return {
-    ...(input.licenseConfigurationArns != null && {
-      licenseConfigurationArns: se_ArnList(input.licenseConfigurationArns, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1ReportFrequency
- */
-const se_ReportFrequency = (input: ReportFrequency, context: __SerdeContext): any => {
-  return {
-    ...(input.period != null && { period: input.period }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_json1_1ReportTypeList
- */
-const se_ReportTypeList = (input: (ReportType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateLicenseConfigurationRequest
- */
-const se_UpdateLicenseConfigurationRequest = (
-  input: UpdateLicenseConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisassociateWhenNotFound != null && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
-    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.LicenseConfigurationStatus != null && { LicenseConfigurationStatus: input.LicenseConfigurationStatus }),
-    ...(input.LicenseCount != null && { LicenseCount: input.LicenseCount }),
-    ...(input.LicenseCountHardLimit != null && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
-    ...(input.LicenseRules != null && { LicenseRules: se_StringList(input.LicenseRules, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ProductInformationList != null && {
-      ProductInformationList: se_ProductInformationList(input.ProductInformationList, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateLicenseManagerReportGeneratorRequest
- */
-const se_UpdateLicenseManagerReportGeneratorRequest = (
-  input: UpdateLicenseManagerReportGeneratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LicenseManagerReportGeneratorArn != null && {
-      LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
-    }),
-    ...(input.ReportContext != null && { ReportContext: se_ReportContext(input.ReportContext, context) }),
-    ...(input.ReportFrequency != null && { ReportFrequency: se_ReportFrequency(input.ReportFrequency, context) }),
-    ...(input.ReportGeneratorName != null && { ReportGeneratorName: input.ReportGeneratorName }),
-    ...(input.Type != null && { Type: se_ReportTypeList(input.Type, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest
- */
-const se_UpdateLicenseSpecificationsForResourceRequest = (
-  input: UpdateLicenseSpecificationsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AddLicenseSpecifications != null && {
-      AddLicenseSpecifications: se_LicenseSpecifications(input.AddLicenseSpecifications, context),
-    }),
-    ...(input.RemoveLicenseSpecifications != null && {
-      RemoveLicenseSpecifications: se_LicenseSpecifications(input.RemoveLicenseSpecifications, context),
-    }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateServiceSettingsRequest
- */
-const se_UpdateServiceSettingsRequest = (input: UpdateServiceSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EnableCrossAccountsDiscovery != null && {
-      EnableCrossAccountsDiscovery: input.EnableCrossAccountsDiscovery,
-    }),
-    ...(input.OrganizationConfiguration != null && {
-      OrganizationConfiguration: se_OrganizationConfiguration(input.OrganizationConfiguration, context),
-    }),
-    ...(input.S3BucketArn != null && { S3BucketArn: input.S3BucketArn }),
-    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
-  };
-};
-
-/**
- * deserializeAws_json1_1AcceptGrantResponse
- */
-const de_AcceptGrantResponse = (output: any, context: __SerdeContext): AcceptGrantResponse => {
-  return {
-    GrantArn: __expectString(output.GrantArn),
-    Status: __expectString(output.Status),
-    Version: __expectString(output.Version),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1AllowedOperationList
- */
-const de_AllowedOperationList = (output: any, context: __SerdeContext): (AllowedOperation | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_json1_1ArnList
- */
-const de_ArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_json1_1AuthorizationException
- */
-const de_AuthorizationException = (output: any, context: __SerdeContext): AuthorizationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// se_AcceptGrantRequest omitted.
+
+// se_AllowedOperationList omitted.
+
+// se_ArnList omitted.
+
+// se_BorrowConfiguration omitted.
+
+// se_CheckInLicenseRequest omitted.
+
+// se_CheckoutBorrowLicenseRequest omitted.
+
+// se_CheckoutLicenseRequest omitted.
+
+// se_ConsumptionConfiguration omitted.
+
+// se_CreateGrantRequest omitted.
+
+// se_CreateGrantVersionRequest omitted.
+
+// se_CreateLicenseConfigurationRequest omitted.
+
+// se_CreateLicenseConversionTaskForResourceRequest omitted.
+
+// se_CreateLicenseManagerReportGeneratorRequest omitted.
+
+// se_CreateLicenseRequest omitted.
+
+// se_CreateLicenseVersionRequest omitted.
+
+// se_CreateTokenRequest omitted.
+
+// se_DatetimeRange omitted.
+
+// se_DeleteGrantRequest omitted.
+
+// se_DeleteLicenseConfigurationRequest omitted.
+
+// se_DeleteLicenseManagerReportGeneratorRequest omitted.
+
+// se_DeleteLicenseRequest omitted.
+
+// se_DeleteTokenRequest omitted.
+
+// se_Entitlement omitted.
+
+// se_EntitlementData omitted.
+
+// se_EntitlementDataList omitted.
+
+// se_EntitlementList omitted.
+
+// se_ExtendLicenseConsumptionRequest omitted.
+
+// se_Filter omitted.
+
+// se_FilterList omitted.
+
+// se_Filters omitted.
+
+// se_FilterValues omitted.
+
+// se_GetAccessTokenRequest omitted.
+
+// se_GetGrantRequest omitted.
+
+// se_GetLicenseConfigurationRequest omitted.
+
+// se_GetLicenseConversionTaskRequest omitted.
+
+// se_GetLicenseManagerReportGeneratorRequest omitted.
+
+// se_GetLicenseRequest omitted.
+
+// se_GetLicenseUsageRequest omitted.
+
+// se_GetServiceSettingsRequest omitted.
+
+// se_InventoryFilter omitted.
+
+// se_InventoryFilterList omitted.
+
+// se_Issuer omitted.
+
+// se_LicenseConversionContext omitted.
+
+// se_LicenseSpecification omitted.
+
+// se_LicenseSpecifications omitted.
+
+// se_ListAssociationsForLicenseConfigurationRequest omitted.
+
+// se_ListDistributedGrantsRequest omitted.
+
+// se_ListFailuresForLicenseConfigurationOperationsRequest omitted.
+
+// se_ListLicenseConfigurationsRequest omitted.
+
+// se_ListLicenseConversionTasksRequest omitted.
+
+// se_ListLicenseManagerReportGeneratorsRequest omitted.
+
+// se_ListLicenseSpecificationsForResourceRequest omitted.
+
+// se_ListLicensesRequest omitted.
+
+// se_ListLicenseVersionsRequest omitted.
+
+// se_ListReceivedGrantsForOrganizationRequest omitted.
+
+// se_ListReceivedGrantsRequest omitted.
+
+// se_ListReceivedLicensesForOrganizationRequest omitted.
+
+// se_ListReceivedLicensesRequest omitted.
+
+// se_ListResourceInventoryRequest omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
+// se_ListTokensRequest omitted.
+
+// se_ListUsageForLicenseConfigurationRequest omitted.
+
+// se_MaxSize3StringList omitted.
+
+// se_Metadata omitted.
+
+// se_MetadataList omitted.
+
+// se_Options omitted.
+
+// se_OrganizationConfiguration omitted.
+
+// se_PrincipalArnList omitted.
+
+// se_ProductInformation omitted.
+
+// se_ProductInformationFilter omitted.
+
+// se_ProductInformationFilterList omitted.
+
+// se_ProductInformationList omitted.
+
+// se_ProvisionalConfiguration omitted.
+
+// se_RejectGrantRequest omitted.
+
+// se_ReportContext omitted.
+
+// se_ReportFrequency omitted.
+
+// se_ReportTypeList omitted.
+
+// se_StringList omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateLicenseConfigurationRequest omitted.
+
+// se_UpdateLicenseManagerReportGeneratorRequest omitted.
+
+// se_UpdateLicenseSpecificationsForResourceRequest omitted.
+
+// se_UpdateServiceSettingsRequest omitted.
+
+// de_AcceptGrantResponse omitted.
+
+// de_AccessDeniedException omitted.
+
+// de_AllowedOperationList omitted.
+
+// de_ArnList omitted.
+
+// de_AuthorizationException omitted.
 
 /**
  * deserializeAws_json1_1AutomatedDiscoveryInformation
  */
 const de_AutomatedDiscoveryInformation = (output: any, context: __SerdeContext): AutomatedDiscoveryInformation => {
-  return {
-    LastRunTime:
-      output.LastRunTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRunTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    LastRunTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1BorrowConfiguration
- */
-const de_BorrowConfiguration = (output: any, context: __SerdeContext): BorrowConfiguration => {
-  return {
-    AllowEarlyCheckIn: __expectBoolean(output.AllowEarlyCheckIn),
-    MaxTimeToLiveInMinutes: __expectInt32(output.MaxTimeToLiveInMinutes),
-  } as any;
-};
+// de_BorrowConfiguration omitted.
 
-/**
- * deserializeAws_json1_1CheckInLicenseResponse
- */
-const de_CheckInLicenseResponse = (output: any, context: __SerdeContext): CheckInLicenseResponse => {
-  return {} as any;
-};
+// de_CheckInLicenseResponse omitted.
 
-/**
- * deserializeAws_json1_1CheckoutBorrowLicenseResponse
- */
-const de_CheckoutBorrowLicenseResponse = (output: any, context: __SerdeContext): CheckoutBorrowLicenseResponse => {
-  return {
-    CheckoutMetadata: output.CheckoutMetadata != null ? de_MetadataList(output.CheckoutMetadata, context) : undefined,
-    EntitlementsAllowed:
-      output.EntitlementsAllowed != null ? de_EntitlementDataList(output.EntitlementsAllowed, context) : undefined,
-    Expiration: __expectString(output.Expiration),
-    IssuedAt: __expectString(output.IssuedAt),
-    LicenseArn: __expectString(output.LicenseArn),
-    LicenseConsumptionToken: __expectString(output.LicenseConsumptionToken),
-    NodeId: __expectString(output.NodeId),
-    SignedToken: __expectString(output.SignedToken),
-  } as any;
-};
+// de_CheckoutBorrowLicenseResponse omitted.
 
-/**
- * deserializeAws_json1_1CheckoutLicenseResponse
- */
-const de_CheckoutLicenseResponse = (output: any, context: __SerdeContext): CheckoutLicenseResponse => {
-  return {
-    CheckoutType: __expectString(output.CheckoutType),
-    EntitlementsAllowed:
-      output.EntitlementsAllowed != null ? de_EntitlementDataList(output.EntitlementsAllowed, context) : undefined,
-    Expiration: __expectString(output.Expiration),
-    IssuedAt: __expectString(output.IssuedAt),
-    LicenseArn: __expectString(output.LicenseArn),
-    LicenseConsumptionToken: __expectString(output.LicenseConsumptionToken),
-    NodeId: __expectString(output.NodeId),
-    SignedToken: __expectString(output.SignedToken),
-  } as any;
-};
+// de_CheckoutLicenseResponse omitted.
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_1ConsumedLicenseSummary
- */
-const de_ConsumedLicenseSummary = (output: any, context: __SerdeContext): ConsumedLicenseSummary => {
-  return {
-    ConsumedLicenses: __expectLong(output.ConsumedLicenses),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ConsumedLicenseSummary omitted.
 
-/**
- * deserializeAws_json1_1ConsumedLicenseSummaryList
- */
-const de_ConsumedLicenseSummaryList = (output: any, context: __SerdeContext): ConsumedLicenseSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConsumedLicenseSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ConsumedLicenseSummaryList omitted.
 
-/**
- * deserializeAws_json1_1ConsumptionConfiguration
- */
-const de_ConsumptionConfiguration = (output: any, context: __SerdeContext): ConsumptionConfiguration => {
-  return {
-    BorrowConfiguration:
-      output.BorrowConfiguration != null ? de_BorrowConfiguration(output.BorrowConfiguration, context) : undefined,
-    ProvisionalConfiguration:
-      output.ProvisionalConfiguration != null
-        ? de_ProvisionalConfiguration(output.ProvisionalConfiguration, context)
-        : undefined,
-    RenewType: __expectString(output.RenewType),
-  } as any;
-};
+// de_ConsumptionConfiguration omitted.
 
-/**
- * deserializeAws_json1_1CreateGrantResponse
- */
-const de_CreateGrantResponse = (output: any, context: __SerdeContext): CreateGrantResponse => {
-  return {
-    GrantArn: __expectString(output.GrantArn),
-    Status: __expectString(output.Status),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_CreateGrantResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateGrantVersionResponse
- */
-const de_CreateGrantVersionResponse = (output: any, context: __SerdeContext): CreateGrantVersionResponse => {
-  return {
-    GrantArn: __expectString(output.GrantArn),
-    Status: __expectString(output.Status),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_CreateGrantVersionResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateLicenseConfigurationResponse
- */
-const de_CreateLicenseConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateLicenseConfigurationResponse => {
-  return {
-    LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
-  } as any;
-};
+// de_CreateLicenseConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateLicenseConversionTaskForResourceResponse
- */
-const de_CreateLicenseConversionTaskForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateLicenseConversionTaskForResourceResponse => {
-  return {
-    LicenseConversionTaskId: __expectString(output.LicenseConversionTaskId),
-  } as any;
-};
+// de_CreateLicenseConversionTaskForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateLicenseManagerReportGeneratorResponse
- */
-const de_CreateLicenseManagerReportGeneratorResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateLicenseManagerReportGeneratorResponse => {
-  return {
-    LicenseManagerReportGeneratorArn: __expectString(output.LicenseManagerReportGeneratorArn),
-  } as any;
-};
+// de_CreateLicenseManagerReportGeneratorResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateLicenseResponse
- */
-const de_CreateLicenseResponse = (output: any, context: __SerdeContext): CreateLicenseResponse => {
-  return {
-    LicenseArn: __expectString(output.LicenseArn),
-    Status: __expectString(output.Status),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_CreateLicenseResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateLicenseVersionResponse
- */
-const de_CreateLicenseVersionResponse = (output: any, context: __SerdeContext): CreateLicenseVersionResponse => {
-  return {
-    LicenseArn: __expectString(output.LicenseArn),
-    Status: __expectString(output.Status),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_CreateLicenseVersionResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateTokenResponse
- */
-const de_CreateTokenResponse = (output: any, context: __SerdeContext): CreateTokenResponse => {
-  return {
-    Token: __expectString(output.Token),
-    TokenId: __expectString(output.TokenId),
-    TokenType: __expectString(output.TokenType),
-  } as any;
-};
+// de_CreateTokenResponse omitted.
 
-/**
- * deserializeAws_json1_1DatetimeRange
- */
-const de_DatetimeRange = (output: any, context: __SerdeContext): DatetimeRange => {
-  return {
-    Begin: __expectString(output.Begin),
-    End: __expectString(output.End),
-  } as any;
-};
+// de_DatetimeRange omitted.
 
-/**
- * deserializeAws_json1_1DeleteGrantResponse
- */
-const de_DeleteGrantResponse = (output: any, context: __SerdeContext): DeleteGrantResponse => {
-  return {
-    GrantArn: __expectString(output.GrantArn),
-    Status: __expectString(output.Status),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_DeleteGrantResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteLicenseConfigurationResponse
- */
-const de_DeleteLicenseConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteLicenseConfigurationResponse => {
-  return {} as any;
-};
+// de_DeleteLicenseConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteLicenseManagerReportGeneratorResponse
- */
-const de_DeleteLicenseManagerReportGeneratorResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteLicenseManagerReportGeneratorResponse => {
-  return {} as any;
-};
+// de_DeleteLicenseManagerReportGeneratorResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteLicenseResponse
- */
-const de_DeleteLicenseResponse = (output: any, context: __SerdeContext): DeleteLicenseResponse => {
-  return {
-    DeletionDate: __expectString(output.DeletionDate),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DeleteLicenseResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteTokenResponse
- */
-const de_DeleteTokenResponse = (output: any, context: __SerdeContext): DeleteTokenResponse => {
-  return {} as any;
-};
+// de_DeleteTokenResponse omitted.
 
-/**
- * deserializeAws_json1_1Entitlement
- */
-const de_Entitlement = (output: any, context: __SerdeContext): Entitlement => {
-  return {
-    AllowCheckIn: __expectBoolean(output.AllowCheckIn),
-    MaxCount: __expectLong(output.MaxCount),
-    Name: __expectString(output.Name),
-    Overage: __expectBoolean(output.Overage),
-    Unit: __expectString(output.Unit),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Entitlement omitted.
 
-/**
- * deserializeAws_json1_1EntitlementData
- */
-const de_EntitlementData = (output: any, context: __SerdeContext): EntitlementData => {
-  return {
-    Name: __expectString(output.Name),
-    Unit: __expectString(output.Unit),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_EntitlementData omitted.
 
-/**
- * deserializeAws_json1_1EntitlementDataList
- */
-const de_EntitlementDataList = (output: any, context: __SerdeContext): EntitlementData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EntitlementData(entry, context);
-    });
-  return retVal;
-};
+// de_EntitlementDataList omitted.
 
-/**
- * deserializeAws_json1_1EntitlementList
- */
-const de_EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Entitlement(entry, context);
-    });
-  return retVal;
-};
+// de_EntitlementList omitted.
 
-/**
- * deserializeAws_json1_1EntitlementNotAllowedException
- */
-const de_EntitlementNotAllowedException = (output: any, context: __SerdeContext): EntitlementNotAllowedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EntitlementNotAllowedException omitted.
 
-/**
- * deserializeAws_json1_1EntitlementUsage
- */
-const de_EntitlementUsage = (output: any, context: __SerdeContext): EntitlementUsage => {
-  return {
-    ConsumedValue: __expectString(output.ConsumedValue),
-    MaxCount: __expectString(output.MaxCount),
-    Name: __expectString(output.Name),
-    Unit: __expectString(output.Unit),
-  } as any;
-};
+// de_EntitlementUsage omitted.
 
-/**
- * deserializeAws_json1_1EntitlementUsageList
- */
-const de_EntitlementUsageList = (output: any, context: __SerdeContext): EntitlementUsage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EntitlementUsage(entry, context);
-    });
-  return retVal;
-};
+// de_EntitlementUsageList omitted.
 
-/**
- * deserializeAws_json1_1ExtendLicenseConsumptionResponse
- */
-const de_ExtendLicenseConsumptionResponse = (
-  output: any,
-  context: __SerdeContext
-): ExtendLicenseConsumptionResponse => {
-  return {
-    Expiration: __expectString(output.Expiration),
-    LicenseConsumptionToken: __expectString(output.LicenseConsumptionToken),
-  } as any;
-};
+// de_ExtendLicenseConsumptionResponse omitted.
 
-/**
- * deserializeAws_json1_1FailedDependencyException
- */
-const de_FailedDependencyException = (output: any, context: __SerdeContext): FailedDependencyException => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_FailedDependencyException omitted.
 
-/**
- * deserializeAws_json1_1FilterLimitExceededException
- */
-const de_FilterLimitExceededException = (output: any, context: __SerdeContext): FilterLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_FilterLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1GetAccessTokenResponse
- */
-const de_GetAccessTokenResponse = (output: any, context: __SerdeContext): GetAccessTokenResponse => {
-  return {
-    AccessToken: __expectString(output.AccessToken),
-  } as any;
-};
+// de_GetAccessTokenResponse omitted.
 
-/**
- * deserializeAws_json1_1GetGrantResponse
- */
-const de_GetGrantResponse = (output: any, context: __SerdeContext): GetGrantResponse => {
-  return {
-    Grant: output.Grant != null ? de_Grant(output.Grant, context) : undefined,
-  } as any;
-};
+// de_GetGrantResponse omitted.
 
 /**
  * deserializeAws_json1_1GetLicenseConfigurationResponse
  */
 const de_GetLicenseConfigurationResponse = (output: any, context: __SerdeContext): GetLicenseConfigurationResponse => {
-  return {
-    AutomatedDiscoveryInformation:
-      output.AutomatedDiscoveryInformation != null
-        ? de_AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
-        : undefined,
-    ConsumedLicenseSummaryList:
-      output.ConsumedLicenseSummaryList != null
-        ? de_ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
-        : undefined,
-    ConsumedLicenses: __expectLong(output.ConsumedLicenses),
-    Description: __expectString(output.Description),
-    DisassociateWhenNotFound: __expectBoolean(output.DisassociateWhenNotFound),
-    LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
-    LicenseConfigurationId: __expectString(output.LicenseConfigurationId),
-    LicenseCount: __expectLong(output.LicenseCount),
-    LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
-    LicenseCountingType: __expectString(output.LicenseCountingType),
-    LicenseRules: output.LicenseRules != null ? de_StringList(output.LicenseRules, context) : undefined,
-    ManagedResourceSummaryList:
-      output.ManagedResourceSummaryList != null
-        ? de_ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    OwnerAccountId: __expectString(output.OwnerAccountId),
-    ProductInformationList:
-      output.ProductInformationList != null
-        ? de_ProductInformationList(output.ProductInformationList, context)
-        : undefined,
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    AutomatedDiscoveryInformation: (_: any) => de_AutomatedDiscoveryInformation(_, context),
+    ConsumedLicenseSummaryList: _json,
+    ConsumedLicenses: __expectLong,
+    Description: __expectString,
+    DisassociateWhenNotFound: __expectBoolean,
+    LicenseConfigurationArn: __expectString,
+    LicenseConfigurationId: __expectString,
+    LicenseCount: __expectLong,
+    LicenseCountHardLimit: __expectBoolean,
+    LicenseCountingType: __expectString,
+    LicenseRules: _json,
+    ManagedResourceSummaryList: _json,
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    ProductInformationList: _json,
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
 /**
@@ -5987,257 +4601,78 @@ const de_GetLicenseConversionTaskResponse = (
   output: any,
   context: __SerdeContext
 ): GetLicenseConversionTaskResponse => {
-  return {
-    DestinationLicenseContext:
-      output.DestinationLicenseContext != null
-        ? de_LicenseConversionContext(output.DestinationLicenseContext, context)
-        : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    LicenseConversionTaskId: __expectString(output.LicenseConversionTaskId),
-    LicenseConversionTime:
-      output.LicenseConversionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LicenseConversionTime)))
-        : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-    SourceLicenseContext:
-      output.SourceLicenseContext != null
-        ? de_LicenseConversionContext(output.SourceLicenseContext, context)
-        : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    DestinationLicenseContext: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LicenseConversionTaskId: __expectString,
+    LicenseConversionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    SourceLicenseContext: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetLicenseManagerReportGeneratorResponse
- */
-const de_GetLicenseManagerReportGeneratorResponse = (
-  output: any,
-  context: __SerdeContext
-): GetLicenseManagerReportGeneratorResponse => {
-  return {
-    ReportGenerator: output.ReportGenerator != null ? de_ReportGenerator(output.ReportGenerator, context) : undefined,
-  } as any;
-};
+// de_GetLicenseManagerReportGeneratorResponse omitted.
 
-/**
- * deserializeAws_json1_1GetLicenseResponse
- */
-const de_GetLicenseResponse = (output: any, context: __SerdeContext): GetLicenseResponse => {
-  return {
-    License: output.License != null ? de_License(output.License, context) : undefined,
-  } as any;
-};
+// de_GetLicenseResponse omitted.
 
-/**
- * deserializeAws_json1_1GetLicenseUsageResponse
- */
-const de_GetLicenseUsageResponse = (output: any, context: __SerdeContext): GetLicenseUsageResponse => {
-  return {
-    LicenseUsage: output.LicenseUsage != null ? de_LicenseUsage(output.LicenseUsage, context) : undefined,
-  } as any;
-};
+// de_GetLicenseUsageResponse omitted.
 
-/**
- * deserializeAws_json1_1GetServiceSettingsResponse
- */
-const de_GetServiceSettingsResponse = (output: any, context: __SerdeContext): GetServiceSettingsResponse => {
-  return {
-    EnableCrossAccountsDiscovery: __expectBoolean(output.EnableCrossAccountsDiscovery),
-    LicenseManagerResourceShareArn: __expectString(output.LicenseManagerResourceShareArn),
-    OrganizationConfiguration:
-      output.OrganizationConfiguration != null
-        ? de_OrganizationConfiguration(output.OrganizationConfiguration, context)
-        : undefined,
-    S3BucketArn: __expectString(output.S3BucketArn),
-    SnsTopicArn: __expectString(output.SnsTopicArn),
-  } as any;
-};
+// de_GetServiceSettingsResponse omitted.
 
-/**
- * deserializeAws_json1_1Grant
- */
-const de_Grant = (output: any, context: __SerdeContext): Grant => {
-  return {
-    GrantArn: __expectString(output.GrantArn),
-    GrantName: __expectString(output.GrantName),
-    GrantStatus: __expectString(output.GrantStatus),
-    GrantedOperations:
-      output.GrantedOperations != null ? de_AllowedOperationList(output.GrantedOperations, context) : undefined,
-    GranteePrincipalArn: __expectString(output.GranteePrincipalArn),
-    HomeRegion: __expectString(output.HomeRegion),
-    LicenseArn: __expectString(output.LicenseArn),
-    Options: output.Options != null ? de_Options(output.Options, context) : undefined,
-    ParentArn: __expectString(output.ParentArn),
-    StatusReason: __expectString(output.StatusReason),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_Grant omitted.
 
-/**
- * deserializeAws_json1_1GrantedLicense
- */
-const de_GrantedLicense = (output: any, context: __SerdeContext): GrantedLicense => {
-  return {
-    Beneficiary: __expectString(output.Beneficiary),
-    ConsumptionConfiguration:
-      output.ConsumptionConfiguration != null
-        ? de_ConsumptionConfiguration(output.ConsumptionConfiguration, context)
-        : undefined,
-    CreateTime: __expectString(output.CreateTime),
-    Entitlements: output.Entitlements != null ? de_EntitlementList(output.Entitlements, context) : undefined,
-    HomeRegion: __expectString(output.HomeRegion),
-    Issuer: output.Issuer != null ? de_IssuerDetails(output.Issuer, context) : undefined,
-    LicenseArn: __expectString(output.LicenseArn),
-    LicenseMetadata: output.LicenseMetadata != null ? de_MetadataList(output.LicenseMetadata, context) : undefined,
-    LicenseName: __expectString(output.LicenseName),
-    ProductName: __expectString(output.ProductName),
-    ProductSKU: __expectString(output.ProductSKU),
-    ReceivedMetadata:
-      output.ReceivedMetadata != null ? de_ReceivedMetadata(output.ReceivedMetadata, context) : undefined,
-    Status: __expectString(output.Status),
-    Validity: output.Validity != null ? de_DatetimeRange(output.Validity, context) : undefined,
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_GrantedLicense omitted.
 
-/**
- * deserializeAws_json1_1GrantedLicenseList
- */
-const de_GrantedLicenseList = (output: any, context: __SerdeContext): GrantedLicense[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GrantedLicense(entry, context);
-    });
-  return retVal;
-};
+// de_GrantedLicenseList omitted.
 
-/**
- * deserializeAws_json1_1GrantList
- */
-const de_GrantList = (output: any, context: __SerdeContext): Grant[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Grant(entry, context);
-    });
-  return retVal;
-};
+// de_GrantList omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterValueException
- */
-const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParameterValueException omitted.
 
-/**
- * deserializeAws_json1_1InvalidResourceStateException
- */
-const de_InvalidResourceStateException = (output: any, context: __SerdeContext): InvalidResourceStateException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidResourceStateException omitted.
 
-/**
- * deserializeAws_json1_1IssuerDetails
- */
-const de_IssuerDetails = (output: any, context: __SerdeContext): IssuerDetails => {
-  return {
-    KeyFingerprint: __expectString(output.KeyFingerprint),
-    Name: __expectString(output.Name),
-    SignKey: __expectString(output.SignKey),
-  } as any;
-};
+// de_IssuerDetails omitted.
 
-/**
- * deserializeAws_json1_1License
- */
-const de_License = (output: any, context: __SerdeContext): License => {
-  return {
-    Beneficiary: __expectString(output.Beneficiary),
-    ConsumptionConfiguration:
-      output.ConsumptionConfiguration != null
-        ? de_ConsumptionConfiguration(output.ConsumptionConfiguration, context)
-        : undefined,
-    CreateTime: __expectString(output.CreateTime),
-    Entitlements: output.Entitlements != null ? de_EntitlementList(output.Entitlements, context) : undefined,
-    HomeRegion: __expectString(output.HomeRegion),
-    Issuer: output.Issuer != null ? de_IssuerDetails(output.Issuer, context) : undefined,
-    LicenseArn: __expectString(output.LicenseArn),
-    LicenseMetadata: output.LicenseMetadata != null ? de_MetadataList(output.LicenseMetadata, context) : undefined,
-    LicenseName: __expectString(output.LicenseName),
-    ProductName: __expectString(output.ProductName),
-    ProductSKU: __expectString(output.ProductSKU),
-    Status: __expectString(output.Status),
-    Validity: output.Validity != null ? de_DatetimeRange(output.Validity, context) : undefined,
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_License omitted.
 
 /**
  * deserializeAws_json1_1LicenseConfiguration
  */
 const de_LicenseConfiguration = (output: any, context: __SerdeContext): LicenseConfiguration => {
-  return {
-    AutomatedDiscoveryInformation:
-      output.AutomatedDiscoveryInformation != null
-        ? de_AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
-        : undefined,
-    ConsumedLicenseSummaryList:
-      output.ConsumedLicenseSummaryList != null
-        ? de_ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
-        : undefined,
-    ConsumedLicenses: __expectLong(output.ConsumedLicenses),
-    Description: __expectString(output.Description),
-    DisassociateWhenNotFound: __expectBoolean(output.DisassociateWhenNotFound),
-    LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
-    LicenseConfigurationId: __expectString(output.LicenseConfigurationId),
-    LicenseCount: __expectLong(output.LicenseCount),
-    LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
-    LicenseCountingType: __expectString(output.LicenseCountingType),
-    LicenseRules: output.LicenseRules != null ? de_StringList(output.LicenseRules, context) : undefined,
-    ManagedResourceSummaryList:
-      output.ManagedResourceSummaryList != null
-        ? de_ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    OwnerAccountId: __expectString(output.OwnerAccountId),
-    ProductInformationList:
-      output.ProductInformationList != null
-        ? de_ProductInformationList(output.ProductInformationList, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AutomatedDiscoveryInformation: (_: any) => de_AutomatedDiscoveryInformation(_, context),
+    ConsumedLicenseSummaryList: _json,
+    ConsumedLicenses: __expectLong,
+    Description: __expectString,
+    DisassociateWhenNotFound: __expectBoolean,
+    LicenseConfigurationArn: __expectString,
+    LicenseConfigurationId: __expectString,
+    LicenseCount: __expectLong,
+    LicenseCountHardLimit: __expectBoolean,
+    LicenseCountingType: __expectString,
+    LicenseRules: _json,
+    ManagedResourceSummaryList: _json,
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    ProductInformationList: _json,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1LicenseConfigurationAssociation
  */
 const de_LicenseConfigurationAssociation = (output: any, context: __SerdeContext): LicenseConfigurationAssociation => {
-  return {
-    AmiAssociationScope: __expectString(output.AmiAssociationScope),
-    AssociationTime:
-      output.AssociationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AssociationTime)))
-        : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceOwnerId: __expectString(output.ResourceOwnerId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
+  return take(output, {
+    AmiAssociationScope: __expectString,
+    AssociationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    ResourceOwnerId: __expectString,
+    ResourceType: __expectString,
+  }) as any;
 };
 
 /**
@@ -6250,9 +4685,6 @@ const de_LicenseConfigurationAssociations = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LicenseConfigurationAssociation(entry, context);
     });
   return retVal;
@@ -6265,9 +4697,6 @@ const de_LicenseConfigurations = (output: any, context: __SerdeContext): License
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LicenseConfiguration(entry, context);
     });
   return retVal;
@@ -6277,17 +4706,14 @@ const de_LicenseConfigurations = (output: any, context: __SerdeContext): License
  * deserializeAws_json1_1LicenseConfigurationUsage
  */
 const de_LicenseConfigurationUsage = (output: any, context: __SerdeContext): LicenseConfigurationUsage => {
-  return {
-    AssociationTime:
-      output.AssociationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AssociationTime)))
-        : undefined,
-    ConsumedLicenses: __expectLong(output.ConsumedLicenses),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceOwnerId: __expectString(output.ResourceOwnerId),
-    ResourceStatus: __expectString(output.ResourceStatus),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
+  return take(output, {
+    AssociationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ConsumedLicenses: __expectLong,
+    ResourceArn: __expectString,
+    ResourceOwnerId: __expectString,
+    ResourceStatus: __expectString,
+    ResourceType: __expectString,
+  }) as any;
 };
 
 /**
@@ -6297,49 +4723,28 @@ const de_LicenseConfigurationUsageList = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LicenseConfigurationUsage(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1LicenseConversionContext
- */
-const de_LicenseConversionContext = (output: any, context: __SerdeContext): LicenseConversionContext => {
-  return {
-    UsageOperation: __expectString(output.UsageOperation),
-  } as any;
-};
+// de_LicenseConversionContext omitted.
 
 /**
  * deserializeAws_json1_1LicenseConversionTask
  */
 const de_LicenseConversionTask = (output: any, context: __SerdeContext): LicenseConversionTask => {
-  return {
-    DestinationLicenseContext:
-      output.DestinationLicenseContext != null
-        ? de_LicenseConversionContext(output.DestinationLicenseContext, context)
-        : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    LicenseConversionTaskId: __expectString(output.LicenseConversionTaskId),
-    LicenseConversionTime:
-      output.LicenseConversionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LicenseConversionTime)))
-        : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-    SourceLicenseContext:
-      output.SourceLicenseContext != null
-        ? de_LicenseConversionContext(output.SourceLicenseContext, context)
-        : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    DestinationLicenseContext: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LicenseConversionTaskId: __expectString,
+    LicenseConversionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    SourceLicenseContext: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
 /**
@@ -6349,46 +4754,27 @@ const de_LicenseConversionTasks = (output: any, context: __SerdeContext): Licens
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LicenseConversionTask(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1LicenseList
- */
-const de_LicenseList = (output: any, context: __SerdeContext): License[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_License(entry, context);
-    });
-  return retVal;
-};
+// de_LicenseList omitted.
 
 /**
  * deserializeAws_json1_1LicenseOperationFailure
  */
 const de_LicenseOperationFailure = (output: any, context: __SerdeContext): LicenseOperationFailure => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    FailureTime:
-      output.FailureTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FailureTime)))
-        : undefined,
-    MetadataList: output.MetadataList != null ? de_MetadataList(output.MetadataList, context) : undefined,
-    OperationName: __expectString(output.OperationName),
-    OperationRequestedBy: __expectString(output.OperationRequestedBy),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceOwnerId: __expectString(output.ResourceOwnerId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
+  return take(output, {
+    ErrorMessage: __expectString,
+    FailureTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MetadataList: _json,
+    OperationName: __expectString,
+    OperationRequestedBy: __expectString,
+    ResourceArn: __expectString,
+    ResourceOwnerId: __expectString,
+    ResourceType: __expectString,
+  }) as any;
 };
 
 /**
@@ -6398,57 +4784,18 @@ const de_LicenseOperationFailureList = (output: any, context: __SerdeContext): L
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LicenseOperationFailure(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1LicenseSpecification
- */
-const de_LicenseSpecification = (output: any, context: __SerdeContext): LicenseSpecification => {
-  return {
-    AmiAssociationScope: __expectString(output.AmiAssociationScope),
-    LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
-  } as any;
-};
+// de_LicenseSpecification omitted.
 
-/**
- * deserializeAws_json1_1LicenseSpecifications
- */
-const de_LicenseSpecifications = (output: any, context: __SerdeContext): LicenseSpecification[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LicenseSpecification(entry, context);
-    });
-  return retVal;
-};
+// de_LicenseSpecifications omitted.
 
-/**
- * deserializeAws_json1_1LicenseUsage
- */
-const de_LicenseUsage = (output: any, context: __SerdeContext): LicenseUsage => {
-  return {
-    EntitlementUsages:
-      output.EntitlementUsages != null ? de_EntitlementUsageList(output.EntitlementUsages, context) : undefined,
-  } as any;
-};
+// de_LicenseUsage omitted.
 
-/**
- * deserializeAws_json1_1LicenseUsageException
- */
-const de_LicenseUsageException = (output: any, context: __SerdeContext): LicenseUsageException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LicenseUsageException omitted.
 
 /**
  * deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse
@@ -6457,24 +4804,13 @@ const de_ListAssociationsForLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): ListAssociationsForLicenseConfigurationResponse => {
-  return {
-    LicenseConfigurationAssociations:
-      output.LicenseConfigurationAssociations != null
-        ? de_LicenseConfigurationAssociations(output.LicenseConfigurationAssociations, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LicenseConfigurationAssociations: (_: any) => de_LicenseConfigurationAssociations(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListDistributedGrantsResponse
- */
-const de_ListDistributedGrantsResponse = (output: any, context: __SerdeContext): ListDistributedGrantsResponse => {
-  return {
-    Grants: output.Grants != null ? de_GrantList(output.Grants, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListDistributedGrantsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsResponse
@@ -6483,13 +4819,10 @@ const de_ListFailuresForLicenseConfigurationOperationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListFailuresForLicenseConfigurationOperationsResponse => {
-  return {
-    LicenseOperationFailureList:
-      output.LicenseOperationFailureList != null
-        ? de_LicenseOperationFailureList(output.LicenseOperationFailureList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LicenseOperationFailureList: (_: any) => de_LicenseOperationFailureList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -6499,13 +4832,10 @@ const de_ListLicenseConfigurationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListLicenseConfigurationsResponse => {
-  return {
-    LicenseConfigurations:
-      output.LicenseConfigurations != null
-        ? de_LicenseConfigurations(output.LicenseConfigurations, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LicenseConfigurations: (_: any) => de_LicenseConfigurations(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -6515,142 +4845,33 @@ const de_ListLicenseConversionTasksResponse = (
   output: any,
   context: __SerdeContext
 ): ListLicenseConversionTasksResponse => {
-  return {
-    LicenseConversionTasks:
-      output.LicenseConversionTasks != null
-        ? de_LicenseConversionTasks(output.LicenseConversionTasks, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LicenseConversionTasks: (_: any) => de_LicenseConversionTasks(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListLicenseManagerReportGeneratorsResponse
- */
-const de_ListLicenseManagerReportGeneratorsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListLicenseManagerReportGeneratorsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ReportGenerators:
-      output.ReportGenerators != null ? de_ReportGeneratorList(output.ReportGenerators, context) : undefined,
-  } as any;
-};
+// de_ListLicenseManagerReportGeneratorsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse
- */
-const de_ListLicenseSpecificationsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListLicenseSpecificationsForResourceResponse => {
-  return {
-    LicenseSpecifications:
-      output.LicenseSpecifications != null
-        ? de_LicenseSpecifications(output.LicenseSpecifications, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListLicenseSpecificationsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1ListLicensesResponse
- */
-const de_ListLicensesResponse = (output: any, context: __SerdeContext): ListLicensesResponse => {
-  return {
-    Licenses: output.Licenses != null ? de_LicenseList(output.Licenses, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListLicensesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListLicenseVersionsResponse
- */
-const de_ListLicenseVersionsResponse = (output: any, context: __SerdeContext): ListLicenseVersionsResponse => {
-  return {
-    Licenses: output.Licenses != null ? de_LicenseList(output.Licenses, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListLicenseVersionsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListReceivedGrantsForOrganizationResponse
- */
-const de_ListReceivedGrantsForOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): ListReceivedGrantsForOrganizationResponse => {
-  return {
-    Grants: output.Grants != null ? de_GrantList(output.Grants, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListReceivedGrantsForOrganizationResponse omitted.
 
-/**
- * deserializeAws_json1_1ListReceivedGrantsResponse
- */
-const de_ListReceivedGrantsResponse = (output: any, context: __SerdeContext): ListReceivedGrantsResponse => {
-  return {
-    Grants: output.Grants != null ? de_GrantList(output.Grants, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListReceivedGrantsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListReceivedLicensesForOrganizationResponse
- */
-const de_ListReceivedLicensesForOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): ListReceivedLicensesForOrganizationResponse => {
-  return {
-    Licenses: output.Licenses != null ? de_GrantedLicenseList(output.Licenses, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListReceivedLicensesForOrganizationResponse omitted.
 
-/**
- * deserializeAws_json1_1ListReceivedLicensesResponse
- */
-const de_ListReceivedLicensesResponse = (output: any, context: __SerdeContext): ListReceivedLicensesResponse => {
-  return {
-    Licenses: output.Licenses != null ? de_GrantedLicenseList(output.Licenses, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListReceivedLicensesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListResourceInventoryResponse
- */
-const de_ListResourceInventoryResponse = (output: any, context: __SerdeContext): ListResourceInventoryResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ResourceInventoryList:
-      output.ResourceInventoryList != null
-        ? de_ResourceInventoryList(output.ResourceInventoryList, context)
-        : undefined,
-  } as any;
-};
+// de_ListResourceInventoryResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTokensResponse
- */
-const de_ListTokensResponse = (output: any, context: __SerdeContext): ListTokensResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tokens: output.Tokens != null ? de_TokenList(output.Tokens, context) : undefined,
-  } as any;
-};
+// de_ListTokensResponse omitted.
 
 /**
  * deserializeAws_json1_1ListUsageForLicenseConfigurationResponse
@@ -6659,494 +4880,93 @@ const de_ListUsageForLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): ListUsageForLicenseConfigurationResponse => {
-  return {
-    LicenseConfigurationUsageList:
-      output.LicenseConfigurationUsageList != null
-        ? de_LicenseConfigurationUsageList(output.LicenseConfigurationUsageList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LicenseConfigurationUsageList: (_: any) => de_LicenseConfigurationUsageList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ManagedResourceSummary
- */
-const de_ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
-  return {
-    AssociationCount: __expectLong(output.AssociationCount),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ManagedResourceSummary omitted.
 
-/**
- * deserializeAws_json1_1ManagedResourceSummaryList
- */
-const de_ManagedResourceSummaryList = (output: any, context: __SerdeContext): ManagedResourceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ManagedResourceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ManagedResourceSummaryList omitted.
 
-/**
- * deserializeAws_json1_1MaxSize3StringList
- */
-const de_MaxSize3StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MaxSize3StringList omitted.
 
-/**
- * deserializeAws_json1_1Metadata
- */
-const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Metadata omitted.
 
-/**
- * deserializeAws_json1_1MetadataList
- */
-const de_MetadataList = (output: any, context: __SerdeContext): Metadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Metadata(entry, context);
-    });
-  return retVal;
-};
+// de_MetadataList omitted.
 
-/**
- * deserializeAws_json1_1NoEntitlementsAllowedException
- */
-const de_NoEntitlementsAllowedException = (output: any, context: __SerdeContext): NoEntitlementsAllowedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NoEntitlementsAllowedException omitted.
 
-/**
- * deserializeAws_json1_1Options
- */
-const de_Options = (output: any, context: __SerdeContext): Options => {
-  return {
-    ActivationOverrideBehavior: __expectString(output.ActivationOverrideBehavior),
-  } as any;
-};
+// de_Options omitted.
 
-/**
- * deserializeAws_json1_1OrganizationConfiguration
- */
-const de_OrganizationConfiguration = (output: any, context: __SerdeContext): OrganizationConfiguration => {
-  return {
-    EnableIntegration: __expectBoolean(output.EnableIntegration),
-  } as any;
-};
+// de_OrganizationConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ProductInformation
- */
-const de_ProductInformation = (output: any, context: __SerdeContext): ProductInformation => {
-  return {
-    ProductInformationFilterList:
-      output.ProductInformationFilterList != null
-        ? de_ProductInformationFilterList(output.ProductInformationFilterList, context)
-        : undefined,
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ProductInformation omitted.
 
-/**
- * deserializeAws_json1_1ProductInformationFilter
- */
-const de_ProductInformationFilter = (output: any, context: __SerdeContext): ProductInformationFilter => {
-  return {
-    ProductInformationFilterComparator: __expectString(output.ProductInformationFilterComparator),
-    ProductInformationFilterName: __expectString(output.ProductInformationFilterName),
-    ProductInformationFilterValue:
-      output.ProductInformationFilterValue != null
-        ? de_StringList(output.ProductInformationFilterValue, context)
-        : undefined,
-  } as any;
-};
+// de_ProductInformationFilter omitted.
 
-/**
- * deserializeAws_json1_1ProductInformationFilterList
- */
-const de_ProductInformationFilterList = (output: any, context: __SerdeContext): ProductInformationFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProductInformationFilter(entry, context);
-    });
-  return retVal;
-};
+// de_ProductInformationFilterList omitted.
 
-/**
- * deserializeAws_json1_1ProductInformationList
- */
-const de_ProductInformationList = (output: any, context: __SerdeContext): ProductInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProductInformation(entry, context);
-    });
-  return retVal;
-};
+// de_ProductInformationList omitted.
 
-/**
- * deserializeAws_json1_1ProvisionalConfiguration
- */
-const de_ProvisionalConfiguration = (output: any, context: __SerdeContext): ProvisionalConfiguration => {
-  return {
-    MaxTimeToLiveInMinutes: __expectInt32(output.MaxTimeToLiveInMinutes),
-  } as any;
-};
+// de_ProvisionalConfiguration omitted.
 
-/**
- * deserializeAws_json1_1RateLimitExceededException
- */
-const de_RateLimitExceededException = (output: any, context: __SerdeContext): RateLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RateLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ReceivedMetadata
- */
-const de_ReceivedMetadata = (output: any, context: __SerdeContext): ReceivedMetadata => {
-  return {
-    AllowedOperations:
-      output.AllowedOperations != null ? de_AllowedOperationList(output.AllowedOperations, context) : undefined,
-    ReceivedStatus: __expectString(output.ReceivedStatus),
-    ReceivedStatusReason: __expectString(output.ReceivedStatusReason),
-  } as any;
-};
+// de_ReceivedMetadata omitted.
 
-/**
- * deserializeAws_json1_1RedirectException
- */
-const de_RedirectException = (output: any, context: __SerdeContext): RedirectException => {
-  return {
-    Location: __expectString(output.Location),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RedirectException omitted.
 
-/**
- * deserializeAws_json1_1RejectGrantResponse
- */
-const de_RejectGrantResponse = (output: any, context: __SerdeContext): RejectGrantResponse => {
-  return {
-    GrantArn: __expectString(output.GrantArn),
-    Status: __expectString(output.Status),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_RejectGrantResponse omitted.
 
-/**
- * deserializeAws_json1_1ReportContext
- */
-const de_ReportContext = (output: any, context: __SerdeContext): ReportContext => {
-  return {
-    licenseConfigurationArns:
-      output.licenseConfigurationArns != null ? de_ArnList(output.licenseConfigurationArns, context) : undefined,
-  } as any;
-};
+// de_ReportContext omitted.
 
-/**
- * deserializeAws_json1_1ReportFrequency
- */
-const de_ReportFrequency = (output: any, context: __SerdeContext): ReportFrequency => {
-  return {
-    period: __expectString(output.period),
-    value: __expectInt32(output.value),
-  } as any;
-};
+// de_ReportFrequency omitted.
 
-/**
- * deserializeAws_json1_1ReportGenerator
- */
-const de_ReportGenerator = (output: any, context: __SerdeContext): ReportGenerator => {
-  return {
-    CreateTime: __expectString(output.CreateTime),
-    Description: __expectString(output.Description),
-    LastReportGenerationTime: __expectString(output.LastReportGenerationTime),
-    LastRunFailureReason: __expectString(output.LastRunFailureReason),
-    LastRunStatus: __expectString(output.LastRunStatus),
-    LicenseManagerReportGeneratorArn: __expectString(output.LicenseManagerReportGeneratorArn),
-    ReportContext: output.ReportContext != null ? de_ReportContext(output.ReportContext, context) : undefined,
-    ReportCreatorAccount: __expectString(output.ReportCreatorAccount),
-    ReportFrequency: output.ReportFrequency != null ? de_ReportFrequency(output.ReportFrequency, context) : undefined,
-    ReportGeneratorName: __expectString(output.ReportGeneratorName),
-    ReportType: output.ReportType != null ? de_ReportTypeList(output.ReportType, context) : undefined,
-    S3Location: output.S3Location != null ? de_S3Location(output.S3Location, context) : undefined,
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ReportGenerator omitted.
 
-/**
- * deserializeAws_json1_1ReportGeneratorList
- */
-const de_ReportGeneratorList = (output: any, context: __SerdeContext): ReportGenerator[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReportGenerator(entry, context);
-    });
-  return retVal;
-};
+// de_ReportGeneratorList omitted.
 
-/**
- * deserializeAws_json1_1ReportTypeList
- */
-const de_ReportTypeList = (output: any, context: __SerdeContext): (ReportType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ReportTypeList omitted.
 
-/**
- * deserializeAws_json1_1ResourceInventory
- */
-const de_ResourceInventory = (output: any, context: __SerdeContext): ResourceInventory => {
-  return {
-    Platform: __expectString(output.Platform),
-    PlatformVersion: __expectString(output.PlatformVersion),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceOwningAccountId: __expectString(output.ResourceOwningAccountId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ResourceInventory omitted.
 
-/**
- * deserializeAws_json1_1ResourceInventoryList
- */
-const de_ResourceInventoryList = (output: any, context: __SerdeContext): ResourceInventory[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceInventory(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceInventoryList omitted.
 
-/**
- * deserializeAws_json1_1ResourceLimitExceededException
- */
-const de_ResourceLimitExceededException = (output: any, context: __SerdeContext): ResourceLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1S3Location
- */
-const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
-  return {
-    bucket: __expectString(output.bucket),
-    keyPrefix: __expectString(output.keyPrefix),
-  } as any;
-};
+// de_S3Location omitted.
 
-/**
- * deserializeAws_json1_1ServerInternalException
- */
-const de_ServerInternalException = (output: any, context: __SerdeContext): ServerInternalException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServerInternalException omitted.
 
-/**
- * deserializeAws_json1_1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TokenData
- */
-const de_TokenData = (output: any, context: __SerdeContext): TokenData => {
-  return {
-    ExpirationTime: __expectString(output.ExpirationTime),
-    LicenseArn: __expectString(output.LicenseArn),
-    RoleArns: output.RoleArns != null ? de_ArnList(output.RoleArns, context) : undefined,
-    Status: __expectString(output.Status),
-    TokenId: __expectString(output.TokenId),
-    TokenProperties:
-      output.TokenProperties != null ? de_MaxSize3StringList(output.TokenProperties, context) : undefined,
-    TokenType: __expectString(output.TokenType),
-  } as any;
-};
+// de_TokenData omitted.
 
-/**
- * deserializeAws_json1_1TokenList
- */
-const de_TokenList = (output: any, context: __SerdeContext): TokenData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TokenData(entry, context);
-    });
-  return retVal;
-};
+// de_TokenList omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedDigitalSignatureMethodException
- */
-const de_UnsupportedDigitalSignatureMethodException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedDigitalSignatureMethodException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnsupportedDigitalSignatureMethodException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateLicenseConfigurationResponse
- */
-const de_UpdateLicenseConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateLicenseConfigurationResponse => {
-  return {} as any;
-};
+// de_UpdateLicenseConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateLicenseManagerReportGeneratorResponse
- */
-const de_UpdateLicenseManagerReportGeneratorResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateLicenseManagerReportGeneratorResponse => {
-  return {} as any;
-};
+// de_UpdateLicenseManagerReportGeneratorResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateLicenseSpecificationsForResourceResponse
- */
-const de_UpdateLicenseSpecificationsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateLicenseSpecificationsForResourceResponse => {
-  return {} as any;
-};
+// de_UpdateLicenseSpecificationsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateServiceSettingsResponse
- */
-const de_UpdateServiceSettingsResponse = (output: any, context: __SerdeContext): UpdateServiceSettingsResponse => {
-  return {} as any;
-};
+// de_UpdateServiceSettingsResponse omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -7168,6 +4988,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

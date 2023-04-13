@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -10,7 +11,8 @@ import {
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -305,12 +307,9 @@ import {
   BatchDetectTargetedSentimentItemResult,
   BatchDetectTargetedSentimentRequest,
   BatchDetectTargetedSentimentResponse,
-  BatchItemError,
   BatchSizeLimitExceededException,
   Block,
-  BlockReference,
   BoundingBox,
-  ChildBlock,
   ClassifierEvaluationMetrics,
   ClassifierMetadata,
   ClassifyDocumentRequest,
@@ -318,15 +317,10 @@ import {
   ContainsPiiEntitiesRequest,
   ContainsPiiEntitiesResponse,
   CreateDatasetRequest,
-  CreateDatasetResponse,
   CreateDocumentClassifierRequest,
-  CreateDocumentClassifierResponse,
   CreateEndpointRequest,
-  CreateEndpointResponse,
   CreateEntityRecognizerRequest,
-  CreateEntityRecognizerResponse,
   CreateFlywheelRequest,
-  CreateFlywheelResponse,
   DataSecurityConfig,
   DatasetAugmentedManifestsListItem,
   DatasetDocumentClassifierInputDataConfig,
@@ -338,15 +332,10 @@ import {
   DatasetInputDataConfig,
   DatasetProperties,
   DeleteDocumentClassifierRequest,
-  DeleteDocumentClassifierResponse,
   DeleteEndpointRequest,
-  DeleteEndpointResponse,
   DeleteEntityRecognizerRequest,
-  DeleteEntityRecognizerResponse,
   DeleteFlywheelRequest,
-  DeleteFlywheelResponse,
   DeleteResourcePolicyRequest,
-  DeleteResourcePolicyResponse,
   DescribeDatasetRequest,
   DescribeDatasetResponse,
   DescribeDocumentClassificationJobRequest,
@@ -403,10 +392,8 @@ import {
   DocumentClassifierProperties,
   DocumentClassifierSummary,
   DocumentLabel,
-  DocumentMetadata,
   DocumentReaderConfig,
   DocumentReadFeatureTypes,
-  DocumentTypeListItem,
   DominantLanguage,
   DominantLanguageDetectionJobFilter,
   DominantLanguageDetectionJobProperties,
@@ -425,15 +412,12 @@ import {
   EntityRecognizerInputDataConfig,
   EntityRecognizerMetadata,
   EntityRecognizerMetadataEntityTypesListItem,
-  EntityRecognizerOutputDataConfig,
   EntityRecognizerProperties,
   EntityRecognizerSummary,
   EntityTypesEvaluationMetrics,
   EntityTypesListItem,
-  ErrorsListItem,
   EventsDetectionJobFilter,
   EventsDetectionJobProperties,
-  ExtractedCharactersListItem,
   FlywheelFilter,
   FlywheelIterationFilter,
   FlywheelIterationProperties,
@@ -442,11 +426,9 @@ import {
   FlywheelSummary,
   Geometry,
   ImportModelRequest,
-  ImportModelResponse,
   InputDataConfig,
   InternalServerException,
   InvalidFilterException,
-  InvalidRequestDetail,
   InvalidRequestException,
   JobNotFoundException,
   KeyPhrase,
@@ -484,7 +466,6 @@ import {
   ListSentimentDetectionJobsRequest,
   ListSentimentDetectionJobsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTargetedSentimentDetectionJobsRequest,
   ListTargetedSentimentDetectionJobsResponse,
   ListTopicsDetectionJobsRequest,
@@ -496,12 +477,9 @@ import {
   PiiEntitiesDetectionJobProperties,
   PiiEntity,
   PiiEntityType,
-  PiiOutputDataConfig,
   Point,
   PutResourcePolicyRequest,
-  PutResourcePolicyResponse,
   RedactionConfig,
-  RelationshipsListItem,
   ResourceInUseException,
   ResourceLimitExceededException,
   ResourceNotFoundException,
@@ -510,37 +488,21 @@ import {
   SentimentDetectionJobProperties,
   SentimentScore,
   StartDocumentClassificationJobRequest,
-  StartDocumentClassificationJobResponse,
   StartDominantLanguageDetectionJobRequest,
-  StartDominantLanguageDetectionJobResponse,
   StartEntitiesDetectionJobRequest,
-  StartEntitiesDetectionJobResponse,
   StartEventsDetectionJobRequest,
-  StartEventsDetectionJobResponse,
   StartFlywheelIterationRequest,
-  StartFlywheelIterationResponse,
   StartKeyPhrasesDetectionJobRequest,
-  StartKeyPhrasesDetectionJobResponse,
   StartPiiEntitiesDetectionJobRequest,
-  StartPiiEntitiesDetectionJobResponse,
   StartSentimentDetectionJobRequest,
-  StartSentimentDetectionJobResponse,
   StartTargetedSentimentDetectionJobRequest,
-  StartTargetedSentimentDetectionJobResponse,
   StartTopicsDetectionJobRequest,
-  StartTopicsDetectionJobResponse,
   StopDominantLanguageDetectionJobRequest,
-  StopDominantLanguageDetectionJobResponse,
   StopEntitiesDetectionJobRequest,
-  StopEntitiesDetectionJobResponse,
   StopEventsDetectionJobRequest,
-  StopEventsDetectionJobResponse,
   StopKeyPhrasesDetectionJobRequest,
-  StopKeyPhrasesDetectionJobResponse,
   StopPiiEntitiesDetectionJobRequest,
-  StopPiiEntitiesDetectionJobResponse,
   StopSentimentDetectionJobRequest,
-  StopSentimentDetectionJobResponse,
   SyntaxToken,
   Tag,
   TargetedSentimentDetectionJobFilter,
@@ -559,19 +521,13 @@ import {
 import {
   ConcurrentModificationException,
   StopTargetedSentimentDetectionJobRequest,
-  StopTargetedSentimentDetectionJobResponse,
   StopTrainingDocumentClassifierRequest,
-  StopTrainingDocumentClassifierResponse,
   StopTrainingEntityRecognizerRequest,
-  StopTrainingEntityRecognizerResponse,
   TagResourceRequest,
-  TagResourceResponse,
   TooManyTagKeysException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateDataSecurityConfig,
   UpdateEndpointRequest,
-  UpdateEndpointResponse,
   UpdateFlywheelRequest,
   UpdateFlywheelResponse,
 } from "../models/models_1";
@@ -585,7 +541,7 @@ export const se_BatchDetectDominantLanguageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDetectDominantLanguage");
   let body: any;
-  body = JSON.stringify(se_BatchDetectDominantLanguageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -598,7 +554,7 @@ export const se_BatchDetectEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDetectEntities");
   let body: any;
-  body = JSON.stringify(se_BatchDetectEntitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -611,7 +567,7 @@ export const se_BatchDetectKeyPhrasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDetectKeyPhrases");
   let body: any;
-  body = JSON.stringify(se_BatchDetectKeyPhrasesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -624,7 +580,7 @@ export const se_BatchDetectSentimentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDetectSentiment");
   let body: any;
-  body = JSON.stringify(se_BatchDetectSentimentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -637,7 +593,7 @@ export const se_BatchDetectSyntaxCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDetectSyntax");
   let body: any;
-  body = JSON.stringify(se_BatchDetectSyntaxRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -650,7 +606,7 @@ export const se_BatchDetectTargetedSentimentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDetectTargetedSentiment");
   let body: any;
-  body = JSON.stringify(se_BatchDetectTargetedSentimentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -676,7 +632,7 @@ export const se_ContainsPiiEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ContainsPiiEntities");
   let body: any;
-  body = JSON.stringify(se_ContainsPiiEntitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -754,7 +710,7 @@ export const se_DeleteDocumentClassifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDocumentClassifier");
   let body: any;
-  body = JSON.stringify(se_DeleteDocumentClassifierRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -767,7 +723,7 @@ export const se_DeleteEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEndpoint");
   let body: any;
-  body = JSON.stringify(se_DeleteEndpointRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -780,7 +736,7 @@ export const se_DeleteEntityRecognizerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEntityRecognizer");
   let body: any;
-  body = JSON.stringify(se_DeleteEntityRecognizerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -793,7 +749,7 @@ export const se_DeleteFlywheelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFlywheel");
   let body: any;
-  body = JSON.stringify(se_DeleteFlywheelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -806,7 +762,7 @@ export const se_DeleteResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
-  body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -819,7 +775,7 @@ export const se_DescribeDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDataset");
   let body: any;
-  body = JSON.stringify(se_DescribeDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -832,7 +788,7 @@ export const se_DescribeDocumentClassificationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDocumentClassificationJob");
   let body: any;
-  body = JSON.stringify(se_DescribeDocumentClassificationJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -845,7 +801,7 @@ export const se_DescribeDocumentClassifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDocumentClassifier");
   let body: any;
-  body = JSON.stringify(se_DescribeDocumentClassifierRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -858,7 +814,7 @@ export const se_DescribeDominantLanguageDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDominantLanguageDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribeDominantLanguageDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -871,7 +827,7 @@ export const se_DescribeEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEndpoint");
   let body: any;
-  body = JSON.stringify(se_DescribeEndpointRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -884,7 +840,7 @@ export const se_DescribeEntitiesDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEntitiesDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribeEntitiesDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -897,7 +853,7 @@ export const se_DescribeEntityRecognizerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEntityRecognizer");
   let body: any;
-  body = JSON.stringify(se_DescribeEntityRecognizerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -910,7 +866,7 @@ export const se_DescribeEventsDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEventsDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribeEventsDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -923,7 +879,7 @@ export const se_DescribeFlywheelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFlywheel");
   let body: any;
-  body = JSON.stringify(se_DescribeFlywheelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -936,7 +892,7 @@ export const se_DescribeFlywheelIterationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFlywheelIteration");
   let body: any;
-  body = JSON.stringify(se_DescribeFlywheelIterationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -949,7 +905,7 @@ export const se_DescribeKeyPhrasesDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeKeyPhrasesDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribeKeyPhrasesDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -962,7 +918,7 @@ export const se_DescribePiiEntitiesDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePiiEntitiesDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribePiiEntitiesDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -975,7 +931,7 @@ export const se_DescribeResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeResourcePolicy");
   let body: any;
-  body = JSON.stringify(se_DescribeResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -988,7 +944,7 @@ export const se_DescribeSentimentDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSentimentDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribeSentimentDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1001,7 +957,7 @@ export const se_DescribeTargetedSentimentDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTargetedSentimentDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribeTargetedSentimentDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1014,7 +970,7 @@ export const se_DescribeTopicsDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTopicsDetectionJob");
   let body: any;
-  body = JSON.stringify(se_DescribeTopicsDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1027,7 +983,7 @@ export const se_DetectDominantLanguageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectDominantLanguage");
   let body: any;
-  body = JSON.stringify(se_DetectDominantLanguageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1053,7 +1009,7 @@ export const se_DetectKeyPhrasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectKeyPhrases");
   let body: any;
-  body = JSON.stringify(se_DetectKeyPhrasesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1066,7 +1022,7 @@ export const se_DetectPiiEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectPiiEntities");
   let body: any;
-  body = JSON.stringify(se_DetectPiiEntitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1079,7 +1035,7 @@ export const se_DetectSentimentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectSentiment");
   let body: any;
-  body = JSON.stringify(se_DetectSentimentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1092,7 +1048,7 @@ export const se_DetectSyntaxCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectSyntax");
   let body: any;
-  body = JSON.stringify(se_DetectSyntaxRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1105,7 +1061,7 @@ export const se_DetectTargetedSentimentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectTargetedSentiment");
   let body: any;
-  body = JSON.stringify(se_DetectTargetedSentimentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1118,7 +1074,7 @@ export const se_ImportModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportModel");
   let body: any;
-  body = JSON.stringify(se_ImportModelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1170,7 +1126,7 @@ export const se_ListDocumentClassifierSummariesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDocumentClassifierSummaries");
   let body: any;
-  body = JSON.stringify(se_ListDocumentClassifierSummariesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1235,7 +1191,7 @@ export const se_ListEntityRecognizerSummariesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEntityRecognizerSummaries");
   let body: any;
-  body = JSON.stringify(se_ListEntityRecognizerSummariesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1326,7 +1282,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1365,7 +1321,7 @@ export const se_PutResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
-  body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1430,7 +1386,7 @@ export const se_StartFlywheelIterationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartFlywheelIteration");
   let body: any;
-  body = JSON.stringify(se_StartFlywheelIterationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1508,7 +1464,7 @@ export const se_StopDominantLanguageDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopDominantLanguageDetectionJob");
   let body: any;
-  body = JSON.stringify(se_StopDominantLanguageDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1521,7 +1477,7 @@ export const se_StopEntitiesDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopEntitiesDetectionJob");
   let body: any;
-  body = JSON.stringify(se_StopEntitiesDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1534,7 +1490,7 @@ export const se_StopEventsDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopEventsDetectionJob");
   let body: any;
-  body = JSON.stringify(se_StopEventsDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1547,7 +1503,7 @@ export const se_StopKeyPhrasesDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopKeyPhrasesDetectionJob");
   let body: any;
-  body = JSON.stringify(se_StopKeyPhrasesDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1560,7 +1516,7 @@ export const se_StopPiiEntitiesDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopPiiEntitiesDetectionJob");
   let body: any;
-  body = JSON.stringify(se_StopPiiEntitiesDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1573,7 +1529,7 @@ export const se_StopSentimentDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopSentimentDetectionJob");
   let body: any;
-  body = JSON.stringify(se_StopSentimentDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1586,7 +1542,7 @@ export const se_StopTargetedSentimentDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopTargetedSentimentDetectionJob");
   let body: any;
-  body = JSON.stringify(se_StopTargetedSentimentDetectionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1599,7 +1555,7 @@ export const se_StopTrainingDocumentClassifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopTrainingDocumentClassifier");
   let body: any;
-  body = JSON.stringify(se_StopTrainingDocumentClassifierRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1612,7 +1568,7 @@ export const se_StopTrainingEntityRecognizerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopTrainingEntityRecognizer");
   let body: any;
-  body = JSON.stringify(se_StopTrainingEntityRecognizerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1625,7 +1581,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1638,7 +1594,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1651,7 +1607,7 @@ export const se_UpdateEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEndpoint");
   let body: any;
-  body = JSON.stringify(se_UpdateEndpointRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1664,7 +1620,7 @@ export const se_UpdateFlywheelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateFlywheel");
   let body: any;
-  body = JSON.stringify(se_UpdateFlywheelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1685,7 +1641,7 @@ export const de_BatchDetectDominantLanguageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1715,10 +1671,9 @@ const de_BatchDetectDominantLanguageCommandError = async (
       throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1741,7 +1696,7 @@ export const de_BatchDetectEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1774,10 +1729,9 @@ const de_BatchDetectEntitiesCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1800,7 +1754,7 @@ export const de_BatchDetectKeyPhrasesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1833,10 +1787,9 @@ const de_BatchDetectKeyPhrasesCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1859,7 +1812,7 @@ export const de_BatchDetectSentimentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1892,10 +1845,9 @@ const de_BatchDetectSentimentCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1918,7 +1870,7 @@ export const de_BatchDetectSyntaxCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1951,10 +1903,9 @@ const de_BatchDetectSyntaxCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1977,7 +1928,7 @@ export const de_BatchDetectTargetedSentimentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2010,10 +1961,9 @@ const de_BatchDetectTargetedSentimentCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2036,7 +1986,7 @@ export const de_ClassifyDocumentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2066,10 +2016,9 @@ const de_ClassifyDocumentCommandError = async (
       throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2092,7 +2041,7 @@ export const de_ContainsPiiEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2122,10 +2071,9 @@ const de_ContainsPiiEntitiesCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2143,12 +2091,12 @@ export const de_CreateDatasetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDatasetResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2187,10 +2135,9 @@ const de_CreateDatasetCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2208,12 +2155,12 @@ export const de_CreateDocumentClassifierCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDocumentClassifierResponse(data, context);
+  contents = _json(data);
   const response: CreateDocumentClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2255,10 +2202,9 @@ const de_CreateDocumentClassifierCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2276,12 +2222,12 @@ export const de_CreateEndpointCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateEndpointResponse(data, context);
+  contents = _json(data);
   const response: CreateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2323,10 +2269,9 @@ const de_CreateEndpointCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2344,12 +2289,12 @@ export const de_CreateEntityRecognizerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateEntityRecognizerResponse(data, context);
+  contents = _json(data);
   const response: CreateEntityRecognizerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2391,10 +2336,9 @@ const de_CreateEntityRecognizerCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2412,12 +2356,12 @@ export const de_CreateFlywheelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateFlywheelResponse(data, context);
+  contents = _json(data);
   const response: CreateFlywheelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2465,10 +2409,9 @@ const de_CreateFlywheelCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2486,12 +2429,12 @@ export const de_DeleteDocumentClassifierCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDocumentClassifierResponse(data, context);
+  contents = _json(data);
   const response: DeleteDocumentClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2527,10 +2470,9 @@ const de_DeleteDocumentClassifierCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2548,12 +2490,12 @@ export const de_DeleteEndpointCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteEndpointResponse(data, context);
+  contents = _json(data);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2586,10 +2528,9 @@ const de_DeleteEndpointCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2607,12 +2548,12 @@ export const de_DeleteEntityRecognizerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteEntityRecognizerResponse(data, context);
+  contents = _json(data);
   const response: DeleteEntityRecognizerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2648,10 +2589,9 @@ const de_DeleteEntityRecognizerCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2669,12 +2609,12 @@ export const de_DeleteFlywheelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteFlywheelResponse(data, context);
+  contents = _json(data);
   const response: DeleteFlywheelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2710,10 +2650,9 @@ const de_DeleteFlywheelCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2731,12 +2670,12 @@ export const de_DeleteResourcePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2763,10 +2702,9 @@ const de_DeleteResourcePolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2789,7 +2727,7 @@ export const de_DescribeDatasetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2819,10 +2757,9 @@ const de_DescribeDatasetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2845,7 +2782,7 @@ export const de_DescribeDocumentClassificationJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2875,10 +2812,9 @@ const de_DescribeDocumentClassificationJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2901,7 +2837,7 @@ export const de_DescribeDocumentClassifierCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2931,10 +2867,9 @@ const de_DescribeDocumentClassifierCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2957,7 +2892,7 @@ export const de_DescribeDominantLanguageDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2987,10 +2922,9 @@ const de_DescribeDominantLanguageDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3013,7 +2947,7 @@ export const de_DescribeEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3043,10 +2977,9 @@ const de_DescribeEndpointCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3069,7 +3002,7 @@ export const de_DescribeEntitiesDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3099,10 +3032,9 @@ const de_DescribeEntitiesDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3125,7 +3057,7 @@ export const de_DescribeEntityRecognizerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3155,10 +3087,9 @@ const de_DescribeEntityRecognizerCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3181,7 +3112,7 @@ export const de_DescribeEventsDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3211,10 +3142,9 @@ const de_DescribeEventsDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3237,7 +3167,7 @@ export const de_DescribeFlywheelCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3267,10 +3197,9 @@ const de_DescribeFlywheelCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3293,7 +3222,7 @@ export const de_DescribeFlywheelIterationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3323,10 +3252,9 @@ const de_DescribeFlywheelIterationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3349,7 +3277,7 @@ export const de_DescribeKeyPhrasesDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3379,10 +3307,9 @@ const de_DescribeKeyPhrasesDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3405,7 +3332,7 @@ export const de_DescribePiiEntitiesDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3435,10 +3362,9 @@ const de_DescribePiiEntitiesDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3461,7 +3387,7 @@ export const de_DescribeResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3488,10 +3414,9 @@ const de_DescribeResourcePolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3514,7 +3439,7 @@ export const de_DescribeSentimentDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3544,10 +3469,9 @@ const de_DescribeSentimentDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3570,7 +3494,7 @@ export const de_DescribeTargetedSentimentDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3600,10 +3524,9 @@ const de_DescribeTargetedSentimentDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3626,7 +3549,7 @@ export const de_DescribeTopicsDetectionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3656,10 +3579,9 @@ const de_DescribeTopicsDetectionJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3682,7 +3604,7 @@ export const de_DetectDominantLanguageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3709,10 +3631,9 @@ const de_DetectDominantLanguageCommandError = async (
       throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3735,7 +3656,7 @@ export const de_DetectEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3768,10 +3689,9 @@ const de_DetectEntitiesCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3794,7 +3714,7 @@ export const de_DetectKeyPhrasesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3824,10 +3744,9 @@ const de_DetectKeyPhrasesCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3850,7 +3769,7 @@ export const de_DetectPiiEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3880,10 +3799,9 @@ const de_DetectPiiEntitiesCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3906,7 +3824,7 @@ export const de_DetectSentimentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3936,10 +3854,9 @@ const de_DetectSentimentCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3962,7 +3879,7 @@ export const de_DetectSyntaxCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3992,10 +3909,9 @@ const de_DetectSyntaxCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4018,7 +3934,7 @@ export const de_DetectTargetedSentimentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4048,10 +3964,9 @@ const de_DetectTargetedSentimentCommandError = async (
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4069,12 +3984,12 @@ export const de_ImportModelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportModelResponse(data, context);
+  contents = _json(data);
   const response: ImportModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4119,10 +4034,9 @@ const de_ImportModelCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4145,7 +4059,7 @@ export const de_ListDatasetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4178,10 +4092,9 @@ const de_ListDatasetsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4204,7 +4117,7 @@ export const de_ListDocumentClassificationJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4234,10 +4147,9 @@ const de_ListDocumentClassificationJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4260,7 +4172,7 @@ export const de_ListDocumentClassifiersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4290,10 +4202,9 @@ const de_ListDocumentClassifiersCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4316,7 +4227,7 @@ export const de_ListDocumentClassifierSummariesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4343,10 +4254,9 @@ const de_ListDocumentClassifierSummariesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4369,7 +4279,7 @@ export const de_ListDominantLanguageDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4399,10 +4309,9 @@ const de_ListDominantLanguageDetectionJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4425,7 +4334,7 @@ export const de_ListEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4452,10 +4361,9 @@ const de_ListEndpointsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4478,7 +4386,7 @@ export const de_ListEntitiesDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4508,10 +4416,9 @@ const de_ListEntitiesDetectionJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4534,7 +4441,7 @@ export const de_ListEntityRecognizersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4564,10 +4471,9 @@ const de_ListEntityRecognizersCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4590,7 +4496,7 @@ export const de_ListEntityRecognizerSummariesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4617,10 +4523,9 @@ const de_ListEntityRecognizerSummariesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4643,7 +4548,7 @@ export const de_ListEventsDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4673,10 +4578,9 @@ const de_ListEventsDetectionJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4699,7 +4603,7 @@ export const de_ListFlywheelIterationHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4732,10 +4636,9 @@ const de_ListFlywheelIterationHistoryCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4758,7 +4661,7 @@ export const de_ListFlywheelsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4788,10 +4691,9 @@ const de_ListFlywheelsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4814,7 +4716,7 @@ export const de_ListKeyPhrasesDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4844,10 +4746,9 @@ const de_ListKeyPhrasesDetectionJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4870,7 +4771,7 @@ export const de_ListPiiEntitiesDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4900,10 +4801,9 @@ const de_ListPiiEntitiesDetectionJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4926,7 +4826,7 @@ export const de_ListSentimentDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4956,10 +4856,9 @@ const de_ListSentimentDetectionJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4977,12 +4876,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5009,10 +4908,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5035,7 +4933,7 @@ export const de_ListTargetedSentimentDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5065,10 +4963,9 @@ const de_ListTargetedSentimentDetectionJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5091,7 +4988,7 @@ export const de_ListTopicsDetectionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5121,10 +5018,9 @@ const de_ListTopicsDetectionJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5142,12 +5038,12 @@ export const de_PutResourcePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5174,10 +5070,9 @@ const de_PutResourcePolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5195,12 +5090,12 @@ export const de_StartDocumentClassificationJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartDocumentClassificationJobResponse(data, context);
+  contents = _json(data);
   const response: StartDocumentClassificationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5239,10 +5134,9 @@ const de_StartDocumentClassificationJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5260,12 +5154,12 @@ export const de_StartDominantLanguageDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartDominantLanguageDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartDominantLanguageDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5298,10 +5192,9 @@ const de_StartDominantLanguageDetectionJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5319,12 +5212,12 @@ export const de_StartEntitiesDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartEntitiesDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartEntitiesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5363,10 +5256,9 @@ const de_StartEntitiesDetectionJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5384,12 +5276,12 @@ export const de_StartEventsDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartEventsDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartEventsDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5422,10 +5314,9 @@ const de_StartEventsDetectionJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5443,12 +5334,12 @@ export const de_StartFlywheelIterationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartFlywheelIterationResponse(data, context);
+  contents = _json(data);
   const response: StartFlywheelIterationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5481,10 +5372,9 @@ const de_StartFlywheelIterationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5502,12 +5392,12 @@ export const de_StartKeyPhrasesDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartKeyPhrasesDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartKeyPhrasesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5540,10 +5430,9 @@ const de_StartKeyPhrasesDetectionJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5561,12 +5450,12 @@ export const de_StartPiiEntitiesDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartPiiEntitiesDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartPiiEntitiesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5599,10 +5488,9 @@ const de_StartPiiEntitiesDetectionJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5620,12 +5508,12 @@ export const de_StartSentimentDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartSentimentDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartSentimentDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5658,10 +5546,9 @@ const de_StartSentimentDetectionJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5679,12 +5566,12 @@ export const de_StartTargetedSentimentDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartTargetedSentimentDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartTargetedSentimentDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5717,10 +5604,9 @@ const de_StartTargetedSentimentDetectionJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5738,12 +5624,12 @@ export const de_StartTopicsDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartTopicsDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StartTopicsDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5776,10 +5662,9 @@ const de_StartTopicsDetectionJobCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5797,12 +5682,12 @@ export const de_StopDominantLanguageDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopDominantLanguageDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StopDominantLanguageDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5829,10 +5714,9 @@ const de_StopDominantLanguageDetectionJobCommandError = async (
       throw await de_JobNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5850,12 +5734,12 @@ export const de_StopEntitiesDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopEntitiesDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StopEntitiesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5882,10 +5766,9 @@ const de_StopEntitiesDetectionJobCommandError = async (
       throw await de_JobNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5903,12 +5786,12 @@ export const de_StopEventsDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopEventsDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StopEventsDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5935,10 +5818,9 @@ const de_StopEventsDetectionJobCommandError = async (
       throw await de_JobNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5956,12 +5838,12 @@ export const de_StopKeyPhrasesDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopKeyPhrasesDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StopKeyPhrasesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5988,10 +5870,9 @@ const de_StopKeyPhrasesDetectionJobCommandError = async (
       throw await de_JobNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6009,12 +5890,12 @@ export const de_StopPiiEntitiesDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopPiiEntitiesDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StopPiiEntitiesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6041,10 +5922,9 @@ const de_StopPiiEntitiesDetectionJobCommandError = async (
       throw await de_JobNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6062,12 +5942,12 @@ export const de_StopSentimentDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopSentimentDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StopSentimentDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6094,10 +5974,9 @@ const de_StopSentimentDetectionJobCommandError = async (
       throw await de_JobNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6115,12 +5994,12 @@ export const de_StopTargetedSentimentDetectionJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopTargetedSentimentDetectionJobResponse(data, context);
+  contents = _json(data);
   const response: StopTargetedSentimentDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6147,10 +6026,9 @@ const de_StopTargetedSentimentDetectionJobCommandError = async (
       throw await de_JobNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6168,12 +6046,12 @@ export const de_StopTrainingDocumentClassifierCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopTrainingDocumentClassifierResponse(data, context);
+  contents = _json(data);
   const response: StopTrainingDocumentClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6203,10 +6081,9 @@ const de_StopTrainingDocumentClassifierCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6224,12 +6101,12 @@ export const de_StopTrainingEntityRecognizerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopTrainingEntityRecognizerResponse(data, context);
+  contents = _json(data);
   const response: StopTrainingEntityRecognizerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6259,10 +6136,9 @@ const de_StopTrainingEntityRecognizerCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6280,12 +6156,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6318,10 +6194,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6339,12 +6214,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6377,10 +6252,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyTagKeysExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6398,12 +6272,12 @@ export const de_UpdateEndpointCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateEndpointResponse(data, context);
+  contents = _json(data);
   const response: UpdateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6442,10 +6316,9 @@ const de_UpdateEndpointCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6468,7 +6341,7 @@ export const de_UpdateFlywheelCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6501,10 +6374,9 @@ const de_UpdateFlywheelCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6518,7 +6390,7 @@ const de_BatchSizeLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<BatchSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BatchSizeLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BatchSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6534,7 +6406,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6550,7 +6422,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6566,7 +6438,7 @@ const de_InvalidFilterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidFilterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidFilterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidFilterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6582,7 +6454,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6598,7 +6470,7 @@ const de_JobNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<JobNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_JobNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new JobNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6614,7 +6486,7 @@ const de_KmsKeyValidationExceptionRes = async (
   context: __SerdeContext
 ): Promise<KmsKeyValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_KmsKeyValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KmsKeyValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6630,7 +6502,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6646,7 +6518,7 @@ const de_ResourceLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6662,7 +6534,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6678,7 +6550,7 @@ const de_ResourceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6694,7 +6566,7 @@ const de_TextSizeLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<TextSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TextSizeLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TextSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6710,7 +6582,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6726,7 +6598,7 @@ const de_TooManyTagKeysExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagKeysException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagKeysException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagKeysException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6742,7 +6614,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6758,7 +6630,7 @@ const de_UnsupportedLanguageExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedLanguageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedLanguageException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedLanguageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6766,753 +6638,255 @@ const de_UnsupportedLanguageExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AttributeNamesList
- */
-const se_AttributeNamesList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AttributeNamesList omitted.
 
-/**
- * serializeAws_json1_1AugmentedManifestsListItem
- */
-const se_AugmentedManifestsListItem = (input: AugmentedManifestsListItem, context: __SerdeContext): any => {
-  return {
-    ...(input.AnnotationDataS3Uri != null && { AnnotationDataS3Uri: input.AnnotationDataS3Uri }),
-    ...(input.AttributeNames != null && { AttributeNames: se_AttributeNamesList(input.AttributeNames, context) }),
-    ...(input.DocumentType != null && { DocumentType: input.DocumentType }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-    ...(input.SourceDocumentsS3Uri != null && { SourceDocumentsS3Uri: input.SourceDocumentsS3Uri }),
-    ...(input.Split != null && { Split: input.Split }),
-  };
-};
+// se_AugmentedManifestsListItem omitted.
 
-/**
- * serializeAws_json1_1BatchDetectDominantLanguageRequest
- */
-const se_BatchDetectDominantLanguageRequest = (
-  input: BatchDetectDominantLanguageRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.TextList != null && { TextList: se_CustomerInputStringList(input.TextList, context) }),
-  };
-};
+// se_BatchDetectDominantLanguageRequest omitted.
 
-/**
- * serializeAws_json1_1BatchDetectEntitiesRequest
- */
-const se_BatchDetectEntitiesRequest = (input: BatchDetectEntitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList != null && { TextList: se_CustomerInputStringList(input.TextList, context) }),
-  };
-};
+// se_BatchDetectEntitiesRequest omitted.
 
-/**
- * serializeAws_json1_1BatchDetectKeyPhrasesRequest
- */
-const se_BatchDetectKeyPhrasesRequest = (input: BatchDetectKeyPhrasesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList != null && { TextList: se_CustomerInputStringList(input.TextList, context) }),
-  };
-};
+// se_BatchDetectKeyPhrasesRequest omitted.
 
-/**
- * serializeAws_json1_1BatchDetectSentimentRequest
- */
-const se_BatchDetectSentimentRequest = (input: BatchDetectSentimentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList != null && { TextList: se_CustomerInputStringList(input.TextList, context) }),
-  };
-};
+// se_BatchDetectSentimentRequest omitted.
 
-/**
- * serializeAws_json1_1BatchDetectSyntaxRequest
- */
-const se_BatchDetectSyntaxRequest = (input: BatchDetectSyntaxRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList != null && { TextList: se_CustomerInputStringList(input.TextList, context) }),
-  };
-};
+// se_BatchDetectSyntaxRequest omitted.
 
-/**
- * serializeAws_json1_1BatchDetectTargetedSentimentRequest
- */
-const se_BatchDetectTargetedSentimentRequest = (
-  input: BatchDetectTargetedSentimentRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList != null && { TextList: se_CustomerInputStringList(input.TextList, context) }),
-  };
-};
+// se_BatchDetectTargetedSentimentRequest omitted.
 
 /**
  * serializeAws_json1_1ClassifyDocumentRequest
  */
 const se_ClassifyDocumentRequest = (input: ClassifyDocumentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
-    ...(input.DocumentReaderConfig != null && {
-      DocumentReaderConfig: se_DocumentReaderConfig(input.DocumentReaderConfig, context),
-    }),
-    ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
+  return take(input, {
+    Bytes: (_) => context.base64Encoder(_),
+    DocumentReaderConfig: (_) => _json(_),
+    EndpointArn: [],
+    Text: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ContainsPiiEntitiesRequest
- */
-const se_ContainsPiiEntitiesRequest = (input: ContainsPiiEntitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_ContainsPiiEntitiesRequest omitted.
 
 /**
  * serializeAws_json1_1CreateDatasetRequest
  */
 const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
-    ...(input.DatasetType != null && { DatasetType: input.DatasetType }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-    ...(input.InputDataConfig != null && {
-      InputDataConfig: se_DatasetInputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DatasetName: [],
+    DatasetType: [],
+    Description: [],
+    FlywheelArn: [],
+    InputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1CreateDocumentClassifierRequest
  */
 const se_CreateDocumentClassifierRequest = (input: CreateDocumentClassifierRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DocumentClassifierName != null && { DocumentClassifierName: input.DocumentClassifierName }),
-    ...(input.InputDataConfig != null && {
-      InputDataConfig: se_DocumentClassifierInputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.ModelKmsKeyId != null && { ModelKmsKeyId: input.ModelKmsKeyId }),
-    ...(input.ModelPolicy != null && { ModelPolicy: input.ModelPolicy }),
-    ...(input.OutputDataConfig != null && {
-      OutputDataConfig: se_DocumentClassifierOutputDataConfig(input.OutputDataConfig, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VersionName != null && { VersionName: input.VersionName }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    DocumentClassifierName: [],
+    InputDataConfig: (_) => _json(_),
+    LanguageCode: [],
+    Mode: [],
+    ModelKmsKeyId: [],
+    ModelPolicy: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    VersionName: [],
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1CreateEndpointRequest
  */
 const se_CreateEndpointRequest = (input: CreateEndpointRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DesiredInferenceUnits != null && { DesiredInferenceUnits: input.DesiredInferenceUnits }),
-    ...(input.EndpointName != null && { EndpointName: input.EndpointName }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-    ...(input.ModelArn != null && { ModelArn: input.ModelArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    DesiredInferenceUnits: [],
+    EndpointName: [],
+    FlywheelArn: [],
+    ModelArn: [],
+    Tags: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1CreateEntityRecognizerRequest
  */
 const se_CreateEntityRecognizerRequest = (input: CreateEntityRecognizerRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && {
-      InputDataConfig: se_EntityRecognizerInputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.ModelKmsKeyId != null && { ModelKmsKeyId: input.ModelKmsKeyId }),
-    ...(input.ModelPolicy != null && { ModelPolicy: input.ModelPolicy }),
-    ...(input.RecognizerName != null && { RecognizerName: input.RecognizerName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VersionName != null && { VersionName: input.VersionName }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    LanguageCode: [],
+    ModelKmsKeyId: [],
+    ModelPolicy: [],
+    RecognizerName: [],
+    Tags: (_) => _json(_),
+    VersionName: [],
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1CreateFlywheelRequest
  */
 const se_CreateFlywheelRequest = (input: CreateFlywheelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ActiveModelArn != null && { ActiveModelArn: input.ActiveModelArn }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DataLakeS3Uri != null && { DataLakeS3Uri: input.DataLakeS3Uri }),
-    ...(input.DataSecurityConfig != null && {
-      DataSecurityConfig: se_DataSecurityConfig(input.DataSecurityConfig, context),
-    }),
-    ...(input.FlywheelName != null && { FlywheelName: input.FlywheelName }),
-    ...(input.ModelType != null && { ModelType: input.ModelType }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.TaskConfig != null && { TaskConfig: se_TaskConfig(input.TaskConfig, context) }),
-  };
+  return take(input, {
+    ActiveModelArn: [],
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    DataLakeS3Uri: [],
+    DataSecurityConfig: (_) => _json(_),
+    FlywheelName: [],
+    ModelType: [],
+    Tags: (_) => _json(_),
+    TaskConfig: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1CustomerInputStringList
- */
-const se_CustomerInputStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CustomerInputStringList omitted.
 
-/**
- * serializeAws_json1_1DataSecurityConfig
- */
-const se_DataSecurityConfig = (input: DataSecurityConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DataLakeKmsKeyId != null && { DataLakeKmsKeyId: input.DataLakeKmsKeyId }),
-    ...(input.ModelKmsKeyId != null && { ModelKmsKeyId: input.ModelKmsKeyId }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
-};
+// se_DataSecurityConfig omitted.
 
-/**
- * serializeAws_json1_1DatasetAugmentedManifestsList
- */
-const se_DatasetAugmentedManifestsList = (input: DatasetAugmentedManifestsListItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DatasetAugmentedManifestsListItem(entry, context);
-    });
-};
+// se_DatasetAugmentedManifestsList omitted.
 
-/**
- * serializeAws_json1_1DatasetAugmentedManifestsListItem
- */
-const se_DatasetAugmentedManifestsListItem = (
-  input: DatasetAugmentedManifestsListItem,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AnnotationDataS3Uri != null && { AnnotationDataS3Uri: input.AnnotationDataS3Uri }),
-    ...(input.AttributeNames != null && { AttributeNames: se_AttributeNamesList(input.AttributeNames, context) }),
-    ...(input.DocumentType != null && { DocumentType: input.DocumentType }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-    ...(input.SourceDocumentsS3Uri != null && { SourceDocumentsS3Uri: input.SourceDocumentsS3Uri }),
-  };
-};
+// se_DatasetAugmentedManifestsListItem omitted.
 
-/**
- * serializeAws_json1_1DatasetDocumentClassifierInputDataConfig
- */
-const se_DatasetDocumentClassifierInputDataConfig = (
-  input: DatasetDocumentClassifierInputDataConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LabelDelimiter != null && { LabelDelimiter: input.LabelDelimiter }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_DatasetDocumentClassifierInputDataConfig omitted.
 
-/**
- * serializeAws_json1_1DatasetEntityRecognizerAnnotations
- */
-const se_DatasetEntityRecognizerAnnotations = (
-  input: DatasetEntityRecognizerAnnotations,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_DatasetEntityRecognizerAnnotations omitted.
 
-/**
- * serializeAws_json1_1DatasetEntityRecognizerDocuments
- */
-const se_DatasetEntityRecognizerDocuments = (input: DatasetEntityRecognizerDocuments, context: __SerdeContext): any => {
-  return {
-    ...(input.InputFormat != null && { InputFormat: input.InputFormat }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_DatasetEntityRecognizerDocuments omitted.
 
-/**
- * serializeAws_json1_1DatasetEntityRecognizerEntityList
- */
-const se_DatasetEntityRecognizerEntityList = (
-  input: DatasetEntityRecognizerEntityList,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_DatasetEntityRecognizerEntityList omitted.
 
-/**
- * serializeAws_json1_1DatasetEntityRecognizerInputDataConfig
- */
-const se_DatasetEntityRecognizerInputDataConfig = (
-  input: DatasetEntityRecognizerInputDataConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Annotations != null && {
-      Annotations: se_DatasetEntityRecognizerAnnotations(input.Annotations, context),
-    }),
-    ...(input.Documents != null && { Documents: se_DatasetEntityRecognizerDocuments(input.Documents, context) }),
-    ...(input.EntityList != null && { EntityList: se_DatasetEntityRecognizerEntityList(input.EntityList, context) }),
-  };
-};
+// se_DatasetEntityRecognizerInputDataConfig omitted.
 
 /**
  * serializeAws_json1_1DatasetFilter
  */
 const se_DatasetFilter = (input: DatasetFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
-    ...(input.CreationTimeBefore != null && {
-      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
-    }),
-    ...(input.DatasetType != null && { DatasetType: input.DatasetType }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
+  return take(input, {
+    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    DatasetType: [],
+    Status: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DatasetInputDataConfig
- */
-const se_DatasetInputDataConfig = (input: DatasetInputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AugmentedManifests != null && {
-      AugmentedManifests: se_DatasetAugmentedManifestsList(input.AugmentedManifests, context),
-    }),
-    ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
-    ...(input.DocumentClassifierInputDataConfig != null && {
-      DocumentClassifierInputDataConfig: se_DatasetDocumentClassifierInputDataConfig(
-        input.DocumentClassifierInputDataConfig,
-        context
-      ),
-    }),
-    ...(input.EntityRecognizerInputDataConfig != null && {
-      EntityRecognizerInputDataConfig: se_DatasetEntityRecognizerInputDataConfig(
-        input.EntityRecognizerInputDataConfig,
-        context
-      ),
-    }),
-  };
-};
+// se_DatasetInputDataConfig omitted.
 
-/**
- * serializeAws_json1_1DeleteDocumentClassifierRequest
- */
-const se_DeleteDocumentClassifierRequest = (input: DeleteDocumentClassifierRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DocumentClassifierArn != null && { DocumentClassifierArn: input.DocumentClassifierArn }),
-  };
-};
+// se_DeleteDocumentClassifierRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteEndpointRequest
- */
-const se_DeleteEndpointRequest = (input: DeleteEndpointRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
-  };
-};
+// se_DeleteEndpointRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteEntityRecognizerRequest
- */
-const se_DeleteEntityRecognizerRequest = (input: DeleteEntityRecognizerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EntityRecognizerArn != null && { EntityRecognizerArn: input.EntityRecognizerArn }),
-  };
-};
+// se_DeleteEntityRecognizerRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteFlywheelRequest
- */
-const se_DeleteFlywheelRequest = (input: DeleteFlywheelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-  };
-};
+// se_DeleteFlywheelRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteResourcePolicyRequest
- */
-const se_DeleteResourcePolicyRequest = (input: DeleteResourcePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DeleteResourcePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDatasetRequest
- */
-const se_DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-  };
-};
+// se_DescribeDatasetRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDocumentClassificationJobRequest
- */
-const se_DescribeDocumentClassificationJobRequest = (
-  input: DescribeDocumentClassificationJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeDocumentClassificationJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDocumentClassifierRequest
- */
-const se_DescribeDocumentClassifierRequest = (
-  input: DescribeDocumentClassifierRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DocumentClassifierArn != null && { DocumentClassifierArn: input.DocumentClassifierArn }),
-  };
-};
+// se_DescribeDocumentClassifierRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDominantLanguageDetectionJobRequest
- */
-const se_DescribeDominantLanguageDetectionJobRequest = (
-  input: DescribeDominantLanguageDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeDominantLanguageDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEndpointRequest
- */
-const se_DescribeEndpointRequest = (input: DescribeEndpointRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
-  };
-};
+// se_DescribeEndpointRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEntitiesDetectionJobRequest
- */
-const se_DescribeEntitiesDetectionJobRequest = (
-  input: DescribeEntitiesDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeEntitiesDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEntityRecognizerRequest
- */
-const se_DescribeEntityRecognizerRequest = (input: DescribeEntityRecognizerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EntityRecognizerArn != null && { EntityRecognizerArn: input.EntityRecognizerArn }),
-  };
-};
+// se_DescribeEntityRecognizerRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEventsDetectionJobRequest
- */
-const se_DescribeEventsDetectionJobRequest = (
-  input: DescribeEventsDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeEventsDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeFlywheelIterationRequest
- */
-const se_DescribeFlywheelIterationRequest = (input: DescribeFlywheelIterationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-    ...(input.FlywheelIterationId != null && { FlywheelIterationId: input.FlywheelIterationId }),
-  };
-};
+// se_DescribeFlywheelIterationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeFlywheelRequest
- */
-const se_DescribeFlywheelRequest = (input: DescribeFlywheelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-  };
-};
+// se_DescribeFlywheelRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeKeyPhrasesDetectionJobRequest
- */
-const se_DescribeKeyPhrasesDetectionJobRequest = (
-  input: DescribeKeyPhrasesDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeKeyPhrasesDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePiiEntitiesDetectionJobRequest
- */
-const se_DescribePiiEntitiesDetectionJobRequest = (
-  input: DescribePiiEntitiesDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribePiiEntitiesDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeResourcePolicyRequest
- */
-const se_DescribeResourcePolicyRequest = (input: DescribeResourcePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DescribeResourcePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeSentimentDetectionJobRequest
- */
-const se_DescribeSentimentDetectionJobRequest = (
-  input: DescribeSentimentDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeSentimentDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeTargetedSentimentDetectionJobRequest
- */
-const se_DescribeTargetedSentimentDetectionJobRequest = (
-  input: DescribeTargetedSentimentDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeTargetedSentimentDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeTopicsDetectionJobRequest
- */
-const se_DescribeTopicsDetectionJobRequest = (
-  input: DescribeTopicsDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeTopicsDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1DetectDominantLanguageRequest
- */
-const se_DetectDominantLanguageRequest = (input: DetectDominantLanguageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectDominantLanguageRequest omitted.
 
 /**
  * serializeAws_json1_1DetectEntitiesRequest
  */
 const se_DetectEntitiesRequest = (input: DetectEntitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
-    ...(input.DocumentReaderConfig != null && {
-      DocumentReaderConfig: se_DocumentReaderConfig(input.DocumentReaderConfig, context),
-    }),
-    ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
+  return take(input, {
+    Bytes: (_) => context.base64Encoder(_),
+    DocumentReaderConfig: (_) => _json(_),
+    EndpointArn: [],
+    LanguageCode: [],
+    Text: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DetectKeyPhrasesRequest
- */
-const se_DetectKeyPhrasesRequest = (input: DetectKeyPhrasesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectKeyPhrasesRequest omitted.
 
-/**
- * serializeAws_json1_1DetectPiiEntitiesRequest
- */
-const se_DetectPiiEntitiesRequest = (input: DetectPiiEntitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectPiiEntitiesRequest omitted.
 
-/**
- * serializeAws_json1_1DetectSentimentRequest
- */
-const se_DetectSentimentRequest = (input: DetectSentimentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectSentimentRequest omitted.
 
-/**
- * serializeAws_json1_1DetectSyntaxRequest
- */
-const se_DetectSyntaxRequest = (input: DetectSyntaxRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectSyntaxRequest omitted.
 
-/**
- * serializeAws_json1_1DetectTargetedSentimentRequest
- */
-const se_DetectTargetedSentimentRequest = (input: DetectTargetedSentimentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_DetectTargetedSentimentRequest omitted.
 
-/**
- * serializeAws_json1_1DocumentClassificationConfig
- */
-const se_DocumentClassificationConfig = (input: DocumentClassificationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Labels != null && { Labels: se_LabelsList(input.Labels, context) }),
-    ...(input.Mode != null && { Mode: input.Mode }),
-  };
-};
+// se_DocumentClassificationConfig omitted.
 
 /**
  * serializeAws_json1_1DocumentClassificationJobFilter
  */
 const se_DocumentClassificationJobFilter = (input: DocumentClassificationJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1DocumentClassifierAugmentedManifestsList
- */
-const se_DocumentClassifierAugmentedManifestsList = (
-  input: AugmentedManifestsListItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AugmentedManifestsListItem(entry, context);
-    });
-};
+// se_DocumentClassifierAugmentedManifestsList omitted.
 
 /**
  * serializeAws_json1_1DocumentClassifierFilter
  */
 const se_DocumentClassifierFilter = (input: DocumentClassifierFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.DocumentClassifierName != null && { DocumentClassifierName: input.DocumentClassifierName }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    DocumentClassifierName: [],
+    Status: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1DocumentClassifierInputDataConfig
- */
-const se_DocumentClassifierInputDataConfig = (
-  input: DocumentClassifierInputDataConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AugmentedManifests != null && {
-      AugmentedManifests: se_DocumentClassifierAugmentedManifestsList(input.AugmentedManifests, context),
-    }),
-    ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
-    ...(input.LabelDelimiter != null && { LabelDelimiter: input.LabelDelimiter }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-    ...(input.TestS3Uri != null && { TestS3Uri: input.TestS3Uri }),
-  };
-};
+// se_DocumentClassifierInputDataConfig omitted.
 
-/**
- * serializeAws_json1_1DocumentClassifierOutputDataConfig
- */
-const se_DocumentClassifierOutputDataConfig = (
-  input: DocumentClassifierOutputDataConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FlywheelStatsS3Prefix != null && { FlywheelStatsS3Prefix: input.FlywheelStatsS3Prefix }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_DocumentClassifierOutputDataConfig omitted.
 
-/**
- * serializeAws_json1_1DocumentReaderConfig
- */
-const se_DocumentReaderConfig = (input: DocumentReaderConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DocumentReadAction != null && { DocumentReadAction: input.DocumentReadAction }),
-    ...(input.DocumentReadMode != null && { DocumentReadMode: input.DocumentReadMode }),
-    ...(input.FeatureTypes != null && { FeatureTypes: se_ListOfDocumentReadFeatureTypes(input.FeatureTypes, context) }),
-  };
-};
+// se_DocumentReaderConfig omitted.
 
 /**
  * serializeAws_json1_1DominantLanguageDetectionJobFilter
@@ -7521,238 +6895,127 @@ const se_DominantLanguageDetectionJobFilter = (
   input: DominantLanguageDetectionJobFilter,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_json1_1EndpointFilter
  */
 const se_EndpointFilter = (input: EndpointFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
-    ...(input.CreationTimeBefore != null && {
-      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
-    }),
-    ...(input.ModelArn != null && { ModelArn: input.ModelArn }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
+  return take(input, {
+    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    ModelArn: [],
+    Status: [],
+  });
 };
 
 /**
  * serializeAws_json1_1EntitiesDetectionJobFilter
  */
 const se_EntitiesDetectionJobFilter = (input: EntitiesDetectionJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1EntityRecognitionConfig
- */
-const se_EntityRecognitionConfig = (input: EntityRecognitionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.EntityTypes != null && { EntityTypes: se_EntityTypesList(input.EntityTypes, context) }),
-  };
-};
+// se_EntityRecognitionConfig omitted.
 
-/**
- * serializeAws_json1_1EntityRecognizerAnnotations
- */
-const se_EntityRecognizerAnnotations = (input: EntityRecognizerAnnotations, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-    ...(input.TestS3Uri != null && { TestS3Uri: input.TestS3Uri }),
-  };
-};
+// se_EntityRecognizerAnnotations omitted.
 
-/**
- * serializeAws_json1_1EntityRecognizerAugmentedManifestsList
- */
-const se_EntityRecognizerAugmentedManifestsList = (
-  input: AugmentedManifestsListItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AugmentedManifestsListItem(entry, context);
-    });
-};
+// se_EntityRecognizerAugmentedManifestsList omitted.
 
-/**
- * serializeAws_json1_1EntityRecognizerDocuments
- */
-const se_EntityRecognizerDocuments = (input: EntityRecognizerDocuments, context: __SerdeContext): any => {
-  return {
-    ...(input.InputFormat != null && { InputFormat: input.InputFormat }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-    ...(input.TestS3Uri != null && { TestS3Uri: input.TestS3Uri }),
-  };
-};
+// se_EntityRecognizerDocuments omitted.
 
-/**
- * serializeAws_json1_1EntityRecognizerEntityList
- */
-const se_EntityRecognizerEntityList = (input: EntityRecognizerEntityList, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_EntityRecognizerEntityList omitted.
 
 /**
  * serializeAws_json1_1EntityRecognizerFilter
  */
 const se_EntityRecognizerFilter = (input: EntityRecognizerFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.RecognizerName != null && { RecognizerName: input.RecognizerName }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    RecognizerName: [],
+    Status: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1EntityRecognizerInputDataConfig
- */
-const se_EntityRecognizerInputDataConfig = (input: EntityRecognizerInputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Annotations != null && { Annotations: se_EntityRecognizerAnnotations(input.Annotations, context) }),
-    ...(input.AugmentedManifests != null && {
-      AugmentedManifests: se_EntityRecognizerAugmentedManifestsList(input.AugmentedManifests, context),
-    }),
-    ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
-    ...(input.Documents != null && { Documents: se_EntityRecognizerDocuments(input.Documents, context) }),
-    ...(input.EntityList != null && { EntityList: se_EntityRecognizerEntityList(input.EntityList, context) }),
-    ...(input.EntityTypes != null && { EntityTypes: se_EntityTypesList(input.EntityTypes, context) }),
-  };
-};
+// se_EntityRecognizerInputDataConfig omitted.
 
-/**
- * serializeAws_json1_1EntityTypesList
- */
-const se_EntityTypesList = (input: EntityTypesListItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EntityTypesListItem(entry, context);
-    });
-};
+// se_EntityTypesList omitted.
 
-/**
- * serializeAws_json1_1EntityTypesListItem
- */
-const se_EntityTypesListItem = (input: EntityTypesListItem, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_EntityTypesListItem omitted.
 
 /**
  * serializeAws_json1_1EventsDetectionJobFilter
  */
 const se_EventsDetectionJobFilter = (input: EventsDetectionJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_json1_1FlywheelFilter
  */
 const se_FlywheelFilter = (input: FlywheelFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
-    ...(input.CreationTimeBefore != null && {
-      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
-    }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
+  return take(input, {
+    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    Status: [],
+  });
 };
 
 /**
  * serializeAws_json1_1FlywheelIterationFilter
  */
 const se_FlywheelIterationFilter = (input: FlywheelIterationFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
-    ...(input.CreationTimeBefore != null && {
-      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
-    }),
-  };
+  return take(input, {
+    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1ImportModelRequest
- */
-const se_ImportModelRequest = (input: ImportModelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.ModelKmsKeyId != null && { ModelKmsKeyId: input.ModelKmsKeyId }),
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-    ...(input.SourceModelArn != null && { SourceModelArn: input.SourceModelArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VersionName != null && { VersionName: input.VersionName }),
-  };
-};
+// se_ImportModelRequest omitted.
 
-/**
- * serializeAws_json1_1InputDataConfig
- */
-const se_InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DocumentReaderConfig != null && {
-      DocumentReaderConfig: se_DocumentReaderConfig(input.DocumentReaderConfig, context),
-    }),
-    ...(input.InputFormat != null && { InputFormat: input.InputFormat }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_InputDataConfig omitted.
 
 /**
  * serializeAws_json1_1KeyPhrasesDetectionJobFilter
  */
 const se_KeyPhrasesDetectionJobFilter = (input: KeyPhrasesDetectionJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1LabelsList
- */
-const se_LabelsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LabelsList omitted.
 
 /**
  * serializeAws_json1_1ListDatasetsRequest
  */
 const se_ListDatasetsRequest = (input: ListDatasetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_DatasetFilter(input.Filter, context) }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_DatasetFilter(_, context),
+    FlywheelArn: [],
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
@@ -7762,36 +7025,25 @@ const se_ListDocumentClassificationJobsRequest = (
   input: ListDocumentClassificationJobsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_DocumentClassificationJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_DocumentClassificationJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListDocumentClassifiersRequest
  */
 const se_ListDocumentClassifiersRequest = (input: ListDocumentClassifiersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_DocumentClassifierFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_DocumentClassifierFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListDocumentClassifierSummariesRequest
- */
-const se_ListDocumentClassifierSummariesRequest = (
-  input: ListDocumentClassifierSummariesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDocumentClassifierSummariesRequest omitted.
 
 /**
  * serializeAws_json1_1ListDominantLanguageDetectionJobsRequest
@@ -7800,68 +7052,57 @@ const se_ListDominantLanguageDetectionJobsRequest = (
   input: ListDominantLanguageDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_DominantLanguageDetectionJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_DominantLanguageDetectionJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListEndpointsRequest
  */
 const se_ListEndpointsRequest = (input: ListEndpointsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_EndpointFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_EndpointFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListEntitiesDetectionJobsRequest
  */
 const se_ListEntitiesDetectionJobsRequest = (input: ListEntitiesDetectionJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_EntitiesDetectionJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_EntitiesDetectionJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListEntityRecognizersRequest
  */
 const se_ListEntityRecognizersRequest = (input: ListEntityRecognizersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_EntityRecognizerFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_EntityRecognizerFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListEntityRecognizerSummariesRequest
- */
-const se_ListEntityRecognizerSummariesRequest = (
-  input: ListEntityRecognizerSummariesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListEntityRecognizerSummariesRequest omitted.
 
 /**
  * serializeAws_json1_1ListEventsDetectionJobsRequest
  */
 const se_ListEventsDetectionJobsRequest = (input: ListEventsDetectionJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_EventsDetectionJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_EventsDetectionJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
@@ -7871,23 +7112,23 @@ const se_ListFlywheelIterationHistoryRequest = (
   input: ListFlywheelIterationHistoryRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_FlywheelIterationFilter(input.Filter, context) }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_FlywheelIterationFilter(_, context),
+    FlywheelArn: [],
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListFlywheelsRequest
  */
 const se_ListFlywheelsRequest = (input: ListFlywheelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_FlywheelFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_FlywheelFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
@@ -7897,37 +7138,16 @@ const se_ListKeyPhrasesDetectionJobsRequest = (
   input: ListKeyPhrasesDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_KeyPhrasesDetectionJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_KeyPhrasesDetectionJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListOfDocumentReadFeatureTypes
- */
-const se_ListOfDocumentReadFeatureTypes = (
-  input: (DocumentReadFeatureTypes | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfDocumentReadFeatureTypes omitted.
 
-/**
- * serializeAws_json1_1ListOfPiiEntityTypes
- */
-const se_ListOfPiiEntityTypes = (input: (PiiEntityType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfPiiEntityTypes omitted.
 
 /**
  * serializeAws_json1_1ListPiiEntitiesDetectionJobsRequest
@@ -7936,11 +7156,11 @@ const se_ListPiiEntitiesDetectionJobsRequest = (
   input: ListPiiEntitiesDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_PiiEntitiesDetectionJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_PiiEntitiesDetectionJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
@@ -7950,21 +7170,14 @@ const se_ListSentimentDetectionJobsRequest = (
   input: ListSentimentDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_SentimentDetectionJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_SentimentDetectionJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
 /**
  * serializeAws_json1_1ListTargetedSentimentDetectionJobsRequest
@@ -7973,89 +7186,54 @@ const se_ListTargetedSentimentDetectionJobsRequest = (
   input: ListTargetedSentimentDetectionJobsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_TargetedSentimentDetectionJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_TargetedSentimentDetectionJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListTopicsDetectionJobsRequest
  */
 const se_ListTopicsDetectionJobsRequest = (input: ListTopicsDetectionJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_TopicsDetectionJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_TopicsDetectionJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1OutputDataConfig
- */
-const se_OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_OutputDataConfig omitted.
 
 /**
  * serializeAws_json1_1PiiEntitiesDetectionJobFilter
  */
 const se_PiiEntitiesDetectionJobFilter = (input: PiiEntitiesDetectionJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1PutResourcePolicyRequest
- */
-const se_PutResourcePolicyRequest = (input: PutResourcePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.ResourcePolicy != null && { ResourcePolicy: input.ResourcePolicy }),
-  };
-};
+// se_PutResourcePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1RedactionConfig
- */
-const se_RedactionConfig = (input: RedactionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MaskCharacter != null && { MaskCharacter: input.MaskCharacter }),
-    ...(input.MaskMode != null && { MaskMode: input.MaskMode }),
-    ...(input.PiiEntityTypes != null && { PiiEntityTypes: se_ListOfPiiEntityTypes(input.PiiEntityTypes, context) }),
-  };
-};
+// se_RedactionConfig omitted.
 
-/**
- * serializeAws_json1_1SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
 /**
  * serializeAws_json1_1SentimentDetectionJobFilter
  */
 const se_SentimentDetectionJobFilter = (input: SentimentDetectionJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -8065,18 +7243,18 @@ const se_StartDocumentClassificationJobRequest = (
   input: StartDocumentClassificationJobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DocumentClassifierArn != null && { DocumentClassifierArn: input.DocumentClassifierArn }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    DocumentClassifierArn: [],
+    FlywheelArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
 /**
@@ -8086,62 +7264,54 @@ const se_StartDominantLanguageDetectionJobRequest = (
   input: StartDominantLanguageDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartEntitiesDetectionJobRequest
  */
 const se_StartEntitiesDetectionJobRequest = (input: StartEntitiesDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.EntityRecognizerArn != null && { EntityRecognizerArn: input.EntityRecognizerArn }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    EntityRecognizerArn: [],
+    FlywheelArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartEventsDetectionJobRequest
  */
 const se_StartEventsDetectionJobRequest = (input: StartEventsDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.TargetEventTypes != null && { TargetEventTypes: se_TargetEventTypes(input.TargetEventTypes, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    TargetEventTypes: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1StartFlywheelIterationRequest
- */
-const se_StartFlywheelIterationRequest = (input: StartFlywheelIterationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-  };
-};
+// se_StartFlywheelIterationRequest omitted.
 
 /**
  * serializeAws_json1_1StartKeyPhrasesDetectionJobRequest
@@ -8150,17 +7320,17 @@ const se_StartKeyPhrasesDetectionJobRequest = (
   input: StartKeyPhrasesDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
 /**
@@ -8170,17 +7340,17 @@ const se_StartPiiEntitiesDetectionJobRequest = (
   input: StartPiiEntitiesDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.RedactionConfig != null && { RedactionConfig: se_RedactionConfig(input.RedactionConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    LanguageCode: [],
+    Mode: [],
+    OutputDataConfig: (_) => _json(_),
+    RedactionConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+  });
 };
 
 /**
@@ -8190,17 +7360,17 @@ const se_StartSentimentDetectionJobRequest = (
   input: StartSentimentDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
 /**
@@ -8210,187 +7380,63 @@ const se_StartTargetedSentimentDetectionJobRequest = (
   input: StartTargetedSentimentDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    LanguageCode: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartTopicsDetectionJobRequest
  */
 const se_StartTopicsDetectionJobRequest = (input: StartTopicsDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.NumberOfTopics != null && { NumberOfTopics: input.NumberOfTopics }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: (_) => _json(_),
+    JobName: [],
+    NumberOfTopics: [],
+    OutputDataConfig: (_) => _json(_),
+    Tags: (_) => _json(_),
+    VolumeKmsKeyId: [],
+    VpcConfig: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1StopDominantLanguageDetectionJobRequest
- */
-const se_StopDominantLanguageDetectionJobRequest = (
-  input: StopDominantLanguageDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopDominantLanguageDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopEntitiesDetectionJobRequest
- */
-const se_StopEntitiesDetectionJobRequest = (input: StopEntitiesDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopEntitiesDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopEventsDetectionJobRequest
- */
-const se_StopEventsDetectionJobRequest = (input: StopEventsDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopEventsDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopKeyPhrasesDetectionJobRequest
- */
-const se_StopKeyPhrasesDetectionJobRequest = (
-  input: StopKeyPhrasesDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopKeyPhrasesDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopPiiEntitiesDetectionJobRequest
- */
-const se_StopPiiEntitiesDetectionJobRequest = (
-  input: StopPiiEntitiesDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopPiiEntitiesDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopSentimentDetectionJobRequest
- */
-const se_StopSentimentDetectionJobRequest = (input: StopSentimentDetectionJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopSentimentDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopTargetedSentimentDetectionJobRequest
- */
-const se_StopTargetedSentimentDetectionJobRequest = (
-  input: StopTargetedSentimentDetectionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopTargetedSentimentDetectionJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopTrainingDocumentClassifierRequest
- */
-const se_StopTrainingDocumentClassifierRequest = (
-  input: StopTrainingDocumentClassifierRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DocumentClassifierArn != null && { DocumentClassifierArn: input.DocumentClassifierArn }),
-  };
-};
+// se_StopTrainingDocumentClassifierRequest omitted.
 
-/**
- * serializeAws_json1_1StopTrainingEntityRecognizerRequest
- */
-const se_StopTrainingEntityRecognizerRequest = (
-  input: StopTrainingEntityRecognizerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EntityRecognizerArn != null && { EntityRecognizerArn: input.EntityRecognizerArn }),
-  };
-};
+// se_StopTrainingEntityRecognizerRequest omitted.
 
-/**
- * serializeAws_json1_1Subnets
- */
-const se_Subnets = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Subnets omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1TargetedSentimentDetectionJobFilter
@@ -8399,138 +7445,43 @@ const se_TargetedSentimentDetectionJobFilter = (
   input: TargetedSentimentDetectionJobFilter,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1TargetEventTypes
- */
-const se_TargetEventTypes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TargetEventTypes omitted.
 
-/**
- * serializeAws_json1_1TaskConfig
- */
-const se_TaskConfig = (input: TaskConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DocumentClassificationConfig != null && {
-      DocumentClassificationConfig: se_DocumentClassificationConfig(input.DocumentClassificationConfig, context),
-    }),
-    ...(input.EntityRecognitionConfig != null && {
-      EntityRecognitionConfig: se_EntityRecognitionConfig(input.EntityRecognitionConfig, context),
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-  };
-};
+// se_TaskConfig omitted.
 
 /**
  * serializeAws_json1_1TopicsDetectionJobFilter
  */
 const se_TopicsDetectionJobFilter = (input: TopicsDetectionJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
-    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateDataSecurityConfig
- */
-const se_UpdateDataSecurityConfig = (input: UpdateDataSecurityConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ModelKmsKeyId != null && { ModelKmsKeyId: input.ModelKmsKeyId }),
-    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  };
-};
+// se_UpdateDataSecurityConfig omitted.
 
-/**
- * serializeAws_json1_1UpdateEndpointRequest
- */
-const se_UpdateEndpointRequest = (input: UpdateEndpointRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DesiredDataAccessRoleArn != null && { DesiredDataAccessRoleArn: input.DesiredDataAccessRoleArn }),
-    ...(input.DesiredInferenceUnits != null && { DesiredInferenceUnits: input.DesiredInferenceUnits }),
-    ...(input.DesiredModelArn != null && { DesiredModelArn: input.DesiredModelArn }),
-    ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-  };
-};
+// se_UpdateEndpointRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateFlywheelRequest
- */
-const se_UpdateFlywheelRequest = (input: UpdateFlywheelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ActiveModelArn != null && { ActiveModelArn: input.ActiveModelArn }),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DataSecurityConfig != null && {
-      DataSecurityConfig: se_UpdateDataSecurityConfig(input.DataSecurityConfig, context),
-    }),
-    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
-  };
-};
+// se_UpdateFlywheelRequest omitted.
 
-/**
- * serializeAws_json1_1VpcConfig
- */
-const se_VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_SecurityGroupIds(input.SecurityGroupIds, context) }),
-    ...(input.Subnets != null && { Subnets: se_Subnets(input.Subnets, context) }),
-  };
-};
+// se_VpcConfig omitted.
 
-/**
- * deserializeAws_json1_1AttributeNamesList
- */
-const de_AttributeNamesList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AttributeNamesList omitted.
 
-/**
- * deserializeAws_json1_1AugmentedManifestsListItem
- */
-const de_AugmentedManifestsListItem = (output: any, context: __SerdeContext): AugmentedManifestsListItem => {
-  return {
-    AnnotationDataS3Uri: __expectString(output.AnnotationDataS3Uri),
-    AttributeNames: output.AttributeNames != null ? de_AttributeNamesList(output.AttributeNames, context) : undefined,
-    DocumentType: __expectString(output.DocumentType),
-    S3Uri: __expectString(output.S3Uri),
-    SourceDocumentsS3Uri: __expectString(output.SourceDocumentsS3Uri),
-    Split: __expectString(output.Split),
-  } as any;
-};
+// de_AugmentedManifestsListItem omitted.
 
 /**
  * deserializeAws_json1_1BatchDetectDominantLanguageItemResult
@@ -8539,10 +7490,10 @@ const de_BatchDetectDominantLanguageItemResult = (
   output: any,
   context: __SerdeContext
 ): BatchDetectDominantLanguageItemResult => {
-  return {
-    Index: __expectInt32(output.Index),
-    Languages: output.Languages != null ? de_ListOfDominantLanguages(output.Languages, context) : undefined,
-  } as any;
+  return take(output, {
+    Index: __expectInt32,
+    Languages: (_: any) => de_ListOfDominantLanguages(_, context),
+  }) as any;
 };
 
 /**
@@ -8552,92 +7503,91 @@ const de_BatchDetectDominantLanguageResponse = (
   output: any,
   context: __SerdeContext
 ): BatchDetectDominantLanguageResponse => {
-  return {
-    ErrorList: output.ErrorList != null ? de_BatchItemErrorList(output.ErrorList, context) : undefined,
-    ResultList:
-      output.ResultList != null ? de_ListOfDetectDominantLanguageResult(output.ResultList, context) : undefined,
-  } as any;
+  return take(output, {
+    ErrorList: _json,
+    ResultList: (_: any) => de_ListOfDetectDominantLanguageResult(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchDetectEntitiesItemResult
  */
 const de_BatchDetectEntitiesItemResult = (output: any, context: __SerdeContext): BatchDetectEntitiesItemResult => {
-  return {
-    Entities: output.Entities != null ? de_ListOfEntities(output.Entities, context) : undefined,
-    Index: __expectInt32(output.Index),
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_ListOfEntities(_, context),
+    Index: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchDetectEntitiesResponse
  */
 const de_BatchDetectEntitiesResponse = (output: any, context: __SerdeContext): BatchDetectEntitiesResponse => {
-  return {
-    ErrorList: output.ErrorList != null ? de_BatchItemErrorList(output.ErrorList, context) : undefined,
-    ResultList: output.ResultList != null ? de_ListOfDetectEntitiesResult(output.ResultList, context) : undefined,
-  } as any;
+  return take(output, {
+    ErrorList: _json,
+    ResultList: (_: any) => de_ListOfDetectEntitiesResult(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchDetectKeyPhrasesItemResult
  */
 const de_BatchDetectKeyPhrasesItemResult = (output: any, context: __SerdeContext): BatchDetectKeyPhrasesItemResult => {
-  return {
-    Index: __expectInt32(output.Index),
-    KeyPhrases: output.KeyPhrases != null ? de_ListOfKeyPhrases(output.KeyPhrases, context) : undefined,
-  } as any;
+  return take(output, {
+    Index: __expectInt32,
+    KeyPhrases: (_: any) => de_ListOfKeyPhrases(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchDetectKeyPhrasesResponse
  */
 const de_BatchDetectKeyPhrasesResponse = (output: any, context: __SerdeContext): BatchDetectKeyPhrasesResponse => {
-  return {
-    ErrorList: output.ErrorList != null ? de_BatchItemErrorList(output.ErrorList, context) : undefined,
-    ResultList: output.ResultList != null ? de_ListOfDetectKeyPhrasesResult(output.ResultList, context) : undefined,
-  } as any;
+  return take(output, {
+    ErrorList: _json,
+    ResultList: (_: any) => de_ListOfDetectKeyPhrasesResult(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchDetectSentimentItemResult
  */
 const de_BatchDetectSentimentItemResult = (output: any, context: __SerdeContext): BatchDetectSentimentItemResult => {
-  return {
-    Index: __expectInt32(output.Index),
-    Sentiment: __expectString(output.Sentiment),
-    SentimentScore: output.SentimentScore != null ? de_SentimentScore(output.SentimentScore, context) : undefined,
-  } as any;
+  return take(output, {
+    Index: __expectInt32,
+    Sentiment: __expectString,
+    SentimentScore: (_: any) => de_SentimentScore(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchDetectSentimentResponse
  */
 const de_BatchDetectSentimentResponse = (output: any, context: __SerdeContext): BatchDetectSentimentResponse => {
-  return {
-    ErrorList: output.ErrorList != null ? de_BatchItemErrorList(output.ErrorList, context) : undefined,
-    ResultList: output.ResultList != null ? de_ListOfDetectSentimentResult(output.ResultList, context) : undefined,
-  } as any;
+  return take(output, {
+    ErrorList: _json,
+    ResultList: (_: any) => de_ListOfDetectSentimentResult(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchDetectSyntaxItemResult
  */
 const de_BatchDetectSyntaxItemResult = (output: any, context: __SerdeContext): BatchDetectSyntaxItemResult => {
-  return {
-    Index: __expectInt32(output.Index),
-    SyntaxTokens: output.SyntaxTokens != null ? de_ListOfSyntaxTokens(output.SyntaxTokens, context) : undefined,
-  } as any;
+  return take(output, {
+    Index: __expectInt32,
+    SyntaxTokens: (_: any) => de_ListOfSyntaxTokens(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchDetectSyntaxResponse
  */
 const de_BatchDetectSyntaxResponse = (output: any, context: __SerdeContext): BatchDetectSyntaxResponse => {
-  return {
-    ErrorList: output.ErrorList != null ? de_BatchItemErrorList(output.ErrorList, context) : undefined,
-    ResultList: output.ResultList != null ? de_ListOfDetectSyntaxResult(output.ResultList, context) : undefined,
-  } as any;
+  return take(output, {
+    ErrorList: _json,
+    ResultList: (_: any) => de_ListOfDetectSyntaxResult(_, context),
+  }) as any;
 };
 
 /**
@@ -8647,10 +7597,10 @@ const de_BatchDetectTargetedSentimentItemResult = (
   output: any,
   context: __SerdeContext
 ): BatchDetectTargetedSentimentItemResult => {
-  return {
-    Entities: output.Entities != null ? de_ListOfTargetedSentimentEntities(output.Entities, context) : undefined,
-    Index: __expectInt32(output.Index),
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_ListOfTargetedSentimentEntities(_, context),
+    Index: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -8660,240 +7610,128 @@ const de_BatchDetectTargetedSentimentResponse = (
   output: any,
   context: __SerdeContext
 ): BatchDetectTargetedSentimentResponse => {
-  return {
-    ErrorList: output.ErrorList != null ? de_BatchItemErrorList(output.ErrorList, context) : undefined,
-    ResultList:
-      output.ResultList != null ? de_ListOfDetectTargetedSentimentResult(output.ResultList, context) : undefined,
-  } as any;
+  return take(output, {
+    ErrorList: _json,
+    ResultList: (_: any) => de_ListOfDetectTargetedSentimentResult(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1BatchItemError
- */
-const de_BatchItemError = (output: any, context: __SerdeContext): BatchItemError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    Index: __expectInt32(output.Index),
-  } as any;
-};
+// de_BatchItemError omitted.
 
-/**
- * deserializeAws_json1_1BatchItemErrorList
- */
-const de_BatchItemErrorList = (output: any, context: __SerdeContext): BatchItemError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchItemError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchItemErrorList omitted.
 
-/**
- * deserializeAws_json1_1BatchSizeLimitExceededException
- */
-const de_BatchSizeLimitExceededException = (output: any, context: __SerdeContext): BatchSizeLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_BatchSizeLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1Block
  */
 const de_Block = (output: any, context: __SerdeContext): Block => {
-  return {
-    BlockType: __expectString(output.BlockType),
-    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
-    Id: __expectString(output.Id),
-    Page: __expectInt32(output.Page),
-    Relationships: output.Relationships != null ? de_ListOfRelationships(output.Relationships, context) : undefined,
-    Text: __expectString(output.Text),
-  } as any;
+  return take(output, {
+    BlockType: __expectString,
+    Geometry: (_: any) => de_Geometry(_, context),
+    Id: __expectString,
+    Page: __expectInt32,
+    Relationships: _json,
+    Text: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1BlockReference
- */
-const de_BlockReference = (output: any, context: __SerdeContext): BlockReference => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    BlockId: __expectString(output.BlockId),
-    ChildBlocks: output.ChildBlocks != null ? de_ListOfChildBlocks(output.ChildBlocks, context) : undefined,
-    EndOffset: __expectInt32(output.EndOffset),
-  } as any;
-};
+// de_BlockReference omitted.
 
 /**
  * deserializeAws_json1_1BoundingBox
  */
 const de_BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
-  return {
-    Height: __limitedParseFloat32(output.Height),
-    Left: __limitedParseFloat32(output.Left),
-    Top: __limitedParseFloat32(output.Top),
-    Width: __limitedParseFloat32(output.Width),
-  } as any;
+  return take(output, {
+    Height: __limitedParseFloat32,
+    Left: __limitedParseFloat32,
+    Top: __limitedParseFloat32,
+    Width: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ChildBlock
- */
-const de_ChildBlock = (output: any, context: __SerdeContext): ChildBlock => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    ChildBlockId: __expectString(output.ChildBlockId),
-    EndOffset: __expectInt32(output.EndOffset),
-  } as any;
-};
+// de_ChildBlock omitted.
 
 /**
  * deserializeAws_json1_1ClassifierEvaluationMetrics
  */
 const de_ClassifierEvaluationMetrics = (output: any, context: __SerdeContext): ClassifierEvaluationMetrics => {
-  return {
-    Accuracy: __limitedParseDouble(output.Accuracy),
-    F1Score: __limitedParseDouble(output.F1Score),
-    HammingLoss: __limitedParseDouble(output.HammingLoss),
-    MicroF1Score: __limitedParseDouble(output.MicroF1Score),
-    MicroPrecision: __limitedParseDouble(output.MicroPrecision),
-    MicroRecall: __limitedParseDouble(output.MicroRecall),
-    Precision: __limitedParseDouble(output.Precision),
-    Recall: __limitedParseDouble(output.Recall),
-  } as any;
+  return take(output, {
+    Accuracy: __limitedParseDouble,
+    F1Score: __limitedParseDouble,
+    HammingLoss: __limitedParseDouble,
+    MicroF1Score: __limitedParseDouble,
+    MicroPrecision: __limitedParseDouble,
+    MicroRecall: __limitedParseDouble,
+    Precision: __limitedParseDouble,
+    Recall: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ClassifierMetadata
  */
 const de_ClassifierMetadata = (output: any, context: __SerdeContext): ClassifierMetadata => {
-  return {
-    EvaluationMetrics:
-      output.EvaluationMetrics != null ? de_ClassifierEvaluationMetrics(output.EvaluationMetrics, context) : undefined,
-    NumberOfLabels: __expectInt32(output.NumberOfLabels),
-    NumberOfTestDocuments: __expectInt32(output.NumberOfTestDocuments),
-    NumberOfTrainedDocuments: __expectInt32(output.NumberOfTrainedDocuments),
-  } as any;
+  return take(output, {
+    EvaluationMetrics: (_: any) => de_ClassifierEvaluationMetrics(_, context),
+    NumberOfLabels: __expectInt32,
+    NumberOfTestDocuments: __expectInt32,
+    NumberOfTrainedDocuments: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ClassifyDocumentResponse
  */
 const de_ClassifyDocumentResponse = (output: any, context: __SerdeContext): ClassifyDocumentResponse => {
-  return {
-    Classes: output.Classes != null ? de_ListOfClasses(output.Classes, context) : undefined,
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    DocumentType: output.DocumentType != null ? de_ListOfDocumentType(output.DocumentType, context) : undefined,
-    Errors: output.Errors != null ? de_ListOfErrors(output.Errors, context) : undefined,
-    Labels: output.Labels != null ? de_ListOfLabels(output.Labels, context) : undefined,
-  } as any;
+  return take(output, {
+    Classes: (_: any) => de_ListOfClasses(_, context),
+    DocumentMetadata: _json,
+    DocumentType: _json,
+    Errors: _json,
+    Labels: (_: any) => de_ListOfLabels(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
 /**
  * deserializeAws_json1_1ContainsPiiEntitiesResponse
  */
 const de_ContainsPiiEntitiesResponse = (output: any, context: __SerdeContext): ContainsPiiEntitiesResponse => {
-  return {
-    Labels: output.Labels != null ? de_ListOfEntityLabels(output.Labels, context) : undefined,
-  } as any;
+  return take(output, {
+    Labels: (_: any) => de_ListOfEntityLabels(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateDatasetResponse
- */
-const de_CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
-  return {
-    DatasetArn: __expectString(output.DatasetArn),
-  } as any;
-};
+// de_CreateDatasetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateDocumentClassifierResponse
- */
-const de_CreateDocumentClassifierResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateDocumentClassifierResponse => {
-  return {
-    DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
-  } as any;
-};
+// de_CreateDocumentClassifierResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateEndpointResponse
- */
-const de_CreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
-  return {
-    EndpointArn: __expectString(output.EndpointArn),
-    ModelArn: __expectString(output.ModelArn),
-  } as any;
-};
+// de_CreateEndpointResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateEntityRecognizerResponse
- */
-const de_CreateEntityRecognizerResponse = (output: any, context: __SerdeContext): CreateEntityRecognizerResponse => {
-  return {
-    EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
-  } as any;
-};
+// de_CreateEntityRecognizerResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateFlywheelResponse
- */
-const de_CreateFlywheelResponse = (output: any, context: __SerdeContext): CreateFlywheelResponse => {
-  return {
-    ActiveModelArn: __expectString(output.ActiveModelArn),
-    FlywheelArn: __expectString(output.FlywheelArn),
-  } as any;
-};
+// de_CreateFlywheelResponse omitted.
 
-/**
- * deserializeAws_json1_1DataSecurityConfig
- */
-const de_DataSecurityConfig = (output: any, context: __SerdeContext): DataSecurityConfig => {
-  return {
-    DataLakeKmsKeyId: __expectString(output.DataLakeKmsKeyId),
-    ModelKmsKeyId: __expectString(output.ModelKmsKeyId),
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
-};
+// de_DataSecurityConfig omitted.
 
 /**
  * deserializeAws_json1_1DatasetProperties
  */
 const de_DatasetProperties = (output: any, context: __SerdeContext): DatasetProperties => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetArn: __expectString(output.DatasetArn),
-    DatasetName: __expectString(output.DatasetName),
-    DatasetS3Uri: __expectString(output.DatasetS3Uri),
-    DatasetType: __expectString(output.DatasetType),
-    Description: __expectString(output.Description),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    Message: __expectString(output.Message),
-    NumberOfDocuments: __expectLong(output.NumberOfDocuments),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetArn: __expectString,
+    DatasetName: __expectString,
+    DatasetS3Uri: __expectString,
+    DatasetType: __expectString,
+    Description: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    NumberOfDocuments: __expectLong,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -8903,60 +7741,28 @@ const de_DatasetPropertiesList = (output: any, context: __SerdeContext): Dataset
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DatasetProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DeleteDocumentClassifierResponse
- */
-const de_DeleteDocumentClassifierResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteDocumentClassifierResponse => {
-  return {} as any;
-};
+// de_DeleteDocumentClassifierResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteEndpointResponse
- */
-const de_DeleteEndpointResponse = (output: any, context: __SerdeContext): DeleteEndpointResponse => {
-  return {} as any;
-};
+// de_DeleteEndpointResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteEntityRecognizerResponse
- */
-const de_DeleteEntityRecognizerResponse = (output: any, context: __SerdeContext): DeleteEntityRecognizerResponse => {
-  return {} as any;
-};
+// de_DeleteEntityRecognizerResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteFlywheelResponse
- */
-const de_DeleteFlywheelResponse = (output: any, context: __SerdeContext): DeleteFlywheelResponse => {
-  return {} as any;
-};
+// de_DeleteFlywheelResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteResourcePolicyResponse
- */
-const de_DeleteResourcePolicyResponse = (output: any, context: __SerdeContext): DeleteResourcePolicyResponse => {
-  return {} as any;
-};
+// de_DeleteResourcePolicyResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeDatasetResponse
  */
 const de_DescribeDatasetResponse = (output: any, context: __SerdeContext): DescribeDatasetResponse => {
-  return {
-    DatasetProperties:
-      output.DatasetProperties != null ? de_DatasetProperties(output.DatasetProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    DatasetProperties: (_: any) => de_DatasetProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -8966,12 +7772,9 @@ const de_DescribeDocumentClassificationJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDocumentClassificationJobResponse => {
-  return {
-    DocumentClassificationJobProperties:
-      output.DocumentClassificationJobProperties != null
-        ? de_DocumentClassificationJobProperties(output.DocumentClassificationJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DocumentClassificationJobProperties: (_: any) => de_DocumentClassificationJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -8981,12 +7784,9 @@ const de_DescribeDocumentClassifierResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDocumentClassifierResponse => {
-  return {
-    DocumentClassifierProperties:
-      output.DocumentClassifierProperties != null
-        ? de_DocumentClassifierProperties(output.DocumentClassifierProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DocumentClassifierProperties: (_: any) => de_DocumentClassifierProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -8996,22 +7796,18 @@ const de_DescribeDominantLanguageDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDominantLanguageDetectionJobResponse => {
-  return {
-    DominantLanguageDetectionJobProperties:
-      output.DominantLanguageDetectionJobProperties != null
-        ? de_DominantLanguageDetectionJobProperties(output.DominantLanguageDetectionJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DominantLanguageDetectionJobProperties: (_: any) => de_DominantLanguageDetectionJobProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeEndpointResponse
  */
 const de_DescribeEndpointResponse = (output: any, context: __SerdeContext): DescribeEndpointResponse => {
-  return {
-    EndpointProperties:
-      output.EndpointProperties != null ? de_EndpointProperties(output.EndpointProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    EndpointProperties: (_: any) => de_EndpointProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -9021,12 +7817,9 @@ const de_DescribeEntitiesDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEntitiesDetectionJobResponse => {
-  return {
-    EntitiesDetectionJobProperties:
-      output.EntitiesDetectionJobProperties != null
-        ? de_EntitiesDetectionJobProperties(output.EntitiesDetectionJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    EntitiesDetectionJobProperties: (_: any) => de_EntitiesDetectionJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -9036,12 +7829,9 @@ const de_DescribeEntityRecognizerResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEntityRecognizerResponse => {
-  return {
-    EntityRecognizerProperties:
-      output.EntityRecognizerProperties != null
-        ? de_EntityRecognizerProperties(output.EntityRecognizerProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    EntityRecognizerProperties: (_: any) => de_EntityRecognizerProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -9051,12 +7841,9 @@ const de_DescribeEventsDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventsDetectionJobResponse => {
-  return {
-    EventsDetectionJobProperties:
-      output.EventsDetectionJobProperties != null
-        ? de_EventsDetectionJobProperties(output.EventsDetectionJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    EventsDetectionJobProperties: (_: any) => de_EventsDetectionJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -9066,22 +7853,18 @@ const de_DescribeFlywheelIterationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeFlywheelIterationResponse => {
-  return {
-    FlywheelIterationProperties:
-      output.FlywheelIterationProperties != null
-        ? de_FlywheelIterationProperties(output.FlywheelIterationProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    FlywheelIterationProperties: (_: any) => de_FlywheelIterationProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeFlywheelResponse
  */
 const de_DescribeFlywheelResponse = (output: any, context: __SerdeContext): DescribeFlywheelResponse => {
-  return {
-    FlywheelProperties:
-      output.FlywheelProperties != null ? de_FlywheelProperties(output.FlywheelProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    FlywheelProperties: (_: any) => de_FlywheelProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -9091,12 +7874,9 @@ const de_DescribeKeyPhrasesDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeKeyPhrasesDetectionJobResponse => {
-  return {
-    KeyPhrasesDetectionJobProperties:
-      output.KeyPhrasesDetectionJobProperties != null
-        ? de_KeyPhrasesDetectionJobProperties(output.KeyPhrasesDetectionJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    KeyPhrasesDetectionJobProperties: (_: any) => de_KeyPhrasesDetectionJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -9106,30 +7886,21 @@ const de_DescribePiiEntitiesDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribePiiEntitiesDetectionJobResponse => {
-  return {
-    PiiEntitiesDetectionJobProperties:
-      output.PiiEntitiesDetectionJobProperties != null
-        ? de_PiiEntitiesDetectionJobProperties(output.PiiEntitiesDetectionJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    PiiEntitiesDetectionJobProperties: (_: any) => de_PiiEntitiesDetectionJobProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeResourcePolicyResponse
  */
 const de_DescribeResourcePolicyResponse = (output: any, context: __SerdeContext): DescribeResourcePolicyResponse => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    PolicyRevisionId: __expectString(output.PolicyRevisionId),
-    ResourcePolicy: __expectString(output.ResourcePolicy),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PolicyRevisionId: __expectString,
+    ResourcePolicy: __expectString,
+  }) as any;
 };
 
 /**
@@ -9139,12 +7910,9 @@ const de_DescribeSentimentDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSentimentDetectionJobResponse => {
-  return {
-    SentimentDetectionJobProperties:
-      output.SentimentDetectionJobProperties != null
-        ? de_SentimentDetectionJobProperties(output.SentimentDetectionJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    SentimentDetectionJobProperties: (_: any) => de_SentimentDetectionJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -9154,12 +7922,9 @@ const de_DescribeTargetedSentimentDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTargetedSentimentDetectionJobResponse => {
-  return {
-    TargetedSentimentDetectionJobProperties:
-      output.TargetedSentimentDetectionJobProperties != null
-        ? de_TargetedSentimentDetectionJobProperties(output.TargetedSentimentDetectionJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    TargetedSentimentDetectionJobProperties: (_: any) => de_TargetedSentimentDetectionJobProperties(_, context),
+  }) as any;
 };
 
 /**
@@ -9169,103 +7934,91 @@ const de_DescribeTopicsDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTopicsDetectionJobResponse => {
-  return {
-    TopicsDetectionJobProperties:
-      output.TopicsDetectionJobProperties != null
-        ? de_TopicsDetectionJobProperties(output.TopicsDetectionJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    TopicsDetectionJobProperties: (_: any) => de_TopicsDetectionJobProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectDominantLanguageResponse
  */
 const de_DetectDominantLanguageResponse = (output: any, context: __SerdeContext): DetectDominantLanguageResponse => {
-  return {
-    Languages: output.Languages != null ? de_ListOfDominantLanguages(output.Languages, context) : undefined,
-  } as any;
+  return take(output, {
+    Languages: (_: any) => de_ListOfDominantLanguages(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectEntitiesResponse
  */
 const de_DetectEntitiesResponse = (output: any, context: __SerdeContext): DetectEntitiesResponse => {
-  return {
-    Blocks: output.Blocks != null ? de_ListOfBlocks(output.Blocks, context) : undefined,
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    DocumentType: output.DocumentType != null ? de_ListOfDocumentType(output.DocumentType, context) : undefined,
-    Entities: output.Entities != null ? de_ListOfEntities(output.Entities, context) : undefined,
-    Errors: output.Errors != null ? de_ListOfErrors(output.Errors, context) : undefined,
-  } as any;
+  return take(output, {
+    Blocks: (_: any) => de_ListOfBlocks(_, context),
+    DocumentMetadata: _json,
+    DocumentType: _json,
+    Entities: (_: any) => de_ListOfEntities(_, context),
+    Errors: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectKeyPhrasesResponse
  */
 const de_DetectKeyPhrasesResponse = (output: any, context: __SerdeContext): DetectKeyPhrasesResponse => {
-  return {
-    KeyPhrases: output.KeyPhrases != null ? de_ListOfKeyPhrases(output.KeyPhrases, context) : undefined,
-  } as any;
+  return take(output, {
+    KeyPhrases: (_: any) => de_ListOfKeyPhrases(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectPiiEntitiesResponse
  */
 const de_DetectPiiEntitiesResponse = (output: any, context: __SerdeContext): DetectPiiEntitiesResponse => {
-  return {
-    Entities: output.Entities != null ? de_ListOfPiiEntities(output.Entities, context) : undefined,
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_ListOfPiiEntities(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectSentimentResponse
  */
 const de_DetectSentimentResponse = (output: any, context: __SerdeContext): DetectSentimentResponse => {
-  return {
-    Sentiment: __expectString(output.Sentiment),
-    SentimentScore: output.SentimentScore != null ? de_SentimentScore(output.SentimentScore, context) : undefined,
-  } as any;
+  return take(output, {
+    Sentiment: __expectString,
+    SentimentScore: (_: any) => de_SentimentScore(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectSyntaxResponse
  */
 const de_DetectSyntaxResponse = (output: any, context: __SerdeContext): DetectSyntaxResponse => {
-  return {
-    SyntaxTokens: output.SyntaxTokens != null ? de_ListOfSyntaxTokens(output.SyntaxTokens, context) : undefined,
-  } as any;
+  return take(output, {
+    SyntaxTokens: (_: any) => de_ListOfSyntaxTokens(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectTargetedSentimentResponse
  */
 const de_DetectTargetedSentimentResponse = (output: any, context: __SerdeContext): DetectTargetedSentimentResponse => {
-  return {
-    Entities: output.Entities != null ? de_ListOfTargetedSentimentEntities(output.Entities, context) : undefined,
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_ListOfTargetedSentimentEntities(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DocumentClass
  */
 const de_DocumentClass = (output: any, context: __SerdeContext): DocumentClass => {
-  return {
-    Name: __expectString(output.Name),
-    Page: __expectInt32(output.Page),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Name: __expectString,
+    Page: __expectInt32,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DocumentClassificationConfig
- */
-const de_DocumentClassificationConfig = (output: any, context: __SerdeContext): DocumentClassificationConfig => {
-  return {
-    Labels: output.Labels != null ? de_LabelsList(output.Labels, context) : undefined,
-    Mode: __expectString(output.Mode),
-  } as any;
-};
+// de_DocumentClassificationConfig omitted.
 
 /**
  * deserializeAws_json1_1DocumentClassificationJobProperties
@@ -9274,25 +8027,22 @@ const de_DocumentClassificationJobProperties = (
   output: any,
   context: __SerdeContext
 ): DocumentClassificationJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    FlywheelArn: __expectString(output.FlywheelArn),
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    DocumentClassifierArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FlywheelArn: __expectString,
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    Message: __expectString,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -9305,105 +8055,42 @@ const de_DocumentClassificationJobPropertiesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DocumentClassificationJobProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DocumentClassifierAugmentedManifestsList
- */
-const de_DocumentClassifierAugmentedManifestsList = (
-  output: any,
-  context: __SerdeContext
-): AugmentedManifestsListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AugmentedManifestsListItem(entry, context);
-    });
-  return retVal;
-};
+// de_DocumentClassifierAugmentedManifestsList omitted.
 
-/**
- * deserializeAws_json1_1DocumentClassifierInputDataConfig
- */
-const de_DocumentClassifierInputDataConfig = (
-  output: any,
-  context: __SerdeContext
-): DocumentClassifierInputDataConfig => {
-  return {
-    AugmentedManifests:
-      output.AugmentedManifests != null
-        ? de_DocumentClassifierAugmentedManifestsList(output.AugmentedManifests, context)
-        : undefined,
-    DataFormat: __expectString(output.DataFormat),
-    LabelDelimiter: __expectString(output.LabelDelimiter),
-    S3Uri: __expectString(output.S3Uri),
-    TestS3Uri: __expectString(output.TestS3Uri),
-  } as any;
-};
+// de_DocumentClassifierInputDataConfig omitted.
 
-/**
- * deserializeAws_json1_1DocumentClassifierOutputDataConfig
- */
-const de_DocumentClassifierOutputDataConfig = (
-  output: any,
-  context: __SerdeContext
-): DocumentClassifierOutputDataConfig => {
-  return {
-    FlywheelStatsS3Prefix: __expectString(output.FlywheelStatsS3Prefix),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_DocumentClassifierOutputDataConfig omitted.
 
 /**
  * deserializeAws_json1_1DocumentClassifierProperties
  */
 const de_DocumentClassifierProperties = (output: any, context: __SerdeContext): DocumentClassifierProperties => {
-  return {
-    ClassifierMetadata:
-      output.ClassifierMetadata != null ? de_ClassifierMetadata(output.ClassifierMetadata, context) : undefined,
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    FlywheelArn: __expectString(output.FlywheelArn),
-    InputDataConfig:
-      output.InputDataConfig != null
-        ? de_DocumentClassifierInputDataConfig(output.InputDataConfig, context)
-        : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-    Message: __expectString(output.Message),
-    Mode: __expectString(output.Mode),
-    ModelKmsKeyId: __expectString(output.ModelKmsKeyId),
-    OutputDataConfig:
-      output.OutputDataConfig != null
-        ? de_DocumentClassifierOutputDataConfig(output.OutputDataConfig, context)
-        : undefined,
-    SourceModelArn: __expectString(output.SourceModelArn),
-    Status: __expectString(output.Status),
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    TrainingEndTime:
-      output.TrainingEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingEndTime)))
-        : undefined,
-    TrainingStartTime:
-      output.TrainingStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingStartTime)))
-        : undefined,
-    VersionName: __expectString(output.VersionName),
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    ClassifierMetadata: (_: any) => de_ClassifierMetadata(_, context),
+    DataAccessRoleArn: __expectString,
+    DocumentClassifierArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FlywheelArn: __expectString,
+    InputDataConfig: _json,
+    LanguageCode: __expectString,
+    Message: __expectString,
+    Mode: __expectString,
+    ModelKmsKeyId: __expectString,
+    OutputDataConfig: _json,
+    SourceModelArn: __expectString,
+    Status: __expectString,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrainingEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrainingStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionName: __expectString,
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -9413,9 +8100,6 @@ const de_DocumentClassifierPropertiesList = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DocumentClassifierProperties(entry, context);
     });
   return retVal;
@@ -9428,9 +8112,6 @@ const de_DocumentClassifierSummariesList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DocumentClassifierSummary(entry, context);
     });
   return retVal;
@@ -9440,72 +8121,40 @@ const de_DocumentClassifierSummariesList = (output: any, context: __SerdeContext
  * deserializeAws_json1_1DocumentClassifierSummary
  */
 const de_DocumentClassifierSummary = (output: any, context: __SerdeContext): DocumentClassifierSummary => {
-  return {
-    DocumentClassifierName: __expectString(output.DocumentClassifierName),
-    LatestVersionCreatedAt:
-      output.LatestVersionCreatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestVersionCreatedAt)))
-        : undefined,
-    LatestVersionName: __expectString(output.LatestVersionName),
-    LatestVersionStatus: __expectString(output.LatestVersionStatus),
-    NumberOfVersions: __expectInt32(output.NumberOfVersions),
-  } as any;
+  return take(output, {
+    DocumentClassifierName: __expectString,
+    LatestVersionCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestVersionName: __expectString,
+    LatestVersionStatus: __expectString,
+    NumberOfVersions: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DocumentLabel
  */
 const de_DocumentLabel = (output: any, context: __SerdeContext): DocumentLabel => {
-  return {
-    Name: __expectString(output.Name),
-    Page: __expectInt32(output.Page),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Name: __expectString,
+    Page: __expectInt32,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DocumentMetadata
- */
-const de_DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
-  return {
-    ExtractedCharacters:
-      output.ExtractedCharacters != null
-        ? de_ListOfExtractedCharacters(output.ExtractedCharacters, context)
-        : undefined,
-    Pages: __expectInt32(output.Pages),
-  } as any;
-};
+// de_DocumentMetadata omitted.
 
-/**
- * deserializeAws_json1_1DocumentReaderConfig
- */
-const de_DocumentReaderConfig = (output: any, context: __SerdeContext): DocumentReaderConfig => {
-  return {
-    DocumentReadAction: __expectString(output.DocumentReadAction),
-    DocumentReadMode: __expectString(output.DocumentReadMode),
-    FeatureTypes:
-      output.FeatureTypes != null ? de_ListOfDocumentReadFeatureTypes(output.FeatureTypes, context) : undefined,
-  } as any;
-};
+// de_DocumentReaderConfig omitted.
 
-/**
- * deserializeAws_json1_1DocumentTypeListItem
- */
-const de_DocumentTypeListItem = (output: any, context: __SerdeContext): DocumentTypeListItem => {
-  return {
-    Page: __expectInt32(output.Page),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_DocumentTypeListItem omitted.
 
 /**
  * deserializeAws_json1_1DominantLanguage
  */
 const de_DominantLanguage = (output: any, context: __SerdeContext): DominantLanguage => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    LanguageCode: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -9515,23 +8164,20 @@ const de_DominantLanguageDetectionJobProperties = (
   output: any,
   context: __SerdeContext
 ): DominantLanguageDetectionJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    Message: __expectString,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -9544,9 +8190,6 @@ const de_DominantLanguageDetectionJobPropertiesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DominantLanguageDetectionJobProperties(entry, context);
     });
   return retVal;
@@ -9556,26 +8199,20 @@ const de_DominantLanguageDetectionJobPropertiesList = (
  * deserializeAws_json1_1EndpointProperties
  */
 const de_EndpointProperties = (output: any, context: __SerdeContext): EndpointProperties => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    CurrentInferenceUnits: __expectInt32(output.CurrentInferenceUnits),
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DesiredDataAccessRoleArn: __expectString(output.DesiredDataAccessRoleArn),
-    DesiredInferenceUnits: __expectInt32(output.DesiredInferenceUnits),
-    DesiredModelArn: __expectString(output.DesiredModelArn),
-    EndpointArn: __expectString(output.EndpointArn),
-    FlywheelArn: __expectString(output.FlywheelArn),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    ModelArn: __expectString(output.ModelArn),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CurrentInferenceUnits: __expectInt32,
+    DataAccessRoleArn: __expectString,
+    DesiredDataAccessRoleArn: __expectString,
+    DesiredInferenceUnits: __expectInt32,
+    DesiredModelArn: __expectString,
+    EndpointArn: __expectString,
+    FlywheelArn: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    ModelArn: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -9585,9 +8222,6 @@ const de_EndpointPropertiesList = (output: any, context: __SerdeContext): Endpoi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EndpointProperties(entry, context);
     });
   return retVal;
@@ -9597,26 +8231,23 @@ const de_EndpointPropertiesList = (output: any, context: __SerdeContext): Endpoi
  * deserializeAws_json1_1EntitiesDetectionJobProperties
  */
 const de_EntitiesDetectionJobProperties = (output: any, context: __SerdeContext): EntitiesDetectionJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
-    FlywheelArn: __expectString(output.FlywheelArn),
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    LanguageCode: __expectString(output.LanguageCode),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EntityRecognizerArn: __expectString,
+    FlywheelArn: __expectString,
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    LanguageCode: __expectString,
+    Message: __expectString,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -9629,9 +8260,6 @@ const de_EntitiesDetectionJobPropertiesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EntitiesDetectionJobProperties(entry, context);
     });
   return retVal;
@@ -9641,83 +8269,35 @@ const de_EntitiesDetectionJobPropertiesList = (
  * deserializeAws_json1_1Entity
  */
 const de_Entity = (output: any, context: __SerdeContext): Entity => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    BlockReferences:
-      output.BlockReferences != null ? de_ListOfBlockReferences(output.BlockReferences, context) : undefined,
-    EndOffset: __expectInt32(output.EndOffset),
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    BlockReferences: _json,
+    EndOffset: __expectInt32,
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1EntityLabel
  */
 const de_EntityLabel = (output: any, context: __SerdeContext): EntityLabel => {
-  return {
-    Name: __expectString(output.Name),
-    Score: __limitedParseFloat32(output.Score),
-  } as any;
+  return take(output, {
+    Name: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EntityRecognitionConfig
- */
-const de_EntityRecognitionConfig = (output: any, context: __SerdeContext): EntityRecognitionConfig => {
-  return {
-    EntityTypes: output.EntityTypes != null ? de_EntityTypesList(output.EntityTypes, context) : undefined,
-  } as any;
-};
+// de_EntityRecognitionConfig omitted.
 
-/**
- * deserializeAws_json1_1EntityRecognizerAnnotations
- */
-const de_EntityRecognizerAnnotations = (output: any, context: __SerdeContext): EntityRecognizerAnnotations => {
-  return {
-    S3Uri: __expectString(output.S3Uri),
-    TestS3Uri: __expectString(output.TestS3Uri),
-  } as any;
-};
+// de_EntityRecognizerAnnotations omitted.
 
-/**
- * deserializeAws_json1_1EntityRecognizerAugmentedManifestsList
- */
-const de_EntityRecognizerAugmentedManifestsList = (
-  output: any,
-  context: __SerdeContext
-): AugmentedManifestsListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AugmentedManifestsListItem(entry, context);
-    });
-  return retVal;
-};
+// de_EntityRecognizerAugmentedManifestsList omitted.
 
-/**
- * deserializeAws_json1_1EntityRecognizerDocuments
- */
-const de_EntityRecognizerDocuments = (output: any, context: __SerdeContext): EntityRecognizerDocuments => {
-  return {
-    InputFormat: __expectString(output.InputFormat),
-    S3Uri: __expectString(output.S3Uri),
-    TestS3Uri: __expectString(output.TestS3Uri),
-  } as any;
-};
+// de_EntityRecognizerDocuments omitted.
 
-/**
- * deserializeAws_json1_1EntityRecognizerEntityList
- */
-const de_EntityRecognizerEntityList = (output: any, context: __SerdeContext): EntityRecognizerEntityList => {
-  return {
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_EntityRecognizerEntityList omitted.
 
 /**
  * deserializeAws_json1_1EntityRecognizerEvaluationMetrics
@@ -9726,44 +8306,25 @@ const de_EntityRecognizerEvaluationMetrics = (
   output: any,
   context: __SerdeContext
 ): EntityRecognizerEvaluationMetrics => {
-  return {
-    F1Score: __limitedParseDouble(output.F1Score),
-    Precision: __limitedParseDouble(output.Precision),
-    Recall: __limitedParseDouble(output.Recall),
-  } as any;
+  return take(output, {
+    F1Score: __limitedParseDouble,
+    Precision: __limitedParseDouble,
+    Recall: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EntityRecognizerInputDataConfig
- */
-const de_EntityRecognizerInputDataConfig = (output: any, context: __SerdeContext): EntityRecognizerInputDataConfig => {
-  return {
-    Annotations: output.Annotations != null ? de_EntityRecognizerAnnotations(output.Annotations, context) : undefined,
-    AugmentedManifests:
-      output.AugmentedManifests != null
-        ? de_EntityRecognizerAugmentedManifestsList(output.AugmentedManifests, context)
-        : undefined,
-    DataFormat: __expectString(output.DataFormat),
-    Documents: output.Documents != null ? de_EntityRecognizerDocuments(output.Documents, context) : undefined,
-    EntityList: output.EntityList != null ? de_EntityRecognizerEntityList(output.EntityList, context) : undefined,
-    EntityTypes: output.EntityTypes != null ? de_EntityTypesList(output.EntityTypes, context) : undefined,
-  } as any;
-};
+// de_EntityRecognizerInputDataConfig omitted.
 
 /**
  * deserializeAws_json1_1EntityRecognizerMetadata
  */
 const de_EntityRecognizerMetadata = (output: any, context: __SerdeContext): EntityRecognizerMetadata => {
-  return {
-    EntityTypes:
-      output.EntityTypes != null ? de_EntityRecognizerMetadataEntityTypesList(output.EntityTypes, context) : undefined,
-    EvaluationMetrics:
-      output.EvaluationMetrics != null
-        ? de_EntityRecognizerEvaluationMetrics(output.EvaluationMetrics, context)
-        : undefined,
-    NumberOfTestDocuments: __expectInt32(output.NumberOfTestDocuments),
-    NumberOfTrainedDocuments: __expectInt32(output.NumberOfTrainedDocuments),
-  } as any;
+  return take(output, {
+    EntityTypes: (_: any) => de_EntityRecognizerMetadataEntityTypesList(_, context),
+    EvaluationMetrics: (_: any) => de_EntityRecognizerEvaluationMetrics(_, context),
+    NumberOfTestDocuments: __expectInt32,
+    NumberOfTrainedDocuments: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -9776,9 +8337,6 @@ const de_EntityRecognizerMetadataEntityTypesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EntityRecognizerMetadataEntityTypesListItem(entry, context);
     });
   return retVal;
@@ -9791,63 +8349,39 @@ const de_EntityRecognizerMetadataEntityTypesListItem = (
   output: any,
   context: __SerdeContext
 ): EntityRecognizerMetadataEntityTypesListItem => {
-  return {
-    EvaluationMetrics:
-      output.EvaluationMetrics != null ? de_EntityTypesEvaluationMetrics(output.EvaluationMetrics, context) : undefined,
-    NumberOfTrainMentions: __expectInt32(output.NumberOfTrainMentions),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    EvaluationMetrics: (_: any) => de_EntityTypesEvaluationMetrics(_, context),
+    NumberOfTrainMentions: __expectInt32,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EntityRecognizerOutputDataConfig
- */
-const de_EntityRecognizerOutputDataConfig = (
-  output: any,
-  context: __SerdeContext
-): EntityRecognizerOutputDataConfig => {
-  return {
-    FlywheelStatsS3Prefix: __expectString(output.FlywheelStatsS3Prefix),
-  } as any;
-};
+// de_EntityRecognizerOutputDataConfig omitted.
 
 /**
  * deserializeAws_json1_1EntityRecognizerProperties
  */
 const de_EntityRecognizerProperties = (output: any, context: __SerdeContext): EntityRecognizerProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
-    FlywheelArn: __expectString(output.FlywheelArn),
-    InputDataConfig:
-      output.InputDataConfig != null ? de_EntityRecognizerInputDataConfig(output.InputDataConfig, context) : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-    Message: __expectString(output.Message),
-    ModelKmsKeyId: __expectString(output.ModelKmsKeyId),
-    OutputDataConfig:
-      output.OutputDataConfig != null
-        ? de_EntityRecognizerOutputDataConfig(output.OutputDataConfig, context)
-        : undefined,
-    RecognizerMetadata:
-      output.RecognizerMetadata != null ? de_EntityRecognizerMetadata(output.RecognizerMetadata, context) : undefined,
-    SourceModelArn: __expectString(output.SourceModelArn),
-    Status: __expectString(output.Status),
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    TrainingEndTime:
-      output.TrainingEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingEndTime)))
-        : undefined,
-    TrainingStartTime:
-      output.TrainingStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingStartTime)))
-        : undefined,
-    VersionName: __expectString(output.VersionName),
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EntityRecognizerArn: __expectString,
+    FlywheelArn: __expectString,
+    InputDataConfig: _json,
+    LanguageCode: __expectString,
+    Message: __expectString,
+    ModelKmsKeyId: __expectString,
+    OutputDataConfig: _json,
+    RecognizerMetadata: (_: any) => de_EntityRecognizerMetadata(_, context),
+    SourceModelArn: __expectString,
+    Status: __expectString,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrainingEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrainingStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionName: __expectString,
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -9857,9 +8391,6 @@ const de_EntityRecognizerPropertiesList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EntityRecognizerProperties(entry, context);
     });
   return retVal;
@@ -9872,9 +8403,6 @@ const de_EntityRecognizerSummariesList = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EntityRecognizerSummary(entry, context);
     });
   return retVal;
@@ -9884,86 +8412,50 @@ const de_EntityRecognizerSummariesList = (output: any, context: __SerdeContext):
  * deserializeAws_json1_1EntityRecognizerSummary
  */
 const de_EntityRecognizerSummary = (output: any, context: __SerdeContext): EntityRecognizerSummary => {
-  return {
-    LatestVersionCreatedAt:
-      output.LatestVersionCreatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestVersionCreatedAt)))
-        : undefined,
-    LatestVersionName: __expectString(output.LatestVersionName),
-    LatestVersionStatus: __expectString(output.LatestVersionStatus),
-    NumberOfVersions: __expectInt32(output.NumberOfVersions),
-    RecognizerName: __expectString(output.RecognizerName),
-  } as any;
+  return take(output, {
+    LatestVersionCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestVersionName: __expectString,
+    LatestVersionStatus: __expectString,
+    NumberOfVersions: __expectInt32,
+    RecognizerName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1EntityTypesEvaluationMetrics
  */
 const de_EntityTypesEvaluationMetrics = (output: any, context: __SerdeContext): EntityTypesEvaluationMetrics => {
-  return {
-    F1Score: __limitedParseDouble(output.F1Score),
-    Precision: __limitedParseDouble(output.Precision),
-    Recall: __limitedParseDouble(output.Recall),
-  } as any;
+  return take(output, {
+    F1Score: __limitedParseDouble,
+    Precision: __limitedParseDouble,
+    Recall: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EntityTypesList
- */
-const de_EntityTypesList = (output: any, context: __SerdeContext): EntityTypesListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EntityTypesListItem(entry, context);
-    });
-  return retVal;
-};
+// de_EntityTypesList omitted.
 
-/**
- * deserializeAws_json1_1EntityTypesListItem
- */
-const de_EntityTypesListItem = (output: any, context: __SerdeContext): EntityTypesListItem => {
-  return {
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_EntityTypesListItem omitted.
 
-/**
- * deserializeAws_json1_1ErrorsListItem
- */
-const de_ErrorsListItem = (output: any, context: __SerdeContext): ErrorsListItem => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    Page: __expectInt32(output.Page),
-  } as any;
-};
+// de_ErrorsListItem omitted.
 
 /**
  * deserializeAws_json1_1EventsDetectionJobProperties
  */
 const de_EventsDetectionJobProperties = (output: any, context: __SerdeContext): EventsDetectionJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    LanguageCode: __expectString(output.LanguageCode),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    TargetEventTypes:
-      output.TargetEventTypes != null ? de_TargetEventTypes(output.TargetEventTypes, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    LanguageCode: __expectString,
+    Message: __expectString,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TargetEventTypes: _json,
+  }) as any;
 };
 
 /**
@@ -9973,51 +8465,30 @@ const de_EventsDetectionJobPropertiesList = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EventsDetectionJobProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ExtractedCharactersListItem
- */
-const de_ExtractedCharactersListItem = (output: any, context: __SerdeContext): ExtractedCharactersListItem => {
-  return {
-    Count: __expectInt32(output.Count),
-    Page: __expectInt32(output.Page),
-  } as any;
-};
+// de_ExtractedCharactersListItem omitted.
 
 /**
  * deserializeAws_json1_1FlywheelIterationProperties
  */
 const de_FlywheelIterationProperties = (output: any, context: __SerdeContext): FlywheelIterationProperties => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    EvaluatedModelArn: __expectString(output.EvaluatedModelArn),
-    EvaluatedModelMetrics:
-      output.EvaluatedModelMetrics != null
-        ? de_FlywheelModelEvaluationMetrics(output.EvaluatedModelMetrics, context)
-        : undefined,
-    EvaluationManifestS3Prefix: __expectString(output.EvaluationManifestS3Prefix),
-    FlywheelArn: __expectString(output.FlywheelArn),
-    FlywheelIterationId: __expectString(output.FlywheelIterationId),
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    TrainedModelArn: __expectString(output.TrainedModelArn),
-    TrainedModelMetrics:
-      output.TrainedModelMetrics != null
-        ? de_FlywheelModelEvaluationMetrics(output.TrainedModelMetrics, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluatedModelArn: __expectString,
+    EvaluatedModelMetrics: (_: any) => de_FlywheelModelEvaluationMetrics(_, context),
+    EvaluationManifestS3Prefix: __expectString,
+    FlywheelArn: __expectString,
+    FlywheelIterationId: __expectString,
+    Message: __expectString,
+    Status: __expectString,
+    TrainedModelArn: __expectString,
+    TrainedModelMetrics: (_: any) => de_FlywheelModelEvaluationMetrics(_, context),
+  }) as any;
 };
 
 /**
@@ -10027,9 +8498,6 @@ const de_FlywheelIterationPropertiesList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FlywheelIterationProperties(entry, context);
     });
   return retVal;
@@ -10039,62 +8507,49 @@ const de_FlywheelIterationPropertiesList = (output: any, context: __SerdeContext
  * deserializeAws_json1_1FlywheelModelEvaluationMetrics
  */
 const de_FlywheelModelEvaluationMetrics = (output: any, context: __SerdeContext): FlywheelModelEvaluationMetrics => {
-  return {
-    AverageAccuracy: __limitedParseDouble(output.AverageAccuracy),
-    AverageF1Score: __limitedParseDouble(output.AverageF1Score),
-    AveragePrecision: __limitedParseDouble(output.AveragePrecision),
-    AverageRecall: __limitedParseDouble(output.AverageRecall),
-  } as any;
+  return take(output, {
+    AverageAccuracy: __limitedParseDouble,
+    AverageF1Score: __limitedParseDouble,
+    AveragePrecision: __limitedParseDouble,
+    AverageRecall: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1FlywheelProperties
  */
 const de_FlywheelProperties = (output: any, context: __SerdeContext): FlywheelProperties => {
-  return {
-    ActiveModelArn: __expectString(output.ActiveModelArn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DataLakeS3Uri: __expectString(output.DataLakeS3Uri),
-    DataSecurityConfig:
-      output.DataSecurityConfig != null ? de_DataSecurityConfig(output.DataSecurityConfig, context) : undefined,
-    FlywheelArn: __expectString(output.FlywheelArn),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    LatestFlywheelIteration: __expectString(output.LatestFlywheelIteration),
-    Message: __expectString(output.Message),
-    ModelType: __expectString(output.ModelType),
-    Status: __expectString(output.Status),
-    TaskConfig: output.TaskConfig != null ? de_TaskConfig(output.TaskConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    ActiveModelArn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataAccessRoleArn: __expectString,
+    DataLakeS3Uri: __expectString,
+    DataSecurityConfig: _json,
+    FlywheelArn: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestFlywheelIteration: __expectString,
+    Message: __expectString,
+    ModelType: __expectString,
+    Status: __expectString,
+    TaskConfig: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1FlywheelSummary
  */
 const de_FlywheelSummary = (output: any, context: __SerdeContext): FlywheelSummary => {
-  return {
-    ActiveModelArn: __expectString(output.ActiveModelArn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataLakeS3Uri: __expectString(output.DataLakeS3Uri),
-    FlywheelArn: __expectString(output.FlywheelArn),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    LatestFlywheelIteration: __expectString(output.LatestFlywheelIteration),
-    Message: __expectString(output.Message),
-    ModelType: __expectString(output.ModelType),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    ActiveModelArn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataLakeS3Uri: __expectString,
+    FlywheelArn: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestFlywheelIteration: __expectString,
+    Message: __expectString,
+    ModelType: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -10104,9 +8559,6 @@ const de_FlywheelSummaryList = (output: any, context: __SerdeContext): FlywheelS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FlywheelSummary(entry, context);
     });
   return retVal;
@@ -10116,90 +8568,36 @@ const de_FlywheelSummaryList = (output: any, context: __SerdeContext): FlywheelS
  * deserializeAws_json1_1Geometry
  */
 const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Polygon: output.Polygon != null ? de_Polygon(output.Polygon, context) : undefined,
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Polygon: (_: any) => de_Polygon(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ImportModelResponse
- */
-const de_ImportModelResponse = (output: any, context: __SerdeContext): ImportModelResponse => {
-  return {
-    ModelArn: __expectString(output.ModelArn),
-  } as any;
-};
+// de_ImportModelResponse omitted.
 
-/**
- * deserializeAws_json1_1InputDataConfig
- */
-const de_InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    DocumentReaderConfig:
-      output.DocumentReaderConfig != null ? de_DocumentReaderConfig(output.DocumentReaderConfig, context) : undefined,
-    InputFormat: __expectString(output.InputFormat),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_InputDataConfig omitted.
 
-/**
- * deserializeAws_json1_1InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_1InvalidFilterException
- */
-const de_InvalidFilterException = (output: any, context: __SerdeContext): InvalidFilterException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidFilterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestDetail
- */
-const de_InvalidRequestDetail = (output: any, context: __SerdeContext): InvalidRequestDetail => {
-  return {
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_InvalidRequestDetail omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    Detail: output.Detail != null ? de_InvalidRequestDetail(output.Detail, context) : undefined,
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-/**
- * deserializeAws_json1_1JobNotFoundException
- */
-const de_JobNotFoundException = (output: any, context: __SerdeContext): JobNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_JobNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1KeyPhrase
  */
 const de_KeyPhrase = (output: any, context: __SerdeContext): KeyPhrase => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    EndOffset: __expectInt32(output.EndOffset),
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    EndOffset: __expectInt32,
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+  }) as any;
 };
 
 /**
@@ -10209,24 +8607,21 @@ const de_KeyPhrasesDetectionJobProperties = (
   output: any,
   context: __SerdeContext
 ): KeyPhrasesDetectionJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    LanguageCode: __expectString(output.LanguageCode),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    LanguageCode: __expectString,
+    Message: __expectString,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -10239,49 +8634,23 @@ const de_KeyPhrasesDetectionJobPropertiesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_KeyPhrasesDetectionJobProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1KmsKeyValidationException
- */
-const de_KmsKeyValidationException = (output: any, context: __SerdeContext): KmsKeyValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_KmsKeyValidationException omitted.
 
-/**
- * deserializeAws_json1_1LabelsList
- */
-const de_LabelsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LabelsList omitted.
 
 /**
  * deserializeAws_json1_1ListDatasetsResponse
  */
 const de_ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
-  return {
-    DatasetPropertiesList:
-      output.DatasetPropertiesList != null
-        ? de_DatasetPropertiesList(output.DatasetPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DatasetPropertiesList: (_: any) => de_DatasetPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -10291,26 +8660,20 @@ const de_ListDocumentClassificationJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListDocumentClassificationJobsResponse => {
-  return {
-    DocumentClassificationJobPropertiesList:
-      output.DocumentClassificationJobPropertiesList != null
-        ? de_DocumentClassificationJobPropertiesList(output.DocumentClassificationJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DocumentClassificationJobPropertiesList: (_: any) => de_DocumentClassificationJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListDocumentClassifiersResponse
  */
 const de_ListDocumentClassifiersResponse = (output: any, context: __SerdeContext): ListDocumentClassifiersResponse => {
-  return {
-    DocumentClassifierPropertiesList:
-      output.DocumentClassifierPropertiesList != null
-        ? de_DocumentClassifierPropertiesList(output.DocumentClassifierPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DocumentClassifierPropertiesList: (_: any) => de_DocumentClassifierPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -10320,13 +8683,10 @@ const de_ListDocumentClassifierSummariesResponse = (
   output: any,
   context: __SerdeContext
 ): ListDocumentClassifierSummariesResponse => {
-  return {
-    DocumentClassifierSummariesList:
-      output.DocumentClassifierSummariesList != null
-        ? de_DocumentClassifierSummariesList(output.DocumentClassifierSummariesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DocumentClassifierSummariesList: (_: any) => de_DocumentClassifierSummariesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -10336,26 +8696,20 @@ const de_ListDominantLanguageDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListDominantLanguageDetectionJobsResponse => {
-  return {
-    DominantLanguageDetectionJobPropertiesList:
-      output.DominantLanguageDetectionJobPropertiesList != null
-        ? de_DominantLanguageDetectionJobPropertiesList(output.DominantLanguageDetectionJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DominantLanguageDetectionJobPropertiesList: (_: any) => de_DominantLanguageDetectionJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListEndpointsResponse
  */
 const de_ListEndpointsResponse = (output: any, context: __SerdeContext): ListEndpointsResponse => {
-  return {
-    EndpointPropertiesList:
-      output.EndpointPropertiesList != null
-        ? de_EndpointPropertiesList(output.EndpointPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EndpointPropertiesList: (_: any) => de_EndpointPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -10365,26 +8719,20 @@ const de_ListEntitiesDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListEntitiesDetectionJobsResponse => {
-  return {
-    EntitiesDetectionJobPropertiesList:
-      output.EntitiesDetectionJobPropertiesList != null
-        ? de_EntitiesDetectionJobPropertiesList(output.EntitiesDetectionJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EntitiesDetectionJobPropertiesList: (_: any) => de_EntitiesDetectionJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListEntityRecognizersResponse
  */
 const de_ListEntityRecognizersResponse = (output: any, context: __SerdeContext): ListEntityRecognizersResponse => {
-  return {
-    EntityRecognizerPropertiesList:
-      output.EntityRecognizerPropertiesList != null
-        ? de_EntityRecognizerPropertiesList(output.EntityRecognizerPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EntityRecognizerPropertiesList: (_: any) => de_EntityRecognizerPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -10394,26 +8742,20 @@ const de_ListEntityRecognizerSummariesResponse = (
   output: any,
   context: __SerdeContext
 ): ListEntityRecognizerSummariesResponse => {
-  return {
-    EntityRecognizerSummariesList:
-      output.EntityRecognizerSummariesList != null
-        ? de_EntityRecognizerSummariesList(output.EntityRecognizerSummariesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EntityRecognizerSummariesList: (_: any) => de_EntityRecognizerSummariesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListEventsDetectionJobsResponse
  */
 const de_ListEventsDetectionJobsResponse = (output: any, context: __SerdeContext): ListEventsDetectionJobsResponse => {
-  return {
-    EventsDetectionJobPropertiesList:
-      output.EventsDetectionJobPropertiesList != null
-        ? de_EventsDetectionJobPropertiesList(output.EventsDetectionJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EventsDetectionJobPropertiesList: (_: any) => de_EventsDetectionJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -10423,24 +8765,20 @@ const de_ListFlywheelIterationHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): ListFlywheelIterationHistoryResponse => {
-  return {
-    FlywheelIterationPropertiesList:
-      output.FlywheelIterationPropertiesList != null
-        ? de_FlywheelIterationPropertiesList(output.FlywheelIterationPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    FlywheelIterationPropertiesList: (_: any) => de_FlywheelIterationPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListFlywheelsResponse
  */
 const de_ListFlywheelsResponse = (output: any, context: __SerdeContext): ListFlywheelsResponse => {
-  return {
-    FlywheelSummaryList:
-      output.FlywheelSummaryList != null ? de_FlywheelSummaryList(output.FlywheelSummaryList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    FlywheelSummaryList: (_: any) => de_FlywheelSummaryList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -10450,29 +8788,13 @@ const de_ListKeyPhrasesDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListKeyPhrasesDetectionJobsResponse => {
-  return {
-    KeyPhrasesDetectionJobPropertiesList:
-      output.KeyPhrasesDetectionJobPropertiesList != null
-        ? de_KeyPhrasesDetectionJobPropertiesList(output.KeyPhrasesDetectionJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    KeyPhrasesDetectionJobPropertiesList: (_: any) => de_KeyPhrasesDetectionJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListOfBlockReferences
- */
-const de_ListOfBlockReferences = (output: any, context: __SerdeContext): BlockReference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BlockReference(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfBlockReferences omitted.
 
 /**
  * deserializeAws_json1_1ListOfBlocks
@@ -10481,28 +8803,12 @@ const de_ListOfBlocks = (output: any, context: __SerdeContext): Block[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Block(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ListOfChildBlocks
- */
-const de_ListOfChildBlocks = (output: any, context: __SerdeContext): ChildBlock[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChildBlock(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfChildBlocks omitted.
 
 /**
  * deserializeAws_json1_1ListOfClasses
@@ -10511,28 +8817,12 @@ const de_ListOfClasses = (output: any, context: __SerdeContext): DocumentClass[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DocumentClass(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ListOfDescriptiveMentionIndices
- */
-const de_ListOfDescriptiveMentionIndices = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfDescriptiveMentionIndices omitted.
 
 /**
  * deserializeAws_json1_1ListOfDetectDominantLanguageResult
@@ -10544,9 +8834,6 @@ const de_ListOfDetectDominantLanguageResult = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchDetectDominantLanguageItemResult(entry, context);
     });
   return retVal;
@@ -10559,9 +8846,6 @@ const de_ListOfDetectEntitiesResult = (output: any, context: __SerdeContext): Ba
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchDetectEntitiesItemResult(entry, context);
     });
   return retVal;
@@ -10574,9 +8858,6 @@ const de_ListOfDetectKeyPhrasesResult = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchDetectKeyPhrasesItemResult(entry, context);
     });
   return retVal;
@@ -10589,9 +8870,6 @@ const de_ListOfDetectSentimentResult = (output: any, context: __SerdeContext): B
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchDetectSentimentItemResult(entry, context);
     });
   return retVal;
@@ -10604,9 +8882,6 @@ const de_ListOfDetectSyntaxResult = (output: any, context: __SerdeContext): Batc
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchDetectSyntaxItemResult(entry, context);
     });
   return retVal;
@@ -10622,46 +8897,14 @@ const de_ListOfDetectTargetedSentimentResult = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchDetectTargetedSentimentItemResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ListOfDocumentReadFeatureTypes
- */
-const de_ListOfDocumentReadFeatureTypes = (
-  output: any,
-  context: __SerdeContext
-): (DocumentReadFeatureTypes | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfDocumentReadFeatureTypes omitted.
 
-/**
- * deserializeAws_json1_1ListOfDocumentType
- */
-const de_ListOfDocumentType = (output: any, context: __SerdeContext): DocumentTypeListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DocumentTypeListItem(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfDocumentType omitted.
 
 /**
  * deserializeAws_json1_1ListOfDominantLanguages
@@ -10670,9 +8913,6 @@ const de_ListOfDominantLanguages = (output: any, context: __SerdeContext): Domin
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DominantLanguage(entry, context);
     });
   return retVal;
@@ -10685,9 +8925,6 @@ const de_ListOfEntities = (output: any, context: __SerdeContext): Entity[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Entity(entry, context);
     });
   return retVal;
@@ -10700,43 +8937,14 @@ const de_ListOfEntityLabels = (output: any, context: __SerdeContext): EntityLabe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EntityLabel(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ListOfErrors
- */
-const de_ListOfErrors = (output: any, context: __SerdeContext): ErrorsListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ErrorsListItem(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfErrors omitted.
 
-/**
- * deserializeAws_json1_1ListOfExtractedCharacters
- */
-const de_ListOfExtractedCharacters = (output: any, context: __SerdeContext): ExtractedCharactersListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExtractedCharactersListItem(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfExtractedCharacters omitted.
 
 /**
  * deserializeAws_json1_1ListOfKeyPhrases
@@ -10745,9 +8953,6 @@ const de_ListOfKeyPhrases = (output: any, context: __SerdeContext): KeyPhrase[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_KeyPhrase(entry, context);
     });
   return retVal;
@@ -10760,9 +8965,6 @@ const de_ListOfLabels = (output: any, context: __SerdeContext): DocumentLabel[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DocumentLabel(entry, context);
     });
   return retVal;
@@ -10775,9 +8977,6 @@ const de_ListOfMentions = (output: any, context: __SerdeContext): TargetedSentim
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TargetedSentimentMention(entry, context);
     });
   return retVal;
@@ -10790,43 +8989,14 @@ const de_ListOfPiiEntities = (output: any, context: __SerdeContext): PiiEntity[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PiiEntity(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ListOfPiiEntityTypes
- */
-const de_ListOfPiiEntityTypes = (output: any, context: __SerdeContext): (PiiEntityType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfPiiEntityTypes omitted.
 
-/**
- * deserializeAws_json1_1ListOfRelationships
- */
-const de_ListOfRelationships = (output: any, context: __SerdeContext): RelationshipsListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RelationshipsListItem(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfRelationships omitted.
 
 /**
  * deserializeAws_json1_1ListOfSyntaxTokens
@@ -10835,9 +9005,6 @@ const de_ListOfSyntaxTokens = (output: any, context: __SerdeContext): SyntaxToke
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SyntaxToken(entry, context);
     });
   return retVal;
@@ -10850,9 +9017,6 @@ const de_ListOfTargetedSentimentEntities = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TargetedSentimentEntity(entry, context);
     });
   return retVal;
@@ -10865,13 +9029,10 @@ const de_ListPiiEntitiesDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPiiEntitiesDetectionJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PiiEntitiesDetectionJobPropertiesList:
-      output.PiiEntitiesDetectionJobPropertiesList != null
-        ? de_PiiEntitiesDetectionJobPropertiesList(output.PiiEntitiesDetectionJobPropertiesList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    PiiEntitiesDetectionJobPropertiesList: (_: any) => de_PiiEntitiesDetectionJobPropertiesList(_, context),
+  }) as any;
 };
 
 /**
@@ -10881,24 +9042,13 @@ const de_ListSentimentDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSentimentDetectionJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SentimentDetectionJobPropertiesList:
-      output.SentimentDetectionJobPropertiesList != null
-        ? de_SentimentDetectionJobPropertiesList(output.SentimentDetectionJobPropertiesList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    SentimentDetectionJobPropertiesList: (_: any) => de_SentimentDetectionJobPropertiesList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    ResourceArn: __expectString(output.ResourceArn),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1ListTargetedSentimentDetectionJobsResponse
@@ -10907,56 +9057,42 @@ const de_ListTargetedSentimentDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListTargetedSentimentDetectionJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    TargetedSentimentDetectionJobPropertiesList:
-      output.TargetedSentimentDetectionJobPropertiesList != null
-        ? de_TargetedSentimentDetectionJobPropertiesList(output.TargetedSentimentDetectionJobPropertiesList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    TargetedSentimentDetectionJobPropertiesList: (_: any) => de_TargetedSentimentDetectionJobPropertiesList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListTopicsDetectionJobsResponse
  */
 const de_ListTopicsDetectionJobsResponse = (output: any, context: __SerdeContext): ListTopicsDetectionJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    TopicsDetectionJobPropertiesList:
-      output.TopicsDetectionJobPropertiesList != null
-        ? de_TopicsDetectionJobPropertiesList(output.TopicsDetectionJobPropertiesList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    TopicsDetectionJobPropertiesList: (_: any) => de_TopicsDetectionJobPropertiesList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1MentionSentiment
  */
 const de_MentionSentiment = (output: any, context: __SerdeContext): MentionSentiment => {
-  return {
-    Sentiment: __expectString(output.Sentiment),
-    SentimentScore: output.SentimentScore != null ? de_SentimentScore(output.SentimentScore, context) : undefined,
-  } as any;
+  return take(output, {
+    Sentiment: __expectString,
+    SentimentScore: (_: any) => de_SentimentScore(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OutputDataConfig
- */
-const de_OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_OutputDataConfig omitted.
 
 /**
  * deserializeAws_json1_1PartOfSpeechTag
  */
 const de_PartOfSpeechTag = (output: any, context: __SerdeContext): PartOfSpeechTag => {
-  return {
-    Score: __limitedParseFloat32(output.Score),
-    Tag: __expectString(output.Tag),
-  } as any;
+  return take(output, {
+    Score: __limitedParseFloat32,
+    Tag: __expectString,
+  }) as any;
 };
 
 /**
@@ -10966,24 +9102,21 @@ const de_PiiEntitiesDetectionJobProperties = (
   output: any,
   context: __SerdeContext
 ): PiiEntitiesDetectionJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    LanguageCode: __expectString(output.LanguageCode),
-    Message: __expectString(output.Message),
-    Mode: __expectString(output.Mode),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_PiiOutputDataConfig(output.OutputDataConfig, context) : undefined,
-    RedactionConfig: output.RedactionConfig != null ? de_RedactionConfig(output.RedactionConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    LanguageCode: __expectString,
+    Message: __expectString,
+    Mode: __expectString,
+    OutputDataConfig: _json,
+    RedactionConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -10996,9 +9129,6 @@ const de_PiiEntitiesDetectionJobPropertiesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PiiEntitiesDetectionJobProperties(entry, context);
     });
   return retVal;
@@ -11008,32 +9138,24 @@ const de_PiiEntitiesDetectionJobPropertiesList = (
  * deserializeAws_json1_1PiiEntity
  */
 const de_PiiEntity = (output: any, context: __SerdeContext): PiiEntity => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    EndOffset: __expectInt32(output.EndOffset),
-    Score: __limitedParseFloat32(output.Score),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    EndOffset: __expectInt32,
+    Score: __limitedParseFloat32,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PiiOutputDataConfig
- */
-const de_PiiOutputDataConfig = (output: any, context: __SerdeContext): PiiOutputDataConfig => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_PiiOutputDataConfig omitted.
 
 /**
  * deserializeAws_json1_1Point
  */
 const de_Point = (output: any, context: __SerdeContext): Point => {
-  return {
-    X: __limitedParseFloat32(output.X),
-    Y: __limitedParseFloat32(output.Y),
-  } as any;
+  return take(output, {
+    X: __limitedParseFloat32,
+    Y: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -11043,117 +9165,46 @@ const de_Polygon = (output: any, context: __SerdeContext): Point[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Point(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1PutResourcePolicyResponse
- */
-const de_PutResourcePolicyResponse = (output: any, context: __SerdeContext): PutResourcePolicyResponse => {
-  return {
-    PolicyRevisionId: __expectString(output.PolicyRevisionId),
-  } as any;
-};
+// de_PutResourcePolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1RedactionConfig
- */
-const de_RedactionConfig = (output: any, context: __SerdeContext): RedactionConfig => {
-  return {
-    MaskCharacter: __expectString(output.MaskCharacter),
-    MaskMode: __expectString(output.MaskMode),
-    PiiEntityTypes: output.PiiEntityTypes != null ? de_ListOfPiiEntityTypes(output.PiiEntityTypes, context) : undefined,
-  } as any;
-};
+// de_RedactionConfig omitted.
 
-/**
- * deserializeAws_json1_1RelationshipsListItem
- */
-const de_RelationshipsListItem = (output: any, context: __SerdeContext): RelationshipsListItem => {
-  return {
-    Ids: output.Ids != null ? de_StringList(output.Ids, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_RelationshipsListItem omitted.
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceLimitExceededException
- */
-const de_ResourceLimitExceededException = (output: any, context: __SerdeContext): ResourceLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResourceUnavailableException
- */
-const de_ResourceUnavailableException = (output: any, context: __SerdeContext): ResourceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
 /**
  * deserializeAws_json1_1SentimentDetectionJobProperties
  */
 const de_SentimentDetectionJobProperties = (output: any, context: __SerdeContext): SentimentDetectionJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    LanguageCode: __expectString(output.LanguageCode),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    LanguageCode: __expectString,
+    Message: __expectString,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -11166,9 +9217,6 @@ const de_SentimentDetectionJobPropertiesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SentimentDetectionJobProperties(entry, context);
     });
   return retVal;
@@ -11178,328 +9226,74 @@ const de_SentimentDetectionJobPropertiesList = (
  * deserializeAws_json1_1SentimentScore
  */
 const de_SentimentScore = (output: any, context: __SerdeContext): SentimentScore => {
-  return {
-    Mixed: __limitedParseFloat32(output.Mixed),
-    Negative: __limitedParseFloat32(output.Negative),
-    Neutral: __limitedParseFloat32(output.Neutral),
-    Positive: __limitedParseFloat32(output.Positive),
-  } as any;
+  return take(output, {
+    Mixed: __limitedParseFloat32,
+    Negative: __limitedParseFloat32,
+    Neutral: __limitedParseFloat32,
+    Positive: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1StartDocumentClassificationJobResponse
- */
-const de_StartDocumentClassificationJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartDocumentClassificationJobResponse => {
-  return {
-    DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartDocumentClassificationJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartDominantLanguageDetectionJobResponse
- */
-const de_StartDominantLanguageDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartDominantLanguageDetectionJobResponse => {
-  return {
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartDominantLanguageDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartEntitiesDetectionJobResponse
- */
-const de_StartEntitiesDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartEntitiesDetectionJobResponse => {
-  return {
-    EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartEntitiesDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartEventsDetectionJobResponse
- */
-const de_StartEventsDetectionJobResponse = (output: any, context: __SerdeContext): StartEventsDetectionJobResponse => {
-  return {
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartEventsDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartFlywheelIterationResponse
- */
-const de_StartFlywheelIterationResponse = (output: any, context: __SerdeContext): StartFlywheelIterationResponse => {
-  return {
-    FlywheelArn: __expectString(output.FlywheelArn),
-    FlywheelIterationId: __expectString(output.FlywheelIterationId),
-  } as any;
-};
+// de_StartFlywheelIterationResponse omitted.
 
-/**
- * deserializeAws_json1_1StartKeyPhrasesDetectionJobResponse
- */
-const de_StartKeyPhrasesDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartKeyPhrasesDetectionJobResponse => {
-  return {
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartKeyPhrasesDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartPiiEntitiesDetectionJobResponse
- */
-const de_StartPiiEntitiesDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartPiiEntitiesDetectionJobResponse => {
-  return {
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartPiiEntitiesDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartSentimentDetectionJobResponse
- */
-const de_StartSentimentDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartSentimentDetectionJobResponse => {
-  return {
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartSentimentDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartTargetedSentimentDetectionJobResponse
- */
-const de_StartTargetedSentimentDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartTargetedSentimentDetectionJobResponse => {
-  return {
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartTargetedSentimentDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StartTopicsDetectionJobResponse
- */
-const de_StartTopicsDetectionJobResponse = (output: any, context: __SerdeContext): StartTopicsDetectionJobResponse => {
-  return {
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartTopicsDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopDominantLanguageDetectionJobResponse
- */
-const de_StopDominantLanguageDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopDominantLanguageDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StopDominantLanguageDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopEntitiesDetectionJobResponse
- */
-const de_StopEntitiesDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopEntitiesDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StopEntitiesDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopEventsDetectionJobResponse
- */
-const de_StopEventsDetectionJobResponse = (output: any, context: __SerdeContext): StopEventsDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StopEventsDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopKeyPhrasesDetectionJobResponse
- */
-const de_StopKeyPhrasesDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopKeyPhrasesDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StopKeyPhrasesDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopPiiEntitiesDetectionJobResponse
- */
-const de_StopPiiEntitiesDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopPiiEntitiesDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StopPiiEntitiesDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopSentimentDetectionJobResponse
- */
-const de_StopSentimentDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopSentimentDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StopSentimentDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopTargetedSentimentDetectionJobResponse
- */
-const de_StopTargetedSentimentDetectionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopTargetedSentimentDetectionJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StopTargetedSentimentDetectionJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopTrainingDocumentClassifierResponse
- */
-const de_StopTrainingDocumentClassifierResponse = (
-  output: any,
-  context: __SerdeContext
-): StopTrainingDocumentClassifierResponse => {
-  return {} as any;
-};
+// de_StopTrainingDocumentClassifierResponse omitted.
 
-/**
- * deserializeAws_json1_1StopTrainingEntityRecognizerResponse
- */
-const de_StopTrainingEntityRecognizerResponse = (
-  output: any,
-  context: __SerdeContext
-): StopTrainingEntityRecognizerResponse => {
-  return {} as any;
-};
+// de_StopTrainingEntityRecognizerResponse omitted.
 
-/**
- * deserializeAws_json1_1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_json1_1Subnets
- */
-const de_Subnets = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Subnets omitted.
 
 /**
  * deserializeAws_json1_1SyntaxToken
  */
 const de_SyntaxToken = (output: any, context: __SerdeContext): SyntaxToken => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    EndOffset: __expectInt32(output.EndOffset),
-    PartOfSpeech: output.PartOfSpeech != null ? de_PartOfSpeechTag(output.PartOfSpeech, context) : undefined,
-    Text: __expectString(output.Text),
-    TokenId: __expectInt32(output.TokenId),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    EndOffset: __expectInt32,
+    PartOfSpeech: (_: any) => de_PartOfSpeechTag(_, context),
+    Text: __expectString,
+    TokenId: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1TargetedSentimentDetectionJobProperties
@@ -11508,24 +9302,21 @@ const de_TargetedSentimentDetectionJobProperties = (
   output: any,
   context: __SerdeContext
 ): TargetedSentimentDetectionJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    LanguageCode: __expectString(output.LanguageCode),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    LanguageCode: __expectString,
+    Message: __expectString,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -11538,9 +9329,6 @@ const de_TargetedSentimentDetectionJobPropertiesList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TargetedSentimentDetectionJobProperties(entry, context);
     });
   return retVal;
@@ -11550,121 +9338,58 @@ const de_TargetedSentimentDetectionJobPropertiesList = (
  * deserializeAws_json1_1TargetedSentimentEntity
  */
 const de_TargetedSentimentEntity = (output: any, context: __SerdeContext): TargetedSentimentEntity => {
-  return {
-    DescriptiveMentionIndex:
-      output.DescriptiveMentionIndex != null
-        ? de_ListOfDescriptiveMentionIndices(output.DescriptiveMentionIndex, context)
-        : undefined,
-    Mentions: output.Mentions != null ? de_ListOfMentions(output.Mentions, context) : undefined,
-  } as any;
+  return take(output, {
+    DescriptiveMentionIndex: _json,
+    Mentions: (_: any) => de_ListOfMentions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1TargetedSentimentMention
  */
 const de_TargetedSentimentMention = (output: any, context: __SerdeContext): TargetedSentimentMention => {
-  return {
-    BeginOffset: __expectInt32(output.BeginOffset),
-    EndOffset: __expectInt32(output.EndOffset),
-    GroupScore: __limitedParseFloat32(output.GroupScore),
-    MentionSentiment:
-      output.MentionSentiment != null ? de_MentionSentiment(output.MentionSentiment, context) : undefined,
-    Score: __limitedParseFloat32(output.Score),
-    Text: __expectString(output.Text),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BeginOffset: __expectInt32,
+    EndOffset: __expectInt32,
+    GroupScore: __limitedParseFloat32,
+    MentionSentiment: (_: any) => de_MentionSentiment(_, context),
+    Score: __limitedParseFloat32,
+    Text: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1TargetEventTypes
- */
-const de_TargetEventTypes = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TargetEventTypes omitted.
 
-/**
- * deserializeAws_json1_1TaskConfig
- */
-const de_TaskConfig = (output: any, context: __SerdeContext): TaskConfig => {
-  return {
-    DocumentClassificationConfig:
-      output.DocumentClassificationConfig != null
-        ? de_DocumentClassificationConfig(output.DocumentClassificationConfig, context)
-        : undefined,
-    EntityRecognitionConfig:
-      output.EntityRecognitionConfig != null
-        ? de_EntityRecognitionConfig(output.EntityRecognitionConfig, context)
-        : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-  } as any;
-};
+// de_TaskConfig omitted.
 
-/**
- * deserializeAws_json1_1TextSizeLimitExceededException
- */
-const de_TextSizeLimitExceededException = (output: any, context: __SerdeContext): TextSizeLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TextSizeLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagKeysException
- */
-const de_TooManyTagKeysException = (output: any, context: __SerdeContext): TooManyTagKeysException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TooManyTagKeysException omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
 /**
  * deserializeAws_json1_1TopicsDetectionJobProperties
  */
 const de_TopicsDetectionJobProperties = (output: any, context: __SerdeContext): TopicsDetectionJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobArn: __expectString(output.JobArn),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    Message: __expectString(output.Message),
-    NumberOfTopics: __expectInt32(output.NumberOfTopics),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobArn: __expectString,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    Message: __expectString,
+    NumberOfTopics: __expectInt32,
+    OutputDataConfig: _json,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeKmsKeyId: __expectString,
+    VpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -11674,59 +9399,27 @@ const de_TopicsDetectionJobPropertiesList = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TopicsDetectionJobProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1UnsupportedLanguageException
- */
-const de_UnsupportedLanguageException = (output: any, context: __SerdeContext): UnsupportedLanguageException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnsupportedLanguageException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateEndpointResponse
- */
-const de_UpdateEndpointResponse = (output: any, context: __SerdeContext): UpdateEndpointResponse => {
-  return {
-    DesiredModelArn: __expectString(output.DesiredModelArn),
-  } as any;
-};
+// de_UpdateEndpointResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateFlywheelResponse
  */
 const de_UpdateFlywheelResponse = (output: any, context: __SerdeContext): UpdateFlywheelResponse => {
-  return {
-    FlywheelProperties:
-      output.FlywheelProperties != null ? de_FlywheelProperties(output.FlywheelProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    FlywheelProperties: (_: any) => de_FlywheelProperties(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1VpcConfig
- */
-const de_VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
-  return {
-    SecurityGroupIds:
-      output.SecurityGroupIds != null ? de_SecurityGroupIds(output.SecurityGroupIds, context) : undefined,
-    Subnets: output.Subnets != null ? de_Subnets(output.Subnets, context) : undefined,
-  } as any;
-};
+// de_VpcConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -11748,6 +9441,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

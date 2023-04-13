@@ -1,21 +1,21 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -70,28 +70,21 @@ import { GrafanaServiceException as __BaseException } from "../models/GrafanaSer
 import {
   AccessDeniedException,
   AssertionAttributes,
-  AuthenticationDescription,
   AuthenticationProviderTypes,
-  AuthenticationSummary,
-  AwsSsoAuthentication,
   ConflictException,
   DataSourceType,
   IdpMetadata,
   InternalServerException,
   NetworkAccessConfiguration,
   NotificationDestinationType,
-  PermissionEntry,
   ResourceNotFoundException,
   RoleValues,
-  SamlAuthentication,
   SamlConfiguration,
   ServiceQuotaExceededException,
   ThrottlingException,
-  UpdateError,
   UpdateInstruction,
   User,
   ValidationException,
-  ValidationExceptionField,
   VpcConfiguration,
   WorkspaceDescription,
   WorkspaceSummary,
@@ -136,37 +129,26 @@ export const se_CreateWorkspaceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces";
   let body: any;
-  body = JSON.stringify({
-    ...(input.accountAccessType != null && { accountAccessType: input.accountAccessType }),
-    ...(input.authenticationProviders != null && {
-      authenticationProviders: se_AuthenticationProviders(input.authenticationProviders, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configuration != null && { configuration: __LazyJsonString.fromObject(input.configuration) }),
-    ...(input.networkAccessControl != null && {
-      networkAccessControl: se_NetworkAccessConfiguration(input.networkAccessControl, context),
-    }),
-    ...(input.organizationRoleName != null && { organizationRoleName: input.organizationRoleName }),
-    ...(input.permissionType != null && { permissionType: input.permissionType }),
-    ...(input.stackSetName != null && { stackSetName: input.stackSetName }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.vpcConfiguration != null && { vpcConfiguration: se_VpcConfiguration(input.vpcConfiguration, context) }),
-    ...(input.workspaceDataSources != null && {
-      workspaceDataSources: se_DataSourceTypesList(input.workspaceDataSources, context),
-    }),
-    ...(input.workspaceDescription != null && { workspaceDescription: input.workspaceDescription }),
-    ...(input.workspaceName != null && { workspaceName: input.workspaceName }),
-    ...(input.workspaceNotificationDestinations != null && {
-      workspaceNotificationDestinations: se_NotificationDestinationsList(
-        input.workspaceNotificationDestinations,
-        context
-      ),
-    }),
-    ...(input.workspaceOrganizationalUnits != null && {
-      workspaceOrganizationalUnits: se_OrganizationalUnitList(input.workspaceOrganizationalUnits, context),
-    }),
-    ...(input.workspaceRoleArn != null && { workspaceRoleArn: input.workspaceRoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountAccessType: [],
+      authenticationProviders: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      configuration: (_) => __LazyJsonString.fromObject(_),
+      networkAccessControl: (_) => _json(_),
+      organizationRoleName: [],
+      permissionType: [],
+      stackSetName: [],
+      tags: (_) => _json(_),
+      vpcConfiguration: (_) => _json(_),
+      workspaceDataSources: (_) => _json(_),
+      workspaceDescription: [],
+      workspaceName: [],
+      workspaceNotificationDestinations: (_) => _json(_),
+      workspaceOrganizationalUnits: (_) => _json(_),
+      workspaceRoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -193,11 +175,13 @@ export const se_CreateWorkspaceApiKeyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/apikeys";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.keyName != null && { keyName: input.keyName }),
-    ...(input.keyRole != null && { keyRole: input.keyRole }),
-    ...(input.secondsToLive != null && { secondsToLive: input.secondsToLive }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      keyName: [],
+      keyRole: [],
+      secondsToLive: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -453,9 +437,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -512,11 +498,11 @@ export const se_UpdatePermissionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/permissions";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.updateInstructionBatch != null && {
-      updateInstructionBatch: se_UpdateInstructionBatch(input.updateInstructionBatch, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      updateInstructionBatch: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -543,35 +529,24 @@ export const se_UpdateWorkspaceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.accountAccessType != null && { accountAccessType: input.accountAccessType }),
-    ...(input.networkAccessControl != null && {
-      networkAccessControl: se_NetworkAccessConfiguration(input.networkAccessControl, context),
-    }),
-    ...(input.organizationRoleName != null && { organizationRoleName: input.organizationRoleName }),
-    ...(input.permissionType != null && { permissionType: input.permissionType }),
-    ...(input.removeNetworkAccessConfiguration != null && {
-      removeNetworkAccessConfiguration: input.removeNetworkAccessConfiguration,
-    }),
-    ...(input.removeVpcConfiguration != null && { removeVpcConfiguration: input.removeVpcConfiguration }),
-    ...(input.stackSetName != null && { stackSetName: input.stackSetName }),
-    ...(input.vpcConfiguration != null && { vpcConfiguration: se_VpcConfiguration(input.vpcConfiguration, context) }),
-    ...(input.workspaceDataSources != null && {
-      workspaceDataSources: se_DataSourceTypesList(input.workspaceDataSources, context),
-    }),
-    ...(input.workspaceDescription != null && { workspaceDescription: input.workspaceDescription }),
-    ...(input.workspaceName != null && { workspaceName: input.workspaceName }),
-    ...(input.workspaceNotificationDestinations != null && {
-      workspaceNotificationDestinations: se_NotificationDestinationsList(
-        input.workspaceNotificationDestinations,
-        context
-      ),
-    }),
-    ...(input.workspaceOrganizationalUnits != null && {
-      workspaceOrganizationalUnits: se_OrganizationalUnitList(input.workspaceOrganizationalUnits, context),
-    }),
-    ...(input.workspaceRoleArn != null && { workspaceRoleArn: input.workspaceRoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountAccessType: [],
+      networkAccessControl: (_) => _json(_),
+      organizationRoleName: [],
+      permissionType: [],
+      removeNetworkAccessConfiguration: [],
+      removeVpcConfiguration: [],
+      stackSetName: [],
+      vpcConfiguration: (_) => _json(_),
+      workspaceDataSources: (_) => _json(_),
+      workspaceDescription: [],
+      workspaceName: [],
+      workspaceNotificationDestinations: (_) => _json(_),
+      workspaceOrganizationalUnits: (_) => _json(_),
+      workspaceRoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -598,14 +573,12 @@ export const se_UpdateWorkspaceAuthenticationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/authentication";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.authenticationProviders != null && {
-      authenticationProviders: se_AuthenticationProviders(input.authenticationProviders, context),
-    }),
-    ...(input.samlConfiguration != null && {
-      samlConfiguration: se_SamlConfiguration(input.samlConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authenticationProviders: (_) => _json(_),
+      samlConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -632,9 +605,11 @@ export const se_UpdateWorkspaceConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/configuration";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.configuration != null && { configuration: __LazyJsonString.fromObject(input.configuration) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      configuration: (_) => __LazyJsonString.fromObject(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -660,9 +635,10 @@ export const de_AssociateLicenseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workspace != null) {
-    contents.workspace = de_WorkspaceDescription(data.workspace, context);
-  }
+  const doc = take(data, {
+    workspace: (_) => de_WorkspaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -696,10 +672,9 @@ const de_AssociateLicenseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -719,9 +694,10 @@ export const de_CreateWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workspace != null) {
-    contents.workspace = de_WorkspaceDescription(data.workspace, context);
-  }
+  const doc = take(data, {
+    workspace: (_) => de_WorkspaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -758,10 +734,9 @@ const de_CreateWorkspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -781,15 +756,12 @@ export const de_CreateWorkspaceApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.key != null) {
-    contents.key = __expectString(data.key);
-  }
-  if (data.keyName != null) {
-    contents.keyName = __expectString(data.keyName);
-  }
-  if (data.workspaceId != null) {
-    contents.workspaceId = __expectString(data.workspaceId);
-  }
+  const doc = take(data, {
+    key: __expectString,
+    keyName: __expectString,
+    workspaceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -829,10 +801,9 @@ const de_CreateWorkspaceApiKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -852,9 +823,10 @@ export const de_DeleteWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workspace != null) {
-    contents.workspace = de_WorkspaceDescription(data.workspace, context);
-  }
+  const doc = take(data, {
+    workspace: (_) => de_WorkspaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -891,10 +863,9 @@ const de_DeleteWorkspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -914,12 +885,11 @@ export const de_DeleteWorkspaceApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.keyName != null) {
-    contents.keyName = __expectString(data.keyName);
-  }
-  if (data.workspaceId != null) {
-    contents.workspaceId = __expectString(data.workspaceId);
-  }
+  const doc = take(data, {
+    keyName: __expectString,
+    workspaceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -956,10 +926,9 @@ const de_DeleteWorkspaceApiKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -979,9 +948,10 @@ export const de_DescribeWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workspace != null) {
-    contents.workspace = de_WorkspaceDescription(data.workspace, context);
-  }
+  const doc = take(data, {
+    workspace: (_) => de_WorkspaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1015,10 +985,9 @@ const de_DescribeWorkspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1038,9 +1007,10 @@ export const de_DescribeWorkspaceAuthenticationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authentication != null) {
-    contents.authentication = de_AuthenticationDescription(data.authentication, context);
-  }
+  const doc = take(data, {
+    authentication: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1074,10 +1044,9 @@ const de_DescribeWorkspaceAuthenticationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1097,9 +1066,10 @@ export const de_DescribeWorkspaceConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configuration != null) {
-    contents.configuration = new __LazyJsonString(data.configuration);
-  }
+  const doc = take(data, {
+    configuration: (_) => new __LazyJsonString(_),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1130,10 +1100,9 @@ const de_DescribeWorkspaceConfigurationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1153,9 +1122,10 @@ export const de_DisassociateLicenseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workspace != null) {
-    contents.workspace = de_WorkspaceDescription(data.workspace, context);
-  }
+  const doc = take(data, {
+    workspace: (_) => de_WorkspaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1189,10 +1159,9 @@ const de_DisassociateLicenseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1212,12 +1181,11 @@ export const de_ListPermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.permissions != null) {
-    contents.permissions = de_PermissionEntryList(data.permissions, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    permissions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1251,10 +1219,9 @@ const de_ListPermissionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1274,9 +1241,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1310,10 +1278,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1333,12 +1300,11 @@ export const de_ListWorkspacesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.workspaces != null) {
-    contents.workspaces = de_WorkspaceList(data.workspaces, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    workspaces: (_) => de_WorkspaceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1366,10 +1332,9 @@ const de_ListWorkspacesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1422,10 +1387,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1478,10 +1442,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1501,9 +1464,10 @@ export const de_UpdatePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_UpdateErrorList(data.errors, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1537,10 +1501,9 @@ const de_UpdatePermissionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1560,9 +1523,10 @@ export const de_UpdateWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workspace != null) {
-    contents.workspace = de_WorkspaceDescription(data.workspace, context);
-  }
+  const doc = take(data, {
+    workspace: (_) => de_WorkspaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1599,10 +1563,9 @@ const de_UpdateWorkspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1622,9 +1585,10 @@ export const de_UpdateWorkspaceAuthenticationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authentication != null) {
-    contents.authentication = de_AuthenticationDescription(data.authentication, context);
-  }
+  const doc = take(data, {
+    authentication: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1661,10 +1625,9 @@ const de_UpdateWorkspaceAuthenticationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1720,16 +1683,15 @@ const de_UpdateWorkspaceConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1739,9 +1701,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1755,15 +1718,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1785,9 +1745,10 @@ const de_InternalServerExceptionRes = async (
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1804,15 +1765,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1829,21 +1787,14 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1862,15 +1813,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1884,15 +1832,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1900,685 +1845,138 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AllowedOrganizations
- */
-const se_AllowedOrganizations = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AllowedOrganizations omitted.
 
-/**
- * serializeAws_restJson1AssertionAttributes
- */
-const se_AssertionAttributes = (input: AssertionAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.email != null && { email: input.email }),
-    ...(input.groups != null && { groups: input.groups }),
-    ...(input.login != null && { login: input.login }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.org != null && { org: input.org }),
-    ...(input.role != null && { role: input.role }),
-  };
-};
+// se_AssertionAttributes omitted.
 
-/**
- * serializeAws_restJson1AuthenticationProviders
- */
-const se_AuthenticationProviders = (input: (AuthenticationProviderTypes | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AuthenticationProviders omitted.
 
-/**
- * serializeAws_restJson1DataSourceTypesList
- */
-const se_DataSourceTypesList = (input: (DataSourceType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DataSourceTypesList omitted.
 
-/**
- * serializeAws_restJson1IdpMetadata
- */
-const se_IdpMetadata = (input: IdpMetadata, context: __SerdeContext): any => {
-  return IdpMetadata.visit(input, {
-    url: (value) => ({ url: value }),
-    xml: (value) => ({ xml: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_IdpMetadata omitted.
 
-/**
- * serializeAws_restJson1NetworkAccessConfiguration
- */
-const se_NetworkAccessConfiguration = (input: NetworkAccessConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.prefixListIds != null && { prefixListIds: se_PrefixListIds(input.prefixListIds, context) }),
-    ...(input.vpceIds != null && { vpceIds: se_VpceIds(input.vpceIds, context) }),
-  };
-};
+// se_NetworkAccessConfiguration omitted.
 
-/**
- * serializeAws_restJson1NotificationDestinationsList
- */
-const se_NotificationDestinationsList = (
-  input: (NotificationDestinationType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NotificationDestinationsList omitted.
 
-/**
- * serializeAws_restJson1OrganizationalUnitList
- */
-const se_OrganizationalUnitList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OrganizationalUnitList omitted.
 
-/**
- * serializeAws_restJson1PrefixListIds
- */
-const se_PrefixListIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PrefixListIds omitted.
 
-/**
- * serializeAws_restJson1RoleValueList
- */
-const se_RoleValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RoleValueList omitted.
 
-/**
- * serializeAws_restJson1RoleValues
- */
-const se_RoleValues = (input: RoleValues, context: __SerdeContext): any => {
-  return {
-    ...(input.admin != null && { admin: se_RoleValueList(input.admin, context) }),
-    ...(input.editor != null && { editor: se_RoleValueList(input.editor, context) }),
-  };
-};
+// se_RoleValues omitted.
 
-/**
- * serializeAws_restJson1SamlConfiguration
- */
-const se_SamlConfiguration = (input: SamlConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.allowedOrganizations != null && {
-      allowedOrganizations: se_AllowedOrganizations(input.allowedOrganizations, context),
-    }),
-    ...(input.assertionAttributes != null && {
-      assertionAttributes: se_AssertionAttributes(input.assertionAttributes, context),
-    }),
-    ...(input.idpMetadata != null && { idpMetadata: se_IdpMetadata(input.idpMetadata, context) }),
-    ...(input.loginValidityDuration != null && { loginValidityDuration: input.loginValidityDuration }),
-    ...(input.roleValues != null && { roleValues: se_RoleValues(input.roleValues, context) }),
-  };
-};
+// se_SamlConfiguration omitted.
 
-/**
- * serializeAws_restJson1SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_restJson1SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIds omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1UpdateInstruction
- */
-const se_UpdateInstruction = (input: UpdateInstruction, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: input.action }),
-    ...(input.role != null && { role: input.role }),
-    ...(input.users != null && { users: se_UserList(input.users, context) }),
-  };
-};
+// se_UpdateInstruction omitted.
 
-/**
- * serializeAws_restJson1UpdateInstructionBatch
- */
-const se_UpdateInstructionBatch = (input: UpdateInstruction[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdateInstruction(entry, context);
-    });
-};
+// se_UpdateInstructionBatch omitted.
 
-/**
- * serializeAws_restJson1User
- */
-const se_User = (input: User, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_User omitted.
 
-/**
- * serializeAws_restJson1UserList
- */
-const se_UserList = (input: User[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_User(entry, context);
-    });
-};
+// se_UserList omitted.
 
-/**
- * serializeAws_restJson1VpcConfiguration
- */
-const se_VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.securityGroupIds != null && { securityGroupIds: se_SecurityGroupIds(input.securityGroupIds, context) }),
-    ...(input.subnetIds != null && { subnetIds: se_SubnetIds(input.subnetIds, context) }),
-  };
-};
+// se_VpcConfiguration omitted.
 
-/**
- * serializeAws_restJson1VpceIds
- */
-const se_VpceIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VpceIds omitted.
 
-/**
- * deserializeAws_restJson1AllowedOrganizations
- */
-const de_AllowedOrganizations = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AllowedOrganizations omitted.
 
-/**
- * deserializeAws_restJson1AssertionAttributes
- */
-const de_AssertionAttributes = (output: any, context: __SerdeContext): AssertionAttributes => {
-  return {
-    email: __expectString(output.email),
-    groups: __expectString(output.groups),
-    login: __expectString(output.login),
-    name: __expectString(output.name),
-    org: __expectString(output.org),
-    role: __expectString(output.role),
-  } as any;
-};
+// de_AssertionAttributes omitted.
 
-/**
- * deserializeAws_restJson1AuthenticationDescription
- */
-const de_AuthenticationDescription = (output: any, context: __SerdeContext): AuthenticationDescription => {
-  return {
-    awsSso: output.awsSso != null ? de_AwsSsoAuthentication(output.awsSso, context) : undefined,
-    providers: output.providers != null ? de_AuthenticationProviders(output.providers, context) : undefined,
-    saml: output.saml != null ? de_SamlAuthentication(output.saml, context) : undefined,
-  } as any;
-};
+// de_AuthenticationDescription omitted.
 
-/**
- * deserializeAws_restJson1AuthenticationProviders
- */
-const de_AuthenticationProviders = (output: any, context: __SerdeContext): (AuthenticationProviderTypes | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AuthenticationProviders omitted.
 
-/**
- * deserializeAws_restJson1AuthenticationSummary
- */
-const de_AuthenticationSummary = (output: any, context: __SerdeContext): AuthenticationSummary => {
-  return {
-    providers: output.providers != null ? de_AuthenticationProviders(output.providers, context) : undefined,
-    samlConfigurationStatus: __expectString(output.samlConfigurationStatus),
-  } as any;
-};
+// de_AuthenticationSummary omitted.
 
-/**
- * deserializeAws_restJson1AwsSsoAuthentication
- */
-const de_AwsSsoAuthentication = (output: any, context: __SerdeContext): AwsSsoAuthentication => {
-  return {
-    ssoClientId: __expectString(output.ssoClientId),
-  } as any;
-};
+// de_AwsSsoAuthentication omitted.
 
-/**
- * deserializeAws_restJson1DataSourceTypesList
- */
-const de_DataSourceTypesList = (output: any, context: __SerdeContext): (DataSourceType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DataSourceTypesList omitted.
 
-/**
- * deserializeAws_restJson1IdpMetadata
- */
-const de_IdpMetadata = (output: any, context: __SerdeContext): IdpMetadata => {
-  if (__expectString(output.url) !== undefined) {
-    return { url: __expectString(output.url) as any };
-  }
-  if (__expectString(output.xml) !== undefined) {
-    return { xml: __expectString(output.xml) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_IdpMetadata omitted.
 
-/**
- * deserializeAws_restJson1NetworkAccessConfiguration
- */
-const de_NetworkAccessConfiguration = (output: any, context: __SerdeContext): NetworkAccessConfiguration => {
-  return {
-    prefixListIds: output.prefixListIds != null ? de_PrefixListIds(output.prefixListIds, context) : undefined,
-    vpceIds: output.vpceIds != null ? de_VpceIds(output.vpceIds, context) : undefined,
-  } as any;
-};
+// de_NetworkAccessConfiguration omitted.
 
-/**
- * deserializeAws_restJson1NotificationDestinationsList
- */
-const de_NotificationDestinationsList = (
-  output: any,
-  context: __SerdeContext
-): (NotificationDestinationType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NotificationDestinationsList omitted.
 
-/**
- * deserializeAws_restJson1OrganizationalUnitList
- */
-const de_OrganizationalUnitList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_OrganizationalUnitList omitted.
 
-/**
- * deserializeAws_restJson1PermissionEntry
- */
-const de_PermissionEntry = (output: any, context: __SerdeContext): PermissionEntry => {
-  return {
-    role: __expectString(output.role),
-    user: output.user != null ? de_User(output.user, context) : undefined,
-  } as any;
-};
+// de_PermissionEntry omitted.
 
-/**
- * deserializeAws_restJson1PermissionEntryList
- */
-const de_PermissionEntryList = (output: any, context: __SerdeContext): PermissionEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PermissionEntry(entry, context);
-    });
-  return retVal;
-};
+// de_PermissionEntryList omitted.
 
-/**
- * deserializeAws_restJson1PrefixListIds
- */
-const de_PrefixListIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PrefixListIds omitted.
 
-/**
- * deserializeAws_restJson1RoleValueList
- */
-const de_RoleValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RoleValueList omitted.
 
-/**
- * deserializeAws_restJson1RoleValues
- */
-const de_RoleValues = (output: any, context: __SerdeContext): RoleValues => {
-  return {
-    admin: output.admin != null ? de_RoleValueList(output.admin, context) : undefined,
-    editor: output.editor != null ? de_RoleValueList(output.editor, context) : undefined,
-  } as any;
-};
+// de_RoleValues omitted.
 
-/**
- * deserializeAws_restJson1SamlAuthentication
- */
-const de_SamlAuthentication = (output: any, context: __SerdeContext): SamlAuthentication => {
-  return {
-    configuration: output.configuration != null ? de_SamlConfiguration(output.configuration, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
-};
+// de_SamlAuthentication omitted.
 
-/**
- * deserializeAws_restJson1SamlConfiguration
- */
-const de_SamlConfiguration = (output: any, context: __SerdeContext): SamlConfiguration => {
-  return {
-    allowedOrganizations:
-      output.allowedOrganizations != null ? de_AllowedOrganizations(output.allowedOrganizations, context) : undefined,
-    assertionAttributes:
-      output.assertionAttributes != null ? de_AssertionAttributes(output.assertionAttributes, context) : undefined,
-    idpMetadata: output.idpMetadata != null ? de_IdpMetadata(__expectUnion(output.idpMetadata), context) : undefined,
-    loginValidityDuration: __expectInt32(output.loginValidityDuration),
-    roleValues: output.roleValues != null ? de_RoleValues(output.roleValues, context) : undefined,
-  } as any;
-};
+// de_SamlConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
-/**
- * deserializeAws_restJson1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1UpdateError
- */
-const de_UpdateError = (output: any, context: __SerdeContext): UpdateError => {
-  return {
-    causedBy: output.causedBy != null ? de_UpdateInstruction(output.causedBy, context) : undefined,
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UpdateError omitted.
 
-/**
- * deserializeAws_restJson1UpdateErrorList
- */
-const de_UpdateErrorList = (output: any, context: __SerdeContext): UpdateError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UpdateError(entry, context);
-    });
-  return retVal;
-};
+// de_UpdateErrorList omitted.
 
-/**
- * deserializeAws_restJson1UpdateInstruction
- */
-const de_UpdateInstruction = (output: any, context: __SerdeContext): UpdateInstruction => {
-  return {
-    action: __expectString(output.action),
-    role: __expectString(output.role),
-    users: output.users != null ? de_UserList(output.users, context) : undefined,
-  } as any;
-};
+// de_UpdateInstruction omitted.
 
-/**
- * deserializeAws_restJson1User
- */
-const de_User = (output: any, context: __SerdeContext): User => {
-  return {
-    id: __expectString(output.id),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_User omitted.
 
-/**
- * deserializeAws_restJson1UserList
- */
-const de_UserList = (output: any, context: __SerdeContext): User[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_User(entry, context);
-    });
-  return retVal;
-};
+// de_UserList omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
-/**
- * deserializeAws_restJson1VpcConfiguration
- */
-const de_VpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
-  return {
-    securityGroupIds:
-      output.securityGroupIds != null ? de_SecurityGroupIds(output.securityGroupIds, context) : undefined,
-    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
-  } as any;
-};
+// de_VpcConfiguration omitted.
 
-/**
- * deserializeAws_restJson1VpceIds
- */
-const de_VpceIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_VpceIds omitted.
 
 /**
  * deserializeAws_restJson1WorkspaceDescription
  */
 const de_WorkspaceDescription = (output: any, context: __SerdeContext): WorkspaceDescription => {
-  return {
-    accountAccessType: __expectString(output.accountAccessType),
-    authentication:
-      output.authentication != null ? de_AuthenticationSummary(output.authentication, context) : undefined,
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    dataSources: output.dataSources != null ? de_DataSourceTypesList(output.dataSources, context) : undefined,
-    description: __expectString(output.description),
-    endpoint: __expectString(output.endpoint),
-    freeTrialConsumed: __expectBoolean(output.freeTrialConsumed),
-    freeTrialExpiration:
-      output.freeTrialExpiration != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.freeTrialExpiration)))
-        : undefined,
-    grafanaVersion: __expectString(output.grafanaVersion),
-    id: __expectString(output.id),
-    licenseExpiration:
-      output.licenseExpiration != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.licenseExpiration)))
-        : undefined,
-    licenseType: __expectString(output.licenseType),
-    modified:
-      output.modified != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modified))) : undefined,
-    name: __expectString(output.name),
-    networkAccessControl:
-      output.networkAccessControl != null
-        ? de_NetworkAccessConfiguration(output.networkAccessControl, context)
-        : undefined,
-    notificationDestinations:
-      output.notificationDestinations != null
-        ? de_NotificationDestinationsList(output.notificationDestinations, context)
-        : undefined,
-    organizationRoleName: __expectString(output.organizationRoleName),
-    organizationalUnits:
-      output.organizationalUnits != null ? de_OrganizationalUnitList(output.organizationalUnits, context) : undefined,
-    permissionType: __expectString(output.permissionType),
-    stackSetName: __expectString(output.stackSetName),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    vpcConfiguration:
-      output.vpcConfiguration != null ? de_VpcConfiguration(output.vpcConfiguration, context) : undefined,
-    workspaceRoleArn: __expectString(output.workspaceRoleArn),
-  } as any;
+  return take(output, {
+    accountAccessType: __expectString,
+    authentication: _json,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataSources: _json,
+    description: __expectString,
+    endpoint: __expectString,
+    freeTrialConsumed: __expectBoolean,
+    freeTrialExpiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    grafanaVersion: __expectString,
+    id: __expectString,
+    licenseExpiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    licenseType: __expectString,
+    modified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    networkAccessControl: _json,
+    notificationDestinations: _json,
+    organizationRoleName: __expectString,
+    organizationalUnits: _json,
+    permissionType: __expectString,
+    stackSetName: __expectString,
+    status: __expectString,
+    tags: _json,
+    vpcConfiguration: _json,
+    workspaceRoleArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -2588,9 +1986,6 @@ const de_WorkspaceList = (output: any, context: __SerdeContext): WorkspaceSummar
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorkspaceSummary(entry, context);
     });
   return retVal;
@@ -2600,25 +1995,19 @@ const de_WorkspaceList = (output: any, context: __SerdeContext): WorkspaceSummar
  * deserializeAws_restJson1WorkspaceSummary
  */
 const de_WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSummary => {
-  return {
-    authentication:
-      output.authentication != null ? de_AuthenticationSummary(output.authentication, context) : undefined,
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    description: __expectString(output.description),
-    endpoint: __expectString(output.endpoint),
-    grafanaVersion: __expectString(output.grafanaVersion),
-    id: __expectString(output.id),
-    modified:
-      output.modified != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modified))) : undefined,
-    name: __expectString(output.name),
-    notificationDestinations:
-      output.notificationDestinations != null
-        ? de_NotificationDestinationsList(output.notificationDestinations, context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    authentication: _json,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    endpoint: __expectString,
+    grafanaVersion: __expectString,
+    id: __expectString,
+    modified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    notificationDestinations: _json,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

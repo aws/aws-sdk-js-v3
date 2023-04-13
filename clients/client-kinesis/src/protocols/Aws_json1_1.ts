@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,7 +10,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -89,7 +91,6 @@ import {
   _Record,
   AccessDeniedException,
   AddTagsToStreamInput,
-  ChildShard,
   Consumer,
   ConsumerDescription,
   CreateStreamInput,
@@ -97,7 +98,6 @@ import {
   DeleteStreamInput,
   DeregisterStreamConsumerInput,
   DescribeLimitsInput,
-  DescribeLimitsOutput,
   DescribeStreamConsumerInput,
   DescribeStreamConsumerOutput,
   DescribeStreamInput,
@@ -106,15 +106,11 @@ import {
   DescribeStreamSummaryOutput,
   DisableEnhancedMonitoringInput,
   EnableEnhancedMonitoringInput,
-  EnhancedMetrics,
-  EnhancedMonitoringOutput,
   ExpiredIteratorException,
   ExpiredNextTokenException,
   GetRecordsInput,
   GetRecordsOutput,
   GetShardIteratorInput,
-  GetShardIteratorOutput,
-  HashKeyRange,
   IncreaseStreamRetentionPeriodInput,
   InternalFailureException,
   InvalidArgumentException,
@@ -126,29 +122,22 @@ import {
   KMSThrottlingException,
   LimitExceededException,
   ListShardsInput,
-  ListShardsOutput,
   ListStreamConsumersInput,
   ListStreamConsumersOutput,
   ListStreamsInput,
   ListStreamsOutput,
   ListTagsForStreamInput,
-  ListTagsForStreamOutput,
   MergeShardsInput,
   MetricsName,
   ProvisionedThroughputExceededException,
   PutRecordInput,
-  PutRecordOutput,
   PutRecordsInput,
-  PutRecordsOutput,
   PutRecordsRequestEntry,
-  PutRecordsResultEntry,
   RegisterStreamConsumerInput,
   RegisterStreamConsumerOutput,
   RemoveTagsFromStreamInput,
   ResourceInUseException,
   ResourceNotFoundException,
-  SequenceNumberRange,
-  Shard,
   ShardFilter,
   SplitShardInput,
   StartingPosition,
@@ -161,9 +150,7 @@ import {
   SubscribeToShardEvent,
   SubscribeToShardEventStream,
   SubscribeToShardInput,
-  Tag,
   UpdateShardCountInput,
-  UpdateShardCountOutput,
   UpdateStreamModeInput,
   ValidationException,
 } from "../models/models_0";
@@ -177,7 +164,7 @@ export const se_AddTagsToStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddTagsToStream");
   let body: any;
-  body = JSON.stringify(se_AddTagsToStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -190,7 +177,7 @@ export const se_CreateStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateStream");
   let body: any;
-  body = JSON.stringify(se_CreateStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -203,7 +190,7 @@ export const se_DecreaseStreamRetentionPeriodCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DecreaseStreamRetentionPeriod");
   let body: any;
-  body = JSON.stringify(se_DecreaseStreamRetentionPeriodInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -216,7 +203,7 @@ export const se_DeleteStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteStream");
   let body: any;
-  body = JSON.stringify(se_DeleteStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -229,7 +216,7 @@ export const se_DeregisterStreamConsumerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterStreamConsumer");
   let body: any;
-  body = JSON.stringify(se_DeregisterStreamConsumerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -242,7 +229,7 @@ export const se_DescribeLimitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLimits");
   let body: any;
-  body = JSON.stringify(se_DescribeLimitsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -255,7 +242,7 @@ export const se_DescribeStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStream");
   let body: any;
-  body = JSON.stringify(se_DescribeStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -268,7 +255,7 @@ export const se_DescribeStreamConsumerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStreamConsumer");
   let body: any;
-  body = JSON.stringify(se_DescribeStreamConsumerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -281,7 +268,7 @@ export const se_DescribeStreamSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStreamSummary");
   let body: any;
-  body = JSON.stringify(se_DescribeStreamSummaryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -294,7 +281,7 @@ export const se_DisableEnhancedMonitoringCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableEnhancedMonitoring");
   let body: any;
-  body = JSON.stringify(se_DisableEnhancedMonitoringInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -307,7 +294,7 @@ export const se_EnableEnhancedMonitoringCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableEnhancedMonitoring");
   let body: any;
-  body = JSON.stringify(se_EnableEnhancedMonitoringInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -320,7 +307,7 @@ export const se_GetRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRecords");
   let body: any;
-  body = JSON.stringify(se_GetRecordsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -346,7 +333,7 @@ export const se_IncreaseStreamRetentionPeriodCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("IncreaseStreamRetentionPeriod");
   let body: any;
-  body = JSON.stringify(se_IncreaseStreamRetentionPeriodInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -385,7 +372,7 @@ export const se_ListStreamsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListStreams");
   let body: any;
-  body = JSON.stringify(se_ListStreamsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -398,7 +385,7 @@ export const se_ListTagsForStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForStream");
   let body: any;
-  body = JSON.stringify(se_ListTagsForStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -411,7 +398,7 @@ export const se_MergeShardsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("MergeShards");
   let body: any;
-  body = JSON.stringify(se_MergeShardsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -450,7 +437,7 @@ export const se_RegisterStreamConsumerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterStreamConsumer");
   let body: any;
-  body = JSON.stringify(se_RegisterStreamConsumerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -463,7 +450,7 @@ export const se_RemoveTagsFromStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveTagsFromStream");
   let body: any;
-  body = JSON.stringify(se_RemoveTagsFromStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -476,7 +463,7 @@ export const se_SplitShardCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SplitShard");
   let body: any;
-  body = JSON.stringify(se_SplitShardInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -489,7 +476,7 @@ export const se_StartStreamEncryptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartStreamEncryption");
   let body: any;
-  body = JSON.stringify(se_StartStreamEncryptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -502,7 +489,7 @@ export const se_StopStreamEncryptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopStreamEncryption");
   let body: any;
-  body = JSON.stringify(se_StopStreamEncryptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -528,7 +515,7 @@ export const se_UpdateShardCountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateShardCount");
   let body: any;
-  body = JSON.stringify(se_UpdateShardCountInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -541,7 +528,7 @@ export const se_UpdateStreamModeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateStreamMode");
   let body: any;
-  body = JSON.stringify(se_UpdateStreamModeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -559,7 +546,7 @@ export const de_AddTagsToStreamCommand = async (
   const response: AddTagsToStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -592,10 +579,9 @@ const de_AddTagsToStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -615,7 +601,7 @@ export const de_CreateStreamCommand = async (
   const response: CreateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -642,10 +628,9 @@ const de_CreateStreamCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -665,7 +650,7 @@ export const de_DecreaseStreamRetentionPeriodCommand = async (
   const response: DecreaseStreamRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -698,10 +683,9 @@ const de_DecreaseStreamRetentionPeriodCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -721,7 +705,7 @@ export const de_DeleteStreamCommand = async (
   const response: DeleteStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -754,10 +738,9 @@ const de_DeleteStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -777,7 +760,7 @@ export const de_DeregisterStreamConsumerCommand = async (
   const response: DeregisterStreamConsumerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -804,10 +787,9 @@ const de_DeregisterStreamConsumerCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -825,12 +807,12 @@ export const de_DescribeLimitsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeLimitsOutput(data, context);
+  contents = _json(data);
   const response: DescribeLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -851,10 +833,9 @@ const de_DescribeLimitsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -877,7 +858,7 @@ export const de_DescribeStreamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -907,10 +888,9 @@ const de_DescribeStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -933,7 +913,7 @@ export const de_DescribeStreamConsumerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -960,10 +940,9 @@ const de_DescribeStreamConsumerCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -986,7 +965,7 @@ export const de_DescribeStreamSummaryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1016,10 +995,9 @@ const de_DescribeStreamSummaryCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1037,12 +1015,12 @@ export const de_DisableEnhancedMonitoringCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnhancedMonitoringOutput(data, context);
+  contents = _json(data);
   const response: DisableEnhancedMonitoringCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1075,10 +1053,9 @@ const de_DisableEnhancedMonitoringCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1096,12 +1073,12 @@ export const de_EnableEnhancedMonitoringCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnhancedMonitoringOutput(data, context);
+  contents = _json(data);
   const response: EnableEnhancedMonitoringCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1134,10 +1111,9 @@ const de_EnableEnhancedMonitoringCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1160,7 +1136,7 @@ export const de_GetRecordsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1211,10 +1187,9 @@ const de_GetRecordsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1232,12 +1207,12 @@ export const de_GetShardIteratorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetShardIteratorOutput(data, context);
+  contents = _json(data);
   const response: GetShardIteratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1267,10 +1242,9 @@ const de_GetShardIteratorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1290,7 +1264,7 @@ export const de_IncreaseStreamRetentionPeriodCommand = async (
   const response: IncreaseStreamRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1323,10 +1297,9 @@ const de_IncreaseStreamRetentionPeriodCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1344,12 +1317,12 @@ export const de_ListShardsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListShardsOutput(data, context);
+  contents = _json(data);
   const response: ListShardsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1385,10 +1358,9 @@ const de_ListShardsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1411,7 +1383,7 @@ export const de_ListStreamConsumersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1444,10 +1416,9 @@ const de_ListStreamConsumersCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1470,7 +1441,7 @@ export const de_ListStreamsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1497,10 +1468,9 @@ const de_ListStreamsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1518,12 +1488,12 @@ export const de_ListTagsForStreamCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForStreamOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1553,10 +1523,9 @@ const de_ListTagsForStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1576,7 +1545,7 @@ export const de_MergeShardsCommand = async (
   const response: MergeShardsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1612,10 +1581,9 @@ const de_MergeShardsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1633,12 +1601,12 @@ export const de_PutRecordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRecordOutput(data, context);
+  contents = _json(data);
   const response: PutRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1686,10 +1654,9 @@ const de_PutRecordCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1707,12 +1674,12 @@ export const de_PutRecordsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRecordsOutput(data, context);
+  contents = _json(data);
   const response: PutRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1760,10 +1727,9 @@ const de_PutRecordsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1786,7 +1752,7 @@ export const de_RegisterStreamConsumerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1816,10 +1782,9 @@ const de_RegisterStreamConsumerCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1839,7 +1804,7 @@ export const de_RemoveTagsFromStreamCommand = async (
   const response: RemoveTagsFromStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1872,10 +1837,9 @@ const de_RemoveTagsFromStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1895,7 +1859,7 @@ export const de_SplitShardCommand = async (
   const response: SplitShardCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1931,10 +1895,9 @@ const de_SplitShardCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1954,7 +1917,7 @@ export const de_StartStreamEncryptionCommand = async (
   const response: StartStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2005,10 +1968,9 @@ const de_StartStreamEncryptionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2028,7 +1990,7 @@ export const de_StopStreamEncryptionCommand = async (
   const response: StopStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2061,10 +2023,9 @@ const de_StopStreamEncryptionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2085,7 +2046,7 @@ export const de_SubscribeToShardCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2118,10 +2079,9 @@ const de_SubscribeToShardCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2139,12 +2099,12 @@ export const de_UpdateShardCountCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateShardCountOutput(data, context);
+  contents = _json(data);
   const response: UpdateShardCountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2180,10 +2140,9 @@ const de_UpdateShardCountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2203,7 +2162,7 @@ export const de_UpdateStreamModeCommand = async (
   const response: UpdateStreamModeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2233,10 +2192,9 @@ const de_UpdateStreamModeCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2250,7 +2208,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2266,7 +2224,7 @@ const de_ExpiredIteratorExceptionRes = async (
   context: __SerdeContext
 ): Promise<ExpiredIteratorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ExpiredIteratorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExpiredIteratorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2282,7 +2240,7 @@ const de_ExpiredNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<ExpiredNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ExpiredNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExpiredNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2298,7 +2256,7 @@ const de_InvalidArgumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidArgumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2314,7 +2272,7 @@ const de_KMSAccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<KMSAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_KMSAccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSAccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2330,7 +2288,7 @@ const de_KMSDisabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<KMSDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_KMSDisabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2346,7 +2304,7 @@ const de_KMSInvalidStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<KMSInvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_KMSInvalidStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSInvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2362,7 +2320,7 @@ const de_KMSNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<KMSNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_KMSNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2375,7 +2333,7 @@ const de_KMSNotFoundExceptionRes = async (
  */
 const de_KMSOptInRequiredRes = async (parsedOutput: any, context: __SerdeContext): Promise<KMSOptInRequired> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_KMSOptInRequired(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSOptInRequired({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2391,7 +2349,7 @@ const de_KMSThrottlingExceptionRes = async (
   context: __SerdeContext
 ): Promise<KMSThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_KMSThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2407,7 +2365,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2423,7 +2381,7 @@ const de_ProvisionedThroughputExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ProvisionedThroughputExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ProvisionedThroughputExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProvisionedThroughputExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2439,7 +2397,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2455,7 +2413,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2468,7 +2426,7 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2635,7 +2593,7 @@ const de_InternalFailureExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalFailureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2643,278 +2601,115 @@ const de_InternalFailureExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AddTagsToStreamInput
- */
-const se_AddTagsToStreamInput = (input: AddTagsToStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  };
-};
+// se_AddTagsToStreamInput omitted.
 
-/**
- * serializeAws_json1_1CreateStreamInput
- */
-const se_CreateStreamInput = (input: CreateStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ShardCount != null && { ShardCount: input.ShardCount }),
-    ...(input.StreamModeDetails != null && {
-      StreamModeDetails: se_StreamModeDetails(input.StreamModeDetails, context),
-    }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_CreateStreamInput omitted.
 
-/**
- * serializeAws_json1_1DecreaseStreamRetentionPeriodInput
- */
-const se_DecreaseStreamRetentionPeriodInput = (
-  input: DecreaseStreamRetentionPeriodInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RetentionPeriodHours != null && { RetentionPeriodHours: input.RetentionPeriodHours }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_DecreaseStreamRetentionPeriodInput omitted.
 
-/**
- * serializeAws_json1_1DeleteStreamInput
- */
-const se_DeleteStreamInput = (input: DeleteStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EnforceConsumerDeletion != null && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_DeleteStreamInput omitted.
 
-/**
- * serializeAws_json1_1DeregisterStreamConsumerInput
- */
-const se_DeregisterStreamConsumerInput = (input: DeregisterStreamConsumerInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ConsumerARN != null && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ConsumerName != null && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-  };
-};
+// se_DeregisterStreamConsumerInput omitted.
 
-/**
- * serializeAws_json1_1DescribeLimitsInput
- */
-const se_DescribeLimitsInput = (input: DescribeLimitsInput, context: __SerdeContext): any => {
-  return {};
-};
+// se_DescribeLimitsInput omitted.
 
-/**
- * serializeAws_json1_1DescribeStreamConsumerInput
- */
-const se_DescribeStreamConsumerInput = (input: DescribeStreamConsumerInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ConsumerARN != null && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ConsumerName != null && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-  };
-};
+// se_DescribeStreamConsumerInput omitted.
 
-/**
- * serializeAws_json1_1DescribeStreamInput
- */
-const se_DescribeStreamInput = (input: DescribeStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_DescribeStreamInput omitted.
 
-/**
- * serializeAws_json1_1DescribeStreamSummaryInput
- */
-const se_DescribeStreamSummaryInput = (input: DescribeStreamSummaryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_DescribeStreamSummaryInput omitted.
 
-/**
- * serializeAws_json1_1DisableEnhancedMonitoringInput
- */
-const se_DisableEnhancedMonitoringInput = (input: DisableEnhancedMonitoringInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ShardLevelMetrics != null && { ShardLevelMetrics: se_MetricsNameList(input.ShardLevelMetrics, context) }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_DisableEnhancedMonitoringInput omitted.
 
-/**
- * serializeAws_json1_1EnableEnhancedMonitoringInput
- */
-const se_EnableEnhancedMonitoringInput = (input: EnableEnhancedMonitoringInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ShardLevelMetrics != null && { ShardLevelMetrics: se_MetricsNameList(input.ShardLevelMetrics, context) }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_EnableEnhancedMonitoringInput omitted.
 
-/**
- * serializeAws_json1_1GetRecordsInput
- */
-const se_GetRecordsInput = (input: GetRecordsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.ShardIterator != null && { ShardIterator: input.ShardIterator }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-  };
-};
+// se_GetRecordsInput omitted.
 
 /**
  * serializeAws_json1_1GetShardIteratorInput
  */
 const se_GetShardIteratorInput = (input: GetShardIteratorInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ShardId != null && { ShardId: input.ShardId }),
-    ...(input.ShardIteratorType != null && { ShardIteratorType: input.ShardIteratorType }),
-    ...(input.StartingSequenceNumber != null && { StartingSequenceNumber: input.StartingSequenceNumber }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    ShardId: [],
+    ShardIteratorType: [],
+    StartingSequenceNumber: [],
+    StreamARN: [],
+    StreamName: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1IncreaseStreamRetentionPeriodInput
- */
-const se_IncreaseStreamRetentionPeriodInput = (
-  input: IncreaseStreamRetentionPeriodInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RetentionPeriodHours != null && { RetentionPeriodHours: input.RetentionPeriodHours }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_IncreaseStreamRetentionPeriodInput omitted.
 
 /**
  * serializeAws_json1_1ListShardsInput
  */
 const se_ListShardsInput = (input: ListShardsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ShardFilter != null && { ShardFilter: se_ShardFilter(input.ShardFilter, context) }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamCreationTimestamp != null && {
-      StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
-    }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
+  return take(input, {
+    ExclusiveStartShardId: [],
+    MaxResults: [],
+    NextToken: [],
+    ShardFilter: (_) => se_ShardFilter(_, context),
+    StreamARN: [],
+    StreamCreationTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StreamName: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListStreamConsumersInput
  */
 const se_ListStreamConsumersInput = (input: ListStreamConsumersInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamCreationTimestamp != null && {
-      StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
-    }),
-  };
+  return take(input, {
+    MaxResults: [],
+    NextToken: [],
+    StreamARN: [],
+    StreamCreationTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1ListStreamsInput
- */
-const se_ListStreamsInput = (input: ListStreamsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ExclusiveStartStreamName != null && { ExclusiveStartStreamName: input.ExclusiveStartStreamName }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListStreamsInput omitted.
 
-/**
- * serializeAws_json1_1ListTagsForStreamInput
- */
-const se_ListTagsForStreamInput = (input: ListTagsForStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ExclusiveStartTagKey != null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_ListTagsForStreamInput omitted.
 
-/**
- * serializeAws_json1_1MergeShardsInput
- */
-const se_MergeShardsInput = (input: MergeShardsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AdjacentShardToMerge != null && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
-    ...(input.ShardToMerge != null && { ShardToMerge: input.ShardToMerge }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_MergeShardsInput omitted.
 
-/**
- * serializeAws_json1_1MetricsNameList
- */
-const se_MetricsNameList = (input: (MetricsName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MetricsNameList omitted.
 
 /**
  * serializeAws_json1_1PutRecordInput
  */
 const se_PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
-    ...(input.ExplicitHashKey != null && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey != null && { PartitionKey: input.PartitionKey }),
-    ...(input.SequenceNumberForOrdering != null && { SequenceNumberForOrdering: input.SequenceNumberForOrdering }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
+  return take(input, {
+    Data: (_) => context.base64Encoder(_),
+    ExplicitHashKey: [],
+    PartitionKey: [],
+    SequenceNumberForOrdering: [],
+    StreamARN: [],
+    StreamName: [],
+  });
 };
 
 /**
  * serializeAws_json1_1PutRecordsInput
  */
 const se_PutRecordsInput = (input: PutRecordsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Records != null && { Records: se_PutRecordsRequestEntryList(input.Records, context) }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
+  return take(input, {
+    Records: (_) => se_PutRecordsRequestEntryList(_, context),
+    StreamARN: [],
+    StreamName: [],
+  });
 };
 
 /**
  * serializeAws_json1_1PutRecordsRequestEntry
  */
 const se_PutRecordsRequestEntry = (input: PutRecordsRequestEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
-    ...(input.ExplicitHashKey != null && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey != null && { PartitionKey: input.PartitionKey }),
-  };
+  return take(input, {
+    Data: (_) => context.base64Encoder(_),
+    ExplicitHashKey: [],
+    PartitionKey: [],
+  });
 };
 
 /**
@@ -2928,217 +2723,88 @@ const se_PutRecordsRequestEntryList = (input: PutRecordsRequestEntry[], context:
     });
 };
 
-/**
- * serializeAws_json1_1RegisterStreamConsumerInput
- */
-const se_RegisterStreamConsumerInput = (input: RegisterStreamConsumerInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ConsumerName != null && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-  };
-};
+// se_RegisterStreamConsumerInput omitted.
 
-/**
- * serializeAws_json1_1RemoveTagsFromStreamInput
- */
-const se_RemoveTagsFromStreamInput = (input: RemoveTagsFromStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_RemoveTagsFromStreamInput omitted.
 
 /**
  * serializeAws_json1_1ShardFilter
  */
 const se_ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.ShardId != null && { ShardId: input.ShardId }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    ShardId: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Type: [],
+  });
 };
 
-/**
- * serializeAws_json1_1SplitShardInput
- */
-const se_SplitShardInput = (input: SplitShardInput, context: __SerdeContext): any => {
-  return {
-    ...(input.NewStartingHashKey != null && { NewStartingHashKey: input.NewStartingHashKey }),
-    ...(input.ShardToSplit != null && { ShardToSplit: input.ShardToSplit }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_SplitShardInput omitted.
 
 /**
  * serializeAws_json1_1StartingPosition
  */
 const se_StartingPosition = (input: StartingPosition, context: __SerdeContext): any => {
-  return {
-    ...(input.SequenceNumber != null && { SequenceNumber: input.SequenceNumber }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    SequenceNumber: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Type: [],
+  });
 };
 
-/**
- * serializeAws_json1_1StartStreamEncryptionInput
- */
-const se_StartStreamEncryptionInput = (input: StartStreamEncryptionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_StartStreamEncryptionInput omitted.
 
-/**
- * serializeAws_json1_1StopStreamEncryptionInput
- */
-const se_StopStreamEncryptionInput = (input: StopStreamEncryptionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  };
-};
+// se_StopStreamEncryptionInput omitted.
 
-/**
- * serializeAws_json1_1StreamModeDetails
- */
-const se_StreamModeDetails = (input: StreamModeDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.StreamMode != null && { StreamMode: input.StreamMode }),
-  };
-};
+// se_StreamModeDetails omitted.
 
 /**
  * serializeAws_json1_1SubscribeToShardInput
  */
 const se_SubscribeToShardInput = (input: SubscribeToShardInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ConsumerARN != null && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ShardId != null && { ShardId: input.ShardId }),
-    ...(input.StartingPosition != null && { StartingPosition: se_StartingPosition(input.StartingPosition, context) }),
-  };
+  return take(input, {
+    ConsumerARN: [],
+    ShardId: [],
+    StartingPosition: (_) => se_StartingPosition(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_json1_1UpdateShardCountInput
- */
-const se_UpdateShardCountInput = (input: UpdateShardCountInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ScalingType != null && { ScalingType: input.ScalingType }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.TargetShardCount != null && { TargetShardCount: input.TargetShardCount }),
-  };
-};
+// se_UpdateShardCountInput omitted.
 
-/**
- * serializeAws_json1_1UpdateStreamModeInput
- */
-const se_UpdateStreamModeInput = (input: UpdateStreamModeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamModeDetails != null && {
-      StreamModeDetails: se_StreamModeDetails(input.StreamModeDetails, context),
-    }),
-  };
-};
+// se_UpdateStreamModeInput omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1ChildShard
- */
-const de_ChildShard = (output: any, context: __SerdeContext): ChildShard => {
-  return {
-    HashKeyRange: output.HashKeyRange != null ? de_HashKeyRange(output.HashKeyRange, context) : undefined,
-    ParentShards: output.ParentShards != null ? de_ShardIdList(output.ParentShards, context) : undefined,
-    ShardId: __expectString(output.ShardId),
-  } as any;
-};
+// de_ChildShard omitted.
 
-/**
- * deserializeAws_json1_1ChildShardList
- */
-const de_ChildShardList = (output: any, context: __SerdeContext): ChildShard[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChildShard(entry, context);
-    });
-  return retVal;
-};
+// de_ChildShardList omitted.
 
 /**
  * deserializeAws_json1_1Consumer
  */
 const de_Consumer = (output: any, context: __SerdeContext): Consumer => {
-  return {
-    ConsumerARN: __expectString(output.ConsumerARN),
-    ConsumerCreationTimestamp:
-      output.ConsumerCreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConsumerCreationTimestamp)))
-        : undefined,
-    ConsumerName: __expectString(output.ConsumerName),
-    ConsumerStatus: __expectString(output.ConsumerStatus),
-  } as any;
+  return take(output, {
+    ConsumerARN: __expectString,
+    ConsumerCreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ConsumerName: __expectString,
+    ConsumerStatus: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ConsumerDescription
  */
 const de_ConsumerDescription = (output: any, context: __SerdeContext): ConsumerDescription => {
-  return {
-    ConsumerARN: __expectString(output.ConsumerARN),
-    ConsumerCreationTimestamp:
-      output.ConsumerCreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConsumerCreationTimestamp)))
-        : undefined,
-    ConsumerName: __expectString(output.ConsumerName),
-    ConsumerStatus: __expectString(output.ConsumerStatus),
-    StreamARN: __expectString(output.StreamARN),
-  } as any;
+  return take(output, {
+    ConsumerARN: __expectString,
+    ConsumerCreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ConsumerName: __expectString,
+    ConsumerStatus: __expectString,
+    StreamARN: __expectString,
+  }) as any;
 };
 
 /**
@@ -3148,363 +2814,133 @@ const de_ConsumerList = (output: any, context: __SerdeContext): Consumer[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Consumer(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DescribeLimitsOutput
- */
-const de_DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
-  return {
-    OnDemandStreamCount: __expectInt32(output.OnDemandStreamCount),
-    OnDemandStreamCountLimit: __expectInt32(output.OnDemandStreamCountLimit),
-    OpenShardCount: __expectInt32(output.OpenShardCount),
-    ShardLimit: __expectInt32(output.ShardLimit),
-  } as any;
-};
+// de_DescribeLimitsOutput omitted.
 
 /**
  * deserializeAws_json1_1DescribeStreamConsumerOutput
  */
 const de_DescribeStreamConsumerOutput = (output: any, context: __SerdeContext): DescribeStreamConsumerOutput => {
-  return {
-    ConsumerDescription:
-      output.ConsumerDescription != null ? de_ConsumerDescription(output.ConsumerDescription, context) : undefined,
-  } as any;
+  return take(output, {
+    ConsumerDescription: (_: any) => de_ConsumerDescription(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeStreamOutput
  */
 const de_DescribeStreamOutput = (output: any, context: __SerdeContext): DescribeStreamOutput => {
-  return {
-    StreamDescription:
-      output.StreamDescription != null ? de_StreamDescription(output.StreamDescription, context) : undefined,
-  } as any;
+  return take(output, {
+    StreamDescription: (_: any) => de_StreamDescription(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeStreamSummaryOutput
  */
 const de_DescribeStreamSummaryOutput = (output: any, context: __SerdeContext): DescribeStreamSummaryOutput => {
-  return {
-    StreamDescriptionSummary:
-      output.StreamDescriptionSummary != null
-        ? de_StreamDescriptionSummary(output.StreamDescriptionSummary, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    StreamDescriptionSummary: (_: any) => de_StreamDescriptionSummary(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EnhancedMetrics
- */
-const de_EnhancedMetrics = (output: any, context: __SerdeContext): EnhancedMetrics => {
-  return {
-    ShardLevelMetrics:
-      output.ShardLevelMetrics != null ? de_MetricsNameList(output.ShardLevelMetrics, context) : undefined,
-  } as any;
-};
+// de_EnhancedMetrics omitted.
 
-/**
- * deserializeAws_json1_1EnhancedMonitoringList
- */
-const de_EnhancedMonitoringList = (output: any, context: __SerdeContext): EnhancedMetrics[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EnhancedMetrics(entry, context);
-    });
-  return retVal;
-};
+// de_EnhancedMonitoringList omitted.
 
-/**
- * deserializeAws_json1_1EnhancedMonitoringOutput
- */
-const de_EnhancedMonitoringOutput = (output: any, context: __SerdeContext): EnhancedMonitoringOutput => {
-  return {
-    CurrentShardLevelMetrics:
-      output.CurrentShardLevelMetrics != null
-        ? de_MetricsNameList(output.CurrentShardLevelMetrics, context)
-        : undefined,
-    DesiredShardLevelMetrics:
-      output.DesiredShardLevelMetrics != null
-        ? de_MetricsNameList(output.DesiredShardLevelMetrics, context)
-        : undefined,
-    StreamARN: __expectString(output.StreamARN),
-    StreamName: __expectString(output.StreamName),
-  } as any;
-};
+// de_EnhancedMonitoringOutput omitted.
 
-/**
- * deserializeAws_json1_1ExpiredIteratorException
- */
-const de_ExpiredIteratorException = (output: any, context: __SerdeContext): ExpiredIteratorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ExpiredIteratorException omitted.
 
-/**
- * deserializeAws_json1_1ExpiredNextTokenException
- */
-const de_ExpiredNextTokenException = (output: any, context: __SerdeContext): ExpiredNextTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ExpiredNextTokenException omitted.
 
 /**
  * deserializeAws_json1_1GetRecordsOutput
  */
 const de_GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
-  return {
-    ChildShards: output.ChildShards != null ? de_ChildShardList(output.ChildShards, context) : undefined,
-    MillisBehindLatest: __expectLong(output.MillisBehindLatest),
-    NextShardIterator: __expectString(output.NextShardIterator),
-    Records: output.Records != null ? de_RecordList(output.Records, context) : undefined,
-  } as any;
+  return take(output, {
+    ChildShards: _json,
+    MillisBehindLatest: __expectLong,
+    NextShardIterator: __expectString,
+    Records: (_: any) => de_RecordList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetShardIteratorOutput
- */
-const de_GetShardIteratorOutput = (output: any, context: __SerdeContext): GetShardIteratorOutput => {
-  return {
-    ShardIterator: __expectString(output.ShardIterator),
-  } as any;
-};
+// de_GetShardIteratorOutput omitted.
 
-/**
- * deserializeAws_json1_1HashKeyRange
- */
-const de_HashKeyRange = (output: any, context: __SerdeContext): HashKeyRange => {
-  return {
-    EndingHashKey: __expectString(output.EndingHashKey),
-    StartingHashKey: __expectString(output.StartingHashKey),
-  } as any;
-};
+// de_HashKeyRange omitted.
 
-/**
- * deserializeAws_json1_1InternalFailureException
- */
-const de_InternalFailureException = (output: any, context: __SerdeContext): InternalFailureException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalFailureException omitted.
 
-/**
- * deserializeAws_json1_1InvalidArgumentException
- */
-const de_InvalidArgumentException = (output: any, context: __SerdeContext): InvalidArgumentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidArgumentException omitted.
 
-/**
- * deserializeAws_json1_1KMSAccessDeniedException
- */
-const de_KMSAccessDeniedException = (output: any, context: __SerdeContext): KMSAccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_KMSAccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1KMSDisabledException
- */
-const de_KMSDisabledException = (output: any, context: __SerdeContext): KMSDisabledException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_KMSDisabledException omitted.
 
-/**
- * deserializeAws_json1_1KMSInvalidStateException
- */
-const de_KMSInvalidStateException = (output: any, context: __SerdeContext): KMSInvalidStateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_KMSInvalidStateException omitted.
 
-/**
- * deserializeAws_json1_1KMSNotFoundException
- */
-const de_KMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_KMSNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1KMSOptInRequired
- */
-const de_KMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequired => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_KMSOptInRequired omitted.
 
-/**
- * deserializeAws_json1_1KMSThrottlingException
- */
-const de_KMSThrottlingException = (output: any, context: __SerdeContext): KMSThrottlingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_KMSThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListShardsOutput
- */
-const de_ListShardsOutput = (output: any, context: __SerdeContext): ListShardsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Shards: output.Shards != null ? de_ShardList(output.Shards, context) : undefined,
-  } as any;
-};
+// de_ListShardsOutput omitted.
 
 /**
  * deserializeAws_json1_1ListStreamConsumersOutput
  */
 const de_ListStreamConsumersOutput = (output: any, context: __SerdeContext): ListStreamConsumersOutput => {
-  return {
-    Consumers: output.Consumers != null ? de_ConsumerList(output.Consumers, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Consumers: (_: any) => de_ConsumerList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListStreamsOutput
  */
 const de_ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
-  return {
-    HasMoreStreams: __expectBoolean(output.HasMoreStreams),
-    NextToken: __expectString(output.NextToken),
-    StreamNames: output.StreamNames != null ? de_StreamNameList(output.StreamNames, context) : undefined,
-    StreamSummaries: output.StreamSummaries != null ? de_StreamSummaryList(output.StreamSummaries, context) : undefined,
-  } as any;
+  return take(output, {
+    HasMoreStreams: __expectBoolean,
+    NextToken: __expectString,
+    StreamNames: _json,
+    StreamSummaries: (_: any) => de_StreamSummaryList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForStreamOutput
- */
-const de_ListTagsForStreamOutput = (output: any, context: __SerdeContext): ListTagsForStreamOutput => {
-  return {
-    HasMoreTags: __expectBoolean(output.HasMoreTags),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForStreamOutput omitted.
 
-/**
- * deserializeAws_json1_1MetricsNameList
- */
-const de_MetricsNameList = (output: any, context: __SerdeContext): (MetricsName | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MetricsNameList omitted.
 
-/**
- * deserializeAws_json1_1ProvisionedThroughputExceededException
- */
-const de_ProvisionedThroughputExceededException = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedThroughputExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProvisionedThroughputExceededException omitted.
 
-/**
- * deserializeAws_json1_1PutRecordOutput
- */
-const de_PutRecordOutput = (output: any, context: __SerdeContext): PutRecordOutput => {
-  return {
-    EncryptionType: __expectString(output.EncryptionType),
-    SequenceNumber: __expectString(output.SequenceNumber),
-    ShardId: __expectString(output.ShardId),
-  } as any;
-};
+// de_PutRecordOutput omitted.
 
-/**
- * deserializeAws_json1_1PutRecordsOutput
- */
-const de_PutRecordsOutput = (output: any, context: __SerdeContext): PutRecordsOutput => {
-  return {
-    EncryptionType: __expectString(output.EncryptionType),
-    FailedRecordCount: __expectInt32(output.FailedRecordCount),
-    Records: output.Records != null ? de_PutRecordsResultEntryList(output.Records, context) : undefined,
-  } as any;
-};
+// de_PutRecordsOutput omitted.
 
-/**
- * deserializeAws_json1_1PutRecordsResultEntry
- */
-const de_PutRecordsResultEntry = (output: any, context: __SerdeContext): PutRecordsResultEntry => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    SequenceNumber: __expectString(output.SequenceNumber),
-    ShardId: __expectString(output.ShardId),
-  } as any;
-};
+// de_PutRecordsResultEntry omitted.
 
-/**
- * deserializeAws_json1_1PutRecordsResultEntryList
- */
-const de_PutRecordsResultEntryList = (output: any, context: __SerdeContext): PutRecordsResultEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PutRecordsResultEntry(entry, context);
-    });
-  return retVal;
-};
+// de_PutRecordsResultEntryList omitted.
 
 /**
  * deserializeAws_json1_1_Record
  */
 const de__Record = (output: any, context: __SerdeContext): _Record => {
-  return {
-    ApproximateArrivalTimestamp:
-      output.ApproximateArrivalTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateArrivalTimestamp)))
-        : undefined,
-    Data: output.Data != null ? context.base64Decoder(output.Data) : undefined,
-    EncryptionType: __expectString(output.EncryptionType),
-    PartitionKey: __expectString(output.PartitionKey),
-    SequenceNumber: __expectString(output.SequenceNumber),
-  } as any;
+  return take(output, {
+    ApproximateArrivalTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Data: context.base64Decoder,
+    EncryptionType: __expectString,
+    PartitionKey: __expectString,
+    SequenceNumber: __expectString,
+  }) as any;
 };
 
 /**
@@ -3514,9 +2950,6 @@ const de_RecordList = (output: any, context: __SerdeContext): _Record[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de__Record(entry, context);
     });
   return retVal;
@@ -3526,170 +2959,76 @@ const de_RecordList = (output: any, context: __SerdeContext): _Record[] => {
  * deserializeAws_json1_1RegisterStreamConsumerOutput
  */
 const de_RegisterStreamConsumerOutput = (output: any, context: __SerdeContext): RegisterStreamConsumerOutput => {
-  return {
-    Consumer: output.Consumer != null ? de_Consumer(output.Consumer, context) : undefined,
-  } as any;
+  return take(output, {
+    Consumer: (_: any) => de_Consumer(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1SequenceNumberRange
- */
-const de_SequenceNumberRange = (output: any, context: __SerdeContext): SequenceNumberRange => {
-  return {
-    EndingSequenceNumber: __expectString(output.EndingSequenceNumber),
-    StartingSequenceNumber: __expectString(output.StartingSequenceNumber),
-  } as any;
-};
+// de_SequenceNumberRange omitted.
 
-/**
- * deserializeAws_json1_1Shard
- */
-const de_Shard = (output: any, context: __SerdeContext): Shard => {
-  return {
-    AdjacentParentShardId: __expectString(output.AdjacentParentShardId),
-    HashKeyRange: output.HashKeyRange != null ? de_HashKeyRange(output.HashKeyRange, context) : undefined,
-    ParentShardId: __expectString(output.ParentShardId),
-    SequenceNumberRange:
-      output.SequenceNumberRange != null ? de_SequenceNumberRange(output.SequenceNumberRange, context) : undefined,
-    ShardId: __expectString(output.ShardId),
-  } as any;
-};
+// de_Shard omitted.
 
-/**
- * deserializeAws_json1_1ShardIdList
- */
-const de_ShardIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ShardIdList omitted.
 
-/**
- * deserializeAws_json1_1ShardList
- */
-const de_ShardList = (output: any, context: __SerdeContext): Shard[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Shard(entry, context);
-    });
-  return retVal;
-};
+// de_ShardList omitted.
 
 /**
  * deserializeAws_json1_1StreamDescription
  */
 const de_StreamDescription = (output: any, context: __SerdeContext): StreamDescription => {
-  return {
-    EncryptionType: __expectString(output.EncryptionType),
-    EnhancedMonitoring:
-      output.EnhancedMonitoring != null ? de_EnhancedMonitoringList(output.EnhancedMonitoring, context) : undefined,
-    HasMoreShards: __expectBoolean(output.HasMoreShards),
-    KeyId: __expectString(output.KeyId),
-    RetentionPeriodHours: __expectInt32(output.RetentionPeriodHours),
-    Shards: output.Shards != null ? de_ShardList(output.Shards, context) : undefined,
-    StreamARN: __expectString(output.StreamARN),
-    StreamCreationTimestamp:
-      output.StreamCreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StreamCreationTimestamp)))
-        : undefined,
-    StreamModeDetails:
-      output.StreamModeDetails != null ? de_StreamModeDetails(output.StreamModeDetails, context) : undefined,
-    StreamName: __expectString(output.StreamName),
-    StreamStatus: __expectString(output.StreamStatus),
-  } as any;
+  return take(output, {
+    EncryptionType: __expectString,
+    EnhancedMonitoring: _json,
+    HasMoreShards: __expectBoolean,
+    KeyId: __expectString,
+    RetentionPeriodHours: __expectInt32,
+    Shards: _json,
+    StreamARN: __expectString,
+    StreamCreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamModeDetails: _json,
+    StreamName: __expectString,
+    StreamStatus: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1StreamDescriptionSummary
  */
 const de_StreamDescriptionSummary = (output: any, context: __SerdeContext): StreamDescriptionSummary => {
-  return {
-    ConsumerCount: __expectInt32(output.ConsumerCount),
-    EncryptionType: __expectString(output.EncryptionType),
-    EnhancedMonitoring:
-      output.EnhancedMonitoring != null ? de_EnhancedMonitoringList(output.EnhancedMonitoring, context) : undefined,
-    KeyId: __expectString(output.KeyId),
-    OpenShardCount: __expectInt32(output.OpenShardCount),
-    RetentionPeriodHours: __expectInt32(output.RetentionPeriodHours),
-    StreamARN: __expectString(output.StreamARN),
-    StreamCreationTimestamp:
-      output.StreamCreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StreamCreationTimestamp)))
-        : undefined,
-    StreamModeDetails:
-      output.StreamModeDetails != null ? de_StreamModeDetails(output.StreamModeDetails, context) : undefined,
-    StreamName: __expectString(output.StreamName),
-    StreamStatus: __expectString(output.StreamStatus),
-  } as any;
+  return take(output, {
+    ConsumerCount: __expectInt32,
+    EncryptionType: __expectString,
+    EnhancedMonitoring: _json,
+    KeyId: __expectString,
+    OpenShardCount: __expectInt32,
+    RetentionPeriodHours: __expectInt32,
+    StreamARN: __expectString,
+    StreamCreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamModeDetails: _json,
+    StreamName: __expectString,
+    StreamStatus: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1StreamModeDetails
- */
-const de_StreamModeDetails = (output: any, context: __SerdeContext): StreamModeDetails => {
-  return {
-    StreamMode: __expectString(output.StreamMode),
-  } as any;
-};
+// de_StreamModeDetails omitted.
 
-/**
- * deserializeAws_json1_1StreamNameList
- */
-const de_StreamNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StreamNameList omitted.
 
 /**
  * deserializeAws_json1_1StreamSummary
  */
 const de_StreamSummary = (output: any, context: __SerdeContext): StreamSummary => {
-  return {
-    StreamARN: __expectString(output.StreamARN),
-    StreamCreationTimestamp:
-      output.StreamCreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StreamCreationTimestamp)))
-        : undefined,
-    StreamModeDetails:
-      output.StreamModeDetails != null ? de_StreamModeDetails(output.StreamModeDetails, context) : undefined,
-    StreamName: __expectString(output.StreamName),
-    StreamStatus: __expectString(output.StreamStatus),
-  } as any;
+  return take(output, {
+    StreamARN: __expectString,
+    StreamCreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamModeDetails: _json,
+    StreamName: __expectString,
+    StreamStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -3699,9 +3038,6 @@ const de_StreamSummaryList = (output: any, context: __SerdeContext): StreamSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StreamSummary(entry, context);
     });
   return retVal;
@@ -3711,59 +3047,21 @@ const de_StreamSummaryList = (output: any, context: __SerdeContext): StreamSumma
  * deserializeAws_json1_1SubscribeToShardEvent
  */
 const de_SubscribeToShardEvent = (output: any, context: __SerdeContext): SubscribeToShardEvent => {
-  return {
-    ChildShards: output.ChildShards != null ? de_ChildShardList(output.ChildShards, context) : undefined,
-    ContinuationSequenceNumber: __expectString(output.ContinuationSequenceNumber),
-    MillisBehindLatest: __expectLong(output.MillisBehindLatest),
-    Records: output.Records != null ? de_RecordList(output.Records, context) : undefined,
-  } as any;
+  return take(output, {
+    ChildShards: _json,
+    ContinuationSequenceNumber: __expectString,
+    MillisBehindLatest: __expectLong,
+    Records: (_: any) => de_RecordList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1UpdateShardCountOutput
- */
-const de_UpdateShardCountOutput = (output: any, context: __SerdeContext): UpdateShardCountOutput => {
-  return {
-    CurrentShardCount: __expectInt32(output.CurrentShardCount),
-    StreamARN: __expectString(output.StreamARN),
-    StreamName: __expectString(output.StreamName),
-    TargetShardCount: __expectInt32(output.TargetShardCount),
-  } as any;
-};
+// de_UpdateShardCountOutput omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3785,6 +3083,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

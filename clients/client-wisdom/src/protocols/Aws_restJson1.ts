@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -10,10 +10,11 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -86,37 +87,19 @@ import {
 import {
   AccessDeniedException,
   AppIntegrationsConfiguration,
-  AssistantAssociationData,
   AssistantAssociationInputData,
-  AssistantAssociationOutputData,
-  AssistantAssociationSummary,
-  AssistantData,
-  AssistantSummary,
   ConflictException,
   ContentData,
-  ContentReference,
-  ContentSummary,
-  Document,
-  DocumentText,
   Filter,
-  Highlight,
-  KnowledgeBaseAssociationData,
   KnowledgeBaseData,
-  KnowledgeBaseSummary,
-  NotifyRecommendationsReceivedError,
   PreconditionFailedException,
-  QueryRecommendationTriggerData,
   RecommendationData,
-  RecommendationTrigger,
-  RecommendationTriggerData,
   RenderingConfiguration,
   ResourceNotFoundException,
   ResultData,
   SearchExpression,
   ServerSideEncryptionConfiguration,
   ServiceQuotaExceededException,
-  SessionData,
-  SessionSummary,
   SourceConfiguration,
   TooManyTagsException,
   ValidationException,
@@ -136,19 +119,16 @@ export const se_CreateAssistantCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.serverSideEncryptionConfiguration != null && {
-      serverSideEncryptionConfiguration: se_ServerSideEncryptionConfiguration(
-        input.serverSideEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      description: [],
+      name: [],
+      serverSideEncryptionConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -175,12 +155,14 @@ export const se_CreateAssistantAssociationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/associations";
   resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.association != null && { association: se_AssistantAssociationInputData(input.association, context) }),
-    ...(input.associationType != null && { associationType: input.associationType }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      association: (_) => _json(_),
+      associationType: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -215,15 +197,17 @@ export const se_CreateContentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.metadata != null && { metadata: se_ContentMetadata(input.metadata, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.overrideLinkOutUri != null && { overrideLinkOutUri: input.overrideLinkOutUri }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-    ...(input.title != null && { title: input.title }),
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      metadata: (_) => _json(_),
+      name: [],
+      overrideLinkOutUri: [],
+      tags: (_) => _json(_),
+      title: [],
+      uploadId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -248,25 +232,18 @@ export const se_CreateKnowledgeBaseCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.knowledgeBaseType != null && { knowledgeBaseType: input.knowledgeBaseType }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.renderingConfiguration != null && {
-      renderingConfiguration: se_RenderingConfiguration(input.renderingConfiguration, context),
-    }),
-    ...(input.serverSideEncryptionConfiguration != null && {
-      serverSideEncryptionConfiguration: se_ServerSideEncryptionConfiguration(
-        input.serverSideEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.sourceConfiguration != null && {
-      sourceConfiguration: se_SourceConfiguration(input.sourceConfiguration, context),
-    }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      description: [],
+      knowledgeBaseType: [],
+      name: [],
+      renderingConfiguration: (_) => _json(_),
+      serverSideEncryptionConfiguration: (_) => _json(_),
+      sourceConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -293,12 +270,14 @@ export const se_CreateSessionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/sessions";
   resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      description: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -802,11 +781,11 @@ export const se_NotifyRecommendationsReceivedCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.recommendationIds != null && {
-      recommendationIds: se_RecommendationIdList(input.recommendationIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      recommendationIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -833,11 +812,13 @@ export const se_QueryAssistantCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/query";
   resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.queryText != null && { queryText: input.queryText }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      queryText: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -907,9 +888,11 @@ export const se_SearchContentCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.searchExpression != null && { searchExpression: se_SearchExpression(input.searchExpression, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      searchExpression: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -941,9 +924,11 @@ export const se_SearchSessionsCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.searchExpression != null && { searchExpression: se_SearchExpression(input.searchExpression, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      searchExpression: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -978,9 +963,11 @@ export const se_StartContentUploadCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.contentType != null && { contentType: input.contentType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contentType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1006,9 +993,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1074,14 +1063,16 @@ export const se_UpdateContentCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.metadata != null && { metadata: se_ContentMetadata(input.metadata, context) }),
-    ...(input.overrideLinkOutUri != null && { overrideLinkOutUri: input.overrideLinkOutUri }),
-    ...(input.removeOverrideLinkOutUri != null && { removeOverrideLinkOutUri: input.removeOverrideLinkOutUri }),
-    ...(input.revisionId != null && { revisionId: input.revisionId }),
-    ...(input.title != null && { title: input.title }),
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      metadata: (_) => _json(_),
+      overrideLinkOutUri: [],
+      removeOverrideLinkOutUri: [],
+      revisionId: [],
+      title: [],
+      uploadId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1116,9 +1107,11 @@ export const se_UpdateKnowledgeBaseTemplateUriCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.templateUri != null && { templateUri: input.templateUri }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      templateUri: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1144,9 +1137,10 @@ export const de_CreateAssistantCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistant != null) {
-    contents.assistant = de_AssistantData(data.assistant, context);
-  }
+  const doc = take(data, {
+    assistant: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1177,10 +1171,9 @@ const de_CreateAssistantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1200,9 +1193,10 @@ export const de_CreateAssistantAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistantAssociation != null) {
-    contents.assistantAssociation = de_AssistantAssociationData(data.assistantAssociation, context);
-  }
+  const doc = take(data, {
+    assistantAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1236,10 +1230,9 @@ const de_CreateAssistantAssociationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1259,9 +1252,10 @@ export const de_CreateContentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.content != null) {
-    contents.content = de_ContentData(data.content, context);
-  }
+  const doc = take(data, {
+    content: (_) => de_ContentData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1295,10 +1289,9 @@ const de_CreateContentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1318,9 +1311,10 @@ export const de_CreateKnowledgeBaseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.knowledgeBase != null) {
-    contents.knowledgeBase = de_KnowledgeBaseData(data.knowledgeBase, context);
-  }
+  const doc = take(data, {
+    knowledgeBase: (_) => de_KnowledgeBaseData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1351,10 +1345,9 @@ const de_CreateKnowledgeBaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1374,9 +1367,10 @@ export const de_CreateSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = de_SessionData(data.session, context);
-  }
+  const doc = take(data, {
+    session: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1404,10 +1398,9 @@ const de_CreateSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1454,10 +1447,9 @@ const de_DeleteAssistantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1504,10 +1496,9 @@ const de_DeleteAssistantAssociationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1554,10 +1545,9 @@ const de_DeleteContentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1607,10 +1597,9 @@ const de_DeleteKnowledgeBaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1630,9 +1619,10 @@ export const de_GetAssistantCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistant != null) {
-    contents.assistant = de_AssistantData(data.assistant, context);
-  }
+  const doc = take(data, {
+    assistant: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1660,10 +1650,9 @@ const de_GetAssistantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1683,9 +1672,10 @@ export const de_GetAssistantAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistantAssociation != null) {
-    contents.assistantAssociation = de_AssistantAssociationData(data.assistantAssociation, context);
-  }
+  const doc = take(data, {
+    assistantAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1713,10 +1703,9 @@ const de_GetAssistantAssociationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1736,9 +1725,10 @@ export const de_GetContentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.content != null) {
-    contents.content = de_ContentData(data.content, context);
-  }
+  const doc = take(data, {
+    content: (_) => de_ContentData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1766,10 +1756,9 @@ const de_GetContentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1789,9 +1778,10 @@ export const de_GetContentSummaryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentSummary != null) {
-    contents.contentSummary = de_ContentSummary(data.contentSummary, context);
-  }
+  const doc = take(data, {
+    contentSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1819,10 +1809,9 @@ const de_GetContentSummaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1842,9 +1831,10 @@ export const de_GetKnowledgeBaseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.knowledgeBase != null) {
-    contents.knowledgeBase = de_KnowledgeBaseData(data.knowledgeBase, context);
-  }
+  const doc = take(data, {
+    knowledgeBase: (_) => de_KnowledgeBaseData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1872,10 +1862,9 @@ const de_GetKnowledgeBaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1895,12 +1884,11 @@ export const de_GetRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.recommendations != null) {
-    contents.recommendations = de_RecommendationList(data.recommendations, context);
-  }
-  if (data.triggers != null) {
-    contents.triggers = de_RecommendationTriggerList(data.triggers, context);
-  }
+  const doc = take(data, {
+    recommendations: (_) => de_RecommendationList(_, context),
+    triggers: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1928,10 +1916,9 @@ const de_GetRecommendationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1951,9 +1938,10 @@ export const de_GetSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = de_SessionData(data.session, context);
-  }
+  const doc = take(data, {
+    session: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1981,10 +1969,9 @@ const de_GetSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2004,15 +1991,11 @@ export const de_ListAssistantAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistantAssociationSummaries != null) {
-    contents.assistantAssociationSummaries = de_AssistantAssociationSummaryList(
-      data.assistantAssociationSummaries,
-      context
-    );
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assistantAssociationSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2040,10 +2023,9 @@ const de_ListAssistantAssociationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2063,12 +2045,11 @@ export const de_ListAssistantsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistantSummaries != null) {
-    contents.assistantSummaries = de_AssistantList(data.assistantSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assistantSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2093,10 +2074,9 @@ const de_ListAssistantsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2116,12 +2096,11 @@ export const de_ListContentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentSummaries != null) {
-    contents.contentSummaries = de_ContentSummaryList(data.contentSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    contentSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2149,10 +2128,9 @@ const de_ListContentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2172,12 +2150,11 @@ export const de_ListKnowledgeBasesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.knowledgeBaseSummaries != null) {
-    contents.knowledgeBaseSummaries = de_KnowledgeBaseList(data.knowledgeBaseSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    knowledgeBaseSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2202,10 +2179,9 @@ const de_ListKnowledgeBasesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2225,9 +2201,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2249,10 +2226,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2272,12 +2248,11 @@ export const de_NotifyRecommendationsReceivedCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_NotifyRecommendationsReceivedErrorList(data.errors, context);
-  }
-  if (data.recommendationIds != null) {
-    contents.recommendationIds = de_RecommendationIdList(data.recommendationIds, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+    recommendationIds: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2305,10 +2280,9 @@ const de_NotifyRecommendationsReceivedCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2328,12 +2302,11 @@ export const de_QueryAssistantCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.results != null) {
-    contents.results = de_QueryResultsList(data.results, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    results: (_) => de_QueryResultsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2361,10 +2334,9 @@ const de_QueryAssistantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2411,10 +2383,9 @@ const de_RemoveKnowledgeBaseTemplateUriCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2434,12 +2405,11 @@ export const de_SearchContentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentSummaries != null) {
-    contents.contentSummaries = de_ContentSummaryList(data.contentSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    contentSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2467,10 +2437,9 @@ const de_SearchContentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2490,12 +2459,11 @@ export const de_SearchSessionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.sessionSummaries != null) {
-    contents.sessionSummaries = de_SessionSummaries(data.sessionSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    sessionSummaries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2523,10 +2491,9 @@ const de_SearchSessionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2546,18 +2513,13 @@ export const de_StartContentUploadCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.headersToInclude != null) {
-    contents.headersToInclude = de_Headers(data.headersToInclude, context);
-  }
-  if (data.uploadId != null) {
-    contents.uploadId = __expectString(data.uploadId);
-  }
-  if (data.url != null) {
-    contents.url = __expectString(data.url);
-  }
-  if (data.urlExpiry != null) {
-    contents.urlExpiry = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.urlExpiry)));
-  }
+  const doc = take(data, {
+    headersToInclude: _json,
+    uploadId: __expectString,
+    url: __expectString,
+    urlExpiry: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2585,10 +2547,9 @@ const de_StartContentUploadCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2632,10 +2593,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2676,10 +2636,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2699,9 +2658,10 @@ export const de_UpdateContentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.content != null) {
-    contents.content = de_ContentData(data.content, context);
-  }
+  const doc = take(data, {
+    content: (_) => de_ContentData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2732,10 +2692,9 @@ const de_UpdateContentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2755,9 +2714,10 @@ export const de_UpdateKnowledgeBaseTemplateUriCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.knowledgeBase != null) {
-    contents.knowledgeBase = de_KnowledgeBaseData(data.knowledgeBase, context);
-  }
+  const doc = take(data, {
+    knowledgeBase: (_) => de_KnowledgeBaseData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2785,16 +2745,15 @@ const de_UpdateKnowledgeBaseTemplateUriCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2804,9 +2763,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2820,9 +2780,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2839,9 +2800,10 @@ const de_PreconditionFailedExceptionRes = async (
 ): Promise<PreconditionFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PreconditionFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2858,12 +2820,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceName != null) {
-    contents.resourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2880,9 +2841,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2899,12 +2861,11 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceName != null) {
-    contents.resourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2918,9 +2879,10 @@ const de_TooManyTagsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2928,541 +2890,118 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AppIntegrationsConfiguration
- */
-const se_AppIntegrationsConfiguration = (input: AppIntegrationsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.appIntegrationArn != null && { appIntegrationArn: input.appIntegrationArn }),
-    ...(input.objectFields != null && { objectFields: se_ObjectFieldsList(input.objectFields, context) }),
-  };
-};
+// se_AppIntegrationsConfiguration omitted.
 
-/**
- * serializeAws_restJson1AssistantAssociationInputData
- */
-const se_AssistantAssociationInputData = (input: AssistantAssociationInputData, context: __SerdeContext): any => {
-  return AssistantAssociationInputData.visit(input, {
-    knowledgeBaseId: (value) => ({ knowledgeBaseId: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_AssistantAssociationInputData omitted.
 
-/**
- * serializeAws_restJson1ContentMetadata
- */
-const se_ContentMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ContentMetadata omitted.
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.field != null && { field: input.field }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1FilterList
- */
-const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_FilterList omitted.
 
-/**
- * serializeAws_restJson1ObjectFieldsList
- */
-const se_ObjectFieldsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ObjectFieldsList omitted.
 
-/**
- * serializeAws_restJson1RecommendationIdList
- */
-const se_RecommendationIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RecommendationIdList omitted.
 
-/**
- * serializeAws_restJson1RenderingConfiguration
- */
-const se_RenderingConfiguration = (input: RenderingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.templateUri != null && { templateUri: input.templateUri }),
-  };
-};
+// se_RenderingConfiguration omitted.
 
-/**
- * serializeAws_restJson1SearchExpression
- */
-const se_SearchExpression = (input: SearchExpression, context: __SerdeContext): any => {
-  return {
-    ...(input.filters != null && { filters: se_FilterList(input.filters, context) }),
-  };
-};
+// se_SearchExpression omitted.
 
-/**
- * serializeAws_restJson1ServerSideEncryptionConfiguration
- */
-const se_ServerSideEncryptionConfiguration = (
-  input: ServerSideEncryptionConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-  };
-};
+// se_ServerSideEncryptionConfiguration omitted.
 
-/**
- * serializeAws_restJson1SourceConfiguration
- */
-const se_SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
-  return SourceConfiguration.visit(input, {
-    appIntegrations: (value) => ({ appIntegrations: se_AppIntegrationsConfiguration(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_SourceConfiguration omitted.
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * deserializeAws_restJson1AppIntegrationsConfiguration
- */
-const de_AppIntegrationsConfiguration = (output: any, context: __SerdeContext): AppIntegrationsConfiguration => {
-  return {
-    appIntegrationArn: __expectString(output.appIntegrationArn),
-    objectFields: output.objectFields != null ? de_ObjectFieldsList(output.objectFields, context) : undefined,
-  } as any;
-};
+// de_AppIntegrationsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1AssistantAssociationData
- */
-const de_AssistantAssociationData = (output: any, context: __SerdeContext): AssistantAssociationData => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantAssociationArn: __expectString(output.assistantAssociationArn),
-    assistantAssociationId: __expectString(output.assistantAssociationId),
-    assistantId: __expectString(output.assistantId),
-    associationData:
-      output.associationData != null
-        ? de_AssistantAssociationOutputData(__expectUnion(output.associationData), context)
-        : undefined,
-    associationType: __expectString(output.associationType),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_AssistantAssociationData omitted.
 
-/**
- * deserializeAws_restJson1AssistantAssociationOutputData
- */
-const de_AssistantAssociationOutputData = (output: any, context: __SerdeContext): AssistantAssociationOutputData => {
-  if (output.knowledgeBaseAssociation != null) {
-    return {
-      knowledgeBaseAssociation: de_KnowledgeBaseAssociationData(output.knowledgeBaseAssociation, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_AssistantAssociationOutputData omitted.
 
-/**
- * deserializeAws_restJson1AssistantAssociationSummary
- */
-const de_AssistantAssociationSummary = (output: any, context: __SerdeContext): AssistantAssociationSummary => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantAssociationArn: __expectString(output.assistantAssociationArn),
-    assistantAssociationId: __expectString(output.assistantAssociationId),
-    assistantId: __expectString(output.assistantId),
-    associationData:
-      output.associationData != null
-        ? de_AssistantAssociationOutputData(__expectUnion(output.associationData), context)
-        : undefined,
-    associationType: __expectString(output.associationType),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_AssistantAssociationSummary omitted.
 
-/**
- * deserializeAws_restJson1AssistantAssociationSummaryList
- */
-const de_AssistantAssociationSummaryList = (output: any, context: __SerdeContext): AssistantAssociationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssistantAssociationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AssistantAssociationSummaryList omitted.
 
-/**
- * deserializeAws_restJson1AssistantData
- */
-const de_AssistantData = (output: any, context: __SerdeContext): AssistantData => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantId: __expectString(output.assistantId),
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration != null
-        ? de_ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AssistantData omitted.
 
-/**
- * deserializeAws_restJson1AssistantList
- */
-const de_AssistantList = (output: any, context: __SerdeContext): AssistantSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssistantSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AssistantList omitted.
 
-/**
- * deserializeAws_restJson1AssistantSummary
- */
-const de_AssistantSummary = (output: any, context: __SerdeContext): AssistantSummary => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantId: __expectString(output.assistantId),
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration != null
-        ? de_ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AssistantSummary omitted.
 
 /**
  * deserializeAws_restJson1ContentData
  */
 const de_ContentData = (output: any, context: __SerdeContext): ContentData => {
-  return {
-    contentArn: __expectString(output.contentArn),
-    contentId: __expectString(output.contentId),
-    contentType: __expectString(output.contentType),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-    linkOutUri: __expectString(output.linkOutUri),
-    metadata: output.metadata != null ? de_ContentMetadata(output.metadata, context) : undefined,
-    name: __expectString(output.name),
-    revisionId: __expectString(output.revisionId),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    title: __expectString(output.title),
-    url: __expectString(output.url),
-    urlExpiry:
-      output.urlExpiry != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.urlExpiry))) : undefined,
-  } as any;
+  return take(output, {
+    contentArn: __expectString,
+    contentId: __expectString,
+    contentType: __expectString,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    linkOutUri: __expectString,
+    metadata: _json,
+    name: __expectString,
+    revisionId: __expectString,
+    status: __expectString,
+    tags: _json,
+    title: __expectString,
+    url: __expectString,
+    urlExpiry: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ContentMetadata
- */
-const de_ContentMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ContentMetadata omitted.
 
-/**
- * deserializeAws_restJson1ContentReference
- */
-const de_ContentReference = (output: any, context: __SerdeContext): ContentReference => {
-  return {
-    contentArn: __expectString(output.contentArn),
-    contentId: __expectString(output.contentId),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-  } as any;
-};
+// de_ContentReference omitted.
 
-/**
- * deserializeAws_restJson1ContentSummary
- */
-const de_ContentSummary = (output: any, context: __SerdeContext): ContentSummary => {
-  return {
-    contentArn: __expectString(output.contentArn),
-    contentId: __expectString(output.contentId),
-    contentType: __expectString(output.contentType),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-    metadata: output.metadata != null ? de_ContentMetadata(output.metadata, context) : undefined,
-    name: __expectString(output.name),
-    revisionId: __expectString(output.revisionId),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    title: __expectString(output.title),
-  } as any;
-};
+// de_ContentSummary omitted.
 
-/**
- * deserializeAws_restJson1ContentSummaryList
- */
-const de_ContentSummaryList = (output: any, context: __SerdeContext): ContentSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ContentSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ContentSummaryList omitted.
 
-/**
- * deserializeAws_restJson1Document
- */
-const de_Document = (output: any, context: __SerdeContext): Document => {
-  return {
-    contentReference:
-      output.contentReference != null ? de_ContentReference(output.contentReference, context) : undefined,
-    excerpt: output.excerpt != null ? de_DocumentText(output.excerpt, context) : undefined,
-    title: output.title != null ? de_DocumentText(output.title, context) : undefined,
-  } as any;
-};
+// de_Document omitted.
 
-/**
- * deserializeAws_restJson1DocumentText
- */
-const de_DocumentText = (output: any, context: __SerdeContext): DocumentText => {
-  return {
-    highlights: output.highlights != null ? de_Highlights(output.highlights, context) : undefined,
-    text: __expectString(output.text),
-  } as any;
-};
+// de_DocumentText omitted.
 
-/**
- * deserializeAws_restJson1Headers
- */
-const de_Headers = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Headers omitted.
 
-/**
- * deserializeAws_restJson1Highlight
- */
-const de_Highlight = (output: any, context: __SerdeContext): Highlight => {
-  return {
-    beginOffsetInclusive: __expectInt32(output.beginOffsetInclusive),
-    endOffsetExclusive: __expectInt32(output.endOffsetExclusive),
-  } as any;
-};
+// de_Highlight omitted.
 
-/**
- * deserializeAws_restJson1Highlights
- */
-const de_Highlights = (output: any, context: __SerdeContext): Highlight[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Highlight(entry, context);
-    });
-  return retVal;
-};
+// de_Highlights omitted.
 
-/**
- * deserializeAws_restJson1KnowledgeBaseAssociationData
- */
-const de_KnowledgeBaseAssociationData = (output: any, context: __SerdeContext): KnowledgeBaseAssociationData => {
-  return {
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-  } as any;
-};
+// de_KnowledgeBaseAssociationData omitted.
 
 /**
  * deserializeAws_restJson1KnowledgeBaseData
  */
 const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBaseData => {
-  return {
-    description: __expectString(output.description),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-    knowledgeBaseType: __expectString(output.knowledgeBaseType),
-    lastContentModificationTime:
-      output.lastContentModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastContentModificationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    renderingConfiguration:
-      output.renderingConfiguration != null
-        ? de_RenderingConfiguration(output.renderingConfiguration, context)
-        : undefined,
-    serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration != null
-        ? de_ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
-        : undefined,
-    sourceConfiguration:
-      output.sourceConfiguration != null
-        ? de_SourceConfiguration(__expectUnion(output.sourceConfiguration), context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    description: __expectString,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    knowledgeBaseType: __expectString,
+    lastContentModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    renderingConfiguration: _json,
+    serverSideEncryptionConfiguration: _json,
+    sourceConfiguration: (_: any) => _json(__expectUnion(_)),
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1KnowledgeBaseList
- */
-const de_KnowledgeBaseList = (output: any, context: __SerdeContext): KnowledgeBaseSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_KnowledgeBaseSummary(entry, context);
-    });
-  return retVal;
-};
+// de_KnowledgeBaseList omitted.
 
-/**
- * deserializeAws_restJson1KnowledgeBaseSummary
- */
-const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): KnowledgeBaseSummary => {
-  return {
-    description: __expectString(output.description),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-    knowledgeBaseType: __expectString(output.knowledgeBaseType),
-    name: __expectString(output.name),
-    renderingConfiguration:
-      output.renderingConfiguration != null
-        ? de_RenderingConfiguration(output.renderingConfiguration, context)
-        : undefined,
-    serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration != null
-        ? de_ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
-        : undefined,
-    sourceConfiguration:
-      output.sourceConfiguration != null
-        ? de_SourceConfiguration(__expectUnion(output.sourceConfiguration), context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_KnowledgeBaseSummary omitted.
 
-/**
- * deserializeAws_restJson1NotifyRecommendationsReceivedError
- */
-const de_NotifyRecommendationsReceivedError = (
-  output: any,
-  context: __SerdeContext
-): NotifyRecommendationsReceivedError => {
-  return {
-    message: __expectString(output.message),
-    recommendationId: __expectString(output.recommendationId),
-  } as any;
-};
+// de_NotifyRecommendationsReceivedError omitted.
 
-/**
- * deserializeAws_restJson1NotifyRecommendationsReceivedErrorList
- */
-const de_NotifyRecommendationsReceivedErrorList = (
-  output: any,
-  context: __SerdeContext
-): NotifyRecommendationsReceivedError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NotifyRecommendationsReceivedError(entry, context);
-    });
-  return retVal;
-};
+// de_NotifyRecommendationsReceivedErrorList omitted.
 
-/**
- * deserializeAws_restJson1ObjectFieldsList
- */
-const de_ObjectFieldsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ObjectFieldsList omitted.
 
-/**
- * deserializeAws_restJson1QueryRecommendationTriggerData
- */
-const de_QueryRecommendationTriggerData = (output: any, context: __SerdeContext): QueryRecommendationTriggerData => {
-  return {
-    text: __expectString(output.text),
-  } as any;
-};
+// de_QueryRecommendationTriggerData omitted.
 
 /**
  * deserializeAws_restJson1QueryResultsList
@@ -3471,9 +3010,6 @@ const de_QueryResultsList = (output: any, context: __SerdeContext): ResultData[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResultData(entry, context);
     });
   return retVal;
@@ -3483,29 +3019,16 @@ const de_QueryResultsList = (output: any, context: __SerdeContext): ResultData[]
  * deserializeAws_restJson1RecommendationData
  */
 const de_RecommendationData = (output: any, context: __SerdeContext): RecommendationData => {
-  return {
-    document: output.document != null ? de_Document(output.document, context) : undefined,
-    recommendationId: __expectString(output.recommendationId),
-    relevanceLevel: __expectString(output.relevanceLevel),
-    relevanceScore: __limitedParseDouble(output.relevanceScore),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    document: _json,
+    recommendationId: __expectString,
+    relevanceLevel: __expectString,
+    relevanceScore: __limitedParseDouble,
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RecommendationIdList
- */
-const de_RecommendationIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RecommendationIdList omitted.
 
 /**
  * deserializeAws_restJson1RecommendationList
@@ -3514,151 +3037,41 @@ const de_RecommendationList = (output: any, context: __SerdeContext): Recommenda
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecommendationData(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1RecommendationTrigger
- */
-const de_RecommendationTrigger = (output: any, context: __SerdeContext): RecommendationTrigger => {
-  return {
-    data: output.data != null ? de_RecommendationTriggerData(__expectUnion(output.data), context) : undefined,
-    id: __expectString(output.id),
-    recommendationIds:
-      output.recommendationIds != null ? de_RecommendationIdList(output.recommendationIds, context) : undefined,
-    source: __expectString(output.source),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_RecommendationTrigger omitted.
 
-/**
- * deserializeAws_restJson1RecommendationTriggerData
- */
-const de_RecommendationTriggerData = (output: any, context: __SerdeContext): RecommendationTriggerData => {
-  if (output.query != null) {
-    return {
-      query: de_QueryRecommendationTriggerData(output.query, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_RecommendationTriggerData omitted.
 
-/**
- * deserializeAws_restJson1RecommendationTriggerList
- */
-const de_RecommendationTriggerList = (output: any, context: __SerdeContext): RecommendationTrigger[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationTrigger(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationTriggerList omitted.
 
-/**
- * deserializeAws_restJson1RenderingConfiguration
- */
-const de_RenderingConfiguration = (output: any, context: __SerdeContext): RenderingConfiguration => {
-  return {
-    templateUri: __expectString(output.templateUri),
-  } as any;
-};
+// de_RenderingConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ResultData
  */
 const de_ResultData = (output: any, context: __SerdeContext): ResultData => {
-  return {
-    document: output.document != null ? de_Document(output.document, context) : undefined,
-    relevanceScore: __limitedParseDouble(output.relevanceScore),
-    resultId: __expectString(output.resultId),
-  } as any;
+  return take(output, {
+    document: _json,
+    relevanceScore: __limitedParseDouble,
+    resultId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ServerSideEncryptionConfiguration
- */
-const de_ServerSideEncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ServerSideEncryptionConfiguration => {
-  return {
-    kmsKeyId: __expectString(output.kmsKeyId),
-  } as any;
-};
+// de_ServerSideEncryptionConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SessionData
- */
-const de_SessionData = (output: any, context: __SerdeContext): SessionData => {
-  return {
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    sessionArn: __expectString(output.sessionArn),
-    sessionId: __expectString(output.sessionId),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_SessionData omitted.
 
-/**
- * deserializeAws_restJson1SessionSummaries
- */
-const de_SessionSummaries = (output: any, context: __SerdeContext): SessionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SessionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_SessionSummaries omitted.
 
-/**
- * deserializeAws_restJson1SessionSummary
- */
-const de_SessionSummary = (output: any, context: __SerdeContext): SessionSummary => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantId: __expectString(output.assistantId),
-    sessionArn: __expectString(output.sessionArn),
-    sessionId: __expectString(output.sessionId),
-  } as any;
-};
+// de_SessionSummary omitted.
 
-/**
- * deserializeAws_restJson1SourceConfiguration
- */
-const de_SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
-  if (output.appIntegrations != null) {
-    return {
-      appIntegrations: de_AppIntegrationsConfiguration(output.appIntegrations, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_SourceConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

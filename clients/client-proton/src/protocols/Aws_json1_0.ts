@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -285,7 +286,6 @@ import {
   AcceptEnvironmentAccountConnectionInput,
   AcceptEnvironmentAccountConnectionOutput,
   AccessDeniedException,
-  AccountSettings,
   CancelComponentDeploymentInput,
   CancelComponentDeploymentOutput,
   CancelEnvironmentDeploymentInput,
@@ -294,12 +294,10 @@ import {
   CancelServiceInstanceDeploymentOutput,
   CancelServicePipelineDeploymentInput,
   CancelServicePipelineDeploymentOutput,
-  CompatibleEnvironmentTemplate,
   CompatibleEnvironmentTemplateInput,
   Component,
   ComponentSummary,
   ConflictException,
-  CountsSummary,
   CreateComponentInput,
   CreateComponentOutput,
   CreateEnvironmentAccountConnectionInput,
@@ -311,19 +309,16 @@ import {
   CreateEnvironmentTemplateVersionInput,
   CreateEnvironmentTemplateVersionOutput,
   CreateRepositoryInput,
-  CreateRepositoryOutput,
   CreateServiceInput,
   CreateServiceInstanceInput,
   CreateServiceInstanceOutput,
   CreateServiceOutput,
   CreateServiceSyncConfigInput,
-  CreateServiceSyncConfigOutput,
   CreateServiceTemplateInput,
   CreateServiceTemplateOutput,
   CreateServiceTemplateVersionInput,
   CreateServiceTemplateVersionOutput,
   CreateTemplateSyncConfigInput,
-  CreateTemplateSyncConfigOutput,
   DeleteComponentInput,
   DeleteComponentOutput,
   DeleteEnvironmentAccountConnectionInput,
@@ -335,17 +330,14 @@ import {
   DeleteEnvironmentTemplateVersionInput,
   DeleteEnvironmentTemplateVersionOutput,
   DeleteRepositoryInput,
-  DeleteRepositoryOutput,
   DeleteServiceInput,
   DeleteServiceOutput,
   DeleteServiceSyncConfigInput,
-  DeleteServiceSyncConfigOutput,
   DeleteServiceTemplateInput,
   DeleteServiceTemplateOutput,
   DeleteServiceTemplateVersionInput,
   DeleteServiceTemplateVersionOutput,
   DeleteTemplateSyncConfigInput,
-  DeleteTemplateSyncConfigOutput,
   Environment,
   EnvironmentAccountConnection,
   EnvironmentAccountConnectionStatus,
@@ -357,7 +349,6 @@ import {
   EnvironmentTemplateVersion,
   EnvironmentTemplateVersionSummary,
   GetAccountSettingsInput,
-  GetAccountSettingsOutput,
   GetComponentInput,
   GetComponentOutput,
   GetEnvironmentAccountConnectionInput,
@@ -369,11 +360,9 @@ import {
   GetEnvironmentTemplateVersionInput,
   GetEnvironmentTemplateVersionOutput,
   GetRepositoryInput,
-  GetRepositoryOutput,
   GetRepositorySyncStatusInput,
   GetRepositorySyncStatusOutput,
   GetResourcesSummaryInput,
-  GetResourcesSummaryOutput,
   GetServiceInput,
   GetServiceInstanceInput,
   GetServiceInstanceOutput,
@@ -383,28 +372,22 @@ import {
   GetServiceSyncBlockerSummaryInput,
   GetServiceSyncBlockerSummaryOutput,
   GetServiceSyncConfigInput,
-  GetServiceSyncConfigOutput,
   GetServiceTemplateInput,
   GetServiceTemplateOutput,
   GetServiceTemplateVersionInput,
   GetServiceTemplateVersionOutput,
   GetTemplateSyncConfigInput,
-  GetTemplateSyncConfigOutput,
   GetTemplateSyncStatusInput,
   GetTemplateSyncStatusOutput,
   InternalServerException,
   ListComponentOutputsInput,
-  ListComponentOutputsOutput,
   ListComponentProvisionedResourcesInput,
-  ListComponentProvisionedResourcesOutput,
   ListComponentsInput,
   ListComponentsOutput,
   ListEnvironmentAccountConnectionsInput,
   ListEnvironmentAccountConnectionsOutput,
   ListEnvironmentOutputsInput,
-  ListEnvironmentOutputsOutput,
   ListEnvironmentProvisionedResourcesInput,
-  ListEnvironmentProvisionedResourcesOutput,
   ListEnvironmentsInput,
   ListEnvironmentsOutput,
   ListEnvironmentTemplatesInput,
@@ -412,20 +395,14 @@ import {
   ListEnvironmentTemplateVersionsInput,
   ListEnvironmentTemplateVersionsOutput,
   ListRepositoriesInput,
-  ListRepositoriesOutput,
   ListRepositorySyncDefinitionsInput,
-  ListRepositorySyncDefinitionsOutput,
   ListServiceInstanceOutputsInput,
-  ListServiceInstanceOutputsOutput,
   ListServiceInstanceProvisionedResourcesInput,
-  ListServiceInstanceProvisionedResourcesOutput,
   ListServiceInstancesFilter,
   ListServiceInstancesInput,
   ListServiceInstancesOutput,
   ListServicePipelineOutputsInput,
-  ListServicePipelineOutputsOutput,
   ListServicePipelineProvisionedResourcesInput,
-  ListServicePipelineProvisionedResourcesOutput,
   ListServicesInput,
   ListServicesOutput,
   ListServiceTemplatesInput,
@@ -433,25 +410,16 @@ import {
   ListServiceTemplateVersionsInput,
   ListServiceTemplateVersionsOutput,
   ListTagsForResourceInput,
-  ListTagsForResourceOutput,
   NotifyResourceDeploymentStatusChangeInput,
-  NotifyResourceDeploymentStatusChangeOutput,
   Output,
-  ProvisionedResource,
   RejectEnvironmentAccountConnectionInput,
   RejectEnvironmentAccountConnectionOutput,
-  Repository,
-  RepositoryBranch,
   RepositoryBranchInput,
-  RepositorySummary,
   RepositorySyncAttempt,
-  RepositorySyncDefinition,
   RepositorySyncEvent,
-  ResourceCountsSummary,
   ResourceNotFoundException,
   ResourceSyncAttempt,
   ResourceSyncEvent,
-  Revision,
   S3ObjectSource,
   Service,
   ServiceInstance,
@@ -460,24 +428,18 @@ import {
   ServiceQuotaExceededException,
   ServiceSummary,
   ServiceSyncBlockerSummary,
-  ServiceSyncConfig,
   ServiceTemplate,
   ServiceTemplateSummary,
   ServiceTemplateSupportedComponentSourceType,
   ServiceTemplateVersion,
   ServiceTemplateVersionSummary,
   SyncBlocker,
-  SyncBlockerContext,
   Tag,
   TagResourceInput,
-  TagResourceOutput,
-  TemplateSyncConfig,
   TemplateVersionSourceInput,
   ThrottlingException,
   UntagResourceInput,
-  UntagResourceOutput,
   UpdateAccountSettingsInput,
-  UpdateAccountSettingsOutput,
   UpdateComponentInput,
   UpdateComponentOutput,
   UpdateEnvironmentAccountConnectionInput,
@@ -497,13 +459,11 @@ import {
   UpdateServiceSyncBlockerInput,
   UpdateServiceSyncBlockerOutput,
   UpdateServiceSyncConfigInput,
-  UpdateServiceSyncConfigOutput,
   UpdateServiceTemplateInput,
   UpdateServiceTemplateOutput,
   UpdateServiceTemplateVersionInput,
   UpdateServiceTemplateVersionOutput,
   UpdateTemplateSyncConfigInput,
-  UpdateTemplateSyncConfigOutput,
   ValidationException,
 } from "../models/models_0";
 import { ProtonServiceException as __BaseException } from "../models/ProtonServiceException";
@@ -517,7 +477,7 @@ export const se_AcceptEnvironmentAccountConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptEnvironmentAccountConnection");
   let body: any;
-  body = JSON.stringify(se_AcceptEnvironmentAccountConnectionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -530,7 +490,7 @@ export const se_CancelComponentDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelComponentDeployment");
   let body: any;
-  body = JSON.stringify(se_CancelComponentDeploymentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -543,7 +503,7 @@ export const se_CancelEnvironmentDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelEnvironmentDeployment");
   let body: any;
-  body = JSON.stringify(se_CancelEnvironmentDeploymentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -556,7 +516,7 @@ export const se_CancelServiceInstanceDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelServiceInstanceDeployment");
   let body: any;
-  body = JSON.stringify(se_CancelServiceInstanceDeploymentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -569,7 +529,7 @@ export const se_CancelServicePipelineDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelServicePipelineDeployment");
   let body: any;
-  body = JSON.stringify(se_CancelServicePipelineDeploymentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -621,7 +581,7 @@ export const se_CreateEnvironmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateEnvironmentTemplate");
   let body: any;
-  body = JSON.stringify(se_CreateEnvironmentTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -647,7 +607,7 @@ export const se_CreateRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRepository");
   let body: any;
-  body = JSON.stringify(se_CreateRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -686,7 +646,7 @@ export const se_CreateServiceSyncConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateServiceSyncConfig");
   let body: any;
-  body = JSON.stringify(se_CreateServiceSyncConfigInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -699,7 +659,7 @@ export const se_CreateServiceTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateServiceTemplate");
   let body: any;
-  body = JSON.stringify(se_CreateServiceTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -725,7 +685,7 @@ export const se_CreateTemplateSyncConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTemplateSyncConfig");
   let body: any;
-  body = JSON.stringify(se_CreateTemplateSyncConfigInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -738,7 +698,7 @@ export const se_DeleteComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteComponent");
   let body: any;
-  body = JSON.stringify(se_DeleteComponentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -751,7 +711,7 @@ export const se_DeleteEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEnvironment");
   let body: any;
-  body = JSON.stringify(se_DeleteEnvironmentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -764,7 +724,7 @@ export const se_DeleteEnvironmentAccountConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentAccountConnection");
   let body: any;
-  body = JSON.stringify(se_DeleteEnvironmentAccountConnectionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -777,7 +737,7 @@ export const se_DeleteEnvironmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentTemplate");
   let body: any;
-  body = JSON.stringify(se_DeleteEnvironmentTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -790,7 +750,7 @@ export const se_DeleteEnvironmentTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentTemplateVersion");
   let body: any;
-  body = JSON.stringify(se_DeleteEnvironmentTemplateVersionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -803,7 +763,7 @@ export const se_DeleteRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRepository");
   let body: any;
-  body = JSON.stringify(se_DeleteRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -816,7 +776,7 @@ export const se_DeleteServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteService");
   let body: any;
-  body = JSON.stringify(se_DeleteServiceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -829,7 +789,7 @@ export const se_DeleteServiceSyncConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteServiceSyncConfig");
   let body: any;
-  body = JSON.stringify(se_DeleteServiceSyncConfigInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -842,7 +802,7 @@ export const se_DeleteServiceTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteServiceTemplate");
   let body: any;
-  body = JSON.stringify(se_DeleteServiceTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -855,7 +815,7 @@ export const se_DeleteServiceTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteServiceTemplateVersion");
   let body: any;
-  body = JSON.stringify(se_DeleteServiceTemplateVersionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -868,7 +828,7 @@ export const se_DeleteTemplateSyncConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTemplateSyncConfig");
   let body: any;
-  body = JSON.stringify(se_DeleteTemplateSyncConfigInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -881,7 +841,7 @@ export const se_GetAccountSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAccountSettings");
   let body: any;
-  body = JSON.stringify(se_GetAccountSettingsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -894,7 +854,7 @@ export const se_GetComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetComponent");
   let body: any;
-  body = JSON.stringify(se_GetComponentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -907,7 +867,7 @@ export const se_GetEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEnvironment");
   let body: any;
-  body = JSON.stringify(se_GetEnvironmentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -920,7 +880,7 @@ export const se_GetEnvironmentAccountConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEnvironmentAccountConnection");
   let body: any;
-  body = JSON.stringify(se_GetEnvironmentAccountConnectionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -933,7 +893,7 @@ export const se_GetEnvironmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEnvironmentTemplate");
   let body: any;
-  body = JSON.stringify(se_GetEnvironmentTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -946,7 +906,7 @@ export const se_GetEnvironmentTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEnvironmentTemplateVersion");
   let body: any;
-  body = JSON.stringify(se_GetEnvironmentTemplateVersionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -959,7 +919,7 @@ export const se_GetRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRepository");
   let body: any;
-  body = JSON.stringify(se_GetRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -972,7 +932,7 @@ export const se_GetRepositorySyncStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRepositorySyncStatus");
   let body: any;
-  body = JSON.stringify(se_GetRepositorySyncStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -985,7 +945,7 @@ export const se_GetResourcesSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetResourcesSummary");
   let body: any;
-  body = JSON.stringify(se_GetResourcesSummaryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -998,7 +958,7 @@ export const se_GetServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetService");
   let body: any;
-  body = JSON.stringify(se_GetServiceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1011,7 +971,7 @@ export const se_GetServiceInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceInstance");
   let body: any;
-  body = JSON.stringify(se_GetServiceInstanceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1024,7 +984,7 @@ export const se_GetServiceInstanceSyncStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceInstanceSyncStatus");
   let body: any;
-  body = JSON.stringify(se_GetServiceInstanceSyncStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1037,7 +997,7 @@ export const se_GetServiceSyncBlockerSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceSyncBlockerSummary");
   let body: any;
-  body = JSON.stringify(se_GetServiceSyncBlockerSummaryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1050,7 +1010,7 @@ export const se_GetServiceSyncConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceSyncConfig");
   let body: any;
-  body = JSON.stringify(se_GetServiceSyncConfigInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1063,7 +1023,7 @@ export const se_GetServiceTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceTemplate");
   let body: any;
-  body = JSON.stringify(se_GetServiceTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1076,7 +1036,7 @@ export const se_GetServiceTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceTemplateVersion");
   let body: any;
-  body = JSON.stringify(se_GetServiceTemplateVersionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1089,7 +1049,7 @@ export const se_GetTemplateSyncConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTemplateSyncConfig");
   let body: any;
-  body = JSON.stringify(se_GetTemplateSyncConfigInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1102,7 +1062,7 @@ export const se_GetTemplateSyncStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTemplateSyncStatus");
   let body: any;
-  body = JSON.stringify(se_GetTemplateSyncStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1115,7 +1075,7 @@ export const se_ListComponentOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListComponentOutputs");
   let body: any;
-  body = JSON.stringify(se_ListComponentOutputsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1128,7 +1088,7 @@ export const se_ListComponentProvisionedResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListComponentProvisionedResources");
   let body: any;
-  body = JSON.stringify(se_ListComponentProvisionedResourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1141,7 +1101,7 @@ export const se_ListComponentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListComponents");
   let body: any;
-  body = JSON.stringify(se_ListComponentsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1154,7 +1114,7 @@ export const se_ListEnvironmentAccountConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEnvironmentAccountConnections");
   let body: any;
-  body = JSON.stringify(se_ListEnvironmentAccountConnectionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1167,7 +1127,7 @@ export const se_ListEnvironmentOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEnvironmentOutputs");
   let body: any;
-  body = JSON.stringify(se_ListEnvironmentOutputsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1180,7 +1140,7 @@ export const se_ListEnvironmentProvisionedResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEnvironmentProvisionedResources");
   let body: any;
-  body = JSON.stringify(se_ListEnvironmentProvisionedResourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1193,7 +1153,7 @@ export const se_ListEnvironmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEnvironments");
   let body: any;
-  body = JSON.stringify(se_ListEnvironmentsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1206,7 +1166,7 @@ export const se_ListEnvironmentTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEnvironmentTemplates");
   let body: any;
-  body = JSON.stringify(se_ListEnvironmentTemplatesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1219,7 +1179,7 @@ export const se_ListEnvironmentTemplateVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEnvironmentTemplateVersions");
   let body: any;
-  body = JSON.stringify(se_ListEnvironmentTemplateVersionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1232,7 +1192,7 @@ export const se_ListRepositoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRepositories");
   let body: any;
-  body = JSON.stringify(se_ListRepositoriesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1245,7 +1205,7 @@ export const se_ListRepositorySyncDefinitionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRepositorySyncDefinitions");
   let body: any;
-  body = JSON.stringify(se_ListRepositorySyncDefinitionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1258,7 +1218,7 @@ export const se_ListServiceInstanceOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceInstanceOutputs");
   let body: any;
-  body = JSON.stringify(se_ListServiceInstanceOutputsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1271,7 +1231,7 @@ export const se_ListServiceInstanceProvisionedResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceInstanceProvisionedResources");
   let body: any;
-  body = JSON.stringify(se_ListServiceInstanceProvisionedResourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1284,7 +1244,7 @@ export const se_ListServiceInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceInstances");
   let body: any;
-  body = JSON.stringify(se_ListServiceInstancesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1297,7 +1257,7 @@ export const se_ListServicePipelineOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServicePipelineOutputs");
   let body: any;
-  body = JSON.stringify(se_ListServicePipelineOutputsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1310,7 +1270,7 @@ export const se_ListServicePipelineProvisionedResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServicePipelineProvisionedResources");
   let body: any;
-  body = JSON.stringify(se_ListServicePipelineProvisionedResourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1323,7 +1283,7 @@ export const se_ListServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServices");
   let body: any;
-  body = JSON.stringify(se_ListServicesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1336,7 +1296,7 @@ export const se_ListServiceTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceTemplates");
   let body: any;
-  body = JSON.stringify(se_ListServiceTemplatesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1349,7 +1309,7 @@ export const se_ListServiceTemplateVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceTemplateVersions");
   let body: any;
-  body = JSON.stringify(se_ListServiceTemplateVersionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1362,7 +1322,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1375,7 +1335,7 @@ export const se_NotifyResourceDeploymentStatusChangeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("NotifyResourceDeploymentStatusChange");
   let body: any;
-  body = JSON.stringify(se_NotifyResourceDeploymentStatusChangeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1388,7 +1348,7 @@ export const se_RejectEnvironmentAccountConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RejectEnvironmentAccountConnection");
   let body: any;
-  body = JSON.stringify(se_RejectEnvironmentAccountConnectionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1401,7 +1361,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1414,7 +1374,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1427,7 +1387,7 @@ export const se_UpdateAccountSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAccountSettings");
   let body: any;
-  body = JSON.stringify(se_UpdateAccountSettingsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1466,7 +1426,7 @@ export const se_UpdateEnvironmentAccountConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEnvironmentAccountConnection");
   let body: any;
-  body = JSON.stringify(se_UpdateEnvironmentAccountConnectionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1479,7 +1439,7 @@ export const se_UpdateEnvironmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEnvironmentTemplate");
   let body: any;
-  body = JSON.stringify(se_UpdateEnvironmentTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1492,7 +1452,7 @@ export const se_UpdateEnvironmentTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEnvironmentTemplateVersion");
   let body: any;
-  body = JSON.stringify(se_UpdateEnvironmentTemplateVersionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1544,7 +1504,7 @@ export const se_UpdateServiceSyncBlockerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateServiceSyncBlocker");
   let body: any;
-  body = JSON.stringify(se_UpdateServiceSyncBlockerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1557,7 +1517,7 @@ export const se_UpdateServiceSyncConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateServiceSyncConfig");
   let body: any;
-  body = JSON.stringify(se_UpdateServiceSyncConfigInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1570,7 +1530,7 @@ export const se_UpdateServiceTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateServiceTemplate");
   let body: any;
-  body = JSON.stringify(se_UpdateServiceTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1583,7 +1543,7 @@ export const se_UpdateServiceTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateServiceTemplateVersion");
   let body: any;
-  body = JSON.stringify(se_UpdateServiceTemplateVersionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1596,7 +1556,7 @@ export const se_UpdateTemplateSyncConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTemplateSyncConfig");
   let body: any;
-  body = JSON.stringify(se_UpdateTemplateSyncConfigInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1617,7 +1577,7 @@ export const de_AcceptEnvironmentAccountConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1653,10 +1613,9 @@ const de_AcceptEnvironmentAccountConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1679,7 +1638,7 @@ export const de_CancelComponentDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1715,10 +1674,9 @@ const de_CancelComponentDeploymentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1741,7 +1699,7 @@ export const de_CancelEnvironmentDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1777,10 +1735,9 @@ const de_CancelEnvironmentDeploymentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1803,7 +1760,7 @@ export const de_CancelServiceInstanceDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1839,10 +1796,9 @@ const de_CancelServiceInstanceDeploymentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1865,7 +1821,7 @@ export const de_CancelServicePipelineDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1901,10 +1857,9 @@ const de_CancelServicePipelineDeploymentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1927,7 +1882,7 @@ export const de_CreateComponentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1966,10 +1921,9 @@ const de_CreateComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1992,7 +1946,7 @@ export const de_CreateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2031,10 +1985,9 @@ const de_CreateEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2057,7 +2010,7 @@ export const de_CreateEnvironmentAccountConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2093,10 +2046,9 @@ const de_CreateEnvironmentAccountConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2119,7 +2071,7 @@ export const de_CreateEnvironmentTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2155,10 +2107,9 @@ const de_CreateEnvironmentTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2181,7 +2132,7 @@ export const de_CreateEnvironmentTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2220,10 +2171,9 @@ const de_CreateEnvironmentTemplateVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2241,12 +2191,12 @@ export const de_CreateRepositoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateRepositoryOutput(data, context);
+  contents = _json(data);
   const response: CreateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2282,10 +2232,9 @@ const de_CreateRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2308,7 +2257,7 @@ export const de_CreateServiceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2347,10 +2296,9 @@ const de_CreateServiceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2373,7 +2321,7 @@ export const de_CreateServiceInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2409,10 +2357,9 @@ const de_CreateServiceInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2430,12 +2377,12 @@ export const de_CreateServiceSyncConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateServiceSyncConfigOutput(data, context);
+  contents = _json(data);
   const response: CreateServiceSyncConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2471,10 +2418,9 @@ const de_CreateServiceSyncConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2497,7 +2443,7 @@ export const de_CreateServiceTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2533,10 +2479,9 @@ const de_CreateServiceTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2559,7 +2504,7 @@ export const de_CreateServiceTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2598,10 +2543,9 @@ const de_CreateServiceTemplateVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2619,12 +2563,12 @@ export const de_CreateTemplateSyncConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateTemplateSyncConfigOutput(data, context);
+  contents = _json(data);
   const response: CreateTemplateSyncConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2660,10 +2604,9 @@ const de_CreateTemplateSyncConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2686,7 +2629,7 @@ export const de_DeleteComponentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2722,10 +2665,9 @@ const de_DeleteComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2748,7 +2690,7 @@ export const de_DeleteEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2784,10 +2726,9 @@ const de_DeleteEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2810,7 +2751,7 @@ export const de_DeleteEnvironmentAccountConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2846,10 +2787,9 @@ const de_DeleteEnvironmentAccountConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2872,7 +2812,7 @@ export const de_DeleteEnvironmentTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2908,10 +2848,9 @@ const de_DeleteEnvironmentTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2934,7 +2873,7 @@ export const de_DeleteEnvironmentTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2970,10 +2909,9 @@ const de_DeleteEnvironmentTemplateVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2991,12 +2929,12 @@ export const de_DeleteRepositoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRepositoryOutput(data, context);
+  contents = _json(data);
   const response: DeleteRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3032,10 +2970,9 @@ const de_DeleteRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3058,7 +2995,7 @@ export const de_DeleteServiceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3094,10 +3031,9 @@ const de_DeleteServiceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3115,12 +3051,12 @@ export const de_DeleteServiceSyncConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteServiceSyncConfigOutput(data, context);
+  contents = _json(data);
   const response: DeleteServiceSyncConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3156,10 +3092,9 @@ const de_DeleteServiceSyncConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3182,7 +3117,7 @@ export const de_DeleteServiceTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3218,10 +3153,9 @@ const de_DeleteServiceTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3244,7 +3178,7 @@ export const de_DeleteServiceTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3280,10 +3214,9 @@ const de_DeleteServiceTemplateVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3301,12 +3234,12 @@ export const de_DeleteTemplateSyncConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTemplateSyncConfigOutput(data, context);
+  contents = _json(data);
   const response: DeleteTemplateSyncConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3342,10 +3275,9 @@ const de_DeleteTemplateSyncConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3363,12 +3295,12 @@ export const de_GetAccountSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAccountSettingsOutput(data, context);
+  contents = _json(data);
   const response: GetAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3401,10 +3333,9 @@ const de_GetAccountSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3427,7 +3358,7 @@ export const de_GetComponentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3460,10 +3391,9 @@ const de_GetComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3486,7 +3416,7 @@ export const de_GetEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3519,10 +3449,9 @@ const de_GetEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3545,7 +3474,7 @@ export const de_GetEnvironmentAccountConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3578,10 +3507,9 @@ const de_GetEnvironmentAccountConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3604,7 +3532,7 @@ export const de_GetEnvironmentTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3637,10 +3565,9 @@ const de_GetEnvironmentTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3663,7 +3590,7 @@ export const de_GetEnvironmentTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3696,10 +3623,9 @@ const de_GetEnvironmentTemplateVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3717,12 +3643,12 @@ export const de_GetRepositoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRepositoryOutput(data, context);
+  contents = _json(data);
   const response: GetRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3755,10 +3681,9 @@ const de_GetRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3781,7 +3706,7 @@ export const de_GetRepositorySyncStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3814,10 +3739,9 @@ const de_GetRepositorySyncStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3835,12 +3759,12 @@ export const de_GetResourcesSummaryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetResourcesSummaryOutput(data, context);
+  contents = _json(data);
   const response: GetResourcesSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3870,10 +3794,9 @@ const de_GetResourcesSummaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3896,7 +3819,7 @@ export const de_GetServiceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3929,10 +3852,9 @@ const de_GetServiceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3955,7 +3877,7 @@ export const de_GetServiceInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3988,10 +3910,9 @@ const de_GetServiceInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4014,7 +3935,7 @@ export const de_GetServiceInstanceSyncStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4047,10 +3968,9 @@ const de_GetServiceInstanceSyncStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4073,7 +3993,7 @@ export const de_GetServiceSyncBlockerSummaryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4106,10 +4026,9 @@ const de_GetServiceSyncBlockerSummaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4127,12 +4046,12 @@ export const de_GetServiceSyncConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetServiceSyncConfigOutput(data, context);
+  contents = _json(data);
   const response: GetServiceSyncConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4165,10 +4084,9 @@ const de_GetServiceSyncConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4191,7 +4109,7 @@ export const de_GetServiceTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4224,10 +4142,9 @@ const de_GetServiceTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4250,7 +4167,7 @@ export const de_GetServiceTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4283,10 +4200,9 @@ const de_GetServiceTemplateVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4304,12 +4220,12 @@ export const de_GetTemplateSyncConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetTemplateSyncConfigOutput(data, context);
+  contents = _json(data);
   const response: GetTemplateSyncConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4342,10 +4258,9 @@ const de_GetTemplateSyncConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4368,7 +4283,7 @@ export const de_GetTemplateSyncStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4401,10 +4316,9 @@ const de_GetTemplateSyncStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4422,12 +4336,12 @@ export const de_ListComponentOutputsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListComponentOutputsOutput(data, context);
+  contents = _json(data);
   const response: ListComponentOutputsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4460,10 +4374,9 @@ const de_ListComponentOutputsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4481,12 +4394,12 @@ export const de_ListComponentProvisionedResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListComponentProvisionedResourcesOutput(data, context);
+  contents = _json(data);
   const response: ListComponentProvisionedResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4519,10 +4432,9 @@ const de_ListComponentProvisionedResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4545,7 +4457,7 @@ export const de_ListComponentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4575,10 +4487,9 @@ const de_ListComponentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4601,7 +4512,7 @@ export const de_ListEnvironmentAccountConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4631,10 +4542,9 @@ const de_ListEnvironmentAccountConnectionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4652,12 +4562,12 @@ export const de_ListEnvironmentOutputsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListEnvironmentOutputsOutput(data, context);
+  contents = _json(data);
   const response: ListEnvironmentOutputsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4690,10 +4600,9 @@ const de_ListEnvironmentOutputsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4711,12 +4620,12 @@ export const de_ListEnvironmentProvisionedResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListEnvironmentProvisionedResourcesOutput(data, context);
+  contents = _json(data);
   const response: ListEnvironmentProvisionedResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4749,10 +4658,9 @@ const de_ListEnvironmentProvisionedResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4775,7 +4683,7 @@ export const de_ListEnvironmentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4808,10 +4716,9 @@ const de_ListEnvironmentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4834,7 +4741,7 @@ export const de_ListEnvironmentTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4864,10 +4771,9 @@ const de_ListEnvironmentTemplatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4890,7 +4796,7 @@ export const de_ListEnvironmentTemplateVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4923,10 +4829,9 @@ const de_ListEnvironmentTemplateVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4944,12 +4849,12 @@ export const de_ListRepositoriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRepositoriesOutput(data, context);
+  contents = _json(data);
   const response: ListRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4982,10 +4887,9 @@ const de_ListRepositoriesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5003,12 +4907,12 @@ export const de_ListRepositorySyncDefinitionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRepositorySyncDefinitionsOutput(data, context);
+  contents = _json(data);
   const response: ListRepositorySyncDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5038,10 +4942,9 @@ const de_ListRepositorySyncDefinitionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5059,12 +4962,12 @@ export const de_ListServiceInstanceOutputsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListServiceInstanceOutputsOutput(data, context);
+  contents = _json(data);
   const response: ListServiceInstanceOutputsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5097,10 +5000,9 @@ const de_ListServiceInstanceOutputsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5118,12 +5020,12 @@ export const de_ListServiceInstanceProvisionedResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListServiceInstanceProvisionedResourcesOutput(data, context);
+  contents = _json(data);
   const response: ListServiceInstanceProvisionedResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5156,10 +5058,9 @@ const de_ListServiceInstanceProvisionedResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5182,7 +5083,7 @@ export const de_ListServiceInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5215,10 +5116,9 @@ const de_ListServiceInstancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5236,12 +5136,12 @@ export const de_ListServicePipelineOutputsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListServicePipelineOutputsOutput(data, context);
+  contents = _json(data);
   const response: ListServicePipelineOutputsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5274,10 +5174,9 @@ const de_ListServicePipelineOutputsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5295,12 +5194,12 @@ export const de_ListServicePipelineProvisionedResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListServicePipelineProvisionedResourcesOutput(data, context);
+  contents = _json(data);
   const response: ListServicePipelineProvisionedResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5333,10 +5232,9 @@ const de_ListServicePipelineProvisionedResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5359,7 +5257,7 @@ export const de_ListServicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5389,10 +5287,9 @@ const de_ListServicesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5415,7 +5312,7 @@ export const de_ListServiceTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5445,10 +5342,9 @@ const de_ListServiceTemplatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5471,7 +5367,7 @@ export const de_ListServiceTemplateVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5504,10 +5400,9 @@ const de_ListServiceTemplateVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5525,12 +5420,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5563,10 +5458,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5584,12 +5478,12 @@ export const de_NotifyResourceDeploymentStatusChangeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NotifyResourceDeploymentStatusChangeOutput(data, context);
+  contents = _json(data);
   const response: NotifyResourceDeploymentStatusChangeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5628,10 +5522,9 @@ const de_NotifyResourceDeploymentStatusChangeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5654,7 +5547,7 @@ export const de_RejectEnvironmentAccountConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5690,10 +5583,9 @@ const de_RejectEnvironmentAccountConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5711,12 +5603,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceOutput(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5752,10 +5644,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5773,12 +5664,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceOutput(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5814,10 +5705,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5835,12 +5725,12 @@ export const de_UpdateAccountSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateAccountSettingsOutput(data, context);
+  contents = _json(data);
   const response: UpdateAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5873,10 +5763,9 @@ const de_UpdateAccountSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5899,7 +5788,7 @@ export const de_UpdateComponentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5938,10 +5827,9 @@ const de_UpdateComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5964,7 +5852,7 @@ export const de_UpdateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6000,10 +5888,9 @@ const de_UpdateEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6026,7 +5913,7 @@ export const de_UpdateEnvironmentAccountConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6062,10 +5949,9 @@ const de_UpdateEnvironmentAccountConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6088,7 +5974,7 @@ export const de_UpdateEnvironmentTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6124,10 +6010,9 @@ const de_UpdateEnvironmentTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6150,7 +6035,7 @@ export const de_UpdateEnvironmentTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6186,10 +6071,9 @@ const de_UpdateEnvironmentTemplateVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6212,7 +6096,7 @@ export const de_UpdateServiceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6251,10 +6135,9 @@ const de_UpdateServiceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6277,7 +6160,7 @@ export const de_UpdateServiceInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6313,10 +6196,9 @@ const de_UpdateServiceInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6339,7 +6221,7 @@ export const de_UpdateServicePipelineCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6375,10 +6257,9 @@ const de_UpdateServicePipelineCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6401,7 +6282,7 @@ export const de_UpdateServiceSyncBlockerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6437,10 +6318,9 @@ const de_UpdateServiceSyncBlockerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6458,12 +6338,12 @@ export const de_UpdateServiceSyncConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateServiceSyncConfigOutput(data, context);
+  contents = _json(data);
   const response: UpdateServiceSyncConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6499,10 +6379,9 @@ const de_UpdateServiceSyncConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6525,7 +6404,7 @@ export const de_UpdateServiceTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6561,10 +6440,9 @@ const de_UpdateServiceTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6587,7 +6465,7 @@ export const de_UpdateServiceTemplateVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6623,10 +6501,9 @@ const de_UpdateServiceTemplateVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6644,12 +6521,12 @@ export const de_UpdateTemplateSyncConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateTemplateSyncConfigOutput(data, context);
+  contents = _json(data);
   const response: UpdateTemplateSyncConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6685,10 +6562,9 @@ const de_UpdateTemplateSyncConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6702,7 +6578,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6715,7 +6591,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6731,7 +6607,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6747,7 +6623,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6763,7 +6639,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6776,7 +6652,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6789,7 +6665,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6797,104 +6673,36 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0AcceptEnvironmentAccountConnectionInput
- */
-const se_AcceptEnvironmentAccountConnectionInput = (
-  input: AcceptEnvironmentAccountConnectionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_AcceptEnvironmentAccountConnectionInput omitted.
 
-/**
- * serializeAws_json1_0CancelComponentDeploymentInput
- */
-const se_CancelComponentDeploymentInput = (input: CancelComponentDeploymentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.componentName != null && { componentName: input.componentName }),
-  };
-};
+// se_CancelComponentDeploymentInput omitted.
 
-/**
- * serializeAws_json1_0CancelEnvironmentDeploymentInput
- */
-const se_CancelEnvironmentDeploymentInput = (input: CancelEnvironmentDeploymentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.environmentName != null && { environmentName: input.environmentName }),
-  };
-};
+// se_CancelEnvironmentDeploymentInput omitted.
 
-/**
- * serializeAws_json1_0CancelServiceInstanceDeploymentInput
- */
-const se_CancelServiceInstanceDeploymentInput = (
-  input: CancelServiceInstanceDeploymentInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
+// se_CancelServiceInstanceDeploymentInput omitted.
 
-/**
- * serializeAws_json1_0CancelServicePipelineDeploymentInput
- */
-const se_CancelServicePipelineDeploymentInput = (
-  input: CancelServicePipelineDeploymentInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
+// se_CancelServicePipelineDeploymentInput omitted.
 
-/**
- * serializeAws_json1_0CompatibleEnvironmentTemplateInput
- */
-const se_CompatibleEnvironmentTemplateInput = (
-  input: CompatibleEnvironmentTemplateInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
+// se_CompatibleEnvironmentTemplateInput omitted.
 
-/**
- * serializeAws_json1_0CompatibleEnvironmentTemplateInputList
- */
-const se_CompatibleEnvironmentTemplateInputList = (
-  input: CompatibleEnvironmentTemplateInput[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CompatibleEnvironmentTemplateInput(entry, context);
-    });
-};
+// se_CompatibleEnvironmentTemplateInputList omitted.
 
 /**
  * serializeAws_json1_0CreateComponentInput
  */
 const se_CreateComponentInput = (input: CreateComponentInput, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.environmentName != null && { environmentName: input.environmentName }),
-    ...(input.manifest != null && { manifest: input.manifest }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-    ...(input.serviceSpec != null && { serviceSpec: input.serviceSpec }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.templateFile != null && { templateFile: input.templateFile }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    environmentName: [],
+    manifest: [],
+    name: [],
+    serviceInstanceName: [],
+    serviceName: [],
+    serviceSpec: [],
+    tags: (_) => _json(_),
+    templateFile: [],
+  });
 };
 
 /**
@@ -6904,54 +6712,38 @@ const se_CreateEnvironmentAccountConnectionInput = (
   input: CreateEnvironmentAccountConnectionInput,
   context: __SerdeContext
 ): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
-    ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
-    ...(input.environmentName != null && { environmentName: input.environmentName }),
-    ...(input.managementAccountId != null && { managementAccountId: input.managementAccountId }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    codebuildRoleArn: [],
+    componentRoleArn: [],
+    environmentName: [],
+    managementAccountId: [],
+    roleArn: [],
+    tags: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_0CreateEnvironmentInput
  */
 const se_CreateEnvironmentInput = (input: CreateEnvironmentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
-    ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.environmentAccountConnectionId != null && {
-      environmentAccountConnectionId: input.environmentAccountConnectionId,
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.protonServiceRoleArn != null && { protonServiceRoleArn: input.protonServiceRoleArn }),
-    ...(input.provisioningRepository != null && {
-      provisioningRepository: se_RepositoryBranchInput(input.provisioningRepository, context),
-    }),
-    ...(input.spec != null && { spec: input.spec }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
+  return take(input, {
+    codebuildRoleArn: [],
+    componentRoleArn: [],
+    description: [],
+    environmentAccountConnectionId: [],
+    name: [],
+    protonServiceRoleArn: [],
+    provisioningRepository: (_) => _json(_),
+    spec: [],
+    tags: (_) => _json(_),
+    templateMajorVersion: [],
+    templateMinorVersion: [],
+    templateName: [],
+  });
 };
 
-/**
- * serializeAws_json1_0CreateEnvironmentTemplateInput
- */
-const se_CreateEnvironmentTemplateInput = (input: CreateEnvironmentTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.provisioning != null && { provisioning: input.provisioning }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_CreateEnvironmentTemplateInput omitted.
 
 /**
  * serializeAws_json1_0CreateEnvironmentTemplateVersionInput
@@ -6960,88 +6752,54 @@ const se_CreateEnvironmentTemplateVersionInput = (
   input: CreateEnvironmentTemplateVersionInput,
   context: __SerdeContext
 ): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.source != null && { source: se_TemplateVersionSourceInput(input.source, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    majorVersion: [],
+    source: (_) => _json(_),
+    tags: (_) => _json(_),
+    templateName: [],
+  });
 };
 
-/**
- * serializeAws_json1_0CreateRepositoryInput
- */
-const se_CreateRepositoryInput = (input: CreateRepositoryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionArn != null && { connectionArn: input.connectionArn }),
-    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.provider != null && { provider: input.provider }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_CreateRepositoryInput omitted.
 
 /**
  * serializeAws_json1_0CreateServiceInput
  */
 const se_CreateServiceInput = (input: CreateServiceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.repositoryConnectionArn != null && { repositoryConnectionArn: input.repositoryConnectionArn }),
-    ...(input.repositoryId != null && { repositoryId: input.repositoryId }),
-    ...(input.spec != null && { spec: input.spec }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
+  return take(input, {
+    branchName: [],
+    description: [],
+    name: [],
+    repositoryConnectionArn: [],
+    repositoryId: [],
+    spec: [],
+    tags: (_) => _json(_),
+    templateMajorVersion: [],
+    templateMinorVersion: [],
+    templateName: [],
+  });
 };
 
 /**
  * serializeAws_json1_0CreateServiceInstanceInput
  */
 const se_CreateServiceInstanceInput = (input: CreateServiceInstanceInput, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.name != null && { name: input.name }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-    ...(input.spec != null && { spec: input.spec }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    name: [],
+    serviceName: [],
+    spec: [],
+    tags: (_) => _json(_),
+    templateMajorVersion: [],
+    templateMinorVersion: [],
+  });
 };
 
-/**
- * serializeAws_json1_0CreateServiceSyncConfigInput
- */
-const se_CreateServiceSyncConfigInput = (input: CreateServiceSyncConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branch != null && { branch: input.branch }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
+// se_CreateServiceSyncConfigInput omitted.
 
-/**
- * serializeAws_json1_0CreateServiceTemplateInput
- */
-const se_CreateServiceTemplateInput = (input: CreateServiceTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.pipelineProvisioning != null && { pipelineProvisioning: input.pipelineProvisioning }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_CreateServiceTemplateInput omitted.
 
 /**
  * serializeAws_json1_0CreateServiceTemplateVersionInput
@@ -7050,996 +6808,245 @@ const se_CreateServiceTemplateVersionInput = (
   input: CreateServiceTemplateVersionInput,
   context: __SerdeContext
 ): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.compatibleEnvironmentTemplates != null && {
-      compatibleEnvironmentTemplates: se_CompatibleEnvironmentTemplateInputList(
-        input.compatibleEnvironmentTemplates,
-        context
-      ),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.source != null && { source: se_TemplateVersionSourceInput(input.source, context) }),
-    ...(input.supportedComponentSources != null && {
-      supportedComponentSources: se_ServiceTemplateSupportedComponentSourceInputList(
-        input.supportedComponentSources,
-        context
-      ),
-    }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
-
-/**
- * serializeAws_json1_0CreateTemplateSyncConfigInput
- */
-const se_CreateTemplateSyncConfigInput = (input: CreateTemplateSyncConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branch != null && { branch: input.branch }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.subdirectory != null && { subdirectory: input.subdirectory }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-    ...(input.templateType != null && { templateType: input.templateType }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteComponentInput
- */
-const se_DeleteComponentInput = (input: DeleteComponentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteEnvironmentAccountConnectionInput
- */
-const se_DeleteEnvironmentAccountConnectionInput = (
-  input: DeleteEnvironmentAccountConnectionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteEnvironmentInput
- */
-const se_DeleteEnvironmentInput = (input: DeleteEnvironmentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteEnvironmentTemplateInput
- */
-const se_DeleteEnvironmentTemplateInput = (input: DeleteEnvironmentTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteEnvironmentTemplateVersionInput
- */
-const se_DeleteEnvironmentTemplateVersionInput = (
-  input: DeleteEnvironmentTemplateVersionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteRepositoryInput
- */
-const se_DeleteRepositoryInput = (input: DeleteRepositoryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.provider != null && { provider: input.provider }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteServiceInput
- */
-const se_DeleteServiceInput = (input: DeleteServiceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteServiceSyncConfigInput
- */
-const se_DeleteServiceSyncConfigInput = (input: DeleteServiceSyncConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteServiceTemplateInput
- */
-const se_DeleteServiceTemplateInput = (input: DeleteServiceTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteServiceTemplateVersionInput
- */
-const se_DeleteServiceTemplateVersionInput = (
-  input: DeleteServiceTemplateVersionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteTemplateSyncConfigInput
- */
-const se_DeleteTemplateSyncConfigInput = (input: DeleteTemplateSyncConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.templateName != null && { templateName: input.templateName }),
-    ...(input.templateType != null && { templateType: input.templateType }),
-  };
-};
-
-/**
- * serializeAws_json1_0EnvironmentAccountConnectionStatusList
- */
-const se_EnvironmentAccountConnectionStatusList = (
-  input: (EnvironmentAccountConnectionStatus | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_0EnvironmentTemplateFilter
- */
-const se_EnvironmentTemplateFilter = (input: EnvironmentTemplateFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
-
-/**
- * serializeAws_json1_0EnvironmentTemplateFilterList
- */
-const se_EnvironmentTemplateFilterList = (input: EnvironmentTemplateFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EnvironmentTemplateFilter(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_0GetAccountSettingsInput
- */
-const se_GetAccountSettingsInput = (input: GetAccountSettingsInput, context: __SerdeContext): any => {
-  return {};
-};
-
-/**
- * serializeAws_json1_0GetComponentInput
- */
-const se_GetComponentInput = (input: GetComponentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetEnvironmentAccountConnectionInput
- */
-const se_GetEnvironmentAccountConnectionInput = (
-  input: GetEnvironmentAccountConnectionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetEnvironmentInput
- */
-const se_GetEnvironmentInput = (input: GetEnvironmentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetEnvironmentTemplateInput
- */
-const se_GetEnvironmentTemplateInput = (input: GetEnvironmentTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetEnvironmentTemplateVersionInput
- */
-const se_GetEnvironmentTemplateVersionInput = (
-  input: GetEnvironmentTemplateVersionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetRepositoryInput
- */
-const se_GetRepositoryInput = (input: GetRepositoryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.provider != null && { provider: input.provider }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetRepositorySyncStatusInput
- */
-const se_GetRepositorySyncStatusInput = (input: GetRepositorySyncStatusInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branch != null && { branch: input.branch }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.syncType != null && { syncType: input.syncType }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetResourcesSummaryInput
- */
-const se_GetResourcesSummaryInput = (input: GetResourcesSummaryInput, context: __SerdeContext): any => {
-  return {};
-};
-
-/**
- * serializeAws_json1_0GetServiceInput
- */
-const se_GetServiceInput = (input: GetServiceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetServiceInstanceInput
- */
-const se_GetServiceInstanceInput = (input: GetServiceInstanceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetServiceInstanceSyncStatusInput
- */
-const se_GetServiceInstanceSyncStatusInput = (
-  input: GetServiceInstanceSyncStatusInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetServiceSyncBlockerSummaryInput
- */
-const se_GetServiceSyncBlockerSummaryInput = (
-  input: GetServiceSyncBlockerSummaryInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetServiceSyncConfigInput
- */
-const se_GetServiceSyncConfigInput = (input: GetServiceSyncConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetServiceTemplateInput
- */
-const se_GetServiceTemplateInput = (input: GetServiceTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetServiceTemplateVersionInput
- */
-const se_GetServiceTemplateVersionInput = (input: GetServiceTemplateVersionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetTemplateSyncConfigInput
- */
-const se_GetTemplateSyncConfigInput = (input: GetTemplateSyncConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.templateName != null && { templateName: input.templateName }),
-    ...(input.templateType != null && { templateType: input.templateType }),
-  };
-};
-
-/**
- * serializeAws_json1_0GetTemplateSyncStatusInput
- */
-const se_GetTemplateSyncStatusInput = (input: GetTemplateSyncStatusInput, context: __SerdeContext): any => {
-  return {
-    ...(input.templateName != null && { templateName: input.templateName }),
-    ...(input.templateType != null && { templateType: input.templateType }),
-    ...(input.templateVersion != null && { templateVersion: input.templateVersion }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListComponentOutputsInput
- */
-const se_ListComponentOutputsInput = (input: ListComponentOutputsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.componentName != null && { componentName: input.componentName }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListComponentProvisionedResourcesInput
- */
-const se_ListComponentProvisionedResourcesInput = (
-  input: ListComponentProvisionedResourcesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.componentName != null && { componentName: input.componentName }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListComponentsInput
- */
-const se_ListComponentsInput = (input: ListComponentsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.environmentName != null && { environmentName: input.environmentName }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListEnvironmentAccountConnectionsInput
- */
-const se_ListEnvironmentAccountConnectionsInput = (
-  input: ListEnvironmentAccountConnectionsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.environmentName != null && { environmentName: input.environmentName }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.requestedBy != null && { requestedBy: input.requestedBy }),
-    ...(input.statuses != null && { statuses: se_EnvironmentAccountConnectionStatusList(input.statuses, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListEnvironmentOutputsInput
- */
-const se_ListEnvironmentOutputsInput = (input: ListEnvironmentOutputsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.environmentName != null && { environmentName: input.environmentName }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListEnvironmentProvisionedResourcesInput
- */
-const se_ListEnvironmentProvisionedResourcesInput = (
-  input: ListEnvironmentProvisionedResourcesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.environmentName != null && { environmentName: input.environmentName }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListEnvironmentsInput
- */
-const se_ListEnvironmentsInput = (input: ListEnvironmentsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.environmentTemplates != null && {
-      environmentTemplates: se_EnvironmentTemplateFilterList(input.environmentTemplates, context),
-    }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListEnvironmentTemplatesInput
- */
-const se_ListEnvironmentTemplatesInput = (input: ListEnvironmentTemplatesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListEnvironmentTemplateVersionsInput
- */
-const se_ListEnvironmentTemplateVersionsInput = (
-  input: ListEnvironmentTemplateVersionsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListRepositoriesInput
- */
-const se_ListRepositoriesInput = (input: ListRepositoriesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListRepositorySyncDefinitionsInput
- */
-const se_ListRepositorySyncDefinitionsInput = (
-  input: ListRepositorySyncDefinitionsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.syncType != null && { syncType: input.syncType }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServiceInstanceOutputsInput
- */
-const se_ListServiceInstanceOutputsInput = (input: ListServiceInstanceOutputsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServiceInstanceProvisionedResourcesInput
- */
-const se_ListServiceInstanceProvisionedResourcesInput = (
-  input: ListServiceInstanceProvisionedResourcesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServiceInstancesFilter
- */
-const se_ListServiceInstancesFilter = (input: ListServiceInstancesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServiceInstancesFilterList
- */
-const se_ListServiceInstancesFilterList = (input: ListServiceInstancesFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ListServiceInstancesFilter(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_0ListServiceInstancesInput
- */
-const se_ListServiceInstancesInput = (input: ListServiceInstancesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.filters != null && { filters: se_ListServiceInstancesFilterList(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-    ...(input.sortBy != null && { sortBy: input.sortBy }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServicePipelineOutputsInput
- */
-const se_ListServicePipelineOutputsInput = (input: ListServicePipelineOutputsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServicePipelineProvisionedResourcesInput
- */
-const se_ListServicePipelineProvisionedResourcesInput = (
-  input: ListServicePipelineProvisionedResourcesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServicesInput
- */
-const se_ListServicesInput = (input: ListServicesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServiceTemplatesInput
- */
-const se_ListServiceTemplatesInput = (input: ListServiceTemplatesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListServiceTemplateVersionsInput
- */
-const se_ListServiceTemplateVersionsInput = (input: ListServiceTemplateVersionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListTagsForResourceInput
- */
-const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
-
-/**
- * serializeAws_json1_0NotifyResourceDeploymentStatusChangeInput
- */
-const se_NotifyResourceDeploymentStatusChangeInput = (
-  input: NotifyResourceDeploymentStatusChangeInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
-    ...(input.outputs != null && { outputs: se_OutputsList(input.outputs, context) }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.statusMessage != null && { statusMessage: input.statusMessage }),
-  };
-};
-
-/**
- * serializeAws_json1_0Output
- */
-const se_Output = (input: Output, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.valueString != null && { valueString: input.valueString }),
-  };
-};
-
-/**
- * serializeAws_json1_0OutputsList
- */
-const se_OutputsList = (input: Output[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Output(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_0RejectEnvironmentAccountConnectionInput
- */
-const se_RejectEnvironmentAccountConnectionInput = (
-  input: RejectEnvironmentAccountConnectionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
-
-/**
- * serializeAws_json1_0RepositoryBranchInput
- */
-const se_RepositoryBranchInput = (input: RepositoryBranchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branch != null && { branch: input.branch }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.provider != null && { provider: input.provider }),
-  };
-};
-
-/**
- * serializeAws_json1_0S3ObjectSource
- */
-const se_S3ObjectSource = (input: S3ObjectSource, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.key != null && { key: input.key }),
-  };
-};
-
-/**
- * serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList
- */
-const se_ServiceTemplateSupportedComponentSourceInputList = (
-  input: (ServiceTemplateSupportedComponentSourceType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_json1_0TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_0TagResourceInput
- */
-const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_0TemplateVersionSourceInput
- */
-const se_TemplateVersionSourceInput = (input: TemplateVersionSourceInput, context: __SerdeContext): any => {
-  return TemplateVersionSourceInput.visit(input, {
-    s3: (value) => ({ s3: se_S3ObjectSource(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    compatibleEnvironmentTemplates: (_) => _json(_),
+    description: [],
+    majorVersion: [],
+    source: (_) => _json(_),
+    supportedComponentSources: (_) => _json(_),
+    tags: (_) => _json(_),
+    templateName: [],
   });
 };
 
-/**
- * serializeAws_json1_0UntagResourceInput
- */
-const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  };
-};
+// se_CreateTemplateSyncConfigInput omitted.
 
-/**
- * serializeAws_json1_0UpdateAccountSettingsInput
- */
-const se_UpdateAccountSettingsInput = (input: UpdateAccountSettingsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.deletePipelineProvisioningRepository != null && {
-      deletePipelineProvisioningRepository: input.deletePipelineProvisioningRepository,
-    }),
-    ...(input.pipelineCodebuildRoleArn != null && { pipelineCodebuildRoleArn: input.pipelineCodebuildRoleArn }),
-    ...(input.pipelineProvisioningRepository != null && {
-      pipelineProvisioningRepository: se_RepositoryBranchInput(input.pipelineProvisioningRepository, context),
-    }),
-    ...(input.pipelineServiceRoleArn != null && { pipelineServiceRoleArn: input.pipelineServiceRoleArn }),
-  };
-};
+// se_DeleteComponentInput omitted.
+
+// se_DeleteEnvironmentAccountConnectionInput omitted.
+
+// se_DeleteEnvironmentInput omitted.
+
+// se_DeleteEnvironmentTemplateInput omitted.
+
+// se_DeleteEnvironmentTemplateVersionInput omitted.
+
+// se_DeleteRepositoryInput omitted.
+
+// se_DeleteServiceInput omitted.
+
+// se_DeleteServiceSyncConfigInput omitted.
+
+// se_DeleteServiceTemplateInput omitted.
+
+// se_DeleteServiceTemplateVersionInput omitted.
+
+// se_DeleteTemplateSyncConfigInput omitted.
+
+// se_EnvironmentAccountConnectionStatusList omitted.
+
+// se_EnvironmentTemplateFilter omitted.
+
+// se_EnvironmentTemplateFilterList omitted.
+
+// se_GetAccountSettingsInput omitted.
+
+// se_GetComponentInput omitted.
+
+// se_GetEnvironmentAccountConnectionInput omitted.
+
+// se_GetEnvironmentInput omitted.
+
+// se_GetEnvironmentTemplateInput omitted.
+
+// se_GetEnvironmentTemplateVersionInput omitted.
+
+// se_GetRepositoryInput omitted.
+
+// se_GetRepositorySyncStatusInput omitted.
+
+// se_GetResourcesSummaryInput omitted.
+
+// se_GetServiceInput omitted.
+
+// se_GetServiceInstanceInput omitted.
+
+// se_GetServiceInstanceSyncStatusInput omitted.
+
+// se_GetServiceSyncBlockerSummaryInput omitted.
+
+// se_GetServiceSyncConfigInput omitted.
+
+// se_GetServiceTemplateInput omitted.
+
+// se_GetServiceTemplateVersionInput omitted.
+
+// se_GetTemplateSyncConfigInput omitted.
+
+// se_GetTemplateSyncStatusInput omitted.
+
+// se_ListComponentOutputsInput omitted.
+
+// se_ListComponentProvisionedResourcesInput omitted.
+
+// se_ListComponentsInput omitted.
+
+// se_ListEnvironmentAccountConnectionsInput omitted.
+
+// se_ListEnvironmentOutputsInput omitted.
+
+// se_ListEnvironmentProvisionedResourcesInput omitted.
+
+// se_ListEnvironmentsInput omitted.
+
+// se_ListEnvironmentTemplatesInput omitted.
+
+// se_ListEnvironmentTemplateVersionsInput omitted.
+
+// se_ListRepositoriesInput omitted.
+
+// se_ListRepositorySyncDefinitionsInput omitted.
+
+// se_ListServiceInstanceOutputsInput omitted.
+
+// se_ListServiceInstanceProvisionedResourcesInput omitted.
+
+// se_ListServiceInstancesFilter omitted.
+
+// se_ListServiceInstancesFilterList omitted.
+
+// se_ListServiceInstancesInput omitted.
+
+// se_ListServicePipelineOutputsInput omitted.
+
+// se_ListServicePipelineProvisionedResourcesInput omitted.
+
+// se_ListServicesInput omitted.
+
+// se_ListServiceTemplatesInput omitted.
+
+// se_ListServiceTemplateVersionsInput omitted.
+
+// se_ListTagsForResourceInput omitted.
+
+// se_NotifyResourceDeploymentStatusChangeInput omitted.
+
+// se_Output omitted.
+
+// se_OutputsList omitted.
+
+// se_RejectEnvironmentAccountConnectionInput omitted.
+
+// se_RepositoryBranchInput omitted.
+
+// se_S3ObjectSource omitted.
+
+// se_ServiceTemplateSupportedComponentSourceInputList omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceInput omitted.
+
+// se_TemplateVersionSourceInput omitted.
+
+// se_UntagResourceInput omitted.
+
+// se_UpdateAccountSettingsInput omitted.
 
 /**
  * serializeAws_json1_0UpdateComponentInput
  */
 const se_UpdateComponentInput = (input: UpdateComponentInput, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-    ...(input.serviceSpec != null && { serviceSpec: input.serviceSpec }),
-    ...(input.templateFile != null && { templateFile: input.templateFile }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    deploymentType: [],
+    description: [],
+    name: [],
+    serviceInstanceName: [],
+    serviceName: [],
+    serviceSpec: [],
+    templateFile: [],
+  });
 };
 
-/**
- * serializeAws_json1_0UpdateEnvironmentAccountConnectionInput
- */
-const se_UpdateEnvironmentAccountConnectionInput = (
-  input: UpdateEnvironmentAccountConnectionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
-    ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-  };
-};
+// se_UpdateEnvironmentAccountConnectionInput omitted.
 
 /**
  * serializeAws_json1_0UpdateEnvironmentInput
  */
 const se_UpdateEnvironmentInput = (input: UpdateEnvironmentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
-    ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
-    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.environmentAccountConnectionId != null && {
-      environmentAccountConnectionId: input.environmentAccountConnectionId,
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.protonServiceRoleArn != null && { protonServiceRoleArn: input.protonServiceRoleArn }),
-    ...(input.provisioningRepository != null && {
-      provisioningRepository: se_RepositoryBranchInput(input.provisioningRepository, context),
-    }),
-    ...(input.spec != null && { spec: input.spec }),
-    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
-  };
+  return take(input, {
+    codebuildRoleArn: [],
+    componentRoleArn: [],
+    deploymentType: [],
+    description: [],
+    environmentAccountConnectionId: [],
+    name: [],
+    protonServiceRoleArn: [],
+    provisioningRepository: (_) => _json(_),
+    spec: [],
+    templateMajorVersion: [],
+    templateMinorVersion: [],
+  });
 };
 
-/**
- * serializeAws_json1_0UpdateEnvironmentTemplateInput
- */
-const se_UpdateEnvironmentTemplateInput = (input: UpdateEnvironmentTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UpdateEnvironmentTemplateInput omitted.
 
-/**
- * serializeAws_json1_0UpdateEnvironmentTemplateVersionInput
- */
-const se_UpdateEnvironmentTemplateVersionInput = (
-  input: UpdateEnvironmentTemplateVersionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
+// se_UpdateEnvironmentTemplateVersionInput omitted.
 
 /**
  * serializeAws_json1_0UpdateServiceInput
  */
 const se_UpdateServiceInput = (input: UpdateServiceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.spec != null && { spec: input.spec }),
-  };
+  return take(input, {
+    description: [],
+    name: [],
+    spec: [],
+  });
 };
 
 /**
  * serializeAws_json1_0UpdateServiceInstanceInput
  */
 const se_UpdateServiceInstanceInput = (input: UpdateServiceInstanceInput, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-    ...(input.spec != null && { spec: input.spec }),
-    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    deploymentType: [],
+    name: [],
+    serviceName: [],
+    spec: [],
+    templateMajorVersion: [],
+    templateMinorVersion: [],
+  });
 };
 
 /**
  * serializeAws_json1_0UpdateServicePipelineInput
  */
 const se_UpdateServicePipelineInput = (input: UpdateServicePipelineInput, context: __SerdeContext): any => {
-  return {
-    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-    ...(input.spec != null && { spec: input.spec }),
-    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
-  };
+  return take(input, {
+    deploymentType: [],
+    serviceName: [],
+    spec: [],
+    templateMajorVersion: [],
+    templateMinorVersion: [],
+  });
 };
 
-/**
- * serializeAws_json1_0UpdateServiceSyncBlockerInput
- */
-const se_UpdateServiceSyncBlockerInput = (input: UpdateServiceSyncBlockerInput, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.resolvedReason != null && { resolvedReason: input.resolvedReason }),
-  };
-};
+// se_UpdateServiceSyncBlockerInput omitted.
 
-/**
- * serializeAws_json1_0UpdateServiceSyncConfigInput
- */
-const se_UpdateServiceSyncConfigInput = (input: UpdateServiceSyncConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branch != null && { branch: input.branch }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
+// se_UpdateServiceSyncConfigInput omitted.
 
-/**
- * serializeAws_json1_0UpdateServiceTemplateInput
- */
-const se_UpdateServiceTemplateInput = (input: UpdateServiceTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UpdateServiceTemplateInput omitted.
 
-/**
- * serializeAws_json1_0UpdateServiceTemplateVersionInput
- */
-const se_UpdateServiceTemplateVersionInput = (
-  input: UpdateServiceTemplateVersionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.compatibleEnvironmentTemplates != null && {
-      compatibleEnvironmentTemplates: se_CompatibleEnvironmentTemplateInputList(
-        input.compatibleEnvironmentTemplates,
-        context
-      ),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.supportedComponentSources != null && {
-      supportedComponentSources: se_ServiceTemplateSupportedComponentSourceInputList(
-        input.supportedComponentSources,
-        context
-      ),
-    }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-  };
-};
+// se_UpdateServiceTemplateVersionInput omitted.
 
-/**
- * serializeAws_json1_0UpdateTemplateSyncConfigInput
- */
-const se_UpdateTemplateSyncConfigInput = (input: UpdateTemplateSyncConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branch != null && { branch: input.branch }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.subdirectory != null && { subdirectory: input.subdirectory }),
-    ...(input.templateName != null && { templateName: input.templateName }),
-    ...(input.templateType != null && { templateType: input.templateType }),
-  };
-};
+// se_UpdateTemplateSyncConfigInput omitted.
 
 /**
  * deserializeAws_json1_0AcceptEnvironmentAccountConnectionOutput
@@ -8048,44 +7055,22 @@ const de_AcceptEnvironmentAccountConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): AcceptEnvironmentAccountConnectionOutput => {
-  return {
-    environmentAccountConnection:
-      output.environmentAccountConnection != null
-        ? de_EnvironmentAccountConnection(output.environmentAccountConnection, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentAccountConnection: (_: any) => de_EnvironmentAccountConnection(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_0AccountSettings
- */
-const de_AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
-  return {
-    pipelineCodebuildRoleArn: __expectString(output.pipelineCodebuildRoleArn),
-    pipelineProvisioningRepository:
-      output.pipelineProvisioningRepository != null
-        ? de_RepositoryBranch(output.pipelineProvisioningRepository, context)
-        : undefined,
-    pipelineServiceRoleArn: __expectString(output.pipelineServiceRoleArn),
-  } as any;
-};
+// de_AccountSettings omitted.
 
 /**
  * deserializeAws_json1_0CancelComponentDeploymentOutput
  */
 const de_CancelComponentDeploymentOutput = (output: any, context: __SerdeContext): CancelComponentDeploymentOutput => {
-  return {
-    component: output.component != null ? de_Component(output.component, context) : undefined,
-  } as any;
+  return take(output, {
+    component: (_: any) => de_Component(_, context),
+  }) as any;
 };
 
 /**
@@ -8095,9 +7080,9 @@ const de_CancelEnvironmentDeploymentOutput = (
   output: any,
   context: __SerdeContext
 ): CancelEnvironmentDeploymentOutput => {
-  return {
-    environment: output.environment != null ? de_Environment(output.environment, context) : undefined,
-  } as any;
+  return take(output, {
+    environment: (_: any) => de_Environment(_, context),
+  }) as any;
 };
 
 /**
@@ -8107,9 +7092,9 @@ const de_CancelServiceInstanceDeploymentOutput = (
   output: any,
   context: __SerdeContext
 ): CancelServiceInstanceDeploymentOutput => {
-  return {
-    serviceInstance: output.serviceInstance != null ? de_ServiceInstance(output.serviceInstance, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceInstance: (_: any) => de_ServiceInstance(_, context),
+  }) as any;
 };
 
 /**
@@ -8119,98 +7104,54 @@ const de_CancelServicePipelineDeploymentOutput = (
   output: any,
   context: __SerdeContext
 ): CancelServicePipelineDeploymentOutput => {
-  return {
-    pipeline: output.pipeline != null ? de_ServicePipeline(output.pipeline, context) : undefined,
-  } as any;
+  return take(output, {
+    pipeline: (_: any) => de_ServicePipeline(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CompatibleEnvironmentTemplate
- */
-const de_CompatibleEnvironmentTemplate = (output: any, context: __SerdeContext): CompatibleEnvironmentTemplate => {
-  return {
-    majorVersion: __expectString(output.majorVersion),
-    templateName: __expectString(output.templateName),
-  } as any;
-};
+// de_CompatibleEnvironmentTemplate omitted.
 
-/**
- * deserializeAws_json1_0CompatibleEnvironmentTemplateList
- */
-const de_CompatibleEnvironmentTemplateList = (
-  output: any,
-  context: __SerdeContext
-): CompatibleEnvironmentTemplate[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CompatibleEnvironmentTemplate(entry, context);
-    });
-  return retVal;
-};
+// de_CompatibleEnvironmentTemplateList omitted.
 
 /**
  * deserializeAws_json1_0Component
  */
 const de_Component = (output: any, context: __SerdeContext): Component => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    deploymentStatus: __expectString(output.deploymentStatus),
-    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
-    description: __expectString(output.description),
-    environmentName: __expectString(output.environmentName),
-    lastClientRequestToken: __expectString(output.lastClientRequestToken),
-    lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
-        : undefined,
-    lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
-        : undefined,
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    serviceInstanceName: __expectString(output.serviceInstanceName),
-    serviceName: __expectString(output.serviceName),
-    serviceSpec: __expectString(output.serviceSpec),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    deploymentStatusMessage: __expectString,
+    description: __expectString,
+    environmentName: __expectString,
+    lastClientRequestToken: __expectString,
+    lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    serviceInstanceName: __expectString,
+    serviceName: __expectString,
+    serviceSpec: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ComponentSummary
  */
 const de_ComponentSummary = (output: any, context: __SerdeContext): ComponentSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    deploymentStatus: __expectString(output.deploymentStatus),
-    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
-    environmentName: __expectString(output.environmentName),
-    lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
-        : undefined,
-    lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
-        : undefined,
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    serviceInstanceName: __expectString(output.serviceInstanceName),
-    serviceName: __expectString(output.serviceName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    deploymentStatusMessage: __expectString,
+    environmentName: __expectString,
+    lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    serviceInstanceName: __expectString,
+    serviceName: __expectString,
+  }) as any;
 };
 
 /**
@@ -8220,48 +7161,22 @@ const de_ComponentSummaryList = (output: any, context: __SerdeContext): Componen
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ComponentSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_0CountsSummary
- */
-const de_CountsSummary = (output: any, context: __SerdeContext): CountsSummary => {
-  return {
-    components: output.components != null ? de_ResourceCountsSummary(output.components, context) : undefined,
-    environmentTemplates:
-      output.environmentTemplates != null ? de_ResourceCountsSummary(output.environmentTemplates, context) : undefined,
-    environments: output.environments != null ? de_ResourceCountsSummary(output.environments, context) : undefined,
-    pipelines: output.pipelines != null ? de_ResourceCountsSummary(output.pipelines, context) : undefined,
-    serviceInstances:
-      output.serviceInstances != null ? de_ResourceCountsSummary(output.serviceInstances, context) : undefined,
-    serviceTemplates:
-      output.serviceTemplates != null ? de_ResourceCountsSummary(output.serviceTemplates, context) : undefined,
-    services: output.services != null ? de_ResourceCountsSummary(output.services, context) : undefined,
-  } as any;
-};
+// de_CountsSummary omitted.
 
 /**
  * deserializeAws_json1_0CreateComponentOutput
  */
 const de_CreateComponentOutput = (output: any, context: __SerdeContext): CreateComponentOutput => {
-  return {
-    component: output.component != null ? de_Component(output.component, context) : undefined,
-  } as any;
+  return take(output, {
+    component: (_: any) => de_Component(_, context),
+  }) as any;
 };
 
 /**
@@ -8271,31 +7186,27 @@ const de_CreateEnvironmentAccountConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): CreateEnvironmentAccountConnectionOutput => {
-  return {
-    environmentAccountConnection:
-      output.environmentAccountConnection != null
-        ? de_EnvironmentAccountConnection(output.environmentAccountConnection, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentAccountConnection: (_: any) => de_EnvironmentAccountConnection(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0CreateEnvironmentOutput
  */
 const de_CreateEnvironmentOutput = (output: any, context: __SerdeContext): CreateEnvironmentOutput => {
-  return {
-    environment: output.environment != null ? de_Environment(output.environment, context) : undefined,
-  } as any;
+  return take(output, {
+    environment: (_: any) => de_Environment(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0CreateEnvironmentTemplateOutput
  */
 const de_CreateEnvironmentTemplateOutput = (output: any, context: __SerdeContext): CreateEnvironmentTemplateOutput => {
-  return {
-    environmentTemplate:
-      output.environmentTemplate != null ? de_EnvironmentTemplate(output.environmentTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    environmentTemplate: (_: any) => de_EnvironmentTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -8305,58 +7216,40 @@ const de_CreateEnvironmentTemplateVersionOutput = (
   output: any,
   context: __SerdeContext
 ): CreateEnvironmentTemplateVersionOutput => {
-  return {
-    environmentTemplateVersion:
-      output.environmentTemplateVersion != null
-        ? de_EnvironmentTemplateVersion(output.environmentTemplateVersion, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentTemplateVersion: (_: any) => de_EnvironmentTemplateVersion(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CreateRepositoryOutput
- */
-const de_CreateRepositoryOutput = (output: any, context: __SerdeContext): CreateRepositoryOutput => {
-  return {
-    repository: output.repository != null ? de_Repository(output.repository, context) : undefined,
-  } as any;
-};
+// de_CreateRepositoryOutput omitted.
 
 /**
  * deserializeAws_json1_0CreateServiceInstanceOutput
  */
 const de_CreateServiceInstanceOutput = (output: any, context: __SerdeContext): CreateServiceInstanceOutput => {
-  return {
-    serviceInstance: output.serviceInstance != null ? de_ServiceInstance(output.serviceInstance, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceInstance: (_: any) => de_ServiceInstance(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0CreateServiceOutput
  */
 const de_CreateServiceOutput = (output: any, context: __SerdeContext): CreateServiceOutput => {
-  return {
-    service: output.service != null ? de_Service(output.service, context) : undefined,
-  } as any;
+  return take(output, {
+    service: (_: any) => de_Service(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CreateServiceSyncConfigOutput
- */
-const de_CreateServiceSyncConfigOutput = (output: any, context: __SerdeContext): CreateServiceSyncConfigOutput => {
-  return {
-    serviceSyncConfig:
-      output.serviceSyncConfig != null ? de_ServiceSyncConfig(output.serviceSyncConfig, context) : undefined,
-  } as any;
-};
+// de_CreateServiceSyncConfigOutput omitted.
 
 /**
  * deserializeAws_json1_0CreateServiceTemplateOutput
  */
 const de_CreateServiceTemplateOutput = (output: any, context: __SerdeContext): CreateServiceTemplateOutput => {
-  return {
-    serviceTemplate: output.serviceTemplate != null ? de_ServiceTemplate(output.serviceTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceTemplate: (_: any) => de_ServiceTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -8366,31 +7259,20 @@ const de_CreateServiceTemplateVersionOutput = (
   output: any,
   context: __SerdeContext
 ): CreateServiceTemplateVersionOutput => {
-  return {
-    serviceTemplateVersion:
-      output.serviceTemplateVersion != null
-        ? de_ServiceTemplateVersion(output.serviceTemplateVersion, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    serviceTemplateVersion: (_: any) => de_ServiceTemplateVersion(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CreateTemplateSyncConfigOutput
- */
-const de_CreateTemplateSyncConfigOutput = (output: any, context: __SerdeContext): CreateTemplateSyncConfigOutput => {
-  return {
-    templateSyncConfig:
-      output.templateSyncConfig != null ? de_TemplateSyncConfig(output.templateSyncConfig, context) : undefined,
-  } as any;
-};
+// de_CreateTemplateSyncConfigOutput omitted.
 
 /**
  * deserializeAws_json1_0DeleteComponentOutput
  */
 const de_DeleteComponentOutput = (output: any, context: __SerdeContext): DeleteComponentOutput => {
-  return {
-    component: output.component != null ? de_Component(output.component, context) : undefined,
-  } as any;
+  return take(output, {
+    component: (_: any) => de_Component(_, context),
+  }) as any;
 };
 
 /**
@@ -8400,31 +7282,27 @@ const de_DeleteEnvironmentAccountConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteEnvironmentAccountConnectionOutput => {
-  return {
-    environmentAccountConnection:
-      output.environmentAccountConnection != null
-        ? de_EnvironmentAccountConnection(output.environmentAccountConnection, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentAccountConnection: (_: any) => de_EnvironmentAccountConnection(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DeleteEnvironmentOutput
  */
 const de_DeleteEnvironmentOutput = (output: any, context: __SerdeContext): DeleteEnvironmentOutput => {
-  return {
-    environment: output.environment != null ? de_Environment(output.environment, context) : undefined,
-  } as any;
+  return take(output, {
+    environment: (_: any) => de_Environment(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DeleteEnvironmentTemplateOutput
  */
 const de_DeleteEnvironmentTemplateOutput = (output: any, context: __SerdeContext): DeleteEnvironmentTemplateOutput => {
-  return {
-    environmentTemplate:
-      output.environmentTemplate != null ? de_EnvironmentTemplate(output.environmentTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    environmentTemplate: (_: any) => de_EnvironmentTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -8434,49 +7312,31 @@ const de_DeleteEnvironmentTemplateVersionOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteEnvironmentTemplateVersionOutput => {
-  return {
-    environmentTemplateVersion:
-      output.environmentTemplateVersion != null
-        ? de_EnvironmentTemplateVersion(output.environmentTemplateVersion, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentTemplateVersion: (_: any) => de_EnvironmentTemplateVersion(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DeleteRepositoryOutput
- */
-const de_DeleteRepositoryOutput = (output: any, context: __SerdeContext): DeleteRepositoryOutput => {
-  return {
-    repository: output.repository != null ? de_Repository(output.repository, context) : undefined,
-  } as any;
-};
+// de_DeleteRepositoryOutput omitted.
 
 /**
  * deserializeAws_json1_0DeleteServiceOutput
  */
 const de_DeleteServiceOutput = (output: any, context: __SerdeContext): DeleteServiceOutput => {
-  return {
-    service: output.service != null ? de_Service(output.service, context) : undefined,
-  } as any;
+  return take(output, {
+    service: (_: any) => de_Service(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DeleteServiceSyncConfigOutput
- */
-const de_DeleteServiceSyncConfigOutput = (output: any, context: __SerdeContext): DeleteServiceSyncConfigOutput => {
-  return {
-    serviceSyncConfig:
-      output.serviceSyncConfig != null ? de_ServiceSyncConfig(output.serviceSyncConfig, context) : undefined,
-  } as any;
-};
+// de_DeleteServiceSyncConfigOutput omitted.
 
 /**
  * deserializeAws_json1_0DeleteServiceTemplateOutput
  */
 const de_DeleteServiceTemplateOutput = (output: any, context: __SerdeContext): DeleteServiceTemplateOutput => {
-  return {
-    serviceTemplate: output.serviceTemplate != null ? de_ServiceTemplate(output.serviceTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceTemplate: (_: any) => de_ServiceTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -8486,82 +7346,57 @@ const de_DeleteServiceTemplateVersionOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteServiceTemplateVersionOutput => {
-  return {
-    serviceTemplateVersion:
-      output.serviceTemplateVersion != null
-        ? de_ServiceTemplateVersion(output.serviceTemplateVersion, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    serviceTemplateVersion: (_: any) => de_ServiceTemplateVersion(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DeleteTemplateSyncConfigOutput
- */
-const de_DeleteTemplateSyncConfigOutput = (output: any, context: __SerdeContext): DeleteTemplateSyncConfigOutput => {
-  return {
-    templateSyncConfig:
-      output.templateSyncConfig != null ? de_TemplateSyncConfig(output.templateSyncConfig, context) : undefined,
-  } as any;
-};
+// de_DeleteTemplateSyncConfigOutput omitted.
 
 /**
  * deserializeAws_json1_0Environment
  */
 const de_Environment = (output: any, context: __SerdeContext): Environment => {
-  return {
-    arn: __expectString(output.arn),
-    codebuildRoleArn: __expectString(output.codebuildRoleArn),
-    componentRoleArn: __expectString(output.componentRoleArn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    deploymentStatus: __expectString(output.deploymentStatus),
-    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
-    description: __expectString(output.description),
-    environmentAccountConnectionId: __expectString(output.environmentAccountConnectionId),
-    environmentAccountId: __expectString(output.environmentAccountId),
-    lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
-        : undefined,
-    lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
-        : undefined,
-    name: __expectString(output.name),
-    protonServiceRoleArn: __expectString(output.protonServiceRoleArn),
-    provisioning: __expectString(output.provisioning),
-    provisioningRepository:
-      output.provisioningRepository != null ? de_RepositoryBranch(output.provisioningRepository, context) : undefined,
-    spec: __expectString(output.spec),
-    templateMajorVersion: __expectString(output.templateMajorVersion),
-    templateMinorVersion: __expectString(output.templateMinorVersion),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    codebuildRoleArn: __expectString,
+    componentRoleArn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    deploymentStatusMessage: __expectString,
+    description: __expectString,
+    environmentAccountConnectionId: __expectString,
+    environmentAccountId: __expectString,
+    lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    protonServiceRoleArn: __expectString,
+    provisioning: __expectString,
+    provisioningRepository: _json,
+    spec: __expectString,
+    templateMajorVersion: __expectString,
+    templateMinorVersion: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0EnvironmentAccountConnection
  */
 const de_EnvironmentAccountConnection = (output: any, context: __SerdeContext): EnvironmentAccountConnection => {
-  return {
-    arn: __expectString(output.arn),
-    codebuildRoleArn: __expectString(output.codebuildRoleArn),
-    componentRoleArn: __expectString(output.componentRoleArn),
-    environmentAccountId: __expectString(output.environmentAccountId),
-    environmentName: __expectString(output.environmentName),
-    id: __expectString(output.id),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    managementAccountId: __expectString(output.managementAccountId),
-    requestedAt:
-      output.requestedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedAt)))
-        : undefined,
-    roleArn: __expectString(output.roleArn),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    codebuildRoleArn: __expectString,
+    componentRoleArn: __expectString,
+    environmentAccountId: __expectString,
+    environmentName: __expectString,
+    id: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    managementAccountId: __expectString,
+    requestedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -8571,24 +7406,18 @@ const de_EnvironmentAccountConnectionSummary = (
   output: any,
   context: __SerdeContext
 ): EnvironmentAccountConnectionSummary => {
-  return {
-    arn: __expectString(output.arn),
-    componentRoleArn: __expectString(output.componentRoleArn),
-    environmentAccountId: __expectString(output.environmentAccountId),
-    environmentName: __expectString(output.environmentName),
-    id: __expectString(output.id),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    managementAccountId: __expectString(output.managementAccountId),
-    requestedAt:
-      output.requestedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedAt)))
-        : undefined,
-    roleArn: __expectString(output.roleArn),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    componentRoleArn: __expectString,
+    environmentAccountId: __expectString,
+    environmentName: __expectString,
+    id: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    managementAccountId: __expectString,
+    requestedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -8601,9 +7430,6 @@ const de_EnvironmentAccountConnectionSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EnvironmentAccountConnectionSummary(entry, context);
     });
   return retVal;
@@ -8613,31 +7439,24 @@ const de_EnvironmentAccountConnectionSummaryList = (
  * deserializeAws_json1_0EnvironmentSummary
  */
 const de_EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
-  return {
-    arn: __expectString(output.arn),
-    componentRoleArn: __expectString(output.componentRoleArn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    deploymentStatus: __expectString(output.deploymentStatus),
-    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
-    description: __expectString(output.description),
-    environmentAccountConnectionId: __expectString(output.environmentAccountConnectionId),
-    environmentAccountId: __expectString(output.environmentAccountId),
-    lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
-        : undefined,
-    lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
-        : undefined,
-    name: __expectString(output.name),
-    protonServiceRoleArn: __expectString(output.protonServiceRoleArn),
-    provisioning: __expectString(output.provisioning),
-    templateMajorVersion: __expectString(output.templateMajorVersion),
-    templateMinorVersion: __expectString(output.templateMinorVersion),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    componentRoleArn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    deploymentStatusMessage: __expectString,
+    description: __expectString,
+    environmentAccountConnectionId: __expectString,
+    environmentAccountId: __expectString,
+    lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    protonServiceRoleArn: __expectString,
+    provisioning: __expectString,
+    templateMajorVersion: __expectString,
+    templateMinorVersion: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
@@ -8647,9 +7466,6 @@ const de_EnvironmentSummaryList = (output: any, context: __SerdeContext): Enviro
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EnvironmentSummary(entry, context);
     });
   return retVal;
@@ -8659,41 +7475,33 @@ const de_EnvironmentSummaryList = (output: any, context: __SerdeContext): Enviro
  * deserializeAws_json1_0EnvironmentTemplate
  */
 const de_EnvironmentTemplate = (output: any, context: __SerdeContext): EnvironmentTemplate => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    displayName: __expectString(output.displayName),
-    encryptionKey: __expectString(output.encryptionKey),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    provisioning: __expectString(output.provisioning),
-    recommendedVersion: __expectString(output.recommendedVersion),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    displayName: __expectString,
+    encryptionKey: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    provisioning: __expectString,
+    recommendedVersion: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0EnvironmentTemplateSummary
  */
 const de_EnvironmentTemplateSummary = (output: any, context: __SerdeContext): EnvironmentTemplateSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    displayName: __expectString(output.displayName),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    provisioning: __expectString(output.provisioning),
-    recommendedVersion: __expectString(output.recommendedVersion),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    displayName: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    provisioning: __expectString,
+    recommendedVersion: __expectString,
+  }) as any;
 };
 
 /**
@@ -8703,9 +7511,6 @@ const de_EnvironmentTemplateSummaryList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EnvironmentTemplateSummary(entry, context);
     });
   return retVal;
@@ -8715,23 +7520,19 @@ const de_EnvironmentTemplateSummaryList = (output: any, context: __SerdeContext)
  * deserializeAws_json1_0EnvironmentTemplateVersion
  */
 const de_EnvironmentTemplateVersion = (output: any, context: __SerdeContext): EnvironmentTemplateVersion => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    majorVersion: __expectString(output.majorVersion),
-    minorVersion: __expectString(output.minorVersion),
-    recommendedMinorVersion: __expectString(output.recommendedMinorVersion),
-    schema: __expectString(output.schema),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    majorVersion: __expectString,
+    minorVersion: __expectString,
+    recommendedMinorVersion: __expectString,
+    schema: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
@@ -8741,22 +7542,18 @@ const de_EnvironmentTemplateVersionSummary = (
   output: any,
   context: __SerdeContext
 ): EnvironmentTemplateVersionSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    majorVersion: __expectString(output.majorVersion),
-    minorVersion: __expectString(output.minorVersion),
-    recommendedMinorVersion: __expectString(output.recommendedMinorVersion),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    majorVersion: __expectString,
+    minorVersion: __expectString,
+    recommendedMinorVersion: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
@@ -8769,30 +7566,20 @@ const de_EnvironmentTemplateVersionSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EnvironmentTemplateVersionSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0GetAccountSettingsOutput
- */
-const de_GetAccountSettingsOutput = (output: any, context: __SerdeContext): GetAccountSettingsOutput => {
-  return {
-    accountSettings: output.accountSettings != null ? de_AccountSettings(output.accountSettings, context) : undefined,
-  } as any;
-};
+// de_GetAccountSettingsOutput omitted.
 
 /**
  * deserializeAws_json1_0GetComponentOutput
  */
 const de_GetComponentOutput = (output: any, context: __SerdeContext): GetComponentOutput => {
-  return {
-    component: output.component != null ? de_Component(output.component, context) : undefined,
-  } as any;
+  return take(output, {
+    component: (_: any) => de_Component(_, context),
+  }) as any;
 };
 
 /**
@@ -8802,31 +7589,27 @@ const de_GetEnvironmentAccountConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): GetEnvironmentAccountConnectionOutput => {
-  return {
-    environmentAccountConnection:
-      output.environmentAccountConnection != null
-        ? de_EnvironmentAccountConnection(output.environmentAccountConnection, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentAccountConnection: (_: any) => de_EnvironmentAccountConnection(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetEnvironmentOutput
  */
 const de_GetEnvironmentOutput = (output: any, context: __SerdeContext): GetEnvironmentOutput => {
-  return {
-    environment: output.environment != null ? de_Environment(output.environment, context) : undefined,
-  } as any;
+  return take(output, {
+    environment: (_: any) => de_Environment(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetEnvironmentTemplateOutput
  */
 const de_GetEnvironmentTemplateOutput = (output: any, context: __SerdeContext): GetEnvironmentTemplateOutput => {
-  return {
-    environmentTemplate:
-      output.environmentTemplate != null ? de_EnvironmentTemplate(output.environmentTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    environmentTemplate: (_: any) => de_EnvironmentTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -8836,48 +7619,31 @@ const de_GetEnvironmentTemplateVersionOutput = (
   output: any,
   context: __SerdeContext
 ): GetEnvironmentTemplateVersionOutput => {
-  return {
-    environmentTemplateVersion:
-      output.environmentTemplateVersion != null
-        ? de_EnvironmentTemplateVersion(output.environmentTemplateVersion, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentTemplateVersion: (_: any) => de_EnvironmentTemplateVersion(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetRepositoryOutput
- */
-const de_GetRepositoryOutput = (output: any, context: __SerdeContext): GetRepositoryOutput => {
-  return {
-    repository: output.repository != null ? de_Repository(output.repository, context) : undefined,
-  } as any;
-};
+// de_GetRepositoryOutput omitted.
 
 /**
  * deserializeAws_json1_0GetRepositorySyncStatusOutput
  */
 const de_GetRepositorySyncStatusOutput = (output: any, context: __SerdeContext): GetRepositorySyncStatusOutput => {
-  return {
-    latestSync: output.latestSync != null ? de_RepositorySyncAttempt(output.latestSync, context) : undefined,
-  } as any;
+  return take(output, {
+    latestSync: (_: any) => de_RepositorySyncAttempt(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetResourcesSummaryOutput
- */
-const de_GetResourcesSummaryOutput = (output: any, context: __SerdeContext): GetResourcesSummaryOutput => {
-  return {
-    counts: output.counts != null ? de_CountsSummary(output.counts, context) : undefined,
-  } as any;
-};
+// de_GetResourcesSummaryOutput omitted.
 
 /**
  * deserializeAws_json1_0GetServiceInstanceOutput
  */
 const de_GetServiceInstanceOutput = (output: any, context: __SerdeContext): GetServiceInstanceOutput => {
-  return {
-    serviceInstance: output.serviceInstance != null ? de_ServiceInstance(output.serviceInstance, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceInstance: (_: any) => de_ServiceInstance(_, context),
+  }) as any;
 };
 
 /**
@@ -8887,21 +7653,20 @@ const de_GetServiceInstanceSyncStatusOutput = (
   output: any,
   context: __SerdeContext
 ): GetServiceInstanceSyncStatusOutput => {
-  return {
-    desiredState: output.desiredState != null ? de_Revision(output.desiredState, context) : undefined,
-    latestSuccessfulSync:
-      output.latestSuccessfulSync != null ? de_ResourceSyncAttempt(output.latestSuccessfulSync, context) : undefined,
-    latestSync: output.latestSync != null ? de_ResourceSyncAttempt(output.latestSync, context) : undefined,
-  } as any;
+  return take(output, {
+    desiredState: _json,
+    latestSuccessfulSync: (_: any) => de_ResourceSyncAttempt(_, context),
+    latestSync: (_: any) => de_ResourceSyncAttempt(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetServiceOutput
  */
 const de_GetServiceOutput = (output: any, context: __SerdeContext): GetServiceOutput => {
-  return {
-    service: output.service != null ? de_Service(output.service, context) : undefined,
-  } as any;
+  return take(output, {
+    service: (_: any) => de_Service(_, context),
+  }) as any;
 };
 
 /**
@@ -8911,75 +7676,45 @@ const de_GetServiceSyncBlockerSummaryOutput = (
   output: any,
   context: __SerdeContext
 ): GetServiceSyncBlockerSummaryOutput => {
-  return {
-    serviceSyncBlockerSummary:
-      output.serviceSyncBlockerSummary != null
-        ? de_ServiceSyncBlockerSummary(output.serviceSyncBlockerSummary, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    serviceSyncBlockerSummary: (_: any) => de_ServiceSyncBlockerSummary(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetServiceSyncConfigOutput
- */
-const de_GetServiceSyncConfigOutput = (output: any, context: __SerdeContext): GetServiceSyncConfigOutput => {
-  return {
-    serviceSyncConfig:
-      output.serviceSyncConfig != null ? de_ServiceSyncConfig(output.serviceSyncConfig, context) : undefined,
-  } as any;
-};
+// de_GetServiceSyncConfigOutput omitted.
 
 /**
  * deserializeAws_json1_0GetServiceTemplateOutput
  */
 const de_GetServiceTemplateOutput = (output: any, context: __SerdeContext): GetServiceTemplateOutput => {
-  return {
-    serviceTemplate: output.serviceTemplate != null ? de_ServiceTemplate(output.serviceTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceTemplate: (_: any) => de_ServiceTemplate(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetServiceTemplateVersionOutput
  */
 const de_GetServiceTemplateVersionOutput = (output: any, context: __SerdeContext): GetServiceTemplateVersionOutput => {
-  return {
-    serviceTemplateVersion:
-      output.serviceTemplateVersion != null
-        ? de_ServiceTemplateVersion(output.serviceTemplateVersion, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    serviceTemplateVersion: (_: any) => de_ServiceTemplateVersion(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetTemplateSyncConfigOutput
- */
-const de_GetTemplateSyncConfigOutput = (output: any, context: __SerdeContext): GetTemplateSyncConfigOutput => {
-  return {
-    templateSyncConfig:
-      output.templateSyncConfig != null ? de_TemplateSyncConfig(output.templateSyncConfig, context) : undefined,
-  } as any;
-};
+// de_GetTemplateSyncConfigOutput omitted.
 
 /**
  * deserializeAws_json1_0GetTemplateSyncStatusOutput
  */
 const de_GetTemplateSyncStatusOutput = (output: any, context: __SerdeContext): GetTemplateSyncStatusOutput => {
-  return {
-    desiredState: output.desiredState != null ? de_Revision(output.desiredState, context) : undefined,
-    latestSuccessfulSync:
-      output.latestSuccessfulSync != null ? de_ResourceSyncAttempt(output.latestSuccessfulSync, context) : undefined,
-    latestSync: output.latestSync != null ? de_ResourceSyncAttempt(output.latestSync, context) : undefined,
-  } as any;
+  return take(output, {
+    desiredState: _json,
+    latestSuccessfulSync: (_: any) => de_ResourceSyncAttempt(_, context),
+    latestSync: (_: any) => de_ResourceSyncAttempt(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
 /**
  * deserializeAws_json1_0LatestSyncBlockers
@@ -8988,48 +7723,23 @@ const de_LatestSyncBlockers = (output: any, context: __SerdeContext): SyncBlocke
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SyncBlocker(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ListComponentOutputsOutput
- */
-const de_ListComponentOutputsOutput = (output: any, context: __SerdeContext): ListComponentOutputsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    outputs: output.outputs != null ? de_OutputsList(output.outputs, context) : undefined,
-  } as any;
-};
+// de_ListComponentOutputsOutput omitted.
 
-/**
- * deserializeAws_json1_0ListComponentProvisionedResourcesOutput
- */
-const de_ListComponentProvisionedResourcesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListComponentProvisionedResourcesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    provisionedResources:
-      output.provisionedResources != null
-        ? de_ProvisionedResourceList(output.provisionedResources, context)
-        : undefined,
-  } as any;
-};
+// de_ListComponentProvisionedResourcesOutput omitted.
 
 /**
  * deserializeAws_json1_0ListComponentsOutput
  */
 const de_ListComponentsOutput = (output: any, context: __SerdeContext): ListComponentsOutput => {
-  return {
-    components: output.components != null ? de_ComponentSummaryList(output.components, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    components: (_: any) => de_ComponentSummaryList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -9039,59 +7749,34 @@ const de_ListEnvironmentAccountConnectionsOutput = (
   output: any,
   context: __SerdeContext
 ): ListEnvironmentAccountConnectionsOutput => {
-  return {
-    environmentAccountConnections:
-      output.environmentAccountConnections != null
-        ? de_EnvironmentAccountConnectionSummaryList(output.environmentAccountConnections, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    environmentAccountConnections: (_: any) => de_EnvironmentAccountConnectionSummaryList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListEnvironmentOutputsOutput
- */
-const de_ListEnvironmentOutputsOutput = (output: any, context: __SerdeContext): ListEnvironmentOutputsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    outputs: output.outputs != null ? de_OutputsList(output.outputs, context) : undefined,
-  } as any;
-};
+// de_ListEnvironmentOutputsOutput omitted.
 
-/**
- * deserializeAws_json1_0ListEnvironmentProvisionedResourcesOutput
- */
-const de_ListEnvironmentProvisionedResourcesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListEnvironmentProvisionedResourcesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    provisionedResources:
-      output.provisionedResources != null
-        ? de_ProvisionedResourceList(output.provisionedResources, context)
-        : undefined,
-  } as any;
-};
+// de_ListEnvironmentProvisionedResourcesOutput omitted.
 
 /**
  * deserializeAws_json1_0ListEnvironmentsOutput
  */
 const de_ListEnvironmentsOutput = (output: any, context: __SerdeContext): ListEnvironmentsOutput => {
-  return {
-    environments: output.environments != null ? de_EnvironmentSummaryList(output.environments, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    environments: (_: any) => de_EnvironmentSummaryList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListEnvironmentTemplatesOutput
  */
 const de_ListEnvironmentTemplatesOutput = (output: any, context: __SerdeContext): ListEnvironmentTemplatesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    templates: output.templates != null ? de_EnvironmentTemplateSummaryList(output.templates, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    templates: (_: any) => de_EnvironmentTemplateSummaryList(_, context),
+  }) as any;
 };
 
 /**
@@ -9101,126 +7786,52 @@ const de_ListEnvironmentTemplateVersionsOutput = (
   output: any,
   context: __SerdeContext
 ): ListEnvironmentTemplateVersionsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    templateVersions:
-      output.templateVersions != null
-        ? de_EnvironmentTemplateVersionSummaryList(output.templateVersions, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    templateVersions: (_: any) => de_EnvironmentTemplateVersionSummaryList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListRepositoriesOutput
- */
-const de_ListRepositoriesOutput = (output: any, context: __SerdeContext): ListRepositoriesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    repositories: output.repositories != null ? de_RepositorySummaryList(output.repositories, context) : undefined,
-  } as any;
-};
+// de_ListRepositoriesOutput omitted.
 
-/**
- * deserializeAws_json1_0ListRepositorySyncDefinitionsOutput
- */
-const de_ListRepositorySyncDefinitionsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListRepositorySyncDefinitionsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    syncDefinitions:
-      output.syncDefinitions != null ? de_RepositorySyncDefinitionList(output.syncDefinitions, context) : undefined,
-  } as any;
-};
+// de_ListRepositorySyncDefinitionsOutput omitted.
 
-/**
- * deserializeAws_json1_0ListServiceInstanceOutputsOutput
- */
-const de_ListServiceInstanceOutputsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListServiceInstanceOutputsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    outputs: output.outputs != null ? de_OutputsList(output.outputs, context) : undefined,
-  } as any;
-};
+// de_ListServiceInstanceOutputsOutput omitted.
 
-/**
- * deserializeAws_json1_0ListServiceInstanceProvisionedResourcesOutput
- */
-const de_ListServiceInstanceProvisionedResourcesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListServiceInstanceProvisionedResourcesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    provisionedResources:
-      output.provisionedResources != null
-        ? de_ProvisionedResourceList(output.provisionedResources, context)
-        : undefined,
-  } as any;
-};
+// de_ListServiceInstanceProvisionedResourcesOutput omitted.
 
 /**
  * deserializeAws_json1_0ListServiceInstancesOutput
  */
 const de_ListServiceInstancesOutput = (output: any, context: __SerdeContext): ListServiceInstancesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    serviceInstances:
-      output.serviceInstances != null ? de_ServiceInstanceSummaryList(output.serviceInstances, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    serviceInstances: (_: any) => de_ServiceInstanceSummaryList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListServicePipelineOutputsOutput
- */
-const de_ListServicePipelineOutputsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListServicePipelineOutputsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    outputs: output.outputs != null ? de_OutputsList(output.outputs, context) : undefined,
-  } as any;
-};
+// de_ListServicePipelineOutputsOutput omitted.
 
-/**
- * deserializeAws_json1_0ListServicePipelineProvisionedResourcesOutput
- */
-const de_ListServicePipelineProvisionedResourcesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListServicePipelineProvisionedResourcesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    provisionedResources:
-      output.provisionedResources != null
-        ? de_ProvisionedResourceList(output.provisionedResources, context)
-        : undefined,
-  } as any;
-};
+// de_ListServicePipelineProvisionedResourcesOutput omitted.
 
 /**
  * deserializeAws_json1_0ListServicesOutput
  */
 const de_ListServicesOutput = (output: any, context: __SerdeContext): ListServicesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    services: output.services != null ? de_ServiceSummaryList(output.services, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    services: (_: any) => de_ServiceSummaryList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListServiceTemplatesOutput
  */
 const de_ListServiceTemplatesOutput = (output: any, context: __SerdeContext): ListServiceTemplatesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    templates: output.templates != null ? de_ServiceTemplateSummaryList(output.templates, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    templates: (_: any) => de_ServiceTemplateSummaryList(_, context),
+  }) as any;
 };
 
 /**
@@ -9230,85 +7841,23 @@ const de_ListServiceTemplateVersionsOutput = (
   output: any,
   context: __SerdeContext
 ): ListServiceTemplateVersionsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    templateVersions:
-      output.templateVersions != null
-        ? de_ServiceTemplateVersionSummaryList(output.templateVersions, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    templateVersions: (_: any) => de_ServiceTemplateVersionSummaryList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListTagsForResourceOutput
- */
-const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0NotifyResourceDeploymentStatusChangeOutput
- */
-const de_NotifyResourceDeploymentStatusChangeOutput = (
-  output: any,
-  context: __SerdeContext
-): NotifyResourceDeploymentStatusChangeOutput => {
-  return {} as any;
-};
+// de_NotifyResourceDeploymentStatusChangeOutput omitted.
 
-/**
- * deserializeAws_json1_0Output
- */
-const de_Output = (output: any, context: __SerdeContext): Output => {
-  return {
-    key: __expectString(output.key),
-    valueString: __expectString(output.valueString),
-  } as any;
-};
+// de_Output omitted.
 
-/**
- * deserializeAws_json1_0OutputsList
- */
-const de_OutputsList = (output: any, context: __SerdeContext): Output[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Output(entry, context);
-    });
-  return retVal;
-};
+// de_OutputsList omitted.
 
-/**
- * deserializeAws_json1_0ProvisionedResource
- */
-const de_ProvisionedResource = (output: any, context: __SerdeContext): ProvisionedResource => {
-  return {
-    identifier: __expectString(output.identifier),
-    name: __expectString(output.name),
-    provisioningEngine: __expectString(output.provisioningEngine),
-  } as any;
-};
+// de_ProvisionedResource omitted.
 
-/**
- * deserializeAws_json1_0ProvisionedResourceList
- */
-const de_ProvisionedResourceList = (output: any, context: __SerdeContext): ProvisionedResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProvisionedResource(entry, context);
-    });
-  return retVal;
-};
+// de_ProvisionedResourceList omitted.
 
 /**
  * deserializeAws_json1_0RejectEnvironmentAccountConnectionOutput
@@ -9317,115 +7866,44 @@ const de_RejectEnvironmentAccountConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): RejectEnvironmentAccountConnectionOutput => {
-  return {
-    environmentAccountConnection:
-      output.environmentAccountConnection != null
-        ? de_EnvironmentAccountConnection(output.environmentAccountConnection, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentAccountConnection: (_: any) => de_EnvironmentAccountConnection(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0Repository
- */
-const de_Repository = (output: any, context: __SerdeContext): Repository => {
-  return {
-    arn: __expectString(output.arn),
-    connectionArn: __expectString(output.connectionArn),
-    encryptionKey: __expectString(output.encryptionKey),
-    name: __expectString(output.name),
-    provider: __expectString(output.provider),
-  } as any;
-};
+// de_Repository omitted.
 
-/**
- * deserializeAws_json1_0RepositoryBranch
- */
-const de_RepositoryBranch = (output: any, context: __SerdeContext): RepositoryBranch => {
-  return {
-    arn: __expectString(output.arn),
-    branch: __expectString(output.branch),
-    name: __expectString(output.name),
-    provider: __expectString(output.provider),
-  } as any;
-};
+// de_RepositoryBranch omitted.
 
-/**
- * deserializeAws_json1_0RepositorySummary
- */
-const de_RepositorySummary = (output: any, context: __SerdeContext): RepositorySummary => {
-  return {
-    arn: __expectString(output.arn),
-    connectionArn: __expectString(output.connectionArn),
-    name: __expectString(output.name),
-    provider: __expectString(output.provider),
-  } as any;
-};
+// de_RepositorySummary omitted.
 
-/**
- * deserializeAws_json1_0RepositorySummaryList
- */
-const de_RepositorySummaryList = (output: any, context: __SerdeContext): RepositorySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RepositorySummary(entry, context);
-    });
-  return retVal;
-};
+// de_RepositorySummaryList omitted.
 
 /**
  * deserializeAws_json1_0RepositorySyncAttempt
  */
 const de_RepositorySyncAttempt = (output: any, context: __SerdeContext): RepositorySyncAttempt => {
-  return {
-    events: output.events != null ? de_RepositorySyncEvents(output.events, context) : undefined,
-    startedAt:
-      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    events: (_: any) => de_RepositorySyncEvents(_, context),
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0RepositorySyncDefinition
- */
-const de_RepositorySyncDefinition = (output: any, context: __SerdeContext): RepositorySyncDefinition => {
-  return {
-    branch: __expectString(output.branch),
-    directory: __expectString(output.directory),
-    parent: __expectString(output.parent),
-    target: __expectString(output.target),
-  } as any;
-};
+// de_RepositorySyncDefinition omitted.
 
-/**
- * deserializeAws_json1_0RepositorySyncDefinitionList
- */
-const de_RepositorySyncDefinitionList = (output: any, context: __SerdeContext): RepositorySyncDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RepositorySyncDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_RepositorySyncDefinitionList omitted.
 
 /**
  * deserializeAws_json1_0RepositorySyncEvent
  */
 const de_RepositorySyncEvent = (output: any, context: __SerdeContext): RepositorySyncEvent => {
-  return {
-    event: __expectString(output.event),
-    externalId: __expectString(output.externalId),
-    time: output.time != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time))) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    event: __expectString,
+    externalId: __expectString,
+    time: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -9435,61 +7913,39 @@ const de_RepositorySyncEvents = (output: any, context: __SerdeContext): Reposito
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RepositorySyncEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ResourceCountsSummary
- */
-const de_ResourceCountsSummary = (output: any, context: __SerdeContext): ResourceCountsSummary => {
-  return {
-    behindMajor: __expectInt32(output.behindMajor),
-    behindMinor: __expectInt32(output.behindMinor),
-    failed: __expectInt32(output.failed),
-    total: __expectInt32(output.total),
-    upToDate: __expectInt32(output.upToDate),
-  } as any;
-};
+// de_ResourceCountsSummary omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_0ResourceSyncAttempt
  */
 const de_ResourceSyncAttempt = (output: any, context: __SerdeContext): ResourceSyncAttempt => {
-  return {
-    events: output.events != null ? de_ResourceSyncEvents(output.events, context) : undefined,
-    initialRevision: output.initialRevision != null ? de_Revision(output.initialRevision, context) : undefined,
-    startedAt:
-      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
-    status: __expectString(output.status),
-    target: __expectString(output.target),
-    targetRevision: output.targetRevision != null ? de_Revision(output.targetRevision, context) : undefined,
-  } as any;
+  return take(output, {
+    events: (_: any) => de_ResourceSyncEvents(_, context),
+    initialRevision: _json,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    target: __expectString,
+    targetRevision: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ResourceSyncEvent
  */
 const de_ResourceSyncEvent = (output: any, context: __SerdeContext): ResourceSyncEvent => {
-  return {
-    event: __expectString(output.event),
-    externalId: __expectString(output.externalId),
-    time: output.time != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time))) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    event: __expectString,
+    externalId: __expectString,
+    time: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -9499,106 +7955,74 @@ const de_ResourceSyncEvents = (output: any, context: __SerdeContext): ResourceSy
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceSyncEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0Revision
- */
-const de_Revision = (output: any, context: __SerdeContext): Revision => {
-  return {
-    branch: __expectString(output.branch),
-    directory: __expectString(output.directory),
-    repositoryName: __expectString(output.repositoryName),
-    repositoryProvider: __expectString(output.repositoryProvider),
-    sha: __expectString(output.sha),
-  } as any;
-};
+// de_Revision omitted.
 
 /**
  * deserializeAws_json1_0Service
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
-  return {
-    arn: __expectString(output.arn),
-    branchName: __expectString(output.branchName),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    pipeline: output.pipeline != null ? de_ServicePipeline(output.pipeline, context) : undefined,
-    repositoryConnectionArn: __expectString(output.repositoryConnectionArn),
-    repositoryId: __expectString(output.repositoryId),
-    spec: __expectString(output.spec),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    branchName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    pipeline: (_: any) => de_ServicePipeline(_, context),
+    repositoryConnectionArn: __expectString,
+    repositoryId: __expectString,
+    spec: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ServiceInstance
  */
 const de_ServiceInstance = (output: any, context: __SerdeContext): ServiceInstance => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    deploymentStatus: __expectString(output.deploymentStatus),
-    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
-    environmentName: __expectString(output.environmentName),
-    lastClientRequestToken: __expectString(output.lastClientRequestToken),
-    lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
-        : undefined,
-    lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
-        : undefined,
-    name: __expectString(output.name),
-    serviceName: __expectString(output.serviceName),
-    spec: __expectString(output.spec),
-    templateMajorVersion: __expectString(output.templateMajorVersion),
-    templateMinorVersion: __expectString(output.templateMinorVersion),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    deploymentStatusMessage: __expectString,
+    environmentName: __expectString,
+    lastClientRequestToken: __expectString,
+    lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    serviceName: __expectString,
+    spec: __expectString,
+    templateMajorVersion: __expectString,
+    templateMinorVersion: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ServiceInstanceSummary
  */
 const de_ServiceInstanceSummary = (output: any, context: __SerdeContext): ServiceInstanceSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    deploymentStatus: __expectString(output.deploymentStatus),
-    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
-    environmentName: __expectString(output.environmentName),
-    lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
-        : undefined,
-    lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
-        : undefined,
-    name: __expectString(output.name),
-    serviceName: __expectString(output.serviceName),
-    templateMajorVersion: __expectString(output.templateMajorVersion),
-    templateMinorVersion: __expectString(output.templateMinorVersion),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    deploymentStatusMessage: __expectString,
+    environmentName: __expectString,
+    lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    serviceName: __expectString,
+    templateMajorVersion: __expectString,
+    templateMinorVersion: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
@@ -9608,9 +8032,6 @@ const de_ServiceInstanceSummaryList = (output: any, context: __SerdeContext): Se
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceInstanceSummary(entry, context);
     });
   return retVal;
@@ -9620,54 +8041,36 @@ const de_ServiceInstanceSummaryList = (output: any, context: __SerdeContext): Se
  * deserializeAws_json1_0ServicePipeline
  */
 const de_ServicePipeline = (output: any, context: __SerdeContext): ServicePipeline => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    deploymentStatus: __expectString(output.deploymentStatus),
-    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
-    lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
-        : undefined,
-    lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
-        : undefined,
-    spec: __expectString(output.spec),
-    templateMajorVersion: __expectString(output.templateMajorVersion),
-    templateMinorVersion: __expectString(output.templateMinorVersion),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    deploymentStatusMessage: __expectString,
+    lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    spec: __expectString,
+    templateMajorVersion: __expectString,
+    templateMinorVersion: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
 /**
  * deserializeAws_json1_0ServiceSummary
  */
 const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
@@ -9677,9 +8080,6 @@ const de_ServiceSummaryList = (output: any, context: __SerdeContext): ServiceSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceSummary(entry, context);
     });
   return retVal;
@@ -9689,65 +8089,46 @@ const de_ServiceSummaryList = (output: any, context: __SerdeContext): ServiceSum
  * deserializeAws_json1_0ServiceSyncBlockerSummary
  */
 const de_ServiceSyncBlockerSummary = (output: any, context: __SerdeContext): ServiceSyncBlockerSummary => {
-  return {
-    latestBlockers: output.latestBlockers != null ? de_LatestSyncBlockers(output.latestBlockers, context) : undefined,
-    serviceInstanceName: __expectString(output.serviceInstanceName),
-    serviceName: __expectString(output.serviceName),
-  } as any;
+  return take(output, {
+    latestBlockers: (_: any) => de_LatestSyncBlockers(_, context),
+    serviceInstanceName: __expectString,
+    serviceName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ServiceSyncConfig
- */
-const de_ServiceSyncConfig = (output: any, context: __SerdeContext): ServiceSyncConfig => {
-  return {
-    branch: __expectString(output.branch),
-    filePath: __expectString(output.filePath),
-    repositoryName: __expectString(output.repositoryName),
-    repositoryProvider: __expectString(output.repositoryProvider),
-    serviceName: __expectString(output.serviceName),
-  } as any;
-};
+// de_ServiceSyncConfig omitted.
 
 /**
  * deserializeAws_json1_0ServiceTemplate
  */
 const de_ServiceTemplate = (output: any, context: __SerdeContext): ServiceTemplate => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    displayName: __expectString(output.displayName),
-    encryptionKey: __expectString(output.encryptionKey),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    pipelineProvisioning: __expectString(output.pipelineProvisioning),
-    recommendedVersion: __expectString(output.recommendedVersion),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    displayName: __expectString,
+    encryptionKey: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    pipelineProvisioning: __expectString,
+    recommendedVersion: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ServiceTemplateSummary
  */
 const de_ServiceTemplateSummary = (output: any, context: __SerdeContext): ServiceTemplateSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    displayName: __expectString(output.displayName),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    name: __expectString(output.name),
-    pipelineProvisioning: __expectString(output.pipelineProvisioning),
-    recommendedVersion: __expectString(output.recommendedVersion),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    displayName: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    pipelineProvisioning: __expectString,
+    recommendedVersion: __expectString,
+  }) as any;
 };
 
 /**
@@ -9757,83 +8138,50 @@ const de_ServiceTemplateSummaryList = (output: any, context: __SerdeContext): Se
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceTemplateSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList
- */
-const de_ServiceTemplateSupportedComponentSourceInputList = (
-  output: any,
-  context: __SerdeContext
-): (ServiceTemplateSupportedComponentSourceType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ServiceTemplateSupportedComponentSourceInputList omitted.
 
 /**
  * deserializeAws_json1_0ServiceTemplateVersion
  */
 const de_ServiceTemplateVersion = (output: any, context: __SerdeContext): ServiceTemplateVersion => {
-  return {
-    arn: __expectString(output.arn),
-    compatibleEnvironmentTemplates:
-      output.compatibleEnvironmentTemplates != null
-        ? de_CompatibleEnvironmentTemplateList(output.compatibleEnvironmentTemplates, context)
-        : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    majorVersion: __expectString(output.majorVersion),
-    minorVersion: __expectString(output.minorVersion),
-    recommendedMinorVersion: __expectString(output.recommendedMinorVersion),
-    schema: __expectString(output.schema),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    supportedComponentSources:
-      output.supportedComponentSources != null
-        ? de_ServiceTemplateSupportedComponentSourceInputList(output.supportedComponentSources, context)
-        : undefined,
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    compatibleEnvironmentTemplates: _json,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    majorVersion: __expectString,
+    minorVersion: __expectString,
+    recommendedMinorVersion: __expectString,
+    schema: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    supportedComponentSources: _json,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ServiceTemplateVersionSummary
  */
 const de_ServiceTemplateVersionSummary = (output: any, context: __SerdeContext): ServiceTemplateVersionSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    lastModifiedAt:
-      output.lastModifiedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
-        : undefined,
-    majorVersion: __expectString(output.majorVersion),
-    minorVersion: __expectString(output.minorVersion),
-    recommendedMinorVersion: __expectString(output.recommendedMinorVersion),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    templateName: __expectString(output.templateName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    majorVersion: __expectString,
+    minorVersion: __expectString,
+    recommendedMinorVersion: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    templateName: __expectString,
+  }) as any;
 };
 
 /**
@@ -9846,9 +8194,6 @@ const de_ServiceTemplateVersionSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceTemplateVersionSummary(entry, context);
     });
   return retVal;
@@ -9858,123 +8203,43 @@ const de_ServiceTemplateVersionSummaryList = (
  * deserializeAws_json1_0SyncBlocker
  */
 const de_SyncBlocker = (output: any, context: __SerdeContext): SyncBlocker => {
-  return {
-    contexts: output.contexts != null ? de_SyncBlockerContexts(output.contexts, context) : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    createdReason: __expectString(output.createdReason),
-    id: __expectString(output.id),
-    resolvedAt:
-      output.resolvedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resolvedAt))) : undefined,
-    resolvedReason: __expectString(output.resolvedReason),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    contexts: _json,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdReason: __expectString,
+    id: __expectString,
+    resolvedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resolvedReason: __expectString,
+    status: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0SyncBlockerContext
- */
-const de_SyncBlockerContext = (output: any, context: __SerdeContext): SyncBlockerContext => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_SyncBlockerContext omitted.
 
-/**
- * deserializeAws_json1_0SyncBlockerContexts
- */
-const de_SyncBlockerContexts = (output: any, context: __SerdeContext): SyncBlockerContext[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SyncBlockerContext(entry, context);
-    });
-  return retVal;
-};
+// de_SyncBlockerContexts omitted.
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TagResourceOutput
- */
-const de_TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  return {} as any;
-};
+// de_TagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0TemplateSyncConfig
- */
-const de_TemplateSyncConfig = (output: any, context: __SerdeContext): TemplateSyncConfig => {
-  return {
-    branch: __expectString(output.branch),
-    repositoryName: __expectString(output.repositoryName),
-    repositoryProvider: __expectString(output.repositoryProvider),
-    subdirectory: __expectString(output.subdirectory),
-    templateName: __expectString(output.templateName),
-    templateType: __expectString(output.templateType),
-  } as any;
-};
+// de_TemplateSyncConfig omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceOutput
- */
-const de_UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  return {} as any;
-};
+// de_UntagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0UpdateAccountSettingsOutput
- */
-const de_UpdateAccountSettingsOutput = (output: any, context: __SerdeContext): UpdateAccountSettingsOutput => {
-  return {
-    accountSettings: output.accountSettings != null ? de_AccountSettings(output.accountSettings, context) : undefined,
-  } as any;
-};
+// de_UpdateAccountSettingsOutput omitted.
 
 /**
  * deserializeAws_json1_0UpdateComponentOutput
  */
 const de_UpdateComponentOutput = (output: any, context: __SerdeContext): UpdateComponentOutput => {
-  return {
-    component: output.component != null ? de_Component(output.component, context) : undefined,
-  } as any;
+  return take(output, {
+    component: (_: any) => de_Component(_, context),
+  }) as any;
 };
 
 /**
@@ -9984,31 +8249,27 @@ const de_UpdateEnvironmentAccountConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateEnvironmentAccountConnectionOutput => {
-  return {
-    environmentAccountConnection:
-      output.environmentAccountConnection != null
-        ? de_EnvironmentAccountConnection(output.environmentAccountConnection, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentAccountConnection: (_: any) => de_EnvironmentAccountConnection(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdateEnvironmentOutput
  */
 const de_UpdateEnvironmentOutput = (output: any, context: __SerdeContext): UpdateEnvironmentOutput => {
-  return {
-    environment: output.environment != null ? de_Environment(output.environment, context) : undefined,
-  } as any;
+  return take(output, {
+    environment: (_: any) => de_Environment(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdateEnvironmentTemplateOutput
  */
 const de_UpdateEnvironmentTemplateOutput = (output: any, context: __SerdeContext): UpdateEnvironmentTemplateOutput => {
-  return {
-    environmentTemplate:
-      output.environmentTemplate != null ? de_EnvironmentTemplate(output.environmentTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    environmentTemplate: (_: any) => de_EnvironmentTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -10018,70 +8279,58 @@ const de_UpdateEnvironmentTemplateVersionOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateEnvironmentTemplateVersionOutput => {
-  return {
-    environmentTemplateVersion:
-      output.environmentTemplateVersion != null
-        ? de_EnvironmentTemplateVersion(output.environmentTemplateVersion, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    environmentTemplateVersion: (_: any) => de_EnvironmentTemplateVersion(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdateServiceInstanceOutput
  */
 const de_UpdateServiceInstanceOutput = (output: any, context: __SerdeContext): UpdateServiceInstanceOutput => {
-  return {
-    serviceInstance: output.serviceInstance != null ? de_ServiceInstance(output.serviceInstance, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceInstance: (_: any) => de_ServiceInstance(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdateServiceOutput
  */
 const de_UpdateServiceOutput = (output: any, context: __SerdeContext): UpdateServiceOutput => {
-  return {
-    service: output.service != null ? de_Service(output.service, context) : undefined,
-  } as any;
+  return take(output, {
+    service: (_: any) => de_Service(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdateServicePipelineOutput
  */
 const de_UpdateServicePipelineOutput = (output: any, context: __SerdeContext): UpdateServicePipelineOutput => {
-  return {
-    pipeline: output.pipeline != null ? de_ServicePipeline(output.pipeline, context) : undefined,
-  } as any;
+  return take(output, {
+    pipeline: (_: any) => de_ServicePipeline(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdateServiceSyncBlockerOutput
  */
 const de_UpdateServiceSyncBlockerOutput = (output: any, context: __SerdeContext): UpdateServiceSyncBlockerOutput => {
-  return {
-    serviceInstanceName: __expectString(output.serviceInstanceName),
-    serviceName: __expectString(output.serviceName),
-    serviceSyncBlocker:
-      output.serviceSyncBlocker != null ? de_SyncBlocker(output.serviceSyncBlocker, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceInstanceName: __expectString,
+    serviceName: __expectString,
+    serviceSyncBlocker: (_: any) => de_SyncBlocker(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0UpdateServiceSyncConfigOutput
- */
-const de_UpdateServiceSyncConfigOutput = (output: any, context: __SerdeContext): UpdateServiceSyncConfigOutput => {
-  return {
-    serviceSyncConfig:
-      output.serviceSyncConfig != null ? de_ServiceSyncConfig(output.serviceSyncConfig, context) : undefined,
-  } as any;
-};
+// de_UpdateServiceSyncConfigOutput omitted.
 
 /**
  * deserializeAws_json1_0UpdateServiceTemplateOutput
  */
 const de_UpdateServiceTemplateOutput = (output: any, context: __SerdeContext): UpdateServiceTemplateOutput => {
-  return {
-    serviceTemplate: output.serviceTemplate != null ? de_ServiceTemplate(output.serviceTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    serviceTemplate: (_: any) => de_ServiceTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -10091,32 +8340,14 @@ const de_UpdateServiceTemplateVersionOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateServiceTemplateVersionOutput => {
-  return {
-    serviceTemplateVersion:
-      output.serviceTemplateVersion != null
-        ? de_ServiceTemplateVersion(output.serviceTemplateVersion, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    serviceTemplateVersion: (_: any) => de_ServiceTemplateVersion(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0UpdateTemplateSyncConfigOutput
- */
-const de_UpdateTemplateSyncConfigOutput = (output: any, context: __SerdeContext): UpdateTemplateSyncConfigOutput => {
-  return {
-    templateSyncConfig:
-      output.templateSyncConfig != null ? de_TemplateSyncConfig(output.templateSyncConfig, context) : undefined,
-  } as any;
-};
+// de_UpdateTemplateSyncConfigOutput omitted.
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -10138,6 +8369,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -8,11 +9,12 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -40,7 +42,6 @@ import {
 } from "../commands/StartSpeechSynthesisTaskCommand";
 import { SynthesizeSpeechCommandInput, SynthesizeSpeechCommandOutput } from "../commands/SynthesizeSpeechCommand";
 import {
-  Engine,
   EngineNotSupportedException,
   InvalidLexiconException,
   InvalidNextTokenException,
@@ -50,9 +51,7 @@ import {
   InvalidSnsTopicArnException,
   InvalidSsmlException,
   InvalidTaskIdException,
-  LanguageCode,
   LanguageNotSupportedException,
-  Lexicon,
   LexiconAttributes,
   LexiconDescription,
   LexiconNotFoundException,
@@ -68,7 +67,6 @@ import {
   TextLengthExceededException,
   UnsupportedPlsAlphabetException,
   UnsupportedPlsLanguageException,
-  Voice,
 } from "../models/models_0";
 import { PollyServiceException as __BaseException } from "../models/PollyServiceException";
 
@@ -242,9 +240,11 @@ export const se_PutLexiconCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons/{Name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Content != null && { Content: input.Content }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Content: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -269,20 +269,22 @@ export const se_StartSpeechSynthesisTaskCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/synthesisTasks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Engine != null && { Engine: input.Engine }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LexiconNames != null && { LexiconNames: se_LexiconNameList(input.LexiconNames, context) }),
-    ...(input.OutputFormat != null && { OutputFormat: input.OutputFormat }),
-    ...(input.OutputS3BucketName != null && { OutputS3BucketName: input.OutputS3BucketName }),
-    ...(input.OutputS3KeyPrefix != null && { OutputS3KeyPrefix: input.OutputS3KeyPrefix }),
-    ...(input.SampleRate != null && { SampleRate: input.SampleRate }),
-    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
-    ...(input.SpeechMarkTypes != null && { SpeechMarkTypes: se_SpeechMarkTypeList(input.SpeechMarkTypes, context) }),
-    ...(input.Text != null && { Text: input.Text }),
-    ...(input.TextType != null && { TextType: input.TextType }),
-    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Engine: [],
+      LanguageCode: [],
+      LexiconNames: (_) => _json(_),
+      OutputFormat: [],
+      OutputS3BucketName: [],
+      OutputS3KeyPrefix: [],
+      SampleRate: [],
+      SnsTopicArn: [],
+      SpeechMarkTypes: (_) => _json(_),
+      Text: [],
+      TextType: [],
+      VoiceId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -307,17 +309,19 @@ export const se_SynthesizeSpeechCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/speech";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Engine != null && { Engine: input.Engine }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LexiconNames != null && { LexiconNames: se_LexiconNameList(input.LexiconNames, context) }),
-    ...(input.OutputFormat != null && { OutputFormat: input.OutputFormat }),
-    ...(input.SampleRate != null && { SampleRate: input.SampleRate }),
-    ...(input.SpeechMarkTypes != null && { SpeechMarkTypes: se_SpeechMarkTypeList(input.SpeechMarkTypes, context) }),
-    ...(input.Text != null && { Text: input.Text }),
-    ...(input.TextType != null && { TextType: input.TextType }),
-    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Engine: [],
+      LanguageCode: [],
+      LexiconNames: (_) => _json(_),
+      OutputFormat: [],
+      SampleRate: [],
+      SpeechMarkTypes: (_) => _json(_),
+      Text: [],
+      TextType: [],
+      VoiceId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -367,10 +371,9 @@ const de_DeleteLexiconCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -390,12 +393,11 @@ export const de_DescribeVoicesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Voices != null) {
-    contents.Voices = de_VoiceList(data.Voices, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Voices: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -420,10 +422,9 @@ const de_DescribeVoicesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -443,12 +444,11 @@ export const de_GetLexiconCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Lexicon != null) {
-    contents.Lexicon = de_Lexicon(data.Lexicon, context);
-  }
-  if (data.LexiconAttributes != null) {
-    contents.LexiconAttributes = de_LexiconAttributes(data.LexiconAttributes, context);
-  }
+  const doc = take(data, {
+    Lexicon: _json,
+    LexiconAttributes: (_) => de_LexiconAttributes(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -473,10 +473,9 @@ const de_GetLexiconCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -496,9 +495,10 @@ export const de_GetSpeechSynthesisTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SynthesisTask != null) {
-    contents.SynthesisTask = de_SynthesisTask(data.SynthesisTask, context);
-  }
+  const doc = take(data, {
+    SynthesisTask: (_) => de_SynthesisTask(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -526,10 +526,9 @@ const de_GetSpeechSynthesisTaskCommandError = async (
       throw await de_SynthesisTaskNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -549,12 +548,11 @@ export const de_ListLexiconsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Lexicons != null) {
-    contents.Lexicons = de_LexiconDescriptionList(data.Lexicons, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Lexicons: (_) => de_LexiconDescriptionList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -579,10 +577,9 @@ const de_ListLexiconsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -602,12 +599,11 @@ export const de_ListSpeechSynthesisTasksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SynthesisTasks != null) {
-    contents.SynthesisTasks = de_SynthesisTasks(data.SynthesisTasks, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SynthesisTasks: (_) => de_SynthesisTasks(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -632,10 +628,9 @@ const de_ListSpeechSynthesisTasksCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -694,10 +689,9 @@ const de_PutLexiconCommandError = async (
       throw await de_UnsupportedPlsLanguageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -717,9 +711,10 @@ export const de_StartSpeechSynthesisTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SynthesisTask != null) {
-    contents.SynthesisTask = de_SynthesisTask(data.SynthesisTask, context);
-  }
+  const doc = take(data, {
+    SynthesisTask: (_) => de_SynthesisTask(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -774,10 +769,9 @@ const de_StartSpeechSynthesisTaskCommandError = async (
       throw await de_TextLengthExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -849,16 +843,15 @@ const de_SynthesizeSpeechCommandError = async (
       throw await de_TextLengthExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1EngineNotSupportedExceptionRes
  */
@@ -868,9 +861,10 @@ const de_EngineNotSupportedExceptionRes = async (
 ): Promise<EngineNotSupportedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EngineNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -887,9 +881,10 @@ const de_InvalidLexiconExceptionRes = async (
 ): Promise<InvalidLexiconException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidLexiconException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -906,9 +901,10 @@ const de_InvalidNextTokenExceptionRes = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -925,9 +921,10 @@ const de_InvalidS3BucketExceptionRes = async (
 ): Promise<InvalidS3BucketException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidS3BucketException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -944,9 +941,10 @@ const de_InvalidS3KeyExceptionRes = async (
 ): Promise<InvalidS3KeyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidS3KeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -963,9 +961,10 @@ const de_InvalidSampleRateExceptionRes = async (
 ): Promise<InvalidSampleRateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidSampleRateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -982,9 +981,10 @@ const de_InvalidSnsTopicArnExceptionRes = async (
 ): Promise<InvalidSnsTopicArnException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidSnsTopicArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1001,9 +1001,10 @@ const de_InvalidSsmlExceptionRes = async (
 ): Promise<InvalidSsmlException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidSsmlException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1020,9 +1021,10 @@ const de_InvalidTaskIdExceptionRes = async (
 ): Promise<InvalidTaskIdException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidTaskIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1039,9 +1041,10 @@ const de_LanguageNotSupportedExceptionRes = async (
 ): Promise<LanguageNotSupportedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LanguageNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1058,9 +1061,10 @@ const de_LexiconNotFoundExceptionRes = async (
 ): Promise<LexiconNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LexiconNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1077,9 +1081,10 @@ const de_LexiconSizeExceededExceptionRes = async (
 ): Promise<LexiconSizeExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LexiconSizeExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1096,9 +1101,10 @@ const de_MarksNotSupportedForFormatExceptionRes = async (
 ): Promise<MarksNotSupportedForFormatException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MarksNotSupportedForFormatException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1115,9 +1121,10 @@ const de_MaxLexemeLengthExceededExceptionRes = async (
 ): Promise<MaxLexemeLengthExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MaxLexemeLengthExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1134,9 +1141,10 @@ const de_MaxLexiconsNumberExceededExceptionRes = async (
 ): Promise<MaxLexiconsNumberExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MaxLexiconsNumberExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1153,9 +1161,10 @@ const de_ServiceFailureExceptionRes = async (
 ): Promise<ServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1172,9 +1181,10 @@ const de_SsmlMarksNotSupportedForTextTypeExceptionRes = async (
 ): Promise<SsmlMarksNotSupportedForTextTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SsmlMarksNotSupportedForTextTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1191,9 +1201,10 @@ const de_SynthesisTaskNotFoundExceptionRes = async (
 ): Promise<SynthesisTaskNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SynthesisTaskNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1210,9 +1221,10 @@ const de_TextLengthExceededExceptionRes = async (
 ): Promise<TextLengthExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TextLengthExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1229,9 +1241,10 @@ const de_UnsupportedPlsAlphabetExceptionRes = async (
 ): Promise<UnsupportedPlsAlphabetException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedPlsAlphabetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1248,9 +1261,10 @@ const de_UnsupportedPlsLanguageExceptionRes = async (
 ): Promise<UnsupportedPlsLanguageException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedPlsLanguageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1258,93 +1272,38 @@ const de_UnsupportedPlsLanguageExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1LexiconNameList
- */
-const se_LexiconNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LexiconNameList omitted.
 
-/**
- * serializeAws_restJson1SpeechMarkTypeList
- */
-const se_SpeechMarkTypeList = (input: (SpeechMarkType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SpeechMarkTypeList omitted.
 
-/**
- * deserializeAws_restJson1EngineList
- */
-const de_EngineList = (output: any, context: __SerdeContext): (Engine | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EngineList omitted.
 
-/**
- * deserializeAws_restJson1LanguageCodeList
- */
-const de_LanguageCodeList = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LanguageCodeList omitted.
 
-/**
- * deserializeAws_restJson1Lexicon
- */
-const de_Lexicon = (output: any, context: __SerdeContext): Lexicon => {
-  return {
-    Content: __expectString(output.Content),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Lexicon omitted.
 
 /**
  * deserializeAws_restJson1LexiconAttributes
  */
 const de_LexiconAttributes = (output: any, context: __SerdeContext): LexiconAttributes => {
-  return {
-    Alphabet: __expectString(output.Alphabet),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModified:
-      output.LastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
-        : undefined,
-    LexemesCount: __expectInt32(output.LexemesCount),
-    LexiconArn: __expectString(output.LexiconArn),
-    Size: __expectInt32(output.Size),
-  } as any;
+  return take(output, {
+    Alphabet: __expectString,
+    LanguageCode: __expectString,
+    LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LexemesCount: __expectInt32,
+    LexiconArn: __expectString,
+    Size: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LexiconDescription
  */
 const de_LexiconDescription = (output: any, context: __SerdeContext): LexiconDescription => {
-  return {
-    Attributes: output.Attributes != null ? de_LexiconAttributes(output.Attributes, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_LexiconAttributes(_, context),
+    Name: __expectString,
+  }) as any;
 };
 
 /**
@@ -1354,69 +1313,36 @@ const de_LexiconDescriptionList = (output: any, context: __SerdeContext): Lexico
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LexiconDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LexiconNameList
- */
-const de_LexiconNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LexiconNameList omitted.
 
-/**
- * deserializeAws_restJson1SpeechMarkTypeList
- */
-const de_SpeechMarkTypeList = (output: any, context: __SerdeContext): (SpeechMarkType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SpeechMarkTypeList omitted.
 
 /**
  * deserializeAws_restJson1SynthesisTask
  */
 const de_SynthesisTask = (output: any, context: __SerdeContext): SynthesisTask => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Engine: __expectString(output.Engine),
-    LanguageCode: __expectString(output.LanguageCode),
-    LexiconNames: output.LexiconNames != null ? de_LexiconNameList(output.LexiconNames, context) : undefined,
-    OutputFormat: __expectString(output.OutputFormat),
-    OutputUri: __expectString(output.OutputUri),
-    RequestCharacters: __expectInt32(output.RequestCharacters),
-    SampleRate: __expectString(output.SampleRate),
-    SnsTopicArn: __expectString(output.SnsTopicArn),
-    SpeechMarkTypes:
-      output.SpeechMarkTypes != null ? de_SpeechMarkTypeList(output.SpeechMarkTypes, context) : undefined,
-    TaskId: __expectString(output.TaskId),
-    TaskStatus: __expectString(output.TaskStatus),
-    TaskStatusReason: __expectString(output.TaskStatusReason),
-    TextType: __expectString(output.TextType),
-    VoiceId: __expectString(output.VoiceId),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Engine: __expectString,
+    LanguageCode: __expectString,
+    LexiconNames: _json,
+    OutputFormat: __expectString,
+    OutputUri: __expectString,
+    RequestCharacters: __expectInt32,
+    SampleRate: __expectString,
+    SnsTopicArn: __expectString,
+    SpeechMarkTypes: _json,
+    TaskId: __expectString,
+    TaskStatus: __expectString,
+    TaskStatusReason: __expectString,
+    TextType: __expectString,
+    VoiceId: __expectString,
+  }) as any;
 };
 
 /**
@@ -1426,44 +1352,14 @@ const de_SynthesisTasks = (output: any, context: __SerdeContext): SynthesisTask[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SynthesisTask(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Voice
- */
-const de_Voice = (output: any, context: __SerdeContext): Voice => {
-  return {
-    AdditionalLanguageCodes:
-      output.AdditionalLanguageCodes != null ? de_LanguageCodeList(output.AdditionalLanguageCodes, context) : undefined,
-    Gender: __expectString(output.Gender),
-    Id: __expectString(output.Id),
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageName: __expectString(output.LanguageName),
-    Name: __expectString(output.Name),
-    SupportedEngines: output.SupportedEngines != null ? de_EngineList(output.SupportedEngines, context) : undefined,
-  } as any;
-};
+// de_Voice omitted.
 
-/**
- * deserializeAws_restJson1VoiceList
- */
-const de_VoiceList = (output: any, context: __SerdeContext): Voice[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Voice(entry, context);
-    });
-  return retVal;
-};
+// de_VoiceList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

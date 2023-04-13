@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -71,12 +73,8 @@ import {
 import { AppIntegrationsServiceException as __BaseException } from "../models/AppIntegrationsServiceException";
 import {
   AccessDeniedException,
-  DataIntegrationAssociationSummary,
-  DataIntegrationSummary,
   DuplicateResourceException,
   EventFilter,
-  EventIntegration,
-  EventIntegrationAssociation,
   FileConfiguration,
   InternalServiceError,
   InvalidRequestException,
@@ -99,21 +97,19 @@ export const se_CreateDataIntegrationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dataIntegrations";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FileConfiguration != null && {
-      FileConfiguration: se_FileConfiguration(input.FileConfiguration, context),
-    }),
-    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ObjectConfiguration != null && {
-      ObjectConfiguration: se_ObjectConfiguration(input.ObjectConfiguration, context),
-    }),
-    ...(input.ScheduleConfig != null && { ScheduleConfig: se_ScheduleConfiguration(input.ScheduleConfig, context) }),
-    ...(input.SourceURI != null && { SourceURI: input.SourceURI }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      FileConfiguration: (_) => _json(_),
+      KmsKey: [],
+      Name: [],
+      ObjectConfiguration: (_) => _json(_),
+      ScheduleConfig: (_) => _json(_),
+      SourceURI: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -138,14 +134,16 @@ export const se_CreateEventIntegrationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EventBridgeBus != null && { EventBridgeBus: input.EventBridgeBus }),
-    ...(input.EventFilter != null && { EventFilter: se_EventFilter(input.EventFilter, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      EventBridgeBus: [],
+      EventFilter: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -426,9 +424,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -485,10 +485,12 @@ export const se_UpdateDataIntegrationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dataIntegrations/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -515,9 +517,11 @@ export const se_UpdateEventIntegrationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations/{Name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -543,39 +547,20 @@ export const de_CreateDataIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ClientToken != null) {
-    contents.ClientToken = __expectString(data.ClientToken);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FileConfiguration != null) {
-    contents.FileConfiguration = de_FileConfiguration(data.FileConfiguration, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.KmsKey != null) {
-    contents.KmsKey = __expectString(data.KmsKey);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ObjectConfiguration != null) {
-    contents.ObjectConfiguration = de_ObjectConfiguration(data.ObjectConfiguration, context);
-  }
-  if (data.ScheduleConfiguration != null) {
-    contents.ScheduleConfiguration = de_ScheduleConfiguration(data.ScheduleConfiguration, context);
-  }
-  if (data.SourceURI != null) {
-    contents.SourceURI = __expectString(data.SourceURI);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    ClientToken: __expectString,
+    Description: __expectString,
+    FileConfiguration: _json,
+    Id: __expectString,
+    KmsKey: __expectString,
+    Name: __expectString,
+    ObjectConfiguration: _json,
+    ScheduleConfiguration: _json,
+    SourceURI: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -612,10 +597,9 @@ const de_CreateDataIntegrationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -635,9 +619,10 @@ export const de_CreateEventIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventIntegrationArn != null) {
-    contents.EventIntegrationArn = __expectString(data.EventIntegrationArn);
-  }
+  const doc = take(data, {
+    EventIntegrationArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -674,10 +659,9 @@ const de_CreateEventIntegrationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -730,10 +714,9 @@ const de_DeleteDataIntegrationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -786,10 +769,9 @@ const de_DeleteEventIntegrationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -809,36 +791,19 @@ export const de_GetDataIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FileConfiguration != null) {
-    contents.FileConfiguration = de_FileConfiguration(data.FileConfiguration, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.KmsKey != null) {
-    contents.KmsKey = __expectString(data.KmsKey);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ObjectConfiguration != null) {
-    contents.ObjectConfiguration = de_ObjectConfiguration(data.ObjectConfiguration, context);
-  }
-  if (data.ScheduleConfiguration != null) {
-    contents.ScheduleConfiguration = de_ScheduleConfiguration(data.ScheduleConfiguration, context);
-  }
-  if (data.SourceURI != null) {
-    contents.SourceURI = __expectString(data.SourceURI);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    FileConfiguration: _json,
+    Id: __expectString,
+    KmsKey: __expectString,
+    Name: __expectString,
+    ObjectConfiguration: _json,
+    ScheduleConfiguration: _json,
+    SourceURI: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -872,10 +837,9 @@ const de_GetDataIntegrationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -895,24 +859,15 @@ export const de_GetEventIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EventBridgeBus != null) {
-    contents.EventBridgeBus = __expectString(data.EventBridgeBus);
-  }
-  if (data.EventFilter != null) {
-    contents.EventFilter = de_EventFilter(data.EventFilter, context);
-  }
-  if (data.EventIntegrationArn != null) {
-    contents.EventIntegrationArn = __expectString(data.EventIntegrationArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    EventBridgeBus: __expectString,
+    EventFilter: _json,
+    EventIntegrationArn: __expectString,
+    Name: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -946,10 +901,9 @@ const de_GetEventIntegrationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -969,15 +923,11 @@ export const de_ListDataIntegrationAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataIntegrationAssociations != null) {
-    contents.DataIntegrationAssociations = de_DataIntegrationAssociationsList(
-      data.DataIntegrationAssociations,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DataIntegrationAssociations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1011,10 +961,9 @@ const de_ListDataIntegrationAssociationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1034,12 +983,11 @@ export const de_ListDataIntegrationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataIntegrations != null) {
-    contents.DataIntegrations = de_DataIntegrationsList(data.DataIntegrations, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DataIntegrations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1070,10 +1018,9 @@ const de_ListDataIntegrationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1093,15 +1040,11 @@ export const de_ListEventIntegrationAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventIntegrationAssociations != null) {
-    contents.EventIntegrationAssociations = de_EventIntegrationAssociationsList(
-      data.EventIntegrationAssociations,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EventIntegrationAssociations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1135,10 +1078,9 @@ const de_ListEventIntegrationAssociationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1158,12 +1100,11 @@ export const de_ListEventIntegrationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventIntegrations != null) {
-    contents.EventIntegrations = de_EventIntegrationsList(data.EventIntegrations, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EventIntegrations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1194,10 +1135,9 @@ const de_ListEventIntegrationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1217,9 +1157,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1250,10 +1191,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1303,10 +1243,9 @@ const de_TagResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1356,10 +1295,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1412,10 +1350,9 @@ const de_UpdateDataIntegrationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1468,16 +1405,15 @@ const de_UpdateEventIntegrationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1487,9 +1423,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1506,9 +1443,10 @@ const de_DuplicateResourceExceptionRes = async (
 ): Promise<DuplicateResourceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DuplicateResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1525,9 +1463,10 @@ const de_InternalServiceErrorRes = async (
 ): Promise<InternalServiceError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1544,9 +1483,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1563,9 +1503,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1582,9 +1523,10 @@ const de_ResourceQuotaExceededExceptionRes = async (
 ): Promise<ResourceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1598,9 +1540,10 @@ const de_ResourceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1608,327 +1551,55 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1EventFilter
- */
-const se_EventFilter = (input: EventFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Source != null && { Source: input.Source }),
-  };
-};
+// se_EventFilter omitted.
 
-/**
- * serializeAws_restJson1FieldsList
- */
-const se_FieldsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FieldsList omitted.
 
-/**
- * serializeAws_restJson1FieldsMap
- */
-const se_FieldsMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_FieldsList(value, context);
-    return acc;
-  }, {});
-};
+// se_FieldsMap omitted.
 
-/**
- * serializeAws_restJson1FileConfiguration
- */
-const se_FileConfiguration = (input: FileConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FieldsMap(input.Filters, context) }),
-    ...(input.Folders != null && { Folders: se_FolderList(input.Folders, context) }),
-  };
-};
+// se_FileConfiguration omitted.
 
-/**
- * serializeAws_restJson1FolderList
- */
-const se_FolderList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FolderList omitted.
 
-/**
- * serializeAws_restJson1ObjectConfiguration
- */
-const se_ObjectConfiguration = (input: Record<string, Record<string, string[]>>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_FieldsMap(value, context);
-    return acc;
-  }, {});
-};
+// se_ObjectConfiguration omitted.
 
-/**
- * serializeAws_restJson1ScheduleConfiguration
- */
-const se_ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.FirstExecutionFrom != null && { FirstExecutionFrom: input.FirstExecutionFrom }),
-    ...(input.Object != null && { Object: input.Object }),
-    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
-  };
-};
+// se_ScheduleConfiguration omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1ClientAssociationMetadata
- */
-const de_ClientAssociationMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ClientAssociationMetadata omitted.
 
-/**
- * deserializeAws_restJson1DataIntegrationAssociationsList
- */
-const de_DataIntegrationAssociationsList = (
-  output: any,
-  context: __SerdeContext
-): DataIntegrationAssociationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataIntegrationAssociationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_DataIntegrationAssociationsList omitted.
 
-/**
- * deserializeAws_restJson1DataIntegrationAssociationSummary
- */
-const de_DataIntegrationAssociationSummary = (
-  output: any,
-  context: __SerdeContext
-): DataIntegrationAssociationSummary => {
-  return {
-    ClientId: __expectString(output.ClientId),
-    DataIntegrationArn: __expectString(output.DataIntegrationArn),
-    DataIntegrationAssociationArn: __expectString(output.DataIntegrationAssociationArn),
-  } as any;
-};
+// de_DataIntegrationAssociationSummary omitted.
 
-/**
- * deserializeAws_restJson1DataIntegrationsList
- */
-const de_DataIntegrationsList = (output: any, context: __SerdeContext): DataIntegrationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataIntegrationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_DataIntegrationsList omitted.
 
-/**
- * deserializeAws_restJson1DataIntegrationSummary
- */
-const de_DataIntegrationSummary = (output: any, context: __SerdeContext): DataIntegrationSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-    SourceURI: __expectString(output.SourceURI),
-  } as any;
-};
+// de_DataIntegrationSummary omitted.
 
-/**
- * deserializeAws_restJson1EventFilter
- */
-const de_EventFilter = (output: any, context: __SerdeContext): EventFilter => {
-  return {
-    Source: __expectString(output.Source),
-  } as any;
-};
+// de_EventFilter omitted.
 
-/**
- * deserializeAws_restJson1EventIntegration
- */
-const de_EventIntegration = (output: any, context: __SerdeContext): EventIntegration => {
-  return {
-    Description: __expectString(output.Description),
-    EventBridgeBus: __expectString(output.EventBridgeBus),
-    EventFilter: output.EventFilter != null ? de_EventFilter(output.EventFilter, context) : undefined,
-    EventIntegrationArn: __expectString(output.EventIntegrationArn),
-    Name: __expectString(output.Name),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_EventIntegration omitted.
 
-/**
- * deserializeAws_restJson1EventIntegrationAssociation
- */
-const de_EventIntegrationAssociation = (output: any, context: __SerdeContext): EventIntegrationAssociation => {
-  return {
-    ClientAssociationMetadata:
-      output.ClientAssociationMetadata != null
-        ? de_ClientAssociationMetadata(output.ClientAssociationMetadata, context)
-        : undefined,
-    ClientId: __expectString(output.ClientId),
-    EventBridgeRuleName: __expectString(output.EventBridgeRuleName),
-    EventIntegrationAssociationArn: __expectString(output.EventIntegrationAssociationArn),
-    EventIntegrationAssociationId: __expectString(output.EventIntegrationAssociationId),
-    EventIntegrationName: __expectString(output.EventIntegrationName),
-  } as any;
-};
+// de_EventIntegrationAssociation omitted.
 
-/**
- * deserializeAws_restJson1EventIntegrationAssociationsList
- */
-const de_EventIntegrationAssociationsList = (output: any, context: __SerdeContext): EventIntegrationAssociation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventIntegrationAssociation(entry, context);
-    });
-  return retVal;
-};
+// de_EventIntegrationAssociationsList omitted.
 
-/**
- * deserializeAws_restJson1EventIntegrationsList
- */
-const de_EventIntegrationsList = (output: any, context: __SerdeContext): EventIntegration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventIntegration(entry, context);
-    });
-  return retVal;
-};
+// de_EventIntegrationsList omitted.
 
-/**
- * deserializeAws_restJson1FieldsList
- */
-const de_FieldsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FieldsList omitted.
 
-/**
- * deserializeAws_restJson1FieldsMap
- */
-const de_FieldsMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_FieldsList(value, context);
-    return acc;
-  }, {});
-};
+// de_FieldsMap omitted.
 
-/**
- * deserializeAws_restJson1FileConfiguration
- */
-const de_FileConfiguration = (output: any, context: __SerdeContext): FileConfiguration => {
-  return {
-    Filters: output.Filters != null ? de_FieldsMap(output.Filters, context) : undefined,
-    Folders: output.Folders != null ? de_FolderList(output.Folders, context) : undefined,
-  } as any;
-};
+// de_FileConfiguration omitted.
 
-/**
- * deserializeAws_restJson1FolderList
- */
-const de_FolderList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FolderList omitted.
 
-/**
- * deserializeAws_restJson1ObjectConfiguration
- */
-const de_ObjectConfiguration = (output: any, context: __SerdeContext): Record<string, Record<string, string[]>> => {
-  return Object.entries(output).reduce((acc: Record<string, Record<string, string[]>>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_FieldsMap(value, context);
-    return acc;
-  }, {});
-};
+// de_ObjectConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ScheduleConfiguration
- */
-const de_ScheduleConfiguration = (output: any, context: __SerdeContext): ScheduleConfiguration => {
-  return {
-    FirstExecutionFrom: __expectString(output.FirstExecutionFrom),
-    Object: __expectString(output.Object),
-    ScheduleExpression: __expectString(output.ScheduleExpression),
-  } as any;
-};
+// de_ScheduleConfiguration omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

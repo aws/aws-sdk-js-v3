@@ -1,15 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -36,18 +37,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { ElasticInferenceServiceException as __BaseException } from "../models/ElasticInferenceServiceException";
-import {
-  AcceleratorType,
-  AcceleratorTypeOffering,
-  BadRequestException,
-  ElasticInferenceAccelerator,
-  ElasticInferenceAcceleratorHealth,
-  Filter,
-  InternalServerException,
-  KeyValuePair,
-  MemoryInfo,
-  ResourceNotFoundException,
-} from "../models/models_0";
+import { BadRequestException, Filter, InternalServerException, ResourceNotFoundException } from "../models/models_0";
 
 /**
  * serializeAws_restJson1DescribeAcceleratorOfferingsCommand
@@ -63,12 +53,12 @@ export const se_DescribeAcceleratorOfferingsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-accelerator-offerings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.acceleratorTypes != null && {
-      acceleratorTypes: se_AcceleratorTypeNameList(input.acceleratorTypes, context),
-    }),
-    ...(input.locationType != null && { locationType: input.locationType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      acceleratorTypes: (_) => _json(_),
+      locationType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -93,12 +83,14 @@ export const se_DescribeAcceleratorsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-accelerators";
   let body: any;
-  body = JSON.stringify({
-    ...(input.acceleratorIds != null && { acceleratorIds: se_AcceleratorIdList(input.acceleratorIds, context) }),
-    ...(input.filters != null && { filters: se_FilterList(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      acceleratorIds: (_) => _json(_),
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -173,9 +165,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -231,9 +225,10 @@ export const de_DescribeAcceleratorOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.acceleratorTypeOfferings != null) {
-    contents.acceleratorTypeOfferings = de_AcceleratorTypeOfferingList(data.acceleratorTypeOfferings, context);
-  }
+  const doc = take(data, {
+    acceleratorTypeOfferings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -261,10 +256,9 @@ const de_DescribeAcceleratorOfferingsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -284,12 +278,11 @@ export const de_DescribeAcceleratorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.acceleratorSet != null) {
-    contents.acceleratorSet = de_ElasticInferenceAcceleratorSet(data.acceleratorSet, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    acceleratorSet: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -317,10 +310,9 @@ const de_DescribeAcceleratorsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -340,9 +332,10 @@ export const de_DescribeAcceleratorTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.acceleratorTypes != null) {
-    contents.acceleratorTypes = de_AcceleratorTypeList(data.acceleratorTypes, context);
-  }
+  const doc = take(data, {
+    acceleratorTypes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -364,10 +357,9 @@ const de_DescribeAcceleratorTypesCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -387,9 +379,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -417,10 +410,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -467,10 +459,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -517,25 +508,25 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -552,9 +543,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -571,9 +563,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -581,214 +574,39 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AcceleratorIdList
- */
-const se_AcceleratorIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AcceleratorIdList omitted.
 
-/**
- * serializeAws_restJson1AcceleratorTypeNameList
- */
-const se_AcceleratorTypeNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AcceleratorTypeNameList omitted.
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_ValueStringList(input.values, context) }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1FilterList
- */
-const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_FilterList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1ValueStringList
- */
-const se_ValueStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ValueStringList omitted.
 
-/**
- * deserializeAws_restJson1AcceleratorType
- */
-const de_AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
-  return {
-    acceleratorTypeName: __expectString(output.acceleratorTypeName),
-    memoryInfo: output.memoryInfo != null ? de_MemoryInfo(output.memoryInfo, context) : undefined,
-    throughputInfo: output.throughputInfo != null ? de_ThroughputInfoList(output.throughputInfo, context) : undefined,
-  } as any;
-};
+// de_AcceleratorType omitted.
 
-/**
- * deserializeAws_restJson1AcceleratorTypeList
- */
-const de_AcceleratorTypeList = (output: any, context: __SerdeContext): AcceleratorType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AcceleratorType(entry, context);
-    });
-  return retVal;
-};
+// de_AcceleratorTypeList omitted.
 
-/**
- * deserializeAws_restJson1AcceleratorTypeOffering
- */
-const de_AcceleratorTypeOffering = (output: any, context: __SerdeContext): AcceleratorTypeOffering => {
-  return {
-    acceleratorType: __expectString(output.acceleratorType),
-    location: __expectString(output.location),
-    locationType: __expectString(output.locationType),
-  } as any;
-};
+// de_AcceleratorTypeOffering omitted.
 
-/**
- * deserializeAws_restJson1AcceleratorTypeOfferingList
- */
-const de_AcceleratorTypeOfferingList = (output: any, context: __SerdeContext): AcceleratorTypeOffering[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AcceleratorTypeOffering(entry, context);
-    });
-  return retVal;
-};
+// de_AcceleratorTypeOfferingList omitted.
 
-/**
- * deserializeAws_restJson1ElasticInferenceAccelerator
- */
-const de_ElasticInferenceAccelerator = (output: any, context: __SerdeContext): ElasticInferenceAccelerator => {
-  return {
-    acceleratorHealth:
-      output.acceleratorHealth != null
-        ? de_ElasticInferenceAcceleratorHealth(output.acceleratorHealth, context)
-        : undefined,
-    acceleratorId: __expectString(output.acceleratorId),
-    acceleratorType: __expectString(output.acceleratorType),
-    attachedResource: __expectString(output.attachedResource),
-    availabilityZone: __expectString(output.availabilityZone),
-  } as any;
-};
+// de_ElasticInferenceAccelerator omitted.
 
-/**
- * deserializeAws_restJson1ElasticInferenceAcceleratorHealth
- */
-const de_ElasticInferenceAcceleratorHealth = (
-  output: any,
-  context: __SerdeContext
-): ElasticInferenceAcceleratorHealth => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_ElasticInferenceAcceleratorHealth omitted.
 
-/**
- * deserializeAws_restJson1ElasticInferenceAcceleratorSet
- */
-const de_ElasticInferenceAcceleratorSet = (output: any, context: __SerdeContext): ElasticInferenceAccelerator[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ElasticInferenceAccelerator(entry, context);
-    });
-  return retVal;
-};
+// de_ElasticInferenceAcceleratorSet omitted.
 
-/**
- * deserializeAws_restJson1KeyValuePair
- */
-const de_KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
-  return {
-    key: __expectString(output.key),
-    value: __expectInt32(output.value),
-  } as any;
-};
+// de_KeyValuePair omitted.
 
-/**
- * deserializeAws_restJson1MemoryInfo
- */
-const de_MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
-  return {
-    sizeInMiB: __expectInt32(output.sizeInMiB),
-  } as any;
-};
+// de_MemoryInfo omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1ThroughputInfoList
- */
-const de_ThroughputInfoList = (output: any, context: __SerdeContext): KeyValuePair[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_KeyValuePair(entry, context);
-    });
-  return retVal;
-};
+// de_ThroughputInfoList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

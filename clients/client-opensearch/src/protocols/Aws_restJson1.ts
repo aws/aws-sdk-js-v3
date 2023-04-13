@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,10 +12,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -164,23 +166,19 @@ import { UpgradeDomainCommandInput, UpgradeDomainCommandOutput } from "../comman
 import {
   AccessDeniedException,
   AccessPoliciesStatus,
-  AdditionalLimit,
   AdvancedOptionsStatus,
   AdvancedSecurityOptions,
   AdvancedSecurityOptionsInput,
   AdvancedSecurityOptionsStatus,
-  AuthorizedPrincipal,
   AutoTune,
   AutoTuneDetails,
   AutoTuneMaintenanceSchedule,
   AutoTuneOptions,
   AutoTuneOptionsInput,
-  AutoTuneOptionsOutput,
   AutoTuneOptionsStatus,
   AutoTuneStatus,
   AWSDomainInformation,
   BaseException,
-  ChangeProgressDetails,
   ChangeProgressStage,
   ChangeProgressStatusDetails,
   ClusterConfig,
@@ -188,40 +186,27 @@ import {
   CognitoOptions,
   CognitoOptionsStatus,
   ColdStorageOptions,
-  CompatibleVersionsMap,
   ConflictException,
-  ConnectionProperties,
   DescribePackagesFilter,
   DisabledOperationException,
   DomainConfig,
   DomainEndpointOptions,
   DomainEndpointOptionsStatus,
-  DomainInfo,
   DomainInformationContainer,
   DomainPackageDetails,
   DomainStatus,
-  DryRunProgressStatus,
-  DryRunResults,
   Duration,
   EBSOptions,
   EBSOptionsStatus,
   EncryptionAtRestOptions,
   EncryptionAtRestOptionsStatus,
-  ErrorDetails,
   Filter,
-  InboundConnection,
-  InboundConnectionStatus,
-  InstanceCountLimits,
-  InstanceLimits,
-  InstanceTypeDetails,
   InternalException,
   InvalidPaginationTokenException,
   InvalidTypeException,
   LimitExceededException,
-  Limits,
   LogPublishingOption,
   LogPublishingOptionsStatus,
-  LogType,
   MasterUserOptions,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,
@@ -229,8 +214,6 @@ import {
   OffPeakWindowOptions,
   OffPeakWindowOptionsStatus,
   OptionStatus,
-  OutboundConnection,
-  OutboundConnectionStatus,
   PackageDetails,
   PackageSource,
   PackageVersionHistory,
@@ -241,8 +224,6 @@ import {
   ResourceNotFoundException,
   SAMLIdp,
   SAMLOptionsInput,
-  SAMLOptionsOutput,
-  ScheduledAction,
   ScheduledAutoTuneDetails,
   ServiceSoftwareOptions,
   SlotNotAvailableException,
@@ -250,19 +231,12 @@ import {
   SnapshotOptionsStatus,
   SoftwareUpdateOptions,
   SoftwareUpdateOptionsStatus,
-  StorageType,
-  StorageTypeLimit,
   Tag,
   UpgradeHistory,
   UpgradeStepItem,
   ValidationException,
-  ValidationFailure,
   VersionStatus,
-  VPCDerivedInfo,
   VPCDerivedInfoStatus,
-  VpcEndpoint,
-  VpcEndpointError,
-  VpcEndpointSummary,
   VPCOptions,
   WindowStartTime,
   ZoneAwarenessConfig,
@@ -314,10 +288,12 @@ export const se_AddTagsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/tags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ARN != null && { ARN: input.ARN }),
-    ...(input.TagList != null && { TagList: se_TagList(input.TagList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ARN: [],
+      TagList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -371,9 +347,11 @@ export const se_AuthorizeVpcEndpointAccessCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/authorizeVpcEndpointAccess";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Account != null && { Account: input.Account }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Account: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -400,9 +378,11 @@ export const se_CancelServiceSoftwareUpdateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -428,40 +408,28 @@ export const se_CreateDomainCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/domain";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessPolicies != null && { AccessPolicies: input.AccessPolicies }),
-    ...(input.AdvancedOptions != null && { AdvancedOptions: se_AdvancedOptions(input.AdvancedOptions, context) }),
-    ...(input.AdvancedSecurityOptions != null && {
-      AdvancedSecurityOptions: se_AdvancedSecurityOptionsInput(input.AdvancedSecurityOptions, context),
-    }),
-    ...(input.AutoTuneOptions != null && { AutoTuneOptions: se_AutoTuneOptionsInput(input.AutoTuneOptions, context) }),
-    ...(input.ClusterConfig != null && { ClusterConfig: se_ClusterConfig(input.ClusterConfig, context) }),
-    ...(input.CognitoOptions != null && { CognitoOptions: se_CognitoOptions(input.CognitoOptions, context) }),
-    ...(input.DomainEndpointOptions != null && {
-      DomainEndpointOptions: se_DomainEndpointOptions(input.DomainEndpointOptions, context),
-    }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.EBSOptions != null && { EBSOptions: se_EBSOptions(input.EBSOptions, context) }),
-    ...(input.EncryptionAtRestOptions != null && {
-      EncryptionAtRestOptions: se_EncryptionAtRestOptions(input.EncryptionAtRestOptions, context),
-    }),
-    ...(input.EngineVersion != null && { EngineVersion: input.EngineVersion }),
-    ...(input.LogPublishingOptions != null && {
-      LogPublishingOptions: se_LogPublishingOptions(input.LogPublishingOptions, context),
-    }),
-    ...(input.NodeToNodeEncryptionOptions != null && {
-      NodeToNodeEncryptionOptions: se_NodeToNodeEncryptionOptions(input.NodeToNodeEncryptionOptions, context),
-    }),
-    ...(input.OffPeakWindowOptions != null && {
-      OffPeakWindowOptions: se_OffPeakWindowOptions(input.OffPeakWindowOptions, context),
-    }),
-    ...(input.SnapshotOptions != null && { SnapshotOptions: se_SnapshotOptions(input.SnapshotOptions, context) }),
-    ...(input.SoftwareUpdateOptions != null && {
-      SoftwareUpdateOptions: se_SoftwareUpdateOptions(input.SoftwareUpdateOptions, context),
-    }),
-    ...(input.TagList != null && { TagList: se_TagList(input.TagList, context) }),
-    ...(input.VPCOptions != null && { VPCOptions: se_VPCOptions(input.VPCOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessPolicies: [],
+      AdvancedOptions: (_) => _json(_),
+      AdvancedSecurityOptions: (_) => _json(_),
+      AutoTuneOptions: (_) => se_AutoTuneOptionsInput(_, context),
+      ClusterConfig: (_) => _json(_),
+      CognitoOptions: (_) => _json(_),
+      DomainEndpointOptions: (_) => _json(_),
+      DomainName: [],
+      EBSOptions: (_) => _json(_),
+      EncryptionAtRestOptions: (_) => _json(_),
+      EngineVersion: [],
+      LogPublishingOptions: (_) => _json(_),
+      NodeToNodeEncryptionOptions: (_) => _json(_),
+      OffPeakWindowOptions: (_) => _json(_),
+      SnapshotOptions: (_) => _json(_),
+      SoftwareUpdateOptions: (_) => _json(_),
+      TagList: (_) => _json(_),
+      VPCOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -488,16 +456,14 @@ export const se_CreateOutboundConnectionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/cc/outboundConnection";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConnectionAlias != null && { ConnectionAlias: input.ConnectionAlias }),
-    ...(input.ConnectionMode != null && { ConnectionMode: input.ConnectionMode }),
-    ...(input.LocalDomainInfo != null && {
-      LocalDomainInfo: se_DomainInformationContainer(input.LocalDomainInfo, context),
-    }),
-    ...(input.RemoteDomainInfo != null && {
-      RemoteDomainInfo: se_DomainInformationContainer(input.RemoteDomainInfo, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConnectionAlias: [],
+      ConnectionMode: [],
+      LocalDomainInfo: (_) => _json(_),
+      RemoteDomainInfo: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -522,12 +488,14 @@ export const se_CreatePackageCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PackageDescription != null && { PackageDescription: input.PackageDescription }),
-    ...(input.PackageName != null && { PackageName: input.PackageName }),
-    ...(input.PackageSource != null && { PackageSource: se_PackageSource(input.PackageSource, context) }),
-    ...(input.PackageType != null && { PackageType: input.PackageType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PackageDescription: [],
+      PackageName: [],
+      PackageSource: (_) => _json(_),
+      PackageType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -553,11 +521,13 @@ export const se_CreateVpcEndpointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/vpcEndpoints";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.DomainArn != null && { DomainArn: input.DomainArn }),
-    ...(input.VpcOptions != null && { VpcOptions: se_VPCOptions(input.VpcOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      DomainArn: [],
+      VpcOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -755,10 +725,12 @@ export const se_DescribeDomainAutoTunesCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/autoTunes";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -838,9 +810,11 @@ export const se_DescribeDomainsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/domain-info";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainNames != null && { DomainNames: se_DomainNameList(input.DomainNames, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DomainNames: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -897,11 +871,13 @@ export const se_DescribeInboundConnectionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/cc/inboundConnection/search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -972,11 +948,13 @@ export const se_DescribeOutboundConnectionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/cc/outboundConnection/search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1002,11 +980,13 @@ export const se_DescribePackagesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/describe";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_DescribePackagesFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1092,9 +1072,11 @@ export const se_DescribeVpcEndpointsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/vpcEndpoints/describe";
   let body: any;
-  body = JSON.stringify({
-    ...(input.VpcEndpointIds != null && { VpcEndpointIds: se_VpcEndpointIdList(input.VpcEndpointIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      VpcEndpointIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1549,11 +1531,13 @@ export const se_PurchaseReservedInstanceOfferingCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/purchaseReservedInstanceOffering";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
-    ...(input.ReservationName != null && { ReservationName: input.ReservationName }),
-    ...(input.ReservedInstanceOfferingId != null && { ReservedInstanceOfferingId: input.ReservedInstanceOfferingId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InstanceCount: [],
+      ReservationName: [],
+      ReservedInstanceOfferingId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1611,10 +1595,12 @@ export const se_RemoveTagsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/tags-removal";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ARN != null && { ARN: input.ARN }),
-    ...(input.TagKeys != null && { TagKeys: se_StringList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1642,9 +1628,11 @@ export const se_RevokeVpcEndpointAccessCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/revokeVpcEndpointAccess";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Account != null && { Account: input.Account }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Account: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1671,11 +1659,13 @@ export const se_StartServiceSoftwareUpdateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/serviceSoftwareUpdate/start";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DesiredStartTime != null && { DesiredStartTime: input.DesiredStartTime }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.ScheduleAt != null && { ScheduleAt: input.ScheduleAt }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DesiredStartTime: [],
+      DomainName: [],
+      ScheduleAt: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1703,39 +1693,27 @@ export const se_UpdateDomainConfigCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessPolicies != null && { AccessPolicies: input.AccessPolicies }),
-    ...(input.AdvancedOptions != null && { AdvancedOptions: se_AdvancedOptions(input.AdvancedOptions, context) }),
-    ...(input.AdvancedSecurityOptions != null && {
-      AdvancedSecurityOptions: se_AdvancedSecurityOptionsInput(input.AdvancedSecurityOptions, context),
-    }),
-    ...(input.AutoTuneOptions != null && { AutoTuneOptions: se_AutoTuneOptions(input.AutoTuneOptions, context) }),
-    ...(input.ClusterConfig != null && { ClusterConfig: se_ClusterConfig(input.ClusterConfig, context) }),
-    ...(input.CognitoOptions != null && { CognitoOptions: se_CognitoOptions(input.CognitoOptions, context) }),
-    ...(input.DomainEndpointOptions != null && {
-      DomainEndpointOptions: se_DomainEndpointOptions(input.DomainEndpointOptions, context),
-    }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.DryRunMode != null && { DryRunMode: input.DryRunMode }),
-    ...(input.EBSOptions != null && { EBSOptions: se_EBSOptions(input.EBSOptions, context) }),
-    ...(input.EncryptionAtRestOptions != null && {
-      EncryptionAtRestOptions: se_EncryptionAtRestOptions(input.EncryptionAtRestOptions, context),
-    }),
-    ...(input.LogPublishingOptions != null && {
-      LogPublishingOptions: se_LogPublishingOptions(input.LogPublishingOptions, context),
-    }),
-    ...(input.NodeToNodeEncryptionOptions != null && {
-      NodeToNodeEncryptionOptions: se_NodeToNodeEncryptionOptions(input.NodeToNodeEncryptionOptions, context),
-    }),
-    ...(input.OffPeakWindowOptions != null && {
-      OffPeakWindowOptions: se_OffPeakWindowOptions(input.OffPeakWindowOptions, context),
-    }),
-    ...(input.SnapshotOptions != null && { SnapshotOptions: se_SnapshotOptions(input.SnapshotOptions, context) }),
-    ...(input.SoftwareUpdateOptions != null && {
-      SoftwareUpdateOptions: se_SoftwareUpdateOptions(input.SoftwareUpdateOptions, context),
-    }),
-    ...(input.VPCOptions != null && { VPCOptions: se_VPCOptions(input.VPCOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessPolicies: [],
+      AdvancedOptions: (_) => _json(_),
+      AdvancedSecurityOptions: (_) => _json(_),
+      AutoTuneOptions: (_) => se_AutoTuneOptions(_, context),
+      ClusterConfig: (_) => _json(_),
+      CognitoOptions: (_) => _json(_),
+      DomainEndpointOptions: (_) => _json(_),
+      DryRun: [],
+      DryRunMode: [],
+      EBSOptions: (_) => _json(_),
+      EncryptionAtRestOptions: (_) => _json(_),
+      LogPublishingOptions: (_) => _json(_),
+      NodeToNodeEncryptionOptions: (_) => _json(_),
+      OffPeakWindowOptions: (_) => _json(_),
+      SnapshotOptions: (_) => _json(_),
+      SoftwareUpdateOptions: (_) => _json(_),
+      VPCOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1761,12 +1739,14 @@ export const se_UpdatePackageCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CommitMessage != null && { CommitMessage: input.CommitMessage }),
-    ...(input.PackageDescription != null && { PackageDescription: input.PackageDescription }),
-    ...(input.PackageID != null && { PackageID: input.PackageID }),
-    ...(input.PackageSource != null && { PackageSource: se_PackageSource(input.PackageSource, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CommitMessage: [],
+      PackageDescription: [],
+      PackageID: [],
+      PackageSource: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1794,12 +1774,14 @@ export const se_UpdateScheduledActionCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/scheduledAction/update";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ActionID != null && { ActionID: input.ActionID }),
-    ...(input.ActionType != null && { ActionType: input.ActionType }),
-    ...(input.DesiredStartTime != null && { DesiredStartTime: input.DesiredStartTime }),
-    ...(input.ScheduleAt != null && { ScheduleAt: input.ScheduleAt }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ActionID: [],
+      ActionType: [],
+      DesiredStartTime: [],
+      ScheduleAt: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1826,10 +1808,12 @@ export const se_UpdateVpcEndpointCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/vpcEndpoints/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.VpcEndpointId != null && { VpcEndpointId: input.VpcEndpointId }),
-    ...(input.VpcOptions != null && { VpcOptions: se_VPCOptions(input.VpcOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      VpcEndpointId: [],
+      VpcOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1855,12 +1839,14 @@ export const se_UpgradeDomainCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/upgradeDomain";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdvancedOptions != null && { AdvancedOptions: se_AdvancedOptions(input.AdvancedOptions, context) }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.PerformCheckOnly != null && { PerformCheckOnly: input.PerformCheckOnly }),
-    ...(input.TargetVersion != null && { TargetVersion: input.TargetVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdvancedOptions: (_) => _json(_),
+      DomainName: [],
+      PerformCheckOnly: [],
+      TargetVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1886,9 +1872,10 @@ export const de_AcceptInboundConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connection != null) {
-    contents.Connection = de_InboundConnection(data.Connection, context);
-  }
+  const doc = take(data, {
+    Connection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1916,10 +1903,9 @@ const de_AcceptInboundConnectionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1969,10 +1955,9 @@ const de_AddTagsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1992,9 +1977,10 @@ export const de_AssociatePackageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainPackageDetails != null) {
-    contents.DomainPackageDetails = de_DomainPackageDetails(data.DomainPackageDetails, context);
-  }
+  const doc = take(data, {
+    DomainPackageDetails: (_) => de_DomainPackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2031,10 +2017,9 @@ const de_AssociatePackageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2054,9 +2039,10 @@ export const de_AuthorizeVpcEndpointAccessCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuthorizedPrincipal != null) {
-    contents.AuthorizedPrincipal = de_AuthorizedPrincipal(data.AuthorizedPrincipal, context);
-  }
+  const doc = take(data, {
+    AuthorizedPrincipal: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2093,10 +2079,9 @@ const de_AuthorizeVpcEndpointAccessCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2116,9 +2101,10 @@ export const de_CancelServiceSoftwareUpdateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ServiceSoftwareOptions != null) {
-    contents.ServiceSoftwareOptions = de_ServiceSoftwareOptions(data.ServiceSoftwareOptions, context);
-  }
+  const doc = take(data, {
+    ServiceSoftwareOptions: (_) => de_ServiceSoftwareOptions(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2149,10 +2135,9 @@ const de_CancelServiceSoftwareUpdateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2172,9 +2157,10 @@ export const de_CreateDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainStatus != null) {
-    contents.DomainStatus = de_DomainStatus(data.DomainStatus, context);
-  }
+  const doc = take(data, {
+    DomainStatus: (_) => de_DomainStatus(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2214,10 +2200,9 @@ const de_CreateDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2237,27 +2222,16 @@ export const de_CreateOutboundConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionAlias != null) {
-    contents.ConnectionAlias = __expectString(data.ConnectionAlias);
-  }
-  if (data.ConnectionId != null) {
-    contents.ConnectionId = __expectString(data.ConnectionId);
-  }
-  if (data.ConnectionMode != null) {
-    contents.ConnectionMode = __expectString(data.ConnectionMode);
-  }
-  if (data.ConnectionProperties != null) {
-    contents.ConnectionProperties = de_ConnectionProperties(data.ConnectionProperties, context);
-  }
-  if (data.ConnectionStatus != null) {
-    contents.ConnectionStatus = de_OutboundConnectionStatus(data.ConnectionStatus, context);
-  }
-  if (data.LocalDomainInfo != null) {
-    contents.LocalDomainInfo = de_DomainInformationContainer(data.LocalDomainInfo, context);
-  }
-  if (data.RemoteDomainInfo != null) {
-    contents.RemoteDomainInfo = de_DomainInformationContainer(data.RemoteDomainInfo, context);
-  }
+  const doc = take(data, {
+    ConnectionAlias: __expectString,
+    ConnectionId: __expectString,
+    ConnectionMode: __expectString,
+    ConnectionProperties: _json,
+    ConnectionStatus: _json,
+    LocalDomainInfo: _json,
+    RemoteDomainInfo: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2288,10 +2262,9 @@ const de_CreateOutboundConnectionCommandError = async (
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2311,9 +2284,10 @@ export const de_CreatePackageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PackageDetails != null) {
-    contents.PackageDetails = de_PackageDetails(data.PackageDetails, context);
-  }
+  const doc = take(data, {
+    PackageDetails: (_) => de_PackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2353,10 +2327,9 @@ const de_CreatePackageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2376,9 +2349,10 @@ export const de_CreateVpcEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VpcEndpoint != null) {
-    contents.VpcEndpoint = de_VpcEndpoint(data.VpcEndpoint, context);
-  }
+  const doc = take(data, {
+    VpcEndpoint: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2415,10 +2389,9 @@ const de_CreateVpcEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2438,9 +2411,10 @@ export const de_DeleteDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainStatus != null) {
-    contents.DomainStatus = de_DomainStatus(data.DomainStatus, context);
-  }
+  const doc = take(data, {
+    DomainStatus: (_) => de_DomainStatus(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2471,10 +2445,9 @@ const de_DeleteDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2494,9 +2467,10 @@ export const de_DeleteInboundConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connection != null) {
-    contents.Connection = de_InboundConnection(data.Connection, context);
-  }
+  const doc = take(data, {
+    Connection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2521,10 +2495,9 @@ const de_DeleteInboundConnectionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2544,9 +2517,10 @@ export const de_DeleteOutboundConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connection != null) {
-    contents.Connection = de_OutboundConnection(data.Connection, context);
-  }
+  const doc = take(data, {
+    Connection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2571,10 +2545,9 @@ const de_DeleteOutboundConnectionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2594,9 +2567,10 @@ export const de_DeletePackageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PackageDetails != null) {
-    contents.PackageDetails = de_PackageDetails(data.PackageDetails, context);
-  }
+  const doc = take(data, {
+    PackageDetails: (_) => de_PackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2633,10 +2607,9 @@ const de_DeletePackageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2656,9 +2629,10 @@ export const de_DeleteVpcEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VpcEndpointSummary != null) {
-    contents.VpcEndpointSummary = de_VpcEndpointSummary(data.VpcEndpointSummary, context);
-  }
+  const doc = take(data, {
+    VpcEndpointSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2689,10 +2663,9 @@ const de_DeleteVpcEndpointCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2712,9 +2685,10 @@ export const de_DescribeDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainStatus != null) {
-    contents.DomainStatus = de_DomainStatus(data.DomainStatus, context);
-  }
+  const doc = take(data, {
+    DomainStatus: (_) => de_DomainStatus(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2745,10 +2719,9 @@ const de_DescribeDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2768,12 +2741,11 @@ export const de_DescribeDomainAutoTunesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AutoTunes != null) {
-    contents.AutoTunes = de_AutoTuneList(data.AutoTunes, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AutoTunes: (_) => de_AutoTuneList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2804,10 +2776,9 @@ const de_DescribeDomainAutoTunesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2827,9 +2798,10 @@ export const de_DescribeDomainChangeProgressCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChangeProgressStatus != null) {
-    contents.ChangeProgressStatus = de_ChangeProgressStatusDetails(data.ChangeProgressStatus, context);
-  }
+  const doc = take(data, {
+    ChangeProgressStatus: (_) => de_ChangeProgressStatusDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2860,10 +2832,9 @@ const de_DescribeDomainChangeProgressCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2883,9 +2854,10 @@ export const de_DescribeDomainConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainConfig != null) {
-    contents.DomainConfig = de_DomainConfig(data.DomainConfig, context);
-  }
+  const doc = take(data, {
+    DomainConfig: (_) => de_DomainConfig(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2916,10 +2888,9 @@ const de_DescribeDomainConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2939,9 +2910,10 @@ export const de_DescribeDomainsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainStatusList != null) {
-    contents.DomainStatusList = de_DomainStatusList(data.DomainStatusList, context);
-  }
+  const doc = take(data, {
+    DomainStatusList: (_) => de_DomainStatusList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2969,10 +2941,9 @@ const de_DescribeDomainsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2992,15 +2963,12 @@ export const de_DescribeDryRunProgressCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DryRunConfig != null) {
-    contents.DryRunConfig = de_DomainStatus(data.DryRunConfig, context);
-  }
-  if (data.DryRunProgressStatus != null) {
-    contents.DryRunProgressStatus = de_DryRunProgressStatus(data.DryRunProgressStatus, context);
-  }
-  if (data.DryRunResults != null) {
-    contents.DryRunResults = de_DryRunResults(data.DryRunResults, context);
-  }
+  const doc = take(data, {
+    DryRunConfig: (_) => de_DomainStatus(_, context),
+    DryRunProgressStatus: _json,
+    DryRunResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3034,10 +3002,9 @@ const de_DescribeDryRunProgressCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3057,12 +3024,11 @@ export const de_DescribeInboundConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connections != null) {
-    contents.Connections = de_InboundConnections(data.Connections, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Connections: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3087,10 +3053,9 @@ const de_DescribeInboundConnectionsCommandError = async (
       throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3110,9 +3075,10 @@ export const de_DescribeInstanceTypeLimitsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LimitsByRole != null) {
-    contents.LimitsByRole = de_LimitsByRole(data.LimitsByRole, context);
-  }
+  const doc = take(data, {
+    LimitsByRole: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3149,10 +3115,9 @@ const de_DescribeInstanceTypeLimitsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3172,12 +3137,11 @@ export const de_DescribeOutboundConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connections != null) {
-    contents.Connections = de_OutboundConnections(data.Connections, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Connections: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3202,10 +3166,9 @@ const de_DescribeOutboundConnectionsCommandError = async (
       throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3225,12 +3188,11 @@ export const de_DescribePackagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PackageDetailsList != null) {
-    contents.PackageDetailsList = de_PackageDetailsList(data.PackageDetailsList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PackageDetailsList: (_) => de_PackageDetailsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3264,10 +3226,9 @@ const de_DescribePackagesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3287,12 +3248,11 @@ export const de_DescribeReservedInstanceOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ReservedInstanceOfferings != null) {
-    contents.ReservedInstanceOfferings = de_ReservedInstanceOfferingList(data.ReservedInstanceOfferings, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReservedInstanceOfferings: (_) => de_ReservedInstanceOfferingList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3323,10 +3283,9 @@ const de_DescribeReservedInstanceOfferingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3346,12 +3305,11 @@ export const de_DescribeReservedInstancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ReservedInstances != null) {
-    contents.ReservedInstances = de_ReservedInstanceList(data.ReservedInstances, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReservedInstances: (_) => de_ReservedInstanceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3382,10 +3340,9 @@ const de_DescribeReservedInstancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3405,12 +3362,11 @@ export const de_DescribeVpcEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VpcEndpointErrors != null) {
-    contents.VpcEndpointErrors = de_VpcEndpointErrorList(data.VpcEndpointErrors, context);
-  }
-  if (data.VpcEndpoints != null) {
-    contents.VpcEndpoints = de_VpcEndpoints(data.VpcEndpoints, context);
-  }
+  const doc = take(data, {
+    VpcEndpointErrors: _json,
+    VpcEndpoints: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3441,10 +3397,9 @@ const de_DescribeVpcEndpointsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3464,9 +3419,10 @@ export const de_DissociatePackageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainPackageDetails != null) {
-    contents.DomainPackageDetails = de_DomainPackageDetails(data.DomainPackageDetails, context);
-  }
+  const doc = take(data, {
+    DomainPackageDetails: (_) => de_DomainPackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3503,10 +3459,9 @@ const de_DissociatePackageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3526,9 +3481,10 @@ export const de_GetCompatibleVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CompatibleVersions != null) {
-    contents.CompatibleVersions = de_CompatibleVersionsList(data.CompatibleVersions, context);
-  }
+  const doc = take(data, {
+    CompatibleVersions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3562,10 +3518,9 @@ const de_GetCompatibleVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3585,15 +3540,12 @@ export const de_GetPackageVersionHistoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PackageID != null) {
-    contents.PackageID = __expectString(data.PackageID);
-  }
-  if (data.PackageVersionHistoryList != null) {
-    contents.PackageVersionHistoryList = de_PackageVersionHistoryList(data.PackageVersionHistoryList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PackageID: __expectString,
+    PackageVersionHistoryList: (_) => de_PackageVersionHistoryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3627,10 +3579,9 @@ const de_GetPackageVersionHistoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3650,12 +3601,11 @@ export const de_GetUpgradeHistoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.UpgradeHistories != null) {
-    contents.UpgradeHistories = de_UpgradeHistoryList(data.UpgradeHistories, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    UpgradeHistories: (_) => de_UpgradeHistoryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3689,10 +3639,9 @@ const de_GetUpgradeHistoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3712,15 +3661,12 @@ export const de_GetUpgradeStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StepStatus != null) {
-    contents.StepStatus = __expectString(data.StepStatus);
-  }
-  if (data.UpgradeName != null) {
-    contents.UpgradeName = __expectString(data.UpgradeName);
-  }
-  if (data.UpgradeStep != null) {
-    contents.UpgradeStep = __expectString(data.UpgradeStep);
-  }
+  const doc = take(data, {
+    StepStatus: __expectString,
+    UpgradeName: __expectString,
+    UpgradeStep: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3754,10 +3700,9 @@ const de_GetUpgradeStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3777,9 +3722,10 @@ export const de_ListDomainNamesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainNames != null) {
-    contents.DomainNames = de_DomainInfoList(data.DomainNames, context);
-  }
+  const doc = take(data, {
+    DomainNames: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3804,10 +3750,9 @@ const de_ListDomainNamesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3827,12 +3772,11 @@ export const de_ListDomainsForPackageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainPackageDetailsList != null) {
-    contents.DomainPackageDetailsList = de_DomainPackageDetailsList(data.DomainPackageDetailsList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DomainPackageDetailsList: (_) => de_DomainPackageDetailsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3866,10 +3810,9 @@ const de_ListDomainsForPackageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3889,12 +3832,11 @@ export const de_ListInstanceTypeDetailsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InstanceTypeDetails != null) {
-    contents.InstanceTypeDetails = de_InstanceTypeDetailsList(data.InstanceTypeDetails, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    InstanceTypeDetails: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3925,10 +3867,9 @@ const de_ListInstanceTypeDetailsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3948,12 +3889,11 @@ export const de_ListPackagesForDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainPackageDetailsList != null) {
-    contents.DomainPackageDetailsList = de_DomainPackageDetailsList(data.DomainPackageDetailsList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DomainPackageDetailsList: (_) => de_DomainPackageDetailsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3987,10 +3927,9 @@ const de_ListPackagesForDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4010,12 +3949,11 @@ export const de_ListScheduledActionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ScheduledActions != null) {
-    contents.ScheduledActions = de_ScheduledActionsList(data.ScheduledActions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ScheduledActions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4049,10 +3987,9 @@ const de_ListScheduledActionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4072,9 +4009,10 @@ export const de_ListTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TagList != null) {
-    contents.TagList = de_TagList(data.TagList, context);
-  }
+  const doc = take(data, {
+    TagList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4105,10 +4043,9 @@ const de_ListTagsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4128,12 +4065,11 @@ export const de_ListVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = de_VersionList(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4164,10 +4100,9 @@ const de_ListVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4187,12 +4122,11 @@ export const de_ListVpcEndpointAccessCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuthorizedPrincipalList != null) {
-    contents.AuthorizedPrincipalList = de_AuthorizedPrincipalList(data.AuthorizedPrincipalList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AuthorizedPrincipalList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4223,10 +4157,9 @@ const de_ListVpcEndpointAccessCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4246,12 +4179,11 @@ export const de_ListVpcEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.VpcEndpointSummaryList != null) {
-    contents.VpcEndpointSummaryList = de_VpcEndpointSummaryList(data.VpcEndpointSummaryList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    VpcEndpointSummaryList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4279,10 +4211,9 @@ const de_ListVpcEndpointsCommandError = async (
       throw await de_InternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4302,12 +4233,11 @@ export const de_ListVpcEndpointsForDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.VpcEndpointSummaryList != null) {
-    contents.VpcEndpointSummaryList = de_VpcEndpointSummaryList(data.VpcEndpointSummaryList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    VpcEndpointSummaryList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4338,10 +4268,9 @@ const de_ListVpcEndpointsForDomainCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4361,12 +4290,11 @@ export const de_PurchaseReservedInstanceOfferingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReservationName != null) {
-    contents.ReservationName = __expectString(data.ReservationName);
-  }
-  if (data.ReservedInstanceId != null) {
-    contents.ReservedInstanceId = __expectString(data.ReservedInstanceId);
-  }
+  const doc = take(data, {
+    ReservationName: __expectString,
+    ReservedInstanceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4403,10 +4331,9 @@ const de_PurchaseReservedInstanceOfferingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4426,9 +4353,10 @@ export const de_RejectInboundConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connection != null) {
-    contents.Connection = de_InboundConnection(data.Connection, context);
-  }
+  const doc = take(data, {
+    Connection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4453,10 +4381,9 @@ const de_RejectInboundConnectionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4503,10 +4430,9 @@ const de_RemoveTagsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4559,10 +4485,9 @@ const de_RevokeVpcEndpointAccessCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4582,9 +4507,10 @@ export const de_StartServiceSoftwareUpdateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ServiceSoftwareOptions != null) {
-    contents.ServiceSoftwareOptions = de_ServiceSoftwareOptions(data.ServiceSoftwareOptions, context);
-  }
+  const doc = take(data, {
+    ServiceSoftwareOptions: (_) => de_ServiceSoftwareOptions(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4615,10 +4541,9 @@ const de_StartServiceSoftwareUpdateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4638,15 +4563,12 @@ export const de_UpdateDomainConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainConfig != null) {
-    contents.DomainConfig = de_DomainConfig(data.DomainConfig, context);
-  }
-  if (data.DryRunProgressStatus != null) {
-    contents.DryRunProgressStatus = de_DryRunProgressStatus(data.DryRunProgressStatus, context);
-  }
-  if (data.DryRunResults != null) {
-    contents.DryRunResults = de_DryRunResults(data.DryRunResults, context);
-  }
+  const doc = take(data, {
+    DomainConfig: (_) => de_DomainConfig(_, context),
+    DryRunProgressStatus: _json,
+    DryRunResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4683,10 +4605,9 @@ const de_UpdateDomainConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4706,9 +4627,10 @@ export const de_UpdatePackageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PackageDetails != null) {
-    contents.PackageDetails = de_PackageDetails(data.PackageDetails, context);
-  }
+  const doc = take(data, {
+    PackageDetails: (_) => de_PackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4745,10 +4667,9 @@ const de_UpdatePackageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4768,9 +4689,10 @@ export const de_UpdateScheduledActionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ScheduledAction != null) {
-    contents.ScheduledAction = de_ScheduledAction(data.ScheduledAction, context);
-  }
+  const doc = take(data, {
+    ScheduledAction: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4810,10 +4732,9 @@ const de_UpdateScheduledActionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4833,9 +4754,10 @@ export const de_UpdateVpcEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VpcEndpoint != null) {
-    contents.VpcEndpoint = de_VpcEndpoint(data.VpcEndpoint, context);
-  }
+  const doc = take(data, {
+    VpcEndpoint: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4872,10 +4794,9 @@ const de_UpdateVpcEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4895,24 +4816,15 @@ export const de_UpgradeDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdvancedOptions != null) {
-    contents.AdvancedOptions = de_AdvancedOptions(data.AdvancedOptions, context);
-  }
-  if (data.ChangeProgressDetails != null) {
-    contents.ChangeProgressDetails = de_ChangeProgressDetails(data.ChangeProgressDetails, context);
-  }
-  if (data.DomainName != null) {
-    contents.DomainName = __expectString(data.DomainName);
-  }
-  if (data.PerformCheckOnly != null) {
-    contents.PerformCheckOnly = __expectBoolean(data.PerformCheckOnly);
-  }
-  if (data.TargetVersion != null) {
-    contents.TargetVersion = __expectString(data.TargetVersion);
-  }
-  if (data.UpgradeId != null) {
-    contents.UpgradeId = __expectString(data.UpgradeId);
-  }
+  const doc = take(data, {
+    AdvancedOptions: _json,
+    ChangeProgressDetails: _json,
+    DomainName: __expectString,
+    PerformCheckOnly: __expectBoolean,
+    TargetVersion: __expectString,
+    UpgradeId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4949,16 +4861,15 @@ const de_UpgradeDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -4968,9 +4879,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4984,9 +4896,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_BaseExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BaseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BaseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5000,9 +4913,10 @@ const de_BaseExceptionRes = async (parsedOutput: any, context: __SerdeContext): 
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5019,9 +4933,10 @@ const de_DisabledOperationExceptionRes = async (
 ): Promise<DisabledOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DisabledOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5035,9 +4950,10 @@ const de_DisabledOperationExceptionRes = async (
 const de_InternalExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5054,9 +4970,10 @@ const de_InvalidPaginationTokenExceptionRes = async (
 ): Promise<InvalidPaginationTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidPaginationTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5073,9 +4990,10 @@ const de_InvalidTypeExceptionRes = async (
 ): Promise<InvalidTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5092,9 +5010,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5111,9 +5030,10 @@ const de_ResourceAlreadyExistsExceptionRes = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5130,9 +5050,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5149,12 +5070,11 @@ const de_SlotNotAvailableExceptionRes = async (
 ): Promise<SlotNotAvailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.SlotSuggestions != null) {
-    contents.SlotSuggestions = de_SlotList(data.SlotSuggestions, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    SlotSuggestions: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SlotNotAvailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5168,9 +5088,10 @@ const de_SlotNotAvailableExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5178,47 +5099,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AdvancedOptions
- */
-const se_AdvancedOptions = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_AdvancedOptions omitted.
 
-/**
- * serializeAws_restJson1AdvancedSecurityOptionsInput
- */
-const se_AdvancedSecurityOptionsInput = (input: AdvancedSecurityOptionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AnonymousAuthEnabled != null && { AnonymousAuthEnabled: input.AnonymousAuthEnabled }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.InternalUserDatabaseEnabled != null && {
-      InternalUserDatabaseEnabled: input.InternalUserDatabaseEnabled,
-    }),
-    ...(input.MasterUserOptions != null && {
-      MasterUserOptions: se_MasterUserOptions(input.MasterUserOptions, context),
-    }),
-    ...(input.SAMLOptions != null && { SAMLOptions: se_SAMLOptionsInput(input.SAMLOptions, context) }),
-  };
-};
+// se_AdvancedSecurityOptionsInput omitted.
 
 /**
  * serializeAws_restJson1AutoTuneMaintenanceSchedule
  */
 const se_AutoTuneMaintenanceSchedule = (input: AutoTuneMaintenanceSchedule, context: __SerdeContext): any => {
-  return {
-    ...(input.CronExpressionForRecurrence != null && {
-      CronExpressionForRecurrence: input.CronExpressionForRecurrence,
-    }),
-    ...(input.Duration != null && { Duration: se_Duration(input.Duration, context) }),
-    ...(input.StartAt != null && { StartAt: Math.round(input.StartAt.getTime() / 1000) }),
-  };
+  return take(input, {
+    CronExpressionForRecurrence: [],
+    Duration: (_) => _json(_),
+    StartAt: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -5236,534 +5129,163 @@ const se_AutoTuneMaintenanceScheduleList = (input: AutoTuneMaintenanceSchedule[]
  * serializeAws_restJson1AutoTuneOptions
  */
 const se_AutoTuneOptions = (input: AutoTuneOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
-    ...(input.MaintenanceSchedules != null && {
-      MaintenanceSchedules: se_AutoTuneMaintenanceScheduleList(input.MaintenanceSchedules, context),
-    }),
-    ...(input.RollbackOnDisable != null && { RollbackOnDisable: input.RollbackOnDisable }),
-    ...(input.UseOffPeakWindow != null && { UseOffPeakWindow: input.UseOffPeakWindow }),
-  };
+  return take(input, {
+    DesiredState: [],
+    MaintenanceSchedules: (_) => se_AutoTuneMaintenanceScheduleList(_, context),
+    RollbackOnDisable: [],
+    UseOffPeakWindow: [],
+  });
 };
 
 /**
  * serializeAws_restJson1AutoTuneOptionsInput
  */
 const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
-    ...(input.MaintenanceSchedules != null && {
-      MaintenanceSchedules: se_AutoTuneMaintenanceScheduleList(input.MaintenanceSchedules, context),
-    }),
-    ...(input.UseOffPeakWindow != null && { UseOffPeakWindow: input.UseOffPeakWindow }),
-  };
+  return take(input, {
+    DesiredState: [],
+    MaintenanceSchedules: (_) => se_AutoTuneMaintenanceScheduleList(_, context),
+    UseOffPeakWindow: [],
+  });
 };
 
-/**
- * serializeAws_restJson1AWSDomainInformation
- */
-const se_AWSDomainInformation = (input: AWSDomainInformation, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.OwnerId != null && { OwnerId: input.OwnerId }),
-    ...(input.Region != null && { Region: input.Region }),
-  };
-};
+// se_AWSDomainInformation omitted.
 
-/**
- * serializeAws_restJson1ClusterConfig
- */
-const se_ClusterConfig = (input: ClusterConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ColdStorageOptions != null && {
-      ColdStorageOptions: se_ColdStorageOptions(input.ColdStorageOptions, context),
-    }),
-    ...(input.DedicatedMasterCount != null && { DedicatedMasterCount: input.DedicatedMasterCount }),
-    ...(input.DedicatedMasterEnabled != null && { DedicatedMasterEnabled: input.DedicatedMasterEnabled }),
-    ...(input.DedicatedMasterType != null && { DedicatedMasterType: input.DedicatedMasterType }),
-    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
-    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
-    ...(input.WarmCount != null && { WarmCount: input.WarmCount }),
-    ...(input.WarmEnabled != null && { WarmEnabled: input.WarmEnabled }),
-    ...(input.WarmType != null && { WarmType: input.WarmType }),
-    ...(input.ZoneAwarenessConfig != null && {
-      ZoneAwarenessConfig: se_ZoneAwarenessConfig(input.ZoneAwarenessConfig, context),
-    }),
-    ...(input.ZoneAwarenessEnabled != null && { ZoneAwarenessEnabled: input.ZoneAwarenessEnabled }),
-  };
-};
+// se_ClusterConfig omitted.
 
-/**
- * serializeAws_restJson1CognitoOptions
- */
-const se_CognitoOptions = (input: CognitoOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_CognitoOptions omitted.
 
-/**
- * serializeAws_restJson1ColdStorageOptions
- */
-const se_ColdStorageOptions = (input: ColdStorageOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
+// se_ColdStorageOptions omitted.
 
-/**
- * serializeAws_restJson1DescribePackagesFilter
- */
-const se_DescribePackagesFilter = (input: DescribePackagesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: se_DescribePackagesFilterValues(input.Value, context) }),
-  };
-};
+// se_DescribePackagesFilter omitted.
 
-/**
- * serializeAws_restJson1DescribePackagesFilterList
- */
-const se_DescribePackagesFilterList = (input: DescribePackagesFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DescribePackagesFilter(entry, context);
-    });
-};
+// se_DescribePackagesFilterList omitted.
 
-/**
- * serializeAws_restJson1DescribePackagesFilterValues
- */
-const se_DescribePackagesFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DescribePackagesFilterValues omitted.
 
-/**
- * serializeAws_restJson1DomainEndpointOptions
- */
-const se_DomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomEndpoint != null && { CustomEndpoint: input.CustomEndpoint }),
-    ...(input.CustomEndpointCertificateArn != null && {
-      CustomEndpointCertificateArn: input.CustomEndpointCertificateArn,
-    }),
-    ...(input.CustomEndpointEnabled != null && { CustomEndpointEnabled: input.CustomEndpointEnabled }),
-    ...(input.EnforceHTTPS != null && { EnforceHTTPS: input.EnforceHTTPS }),
-    ...(input.TLSSecurityPolicy != null && { TLSSecurityPolicy: input.TLSSecurityPolicy }),
-  };
-};
+// se_DomainEndpointOptions omitted.
 
-/**
- * serializeAws_restJson1DomainInformationContainer
- */
-const se_DomainInformationContainer = (input: DomainInformationContainer, context: __SerdeContext): any => {
-  return {
-    ...(input.AWSDomainInformation != null && {
-      AWSDomainInformation: se_AWSDomainInformation(input.AWSDomainInformation, context),
-    }),
-  };
-};
+// se_DomainInformationContainer omitted.
 
-/**
- * serializeAws_restJson1DomainNameList
- */
-const se_DomainNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DomainNameList omitted.
 
-/**
- * serializeAws_restJson1Duration
- */
-const se_Duration = (input: Duration, context: __SerdeContext): any => {
-  return {
-    ...(input.Unit != null && { Unit: input.Unit }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Duration omitted.
 
-/**
- * serializeAws_restJson1EBSOptions
- */
-const se_EBSOptions = (input: EBSOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.EBSEnabled != null && { EBSEnabled: input.EBSEnabled }),
-    ...(input.Iops != null && { Iops: input.Iops }),
-    ...(input.Throughput != null && { Throughput: input.Throughput }),
-    ...(input.VolumeSize != null && { VolumeSize: input.VolumeSize }),
-    ...(input.VolumeType != null && { VolumeType: input.VolumeType }),
-  };
-};
+// se_EBSOptions omitted.
 
-/**
- * serializeAws_restJson1EncryptionAtRestOptions
- */
-const se_EncryptionAtRestOptions = (input: EncryptionAtRestOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-  };
-};
+// se_EncryptionAtRestOptions omitted.
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_ValueStringList(input.Values, context) }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1FilterList
- */
-const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_FilterList omitted.
 
-/**
- * serializeAws_restJson1LogPublishingOption
- */
-const se_LogPublishingOption = (input: LogPublishingOption, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLogsLogGroupArn != null && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
+// se_LogPublishingOption omitted.
 
-/**
- * serializeAws_restJson1LogPublishingOptions
- */
-const se_LogPublishingOptions = (input: Record<string, LogPublishingOption>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [LogType | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_LogPublishingOption(value, context);
-    return acc;
-  }, {});
-};
+// se_LogPublishingOptions omitted.
 
-/**
- * serializeAws_restJson1MasterUserOptions
- */
-const se_MasterUserOptions = (input: MasterUserOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.MasterUserARN != null && { MasterUserARN: input.MasterUserARN }),
-    ...(input.MasterUserName != null && { MasterUserName: input.MasterUserName }),
-    ...(input.MasterUserPassword != null && { MasterUserPassword: input.MasterUserPassword }),
-  };
-};
+// se_MasterUserOptions omitted.
 
-/**
- * serializeAws_restJson1NodeToNodeEncryptionOptions
- */
-const se_NodeToNodeEncryptionOptions = (input: NodeToNodeEncryptionOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
+// se_NodeToNodeEncryptionOptions omitted.
 
-/**
- * serializeAws_restJson1OffPeakWindow
- */
-const se_OffPeakWindow = (input: OffPeakWindow, context: __SerdeContext): any => {
-  return {
-    ...(input.WindowStartTime != null && { WindowStartTime: se_WindowStartTime(input.WindowStartTime, context) }),
-  };
-};
+// se_OffPeakWindow omitted.
 
-/**
- * serializeAws_restJson1OffPeakWindowOptions
- */
-const se_OffPeakWindowOptions = (input: OffPeakWindowOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.OffPeakWindow != null && { OffPeakWindow: se_OffPeakWindow(input.OffPeakWindow, context) }),
-  };
-};
+// se_OffPeakWindowOptions omitted.
 
-/**
- * serializeAws_restJson1PackageSource
- */
-const se_PackageSource = (input: PackageSource, context: __SerdeContext): any => {
-  return {
-    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-  };
-};
+// se_PackageSource omitted.
 
-/**
- * serializeAws_restJson1SAMLIdp
- */
-const se_SAMLIdp = (input: SAMLIdp, context: __SerdeContext): any => {
-  return {
-    ...(input.EntityId != null && { EntityId: input.EntityId }),
-    ...(input.MetadataContent != null && { MetadataContent: input.MetadataContent }),
-  };
-};
+// se_SAMLIdp omitted.
 
-/**
- * serializeAws_restJson1SAMLOptionsInput
- */
-const se_SAMLOptionsInput = (input: SAMLOptionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.Idp != null && { Idp: se_SAMLIdp(input.Idp, context) }),
-    ...(input.MasterBackendRole != null && { MasterBackendRole: input.MasterBackendRole }),
-    ...(input.MasterUserName != null && { MasterUserName: input.MasterUserName }),
-    ...(input.RolesKey != null && { RolesKey: input.RolesKey }),
-    ...(input.SessionTimeoutMinutes != null && { SessionTimeoutMinutes: input.SessionTimeoutMinutes }),
-    ...(input.SubjectKey != null && { SubjectKey: input.SubjectKey }),
-  };
-};
+// se_SAMLOptionsInput omitted.
 
-/**
- * serializeAws_restJson1SnapshotOptions
- */
-const se_SnapshotOptions = (input: SnapshotOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.AutomatedSnapshotStartHour != null && { AutomatedSnapshotStartHour: input.AutomatedSnapshotStartHour }),
-  };
-};
+// se_SnapshotOptions omitted.
 
-/**
- * serializeAws_restJson1SoftwareUpdateOptions
- */
-const se_SoftwareUpdateOptions = (input: SoftwareUpdateOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoSoftwareUpdateEnabled != null && { AutoSoftwareUpdateEnabled: input.AutoSoftwareUpdateEnabled }),
-  };
-};
+// se_SoftwareUpdateOptions omitted.
 
-/**
- * serializeAws_restJson1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_restJson1ValueStringList
- */
-const se_ValueStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ValueStringList omitted.
 
-/**
- * serializeAws_restJson1VpcEndpointIdList
- */
-const se_VpcEndpointIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VpcEndpointIdList omitted.
 
-/**
- * serializeAws_restJson1VPCOptions
- */
-const se_VPCOptions = (input: VPCOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_StringList(input.SecurityGroupIds, context) }),
-    ...(input.SubnetIds != null && { SubnetIds: se_StringList(input.SubnetIds, context) }),
-  };
-};
+// se_VPCOptions omitted.
 
-/**
- * serializeAws_restJson1WindowStartTime
- */
-const se_WindowStartTime = (input: WindowStartTime, context: __SerdeContext): any => {
-  return {
-    ...(input.Hours != null && { Hours: input.Hours }),
-    ...(input.Minutes != null && { Minutes: input.Minutes }),
-  };
-};
+// se_WindowStartTime omitted.
 
-/**
- * serializeAws_restJson1ZoneAwarenessConfig
- */
-const se_ZoneAwarenessConfig = (input: ZoneAwarenessConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailabilityZoneCount != null && { AvailabilityZoneCount: input.AvailabilityZoneCount }),
-  };
-};
+// se_ZoneAwarenessConfig omitted.
 
 /**
  * deserializeAws_restJson1AccessPoliciesStatus
  */
 const de_AccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
-  return {
-    Options: __expectString(output.Options),
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: __expectString,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AdditionalLimit
- */
-const de_AdditionalLimit = (output: any, context: __SerdeContext): AdditionalLimit => {
-  return {
-    LimitName: __expectString(output.LimitName),
-    LimitValues: output.LimitValues != null ? de_LimitValueList(output.LimitValues, context) : undefined,
-  } as any;
-};
+// de_AdditionalLimit omitted.
 
-/**
- * deserializeAws_restJson1AdditionalLimitList
- */
-const de_AdditionalLimitList = (output: any, context: __SerdeContext): AdditionalLimit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AdditionalLimit(entry, context);
-    });
-  return retVal;
-};
+// de_AdditionalLimitList omitted.
 
-/**
- * deserializeAws_restJson1AdvancedOptions
- */
-const de_AdvancedOptions = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_AdvancedOptions omitted.
 
 /**
  * deserializeAws_restJson1AdvancedOptionsStatus
  */
 const de_AdvancedOptionsStatus = (output: any, context: __SerdeContext): AdvancedOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_AdvancedOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AdvancedSecurityOptions
  */
 const de_AdvancedSecurityOptions = (output: any, context: __SerdeContext): AdvancedSecurityOptions => {
-  return {
-    AnonymousAuthDisableDate:
-      output.AnonymousAuthDisableDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AnonymousAuthDisableDate)))
-        : undefined,
-    AnonymousAuthEnabled: __expectBoolean(output.AnonymousAuthEnabled),
-    Enabled: __expectBoolean(output.Enabled),
-    InternalUserDatabaseEnabled: __expectBoolean(output.InternalUserDatabaseEnabled),
-    SAMLOptions: output.SAMLOptions != null ? de_SAMLOptionsOutput(output.SAMLOptions, context) : undefined,
-  } as any;
+  return take(output, {
+    AnonymousAuthDisableDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AnonymousAuthEnabled: __expectBoolean,
+    Enabled: __expectBoolean,
+    InternalUserDatabaseEnabled: __expectBoolean,
+    SAMLOptions: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AdvancedSecurityOptionsStatus
  */
 const de_AdvancedSecurityOptionsStatus = (output: any, context: __SerdeContext): AdvancedSecurityOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_AdvancedSecurityOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: (_: any) => de_AdvancedSecurityOptions(_, context),
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AuthorizedPrincipal
- */
-const de_AuthorizedPrincipal = (output: any, context: __SerdeContext): AuthorizedPrincipal => {
-  return {
-    Principal: __expectString(output.Principal),
-    PrincipalType: __expectString(output.PrincipalType),
-  } as any;
-};
+// de_AuthorizedPrincipal omitted.
 
-/**
- * deserializeAws_restJson1AuthorizedPrincipalList
- */
-const de_AuthorizedPrincipalList = (output: any, context: __SerdeContext): AuthorizedPrincipal[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AuthorizedPrincipal(entry, context);
-    });
-  return retVal;
-};
+// de_AuthorizedPrincipalList omitted.
 
 /**
  * deserializeAws_restJson1AutoTune
  */
 const de_AutoTune = (output: any, context: __SerdeContext): AutoTune => {
-  return {
-    AutoTuneDetails: output.AutoTuneDetails != null ? de_AutoTuneDetails(output.AutoTuneDetails, context) : undefined,
-    AutoTuneType: __expectString(output.AutoTuneType),
-  } as any;
+  return take(output, {
+    AutoTuneDetails: (_: any) => de_AutoTuneDetails(_, context),
+    AutoTuneType: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AutoTuneDetails
  */
 const de_AutoTuneDetails = (output: any, context: __SerdeContext): AutoTuneDetails => {
-  return {
-    ScheduledAutoTuneDetails:
-      output.ScheduledAutoTuneDetails != null
-        ? de_ScheduledAutoTuneDetails(output.ScheduledAutoTuneDetails, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ScheduledAutoTuneDetails: (_: any) => de_ScheduledAutoTuneDetails(_, context),
+  }) as any;
 };
 
 /**
@@ -5773,9 +5295,6 @@ const de_AutoTuneList = (output: any, context: __SerdeContext): AutoTune[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AutoTune(entry, context);
     });
   return retVal;
@@ -5785,12 +5304,11 @@ const de_AutoTuneList = (output: any, context: __SerdeContext): AutoTune[] => {
  * deserializeAws_restJson1AutoTuneMaintenanceSchedule
  */
 const de_AutoTuneMaintenanceSchedule = (output: any, context: __SerdeContext): AutoTuneMaintenanceSchedule => {
-  return {
-    CronExpressionForRecurrence: __expectString(output.CronExpressionForRecurrence),
-    Duration: output.Duration != null ? de_Duration(output.Duration, context) : undefined,
-    StartAt:
-      output.StartAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartAt))) : undefined,
-  } as any;
+  return take(output, {
+    CronExpressionForRecurrence: __expectString,
+    Duration: _json,
+    StartAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -5800,9 +5318,6 @@ const de_AutoTuneMaintenanceScheduleList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AutoTuneMaintenanceSchedule(entry, context);
     });
   return retVal;
@@ -5812,90 +5327,54 @@ const de_AutoTuneMaintenanceScheduleList = (output: any, context: __SerdeContext
  * deserializeAws_restJson1AutoTuneOptions
  */
 const de_AutoTuneOptions = (output: any, context: __SerdeContext): AutoTuneOptions => {
-  return {
-    DesiredState: __expectString(output.DesiredState),
-    MaintenanceSchedules:
-      output.MaintenanceSchedules != null
-        ? de_AutoTuneMaintenanceScheduleList(output.MaintenanceSchedules, context)
-        : undefined,
-    RollbackOnDisable: __expectString(output.RollbackOnDisable),
-    UseOffPeakWindow: __expectBoolean(output.UseOffPeakWindow),
-  } as any;
+  return take(output, {
+    DesiredState: __expectString,
+    MaintenanceSchedules: (_: any) => de_AutoTuneMaintenanceScheduleList(_, context),
+    RollbackOnDisable: __expectString,
+    UseOffPeakWindow: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AutoTuneOptionsOutput
- */
-const de_AutoTuneOptionsOutput = (output: any, context: __SerdeContext): AutoTuneOptionsOutput => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    State: __expectString(output.State),
-    UseOffPeakWindow: __expectBoolean(output.UseOffPeakWindow),
-  } as any;
-};
+// de_AutoTuneOptionsOutput omitted.
 
 /**
  * deserializeAws_restJson1AutoTuneOptionsStatus
  */
 const de_AutoTuneOptionsStatus = (output: any, context: __SerdeContext): AutoTuneOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_AutoTuneOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_AutoTuneStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: (_: any) => de_AutoTuneOptions(_, context),
+    Status: (_: any) => de_AutoTuneStatus(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AutoTuneStatus
  */
 const de_AutoTuneStatus = (output: any, context: __SerdeContext): AutoTuneStatus => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    ErrorMessage: __expectString(output.ErrorMessage),
-    PendingDeletion: __expectBoolean(output.PendingDeletion),
-    State: __expectString(output.State),
-    UpdateDate:
-      output.UpdateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate))) : undefined,
-    UpdateVersion: __expectInt32(output.UpdateVersion),
-  } as any;
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorMessage: __expectString,
+    PendingDeletion: __expectBoolean,
+    State: __expectString,
+    UpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdateVersion: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AWSDomainInformation
- */
-const de_AWSDomainInformation = (output: any, context: __SerdeContext): AWSDomainInformation => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    OwnerId: __expectString(output.OwnerId),
-    Region: __expectString(output.Region),
-  } as any;
-};
+// de_AWSDomainInformation omitted.
 
-/**
- * deserializeAws_restJson1ChangeProgressDetails
- */
-const de_ChangeProgressDetails = (output: any, context: __SerdeContext): ChangeProgressDetails => {
-  return {
-    ChangeId: __expectString(output.ChangeId),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ChangeProgressDetails omitted.
 
 /**
  * deserializeAws_restJson1ChangeProgressStage
  */
 const de_ChangeProgressStage = (output: any, context: __SerdeContext): ChangeProgressStage => {
-  return {
-    Description: __expectString(output.Description),
-    LastUpdated:
-      output.LastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -5905,9 +5384,6 @@ const de_ChangeProgressStageList = (output: any, context: __SerdeContext): Chang
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChangeProgressStage(entry, context);
     });
   return retVal;
@@ -5917,246 +5393,107 @@ const de_ChangeProgressStageList = (output: any, context: __SerdeContext): Chang
  * deserializeAws_restJson1ChangeProgressStatusDetails
  */
 const de_ChangeProgressStatusDetails = (output: any, context: __SerdeContext): ChangeProgressStatusDetails => {
-  return {
-    ChangeId: __expectString(output.ChangeId),
-    ChangeProgressStages:
-      output.ChangeProgressStages != null
-        ? de_ChangeProgressStageList(output.ChangeProgressStages, context)
-        : undefined,
-    CompletedProperties:
-      output.CompletedProperties != null ? de_StringList(output.CompletedProperties, context) : undefined,
-    PendingProperties: output.PendingProperties != null ? de_StringList(output.PendingProperties, context) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Status: __expectString(output.Status),
-    TotalNumberOfStages: __expectInt32(output.TotalNumberOfStages),
-  } as any;
+  return take(output, {
+    ChangeId: __expectString,
+    ChangeProgressStages: (_: any) => de_ChangeProgressStageList(_, context),
+    CompletedProperties: _json,
+    PendingProperties: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    TotalNumberOfStages: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ClusterConfig
- */
-const de_ClusterConfig = (output: any, context: __SerdeContext): ClusterConfig => {
-  return {
-    ColdStorageOptions:
-      output.ColdStorageOptions != null ? de_ColdStorageOptions(output.ColdStorageOptions, context) : undefined,
-    DedicatedMasterCount: __expectInt32(output.DedicatedMasterCount),
-    DedicatedMasterEnabled: __expectBoolean(output.DedicatedMasterEnabled),
-    DedicatedMasterType: __expectString(output.DedicatedMasterType),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    InstanceType: __expectString(output.InstanceType),
-    WarmCount: __expectInt32(output.WarmCount),
-    WarmEnabled: __expectBoolean(output.WarmEnabled),
-    WarmType: __expectString(output.WarmType),
-    ZoneAwarenessConfig:
-      output.ZoneAwarenessConfig != null ? de_ZoneAwarenessConfig(output.ZoneAwarenessConfig, context) : undefined,
-    ZoneAwarenessEnabled: __expectBoolean(output.ZoneAwarenessEnabled),
-  } as any;
-};
+// de_ClusterConfig omitted.
 
 /**
  * deserializeAws_restJson1ClusterConfigStatus
  */
 const de_ClusterConfigStatus = (output: any, context: __SerdeContext): ClusterConfigStatus => {
-  return {
-    Options: output.Options != null ? de_ClusterConfig(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CognitoOptions
- */
-const de_CognitoOptions = (output: any, context: __SerdeContext): CognitoOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    RoleArn: __expectString(output.RoleArn),
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
-};
+// de_CognitoOptions omitted.
 
 /**
  * deserializeAws_restJson1CognitoOptionsStatus
  */
 const de_CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_CognitoOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ColdStorageOptions
- */
-const de_ColdStorageOptions = (output: any, context: __SerdeContext): ColdStorageOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
+// de_ColdStorageOptions omitted.
 
-/**
- * deserializeAws_restJson1CompatibleVersionsList
- */
-const de_CompatibleVersionsList = (output: any, context: __SerdeContext): CompatibleVersionsMap[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CompatibleVersionsMap(entry, context);
-    });
-  return retVal;
-};
+// de_CompatibleVersionsList omitted.
 
-/**
- * deserializeAws_restJson1CompatibleVersionsMap
- */
-const de_CompatibleVersionsMap = (output: any, context: __SerdeContext): CompatibleVersionsMap => {
-  return {
-    SourceVersion: __expectString(output.SourceVersion),
-    TargetVersions: output.TargetVersions != null ? de_VersionList(output.TargetVersions, context) : undefined,
-  } as any;
-};
+// de_CompatibleVersionsMap omitted.
 
-/**
- * deserializeAws_restJson1ConnectionProperties
- */
-const de_ConnectionProperties = (output: any, context: __SerdeContext): ConnectionProperties => {
-  return {
-    Endpoint: __expectString(output.Endpoint),
-  } as any;
-};
+// de_ConnectionProperties omitted.
 
 /**
  * deserializeAws_restJson1DomainConfig
  */
 const de_DomainConfig = (output: any, context: __SerdeContext): DomainConfig => {
-  return {
-    AccessPolicies: output.AccessPolicies != null ? de_AccessPoliciesStatus(output.AccessPolicies, context) : undefined,
-    AdvancedOptions:
-      output.AdvancedOptions != null ? de_AdvancedOptionsStatus(output.AdvancedOptions, context) : undefined,
-    AdvancedSecurityOptions:
-      output.AdvancedSecurityOptions != null
-        ? de_AdvancedSecurityOptionsStatus(output.AdvancedSecurityOptions, context)
-        : undefined,
-    AutoTuneOptions:
-      output.AutoTuneOptions != null ? de_AutoTuneOptionsStatus(output.AutoTuneOptions, context) : undefined,
-    ChangeProgressDetails:
-      output.ChangeProgressDetails != null
-        ? de_ChangeProgressDetails(output.ChangeProgressDetails, context)
-        : undefined,
-    ClusterConfig: output.ClusterConfig != null ? de_ClusterConfigStatus(output.ClusterConfig, context) : undefined,
-    CognitoOptions: output.CognitoOptions != null ? de_CognitoOptionsStatus(output.CognitoOptions, context) : undefined,
-    DomainEndpointOptions:
-      output.DomainEndpointOptions != null
-        ? de_DomainEndpointOptionsStatus(output.DomainEndpointOptions, context)
-        : undefined,
-    EBSOptions: output.EBSOptions != null ? de_EBSOptionsStatus(output.EBSOptions, context) : undefined,
-    EncryptionAtRestOptions:
-      output.EncryptionAtRestOptions != null
-        ? de_EncryptionAtRestOptionsStatus(output.EncryptionAtRestOptions, context)
-        : undefined,
-    EngineVersion: output.EngineVersion != null ? de_VersionStatus(output.EngineVersion, context) : undefined,
-    LogPublishingOptions:
-      output.LogPublishingOptions != null
-        ? de_LogPublishingOptionsStatus(output.LogPublishingOptions, context)
-        : undefined,
-    NodeToNodeEncryptionOptions:
-      output.NodeToNodeEncryptionOptions != null
-        ? de_NodeToNodeEncryptionOptionsStatus(output.NodeToNodeEncryptionOptions, context)
-        : undefined,
-    OffPeakWindowOptions:
-      output.OffPeakWindowOptions != null
-        ? de_OffPeakWindowOptionsStatus(output.OffPeakWindowOptions, context)
-        : undefined,
-    SnapshotOptions:
-      output.SnapshotOptions != null ? de_SnapshotOptionsStatus(output.SnapshotOptions, context) : undefined,
-    SoftwareUpdateOptions:
-      output.SoftwareUpdateOptions != null
-        ? de_SoftwareUpdateOptionsStatus(output.SoftwareUpdateOptions, context)
-        : undefined,
-    VPCOptions: output.VPCOptions != null ? de_VPCDerivedInfoStatus(output.VPCOptions, context) : undefined,
-  } as any;
+  return take(output, {
+    AccessPolicies: (_: any) => de_AccessPoliciesStatus(_, context),
+    AdvancedOptions: (_: any) => de_AdvancedOptionsStatus(_, context),
+    AdvancedSecurityOptions: (_: any) => de_AdvancedSecurityOptionsStatus(_, context),
+    AutoTuneOptions: (_: any) => de_AutoTuneOptionsStatus(_, context),
+    ChangeProgressDetails: _json,
+    ClusterConfig: (_: any) => de_ClusterConfigStatus(_, context),
+    CognitoOptions: (_: any) => de_CognitoOptionsStatus(_, context),
+    DomainEndpointOptions: (_: any) => de_DomainEndpointOptionsStatus(_, context),
+    EBSOptions: (_: any) => de_EBSOptionsStatus(_, context),
+    EncryptionAtRestOptions: (_: any) => de_EncryptionAtRestOptionsStatus(_, context),
+    EngineVersion: (_: any) => de_VersionStatus(_, context),
+    LogPublishingOptions: (_: any) => de_LogPublishingOptionsStatus(_, context),
+    NodeToNodeEncryptionOptions: (_: any) => de_NodeToNodeEncryptionOptionsStatus(_, context),
+    OffPeakWindowOptions: (_: any) => de_OffPeakWindowOptionsStatus(_, context),
+    SnapshotOptions: (_: any) => de_SnapshotOptionsStatus(_, context),
+    SoftwareUpdateOptions: (_: any) => de_SoftwareUpdateOptionsStatus(_, context),
+    VPCOptions: (_: any) => de_VPCDerivedInfoStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DomainEndpointOptions
- */
-const de_DomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
-  return {
-    CustomEndpoint: __expectString(output.CustomEndpoint),
-    CustomEndpointCertificateArn: __expectString(output.CustomEndpointCertificateArn),
-    CustomEndpointEnabled: __expectBoolean(output.CustomEndpointEnabled),
-    EnforceHTTPS: __expectBoolean(output.EnforceHTTPS),
-    TLSSecurityPolicy: __expectString(output.TLSSecurityPolicy),
-  } as any;
-};
+// de_DomainEndpointOptions omitted.
 
 /**
  * deserializeAws_restJson1DomainEndpointOptionsStatus
  */
 const de_DomainEndpointOptionsStatus = (output: any, context: __SerdeContext): DomainEndpointOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_DomainEndpointOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DomainInfo
- */
-const de_DomainInfo = (output: any, context: __SerdeContext): DomainInfo => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    EngineType: __expectString(output.EngineType),
-  } as any;
-};
+// de_DomainInfo omitted.
 
-/**
- * deserializeAws_restJson1DomainInfoList
- */
-const de_DomainInfoList = (output: any, context: __SerdeContext): DomainInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DomainInfo(entry, context);
-    });
-  return retVal;
-};
+// de_DomainInfoList omitted.
 
-/**
- * deserializeAws_restJson1DomainInformationContainer
- */
-const de_DomainInformationContainer = (output: any, context: __SerdeContext): DomainInformationContainer => {
-  return {
-    AWSDomainInformation:
-      output.AWSDomainInformation != null ? de_AWSDomainInformation(output.AWSDomainInformation, context) : undefined,
-  } as any;
-};
+// de_DomainInformationContainer omitted.
 
 /**
  * deserializeAws_restJson1DomainPackageDetails
  */
 const de_DomainPackageDetails = (output: any, context: __SerdeContext): DomainPackageDetails => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    DomainPackageStatus: __expectString(output.DomainPackageStatus),
-    ErrorDetails: output.ErrorDetails != null ? de_ErrorDetails(output.ErrorDetails, context) : undefined,
-    LastUpdated:
-      output.LastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
-        : undefined,
-    PackageID: __expectString(output.PackageID),
-    PackageName: __expectString(output.PackageName),
-    PackageType: __expectString(output.PackageType),
-    PackageVersion: __expectString(output.PackageVersion),
-    ReferencePath: __expectString(output.ReferencePath),
-  } as any;
+  return take(output, {
+    DomainName: __expectString,
+    DomainPackageStatus: __expectString,
+    ErrorDetails: _json,
+    LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PackageID: __expectString,
+    PackageName: __expectString,
+    PackageType: __expectString,
+    PackageVersion: __expectString,
+    ReferencePath: __expectString,
+  }) as any;
 };
 
 /**
@@ -6166,9 +5503,6 @@ const de_DomainPackageDetailsList = (output: any, context: __SerdeContext): Doma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainPackageDetails(entry, context);
     });
   return retVal;
@@ -6178,59 +5512,35 @@ const de_DomainPackageDetailsList = (output: any, context: __SerdeContext): Doma
  * deserializeAws_restJson1DomainStatus
  */
 const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
-  return {
-    ARN: __expectString(output.ARN),
-    AccessPolicies: __expectString(output.AccessPolicies),
-    AdvancedOptions: output.AdvancedOptions != null ? de_AdvancedOptions(output.AdvancedOptions, context) : undefined,
-    AdvancedSecurityOptions:
-      output.AdvancedSecurityOptions != null
-        ? de_AdvancedSecurityOptions(output.AdvancedSecurityOptions, context)
-        : undefined,
-    AutoTuneOptions:
-      output.AutoTuneOptions != null ? de_AutoTuneOptionsOutput(output.AutoTuneOptions, context) : undefined,
-    ChangeProgressDetails:
-      output.ChangeProgressDetails != null
-        ? de_ChangeProgressDetails(output.ChangeProgressDetails, context)
-        : undefined,
-    ClusterConfig: output.ClusterConfig != null ? de_ClusterConfig(output.ClusterConfig, context) : undefined,
-    CognitoOptions: output.CognitoOptions != null ? de_CognitoOptions(output.CognitoOptions, context) : undefined,
-    Created: __expectBoolean(output.Created),
-    Deleted: __expectBoolean(output.Deleted),
-    DomainEndpointOptions:
-      output.DomainEndpointOptions != null
-        ? de_DomainEndpointOptions(output.DomainEndpointOptions, context)
-        : undefined,
-    DomainId: __expectString(output.DomainId),
-    DomainName: __expectString(output.DomainName),
-    EBSOptions: output.EBSOptions != null ? de_EBSOptions(output.EBSOptions, context) : undefined,
-    EncryptionAtRestOptions:
-      output.EncryptionAtRestOptions != null
-        ? de_EncryptionAtRestOptions(output.EncryptionAtRestOptions, context)
-        : undefined,
-    Endpoint: __expectString(output.Endpoint),
-    Endpoints: output.Endpoints != null ? de_EndpointsMap(output.Endpoints, context) : undefined,
-    EngineVersion: __expectString(output.EngineVersion),
-    LogPublishingOptions:
-      output.LogPublishingOptions != null ? de_LogPublishingOptions(output.LogPublishingOptions, context) : undefined,
-    NodeToNodeEncryptionOptions:
-      output.NodeToNodeEncryptionOptions != null
-        ? de_NodeToNodeEncryptionOptions(output.NodeToNodeEncryptionOptions, context)
-        : undefined,
-    OffPeakWindowOptions:
-      output.OffPeakWindowOptions != null ? de_OffPeakWindowOptions(output.OffPeakWindowOptions, context) : undefined,
-    Processing: __expectBoolean(output.Processing),
-    ServiceSoftwareOptions:
-      output.ServiceSoftwareOptions != null
-        ? de_ServiceSoftwareOptions(output.ServiceSoftwareOptions, context)
-        : undefined,
-    SnapshotOptions: output.SnapshotOptions != null ? de_SnapshotOptions(output.SnapshotOptions, context) : undefined,
-    SoftwareUpdateOptions:
-      output.SoftwareUpdateOptions != null
-        ? de_SoftwareUpdateOptions(output.SoftwareUpdateOptions, context)
-        : undefined,
-    UpgradeProcessing: __expectBoolean(output.UpgradeProcessing),
-    VPCOptions: output.VPCOptions != null ? de_VPCDerivedInfo(output.VPCOptions, context) : undefined,
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    AccessPolicies: __expectString,
+    AdvancedOptions: _json,
+    AdvancedSecurityOptions: (_: any) => de_AdvancedSecurityOptions(_, context),
+    AutoTuneOptions: _json,
+    ChangeProgressDetails: _json,
+    ClusterConfig: _json,
+    CognitoOptions: _json,
+    Created: __expectBoolean,
+    Deleted: __expectBoolean,
+    DomainEndpointOptions: _json,
+    DomainId: __expectString,
+    DomainName: __expectString,
+    EBSOptions: _json,
+    EncryptionAtRestOptions: _json,
+    Endpoint: __expectString,
+    Endpoints: _json,
+    EngineVersion: __expectString,
+    LogPublishingOptions: _json,
+    NodeToNodeEncryptionOptions: _json,
+    OffPeakWindowOptions: _json,
+    Processing: __expectBoolean,
+    ServiceSoftwareOptions: (_: any) => de_ServiceSoftwareOptions(_, context),
+    SnapshotOptions: _json,
+    SoftwareUpdateOptions: _json,
+    UpgradeProcessing: __expectBoolean,
+    VPCOptions: _json,
+  }) as any;
 };
 
 /**
@@ -6240,319 +5550,84 @@ const de_DomainStatusList = (output: any, context: __SerdeContext): DomainStatus
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainStatus(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DryRunProgressStatus
- */
-const de_DryRunProgressStatus = (output: any, context: __SerdeContext): DryRunProgressStatus => {
-  return {
-    CreationDate: __expectString(output.CreationDate),
-    DryRunId: __expectString(output.DryRunId),
-    DryRunStatus: __expectString(output.DryRunStatus),
-    UpdateDate: __expectString(output.UpdateDate),
-    ValidationFailures:
-      output.ValidationFailures != null ? de_ValidationFailures(output.ValidationFailures, context) : undefined,
-  } as any;
-};
+// de_DryRunProgressStatus omitted.
 
-/**
- * deserializeAws_restJson1DryRunResults
- */
-const de_DryRunResults = (output: any, context: __SerdeContext): DryRunResults => {
-  return {
-    DeploymentType: __expectString(output.DeploymentType),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DryRunResults omitted.
 
-/**
- * deserializeAws_restJson1Duration
- */
-const de_Duration = (output: any, context: __SerdeContext): Duration => {
-  return {
-    Unit: __expectString(output.Unit),
-    Value: __expectLong(output.Value),
-  } as any;
-};
+// de_Duration omitted.
 
-/**
- * deserializeAws_restJson1EBSOptions
- */
-const de_EBSOptions = (output: any, context: __SerdeContext): EBSOptions => {
-  return {
-    EBSEnabled: __expectBoolean(output.EBSEnabled),
-    Iops: __expectInt32(output.Iops),
-    Throughput: __expectInt32(output.Throughput),
-    VolumeSize: __expectInt32(output.VolumeSize),
-    VolumeType: __expectString(output.VolumeType),
-  } as any;
-};
+// de_EBSOptions omitted.
 
 /**
  * deserializeAws_restJson1EBSOptionsStatus
  */
 const de_EBSOptionsStatus = (output: any, context: __SerdeContext): EBSOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_EBSOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EncryptionAtRestOptions
- */
-const de_EncryptionAtRestOptions = (output: any, context: __SerdeContext): EncryptionAtRestOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    KmsKeyId: __expectString(output.KmsKeyId),
-  } as any;
-};
+// de_EncryptionAtRestOptions omitted.
 
 /**
  * deserializeAws_restJson1EncryptionAtRestOptionsStatus
  */
 const de_EncryptionAtRestOptionsStatus = (output: any, context: __SerdeContext): EncryptionAtRestOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_EncryptionAtRestOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EndpointsMap
- */
-const de_EndpointsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_EndpointsMap omitted.
 
-/**
- * deserializeAws_restJson1ErrorDetails
- */
-const de_ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ErrorType: __expectString(output.ErrorType),
-  } as any;
-};
+// de_ErrorDetails omitted.
 
-/**
- * deserializeAws_restJson1InboundConnection
- */
-const de_InboundConnection = (output: any, context: __SerdeContext): InboundConnection => {
-  return {
-    ConnectionId: __expectString(output.ConnectionId),
-    ConnectionMode: __expectString(output.ConnectionMode),
-    ConnectionStatus:
-      output.ConnectionStatus != null ? de_InboundConnectionStatus(output.ConnectionStatus, context) : undefined,
-    LocalDomainInfo:
-      output.LocalDomainInfo != null ? de_DomainInformationContainer(output.LocalDomainInfo, context) : undefined,
-    RemoteDomainInfo:
-      output.RemoteDomainInfo != null ? de_DomainInformationContainer(output.RemoteDomainInfo, context) : undefined,
-  } as any;
-};
+// de_InboundConnection omitted.
 
-/**
- * deserializeAws_restJson1InboundConnections
- */
-const de_InboundConnections = (output: any, context: __SerdeContext): InboundConnection[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InboundConnection(entry, context);
-    });
-  return retVal;
-};
+// de_InboundConnections omitted.
 
-/**
- * deserializeAws_restJson1InboundConnectionStatus
- */
-const de_InboundConnectionStatus = (output: any, context: __SerdeContext): InboundConnectionStatus => {
-  return {
-    Message: __expectString(output.Message),
-    StatusCode: __expectString(output.StatusCode),
-  } as any;
-};
+// de_InboundConnectionStatus omitted.
 
-/**
- * deserializeAws_restJson1InstanceCountLimits
- */
-const de_InstanceCountLimits = (output: any, context: __SerdeContext): InstanceCountLimits => {
-  return {
-    MaximumInstanceCount: __expectInt32(output.MaximumInstanceCount),
-    MinimumInstanceCount: __expectInt32(output.MinimumInstanceCount),
-  } as any;
-};
+// de_InstanceCountLimits omitted.
 
-/**
- * deserializeAws_restJson1InstanceLimits
- */
-const de_InstanceLimits = (output: any, context: __SerdeContext): InstanceLimits => {
-  return {
-    InstanceCountLimits:
-      output.InstanceCountLimits != null ? de_InstanceCountLimits(output.InstanceCountLimits, context) : undefined,
-  } as any;
-};
+// de_InstanceLimits omitted.
 
-/**
- * deserializeAws_restJson1InstanceRoleList
- */
-const de_InstanceRoleList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_InstanceRoleList omitted.
 
-/**
- * deserializeAws_restJson1InstanceTypeDetails
- */
-const de_InstanceTypeDetails = (output: any, context: __SerdeContext): InstanceTypeDetails => {
-  return {
-    AdvancedSecurityEnabled: __expectBoolean(output.AdvancedSecurityEnabled),
-    AppLogsEnabled: __expectBoolean(output.AppLogsEnabled),
-    CognitoEnabled: __expectBoolean(output.CognitoEnabled),
-    EncryptionEnabled: __expectBoolean(output.EncryptionEnabled),
-    InstanceRole: output.InstanceRole != null ? de_InstanceRoleList(output.InstanceRole, context) : undefined,
-    InstanceType: __expectString(output.InstanceType),
-    WarmEnabled: __expectBoolean(output.WarmEnabled),
-  } as any;
-};
+// de_InstanceTypeDetails omitted.
 
-/**
- * deserializeAws_restJson1InstanceTypeDetailsList
- */
-const de_InstanceTypeDetailsList = (output: any, context: __SerdeContext): InstanceTypeDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InstanceTypeDetails(entry, context);
-    });
-  return retVal;
-};
+// de_InstanceTypeDetailsList omitted.
 
-/**
- * deserializeAws_restJson1Issues
- */
-const de_Issues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Issues omitted.
 
-/**
- * deserializeAws_restJson1Limits
- */
-const de_Limits = (output: any, context: __SerdeContext): Limits => {
-  return {
-    AdditionalLimits:
-      output.AdditionalLimits != null ? de_AdditionalLimitList(output.AdditionalLimits, context) : undefined,
-    InstanceLimits: output.InstanceLimits != null ? de_InstanceLimits(output.InstanceLimits, context) : undefined,
-    StorageTypes: output.StorageTypes != null ? de_StorageTypeList(output.StorageTypes, context) : undefined,
-  } as any;
-};
+// de_Limits omitted.
 
-/**
- * deserializeAws_restJson1LimitsByRole
- */
-const de_LimitsByRole = (output: any, context: __SerdeContext): Record<string, Limits> => {
-  return Object.entries(output).reduce((acc: Record<string, Limits>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_Limits(value, context);
-    return acc;
-  }, {});
-};
+// de_LimitsByRole omitted.
 
-/**
- * deserializeAws_restJson1LimitValueList
- */
-const de_LimitValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LimitValueList omitted.
 
-/**
- * deserializeAws_restJson1LogPublishingOption
- */
-const de_LogPublishingOption = (output: any, context: __SerdeContext): LogPublishingOption => {
-  return {
-    CloudWatchLogsLogGroupArn: __expectString(output.CloudWatchLogsLogGroupArn),
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
+// de_LogPublishingOption omitted.
 
-/**
- * deserializeAws_restJson1LogPublishingOptions
- */
-const de_LogPublishingOptions = (output: any, context: __SerdeContext): Record<string, LogPublishingOption> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, LogPublishingOption>, [key, value]: [LogType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_LogPublishingOption(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_LogPublishingOptions omitted.
 
 /**
  * deserializeAws_restJson1LogPublishingOptionsStatus
  */
 const de_LogPublishingOptionsStatus = (output: any, context: __SerdeContext): LogPublishingOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_LogPublishingOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1NodeToNodeEncryptionOptions
- */
-const de_NodeToNodeEncryptionOptions = (output: any, context: __SerdeContext): NodeToNodeEncryptionOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
+// de_NodeToNodeEncryptionOptions omitted.
 
 /**
  * deserializeAws_restJson1NodeToNodeEncryptionOptionsStatus
@@ -6561,121 +5636,60 @@ const de_NodeToNodeEncryptionOptionsStatus = (
   output: any,
   context: __SerdeContext
 ): NodeToNodeEncryptionOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_NodeToNodeEncryptionOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1OffPeakWindow
- */
-const de_OffPeakWindow = (output: any, context: __SerdeContext): OffPeakWindow => {
-  return {
-    WindowStartTime: output.WindowStartTime != null ? de_WindowStartTime(output.WindowStartTime, context) : undefined,
-  } as any;
-};
+// de_OffPeakWindow omitted.
 
-/**
- * deserializeAws_restJson1OffPeakWindowOptions
- */
-const de_OffPeakWindowOptions = (output: any, context: __SerdeContext): OffPeakWindowOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    OffPeakWindow: output.OffPeakWindow != null ? de_OffPeakWindow(output.OffPeakWindow, context) : undefined,
-  } as any;
-};
+// de_OffPeakWindowOptions omitted.
 
 /**
  * deserializeAws_restJson1OffPeakWindowOptionsStatus
  */
 const de_OffPeakWindowOptionsStatus = (output: any, context: __SerdeContext): OffPeakWindowOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_OffPeakWindowOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1OptionStatus
  */
 const de_OptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    PendingDeletion: __expectBoolean(output.PendingDeletion),
-    State: __expectString(output.State),
-    UpdateDate:
-      output.UpdateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate))) : undefined,
-    UpdateVersion: __expectInt32(output.UpdateVersion),
-  } as any;
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PendingDeletion: __expectBoolean,
+    State: __expectString,
+    UpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdateVersion: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1OutboundConnection
- */
-const de_OutboundConnection = (output: any, context: __SerdeContext): OutboundConnection => {
-  return {
-    ConnectionAlias: __expectString(output.ConnectionAlias),
-    ConnectionId: __expectString(output.ConnectionId),
-    ConnectionMode: __expectString(output.ConnectionMode),
-    ConnectionProperties:
-      output.ConnectionProperties != null ? de_ConnectionProperties(output.ConnectionProperties, context) : undefined,
-    ConnectionStatus:
-      output.ConnectionStatus != null ? de_OutboundConnectionStatus(output.ConnectionStatus, context) : undefined,
-    LocalDomainInfo:
-      output.LocalDomainInfo != null ? de_DomainInformationContainer(output.LocalDomainInfo, context) : undefined,
-    RemoteDomainInfo:
-      output.RemoteDomainInfo != null ? de_DomainInformationContainer(output.RemoteDomainInfo, context) : undefined,
-  } as any;
-};
+// de_OutboundConnection omitted.
 
-/**
- * deserializeAws_restJson1OutboundConnections
- */
-const de_OutboundConnections = (output: any, context: __SerdeContext): OutboundConnection[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OutboundConnection(entry, context);
-    });
-  return retVal;
-};
+// de_OutboundConnections omitted.
 
-/**
- * deserializeAws_restJson1OutboundConnectionStatus
- */
-const de_OutboundConnectionStatus = (output: any, context: __SerdeContext): OutboundConnectionStatus => {
-  return {
-    Message: __expectString(output.Message),
-    StatusCode: __expectString(output.StatusCode),
-  } as any;
-};
+// de_OutboundConnectionStatus omitted.
 
 /**
  * deserializeAws_restJson1PackageDetails
  */
 const de_PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
-  return {
-    AvailablePackageVersion: __expectString(output.AvailablePackageVersion),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    ErrorDetails: output.ErrorDetails != null ? de_ErrorDetails(output.ErrorDetails, context) : undefined,
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    PackageDescription: __expectString(output.PackageDescription),
-    PackageID: __expectString(output.PackageID),
-    PackageName: __expectString(output.PackageName),
-    PackageStatus: __expectString(output.PackageStatus),
-    PackageType: __expectString(output.PackageType),
-  } as any;
+  return take(output, {
+    AvailablePackageVersion: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorDetails: _json,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PackageDescription: __expectString,
+    PackageID: __expectString,
+    PackageName: __expectString,
+    PackageStatus: __expectString,
+    PackageType: __expectString,
+  }) as any;
 };
 
 /**
@@ -6685,9 +5699,6 @@ const de_PackageDetailsList = (output: any, context: __SerdeContext): PackageDet
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PackageDetails(entry, context);
     });
   return retVal;
@@ -6697,12 +5708,11 @@ const de_PackageDetailsList = (output: any, context: __SerdeContext): PackageDet
  * deserializeAws_restJson1PackageVersionHistory
  */
 const de_PackageVersionHistory = (output: any, context: __SerdeContext): PackageVersionHistory => {
-  return {
-    CommitMessage: __expectString(output.CommitMessage),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    PackageVersion: __expectString(output.PackageVersion),
-  } as any;
+  return take(output, {
+    CommitMessage: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PackageVersion: __expectString,
+  }) as any;
 };
 
 /**
@@ -6712,9 +5722,6 @@ const de_PackageVersionHistoryList = (output: any, context: __SerdeContext): Pac
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PackageVersionHistory(entry, context);
     });
   return retVal;
@@ -6724,10 +5731,10 @@ const de_PackageVersionHistoryList = (output: any, context: __SerdeContext): Pac
  * deserializeAws_restJson1RecurringCharge
  */
 const de_RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
-  return {
-    RecurringChargeAmount: __limitedParseDouble(output.RecurringChargeAmount),
-    RecurringChargeFrequency: __expectString(output.RecurringChargeFrequency),
-  } as any;
+  return take(output, {
+    RecurringChargeAmount: __limitedParseDouble,
+    RecurringChargeFrequency: __expectString,
+  }) as any;
 };
 
 /**
@@ -6737,9 +5744,6 @@ const de_RecurringChargeList = (output: any, context: __SerdeContext): Recurring
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecurringCharge(entry, context);
     });
   return retVal;
@@ -6749,24 +5753,22 @@ const de_RecurringChargeList = (output: any, context: __SerdeContext): Recurring
  * deserializeAws_restJson1ReservedInstance
  */
 const de_ReservedInstance = (output: any, context: __SerdeContext): ReservedInstance => {
-  return {
-    BillingSubscriptionId: __expectLong(output.BillingSubscriptionId),
-    CurrencyCode: __expectString(output.CurrencyCode),
-    Duration: __expectInt32(output.Duration),
-    FixedPrice: __limitedParseDouble(output.FixedPrice),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    InstanceType: __expectString(output.InstanceType),
-    PaymentOption: __expectString(output.PaymentOption),
-    RecurringCharges:
-      output.RecurringCharges != null ? de_RecurringChargeList(output.RecurringCharges, context) : undefined,
-    ReservationName: __expectString(output.ReservationName),
-    ReservedInstanceId: __expectString(output.ReservedInstanceId),
-    ReservedInstanceOfferingId: __expectString(output.ReservedInstanceOfferingId),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    State: __expectString(output.State),
-    UsagePrice: __limitedParseDouble(output.UsagePrice),
-  } as any;
+  return take(output, {
+    BillingSubscriptionId: __expectLong,
+    CurrencyCode: __expectString,
+    Duration: __expectInt32,
+    FixedPrice: __limitedParseDouble,
+    InstanceCount: __expectInt32,
+    InstanceType: __expectString,
+    PaymentOption: __expectString,
+    RecurringCharges: (_: any) => de_RecurringChargeList(_, context),
+    ReservationName: __expectString,
+    ReservedInstanceId: __expectString,
+    ReservedInstanceOfferingId: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    UsagePrice: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -6776,9 +5778,6 @@ const de_ReservedInstanceList = (output: any, context: __SerdeContext): Reserved
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReservedInstance(entry, context);
     });
   return retVal;
@@ -6788,17 +5787,16 @@ const de_ReservedInstanceList = (output: any, context: __SerdeContext): Reserved
  * deserializeAws_restJson1ReservedInstanceOffering
  */
 const de_ReservedInstanceOffering = (output: any, context: __SerdeContext): ReservedInstanceOffering => {
-  return {
-    CurrencyCode: __expectString(output.CurrencyCode),
-    Duration: __expectInt32(output.Duration),
-    FixedPrice: __limitedParseDouble(output.FixedPrice),
-    InstanceType: __expectString(output.InstanceType),
-    PaymentOption: __expectString(output.PaymentOption),
-    RecurringCharges:
-      output.RecurringCharges != null ? de_RecurringChargeList(output.RecurringCharges, context) : undefined,
-    ReservedInstanceOfferingId: __expectString(output.ReservedInstanceOfferingId),
-    UsagePrice: __limitedParseDouble(output.UsagePrice),
-  } as any;
+  return take(output, {
+    CurrencyCode: __expectString,
+    Duration: __expectInt32,
+    FixedPrice: __limitedParseDouble,
+    InstanceType: __expectString,
+    PaymentOption: __expectString,
+    RecurringCharges: (_: any) => de_RecurringChargeList(_, context),
+    ReservedInstanceOfferingId: __expectString,
+    UsagePrice: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -6808,258 +5806,97 @@ const de_ReservedInstanceOfferingList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReservedInstanceOffering(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SAMLIdp
- */
-const de_SAMLIdp = (output: any, context: __SerdeContext): SAMLIdp => {
-  return {
-    EntityId: __expectString(output.EntityId),
-    MetadataContent: __expectString(output.MetadataContent),
-  } as any;
-};
+// de_SAMLIdp omitted.
 
-/**
- * deserializeAws_restJson1SAMLOptionsOutput
- */
-const de_SAMLOptionsOutput = (output: any, context: __SerdeContext): SAMLOptionsOutput => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    Idp: output.Idp != null ? de_SAMLIdp(output.Idp, context) : undefined,
-    RolesKey: __expectString(output.RolesKey),
-    SessionTimeoutMinutes: __expectInt32(output.SessionTimeoutMinutes),
-    SubjectKey: __expectString(output.SubjectKey),
-  } as any;
-};
+// de_SAMLOptionsOutput omitted.
 
-/**
- * deserializeAws_restJson1ScheduledAction
- */
-const de_ScheduledAction = (output: any, context: __SerdeContext): ScheduledAction => {
-  return {
-    Cancellable: __expectBoolean(output.Cancellable),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Mandatory: __expectBoolean(output.Mandatory),
-    ScheduledBy: __expectString(output.ScheduledBy),
-    ScheduledTime: __expectLong(output.ScheduledTime),
-    Severity: __expectString(output.Severity),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ScheduledAction omitted.
 
-/**
- * deserializeAws_restJson1ScheduledActionsList
- */
-const de_ScheduledActionsList = (output: any, context: __SerdeContext): ScheduledAction[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ScheduledAction(entry, context);
-    });
-  return retVal;
-};
+// de_ScheduledActionsList omitted.
 
 /**
  * deserializeAws_restJson1ScheduledAutoTuneDetails
  */
 const de_ScheduledAutoTuneDetails = (output: any, context: __SerdeContext): ScheduledAutoTuneDetails => {
-  return {
-    Action: __expectString(output.Action),
-    ActionType: __expectString(output.ActionType),
-    Date: output.Date != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Date))) : undefined,
-    Severity: __expectString(output.Severity),
-  } as any;
+  return take(output, {
+    Action: __expectString,
+    ActionType: __expectString,
+    Date: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Severity: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ServiceSoftwareOptions
  */
 const de_ServiceSoftwareOptions = (output: any, context: __SerdeContext): ServiceSoftwareOptions => {
-  return {
-    AutomatedUpdateDate:
-      output.AutomatedUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutomatedUpdateDate)))
-        : undefined,
-    Cancellable: __expectBoolean(output.Cancellable),
-    CurrentVersion: __expectString(output.CurrentVersion),
-    Description: __expectString(output.Description),
-    NewVersion: __expectString(output.NewVersion),
-    OptionalDeployment: __expectBoolean(output.OptionalDeployment),
-    UpdateAvailable: __expectBoolean(output.UpdateAvailable),
-    UpdateStatus: __expectString(output.UpdateStatus),
-  } as any;
+  return take(output, {
+    AutomatedUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Cancellable: __expectBoolean,
+    CurrentVersion: __expectString,
+    Description: __expectString,
+    NewVersion: __expectString,
+    OptionalDeployment: __expectBoolean,
+    UpdateAvailable: __expectBoolean,
+    UpdateStatus: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SlotList
- */
-const de_SlotList = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectLong(entry) as any;
-    });
-  return retVal;
-};
+// de_SlotList omitted.
 
-/**
- * deserializeAws_restJson1SnapshotOptions
- */
-const de_SnapshotOptions = (output: any, context: __SerdeContext): SnapshotOptions => {
-  return {
-    AutomatedSnapshotStartHour: __expectInt32(output.AutomatedSnapshotStartHour),
-  } as any;
-};
+// de_SnapshotOptions omitted.
 
 /**
  * deserializeAws_restJson1SnapshotOptionsStatus
  */
 const de_SnapshotOptionsStatus = (output: any, context: __SerdeContext): SnapshotOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_SnapshotOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SoftwareUpdateOptions
- */
-const de_SoftwareUpdateOptions = (output: any, context: __SerdeContext): SoftwareUpdateOptions => {
-  return {
-    AutoSoftwareUpdateEnabled: __expectBoolean(output.AutoSoftwareUpdateEnabled),
-  } as any;
-};
+// de_SoftwareUpdateOptions omitted.
 
 /**
  * deserializeAws_restJson1SoftwareUpdateOptionsStatus
  */
 const de_SoftwareUpdateOptionsStatus = (output: any, context: __SerdeContext): SoftwareUpdateOptionsStatus => {
-  return {
-    Options: output.Options != null ? de_SoftwareUpdateOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1StorageType
- */
-const de_StorageType = (output: any, context: __SerdeContext): StorageType => {
-  return {
-    StorageSubTypeName: __expectString(output.StorageSubTypeName),
-    StorageTypeLimits:
-      output.StorageTypeLimits != null ? de_StorageTypeLimitList(output.StorageTypeLimits, context) : undefined,
-    StorageTypeName: __expectString(output.StorageTypeName),
-  } as any;
-};
+// de_StorageType omitted.
 
-/**
- * deserializeAws_restJson1StorageTypeLimit
- */
-const de_StorageTypeLimit = (output: any, context: __SerdeContext): StorageTypeLimit => {
-  return {
-    LimitName: __expectString(output.LimitName),
-    LimitValues: output.LimitValues != null ? de_LimitValueList(output.LimitValues, context) : undefined,
-  } as any;
-};
+// de_StorageTypeLimit omitted.
 
-/**
- * deserializeAws_restJson1StorageTypeLimitList
- */
-const de_StorageTypeLimitList = (output: any, context: __SerdeContext): StorageTypeLimit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StorageTypeLimit(entry, context);
-    });
-  return retVal;
-};
+// de_StorageTypeLimitList omitted.
 
-/**
- * deserializeAws_restJson1StorageTypeList
- */
-const de_StorageTypeList = (output: any, context: __SerdeContext): StorageType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StorageType(entry, context);
-    });
-  return retVal;
-};
+// de_StorageTypeList omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 /**
  * deserializeAws_restJson1UpgradeHistory
  */
 const de_UpgradeHistory = (output: any, context: __SerdeContext): UpgradeHistory => {
-  return {
-    StartTimestamp:
-      output.StartTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTimestamp)))
-        : undefined,
-    StepsList: output.StepsList != null ? de_UpgradeStepsList(output.StepsList, context) : undefined,
-    UpgradeName: __expectString(output.UpgradeName),
-    UpgradeStatus: __expectString(output.UpgradeStatus),
-  } as any;
+  return take(output, {
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StepsList: (_: any) => de_UpgradeStepsList(_, context),
+    UpgradeName: __expectString,
+    UpgradeStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -7069,9 +5906,6 @@ const de_UpgradeHistoryList = (output: any, context: __SerdeContext): UpgradeHis
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UpgradeHistory(entry, context);
     });
   return retVal;
@@ -7081,12 +5915,12 @@ const de_UpgradeHistoryList = (output: any, context: __SerdeContext): UpgradeHis
  * deserializeAws_restJson1UpgradeStepItem
  */
 const de_UpgradeStepItem = (output: any, context: __SerdeContext): UpgradeStepItem => {
-  return {
-    Issues: output.Issues != null ? de_Issues(output.Issues, context) : undefined,
-    ProgressPercent: __limitedParseDouble(output.ProgressPercent),
-    UpgradeStep: __expectString(output.UpgradeStep),
-    UpgradeStepStatus: __expectString(output.UpgradeStepStatus),
-  } as any;
+  return take(output, {
+    Issues: _json,
+    ProgressPercent: __limitedParseDouble,
+    UpgradeStep: __expectString,
+    UpgradeStepStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -7096,186 +5930,54 @@ const de_UpgradeStepsList = (output: any, context: __SerdeContext): UpgradeStepI
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UpgradeStepItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ValidationFailure
- */
-const de_ValidationFailure = (output: any, context: __SerdeContext): ValidationFailure => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationFailure omitted.
 
-/**
- * deserializeAws_restJson1ValidationFailures
- */
-const de_ValidationFailures = (output: any, context: __SerdeContext): ValidationFailure[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationFailure(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationFailures omitted.
 
-/**
- * deserializeAws_restJson1VersionList
- */
-const de_VersionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_VersionList omitted.
 
 /**
  * deserializeAws_restJson1VersionStatus
  */
 const de_VersionStatus = (output: any, context: __SerdeContext): VersionStatus => {
-  return {
-    Options: __expectString(output.Options),
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: __expectString,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1VPCDerivedInfo
- */
-const de_VPCDerivedInfo = (output: any, context: __SerdeContext): VPCDerivedInfo => {
-  return {
-    AvailabilityZones: output.AvailabilityZones != null ? de_StringList(output.AvailabilityZones, context) : undefined,
-    SecurityGroupIds: output.SecurityGroupIds != null ? de_StringList(output.SecurityGroupIds, context) : undefined,
-    SubnetIds: output.SubnetIds != null ? de_StringList(output.SubnetIds, context) : undefined,
-    VPCId: __expectString(output.VPCId),
-  } as any;
-};
+// de_VPCDerivedInfo omitted.
 
 /**
  * deserializeAws_restJson1VPCDerivedInfoStatus
  */
 const de_VPCDerivedInfoStatus = (output: any, context: __SerdeContext): VPCDerivedInfoStatus => {
-  return {
-    Options: output.Options != null ? de_VPCDerivedInfo(output.Options, context) : undefined,
-    Status: output.Status != null ? de_OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1VpcEndpoint
- */
-const de_VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
-  return {
-    DomainArn: __expectString(output.DomainArn),
-    Endpoint: __expectString(output.Endpoint),
-    Status: __expectString(output.Status),
-    VpcEndpointId: __expectString(output.VpcEndpointId),
-    VpcEndpointOwner: __expectString(output.VpcEndpointOwner),
-    VpcOptions: output.VpcOptions != null ? de_VPCDerivedInfo(output.VpcOptions, context) : undefined,
-  } as any;
-};
+// de_VpcEndpoint omitted.
 
-/**
- * deserializeAws_restJson1VpcEndpointError
- */
-const de_VpcEndpointError = (output: any, context: __SerdeContext): VpcEndpointError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    VpcEndpointId: __expectString(output.VpcEndpointId),
-  } as any;
-};
+// de_VpcEndpointError omitted.
 
-/**
- * deserializeAws_restJson1VpcEndpointErrorList
- */
-const de_VpcEndpointErrorList = (output: any, context: __SerdeContext): VpcEndpointError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VpcEndpointError(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpointErrorList omitted.
 
-/**
- * deserializeAws_restJson1VpcEndpoints
- */
-const de_VpcEndpoints = (output: any, context: __SerdeContext): VpcEndpoint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VpcEndpoint(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpoints omitted.
 
-/**
- * deserializeAws_restJson1VpcEndpointSummary
- */
-const de_VpcEndpointSummary = (output: any, context: __SerdeContext): VpcEndpointSummary => {
-  return {
-    DomainArn: __expectString(output.DomainArn),
-    Status: __expectString(output.Status),
-    VpcEndpointId: __expectString(output.VpcEndpointId),
-    VpcEndpointOwner: __expectString(output.VpcEndpointOwner),
-  } as any;
-};
+// de_VpcEndpointSummary omitted.
 
-/**
- * deserializeAws_restJson1VpcEndpointSummaryList
- */
-const de_VpcEndpointSummaryList = (output: any, context: __SerdeContext): VpcEndpointSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VpcEndpointSummary(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpointSummaryList omitted.
 
-/**
- * deserializeAws_restJson1WindowStartTime
- */
-const de_WindowStartTime = (output: any, context: __SerdeContext): WindowStartTime => {
-  return {
-    Hours: __expectLong(output.Hours),
-    Minutes: __expectLong(output.Minutes),
-  } as any;
-};
+// de_WindowStartTime omitted.
 
-/**
- * deserializeAws_restJson1ZoneAwarenessConfig
- */
-const de_ZoneAwarenessConfig = (output: any, context: __SerdeContext): ZoneAwarenessConfig => {
-  return {
-    AvailabilityZoneCount: __expectInt32(output.AvailabilityZoneCount),
-  } as any;
-};
+// de_ZoneAwarenessConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

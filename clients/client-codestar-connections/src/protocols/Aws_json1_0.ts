@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectString as __expectString,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -30,37 +30,23 @@ import { UpdateHostCommandInput, UpdateHostCommandOutput } from "../commands/Upd
 import { CodeStarConnectionsServiceException as __BaseException } from "../models/CodeStarConnectionsServiceException";
 import {
   ConflictException,
-  Connection,
   CreateConnectionInput,
-  CreateConnectionOutput,
   CreateHostInput,
-  CreateHostOutput,
   DeleteConnectionInput,
-  DeleteConnectionOutput,
   DeleteHostInput,
-  DeleteHostOutput,
   GetConnectionInput,
-  GetConnectionOutput,
   GetHostInput,
-  GetHostOutput,
-  Host,
   LimitExceededException,
   ListConnectionsInput,
-  ListConnectionsOutput,
   ListHostsInput,
-  ListHostsOutput,
   ListTagsForResourceInput,
-  ListTagsForResourceOutput,
   ResourceNotFoundException,
   ResourceUnavailableException,
   Tag,
   TagResourceInput,
-  TagResourceOutput,
   UnsupportedOperationException,
   UntagResourceInput,
-  UntagResourceOutput,
   UpdateHostInput,
-  UpdateHostOutput,
   VpcConfiguration,
 } from "../models/models_0";
 
@@ -73,7 +59,7 @@ export const se_CreateConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateConnection");
   let body: any;
-  body = JSON.stringify(se_CreateConnectionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -86,7 +72,7 @@ export const se_CreateHostCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHost");
   let body: any;
-  body = JSON.stringify(se_CreateHostInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -99,7 +85,7 @@ export const se_DeleteConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConnection");
   let body: any;
-  body = JSON.stringify(se_DeleteConnectionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -112,7 +98,7 @@ export const se_DeleteHostCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteHost");
   let body: any;
-  body = JSON.stringify(se_DeleteHostInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -125,7 +111,7 @@ export const se_GetConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetConnection");
   let body: any;
-  body = JSON.stringify(se_GetConnectionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -138,7 +124,7 @@ export const se_GetHostCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetHost");
   let body: any;
-  body = JSON.stringify(se_GetHostInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -151,7 +137,7 @@ export const se_ListConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListConnections");
   let body: any;
-  body = JSON.stringify(se_ListConnectionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -164,7 +150,7 @@ export const se_ListHostsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHosts");
   let body: any;
-  body = JSON.stringify(se_ListHostsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -177,7 +163,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -190,7 +176,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -203,7 +189,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -216,7 +202,7 @@ export const se_UpdateHostCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateHost");
   let body: any;
-  body = JSON.stringify(se_UpdateHostInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -232,12 +218,12 @@ export const de_CreateConnectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateConnectionOutput(data, context);
+  contents = _json(data);
   const response: CreateConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -264,10 +250,9 @@ const de_CreateConnectionCommandError = async (
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -285,12 +270,12 @@ export const de_CreateHostCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateHostOutput(data, context);
+  contents = _json(data);
   const response: CreateHostCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -311,10 +296,9 @@ const de_CreateHostCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -332,12 +316,12 @@ export const de_DeleteConnectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteConnectionOutput(data, context);
+  contents = _json(data);
   const response: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -358,10 +342,9 @@ const de_DeleteConnectionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -379,12 +362,12 @@ export const de_DeleteHostCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteHostOutput(data, context);
+  contents = _json(data);
   const response: DeleteHostCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -408,10 +391,9 @@ const de_DeleteHostCommandError = async (
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -429,12 +411,12 @@ export const de_GetConnectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetConnectionOutput(data, context);
+  contents = _json(data);
   const response: GetConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -458,10 +440,9 @@ const de_GetConnectionCommandError = async (
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -479,12 +460,12 @@ export const de_GetHostCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetHostOutput(data, context);
+  contents = _json(data);
   const response: GetHostCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -508,10 +489,9 @@ const de_GetHostCommandError = async (
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -529,12 +509,12 @@ export const de_ListConnectionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListConnectionsOutput(data, context);
+  contents = _json(data);
   const response: ListConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -550,10 +530,9 @@ const de_ListConnectionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -570,12 +549,12 @@ export const de_ListHostsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListHostsOutput(data, context);
+  contents = _json(data);
   const response: ListHostsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -591,10 +570,9 @@ const de_ListHostsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -611,12 +589,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -637,10 +615,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -658,12 +635,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceOutput(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -687,10 +664,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -708,12 +684,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceOutput(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -734,10 +710,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -755,12 +730,12 @@ export const de_UpdateHostCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateHostOutput(data, context);
+  contents = _json(data);
   const response: UpdateHostCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -790,10 +765,9 @@ const de_UpdateHostCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -804,7 +778,7 @@ const de_UpdateHostCommandError = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -820,7 +794,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -836,7 +810,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -852,7 +826,7 @@ const de_ResourceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -868,7 +842,7 @@ const de_UnsupportedOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -876,474 +850,93 @@ const de_UnsupportedOperationExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0CreateConnectionInput
- */
-const se_CreateConnectionInput = (input: CreateConnectionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
-    ...(input.HostArn != null && { HostArn: input.HostArn }),
-    ...(input.ProviderType != null && { ProviderType: input.ProviderType }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateConnectionInput omitted.
 
-/**
- * serializeAws_json1_0CreateHostInput
- */
-const se_CreateHostInput = (input: CreateHostInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ProviderEndpoint != null && { ProviderEndpoint: input.ProviderEndpoint }),
-    ...(input.ProviderType != null && { ProviderType: input.ProviderType }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
-  };
-};
+// se_CreateHostInput omitted.
 
-/**
- * serializeAws_json1_0DeleteConnectionInput
- */
-const se_DeleteConnectionInput = (input: DeleteConnectionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
-  };
-};
+// se_DeleteConnectionInput omitted.
 
-/**
- * serializeAws_json1_0DeleteHostInput
- */
-const se_DeleteHostInput = (input: DeleteHostInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HostArn != null && { HostArn: input.HostArn }),
-  };
-};
+// se_DeleteHostInput omitted.
 
-/**
- * serializeAws_json1_0GetConnectionInput
- */
-const se_GetConnectionInput = (input: GetConnectionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
-  };
-};
+// se_GetConnectionInput omitted.
 
-/**
- * serializeAws_json1_0GetHostInput
- */
-const se_GetHostInput = (input: GetHostInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HostArn != null && { HostArn: input.HostArn }),
-  };
-};
+// se_GetHostInput omitted.
 
-/**
- * serializeAws_json1_0ListConnectionsInput
- */
-const se_ListConnectionsInput = (input: ListConnectionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HostArnFilter != null && { HostArnFilter: input.HostArnFilter }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ProviderTypeFilter != null && { ProviderTypeFilter: input.ProviderTypeFilter }),
-  };
-};
+// se_ListConnectionsInput omitted.
 
-/**
- * serializeAws_json1_0ListHostsInput
- */
-const se_ListHostsInput = (input: ListHostsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListHostsInput omitted.
 
-/**
- * serializeAws_json1_0ListTagsForResourceInput
- */
-const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceInput omitted.
 
-/**
- * serializeAws_json1_0SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_json1_0SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIds omitted.
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_0TagResourceInput
- */
-const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceInput omitted.
 
-/**
- * serializeAws_json1_0UntagResourceInput
- */
-const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceInput omitted.
 
-/**
- * serializeAws_json1_0UpdateHostInput
- */
-const se_UpdateHostInput = (input: UpdateHostInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HostArn != null && { HostArn: input.HostArn }),
-    ...(input.ProviderEndpoint != null && { ProviderEndpoint: input.ProviderEndpoint }),
-    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
-  };
-};
+// se_UpdateHostInput omitted.
 
-/**
- * serializeAws_json1_0VpcConfiguration
- */
-const se_VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_SecurityGroupIds(input.SecurityGroupIds, context) }),
-    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIds(input.SubnetIds, context) }),
-    ...(input.TlsCertificate != null && { TlsCertificate: input.TlsCertificate }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  };
-};
+// se_VpcConfiguration omitted.
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_0Connection
- */
-const de_Connection = (output: any, context: __SerdeContext): Connection => {
-  return {
-    ConnectionArn: __expectString(output.ConnectionArn),
-    ConnectionName: __expectString(output.ConnectionName),
-    ConnectionStatus: __expectString(output.ConnectionStatus),
-    HostArn: __expectString(output.HostArn),
-    OwnerAccountId: __expectString(output.OwnerAccountId),
-    ProviderType: __expectString(output.ProviderType),
-  } as any;
-};
+// de_Connection omitted.
 
-/**
- * deserializeAws_json1_0ConnectionList
- */
-const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Connection(entry, context);
-    });
-  return retVal;
-};
+// de_ConnectionList omitted.
 
-/**
- * deserializeAws_json1_0CreateConnectionOutput
- */
-const de_CreateConnectionOutput = (output: any, context: __SerdeContext): CreateConnectionOutput => {
-  return {
-    ConnectionArn: __expectString(output.ConnectionArn),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_CreateConnectionOutput omitted.
 
-/**
- * deserializeAws_json1_0CreateHostOutput
- */
-const de_CreateHostOutput = (output: any, context: __SerdeContext): CreateHostOutput => {
-  return {
-    HostArn: __expectString(output.HostArn),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_CreateHostOutput omitted.
 
-/**
- * deserializeAws_json1_0DeleteConnectionOutput
- */
-const de_DeleteConnectionOutput = (output: any, context: __SerdeContext): DeleteConnectionOutput => {
-  return {} as any;
-};
+// de_DeleteConnectionOutput omitted.
 
-/**
- * deserializeAws_json1_0DeleteHostOutput
- */
-const de_DeleteHostOutput = (output: any, context: __SerdeContext): DeleteHostOutput => {
-  return {} as any;
-};
+// de_DeleteHostOutput omitted.
 
-/**
- * deserializeAws_json1_0GetConnectionOutput
- */
-const de_GetConnectionOutput = (output: any, context: __SerdeContext): GetConnectionOutput => {
-  return {
-    Connection: output.Connection != null ? de_Connection(output.Connection, context) : undefined,
-  } as any;
-};
+// de_GetConnectionOutput omitted.
 
-/**
- * deserializeAws_json1_0GetHostOutput
- */
-const de_GetHostOutput = (output: any, context: __SerdeContext): GetHostOutput => {
-  return {
-    Name: __expectString(output.Name),
-    ProviderEndpoint: __expectString(output.ProviderEndpoint),
-    ProviderType: __expectString(output.ProviderType),
-    Status: __expectString(output.Status),
-    VpcConfiguration:
-      output.VpcConfiguration != null ? de_VpcConfiguration(output.VpcConfiguration, context) : undefined,
-  } as any;
-};
+// de_GetHostOutput omitted.
 
-/**
- * deserializeAws_json1_0Host
- */
-const de_Host = (output: any, context: __SerdeContext): Host => {
-  return {
-    HostArn: __expectString(output.HostArn),
-    Name: __expectString(output.Name),
-    ProviderEndpoint: __expectString(output.ProviderEndpoint),
-    ProviderType: __expectString(output.ProviderType),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    VpcConfiguration:
-      output.VpcConfiguration != null ? de_VpcConfiguration(output.VpcConfiguration, context) : undefined,
-  } as any;
-};
+// de_Host omitted.
 
-/**
- * deserializeAws_json1_0HostList
- */
-const de_HostList = (output: any, context: __SerdeContext): Host[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Host(entry, context);
-    });
-  return retVal;
-};
+// de_HostList omitted.
 
-/**
- * deserializeAws_json1_0LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_0ListConnectionsOutput
- */
-const de_ListConnectionsOutput = (output: any, context: __SerdeContext): ListConnectionsOutput => {
-  return {
-    Connections: output.Connections != null ? de_ConnectionList(output.Connections, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListConnectionsOutput omitted.
 
-/**
- * deserializeAws_json1_0ListHostsOutput
- */
-const de_ListHostsOutput = (output: any, context: __SerdeContext): ListHostsOutput => {
-  return {
-    Hosts: output.Hosts != null ? de_HostList(output.Hosts, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListHostsOutput omitted.
 
-/**
- * deserializeAws_json1_0ListTagsForResourceOutput
- */
-const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0ResourceUnavailableException
- */
-const de_ResourceUnavailableException = (output: any, context: __SerdeContext): ResourceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceUnavailableException omitted.
 
-/**
- * deserializeAws_json1_0SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
-/**
- * deserializeAws_json1_0SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TagResourceOutput
- */
-const de_TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  return {} as any;
-};
+// de_TagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0UnsupportedOperationException
- */
-const de_UnsupportedOperationException = (output: any, context: __SerdeContext): UnsupportedOperationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnsupportedOperationException omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceOutput
- */
-const de_UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  return {} as any;
-};
+// de_UntagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0UpdateHostOutput
- */
-const de_UpdateHostOutput = (output: any, context: __SerdeContext): UpdateHostOutput => {
-  return {} as any;
-};
+// de_UpdateHostOutput omitted.
 
-/**
- * deserializeAws_json1_0VpcConfiguration
- */
-const de_VpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
-  return {
-    SecurityGroupIds:
-      output.SecurityGroupIds != null ? de_SecurityGroupIds(output.SecurityGroupIds, context) : undefined,
-    SubnetIds: output.SubnetIds != null ? de_SubnetIds(output.SubnetIds, context) : undefined,
-    TlsCertificate: __expectString(output.TlsCertificate),
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_VpcConfiguration omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1365,6 +958,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

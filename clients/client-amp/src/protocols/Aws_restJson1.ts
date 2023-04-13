@@ -1,17 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -90,21 +92,16 @@ import { AmpServiceException as __BaseException } from "../models/AmpServiceExce
 import {
   AccessDeniedException,
   AlertManagerDefinitionDescription,
-  AlertManagerDefinitionStatus,
   ConflictException,
   InternalServerException,
   LoggingConfigurationMetadata,
-  LoggingConfigurationStatus,
   ResourceNotFoundException,
   RuleGroupsNamespaceDescription,
-  RuleGroupsNamespaceStatus,
   RuleGroupsNamespaceSummary,
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
-  ValidationExceptionField,
   WorkspaceDescription,
-  WorkspaceStatus,
   WorkspaceSummary,
 } from "../models/models_0";
 
@@ -124,10 +121,12 @@ export const se_CreateAlertManagerDefinitionCommand = async (
     "/workspaces/{workspaceId}/alertmanager/definition";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.data != null && { data: context.base64Encoder(input.data) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      data: (_) => context.base64Encoder(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -154,10 +153,12 @@ export const se_CreateLoggingConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.logGroupArn != null && { logGroupArn: input.logGroupArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      logGroupArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -185,12 +186,14 @@ export const se_CreateRuleGroupsNamespaceCommand = async (
     "/workspaces/{workspaceId}/rulegroupsnamespaces";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.data != null && { data: context.base64Encoder(input.data) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      data: (_) => context.base64Encoder(_),
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -215,11 +218,13 @@ export const se_CreateWorkspaceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces";
   let body: any;
-  body = JSON.stringify({
-    ...(input.alias != null && { alias: input.alias }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -543,10 +548,12 @@ export const se_PutAlertManagerDefinitionCommand = async (
     "/workspaces/{workspaceId}/alertmanager/definition";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.data != null && { data: context.base64Encoder(input.data) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      data: (_) => context.base64Encoder(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -575,10 +582,12 @@ export const se_PutRuleGroupsNamespaceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.data != null && { data: context.base64Encoder(input.data) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      data: (_) => context.base64Encoder(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -604,9 +613,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -663,10 +674,12 @@ export const se_UpdateLoggingConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.logGroupArn != null && { logGroupArn: input.logGroupArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      logGroupArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -693,10 +706,12 @@ export const se_UpdateWorkspaceAliasCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/alias";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.alias != null && { alias: input.alias }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -722,9 +737,10 @@ export const de_CreateAlertManagerDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = de_AlertManagerDefinitionStatus(data.status, context);
-  }
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -764,10 +780,9 @@ const de_CreateAlertManagerDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -787,9 +802,10 @@ export const de_CreateLoggingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = de_LoggingConfigurationStatus(data.status, context);
-  }
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -820,10 +836,9 @@ const de_CreateLoggingConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -843,18 +858,13 @@ export const de_CreateRuleGroupsNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = de_RuleGroupsNamespaceStatus(data.status, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    name: __expectString,
+    status: _json,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -894,10 +904,9 @@ const de_CreateRuleGroupsNamespaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -917,18 +926,13 @@ export const de_CreateWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.status != null) {
-    contents.status = de_WorkspaceStatus(data.status, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.workspaceId != null) {
-    contents.workspaceId = __expectString(data.workspaceId);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    status: _json,
+    tags: _json,
+    workspaceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -965,10 +969,9 @@ const de_CreateWorkspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1024,10 +1027,9 @@ const de_DeleteAlertManagerDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1080,10 +1082,9 @@ const de_DeleteLoggingConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1139,10 +1140,9 @@ const de_DeleteRuleGroupsNamespaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1198,10 +1198,9 @@ const de_DeleteWorkspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1221,9 +1220,10 @@ export const de_DescribeAlertManagerDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.alertManagerDefinition != null) {
-    contents.alertManagerDefinition = de_AlertManagerDefinitionDescription(data.alertManagerDefinition, context);
-  }
+  const doc = take(data, {
+    alertManagerDefinition: (_) => de_AlertManagerDefinitionDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1257,10 +1257,9 @@ const de_DescribeAlertManagerDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1280,9 +1279,10 @@ export const de_DescribeLoggingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.loggingConfiguration != null) {
-    contents.loggingConfiguration = de_LoggingConfigurationMetadata(data.loggingConfiguration, context);
-  }
+  const doc = take(data, {
+    loggingConfiguration: (_) => de_LoggingConfigurationMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1313,10 +1313,9 @@ const de_DescribeLoggingConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1336,9 +1335,10 @@ export const de_DescribeRuleGroupsNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ruleGroupsNamespace != null) {
-    contents.ruleGroupsNamespace = de_RuleGroupsNamespaceDescription(data.ruleGroupsNamespace, context);
-  }
+  const doc = take(data, {
+    ruleGroupsNamespace: (_) => de_RuleGroupsNamespaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1372,10 +1372,9 @@ const de_DescribeRuleGroupsNamespaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1395,9 +1394,10 @@ export const de_DescribeWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workspace != null) {
-    contents.workspace = de_WorkspaceDescription(data.workspace, context);
-  }
+  const doc = take(data, {
+    workspace: (_) => de_WorkspaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1431,10 +1431,9 @@ const de_DescribeWorkspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1454,12 +1453,11 @@ export const de_ListRuleGroupsNamespacesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.ruleGroupsNamespaces != null) {
-    contents.ruleGroupsNamespaces = de_RuleGroupsNamespaceSummaryList(data.ruleGroupsNamespaces, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    ruleGroupsNamespaces: (_) => de_RuleGroupsNamespaceSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1493,10 +1491,9 @@ const de_ListRuleGroupsNamespacesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1516,9 +1513,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1552,10 +1550,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1575,12 +1572,11 @@ export const de_ListWorkspacesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.workspaces != null) {
-    contents.workspaces = de_WorkspaceSummaryList(data.workspaces, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    workspaces: (_) => de_WorkspaceSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1611,10 +1607,9 @@ const de_ListWorkspacesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1634,9 +1629,10 @@ export const de_PutAlertManagerDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = de_AlertManagerDefinitionStatus(data.status, context);
-  }
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1676,10 +1672,9 @@ const de_PutAlertManagerDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1699,18 +1694,13 @@ export const de_PutRuleGroupsNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = de_RuleGroupsNamespaceStatus(data.status, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    name: __expectString,
+    status: _json,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1750,10 +1740,9 @@ const de_PutRuleGroupsNamespaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1806,10 +1795,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1862,10 +1850,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1885,9 +1872,10 @@ export const de_UpdateLoggingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = de_LoggingConfigurationStatus(data.status, context);
-  }
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1921,10 +1909,9 @@ const de_UpdateLoggingConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1983,16 +1970,15 @@ const de_UpdateWorkspaceAliasCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2002,9 +1988,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2018,15 +2005,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2048,9 +2032,10 @@ const de_InternalServerExceptionRes = async (
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2067,15 +2052,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2092,21 +2074,14 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2125,15 +2100,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2147,15 +2119,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2163,18 +2132,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
 /**
  * deserializeAws_restJson1AlertManagerDefinitionDescription
@@ -2183,92 +2141,60 @@ const de_AlertManagerDefinitionDescription = (
   output: any,
   context: __SerdeContext
 ): AlertManagerDefinitionDescription => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    data: output.data != null ? context.base64Decoder(output.data) : undefined,
-    modifiedAt:
-      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
-    status: output.status != null ? de_AlertManagerDefinitionStatus(output.status, context) : undefined,
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    data: context.base64Decoder,
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AlertManagerDefinitionStatus
- */
-const de_AlertManagerDefinitionStatus = (output: any, context: __SerdeContext): AlertManagerDefinitionStatus => {
-  return {
-    statusCode: __expectString(output.statusCode),
-    statusReason: __expectString(output.statusReason),
-  } as any;
-};
+// de_AlertManagerDefinitionStatus omitted.
 
 /**
  * deserializeAws_restJson1LoggingConfigurationMetadata
  */
 const de_LoggingConfigurationMetadata = (output: any, context: __SerdeContext): LoggingConfigurationMetadata => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    logGroupArn: __expectString(output.logGroupArn),
-    modifiedAt:
-      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
-    status: output.status != null ? de_LoggingConfigurationStatus(output.status, context) : undefined,
-    workspace: __expectString(output.workspace),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    logGroupArn: __expectString,
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: _json,
+    workspace: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LoggingConfigurationStatus
- */
-const de_LoggingConfigurationStatus = (output: any, context: __SerdeContext): LoggingConfigurationStatus => {
-  return {
-    statusCode: __expectString(output.statusCode),
-    statusReason: __expectString(output.statusReason),
-  } as any;
-};
+// de_LoggingConfigurationStatus omitted.
 
 /**
  * deserializeAws_restJson1RuleGroupsNamespaceDescription
  */
 const de_RuleGroupsNamespaceDescription = (output: any, context: __SerdeContext): RuleGroupsNamespaceDescription => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    data: output.data != null ? context.base64Decoder(output.data) : undefined,
-    modifiedAt:
-      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
-    name: __expectString(output.name),
-    status: output.status != null ? de_RuleGroupsNamespaceStatus(output.status, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    data: context.base64Decoder,
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: _json,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RuleGroupsNamespaceStatus
- */
-const de_RuleGroupsNamespaceStatus = (output: any, context: __SerdeContext): RuleGroupsNamespaceStatus => {
-  return {
-    statusCode: __expectString(output.statusCode),
-    statusReason: __expectString(output.statusReason),
-  } as any;
-};
+// de_RuleGroupsNamespaceStatus omitted.
 
 /**
  * deserializeAws_restJson1RuleGroupsNamespaceSummary
  */
 const de_RuleGroupsNamespaceSummary = (output: any, context: __SerdeContext): RuleGroupsNamespaceSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    modifiedAt:
-      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
-    name: __expectString(output.name),
-    status: output.status != null ? de_RuleGroupsNamespaceStatus(output.status, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: _json,
+    tags: _json,
+  }) as any;
 };
 
 /**
@@ -2278,90 +2204,46 @@ const de_RuleGroupsNamespaceSummaryList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RuleGroupsNamespaceSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 /**
  * deserializeAws_restJson1WorkspaceDescription
  */
 const de_WorkspaceDescription = (output: any, context: __SerdeContext): WorkspaceDescription => {
-  return {
-    alias: __expectString(output.alias),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    prometheusEndpoint: __expectString(output.prometheusEndpoint),
-    status: output.status != null ? de_WorkspaceStatus(output.status, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    workspaceId: __expectString(output.workspaceId),
-  } as any;
+  return take(output, {
+    alias: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    prometheusEndpoint: __expectString,
+    status: _json,
+    tags: _json,
+    workspaceId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1WorkspaceStatus
- */
-const de_WorkspaceStatus = (output: any, context: __SerdeContext): WorkspaceStatus => {
-  return {
-    statusCode: __expectString(output.statusCode),
-  } as any;
-};
+// de_WorkspaceStatus omitted.
 
 /**
  * deserializeAws_restJson1WorkspaceSummary
  */
 const de_WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSummary => {
-  return {
-    alias: __expectString(output.alias),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    status: output.status != null ? de_WorkspaceStatus(output.status, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    workspaceId: __expectString(output.workspaceId),
-  } as any;
+  return take(output, {
+    alias: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: _json,
+    tags: _json,
+    workspaceId: __expectString,
+  }) as any;
 };
 
 /**
@@ -2371,9 +2253,6 @@ const de_WorkspaceSummaryList = (output: any, context: __SerdeContext): Workspac
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorkspaceSummary(entry, context);
     });
   return retVal;

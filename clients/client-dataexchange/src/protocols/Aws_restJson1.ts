@@ -5,6 +5,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   convertMap,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
@@ -13,10 +14,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -72,44 +74,28 @@ import {
   AutoExportRevisionToS3RequestDetails,
   ConflictException,
   CreateS3DataAccessFromS3BucketRequestDetails,
-  CreateS3DataAccessFromS3BucketResponseDetails,
-  DatabaseLFTagPolicy,
   DatabaseLFTagPolicyAndPermissions,
   DatabaseLFTagPolicyPermission,
   DataSetEntry,
-  Details,
   Event,
   EventActionEntry,
   ExportAssetsToS3RequestDetails,
-  ExportAssetsToS3ResponseDetails,
   ExportAssetToSignedUrlRequestDetails,
   ExportAssetToSignedUrlResponseDetails,
   ExportRevisionsToS3RequestDetails,
-  ExportRevisionsToS3ResponseDetails,
   ExportServerSideEncryption,
   ImportAssetFromApiGatewayApiRequestDetails,
   ImportAssetFromApiGatewayApiResponseDetails,
-  ImportAssetFromSignedUrlJobErrorDetails,
   ImportAssetFromSignedUrlRequestDetails,
   ImportAssetFromSignedUrlResponseDetails,
   ImportAssetsFromLakeFormationTagPolicyRequestDetails,
-  ImportAssetsFromLakeFormationTagPolicyResponseDetails,
   ImportAssetsFromRedshiftDataSharesRequestDetails,
-  ImportAssetsFromRedshiftDataSharesResponseDetails,
   ImportAssetsFromS3RequestDetails,
-  ImportAssetsFromS3ResponseDetails,
   InternalServerException,
   JobEntry,
   JobError,
   KmsKeyToGrant,
-  LakeFormationDataPermissionAsset,
-  LakeFormationDataPermissionDetails,
-  LFPermission,
-  LFResourceDetails,
   LFTag,
-  LFTagPolicyDetails,
-  OriginDetails,
-  RedshiftDataShareAsset,
   RedshiftDataShareAssetSourceEntry,
   RequestDetails,
   ResourceNotFoundException,
@@ -117,11 +103,9 @@ import {
   RevisionDestinationEntry,
   RevisionEntry,
   RevisionPublished,
-  S3DataAccessAsset,
   S3DataAccessAssetSourceEntry,
   S3SnapshotAsset,
   ServiceLimitExceededException,
-  TableLFTagPolicy,
   TableLFTagPolicyAndPermissions,
   TableTagPolicyLFPermission,
   ThrottlingException,
@@ -164,12 +148,14 @@ export const se_CreateDataSetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AssetType != null && { AssetType: input.AssetType }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_MapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AssetType: [],
+      Description: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -194,10 +180,12 @@ export const se_CreateEventActionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { Action: se_Action(input.Action, context) }),
-    ...(input.Event != null && { Event: se_Event(input.Event, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Action: (_) => _json(_),
+      Event: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -222,10 +210,12 @@ export const se_CreateJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Details != null && { Details: se_RequestDetails(input.Details, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Details: (_) => _json(_),
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -252,10 +242,12 @@ export const se_CreateRevisionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}/revisions";
   resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Comment != null && { Comment: input.Comment }),
-    ...(input.Tags != null && { Tags: se_MapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Comment: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -688,9 +680,11 @@ export const se_RevokeRevisionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.RevocationComment != null && { RevocationComment: input.RevocationComment }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      RevocationComment: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -787,9 +781,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se_MapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -849,9 +845,11 @@ export const se_UpdateAssetCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -878,10 +876,12 @@ export const se_UpdateDataSetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -915,9 +915,11 @@ export const se_UpdateEventActionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { Action: se_Action(input.Action, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Action: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -946,10 +948,12 @@ export const se_UpdateRevisionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Comment != null && { Comment: input.Comment }),
-    ...(input.Finalized != null && { Finalized: input.Finalized }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Comment: [],
+      Finalized: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1008,10 +1012,9 @@ const de_CancelJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1031,39 +1034,20 @@ export const de_CreateDataSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AssetType != null) {
-    contents.AssetType = __expectString(data.AssetType);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Origin != null) {
-    contents.Origin = __expectString(data.Origin);
-  }
-  if (data.OriginDetails != null) {
-    contents.OriginDetails = de_OriginDetails(data.OriginDetails, context);
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_MapOf__string(data.Tags, context);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AssetType: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Origin: __expectString,
+    OriginDetails: _json,
+    SourceId: __expectString,
+    Tags: _json,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1097,10 +1081,9 @@ const de_CreateDataSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1120,24 +1103,15 @@ export const de_CreateEventActionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Action != null) {
-    contents.Action = de_Action(data.Action, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.Event != null) {
-    contents.Event = de_Event(data.Event, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Action: _json,
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Event: _json,
+    Id: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1171,10 +1145,9 @@ const de_CreateEventActionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1194,30 +1167,17 @@ export const de_CreateJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.Details != null) {
-    contents.Details = de_ResponseDetails(data.Details, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_ListOfJobError(data.Errors, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Details: (_) => de_ResponseDetails(_, context),
+    Errors: (_) => de_ListOfJobError(_, context),
+    Id: __expectString,
+    State: __expectString,
+    Type: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1254,10 +1214,9 @@ const de_CreateJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1277,42 +1236,21 @@ export const de_CreateRevisionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Comment != null) {
-    contents.Comment = __expectString(data.Comment);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.DataSetId != null) {
-    contents.DataSetId = __expectString(data.DataSetId);
-  }
-  if (data.Finalized != null) {
-    contents.Finalized = __expectBoolean(data.Finalized);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.RevocationComment != null) {
-    contents.RevocationComment = __expectString(data.RevocationComment);
-  }
-  if (data.Revoked != null) {
-    contents.Revoked = __expectBoolean(data.Revoked);
-  }
-  if (data.RevokedAt != null) {
-    contents.RevokedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.RevokedAt));
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_MapOf__string(data.Tags, context);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Comment: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Finalized: __expectBoolean,
+    Id: __expectString,
+    RevocationComment: __expectString,
+    Revoked: __expectBoolean,
+    RevokedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SourceId: __expectString,
+    Tags: _json,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1346,10 +1284,9 @@ const de_CreateRevisionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1405,10 +1342,9 @@ const de_DeleteAssetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1464,10 +1400,9 @@ const de_DeleteDataSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1517,10 +1452,9 @@ const de_DeleteEventActionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1576,10 +1510,9 @@ const de_DeleteRevisionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1599,36 +1532,19 @@ export const de_GetAssetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AssetDetails != null) {
-    contents.AssetDetails = de_AssetDetails(data.AssetDetails, context);
-  }
-  if (data.AssetType != null) {
-    contents.AssetType = __expectString(data.AssetType);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.DataSetId != null) {
-    contents.DataSetId = __expectString(data.DataSetId);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AssetDetails: (_) => de_AssetDetails(_, context),
+    AssetType: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    RevisionId: __expectString,
+    SourceId: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1659,10 +1575,9 @@ const de_GetAssetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1682,39 +1597,20 @@ export const de_GetDataSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AssetType != null) {
-    contents.AssetType = __expectString(data.AssetType);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Origin != null) {
-    contents.Origin = __expectString(data.Origin);
-  }
-  if (data.OriginDetails != null) {
-    contents.OriginDetails = de_OriginDetails(data.OriginDetails, context);
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_MapOf__string(data.Tags, context);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AssetType: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Origin: __expectString,
+    OriginDetails: _json,
+    SourceId: __expectString,
+    Tags: _json,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1745,10 +1641,9 @@ const de_GetDataSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1768,24 +1663,15 @@ export const de_GetEventActionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Action != null) {
-    contents.Action = de_Action(data.Action, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.Event != null) {
-    contents.Event = de_Event(data.Event, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Action: _json,
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Event: _json,
+    Id: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1816,10 +1702,9 @@ const de_GetEventActionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1839,30 +1724,17 @@ export const de_GetJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.Details != null) {
-    contents.Details = de_ResponseDetails(data.Details, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_ListOfJobError(data.Errors, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Details: (_) => de_ResponseDetails(_, context),
+    Errors: (_) => de_ListOfJobError(_, context),
+    Id: __expectString,
+    State: __expectString,
+    Type: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1890,10 +1762,9 @@ const de_GetJobCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1913,42 +1784,21 @@ export const de_GetRevisionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Comment != null) {
-    contents.Comment = __expectString(data.Comment);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.DataSetId != null) {
-    contents.DataSetId = __expectString(data.DataSetId);
-  }
-  if (data.Finalized != null) {
-    contents.Finalized = __expectBoolean(data.Finalized);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.RevocationComment != null) {
-    contents.RevocationComment = __expectString(data.RevocationComment);
-  }
-  if (data.Revoked != null) {
-    contents.Revoked = __expectBoolean(data.Revoked);
-  }
-  if (data.RevokedAt != null) {
-    contents.RevokedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.RevokedAt));
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_MapOf__string(data.Tags, context);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Comment: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Finalized: __expectBoolean,
+    Id: __expectString,
+    RevocationComment: __expectString,
+    Revoked: __expectBoolean,
+    RevokedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SourceId: __expectString,
+    Tags: _json,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1979,10 +1829,9 @@ const de_GetRevisionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2002,12 +1851,11 @@ export const de_ListDataSetRevisionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Revisions != null) {
-    contents.Revisions = de_ListOfRevisionEntry(data.Revisions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Revisions: (_) => de_ListOfRevisionEntry(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2038,10 +1886,9 @@ const de_ListDataSetRevisionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2061,12 +1908,11 @@ export const de_ListDataSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataSets != null) {
-    contents.DataSets = de_ListOfDataSetEntry(data.DataSets, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DataSets: (_) => de_ListOfDataSetEntry(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2097,10 +1943,9 @@ const de_ListDataSetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2120,12 +1965,11 @@ export const de_ListEventActionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventActions != null) {
-    contents.EventActions = de_ListOfEventActionEntry(data.EventActions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EventActions: (_) => de_ListOfEventActionEntry(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2156,10 +2000,9 @@ const de_ListEventActionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2179,12 +2022,11 @@ export const de_ListJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Jobs != null) {
-    contents.Jobs = de_ListOfJobEntry(data.Jobs, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Jobs: (_) => de_ListOfJobEntry(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2215,10 +2057,9 @@ const de_ListJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2238,12 +2079,11 @@ export const de_ListRevisionAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Assets != null) {
-    contents.Assets = de_ListOfAssetEntry(data.Assets, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Assets: (_) => de_ListOfAssetEntry(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2274,10 +2114,9 @@ const de_ListRevisionAssetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2297,9 +2136,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de_MapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2316,10 +2156,9 @@ const de_ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2338,39 +2177,20 @@ export const de_RevokeRevisionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Comment != null) {
-    contents.Comment = __expectString(data.Comment);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.DataSetId != null) {
-    contents.DataSetId = __expectString(data.DataSetId);
-  }
-  if (data.Finalized != null) {
-    contents.Finalized = __expectBoolean(data.Finalized);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.RevocationComment != null) {
-    contents.RevocationComment = __expectString(data.RevocationComment);
-  }
-  if (data.Revoked != null) {
-    contents.Revoked = __expectBoolean(data.Revoked);
-  }
-  if (data.RevokedAt != null) {
-    contents.RevokedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.RevokedAt));
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Comment: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Finalized: __expectBoolean,
+    Id: __expectString,
+    RevocationComment: __expectString,
+    Revoked: __expectBoolean,
+    RevokedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SourceId: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2407,10 +2227,9 @@ const de_RevokeRevisionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2473,10 +2292,9 @@ const de_SendApiAssetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2532,10 +2350,9 @@ const de_StartJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2571,10 +2388,9 @@ const de_TagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2609,10 +2425,9 @@ const de_UntagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2631,36 +2446,19 @@ export const de_UpdateAssetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AssetDetails != null) {
-    contents.AssetDetails = de_AssetDetails(data.AssetDetails, context);
-  }
-  if (data.AssetType != null) {
-    contents.AssetType = __expectString(data.AssetType);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.DataSetId != null) {
-    contents.DataSetId = __expectString(data.DataSetId);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AssetDetails: (_) => de_AssetDetails(_, context),
+    AssetType: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    RevisionId: __expectString,
+    SourceId: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2697,10 +2495,9 @@ const de_UpdateAssetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2720,36 +2517,19 @@ export const de_UpdateDataSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AssetType != null) {
-    contents.AssetType = __expectString(data.AssetType);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Origin != null) {
-    contents.Origin = __expectString(data.Origin);
-  }
-  if (data.OriginDetails != null) {
-    contents.OriginDetails = de_OriginDetails(data.OriginDetails, context);
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AssetType: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Origin: __expectString,
+    OriginDetails: _json,
+    SourceId: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2783,10 +2563,9 @@ const de_UpdateDataSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2806,24 +2585,15 @@ export const de_UpdateEventActionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Action != null) {
-    contents.Action = de_Action(data.Action, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.Event != null) {
-    contents.Event = de_Event(data.Event, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Action: _json,
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Event: _json,
+    Id: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2857,10 +2627,9 @@ const de_UpdateEventActionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2880,39 +2649,20 @@ export const de_UpdateRevisionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Comment != null) {
-    contents.Comment = __expectString(data.Comment);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.DataSetId != null) {
-    contents.DataSetId = __expectString(data.DataSetId);
-  }
-  if (data.Finalized != null) {
-    contents.Finalized = __expectBoolean(data.Finalized);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.RevocationComment != null) {
-    contents.RevocationComment = __expectString(data.RevocationComment);
-  }
-  if (data.Revoked != null) {
-    contents.Revoked = __expectBoolean(data.Revoked);
-  }
-  if (data.RevokedAt != null) {
-    contents.RevokedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.RevokedAt));
-  }
-  if (data.SourceId != null) {
-    contents.SourceId = __expectString(data.SourceId);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdatedAt));
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Comment: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Finalized: __expectBoolean,
+    Id: __expectString,
+    RevocationComment: __expectString,
+    Revoked: __expectBoolean,
+    RevokedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SourceId: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2949,16 +2699,15 @@ const de_UpdateRevisionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2968,9 +2717,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2984,15 +2734,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3009,9 +2756,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3028,15 +2776,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3053,15 +2798,12 @@ const de_ServiceLimitExceededExceptionRes = async (
 ): Promise<ServiceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.LimitName != null) {
-    contents.LimitName = __expectString(data.LimitName);
-  }
-  if (data.LimitValue != null) {
-    contents.LimitValue = __limitedParseDouble(data.LimitValue);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    LimitName: __expectString,
+    LimitValue: __limitedParseDouble,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3075,9 +2817,10 @@ const de_ServiceLimitExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3091,12 +2834,11 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ExceptionCause != null) {
-    contents.ExceptionCause = __expectString(data.ExceptionCause);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ExceptionCause: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3104,725 +2846,179 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Action
- */
-const se_Action = (input: Action, context: __SerdeContext): any => {
-  return {
-    ...(input.ExportRevisionToS3 != null && {
-      ExportRevisionToS3: se_AutoExportRevisionToS3RequestDetails(input.ExportRevisionToS3, context),
-    }),
-  };
-};
+// se_Action omitted.
 
-/**
- * serializeAws_restJson1AssetDestinationEntry
- */
-const se_AssetDestinationEntry = (input: AssetDestinationEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.AssetId != null && { AssetId: input.AssetId }),
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.Key != null && { Key: input.Key }),
-  };
-};
+// se_AssetDestinationEntry omitted.
 
-/**
- * serializeAws_restJson1AssetSourceEntry
- */
-const se_AssetSourceEntry = (input: AssetSourceEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.Key != null && { Key: input.Key }),
-  };
-};
+// se_AssetSourceEntry omitted.
 
-/**
- * serializeAws_restJson1AutoExportRevisionDestinationEntry
- */
-const se_AutoExportRevisionDestinationEntry = (
-  input: AutoExportRevisionDestinationEntry,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.KeyPattern != null && { KeyPattern: input.KeyPattern }),
-  };
-};
+// se_AutoExportRevisionDestinationEntry omitted.
 
-/**
- * serializeAws_restJson1AutoExportRevisionToS3RequestDetails
- */
-const se_AutoExportRevisionToS3RequestDetails = (
-  input: AutoExportRevisionToS3RequestDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Encryption != null && { Encryption: se_ExportServerSideEncryption(input.Encryption, context) }),
-    ...(input.RevisionDestination != null && {
-      RevisionDestination: se_AutoExportRevisionDestinationEntry(input.RevisionDestination, context),
-    }),
-  };
-};
+// se_AutoExportRevisionToS3RequestDetails omitted.
 
-/**
- * serializeAws_restJson1CreateS3DataAccessFromS3BucketRequestDetails
- */
-const se_CreateS3DataAccessFromS3BucketRequestDetails = (
-  input: CreateS3DataAccessFromS3BucketRequestDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssetSource != null && { AssetSource: se_S3DataAccessAssetSourceEntry(input.AssetSource, context) }),
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  };
-};
+// se_CreateS3DataAccessFromS3BucketRequestDetails omitted.
 
-/**
- * serializeAws_restJson1DatabaseLFTagPolicyAndPermissions
- */
-const se_DatabaseLFTagPolicyAndPermissions = (
-  input: DatabaseLFTagPolicyAndPermissions,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Expression != null && { Expression: se_ListOfLFTags(input.Expression, context) }),
-    ...(input.Permissions != null && {
-      Permissions: se_ListOfDatabaseLFTagPolicyPermissions(input.Permissions, context),
-    }),
-  };
-};
+// se_DatabaseLFTagPolicyAndPermissions omitted.
 
-/**
- * serializeAws_restJson1Event
- */
-const se_Event = (input: Event, context: __SerdeContext): any => {
-  return {
-    ...(input.RevisionPublished != null && {
-      RevisionPublished: se_RevisionPublished(input.RevisionPublished, context),
-    }),
-  };
-};
+// se_Event omitted.
 
-/**
- * serializeAws_restJson1ExportAssetsToS3RequestDetails
- */
-const se_ExportAssetsToS3RequestDetails = (input: ExportAssetsToS3RequestDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.AssetDestinations != null && {
-      AssetDestinations: se_ListOfAssetDestinationEntry(input.AssetDestinations, context),
-    }),
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.Encryption != null && { Encryption: se_ExportServerSideEncryption(input.Encryption, context) }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  };
-};
+// se_ExportAssetsToS3RequestDetails omitted.
 
-/**
- * serializeAws_restJson1ExportAssetToSignedUrlRequestDetails
- */
-const se_ExportAssetToSignedUrlRequestDetails = (
-  input: ExportAssetToSignedUrlRequestDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssetId != null && { AssetId: input.AssetId }),
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  };
-};
+// se_ExportAssetToSignedUrlRequestDetails omitted.
 
-/**
- * serializeAws_restJson1ExportRevisionsToS3RequestDetails
- */
-const se_ExportRevisionsToS3RequestDetails = (
-  input: ExportRevisionsToS3RequestDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.Encryption != null && { Encryption: se_ExportServerSideEncryption(input.Encryption, context) }),
-    ...(input.RevisionDestinations != null && {
-      RevisionDestinations: se_ListOfRevisionDestinationEntry(input.RevisionDestinations, context),
-    }),
-  };
-};
+// se_ExportRevisionsToS3RequestDetails omitted.
 
-/**
- * serializeAws_restJson1ExportServerSideEncryption
- */
-const se_ExportServerSideEncryption = (input: ExportServerSideEncryption, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ExportServerSideEncryption omitted.
 
-/**
- * serializeAws_restJson1ImportAssetFromApiGatewayApiRequestDetails
- */
-const se_ImportAssetFromApiGatewayApiRequestDetails = (
-  input: ImportAssetFromApiGatewayApiRequestDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ApiDescription != null && { ApiDescription: input.ApiDescription }),
-    ...(input.ApiId != null && { ApiId: input.ApiId }),
-    ...(input.ApiKey != null && { ApiKey: input.ApiKey }),
-    ...(input.ApiName != null && { ApiName: input.ApiName }),
-    ...(input.ApiSpecificationMd5Hash != null && { ApiSpecificationMd5Hash: input.ApiSpecificationMd5Hash }),
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.ProtocolType != null && { ProtocolType: input.ProtocolType }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-    ...(input.Stage != null && { Stage: input.Stage }),
-  };
-};
+// se_ImportAssetFromApiGatewayApiRequestDetails omitted.
 
-/**
- * serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails
- */
-const se_ImportAssetFromSignedUrlRequestDetails = (
-  input: ImportAssetFromSignedUrlRequestDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssetName != null && { AssetName: input.AssetName }),
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.Md5Hash != null && { Md5Hash: input.Md5Hash }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  };
-};
+// se_ImportAssetFromSignedUrlRequestDetails omitted.
 
-/**
- * serializeAws_restJson1ImportAssetsFromLakeFormationTagPolicyRequestDetails
- */
-const se_ImportAssetsFromLakeFormationTagPolicyRequestDetails = (
-  input: ImportAssetsFromLakeFormationTagPolicyRequestDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.Database != null && { Database: se_DatabaseLFTagPolicyAndPermissions(input.Database, context) }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.Table != null && { Table: se_TableLFTagPolicyAndPermissions(input.Table, context) }),
-  };
-};
+// se_ImportAssetsFromLakeFormationTagPolicyRequestDetails omitted.
 
-/**
- * serializeAws_restJson1ImportAssetsFromRedshiftDataSharesRequestDetails
- */
-const se_ImportAssetsFromRedshiftDataSharesRequestDetails = (
-  input: ImportAssetsFromRedshiftDataSharesRequestDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssetSources != null && {
-      AssetSources: se_ListOfRedshiftDataShareAssetSourceEntry(input.AssetSources, context),
-    }),
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  };
-};
+// se_ImportAssetsFromRedshiftDataSharesRequestDetails omitted.
 
-/**
- * serializeAws_restJson1ImportAssetsFromS3RequestDetails
- */
-const se_ImportAssetsFromS3RequestDetails = (input: ImportAssetsFromS3RequestDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.AssetSources != null && { AssetSources: se_ListOfAssetSourceEntry(input.AssetSources, context) }),
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  };
-};
+// se_ImportAssetsFromS3RequestDetails omitted.
 
-/**
- * serializeAws_restJson1KmsKeyToGrant
- */
-const se_KmsKeyToGrant = (input: KmsKeyToGrant, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
-  };
-};
+// se_KmsKeyToGrant omitted.
 
-/**
- * serializeAws_restJson1LFTag
- */
-const se_LFTag = (input: LFTag, context: __SerdeContext): any => {
-  return {
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TagValues != null && { TagValues: se_ListOfLFTagValues(input.TagValues, context) }),
-  };
-};
+// se_LFTag omitted.
 
-/**
- * serializeAws_restJson1ListOf__string
- */
-const se_ListOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOf__string omitted.
 
-/**
- * serializeAws_restJson1ListOfAssetDestinationEntry
- */
-const se_ListOfAssetDestinationEntry = (input: AssetDestinationEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AssetDestinationEntry(entry, context);
-    });
-};
+// se_ListOfAssetDestinationEntry omitted.
 
-/**
- * serializeAws_restJson1ListOfAssetSourceEntry
- */
-const se_ListOfAssetSourceEntry = (input: AssetSourceEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AssetSourceEntry(entry, context);
-    });
-};
+// se_ListOfAssetSourceEntry omitted.
 
-/**
- * serializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions
- */
-const se_ListOfDatabaseLFTagPolicyPermissions = (
-  input: (DatabaseLFTagPolicyPermission | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfDatabaseLFTagPolicyPermissions omitted.
 
-/**
- * serializeAws_restJson1ListOfKmsKeysToGrant
- */
-const se_ListOfKmsKeysToGrant = (input: KmsKeyToGrant[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_KmsKeyToGrant(entry, context);
-    });
-};
+// se_ListOfKmsKeysToGrant omitted.
 
-/**
- * serializeAws_restJson1ListOfLFTags
- */
-const se_ListOfLFTags = (input: LFTag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LFTag(entry, context);
-    });
-};
+// se_ListOfLFTags omitted.
 
-/**
- * serializeAws_restJson1ListOfLFTagValues
- */
-const se_ListOfLFTagValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfLFTagValues omitted.
 
-/**
- * serializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry
- */
-const se_ListOfRedshiftDataShareAssetSourceEntry = (
-  input: RedshiftDataShareAssetSourceEntry[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RedshiftDataShareAssetSourceEntry(entry, context);
-    });
-};
+// se_ListOfRedshiftDataShareAssetSourceEntry omitted.
 
-/**
- * serializeAws_restJson1ListOfRevisionDestinationEntry
- */
-const se_ListOfRevisionDestinationEntry = (input: RevisionDestinationEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RevisionDestinationEntry(entry, context);
-    });
-};
+// se_ListOfRevisionDestinationEntry omitted.
 
-/**
- * serializeAws_restJson1ListOfTableTagPolicyLFPermissions
- */
-const se_ListOfTableTagPolicyLFPermissions = (
-  input: (TableTagPolicyLFPermission | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfTableTagPolicyLFPermissions omitted.
 
-/**
- * serializeAws_restJson1MapOf__string
- */
-const se_MapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_MapOf__string omitted.
 
-/**
- * serializeAws_restJson1RedshiftDataShareAssetSourceEntry
- */
-const se_RedshiftDataShareAssetSourceEntry = (
-  input: RedshiftDataShareAssetSourceEntry,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DataShareArn != null && { DataShareArn: input.DataShareArn }),
-  };
-};
+// se_RedshiftDataShareAssetSourceEntry omitted.
 
-/**
- * serializeAws_restJson1RequestDetails
- */
-const se_RequestDetails = (input: RequestDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.CreateS3DataAccessFromS3Bucket != null && {
-      CreateS3DataAccessFromS3Bucket: se_CreateS3DataAccessFromS3BucketRequestDetails(
-        input.CreateS3DataAccessFromS3Bucket,
-        context
-      ),
-    }),
-    ...(input.ExportAssetToSignedUrl != null && {
-      ExportAssetToSignedUrl: se_ExportAssetToSignedUrlRequestDetails(input.ExportAssetToSignedUrl, context),
-    }),
-    ...(input.ExportAssetsToS3 != null && {
-      ExportAssetsToS3: se_ExportAssetsToS3RequestDetails(input.ExportAssetsToS3, context),
-    }),
-    ...(input.ExportRevisionsToS3 != null && {
-      ExportRevisionsToS3: se_ExportRevisionsToS3RequestDetails(input.ExportRevisionsToS3, context),
-    }),
-    ...(input.ImportAssetFromApiGatewayApi != null && {
-      ImportAssetFromApiGatewayApi: se_ImportAssetFromApiGatewayApiRequestDetails(
-        input.ImportAssetFromApiGatewayApi,
-        context
-      ),
-    }),
-    ...(input.ImportAssetFromSignedUrl != null && {
-      ImportAssetFromSignedUrl: se_ImportAssetFromSignedUrlRequestDetails(input.ImportAssetFromSignedUrl, context),
-    }),
-    ...(input.ImportAssetsFromLakeFormationTagPolicy != null && {
-      ImportAssetsFromLakeFormationTagPolicy: se_ImportAssetsFromLakeFormationTagPolicyRequestDetails(
-        input.ImportAssetsFromLakeFormationTagPolicy,
-        context
-      ),
-    }),
-    ...(input.ImportAssetsFromRedshiftDataShares != null && {
-      ImportAssetsFromRedshiftDataShares: se_ImportAssetsFromRedshiftDataSharesRequestDetails(
-        input.ImportAssetsFromRedshiftDataShares,
-        context
-      ),
-    }),
-    ...(input.ImportAssetsFromS3 != null && {
-      ImportAssetsFromS3: se_ImportAssetsFromS3RequestDetails(input.ImportAssetsFromS3, context),
-    }),
-  };
-};
+// se_RequestDetails omitted.
 
-/**
- * serializeAws_restJson1RevisionDestinationEntry
- */
-const se_RevisionDestinationEntry = (input: RevisionDestinationEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.KeyPattern != null && { KeyPattern: input.KeyPattern }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  };
-};
+// se_RevisionDestinationEntry omitted.
 
-/**
- * serializeAws_restJson1RevisionPublished
- */
-const se_RevisionPublished = (input: RevisionPublished, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
-  };
-};
+// se_RevisionPublished omitted.
 
-/**
- * serializeAws_restJson1S3DataAccessAssetSourceEntry
- */
-const se_S3DataAccessAssetSourceEntry = (input: S3DataAccessAssetSourceEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.KeyPrefixes != null && { KeyPrefixes: se_ListOf__string(input.KeyPrefixes, context) }),
-    ...(input.Keys != null && { Keys: se_ListOf__string(input.Keys, context) }),
-    ...(input.KmsKeysToGrant != null && { KmsKeysToGrant: se_ListOfKmsKeysToGrant(input.KmsKeysToGrant, context) }),
-  };
-};
+// se_S3DataAccessAssetSourceEntry omitted.
 
-/**
- * serializeAws_restJson1TableLFTagPolicyAndPermissions
- */
-const se_TableLFTagPolicyAndPermissions = (input: TableLFTagPolicyAndPermissions, context: __SerdeContext): any => {
-  return {
-    ...(input.Expression != null && { Expression: se_ListOfLFTags(input.Expression, context) }),
-    ...(input.Permissions != null && { Permissions: se_ListOfTableTagPolicyLFPermissions(input.Permissions, context) }),
-  };
-};
+// se_TableLFTagPolicyAndPermissions omitted.
 
-/**
- * deserializeAws_restJson1Action
- */
-const de_Action = (output: any, context: __SerdeContext): Action => {
-  return {
-    ExportRevisionToS3:
-      output.ExportRevisionToS3 != null
-        ? de_AutoExportRevisionToS3RequestDetails(output.ExportRevisionToS3, context)
-        : undefined,
-  } as any;
-};
+// de_Action omitted.
 
 /**
  * deserializeAws_restJson1ApiGatewayApiAsset
  */
 const de_ApiGatewayApiAsset = (output: any, context: __SerdeContext): ApiGatewayApiAsset => {
-  return {
-    ApiDescription: __expectString(output.ApiDescription),
-    ApiEndpoint: __expectString(output.ApiEndpoint),
-    ApiId: __expectString(output.ApiId),
-    ApiKey: __expectString(output.ApiKey),
-    ApiName: __expectString(output.ApiName),
-    ApiSpecificationDownloadUrl: __expectString(output.ApiSpecificationDownloadUrl),
-    ApiSpecificationDownloadUrlExpiresAt:
-      output.ApiSpecificationDownloadUrlExpiresAt != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ApiSpecificationDownloadUrlExpiresAt))
-        : undefined,
-    ProtocolType: __expectString(output.ProtocolType),
-    Stage: __expectString(output.Stage),
-  } as any;
+  return take(output, {
+    ApiDescription: __expectString,
+    ApiEndpoint: __expectString,
+    ApiId: __expectString,
+    ApiKey: __expectString,
+    ApiName: __expectString,
+    ApiSpecificationDownloadUrl: __expectString,
+    ApiSpecificationDownloadUrlExpiresAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ProtocolType: __expectString,
+    Stage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AssetDestinationEntry
- */
-const de_AssetDestinationEntry = (output: any, context: __SerdeContext): AssetDestinationEntry => {
-  return {
-    AssetId: __expectString(output.AssetId),
-    Bucket: __expectString(output.Bucket),
-    Key: __expectString(output.Key),
-  } as any;
-};
+// de_AssetDestinationEntry omitted.
 
 /**
  * deserializeAws_restJson1AssetDetails
  */
 const de_AssetDetails = (output: any, context: __SerdeContext): AssetDetails => {
-  return {
-    ApiGatewayApiAsset:
-      output.ApiGatewayApiAsset != null ? de_ApiGatewayApiAsset(output.ApiGatewayApiAsset, context) : undefined,
-    LakeFormationDataPermissionAsset:
-      output.LakeFormationDataPermissionAsset != null
-        ? de_LakeFormationDataPermissionAsset(output.LakeFormationDataPermissionAsset, context)
-        : undefined,
-    RedshiftDataShareAsset:
-      output.RedshiftDataShareAsset != null
-        ? de_RedshiftDataShareAsset(output.RedshiftDataShareAsset, context)
-        : undefined,
-    S3DataAccessAsset:
-      output.S3DataAccessAsset != null ? de_S3DataAccessAsset(output.S3DataAccessAsset, context) : undefined,
-    S3SnapshotAsset: output.S3SnapshotAsset != null ? de_S3SnapshotAsset(output.S3SnapshotAsset, context) : undefined,
-  } as any;
+  return take(output, {
+    ApiGatewayApiAsset: (_: any) => de_ApiGatewayApiAsset(_, context),
+    LakeFormationDataPermissionAsset: _json,
+    RedshiftDataShareAsset: _json,
+    S3DataAccessAsset: _json,
+    S3SnapshotAsset: (_: any) => de_S3SnapshotAsset(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AssetEntry
  */
 const de_AssetEntry = (output: any, context: __SerdeContext): AssetEntry => {
-  return {
-    Arn: __expectString(output.Arn),
-    AssetDetails: output.AssetDetails != null ? de_AssetDetails(output.AssetDetails, context) : undefined,
-    AssetType: __expectString(output.AssetType),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedAt)) : undefined,
-    DataSetId: __expectString(output.DataSetId),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    RevisionId: __expectString(output.RevisionId),
-    SourceId: __expectString(output.SourceId),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    AssetDetails: (_: any) => de_AssetDetails(_, context),
+    AssetType: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    RevisionId: __expectString,
+    SourceId: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AssetSourceEntry
- */
-const de_AssetSourceEntry = (output: any, context: __SerdeContext): AssetSourceEntry => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    Key: __expectString(output.Key),
-  } as any;
-};
+// de_AssetSourceEntry omitted.
 
-/**
- * deserializeAws_restJson1AutoExportRevisionDestinationEntry
- */
-const de_AutoExportRevisionDestinationEntry = (
-  output: any,
-  context: __SerdeContext
-): AutoExportRevisionDestinationEntry => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    KeyPattern: __expectString(output.KeyPattern),
-  } as any;
-};
+// de_AutoExportRevisionDestinationEntry omitted.
 
-/**
- * deserializeAws_restJson1AutoExportRevisionToS3RequestDetails
- */
-const de_AutoExportRevisionToS3RequestDetails = (
-  output: any,
-  context: __SerdeContext
-): AutoExportRevisionToS3RequestDetails => {
-  return {
-    Encryption: output.Encryption != null ? de_ExportServerSideEncryption(output.Encryption, context) : undefined,
-    RevisionDestination:
-      output.RevisionDestination != null
-        ? de_AutoExportRevisionDestinationEntry(output.RevisionDestination, context)
-        : undefined,
-  } as any;
-};
+// de_AutoExportRevisionToS3RequestDetails omitted.
 
-/**
- * deserializeAws_restJson1CreateS3DataAccessFromS3BucketResponseDetails
- */
-const de_CreateS3DataAccessFromS3BucketResponseDetails = (
-  output: any,
-  context: __SerdeContext
-): CreateS3DataAccessFromS3BucketResponseDetails => {
-  return {
-    AssetSource: output.AssetSource != null ? de_S3DataAccessAssetSourceEntry(output.AssetSource, context) : undefined,
-    DataSetId: __expectString(output.DataSetId),
-    RevisionId: __expectString(output.RevisionId),
-  } as any;
-};
+// de_CreateS3DataAccessFromS3BucketResponseDetails omitted.
 
-/**
- * deserializeAws_restJson1DatabaseLFTagPolicy
- */
-const de_DatabaseLFTagPolicy = (output: any, context: __SerdeContext): DatabaseLFTagPolicy => {
-  return {
-    Expression: output.Expression != null ? de_ListOfLFTags(output.Expression, context) : undefined,
-  } as any;
-};
+// de_DatabaseLFTagPolicy omitted.
 
-/**
- * deserializeAws_restJson1DatabaseLFTagPolicyAndPermissions
- */
-const de_DatabaseLFTagPolicyAndPermissions = (
-  output: any,
-  context: __SerdeContext
-): DatabaseLFTagPolicyAndPermissions => {
-  return {
-    Expression: output.Expression != null ? de_ListOfLFTags(output.Expression, context) : undefined,
-    Permissions:
-      output.Permissions != null ? de_ListOfDatabaseLFTagPolicyPermissions(output.Permissions, context) : undefined,
-  } as any;
-};
+// de_DatabaseLFTagPolicyAndPermissions omitted.
 
 /**
  * deserializeAws_restJson1DataSetEntry
  */
 const de_DataSetEntry = (output: any, context: __SerdeContext): DataSetEntry => {
-  return {
-    Arn: __expectString(output.Arn),
-    AssetType: __expectString(output.AssetType),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedAt)) : undefined,
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Origin: __expectString(output.Origin),
-    OriginDetails: output.OriginDetails != null ? de_OriginDetails(output.OriginDetails, context) : undefined,
-    SourceId: __expectString(output.SourceId),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    AssetType: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Origin: __expectString,
+    OriginDetails: _json,
+    SourceId: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Details
- */
-const de_Details = (output: any, context: __SerdeContext): Details => {
-  return {
-    ImportAssetFromSignedUrlJobErrorDetails:
-      output.ImportAssetFromSignedUrlJobErrorDetails != null
-        ? de_ImportAssetFromSignedUrlJobErrorDetails(output.ImportAssetFromSignedUrlJobErrorDetails, context)
-        : undefined,
-    ImportAssetsFromS3JobErrorDetails:
-      output.ImportAssetsFromS3JobErrorDetails != null
-        ? de_ListOfAssetSourceEntry(output.ImportAssetsFromS3JobErrorDetails, context)
-        : undefined,
-  } as any;
-};
+// de_Details omitted.
 
-/**
- * deserializeAws_restJson1Event
- */
-const de_Event = (output: any, context: __SerdeContext): Event => {
-  return {
-    RevisionPublished:
-      output.RevisionPublished != null ? de_RevisionPublished(output.RevisionPublished, context) : undefined,
-  } as any;
-};
+// de_Event omitted.
 
 /**
  * deserializeAws_restJson1EventActionEntry
  */
 const de_EventActionEntry = (output: any, context: __SerdeContext): EventActionEntry => {
-  return {
-    Action: output.Action != null ? de_Action(output.Action, context) : undefined,
-    Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedAt)) : undefined,
-    Event: output.Event != null ? de_Event(output.Event, context) : undefined,
-    Id: __expectString(output.Id),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    Action: _json,
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Event: _json,
+    Id: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ExportAssetsToS3ResponseDetails
- */
-const de_ExportAssetsToS3ResponseDetails = (output: any, context: __SerdeContext): ExportAssetsToS3ResponseDetails => {
-  return {
-    AssetDestinations:
-      output.AssetDestinations != null ? de_ListOfAssetDestinationEntry(output.AssetDestinations, context) : undefined,
-    DataSetId: __expectString(output.DataSetId),
-    Encryption: output.Encryption != null ? de_ExportServerSideEncryption(output.Encryption, context) : undefined,
-    RevisionId: __expectString(output.RevisionId),
-  } as any;
-};
+// de_ExportAssetsToS3ResponseDetails omitted.
 
 /**
  * deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails
@@ -3831,45 +3027,18 @@ const de_ExportAssetToSignedUrlResponseDetails = (
   output: any,
   context: __SerdeContext
 ): ExportAssetToSignedUrlResponseDetails => {
-  return {
-    AssetId: __expectString(output.AssetId),
-    DataSetId: __expectString(output.DataSetId),
-    RevisionId: __expectString(output.RevisionId),
-    SignedUrl: __expectString(output.SignedUrl),
-    SignedUrlExpiresAt:
-      output.SignedUrlExpiresAt != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SignedUrlExpiresAt))
-        : undefined,
-  } as any;
+  return take(output, {
+    AssetId: __expectString,
+    DataSetId: __expectString,
+    RevisionId: __expectString,
+    SignedUrl: __expectString,
+    SignedUrlExpiresAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ExportRevisionsToS3ResponseDetails
- */
-const de_ExportRevisionsToS3ResponseDetails = (
-  output: any,
-  context: __SerdeContext
-): ExportRevisionsToS3ResponseDetails => {
-  return {
-    DataSetId: __expectString(output.DataSetId),
-    Encryption: output.Encryption != null ? de_ExportServerSideEncryption(output.Encryption, context) : undefined,
-    EventActionArn: __expectString(output.EventActionArn),
-    RevisionDestinations:
-      output.RevisionDestinations != null
-        ? de_ListOfRevisionDestinationEntry(output.RevisionDestinations, context)
-        : undefined,
-  } as any;
-};
+// de_ExportRevisionsToS3ResponseDetails omitted.
 
-/**
- * deserializeAws_restJson1ExportServerSideEncryption
- */
-const de_ExportServerSideEncryption = (output: any, context: __SerdeContext): ExportServerSideEncryption => {
-  return {
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ExportServerSideEncryption omitted.
 
 /**
  * deserializeAws_restJson1ImportAssetFromApiGatewayApiResponseDetails
@@ -3878,35 +3047,22 @@ const de_ImportAssetFromApiGatewayApiResponseDetails = (
   output: any,
   context: __SerdeContext
 ): ImportAssetFromApiGatewayApiResponseDetails => {
-  return {
-    ApiDescription: __expectString(output.ApiDescription),
-    ApiId: __expectString(output.ApiId),
-    ApiKey: __expectString(output.ApiKey),
-    ApiName: __expectString(output.ApiName),
-    ApiSpecificationMd5Hash: __expectString(output.ApiSpecificationMd5Hash),
-    ApiSpecificationUploadUrl: __expectString(output.ApiSpecificationUploadUrl),
-    ApiSpecificationUploadUrlExpiresAt:
-      output.ApiSpecificationUploadUrlExpiresAt != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ApiSpecificationUploadUrlExpiresAt))
-        : undefined,
-    DataSetId: __expectString(output.DataSetId),
-    ProtocolType: __expectString(output.ProtocolType),
-    RevisionId: __expectString(output.RevisionId),
-    Stage: __expectString(output.Stage),
-  } as any;
+  return take(output, {
+    ApiDescription: __expectString,
+    ApiId: __expectString,
+    ApiKey: __expectString,
+    ApiName: __expectString,
+    ApiSpecificationMd5Hash: __expectString,
+    ApiSpecificationUploadUrl: __expectString,
+    ApiSpecificationUploadUrlExpiresAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    ProtocolType: __expectString,
+    RevisionId: __expectString,
+    Stage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ImportAssetFromSignedUrlJobErrorDetails
- */
-const de_ImportAssetFromSignedUrlJobErrorDetails = (
-  output: any,
-  context: __SerdeContext
-): ImportAssetFromSignedUrlJobErrorDetails => {
-  return {
-    AssetName: __expectString(output.AssetName),
-  } as any;
-};
+// de_ImportAssetFromSignedUrlJobErrorDetails omitted.
 
 /**
  * deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails
@@ -3915,199 +3071,68 @@ const de_ImportAssetFromSignedUrlResponseDetails = (
   output: any,
   context: __SerdeContext
 ): ImportAssetFromSignedUrlResponseDetails => {
-  return {
-    AssetName: __expectString(output.AssetName),
-    DataSetId: __expectString(output.DataSetId),
-    Md5Hash: __expectString(output.Md5Hash),
-    RevisionId: __expectString(output.RevisionId),
-    SignedUrl: __expectString(output.SignedUrl),
-    SignedUrlExpiresAt:
-      output.SignedUrlExpiresAt != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SignedUrlExpiresAt))
-        : undefined,
-  } as any;
+  return take(output, {
+    AssetName: __expectString,
+    DataSetId: __expectString,
+    Md5Hash: __expectString,
+    RevisionId: __expectString,
+    SignedUrl: __expectString,
+    SignedUrlExpiresAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ImportAssetsFromLakeFormationTagPolicyResponseDetails
- */
-const de_ImportAssetsFromLakeFormationTagPolicyResponseDetails = (
-  output: any,
-  context: __SerdeContext
-): ImportAssetsFromLakeFormationTagPolicyResponseDetails => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    DataSetId: __expectString(output.DataSetId),
-    Database: output.Database != null ? de_DatabaseLFTagPolicyAndPermissions(output.Database, context) : undefined,
-    RevisionId: __expectString(output.RevisionId),
-    RoleArn: __expectString(output.RoleArn),
-    Table: output.Table != null ? de_TableLFTagPolicyAndPermissions(output.Table, context) : undefined,
-  } as any;
-};
+// de_ImportAssetsFromLakeFormationTagPolicyResponseDetails omitted.
 
-/**
- * deserializeAws_restJson1ImportAssetsFromRedshiftDataSharesResponseDetails
- */
-const de_ImportAssetsFromRedshiftDataSharesResponseDetails = (
-  output: any,
-  context: __SerdeContext
-): ImportAssetsFromRedshiftDataSharesResponseDetails => {
-  return {
-    AssetSources:
-      output.AssetSources != null
-        ? de_ListOfRedshiftDataShareAssetSourceEntry(output.AssetSources, context)
-        : undefined,
-    DataSetId: __expectString(output.DataSetId),
-    RevisionId: __expectString(output.RevisionId),
-  } as any;
-};
+// de_ImportAssetsFromRedshiftDataSharesResponseDetails omitted.
 
-/**
- * deserializeAws_restJson1ImportAssetsFromS3ResponseDetails
- */
-const de_ImportAssetsFromS3ResponseDetails = (
-  output: any,
-  context: __SerdeContext
-): ImportAssetsFromS3ResponseDetails => {
-  return {
-    AssetSources: output.AssetSources != null ? de_ListOfAssetSourceEntry(output.AssetSources, context) : undefined,
-    DataSetId: __expectString(output.DataSetId),
-    RevisionId: __expectString(output.RevisionId),
-  } as any;
-};
+// de_ImportAssetsFromS3ResponseDetails omitted.
 
 /**
  * deserializeAws_restJson1JobEntry
  */
 const de_JobEntry = (output: any, context: __SerdeContext): JobEntry => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedAt)) : undefined,
-    Details: output.Details != null ? de_ResponseDetails(output.Details, context) : undefined,
-    Errors: output.Errors != null ? de_ListOfJobError(output.Errors, context) : undefined,
-    Id: __expectString(output.Id),
-    State: __expectString(output.State),
-    Type: __expectString(output.Type),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Details: (_: any) => de_ResponseDetails(_, context),
+    Errors: (_: any) => de_ListOfJobError(_, context),
+    Id: __expectString,
+    State: __expectString,
+    Type: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1JobError
  */
 const de_JobError = (output: any, context: __SerdeContext): JobError => {
-  return {
-    Code: __expectString(output.Code),
-    Details: output.Details != null ? de_Details(output.Details, context) : undefined,
-    LimitName: __expectString(output.LimitName),
-    LimitValue: __limitedParseDouble(output.LimitValue),
-    Message: __expectString(output.Message),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
+  return take(output, {
+    Code: __expectString,
+    Details: _json,
+    LimitName: __expectString,
+    LimitValue: __limitedParseDouble,
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1KmsKeyToGrant
- */
-const de_KmsKeyToGrant = (output: any, context: __SerdeContext): KmsKeyToGrant => {
-  return {
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-  } as any;
-};
+// de_KmsKeyToGrant omitted.
 
-/**
- * deserializeAws_restJson1LakeFormationDataPermissionAsset
- */
-const de_LakeFormationDataPermissionAsset = (
-  output: any,
-  context: __SerdeContext
-): LakeFormationDataPermissionAsset => {
-  return {
-    LakeFormationDataPermissionDetails:
-      output.LakeFormationDataPermissionDetails != null
-        ? de_LakeFormationDataPermissionDetails(output.LakeFormationDataPermissionDetails, context)
-        : undefined,
-    LakeFormationDataPermissionType: __expectString(output.LakeFormationDataPermissionType),
-    Permissions: output.Permissions != null ? de_ListOfLFPermissions(output.Permissions, context) : undefined,
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_LakeFormationDataPermissionAsset omitted.
 
-/**
- * deserializeAws_restJson1LakeFormationDataPermissionDetails
- */
-const de_LakeFormationDataPermissionDetails = (
-  output: any,
-  context: __SerdeContext
-): LakeFormationDataPermissionDetails => {
-  return {
-    LFTagPolicy: output.LFTagPolicy != null ? de_LFTagPolicyDetails(output.LFTagPolicy, context) : undefined,
-  } as any;
-};
+// de_LakeFormationDataPermissionDetails omitted.
 
-/**
- * deserializeAws_restJson1LFResourceDetails
- */
-const de_LFResourceDetails = (output: any, context: __SerdeContext): LFResourceDetails => {
-  return {
-    Database: output.Database != null ? de_DatabaseLFTagPolicy(output.Database, context) : undefined,
-    Table: output.Table != null ? de_TableLFTagPolicy(output.Table, context) : undefined,
-  } as any;
-};
+// de_LFResourceDetails omitted.
 
-/**
- * deserializeAws_restJson1LFTag
- */
-const de_LFTag = (output: any, context: __SerdeContext): LFTag => {
-  return {
-    TagKey: __expectString(output.TagKey),
-    TagValues: output.TagValues != null ? de_ListOfLFTagValues(output.TagValues, context) : undefined,
-  } as any;
-};
+// de_LFTag omitted.
 
-/**
- * deserializeAws_restJson1LFTagPolicyDetails
- */
-const de_LFTagPolicyDetails = (output: any, context: __SerdeContext): LFTagPolicyDetails => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    ResourceDetails: output.ResourceDetails != null ? de_LFResourceDetails(output.ResourceDetails, context) : undefined,
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_LFTagPolicyDetails omitted.
 
-/**
- * deserializeAws_restJson1ListOf__string
- */
-const de_ListOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOf__string omitted.
 
-/**
- * deserializeAws_restJson1ListOfAssetDestinationEntry
- */
-const de_ListOfAssetDestinationEntry = (output: any, context: __SerdeContext): AssetDestinationEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetDestinationEntry(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfAssetDestinationEntry omitted.
 
 /**
  * deserializeAws_restJson1ListOfAssetEntry
@@ -4116,46 +3141,14 @@ const de_ListOfAssetEntry = (output: any, context: __SerdeContext): AssetEntry[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssetEntry(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfAssetSourceEntry
- */
-const de_ListOfAssetSourceEntry = (output: any, context: __SerdeContext): AssetSourceEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetSourceEntry(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfAssetSourceEntry omitted.
 
-/**
- * deserializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions
- */
-const de_ListOfDatabaseLFTagPolicyPermissions = (
-  output: any,
-  context: __SerdeContext
-): (DatabaseLFTagPolicyPermission | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfDatabaseLFTagPolicyPermissions omitted.
 
 /**
  * deserializeAws_restJson1ListOfDataSetEntry
@@ -4164,9 +3157,6 @@ const de_ListOfDataSetEntry = (output: any, context: __SerdeContext): DataSetEnt
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DataSetEntry(entry, context);
     });
   return retVal;
@@ -4179,9 +3169,6 @@ const de_ListOfEventActionEntry = (output: any, context: __SerdeContext): EventA
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EventActionEntry(entry, context);
     });
   return retVal;
@@ -4194,9 +3181,6 @@ const de_ListOfJobEntry = (output: any, context: __SerdeContext): JobEntry[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_JobEntry(entry, context);
     });
   return retVal;
@@ -4209,106 +3193,22 @@ const de_ListOfJobError = (output: any, context: __SerdeContext): JobError[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_JobError(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfKmsKeysToGrant
- */
-const de_ListOfKmsKeysToGrant = (output: any, context: __SerdeContext): KmsKeyToGrant[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_KmsKeyToGrant(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfKmsKeysToGrant omitted.
 
-/**
- * deserializeAws_restJson1ListOfLFPermissions
- */
-const de_ListOfLFPermissions = (output: any, context: __SerdeContext): (LFPermission | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfLFPermissions omitted.
 
-/**
- * deserializeAws_restJson1ListOfLFTags
- */
-const de_ListOfLFTags = (output: any, context: __SerdeContext): LFTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LFTag(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfLFTags omitted.
 
-/**
- * deserializeAws_restJson1ListOfLFTagValues
- */
-const de_ListOfLFTagValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfLFTagValues omitted.
 
-/**
- * deserializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry
- */
-const de_ListOfRedshiftDataShareAssetSourceEntry = (
-  output: any,
-  context: __SerdeContext
-): RedshiftDataShareAssetSourceEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RedshiftDataShareAssetSourceEntry(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfRedshiftDataShareAssetSourceEntry omitted.
 
-/**
- * deserializeAws_restJson1ListOfRevisionDestinationEntry
- */
-const de_ListOfRevisionDestinationEntry = (output: any, context: __SerdeContext): RevisionDestinationEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RevisionDestinationEntry(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfRevisionDestinationEntry omitted.
 
 /**
  * deserializeAws_restJson1ListOfRevisionEntry
@@ -4317,218 +3217,77 @@ const de_ListOfRevisionEntry = (output: any, context: __SerdeContext): RevisionE
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RevisionEntry(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfTableTagPolicyLFPermissions
- */
-const de_ListOfTableTagPolicyLFPermissions = (
-  output: any,
-  context: __SerdeContext
-): (TableTagPolicyLFPermission | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfTableTagPolicyLFPermissions omitted.
 
-/**
- * deserializeAws_restJson1MapOf__string
- */
-const de_MapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_MapOf__string omitted.
 
-/**
- * deserializeAws_restJson1OriginDetails
- */
-const de_OriginDetails = (output: any, context: __SerdeContext): OriginDetails => {
-  return {
-    ProductId: __expectString(output.ProductId),
-  } as any;
-};
+// de_OriginDetails omitted.
 
-/**
- * deserializeAws_restJson1RedshiftDataShareAsset
- */
-const de_RedshiftDataShareAsset = (output: any, context: __SerdeContext): RedshiftDataShareAsset => {
-  return {
-    Arn: __expectString(output.Arn),
-  } as any;
-};
+// de_RedshiftDataShareAsset omitted.
 
-/**
- * deserializeAws_restJson1RedshiftDataShareAssetSourceEntry
- */
-const de_RedshiftDataShareAssetSourceEntry = (
-  output: any,
-  context: __SerdeContext
-): RedshiftDataShareAssetSourceEntry => {
-  return {
-    DataShareArn: __expectString(output.DataShareArn),
-  } as any;
-};
+// de_RedshiftDataShareAssetSourceEntry omitted.
 
 /**
  * deserializeAws_restJson1ResponseDetails
  */
 const de_ResponseDetails = (output: any, context: __SerdeContext): ResponseDetails => {
-  return {
-    CreateS3DataAccessFromS3Bucket:
-      output.CreateS3DataAccessFromS3Bucket != null
-        ? de_CreateS3DataAccessFromS3BucketResponseDetails(output.CreateS3DataAccessFromS3Bucket, context)
-        : undefined,
-    ExportAssetToSignedUrl:
-      output.ExportAssetToSignedUrl != null
-        ? de_ExportAssetToSignedUrlResponseDetails(output.ExportAssetToSignedUrl, context)
-        : undefined,
-    ExportAssetsToS3:
-      output.ExportAssetsToS3 != null
-        ? de_ExportAssetsToS3ResponseDetails(output.ExportAssetsToS3, context)
-        : undefined,
-    ExportRevisionsToS3:
-      output.ExportRevisionsToS3 != null
-        ? de_ExportRevisionsToS3ResponseDetails(output.ExportRevisionsToS3, context)
-        : undefined,
-    ImportAssetFromApiGatewayApi:
-      output.ImportAssetFromApiGatewayApi != null
-        ? de_ImportAssetFromApiGatewayApiResponseDetails(output.ImportAssetFromApiGatewayApi, context)
-        : undefined,
-    ImportAssetFromSignedUrl:
-      output.ImportAssetFromSignedUrl != null
-        ? de_ImportAssetFromSignedUrlResponseDetails(output.ImportAssetFromSignedUrl, context)
-        : undefined,
-    ImportAssetsFromLakeFormationTagPolicy:
-      output.ImportAssetsFromLakeFormationTagPolicy != null
-        ? de_ImportAssetsFromLakeFormationTagPolicyResponseDetails(
-            output.ImportAssetsFromLakeFormationTagPolicy,
-            context
-          )
-        : undefined,
-    ImportAssetsFromRedshiftDataShares:
-      output.ImportAssetsFromRedshiftDataShares != null
-        ? de_ImportAssetsFromRedshiftDataSharesResponseDetails(output.ImportAssetsFromRedshiftDataShares, context)
-        : undefined,
-    ImportAssetsFromS3:
-      output.ImportAssetsFromS3 != null
-        ? de_ImportAssetsFromS3ResponseDetails(output.ImportAssetsFromS3, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CreateS3DataAccessFromS3Bucket: _json,
+    ExportAssetToSignedUrl: (_: any) => de_ExportAssetToSignedUrlResponseDetails(_, context),
+    ExportAssetsToS3: _json,
+    ExportRevisionsToS3: _json,
+    ImportAssetFromApiGatewayApi: (_: any) => de_ImportAssetFromApiGatewayApiResponseDetails(_, context),
+    ImportAssetFromSignedUrl: (_: any) => de_ImportAssetFromSignedUrlResponseDetails(_, context),
+    ImportAssetsFromLakeFormationTagPolicy: _json,
+    ImportAssetsFromRedshiftDataShares: _json,
+    ImportAssetsFromS3: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RevisionDestinationEntry
- */
-const de_RevisionDestinationEntry = (output: any, context: __SerdeContext): RevisionDestinationEntry => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    KeyPattern: __expectString(output.KeyPattern),
-    RevisionId: __expectString(output.RevisionId),
-  } as any;
-};
+// de_RevisionDestinationEntry omitted.
 
 /**
  * deserializeAws_restJson1RevisionEntry
  */
 const de_RevisionEntry = (output: any, context: __SerdeContext): RevisionEntry => {
-  return {
-    Arn: __expectString(output.Arn),
-    Comment: __expectString(output.Comment),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedAt)) : undefined,
-    DataSetId: __expectString(output.DataSetId),
-    Finalized: __expectBoolean(output.Finalized),
-    Id: __expectString(output.Id),
-    RevocationComment: __expectString(output.RevocationComment),
-    Revoked: __expectBoolean(output.Revoked),
-    RevokedAt:
-      output.RevokedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.RevokedAt)) : undefined,
-    SourceId: __expectString(output.SourceId),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    Comment: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataSetId: __expectString,
+    Finalized: __expectBoolean,
+    Id: __expectString,
+    RevocationComment: __expectString,
+    Revoked: __expectBoolean,
+    RevokedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SourceId: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RevisionPublished
- */
-const de_RevisionPublished = (output: any, context: __SerdeContext): RevisionPublished => {
-  return {
-    DataSetId: __expectString(output.DataSetId),
-  } as any;
-};
+// de_RevisionPublished omitted.
 
-/**
- * deserializeAws_restJson1S3DataAccessAsset
- */
-const de_S3DataAccessAsset = (output: any, context: __SerdeContext): S3DataAccessAsset => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    KeyPrefixes: output.KeyPrefixes != null ? de_ListOf__string(output.KeyPrefixes, context) : undefined,
-    Keys: output.Keys != null ? de_ListOf__string(output.Keys, context) : undefined,
-    KmsKeysToGrant: output.KmsKeysToGrant != null ? de_ListOfKmsKeysToGrant(output.KmsKeysToGrant, context) : undefined,
-    S3AccessPointAlias: __expectString(output.S3AccessPointAlias),
-    S3AccessPointArn: __expectString(output.S3AccessPointArn),
-  } as any;
-};
+// de_S3DataAccessAsset omitted.
 
-/**
- * deserializeAws_restJson1S3DataAccessAssetSourceEntry
- */
-const de_S3DataAccessAssetSourceEntry = (output: any, context: __SerdeContext): S3DataAccessAssetSourceEntry => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    KeyPrefixes: output.KeyPrefixes != null ? de_ListOf__string(output.KeyPrefixes, context) : undefined,
-    Keys: output.Keys != null ? de_ListOf__string(output.Keys, context) : undefined,
-    KmsKeysToGrant: output.KmsKeysToGrant != null ? de_ListOfKmsKeysToGrant(output.KmsKeysToGrant, context) : undefined,
-  } as any;
-};
+// de_S3DataAccessAssetSourceEntry omitted.
 
 /**
  * deserializeAws_restJson1S3SnapshotAsset
  */
 const de_S3SnapshotAsset = (output: any, context: __SerdeContext): S3SnapshotAsset => {
-  return {
-    Size: __limitedParseDouble(output.Size),
-  } as any;
+  return take(output, {
+    Size: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TableLFTagPolicy
- */
-const de_TableLFTagPolicy = (output: any, context: __SerdeContext): TableLFTagPolicy => {
-  return {
-    Expression: output.Expression != null ? de_ListOfLFTags(output.Expression, context) : undefined,
-  } as any;
-};
+// de_TableLFTagPolicy omitted.
 
-/**
- * deserializeAws_restJson1TableLFTagPolicyAndPermissions
- */
-const de_TableLFTagPolicyAndPermissions = (output: any, context: __SerdeContext): TableLFTagPolicyAndPermissions => {
-  return {
-    Expression: output.Expression != null ? de_ListOfLFTags(output.Expression, context) : undefined,
-    Permissions:
-      output.Permissions != null ? de_ListOfTableTagPolicyLFPermissions(output.Permissions, context) : undefined,
-  } as any;
-};
+// de_TableLFTagPolicyAndPermissions omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -39,12 +41,10 @@ import {
   InvalidUsageAllocationsException,
   InvalidUsageDimensionException,
   MeterUsageRequest,
-  MeterUsageResult,
   PlatformNotSupportedException,
   RegisterUsageRequest,
   RegisterUsageResult,
   ResolveCustomerRequest,
-  ResolveCustomerResult,
   Tag,
   ThrottlingException,
   TimestampOutOfBoundsException,
@@ -88,7 +88,7 @@ export const se_RegisterUsageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterUsage");
   let body: any;
-  body = JSON.stringify(se_RegisterUsageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -101,7 +101,7 @@ export const se_ResolveCustomerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResolveCustomer");
   let body: any;
-  body = JSON.stringify(se_ResolveCustomerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -122,7 +122,7 @@ export const de_BatchMeterUsageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -167,10 +167,9 @@ const de_BatchMeterUsageCommandError = async (
       throw await de_TimestampOutOfBoundsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -188,12 +187,12 @@ export const de_MeterUsageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_MeterUsageResult(data, context);
+  contents = _json(data);
   const response: MeterUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -241,10 +240,9 @@ const de_MeterUsageCommandError = async (
       throw await de_TimestampOutOfBoundsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -267,7 +265,7 @@ export const de_RegisterUsageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -309,10 +307,9 @@ const de_RegisterUsageCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -330,12 +327,12 @@ export const de_ResolveCustomerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ResolveCustomerResult(data, context);
+  contents = _json(data);
   const response: ResolveCustomerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -368,10 +365,9 @@ const de_ResolveCustomerCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -385,7 +381,7 @@ const de_CustomerNotEntitledExceptionRes = async (
   context: __SerdeContext
 ): Promise<CustomerNotEntitledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CustomerNotEntitledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CustomerNotEntitledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -401,7 +397,7 @@ const de_DisabledApiExceptionRes = async (
   context: __SerdeContext
 ): Promise<DisabledApiException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DisabledApiException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DisabledApiException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -417,7 +413,7 @@ const de_DuplicateRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -433,7 +429,7 @@ const de_ExpiredTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<ExpiredTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ExpiredTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExpiredTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -449,7 +445,7 @@ const de_InternalServiceErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServiceErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -465,7 +461,7 @@ const de_InvalidCustomerIdentifierExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidCustomerIdentifierException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidCustomerIdentifierException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidCustomerIdentifierException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -481,7 +477,7 @@ const de_InvalidEndpointRegionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidEndpointRegionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidEndpointRegionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidEndpointRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -497,7 +493,7 @@ const de_InvalidProductCodeExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidProductCodeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidProductCodeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidProductCodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -513,7 +509,7 @@ const de_InvalidPublicKeyVersionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPublicKeyVersionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPublicKeyVersionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPublicKeyVersionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -529,7 +525,7 @@ const de_InvalidRegionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRegionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRegionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -542,7 +538,7 @@ const de_InvalidRegionExceptionRes = async (
  */
 const de_InvalidTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTagException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -558,7 +554,7 @@ const de_InvalidTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -574,7 +570,7 @@ const de_InvalidUsageAllocationsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidUsageAllocationsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidUsageAllocationsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidUsageAllocationsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -590,7 +586,7 @@ const de_InvalidUsageDimensionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidUsageDimensionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidUsageDimensionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidUsageDimensionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -606,7 +602,7 @@ const de_PlatformNotSupportedExceptionRes = async (
   context: __SerdeContext
 ): Promise<PlatformNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PlatformNotSupportedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PlatformNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -619,7 +615,7 @@ const de_PlatformNotSupportedExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -635,7 +631,7 @@ const de_TimestampOutOfBoundsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TimestampOutOfBoundsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TimestampOutOfBoundsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TimestampOutOfBoundsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -647,99 +643,49 @@ const de_TimestampOutOfBoundsExceptionRes = async (
  * serializeAws_json1_1BatchMeterUsageRequest
  */
 const se_BatchMeterUsageRequest = (input: BatchMeterUsageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
-    ...(input.UsageRecords != null && { UsageRecords: se_UsageRecordList(input.UsageRecords, context) }),
-  };
+  return take(input, {
+    ProductCode: [],
+    UsageRecords: (_) => se_UsageRecordList(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1MeterUsageRequest
  */
 const se_MeterUsageRequest = (input: MeterUsageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.UsageAllocations != null && { UsageAllocations: se_UsageAllocations(input.UsageAllocations, context) }),
-    ...(input.UsageDimension != null && { UsageDimension: input.UsageDimension }),
-    ...(input.UsageQuantity != null && { UsageQuantity: input.UsageQuantity }),
-  };
+  return take(input, {
+    DryRun: [],
+    ProductCode: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    UsageAllocations: (_) => _json(_),
+    UsageDimension: [],
+    UsageQuantity: [],
+  });
 };
 
-/**
- * serializeAws_json1_1RegisterUsageRequest
- */
-const se_RegisterUsageRequest = (input: RegisterUsageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Nonce != null && { Nonce: input.Nonce }),
-    ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
-    ...(input.PublicKeyVersion != null && { PublicKeyVersion: input.PublicKeyVersion }),
-  };
-};
+// se_RegisterUsageRequest omitted.
 
-/**
- * serializeAws_json1_1ResolveCustomerRequest
- */
-const se_ResolveCustomerRequest = (input: ResolveCustomerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RegistrationToken != null && { RegistrationToken: input.RegistrationToken }),
-  };
-};
+// se_ResolveCustomerRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1UsageAllocation
- */
-const se_UsageAllocation = (input: UsageAllocation, context: __SerdeContext): any => {
-  return {
-    ...(input.AllocatedUsageQuantity != null && { AllocatedUsageQuantity: input.AllocatedUsageQuantity }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_UsageAllocation omitted.
 
-/**
- * serializeAws_json1_1UsageAllocations
- */
-const se_UsageAllocations = (input: UsageAllocation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UsageAllocation(entry, context);
-    });
-};
+// se_UsageAllocations omitted.
 
 /**
  * serializeAws_json1_1UsageRecord
  */
 const se_UsageRecord = (input: UsageRecord, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomerIdentifier != null && { CustomerIdentifier: input.CustomerIdentifier }),
-    ...(input.Dimension != null && { Dimension: input.Dimension }),
-    ...(input.Quantity != null && { Quantity: input.Quantity }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.UsageAllocations != null && { UsageAllocations: se_UsageAllocations(input.UsageAllocations, context) }),
-  };
+  return take(input, {
+    CustomerIdentifier: [],
+    Dimension: [],
+    Quantity: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    UsageAllocations: (_) => _json(_),
+  });
 };
 
 /**
@@ -757,271 +703,79 @@ const se_UsageRecordList = (input: UsageRecord[], context: __SerdeContext): any 
  * deserializeAws_json1_1BatchMeterUsageResult
  */
 const de_BatchMeterUsageResult = (output: any, context: __SerdeContext): BatchMeterUsageResult => {
-  return {
-    Results: output.Results != null ? de_UsageRecordResultList(output.Results, context) : undefined,
-    UnprocessedRecords:
-      output.UnprocessedRecords != null ? de_UsageRecordList(output.UnprocessedRecords, context) : undefined,
-  } as any;
+  return take(output, {
+    Results: (_: any) => de_UsageRecordResultList(_, context),
+    UnprocessedRecords: (_: any) => de_UsageRecordList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CustomerNotEntitledException
- */
-const de_CustomerNotEntitledException = (output: any, context: __SerdeContext): CustomerNotEntitledException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CustomerNotEntitledException omitted.
 
-/**
- * deserializeAws_json1_1DisabledApiException
- */
-const de_DisabledApiException = (output: any, context: __SerdeContext): DisabledApiException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DisabledApiException omitted.
 
-/**
- * deserializeAws_json1_1DuplicateRequestException
- */
-const de_DuplicateRequestException = (output: any, context: __SerdeContext): DuplicateRequestException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DuplicateRequestException omitted.
 
-/**
- * deserializeAws_json1_1ExpiredTokenException
- */
-const de_ExpiredTokenException = (output: any, context: __SerdeContext): ExpiredTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ExpiredTokenException omitted.
 
-/**
- * deserializeAws_json1_1InternalServiceErrorException
- */
-const de_InternalServiceErrorException = (output: any, context: __SerdeContext): InternalServiceErrorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServiceErrorException omitted.
 
-/**
- * deserializeAws_json1_1InvalidCustomerIdentifierException
- */
-const de_InvalidCustomerIdentifierException = (
-  output: any,
-  context: __SerdeContext
-): InvalidCustomerIdentifierException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidCustomerIdentifierException omitted.
 
-/**
- * deserializeAws_json1_1InvalidEndpointRegionException
- */
-const de_InvalidEndpointRegionException = (output: any, context: __SerdeContext): InvalidEndpointRegionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidEndpointRegionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidProductCodeException
- */
-const de_InvalidProductCodeException = (output: any, context: __SerdeContext): InvalidProductCodeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidProductCodeException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPublicKeyVersionException
- */
-const de_InvalidPublicKeyVersionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPublicKeyVersionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPublicKeyVersionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRegionException
- */
-const de_InvalidRegionException = (output: any, context: __SerdeContext): InvalidRegionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRegionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTagException
- */
-const de_InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTagException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTokenException
- */
-const de_InvalidTokenException = (output: any, context: __SerdeContext): InvalidTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidUsageAllocationsException
- */
-const de_InvalidUsageAllocationsException = (
-  output: any,
-  context: __SerdeContext
-): InvalidUsageAllocationsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidUsageAllocationsException omitted.
 
-/**
- * deserializeAws_json1_1InvalidUsageDimensionException
- */
-const de_InvalidUsageDimensionException = (output: any, context: __SerdeContext): InvalidUsageDimensionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidUsageDimensionException omitted.
 
-/**
- * deserializeAws_json1_1MeterUsageResult
- */
-const de_MeterUsageResult = (output: any, context: __SerdeContext): MeterUsageResult => {
-  return {
-    MeteringRecordId: __expectString(output.MeteringRecordId),
-  } as any;
-};
+// de_MeterUsageResult omitted.
 
-/**
- * deserializeAws_json1_1PlatformNotSupportedException
- */
-const de_PlatformNotSupportedException = (output: any, context: __SerdeContext): PlatformNotSupportedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PlatformNotSupportedException omitted.
 
 /**
  * deserializeAws_json1_1RegisterUsageResult
  */
 const de_RegisterUsageResult = (output: any, context: __SerdeContext): RegisterUsageResult => {
-  return {
-    PublicKeyRotationTimestamp:
-      output.PublicKeyRotationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PublicKeyRotationTimestamp)))
-        : undefined,
-    Signature: __expectString(output.Signature),
-  } as any;
+  return take(output, {
+    PublicKeyRotationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Signature: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ResolveCustomerResult
- */
-const de_ResolveCustomerResult = (output: any, context: __SerdeContext): ResolveCustomerResult => {
-  return {
-    CustomerAWSAccountId: __expectString(output.CustomerAWSAccountId),
-    CustomerIdentifier: __expectString(output.CustomerIdentifier),
-    ProductCode: __expectString(output.ProductCode),
-  } as any;
-};
+// de_ResolveCustomerResult omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1TimestampOutOfBoundsException
- */
-const de_TimestampOutOfBoundsException = (output: any, context: __SerdeContext): TimestampOutOfBoundsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TimestampOutOfBoundsException omitted.
 
-/**
- * deserializeAws_json1_1UsageAllocation
- */
-const de_UsageAllocation = (output: any, context: __SerdeContext): UsageAllocation => {
-  return {
-    AllocatedUsageQuantity: __expectInt32(output.AllocatedUsageQuantity),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_UsageAllocation omitted.
 
-/**
- * deserializeAws_json1_1UsageAllocations
- */
-const de_UsageAllocations = (output: any, context: __SerdeContext): UsageAllocation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UsageAllocation(entry, context);
-    });
-  return retVal;
-};
+// de_UsageAllocations omitted.
 
 /**
  * deserializeAws_json1_1UsageRecord
  */
 const de_UsageRecord = (output: any, context: __SerdeContext): UsageRecord => {
-  return {
-    CustomerIdentifier: __expectString(output.CustomerIdentifier),
-    Dimension: __expectString(output.Dimension),
-    Quantity: __expectInt32(output.Quantity),
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-    UsageAllocations:
-      output.UsageAllocations != null ? de_UsageAllocations(output.UsageAllocations, context) : undefined,
-  } as any;
+  return take(output, {
+    CustomerIdentifier: __expectString,
+    Dimension: __expectString,
+    Quantity: __expectInt32,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UsageAllocations: _json,
+  }) as any;
 };
 
 /**
@@ -1031,9 +785,6 @@ const de_UsageRecordList = (output: any, context: __SerdeContext): UsageRecord[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UsageRecord(entry, context);
     });
   return retVal;
@@ -1043,11 +794,11 @@ const de_UsageRecordList = (output: any, context: __SerdeContext): UsageRecord[]
  * deserializeAws_json1_1UsageRecordResult
  */
 const de_UsageRecordResult = (output: any, context: __SerdeContext): UsageRecordResult => {
-  return {
-    MeteringRecordId: __expectString(output.MeteringRecordId),
-    Status: __expectString(output.Status),
-    UsageRecord: output.UsageRecord != null ? de_UsageRecord(output.UsageRecord, context) : undefined,
-  } as any;
+  return take(output, {
+    MeteringRecordId: __expectString,
+    Status: __expectString,
+    UsageRecord: (_: any) => de_UsageRecord(_, context),
+  }) as any;
 };
 
 /**
@@ -1057,9 +808,6 @@ const de_UsageRecordResultList = (output: any, context: __SerdeContext): UsageRe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UsageRecordResult(entry, context);
     });
   return retVal;
@@ -1085,6 +833,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

@@ -1,17 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
@@ -54,22 +54,17 @@ import { UpdateIndexTypeCommandInput, UpdateIndexTypeCommandOutput } from "../co
 import { UpdateViewCommandInput, UpdateViewCommandOutput } from "../commands/UpdateViewCommand";
 import {
   AccessDeniedException,
-  BatchGetViewError,
   ConflictException,
   IncludedProperty,
-  Index,
   InternalServerException,
   Resource,
-  ResourceCount,
   ResourceNotFoundException,
   ResourceProperty,
   SearchFilter,
   ServiceQuotaExceededException,
-  SupportedResourceType,
   ThrottlingException,
   UnauthorizedException,
   ValidationException,
-  ValidationExceptionField,
   View,
 } from "../models/models_0";
 import { ResourceExplorer2ServiceException as __BaseException } from "../models/ResourceExplorer2ServiceException";
@@ -87,9 +82,11 @@ export const se_AssociateDefaultViewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AssociateDefaultView";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ViewArn != null && { ViewArn: input.ViewArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ViewArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -114,9 +111,11 @@ export const se_BatchGetViewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetView";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ViewArns != null && { ViewArns: se_ViewArnList(input.ViewArns, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ViewArns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -141,10 +140,12 @@ export const se_CreateIndexCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateIndex";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -169,15 +170,15 @@ export const se_CreateViewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateView";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Filters != null && { Filters: se_SearchFilter(input.Filters, context) }),
-    ...(input.IncludedProperties != null && {
-      IncludedProperties: se_IncludedPropertyList(input.IncludedProperties, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.ViewName != null && { ViewName: input.ViewName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Filters: (_) => _json(_),
+      IncludedProperties: (_) => _json(_),
+      Tags: (_) => _json(_),
+      ViewName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -202,9 +203,11 @@ export const se_DeleteIndexCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteIndex";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -229,9 +232,11 @@ export const se_DeleteViewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteView";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ViewArn != null && { ViewArn: input.ViewArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ViewArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -332,9 +337,11 @@ export const se_GetViewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetView";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ViewArn != null && { ViewArn: input.ViewArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ViewArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -359,12 +366,14 @@ export const se_ListIndexesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListIndexes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Regions != null && { Regions: se_RegionList(input.Regions, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      Regions: (_) => _json(_),
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -390,10 +399,12 @@ export const se_ListSupportedResourceTypesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListSupportedResourceTypes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -441,10 +452,12 @@ export const se_ListViewsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListViews";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -466,12 +479,14 @@ export const se_SearchCommand = async (input: SearchCommandInput, context: __Ser
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.QueryString != null && { QueryString: input.QueryString }),
-    ...(input.ViewArn != null && { ViewArn: input.ViewArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      QueryString: [],
+      ViewArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -497,9 +512,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -554,10 +571,12 @@ export const se_UpdateIndexTypeCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateIndexType";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -582,13 +601,13 @@ export const se_UpdateViewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateView";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_SearchFilter(input.Filters, context) }),
-    ...(input.IncludedProperties != null && {
-      IncludedProperties: se_IncludedPropertyList(input.IncludedProperties, context),
-    }),
-    ...(input.ViewArn != null && { ViewArn: input.ViewArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      IncludedProperties: (_) => _json(_),
+      ViewArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -614,9 +633,10 @@ export const de_AssociateDefaultViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ViewArn != null) {
-    contents.ViewArn = __expectString(data.ViewArn);
-  }
+  const doc = take(data, {
+    ViewArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -650,10 +670,9 @@ const de_AssociateDefaultViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -673,12 +692,11 @@ export const de_BatchGetViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_BatchGetViewErrors(data.Errors, context);
-  }
-  if (data.Views != null) {
-    contents.Views = de_ViewList(data.Views, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+    Views: (_) => de_ViewList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -712,10 +730,9 @@ const de_BatchGetViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -735,15 +752,12 @@ export const de_CreateIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -777,10 +791,9 @@ const de_CreateIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -800,9 +813,10 @@ export const de_CreateViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.View != null) {
-    contents.View = de_View(data.View, context);
-  }
+  const doc = take(data, {
+    View: (_) => de_View(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -842,10 +856,9 @@ const de_CreateViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -865,15 +878,12 @@ export const de_DeleteIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.LastUpdatedAt != null) {
-    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastUpdatedAt));
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    LastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -907,10 +917,9 @@ const de_DeleteIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -930,9 +939,10 @@ export const de_DeleteViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ViewArn != null) {
-    contents.ViewArn = __expectString(data.ViewArn);
-  }
+  const doc = take(data, {
+    ViewArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -969,10 +979,9 @@ const de_DeleteViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1022,10 +1031,9 @@ const de_DisassociateDefaultViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1045,9 +1053,10 @@ export const de_GetDefaultViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ViewArn != null) {
-    contents.ViewArn = __expectString(data.ViewArn);
-  }
+  const doc = take(data, {
+    ViewArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1081,10 +1090,9 @@ const de_GetDefaultViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1104,30 +1112,17 @@ export const de_GetIndexCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.LastUpdatedAt != null) {
-    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastUpdatedAt));
-  }
-  if (data.ReplicatingFrom != null) {
-    contents.ReplicatingFrom = de_RegionList(data.ReplicatingFrom, context);
-  }
-  if (data.ReplicatingTo != null) {
-    contents.ReplicatingTo = de_RegionList(data.ReplicatingTo, context);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    LastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ReplicatingFrom: _json,
+    ReplicatingTo: _json,
+    State: __expectString,
+    Tags: _json,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1161,10 +1156,9 @@ const de_GetIndexCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1184,12 +1178,11 @@ export const de_GetViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.View != null) {
-    contents.View = de_View(data.View, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+    View: (_) => de_View(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1226,10 +1219,9 @@ const de_GetViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1249,12 +1241,11 @@ export const de_ListIndexesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Indexes != null) {
-    contents.Indexes = de_IndexList(data.Indexes, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Indexes: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1285,10 +1276,9 @@ const de_ListIndexesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1308,12 +1298,11 @@ export const de_ListSupportedResourceTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ResourceTypes != null) {
-    contents.ResourceTypes = de_ResourceTypeList(data.ResourceTypes, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ResourceTypes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1344,10 +1333,9 @@ const de_ListSupportedResourceTypesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1367,9 +1355,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1406,10 +1395,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1429,12 +1417,11 @@ export const de_ListViewsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Views != null) {
-    contents.Views = de_ViewArnList(data.Views, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Views: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1465,10 +1452,9 @@ const de_ListViewsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1488,18 +1474,13 @@ export const de_SearchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Count != null) {
-    contents.Count = de_ResourceCount(data.Count, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Resources != null) {
-    contents.Resources = de_ResourceList(data.Resources, context);
-  }
-  if (data.ViewArn != null) {
-    contents.ViewArn = __expectString(data.ViewArn);
-  }
+  const doc = take(data, {
+    Count: _json,
+    NextToken: __expectString,
+    Resources: (_) => de_ResourceList(_, context),
+    ViewArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1533,10 +1514,9 @@ const de_SearchCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1592,10 +1572,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1651,10 +1630,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1674,18 +1652,13 @@ export const de_UpdateIndexTypeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.LastUpdatedAt != null) {
-    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastUpdatedAt));
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    LastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1725,10 +1698,9 @@ const de_UpdateIndexTypeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1748,9 +1720,10 @@ export const de_UpdateViewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.View != null) {
-    contents.View = de_View(data.View, context);
-  }
+  const doc = take(data, {
+    View: (_) => de_View(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1787,16 +1760,15 @@ const de_UpdateViewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1806,9 +1778,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1822,9 +1795,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1841,9 +1815,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1860,9 +1835,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1879,15 +1855,12 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Value != null) {
-    contents.Value = __expectString(data.Value);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Name: __expectString,
+    Value: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1901,9 +1874,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1920,9 +1894,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1936,12 +1911,11 @@ const de_UnauthorizedExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.FieldList != null) {
-    contents.FieldList = de_ValidationExceptionFieldList(data.FieldList, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    FieldList: _json,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1949,187 +1923,48 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1IncludedProperty
- */
-const se_IncludedProperty = (input: IncludedProperty, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_IncludedProperty omitted.
 
-/**
- * serializeAws_restJson1IncludedPropertyList
- */
-const se_IncludedPropertyList = (input: IncludedProperty[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_IncludedProperty(entry, context);
-    });
-};
+// se_IncludedPropertyList omitted.
 
-/**
- * serializeAws_restJson1RegionList
- */
-const se_RegionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RegionList omitted.
 
-/**
- * serializeAws_restJson1SearchFilter
- */
-const se_SearchFilter = (input: SearchFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.FilterString != null && { FilterString: input.FilterString }),
-  };
-};
+// se_SearchFilter omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1ViewArnList
- */
-const se_ViewArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ViewArnList omitted.
 
-/**
- * deserializeAws_restJson1BatchGetViewError
- */
-const de_BatchGetViewError = (output: any, context: __SerdeContext): BatchGetViewError => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ViewArn: __expectString(output.ViewArn),
-  } as any;
-};
+// de_BatchGetViewError omitted.
 
-/**
- * deserializeAws_restJson1BatchGetViewErrors
- */
-const de_BatchGetViewErrors = (output: any, context: __SerdeContext): BatchGetViewError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetViewError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetViewErrors omitted.
 
-/**
- * deserializeAws_restJson1IncludedProperty
- */
-const de_IncludedProperty = (output: any, context: __SerdeContext): IncludedProperty => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_IncludedProperty omitted.
 
-/**
- * deserializeAws_restJson1IncludedPropertyList
- */
-const de_IncludedPropertyList = (output: any, context: __SerdeContext): IncludedProperty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IncludedProperty(entry, context);
-    });
-  return retVal;
-};
+// de_IncludedPropertyList omitted.
 
-/**
- * deserializeAws_restJson1Index
- */
-const de_Index = (output: any, context: __SerdeContext): Index => {
-  return {
-    Arn: __expectString(output.Arn),
-    Region: __expectString(output.Region),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Index omitted.
 
-/**
- * deserializeAws_restJson1IndexList
- */
-const de_IndexList = (output: any, context: __SerdeContext): Index[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Index(entry, context);
-    });
-  return retVal;
-};
+// de_IndexList omitted.
 
-/**
- * deserializeAws_restJson1RegionList
- */
-const de_RegionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RegionList omitted.
 
 /**
  * deserializeAws_restJson1Resource
  */
 const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    Arn: __expectString(output.Arn),
-    LastReportedAt:
-      output.LastReportedAt != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastReportedAt))
-        : undefined,
-    OwningAccountId: __expectString(output.OwningAccountId),
-    Properties: output.Properties != null ? de_ResourcePropertyList(output.Properties, context) : undefined,
-    Region: __expectString(output.Region),
-    ResourceType: __expectString(output.ResourceType),
-    Service: __expectString(output.Service),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    LastReportedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    OwningAccountId: __expectString,
+    Properties: (_: any) => de_ResourcePropertyList(_, context),
+    Region: __expectString,
+    ResourceType: __expectString,
+    Service: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ResourceCount
- */
-const de_ResourceCount = (output: any, context: __SerdeContext): ResourceCount => {
-  return {
-    Complete: __expectBoolean(output.Complete),
-    TotalResources: __expectLong(output.TotalResources),
-  } as any;
-};
+// de_ResourceCount omitted.
 
 /**
  * deserializeAws_restJson1ResourceList
@@ -2138,9 +1973,6 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Resource(entry, context);
     });
   return retVal;
@@ -2150,14 +1982,11 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
  * deserializeAws_restJson1ResourceProperty
  */
 const de_ResourceProperty = (output: any, context: __SerdeContext): ResourceProperty => {
-  return {
-    Data: output.Data != null ? de_Document(output.Data, context) : undefined,
-    LastReportedAt:
-      output.LastReportedAt != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastReportedAt))
-        : undefined,
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    Data: (_: any) => de_Document(_, context),
+    LastReportedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Name: __expectString,
+  }) as any;
 };
 
 /**
@@ -2167,118 +1996,38 @@ const de_ResourcePropertyList = (output: any, context: __SerdeContext): Resource
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceProperty(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ResourceTypeList
- */
-const de_ResourceTypeList = (output: any, context: __SerdeContext): SupportedResourceType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SupportedResourceType(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceTypeList omitted.
 
-/**
- * deserializeAws_restJson1SearchFilter
- */
-const de_SearchFilter = (output: any, context: __SerdeContext): SearchFilter => {
-  return {
-    FilterString: __expectString(output.FilterString),
-  } as any;
-};
+// de_SearchFilter omitted.
 
-/**
- * deserializeAws_restJson1SupportedResourceType
- */
-const de_SupportedResourceType = (output: any, context: __SerdeContext): SupportedResourceType => {
-  return {
-    ResourceType: __expectString(output.ResourceType),
-    Service: __expectString(output.Service),
-  } as any;
-};
+// de_SupportedResourceType omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    Name: __expectString(output.Name),
-    ValidationIssue: __expectString(output.ValidationIssue),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 /**
  * deserializeAws_restJson1View
  */
 const de_View = (output: any, context: __SerdeContext): View => {
-  return {
-    Filters: output.Filters != null ? de_SearchFilter(output.Filters, context) : undefined,
-    IncludedProperties:
-      output.IncludedProperties != null ? de_IncludedPropertyList(output.IncludedProperties, context) : undefined,
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdatedAt))
-        : undefined,
-    Owner: __expectString(output.Owner),
-    Scope: __expectString(output.Scope),
-    ViewArn: __expectString(output.ViewArn),
-  } as any;
+  return take(output, {
+    Filters: _json,
+    IncludedProperties: _json,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Owner: __expectString,
+    Scope: __expectString,
+    ViewArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ViewArnList
- */
-const de_ViewArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ViewArnList omitted.
 
 /**
  * deserializeAws_restJson1ViewList
@@ -2287,9 +2036,6 @@ const de_ViewList = (output: any, context: __SerdeContext): View[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_View(entry, context);
     });
   return retVal;

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
@@ -8,9 +9,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -119,7 +121,6 @@ import {
   ResourceSharePermissionDetail,
   ResourceSharePermissionSummary,
   ServerInternalException,
-  ServiceNameAndResourceType,
   ServiceUnavailableException,
   Tag,
   TagFilter,
@@ -144,10 +145,12 @@ export const se_AcceptResourceShareInvitationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/acceptresourceshareinvitation";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.resourceShareInvitationArn != null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      resourceShareInvitationArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -173,12 +176,14 @@ export const se_AssociateResourceShareCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourceshare";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.principals != null && { principals: se_PrincipalArnOrIdList(input.principals, context) }),
-    ...(input.resourceArns != null && { resourceArns: se_ResourceArnList(input.resourceArns, context) }),
-    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      principals: (_) => _json(_),
+      resourceArns: (_) => _json(_),
+      resourceShareArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -204,13 +209,15 @@ export const se_AssociateResourceSharePermissionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourcesharepermission";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
-    ...(input.permissionVersion != null && { permissionVersion: input.permissionVersion }),
-    ...(input.replace != null && { replace: input.replace }),
-    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      permissionArn: [],
+      permissionVersion: [],
+      replace: [],
+      resourceShareArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -235,15 +242,17 @@ export const se_CreateResourceShareCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createresourceshare";
   let body: any;
-  body = JSON.stringify({
-    ...(input.allowExternalPrincipals != null && { allowExternalPrincipals: input.allowExternalPrincipals }),
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.permissionArns != null && { permissionArns: se_PermissionArnList(input.permissionArns, context) }),
-    ...(input.principals != null && { principals: se_PrincipalArnOrIdList(input.principals, context) }),
-    ...(input.resourceArns != null && { resourceArns: se_ResourceArnList(input.resourceArns, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      allowExternalPrincipals: [],
+      clientToken: [],
+      name: [],
+      permissionArns: (_) => _json(_),
+      principals: (_) => _json(_),
+      resourceArns: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -296,12 +305,14 @@ export const se_DisassociateResourceShareCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourceshare";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.principals != null && { principals: se_PrincipalArnOrIdList(input.principals, context) }),
-    ...(input.resourceArns != null && { resourceArns: se_ResourceArnList(input.resourceArns, context) }),
-    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      principals: (_) => _json(_),
+      resourceArns: (_) => _json(_),
+      resourceShareArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -327,11 +338,13 @@ export const se_DisassociateResourceSharePermissionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourcesharepermission";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
-    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      permissionArn: [],
+      resourceShareArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -382,10 +395,12 @@ export const se_GetPermissionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getpermission";
   let body: any;
-  body = JSON.stringify({
-    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
-    ...(input.permissionVersion != null && { permissionVersion: input.permissionVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      permissionArn: [],
+      permissionVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -410,12 +425,14 @@ export const se_GetResourcePoliciesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourcepolicies";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.principal != null && { principal: input.principal }),
-    ...(input.resourceArns != null && { resourceArns: se_ResourceArnList(input.resourceArns, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      principal: [],
+      resourceArns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -441,17 +458,17 @@ export const se_GetResourceShareAssociationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareassociations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.associationStatus != null && { associationStatus: input.associationStatus }),
-    ...(input.associationType != null && { associationType: input.associationType }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.principal != null && { principal: input.principal }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.resourceShareArns != null && {
-      resourceShareArns: se_ResourceShareArnList(input.resourceShareArns, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      associationStatus: [],
+      associationType: [],
+      maxResults: [],
+      nextToken: [],
+      principal: [],
+      resourceArn: [],
+      resourceShareArns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -477,16 +494,14 @@ export const se_GetResourceShareInvitationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareinvitations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceShareArns != null && {
-      resourceShareArns: se_ResourceShareArnList(input.resourceShareArns, context),
-    }),
-    ...(input.resourceShareInvitationArns != null && {
-      resourceShareInvitationArns: se_ResourceShareInvitationArnList(input.resourceShareInvitationArns, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      resourceShareArns: (_) => _json(_),
+      resourceShareInvitationArns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -511,18 +526,18 @@ export const se_GetResourceSharesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshares";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
-    ...(input.resourceOwner != null && { resourceOwner: input.resourceOwner }),
-    ...(input.resourceShareArns != null && {
-      resourceShareArns: se_ResourceShareArnList(input.resourceShareArns, context),
-    }),
-    ...(input.resourceShareStatus != null && { resourceShareStatus: input.resourceShareStatus }),
-    ...(input.tagFilters != null && { tagFilters: se_TagFilters(input.tagFilters, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      name: [],
+      nextToken: [],
+      permissionArn: [],
+      resourceOwner: [],
+      resourceShareArns: (_) => _json(_),
+      resourceShareStatus: [],
+      tagFilters: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -548,12 +563,14 @@ export const se_ListPendingInvitationResourcesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpendinginvitationresources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceRegionScope != null && { resourceRegionScope: input.resourceRegionScope }),
-    ...(input.resourceShareInvitationArn != null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      resourceRegionScope: [],
+      resourceShareInvitationArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -578,11 +595,13 @@ export const se_ListPermissionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      resourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -608,11 +627,13 @@ export const se_ListPermissionVersionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissionversions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      permissionArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -637,17 +658,17 @@ export const se_ListPrincipalsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listprincipals";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.principals != null && { principals: se_PrincipalArnOrIdList(input.principals, context) }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.resourceOwner != null && { resourceOwner: input.resourceOwner }),
-    ...(input.resourceShareArns != null && {
-      resourceShareArns: se_ResourceShareArnList(input.resourceShareArns, context),
-    }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      principals: (_) => _json(_),
+      resourceArn: [],
+      resourceOwner: [],
+      resourceShareArns: (_) => _json(_),
+      resourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -672,18 +693,18 @@ export const se_ListResourcesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.principal != null && { principal: input.principal }),
-    ...(input.resourceArns != null && { resourceArns: se_ResourceArnList(input.resourceArns, context) }),
-    ...(input.resourceOwner != null && { resourceOwner: input.resourceOwner }),
-    ...(input.resourceRegionScope != null && { resourceRegionScope: input.resourceRegionScope }),
-    ...(input.resourceShareArns != null && {
-      resourceShareArns: se_ResourceShareArnList(input.resourceShareArns, context),
-    }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      principal: [],
+      resourceArns: (_) => _json(_),
+      resourceOwner: [],
+      resourceRegionScope: [],
+      resourceShareArns: (_) => _json(_),
+      resourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -709,11 +730,13 @@ export const se_ListResourceSharePermissionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcesharepermissions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      resourceShareArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -738,11 +761,13 @@ export const se_ListResourceTypesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcetypes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceRegionScope != null && { resourceRegionScope: input.resourceRegionScope }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      resourceRegionScope: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -795,10 +820,12 @@ export const se_RejectResourceShareInvitationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rejectresourceshareinvitation";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.resourceShareInvitationArn != null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      resourceShareInvitationArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -823,10 +850,12 @@ export const se_TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagresource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceShareArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -851,10 +880,12 @@ export const se_UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagresource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceShareArn: [],
+      tagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -879,12 +910,14 @@ export const se_UpdateResourceShareCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateresourceshare";
   let body: any;
-  body = JSON.stringify({
-    ...(input.allowExternalPrincipals != null && { allowExternalPrincipals: input.allowExternalPrincipals }),
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      allowExternalPrincipals: [],
+      clientToken: [],
+      name: [],
+      resourceShareArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -910,12 +943,11 @@ export const de_AcceptResourceShareInvitationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.resourceShareInvitation != null) {
-    contents.resourceShareInvitation = de_ResourceShareInvitation(data.resourceShareInvitation, context);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    resourceShareInvitation: (_) => de_ResourceShareInvitation(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -964,10 +996,9 @@ const de_AcceptResourceShareInvitationCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -987,12 +1018,11 @@ export const de_AssociateResourceShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.resourceShareAssociations != null) {
-    contents.resourceShareAssociations = de_ResourceShareAssociationList(data.resourceShareAssociations, context);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    resourceShareAssociations: (_) => de_ResourceShareAssociationList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1044,10 +1074,9 @@ const de_AssociateResourceShareCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1067,12 +1096,11 @@ export const de_AssociateResourceSharePermissionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.returnValue != null) {
-    contents.returnValue = __expectBoolean(data.returnValue);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1112,10 +1140,9 @@ const de_AssociateResourceSharePermissionCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1135,12 +1162,11 @@ export const de_CreateResourceShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.resourceShare != null) {
-    contents.resourceShare = de_ResourceShare(data.resourceShare, context);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    resourceShare: (_) => de_ResourceShare(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1192,10 +1218,9 @@ const de_CreateResourceShareCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1215,12 +1240,11 @@ export const de_DeleteResourceShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.returnValue != null) {
-    contents.returnValue = __expectBoolean(data.returnValue);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1266,10 +1290,9 @@ const de_DeleteResourceShareCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1289,12 +1312,11 @@ export const de_DisassociateResourceShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.resourceShareAssociations != null) {
-    contents.resourceShareAssociations = de_ResourceShareAssociationList(data.resourceShareAssociations, context);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    resourceShareAssociations: (_) => de_ResourceShareAssociationList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1343,10 +1365,9 @@ const de_DisassociateResourceShareCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1366,12 +1387,11 @@ export const de_DisassociateResourceSharePermissionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.returnValue != null) {
-    contents.returnValue = __expectBoolean(data.returnValue);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1414,10 +1434,9 @@ const de_DisassociateResourceSharePermissionCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1437,9 +1456,10 @@ export const de_EnableSharingWithAwsOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.returnValue != null) {
-    contents.returnValue = __expectBoolean(data.returnValue);
-  }
+  const doc = take(data, {
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1467,10 +1487,9 @@ const de_EnableSharingWithAwsOrganizationCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1490,9 +1509,10 @@ export const de_GetPermissionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.permission != null) {
-    contents.permission = de_ResourceSharePermissionDetail(data.permission, context);
-  }
+  const doc = take(data, {
+    permission: (_) => de_ResourceSharePermissionDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1529,10 +1549,9 @@ const de_GetPermissionCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1552,12 +1571,11 @@ export const de_GetResourcePoliciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.policies != null) {
-    contents.policies = de_PolicyList(data.policies, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    policies: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1594,10 +1612,9 @@ const de_GetResourcePoliciesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1617,12 +1634,11 @@ export const de_GetResourceShareAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resourceShareAssociations != null) {
-    contents.resourceShareAssociations = de_ResourceShareAssociationList(data.resourceShareAssociations, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resourceShareAssociations: (_) => de_ResourceShareAssociationList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1662,10 +1678,9 @@ const de_GetResourceShareAssociationsCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1685,12 +1700,11 @@ export const de_GetResourceShareInvitationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resourceShareInvitations != null) {
-    contents.resourceShareInvitations = de_ResourceShareInvitationList(data.resourceShareInvitations, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resourceShareInvitations: (_) => de_ResourceShareInvitationList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1733,10 +1747,9 @@ const de_GetResourceShareInvitationsCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1756,12 +1769,11 @@ export const de_GetResourceSharesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resourceShares != null) {
-    contents.resourceShares = de_ResourceShareList(data.resourceShares, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resourceShares: (_) => de_ResourceShareList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1798,10 +1810,9 @@ const de_GetResourceSharesCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1821,12 +1832,11 @@ export const de_ListPendingInvitationResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resources != null) {
-    contents.resources = de_ResourceList(data.resources, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resources: (_) => de_ResourceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1872,10 +1882,9 @@ const de_ListPendingInvitationResourcesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1895,12 +1904,11 @@ export const de_ListPermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.permissions != null) {
-    contents.permissions = de_ResourceSharePermissionList(data.permissions, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    permissions: (_) => de_ResourceSharePermissionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1934,10 +1942,9 @@ const de_ListPermissionsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1957,12 +1964,11 @@ export const de_ListPermissionVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.permissions != null) {
-    contents.permissions = de_ResourceSharePermissionList(data.permissions, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    permissions: (_) => de_ResourceSharePermissionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2002,10 +2008,9 @@ const de_ListPermissionVersionsCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2025,12 +2030,11 @@ export const de_ListPrincipalsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.principals != null) {
-    contents.principals = de_PrincipalList(data.principals, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    principals: (_) => de_PrincipalList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2067,10 +2071,9 @@ const de_ListPrincipalsCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2090,12 +2093,11 @@ export const de_ListResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resources != null) {
-    contents.resources = de_ResourceList(data.resources, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resources: (_) => de_ResourceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2135,10 +2137,9 @@ const de_ListResourcesCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2158,12 +2159,11 @@ export const de_ListResourceSharePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.permissions != null) {
-    contents.permissions = de_ResourceSharePermissionList(data.permissions, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    permissions: (_) => de_ResourceSharePermissionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2203,10 +2203,9 @@ const de_ListResourceSharePermissionsCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2226,12 +2225,11 @@ export const de_ListResourceTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resourceTypes != null) {
-    contents.resourceTypes = de_ServiceNameAndResourceTypeList(data.resourceTypes, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resourceTypes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2262,10 +2260,9 @@ const de_ListResourceTypesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2285,9 +2282,10 @@ export const de_PromoteResourceShareCreatedFromPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.returnValue != null) {
-    contents.returnValue = __expectBoolean(data.returnValue);
-  }
+  const doc = take(data, {
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2330,10 +2328,9 @@ const de_PromoteResourceShareCreatedFromPolicyCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2353,12 +2350,11 @@ export const de_RejectResourceShareInvitationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.resourceShareInvitation != null) {
-    contents.resourceShareInvitation = de_ResourceShareInvitation(data.resourceShareInvitation, context);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    resourceShareInvitation: (_) => de_ResourceShareInvitation(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2407,10 +2403,9 @@ const de_RejectResourceShareInvitationCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2472,10 +2467,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2522,10 +2516,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2545,12 +2538,11 @@ export const de_UpdateResourceShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken != null) {
-    contents.clientToken = __expectString(data.clientToken);
-  }
-  if (data.resourceShare != null) {
-    contents.resourceShare = de_ResourceShare(data.resourceShare, context);
-  }
+  const doc = take(data, {
+    clientToken: __expectString,
+    resourceShare: (_) => de_ResourceShare(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2596,16 +2588,15 @@ const de_UpdateResourceShareCommandError = async (
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1IdempotentParameterMismatchExceptionRes
  */
@@ -2615,9 +2606,10 @@ const de_IdempotentParameterMismatchExceptionRes = async (
 ): Promise<IdempotentParameterMismatchException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IdempotentParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2634,9 +2626,10 @@ const de_InvalidClientTokenExceptionRes = async (
 ): Promise<InvalidClientTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidClientTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2653,9 +2646,10 @@ const de_InvalidMaxResultsExceptionRes = async (
 ): Promise<InvalidMaxResultsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidMaxResultsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2672,9 +2666,10 @@ const de_InvalidNextTokenExceptionRes = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2691,9 +2686,10 @@ const de_InvalidParameterExceptionRes = async (
 ): Promise<InvalidParameterException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2710,9 +2706,10 @@ const de_InvalidResourceTypeExceptionRes = async (
 ): Promise<InvalidResourceTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidResourceTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2729,9 +2726,10 @@ const de_InvalidStateTransitionExceptionRes = async (
 ): Promise<InvalidStateTransitionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidStateTransitionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2748,9 +2746,10 @@ const de_MalformedArnExceptionRes = async (
 ): Promise<MalformedArnException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MalformedArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2767,9 +2766,10 @@ const de_MissingRequiredParameterExceptionRes = async (
 ): Promise<MissingRequiredParameterException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MissingRequiredParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2786,9 +2786,10 @@ const de_OperationNotPermittedExceptionRes = async (
 ): Promise<OperationNotPermittedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new OperationNotPermittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2805,9 +2806,10 @@ const de_ResourceArnNotFoundExceptionRes = async (
 ): Promise<ResourceArnNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceArnNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2824,9 +2826,10 @@ const de_ResourceShareInvitationAlreadyAcceptedExceptionRes = async (
 ): Promise<ResourceShareInvitationAlreadyAcceptedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceShareInvitationAlreadyAcceptedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2843,9 +2846,10 @@ const de_ResourceShareInvitationAlreadyRejectedExceptionRes = async (
 ): Promise<ResourceShareInvitationAlreadyRejectedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceShareInvitationAlreadyRejectedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2862,9 +2866,10 @@ const de_ResourceShareInvitationArnNotFoundExceptionRes = async (
 ): Promise<ResourceShareInvitationArnNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceShareInvitationArnNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2881,9 +2886,10 @@ const de_ResourceShareInvitationExpiredExceptionRes = async (
 ): Promise<ResourceShareInvitationExpiredException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceShareInvitationExpiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2900,9 +2906,10 @@ const de_ResourceShareLimitExceededExceptionRes = async (
 ): Promise<ResourceShareLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceShareLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2919,9 +2926,10 @@ const de_ServerInternalExceptionRes = async (
 ): Promise<ServerInternalException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServerInternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2938,9 +2946,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2957,9 +2966,10 @@ const de_TagLimitExceededExceptionRes = async (
 ): Promise<TagLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TagLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2976,9 +2986,10 @@ const de_TagPolicyViolationExceptionRes = async (
 ): Promise<TagPolicyViolationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TagPolicyViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2992,9 +3003,10 @@ const de_TagPolicyViolationExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3011,9 +3023,10 @@ const de_UnknownResourceExceptionRes = async (
 ): Promise<UnknownResourceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnknownResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3021,157 +3034,41 @@ const de_UnknownResourceExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1PermissionArnList
- */
-const se_PermissionArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PermissionArnList omitted.
 
-/**
- * serializeAws_restJson1PrincipalArnOrIdList
- */
-const se_PrincipalArnOrIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PrincipalArnOrIdList omitted.
 
-/**
- * serializeAws_restJson1ResourceArnList
- */
-const se_ResourceArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceArnList omitted.
 
-/**
- * serializeAws_restJson1ResourceShareArnList
- */
-const se_ResourceShareArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceShareArnList omitted.
 
-/**
- * serializeAws_restJson1ResourceShareInvitationArnList
- */
-const se_ResourceShareInvitationArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceShareInvitationArnList omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagFilter
- */
-const se_TagFilter = (input: TagFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.tagKey != null && { tagKey: input.tagKey }),
-    ...(input.tagValues != null && { tagValues: se_TagValueList(input.tagValues, context) }),
-  };
-};
+// se_TagFilter omitted.
 
-/**
- * serializeAws_restJson1TagFilters
- */
-const se_TagFilters = (input: TagFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TagFilter(entry, context);
-    });
-};
+// se_TagFilters omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_restJson1TagValueList
- */
-const se_TagValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagValueList omitted.
 
-/**
- * deserializeAws_restJson1PolicyList
- */
-const de_PolicyList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PolicyList omitted.
 
 /**
  * deserializeAws_restJson1Principal
  */
 const de_Principal = (output: any, context: __SerdeContext): Principal => {
-  return {
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    external: __expectBoolean(output.external),
-    id: __expectString(output.id),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    resourceShareArn: __expectString(output.resourceShareArn),
-  } as any;
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    external: __expectBoolean,
+    id: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceShareArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -3181,9 +3078,6 @@ const de_PrincipalList = (output: any, context: __SerdeContext): Principal[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Principal(entry, context);
     });
   return retVal;
@@ -3193,23 +3087,17 @@ const de_PrincipalList = (output: any, context: __SerdeContext): Principal[] => 
  * deserializeAws_restJson1Resource
  */
 const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    resourceGroupArn: __expectString(output.resourceGroupArn),
-    resourceRegionScope: __expectString(output.resourceRegionScope),
-    resourceShareArn: __expectString(output.resourceShareArn),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceGroupArn: __expectString,
+    resourceRegionScope: __expectString,
+    resourceShareArn: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3219,9 +3107,6 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Resource(entry, context);
     });
   return retVal;
@@ -3231,47 +3116,35 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
  * deserializeAws_restJson1ResourceShare
  */
 const de_ResourceShare = (output: any, context: __SerdeContext): ResourceShare => {
-  return {
-    allowExternalPrincipals: __expectBoolean(output.allowExternalPrincipals),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    featureSet: __expectString(output.featureSet),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    name: __expectString(output.name),
-    owningAccountId: __expectString(output.owningAccountId),
-    resourceShareArn: __expectString(output.resourceShareArn),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    allowExternalPrincipals: __expectBoolean,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    featureSet: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    owningAccountId: __expectString,
+    resourceShareArn: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ResourceShareAssociation
  */
 const de_ResourceShareAssociation = (output: any, context: __SerdeContext): ResourceShareAssociation => {
-  return {
-    associatedEntity: __expectString(output.associatedEntity),
-    associationType: __expectString(output.associationType),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    external: __expectBoolean(output.external),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    resourceShareArn: __expectString(output.resourceShareArn),
-    resourceShareName: __expectString(output.resourceShareName),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-  } as any;
+  return take(output, {
+    associatedEntity: __expectString,
+    associationType: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    external: __expectBoolean,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceShareArn: __expectString,
+    resourceShareName: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+  }) as any;
 };
 
 /**
@@ -3281,9 +3154,6 @@ const de_ResourceShareAssociationList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceShareAssociation(entry, context);
     });
   return retVal;
@@ -3293,23 +3163,17 @@ const de_ResourceShareAssociationList = (output: any, context: __SerdeContext): 
  * deserializeAws_restJson1ResourceShareInvitation
  */
 const de_ResourceShareInvitation = (output: any, context: __SerdeContext): ResourceShareInvitation => {
-  return {
-    invitationTimestamp:
-      output.invitationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.invitationTimestamp)))
-        : undefined,
-    receiverAccountId: __expectString(output.receiverAccountId),
-    receiverArn: __expectString(output.receiverArn),
-    resourceShareArn: __expectString(output.resourceShareArn),
-    resourceShareAssociations:
-      output.resourceShareAssociations != null
-        ? de_ResourceShareAssociationList(output.resourceShareAssociations, context)
-        : undefined,
-    resourceShareInvitationArn: __expectString(output.resourceShareInvitationArn),
-    resourceShareName: __expectString(output.resourceShareName),
-    senderAccountId: __expectString(output.senderAccountId),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    invitationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    receiverAccountId: __expectString,
+    receiverArn: __expectString,
+    resourceShareArn: __expectString,
+    resourceShareAssociations: (_: any) => de_ResourceShareAssociationList(_, context),
+    resourceShareInvitationArn: __expectString,
+    resourceShareName: __expectString,
+    senderAccountId: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3319,9 +3183,6 @@ const de_ResourceShareInvitationList = (output: any, context: __SerdeContext): R
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceShareInvitation(entry, context);
     });
   return retVal;
@@ -3334,9 +3195,6 @@ const de_ResourceShareList = (output: any, context: __SerdeContext): ResourceSha
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceShare(entry, context);
     });
   return retVal;
@@ -3346,23 +3204,17 @@ const de_ResourceShareList = (output: any, context: __SerdeContext): ResourceSha
  * deserializeAws_restJson1ResourceSharePermissionDetail
  */
 const de_ResourceSharePermissionDetail = (output: any, context: __SerdeContext): ResourceSharePermissionDetail => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    defaultVersion: __expectBoolean(output.defaultVersion),
-    isResourceTypeDefault: __expectBoolean(output.isResourceTypeDefault),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    name: __expectString(output.name),
-    permission: __expectString(output.permission),
-    resourceType: __expectString(output.resourceType),
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultVersion: __expectBoolean,
+    isResourceTypeDefault: __expectBoolean,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    permission: __expectString,
+    resourceType: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
 /**
@@ -3372,9 +3224,6 @@ const de_ResourceSharePermissionList = (output: any, context: __SerdeContext): R
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceSharePermissionSummary(entry, context);
     });
   return retVal;
@@ -3384,75 +3233,26 @@ const de_ResourceSharePermissionList = (output: any, context: __SerdeContext): R
  * deserializeAws_restJson1ResourceSharePermissionSummary
  */
 const de_ResourceSharePermissionSummary = (output: any, context: __SerdeContext): ResourceSharePermissionSummary => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    defaultVersion: __expectBoolean(output.defaultVersion),
-    isResourceTypeDefault: __expectBoolean(output.isResourceTypeDefault),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    name: __expectString(output.name),
-    resourceType: __expectString(output.resourceType),
-    status: __expectString(output.status),
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultVersion: __expectBoolean,
+    isResourceTypeDefault: __expectBoolean,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    resourceType: __expectString,
+    status: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ServiceNameAndResourceType
- */
-const de_ServiceNameAndResourceType = (output: any, context: __SerdeContext): ServiceNameAndResourceType => {
-  return {
-    resourceRegionScope: __expectString(output.resourceRegionScope),
-    resourceType: __expectString(output.resourceType),
-    serviceName: __expectString(output.serviceName),
-  } as any;
-};
+// de_ServiceNameAndResourceType omitted.
 
-/**
- * deserializeAws_restJson1ServiceNameAndResourceTypeList
- */
-const de_ServiceNameAndResourceTypeList = (output: any, context: __SerdeContext): ServiceNameAndResourceType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServiceNameAndResourceType(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceNameAndResourceTypeList omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

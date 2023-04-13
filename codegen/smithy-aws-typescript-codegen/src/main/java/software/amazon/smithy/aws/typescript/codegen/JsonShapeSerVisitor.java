@@ -140,7 +140,6 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     public void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
         writer.addImport("take", null, "@aws-sdk/smithy-client");
-
         writer.openBlock("return take(input, {", "});", () -> {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
@@ -161,9 +160,9 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                         writer.write("'$L': [, _ => _ ?? generateIdempotencyToken(), `$L`],", wireName, memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
-                            writer.write("$L: [,,`$L`],", wireName, memberName);
+                            writer.write("'$L': [,,`$L`],", wireName, memberName);
                         } else {
-                            writer.write("$L: [,$L,`$L`],", wireName, valueProvider, memberName);
+                            writer.write("'$L': [,$L,`$L`],", wireName, valueProvider, memberName);
                         }
                     }
                 } else {
@@ -171,9 +170,9 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                         writer.write("'$L': _ => _ ?? generateIdempotencyToken(),", memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
-                            writer.write("$1S: [],", memberName);
+                            writer.write("'$1L': [],", memberName);
                         } else {
-                            writer.write("$1S: $2L,", memberName, valueProvider);
+                            writer.write("'$1L': $2L,", memberName, valueProvider);
                         }
                     }
                 }

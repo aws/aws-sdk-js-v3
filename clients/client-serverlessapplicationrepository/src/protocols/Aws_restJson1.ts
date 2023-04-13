@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,9 +9,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -61,7 +63,6 @@ import {
   ApplicationPolicyStatement,
   ApplicationSummary,
   BadRequestException,
-  Capability,
   ConflictException,
   ForbiddenException,
   InternalServerErrorException,
@@ -90,23 +91,25 @@ export const se_CreateApplicationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Author != null && { author: input.Author }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.HomePageUrl != null && { homePageUrl: input.HomePageUrl }),
-    ...(input.Labels != null && { labels: se___listOf__string(input.Labels, context) }),
-    ...(input.LicenseBody != null && { licenseBody: input.LicenseBody }),
-    ...(input.LicenseUrl != null && { licenseUrl: input.LicenseUrl }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.ReadmeBody != null && { readmeBody: input.ReadmeBody }),
-    ...(input.ReadmeUrl != null && { readmeUrl: input.ReadmeUrl }),
-    ...(input.SemanticVersion != null && { semanticVersion: input.SemanticVersion }),
-    ...(input.SourceCodeArchiveUrl != null && { sourceCodeArchiveUrl: input.SourceCodeArchiveUrl }),
-    ...(input.SourceCodeUrl != null && { sourceCodeUrl: input.SourceCodeUrl }),
-    ...(input.SpdxLicenseId != null && { spdxLicenseId: input.SpdxLicenseId }),
-    ...(input.TemplateBody != null && { templateBody: input.TemplateBody }),
-    ...(input.TemplateUrl != null && { templateUrl: input.TemplateUrl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      author: [, , `Author`],
+      description: [, , `Description`],
+      homePageUrl: [, , `HomePageUrl`],
+      labels: [, (_) => _json(_), `Labels`],
+      licenseBody: [, , `LicenseBody`],
+      licenseUrl: [, , `LicenseUrl`],
+      name: [, , `Name`],
+      readmeBody: [, , `ReadmeBody`],
+      readmeUrl: [, , `ReadmeUrl`],
+      semanticVersion: [, , `SemanticVersion`],
+      sourceCodeArchiveUrl: [, , `SourceCodeArchiveUrl`],
+      sourceCodeUrl: [, , `SourceCodeUrl`],
+      spdxLicenseId: [, , `SpdxLicenseId`],
+      templateBody: [, , `TemplateBody`],
+      templateUrl: [, , `TemplateUrl`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -149,12 +152,14 @@ export const se_CreateApplicationVersionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SourceCodeArchiveUrl != null && { sourceCodeArchiveUrl: input.SourceCodeArchiveUrl }),
-    ...(input.SourceCodeUrl != null && { sourceCodeUrl: input.SourceCodeUrl }),
-    ...(input.TemplateBody != null && { templateBody: input.TemplateBody }),
-    ...(input.TemplateUrl != null && { templateUrl: input.TemplateUrl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      sourceCodeArchiveUrl: [, , `SourceCodeArchiveUrl`],
+      sourceCodeUrl: [, , `SourceCodeUrl`],
+      templateBody: [, , `TemplateBody`],
+      templateUrl: [, , `TemplateUrl`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -188,24 +193,22 @@ export const se_CreateCloudFormationChangeSetCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && { capabilities: se___listOf__string(input.Capabilities, context) }),
-    ...(input.ChangeSetName != null && { changeSetName: input.ChangeSetName }),
-    ...(input.ClientToken != null && { clientToken: input.ClientToken }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.NotificationArns != null && { notificationArns: se___listOf__string(input.NotificationArns, context) }),
-    ...(input.ParameterOverrides != null && {
-      parameterOverrides: se___listOfParameterValue(input.ParameterOverrides, context),
-    }),
-    ...(input.ResourceTypes != null && { resourceTypes: se___listOf__string(input.ResourceTypes, context) }),
-    ...(input.RollbackConfiguration != null && {
-      rollbackConfiguration: se_RollbackConfiguration(input.RollbackConfiguration, context),
-    }),
-    ...(input.SemanticVersion != null && { semanticVersion: input.SemanticVersion }),
-    ...(input.StackName != null && { stackName: input.StackName }),
-    ...(input.Tags != null && { tags: se___listOfTag(input.Tags, context) }),
-    ...(input.TemplateId != null && { templateId: input.TemplateId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      capabilities: [, (_) => _json(_), `Capabilities`],
+      changeSetName: [, , `ChangeSetName`],
+      clientToken: [, , `ClientToken`],
+      description: [, , `Description`],
+      notificationArns: [, (_) => _json(_), `NotificationArns`],
+      parameterOverrides: [, (_) => se___listOfParameterValue(_, context), `ParameterOverrides`],
+      resourceTypes: [, (_) => _json(_), `ResourceTypes`],
+      rollbackConfiguration: [, (_) => se_RollbackConfiguration(_, context), `RollbackConfiguration`],
+      semanticVersion: [, , `SemanticVersion`],
+      stackName: [, , `StackName`],
+      tags: [, (_) => se___listOfTag(_, context), `Tags`],
+      templateId: [, , `TemplateId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -239,9 +242,11 @@ export const se_CreateCloudFormationTemplateCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SemanticVersion != null && { semanticVersion: input.SemanticVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      semanticVersion: [, , `SemanticVersion`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -506,9 +511,11 @@ export const se_PutApplicationPolicyCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Statements != null && { statements: se___listOfApplicationPolicyStatement(input.Statements, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      statements: [, (_) => se___listOfApplicationPolicyStatement(_, context), `Statements`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -542,9 +549,11 @@ export const se_UnshareApplicationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.OrganizationId != null && { organizationId: input.OrganizationId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      organizationId: [, , `OrganizationId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -578,14 +587,16 @@ export const se_UpdateApplicationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Author != null && { author: input.Author }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.HomePageUrl != null && { homePageUrl: input.HomePageUrl }),
-    ...(input.Labels != null && { labels: se___listOf__string(input.Labels, context) }),
-    ...(input.ReadmeBody != null && { readmeBody: input.ReadmeBody }),
-    ...(input.ReadmeUrl != null && { readmeUrl: input.ReadmeUrl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      author: [, , `Author`],
+      description: [, , `Description`],
+      homePageUrl: [, , `HomePageUrl`],
+      labels: [, (_) => _json(_), `Labels`],
+      readmeBody: [, , `ReadmeBody`],
+      readmeUrl: [, , `ReadmeUrl`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -611,45 +622,22 @@ export const de_CreateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.ApplicationId = __expectString(data.applicationId);
-  }
-  if (data.author != null) {
-    contents.Author = __expectString(data.author);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectString(data.creationTime);
-  }
-  if (data.description != null) {
-    contents.Description = __expectString(data.description);
-  }
-  if (data.homePageUrl != null) {
-    contents.HomePageUrl = __expectString(data.homePageUrl);
-  }
-  if (data.isVerifiedAuthor != null) {
-    contents.IsVerifiedAuthor = __expectBoolean(data.isVerifiedAuthor);
-  }
-  if (data.labels != null) {
-    contents.Labels = de___listOf__string(data.labels, context);
-  }
-  if (data.licenseUrl != null) {
-    contents.LicenseUrl = __expectString(data.licenseUrl);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.readmeUrl != null) {
-    contents.ReadmeUrl = __expectString(data.readmeUrl);
-  }
-  if (data.spdxLicenseId != null) {
-    contents.SpdxLicenseId = __expectString(data.spdxLicenseId);
-  }
-  if (data.verifiedAuthorUrl != null) {
-    contents.VerifiedAuthorUrl = __expectString(data.verifiedAuthorUrl);
-  }
-  if (data.version != null) {
-    contents.Version = de_Version(data.version, context);
-  }
+  const doc = take(data, {
+    ApplicationId: [, __expectString, `applicationId`],
+    Author: [, __expectString, `author`],
+    CreationTime: [, __expectString, `creationTime`],
+    Description: [, __expectString, `description`],
+    HomePageUrl: [, __expectString, `homePageUrl`],
+    IsVerifiedAuthor: [, __expectBoolean, `isVerifiedAuthor`],
+    Labels: [, _json, `labels`],
+    LicenseUrl: [, __expectString, `licenseUrl`],
+    Name: [, __expectString, `name`],
+    ReadmeUrl: [, __expectString, `readmeUrl`],
+    SpdxLicenseId: [, __expectString, `spdxLicenseId`],
+    VerifiedAuthorUrl: [, __expectString, `verifiedAuthorUrl`],
+    Version: [, (_) => de_Version(_, context), `version`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -683,10 +671,9 @@ const de_CreateApplicationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -706,33 +693,18 @@ export const de_CreateApplicationVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.ApplicationId = __expectString(data.applicationId);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectString(data.creationTime);
-  }
-  if (data.parameterDefinitions != null) {
-    contents.ParameterDefinitions = de___listOfParameterDefinition(data.parameterDefinitions, context);
-  }
-  if (data.requiredCapabilities != null) {
-    contents.RequiredCapabilities = de___listOfCapability(data.requiredCapabilities, context);
-  }
-  if (data.resourcesSupported != null) {
-    contents.ResourcesSupported = __expectBoolean(data.resourcesSupported);
-  }
-  if (data.semanticVersion != null) {
-    contents.SemanticVersion = __expectString(data.semanticVersion);
-  }
-  if (data.sourceCodeArchiveUrl != null) {
-    contents.SourceCodeArchiveUrl = __expectString(data.sourceCodeArchiveUrl);
-  }
-  if (data.sourceCodeUrl != null) {
-    contents.SourceCodeUrl = __expectString(data.sourceCodeUrl);
-  }
-  if (data.templateUrl != null) {
-    contents.TemplateUrl = __expectString(data.templateUrl);
-  }
+  const doc = take(data, {
+    ApplicationId: [, __expectString, `applicationId`],
+    CreationTime: [, __expectString, `creationTime`],
+    ParameterDefinitions: [, (_) => de___listOfParameterDefinition(_, context), `parameterDefinitions`],
+    RequiredCapabilities: [, _json, `requiredCapabilities`],
+    ResourcesSupported: [, __expectBoolean, `resourcesSupported`],
+    SemanticVersion: [, __expectString, `semanticVersion`],
+    SourceCodeArchiveUrl: [, __expectString, `sourceCodeArchiveUrl`],
+    SourceCodeUrl: [, __expectString, `sourceCodeUrl`],
+    TemplateUrl: [, __expectString, `templateUrl`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -766,10 +738,9 @@ const de_CreateApplicationVersionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -789,18 +760,13 @@ export const de_CreateCloudFormationChangeSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.ApplicationId = __expectString(data.applicationId);
-  }
-  if (data.changeSetId != null) {
-    contents.ChangeSetId = __expectString(data.changeSetId);
-  }
-  if (data.semanticVersion != null) {
-    contents.SemanticVersion = __expectString(data.semanticVersion);
-  }
-  if (data.stackId != null) {
-    contents.StackId = __expectString(data.stackId);
-  }
+  const doc = take(data, {
+    ApplicationId: [, __expectString, `applicationId`],
+    ChangeSetId: [, __expectString, `changeSetId`],
+    SemanticVersion: [, __expectString, `semanticVersion`],
+    StackId: [, __expectString, `stackId`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -831,10 +797,9 @@ const de_CreateCloudFormationChangeSetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -854,27 +819,16 @@ export const de_CreateCloudFormationTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.ApplicationId = __expectString(data.applicationId);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectString(data.creationTime);
-  }
-  if (data.expirationTime != null) {
-    contents.ExpirationTime = __expectString(data.expirationTime);
-  }
-  if (data.semanticVersion != null) {
-    contents.SemanticVersion = __expectString(data.semanticVersion);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.templateId != null) {
-    contents.TemplateId = __expectString(data.templateId);
-  }
-  if (data.templateUrl != null) {
-    contents.TemplateUrl = __expectString(data.templateUrl);
-  }
+  const doc = take(data, {
+    ApplicationId: [, __expectString, `applicationId`],
+    CreationTime: [, __expectString, `creationTime`],
+    ExpirationTime: [, __expectString, `expirationTime`],
+    SemanticVersion: [, __expectString, `semanticVersion`],
+    Status: [, __expectString, `status`],
+    TemplateId: [, __expectString, `templateId`],
+    TemplateUrl: [, __expectString, `templateUrl`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -908,10 +862,9 @@ const de_CreateCloudFormationTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -967,10 +920,9 @@ const de_DeleteApplicationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -990,45 +942,22 @@ export const de_GetApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.ApplicationId = __expectString(data.applicationId);
-  }
-  if (data.author != null) {
-    contents.Author = __expectString(data.author);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectString(data.creationTime);
-  }
-  if (data.description != null) {
-    contents.Description = __expectString(data.description);
-  }
-  if (data.homePageUrl != null) {
-    contents.HomePageUrl = __expectString(data.homePageUrl);
-  }
-  if (data.isVerifiedAuthor != null) {
-    contents.IsVerifiedAuthor = __expectBoolean(data.isVerifiedAuthor);
-  }
-  if (data.labels != null) {
-    contents.Labels = de___listOf__string(data.labels, context);
-  }
-  if (data.licenseUrl != null) {
-    contents.LicenseUrl = __expectString(data.licenseUrl);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.readmeUrl != null) {
-    contents.ReadmeUrl = __expectString(data.readmeUrl);
-  }
-  if (data.spdxLicenseId != null) {
-    contents.SpdxLicenseId = __expectString(data.spdxLicenseId);
-  }
-  if (data.verifiedAuthorUrl != null) {
-    contents.VerifiedAuthorUrl = __expectString(data.verifiedAuthorUrl);
-  }
-  if (data.version != null) {
-    contents.Version = de_Version(data.version, context);
-  }
+  const doc = take(data, {
+    ApplicationId: [, __expectString, `applicationId`],
+    Author: [, __expectString, `author`],
+    CreationTime: [, __expectString, `creationTime`],
+    Description: [, __expectString, `description`],
+    HomePageUrl: [, __expectString, `homePageUrl`],
+    IsVerifiedAuthor: [, __expectBoolean, `isVerifiedAuthor`],
+    Labels: [, _json, `labels`],
+    LicenseUrl: [, __expectString, `licenseUrl`],
+    Name: [, __expectString, `name`],
+    ReadmeUrl: [, __expectString, `readmeUrl`],
+    SpdxLicenseId: [, __expectString, `spdxLicenseId`],
+    VerifiedAuthorUrl: [, __expectString, `verifiedAuthorUrl`],
+    Version: [, (_) => de_Version(_, context), `version`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1062,10 +991,9 @@ const de_GetApplicationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1085,9 +1013,10 @@ export const de_GetApplicationPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.statements != null) {
-    contents.Statements = de___listOfApplicationPolicyStatement(data.statements, context);
-  }
+  const doc = take(data, {
+    Statements: [, (_) => de___listOfApplicationPolicyStatement(_, context), `statements`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1121,10 +1050,9 @@ const de_GetApplicationPolicyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1144,27 +1072,16 @@ export const de_GetCloudFormationTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.ApplicationId = __expectString(data.applicationId);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectString(data.creationTime);
-  }
-  if (data.expirationTime != null) {
-    contents.ExpirationTime = __expectString(data.expirationTime);
-  }
-  if (data.semanticVersion != null) {
-    contents.SemanticVersion = __expectString(data.semanticVersion);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.templateId != null) {
-    contents.TemplateId = __expectString(data.templateId);
-  }
-  if (data.templateUrl != null) {
-    contents.TemplateUrl = __expectString(data.templateUrl);
-  }
+  const doc = take(data, {
+    ApplicationId: [, __expectString, `applicationId`],
+    CreationTime: [, __expectString, `creationTime`],
+    ExpirationTime: [, __expectString, `expirationTime`],
+    SemanticVersion: [, __expectString, `semanticVersion`],
+    Status: [, __expectString, `status`],
+    TemplateId: [, __expectString, `templateId`],
+    TemplateUrl: [, __expectString, `templateUrl`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1198,10 +1115,9 @@ const de_GetCloudFormationTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1221,12 +1137,11 @@ export const de_ListApplicationDependenciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dependencies != null) {
-    contents.Dependencies = de___listOfApplicationDependencySummary(data.dependencies, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Dependencies: [, (_) => de___listOfApplicationDependencySummary(_, context), `dependencies`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1260,10 +1175,9 @@ const de_ListApplicationDependenciesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1283,12 +1197,11 @@ export const de_ListApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applications != null) {
-    contents.Applications = de___listOfApplicationSummary(data.applications, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Applications: [, (_) => de___listOfApplicationSummary(_, context), `applications`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1319,10 +1232,9 @@ const de_ListApplicationsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1342,12 +1254,11 @@ export const de_ListApplicationVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.versions != null) {
-    contents.Versions = de___listOfVersionSummary(data.versions, context);
-  }
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Versions: [, (_) => de___listOfVersionSummary(_, context), `versions`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1381,10 +1292,9 @@ const de_ListApplicationVersionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1404,9 +1314,10 @@ export const de_PutApplicationPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.statements != null) {
-    contents.Statements = de___listOfApplicationPolicyStatement(data.statements, context);
-  }
+  const doc = take(data, {
+    Statements: [, (_) => de___listOfApplicationPolicyStatement(_, context), `statements`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1440,10 +1351,9 @@ const de_PutApplicationPolicyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1496,10 +1406,9 @@ const de_UnshareApplicationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1519,45 +1428,22 @@ export const de_UpdateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.ApplicationId = __expectString(data.applicationId);
-  }
-  if (data.author != null) {
-    contents.Author = __expectString(data.author);
-  }
-  if (data.creationTime != null) {
-    contents.CreationTime = __expectString(data.creationTime);
-  }
-  if (data.description != null) {
-    contents.Description = __expectString(data.description);
-  }
-  if (data.homePageUrl != null) {
-    contents.HomePageUrl = __expectString(data.homePageUrl);
-  }
-  if (data.isVerifiedAuthor != null) {
-    contents.IsVerifiedAuthor = __expectBoolean(data.isVerifiedAuthor);
-  }
-  if (data.labels != null) {
-    contents.Labels = de___listOf__string(data.labels, context);
-  }
-  if (data.licenseUrl != null) {
-    contents.LicenseUrl = __expectString(data.licenseUrl);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.readmeUrl != null) {
-    contents.ReadmeUrl = __expectString(data.readmeUrl);
-  }
-  if (data.spdxLicenseId != null) {
-    contents.SpdxLicenseId = __expectString(data.spdxLicenseId);
-  }
-  if (data.verifiedAuthorUrl != null) {
-    contents.VerifiedAuthorUrl = __expectString(data.verifiedAuthorUrl);
-  }
-  if (data.version != null) {
-    contents.Version = de_Version(data.version, context);
-  }
+  const doc = take(data, {
+    ApplicationId: [, __expectString, `applicationId`],
+    Author: [, __expectString, `author`],
+    CreationTime: [, __expectString, `creationTime`],
+    Description: [, __expectString, `description`],
+    HomePageUrl: [, __expectString, `homePageUrl`],
+    IsVerifiedAuthor: [, __expectBoolean, `isVerifiedAuthor`],
+    Labels: [, _json, `labels`],
+    LicenseUrl: [, __expectString, `licenseUrl`],
+    Name: [, __expectString, `name`],
+    ReadmeUrl: [, __expectString, `readmeUrl`],
+    SpdxLicenseId: [, __expectString, `spdxLicenseId`],
+    VerifiedAuthorUrl: [, __expectString, `verifiedAuthorUrl`],
+    Version: [, (_) => de_Version(_, context), `version`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1594,28 +1480,26 @@ const de_UpdateApplicationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorCode != null) {
-    contents.ErrorCode = __expectString(data.errorCode);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorCode: [, __expectString, `errorCode`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1629,12 +1513,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorCode != null) {
-    contents.ErrorCode = __expectString(data.errorCode);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorCode: [, __expectString, `errorCode`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1648,12 +1531,11 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorCode != null) {
-    contents.ErrorCode = __expectString(data.errorCode);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorCode: [, __expectString, `errorCode`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1670,12 +1552,11 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorCode != null) {
-    contents.ErrorCode = __expectString(data.errorCode);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorCode: [, __expectString, `errorCode`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1689,12 +1570,11 @@ const de_InternalServerErrorExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorCode != null) {
-    contents.ErrorCode = __expectString(data.errorCode);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorCode: [, __expectString, `errorCode`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1711,12 +1591,11 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorCode != null) {
-    contents.ErrorCode = __expectString(data.errorCode);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorCode: [, __expectString, `errorCode`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1724,16 +1603,7 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOf__string
- */
-const se___listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__string omitted.
 
 /**
  * serializeAws_restJson1__listOfApplicationPolicyStatement
@@ -1783,70 +1653,55 @@ const se___listOfTag = (input: Tag[], context: __SerdeContext): any => {
  * serializeAws_restJson1ApplicationPolicyStatement
  */
 const se_ApplicationPolicyStatement = (input: ApplicationPolicyStatement, context: __SerdeContext): any => {
-  return {
-    ...(input.Actions != null && { actions: se___listOf__string(input.Actions, context) }),
-    ...(input.PrincipalOrgIDs != null && { principalOrgIDs: se___listOf__string(input.PrincipalOrgIDs, context) }),
-    ...(input.Principals != null && { principals: se___listOf__string(input.Principals, context) }),
-    ...(input.StatementId != null && { statementId: input.StatementId }),
-  };
+  return take(input, {
+    actions: [, (_) => _json(_), `Actions`],
+    principalOrgIDs: [, (_) => _json(_), `PrincipalOrgIDs`],
+    principals: [, (_) => _json(_), `Principals`],
+    statementId: [, , `StatementId`],
+  });
 };
 
 /**
  * serializeAws_restJson1ParameterValue
  */
 const se_ParameterValue = (input: ParameterValue, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Value != null && { value: input.Value }),
-  };
+  return take(input, {
+    name: [, , `Name`],
+    value: [, , `Value`],
+  });
 };
 
 /**
  * serializeAws_restJson1RollbackConfiguration
  */
 const se_RollbackConfiguration = (input: RollbackConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MonitoringTimeInMinutes != null && { monitoringTimeInMinutes: input.MonitoringTimeInMinutes }),
-    ...(input.RollbackTriggers != null && {
-      rollbackTriggers: se___listOfRollbackTrigger(input.RollbackTriggers, context),
-    }),
-  };
+  return take(input, {
+    monitoringTimeInMinutes: [, , `MonitoringTimeInMinutes`],
+    rollbackTriggers: [, (_) => se___listOfRollbackTrigger(_, context), `RollbackTriggers`],
+  });
 };
 
 /**
  * serializeAws_restJson1RollbackTrigger
  */
 const se_RollbackTrigger = (input: RollbackTrigger, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { arn: input.Arn }),
-    ...(input.Type != null && { type: input.Type }),
-  };
+  return take(input, {
+    arn: [, , `Arn`],
+    type: [, , `Type`],
+  });
 };
 
 /**
  * serializeAws_restJson1Tag
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { key: input.Key }),
-    ...(input.Value != null && { value: input.Value }),
-  };
+  return take(input, {
+    key: [, , `Key`],
+    value: [, , `Value`],
+  });
 };
 
-/**
- * deserializeAws_restJson1__listOf__string
- */
-const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__string omitted.
 
 /**
  * deserializeAws_restJson1__listOfApplicationDependencySummary
@@ -1858,9 +1713,6 @@ const de___listOfApplicationDependencySummary = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApplicationDependencySummary(entry, context);
     });
   return retVal;
@@ -1873,9 +1725,6 @@ const de___listOfApplicationPolicyStatement = (output: any, context: __SerdeCont
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApplicationPolicyStatement(entry, context);
     });
   return retVal;
@@ -1888,28 +1737,12 @@ const de___listOfApplicationSummary = (output: any, context: __SerdeContext): Ap
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApplicationSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__listOfCapability
- */
-const de___listOfCapability = (output: any, context: __SerdeContext): (Capability | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOfCapability omitted.
 
 /**
  * deserializeAws_restJson1__listOfParameterDefinition
@@ -1918,9 +1751,6 @@ const de___listOfParameterDefinition = (output: any, context: __SerdeContext): P
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ParameterDefinition(entry, context);
     });
   return retVal;
@@ -1933,9 +1763,6 @@ const de___listOfVersionSummary = (output: any, context: __SerdeContext): Versio
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VersionSummary(entry, context);
     });
   return retVal;
@@ -1945,93 +1772,88 @@ const de___listOfVersionSummary = (output: any, context: __SerdeContext): Versio
  * deserializeAws_restJson1ApplicationDependencySummary
  */
 const de_ApplicationDependencySummary = (output: any, context: __SerdeContext): ApplicationDependencySummary => {
-  return {
-    ApplicationId: __expectString(output.applicationId),
-    SemanticVersion: __expectString(output.semanticVersion),
-  } as any;
+  return take(output, {
+    ApplicationId: [, __expectString, `applicationId`],
+    SemanticVersion: [, __expectString, `semanticVersion`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ApplicationPolicyStatement
  */
 const de_ApplicationPolicyStatement = (output: any, context: __SerdeContext): ApplicationPolicyStatement => {
-  return {
-    Actions: output.actions != null ? de___listOf__string(output.actions, context) : undefined,
-    PrincipalOrgIDs: output.principalOrgIDs != null ? de___listOf__string(output.principalOrgIDs, context) : undefined,
-    Principals: output.principals != null ? de___listOf__string(output.principals, context) : undefined,
-    StatementId: __expectString(output.statementId),
-  } as any;
+  return take(output, {
+    Actions: [, _json, `actions`],
+    PrincipalOrgIDs: [, _json, `principalOrgIDs`],
+    Principals: [, _json, `principals`],
+    StatementId: [, __expectString, `statementId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ApplicationSummary
  */
 const de_ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
-  return {
-    ApplicationId: __expectString(output.applicationId),
-    Author: __expectString(output.author),
-    CreationTime: __expectString(output.creationTime),
-    Description: __expectString(output.description),
-    HomePageUrl: __expectString(output.homePageUrl),
-    Labels: output.labels != null ? de___listOf__string(output.labels, context) : undefined,
-    Name: __expectString(output.name),
-    SpdxLicenseId: __expectString(output.spdxLicenseId),
-  } as any;
+  return take(output, {
+    ApplicationId: [, __expectString, `applicationId`],
+    Author: [, __expectString, `author`],
+    CreationTime: [, __expectString, `creationTime`],
+    Description: [, __expectString, `description`],
+    HomePageUrl: [, __expectString, `homePageUrl`],
+    Labels: [, _json, `labels`],
+    Name: [, __expectString, `name`],
+    SpdxLicenseId: [, __expectString, `spdxLicenseId`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ParameterDefinition
  */
 const de_ParameterDefinition = (output: any, context: __SerdeContext): ParameterDefinition => {
-  return {
-    AllowedPattern: __expectString(output.allowedPattern),
-    AllowedValues: output.allowedValues != null ? de___listOf__string(output.allowedValues, context) : undefined,
-    ConstraintDescription: __expectString(output.constraintDescription),
-    DefaultValue: __expectString(output.defaultValue),
-    Description: __expectString(output.description),
-    MaxLength: __expectInt32(output.maxLength),
-    MaxValue: __expectInt32(output.maxValue),
-    MinLength: __expectInt32(output.minLength),
-    MinValue: __expectInt32(output.minValue),
-    Name: __expectString(output.name),
-    NoEcho: __expectBoolean(output.noEcho),
-    ReferencedByResources:
-      output.referencedByResources != null ? de___listOf__string(output.referencedByResources, context) : undefined,
-    Type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    AllowedPattern: [, __expectString, `allowedPattern`],
+    AllowedValues: [, _json, `allowedValues`],
+    ConstraintDescription: [, __expectString, `constraintDescription`],
+    DefaultValue: [, __expectString, `defaultValue`],
+    Description: [, __expectString, `description`],
+    MaxLength: [, __expectInt32, `maxLength`],
+    MaxValue: [, __expectInt32, `maxValue`],
+    MinLength: [, __expectInt32, `minLength`],
+    MinValue: [, __expectInt32, `minValue`],
+    Name: [, __expectString, `name`],
+    NoEcho: [, __expectBoolean, `noEcho`],
+    ReferencedByResources: [, _json, `referencedByResources`],
+    Type: [, __expectString, `type`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Version
  */
 const de_Version = (output: any, context: __SerdeContext): Version => {
-  return {
-    ApplicationId: __expectString(output.applicationId),
-    CreationTime: __expectString(output.creationTime),
-    ParameterDefinitions:
-      output.parameterDefinitions != null
-        ? de___listOfParameterDefinition(output.parameterDefinitions, context)
-        : undefined,
-    RequiredCapabilities:
-      output.requiredCapabilities != null ? de___listOfCapability(output.requiredCapabilities, context) : undefined,
-    ResourcesSupported: __expectBoolean(output.resourcesSupported),
-    SemanticVersion: __expectString(output.semanticVersion),
-    SourceCodeArchiveUrl: __expectString(output.sourceCodeArchiveUrl),
-    SourceCodeUrl: __expectString(output.sourceCodeUrl),
-    TemplateUrl: __expectString(output.templateUrl),
-  } as any;
+  return take(output, {
+    ApplicationId: [, __expectString, `applicationId`],
+    CreationTime: [, __expectString, `creationTime`],
+    ParameterDefinitions: (_) => [, de___listOfParameterDefinition(_, context), `parameterDefinitions`],
+    RequiredCapabilities: [, _json, `requiredCapabilities`],
+    ResourcesSupported: [, __expectBoolean, `resourcesSupported`],
+    SemanticVersion: [, __expectString, `semanticVersion`],
+    SourceCodeArchiveUrl: [, __expectString, `sourceCodeArchiveUrl`],
+    SourceCodeUrl: [, __expectString, `sourceCodeUrl`],
+    TemplateUrl: [, __expectString, `templateUrl`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1VersionSummary
  */
 const de_VersionSummary = (output: any, context: __SerdeContext): VersionSummary => {
-  return {
-    ApplicationId: __expectString(output.applicationId),
-    CreationTime: __expectString(output.creationTime),
-    SemanticVersion: __expectString(output.semanticVersion),
-    SourceCodeUrl: __expectString(output.sourceCodeUrl),
-  } as any;
+  return take(output, {
+    ApplicationId: [, __expectString, `applicationId`],
+    CreationTime: [, __expectString, `creationTime`],
+    SemanticVersion: [, __expectString, `semanticVersion`],
+    SourceCodeUrl: [, __expectString, `sourceCodeUrl`],
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

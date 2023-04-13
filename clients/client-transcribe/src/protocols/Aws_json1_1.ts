@@ -1,17 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -165,7 +165,6 @@ import {
   CreateCallAnalyticsCategoryRequest,
   CreateCallAnalyticsCategoryResponse,
   CreateLanguageModelRequest,
-  CreateLanguageModelResponse,
   CreateMedicalVocabularyRequest,
   CreateMedicalVocabularyResponse,
   CreateVocabularyFilterRequest,
@@ -173,9 +172,7 @@ import {
   CreateVocabularyRequest,
   CreateVocabularyResponse,
   DeleteCallAnalyticsCategoryRequest,
-  DeleteCallAnalyticsCategoryResponse,
   DeleteCallAnalyticsJobRequest,
-  DeleteCallAnalyticsJobResponse,
   DeleteLanguageModelRequest,
   DeleteMedicalTranscriptionJobRequest,
   DeleteMedicalVocabularyRequest,
@@ -218,7 +215,6 @@ import {
   ListMedicalVocabulariesRequest,
   ListMedicalVocabulariesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTranscriptionJobsRequest,
   ListTranscriptionJobsResponse,
   ListVocabulariesRequest,
@@ -226,7 +222,6 @@ import {
   ListVocabularyFiltersRequest,
   ListVocabularyFiltersResponse,
   Media,
-  MedicalTranscript,
   MedicalTranscriptionJob,
   MedicalTranscriptionJobSummary,
   MedicalTranscriptionSetting,
@@ -247,16 +242,12 @@ import {
   StartTranscriptionJobResponse,
   SubtitleFormat,
   Subtitles,
-  SubtitlesOutput,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
-  Transcript,
   TranscriptFilter,
   TranscriptionJob,
   TranscriptionJobSummary,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateCallAnalyticsCategoryRequest,
   UpdateCallAnalyticsCategoryResponse,
   UpdateMedicalVocabularyRequest,
@@ -279,7 +270,7 @@ export const se_CreateCallAnalyticsCategoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateCallAnalyticsCategory");
   let body: any;
-  body = JSON.stringify(se_CreateCallAnalyticsCategoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -292,7 +283,7 @@ export const se_CreateLanguageModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLanguageModel");
   let body: any;
-  body = JSON.stringify(se_CreateLanguageModelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -305,7 +296,7 @@ export const se_CreateMedicalVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateMedicalVocabulary");
   let body: any;
-  body = JSON.stringify(se_CreateMedicalVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -318,7 +309,7 @@ export const se_CreateVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateVocabulary");
   let body: any;
-  body = JSON.stringify(se_CreateVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -331,7 +322,7 @@ export const se_CreateVocabularyFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateVocabularyFilter");
   let body: any;
-  body = JSON.stringify(se_CreateVocabularyFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -344,7 +335,7 @@ export const se_DeleteCallAnalyticsCategoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCallAnalyticsCategory");
   let body: any;
-  body = JSON.stringify(se_DeleteCallAnalyticsCategoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -357,7 +348,7 @@ export const se_DeleteCallAnalyticsJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCallAnalyticsJob");
   let body: any;
-  body = JSON.stringify(se_DeleteCallAnalyticsJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -370,7 +361,7 @@ export const se_DeleteLanguageModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLanguageModel");
   let body: any;
-  body = JSON.stringify(se_DeleteLanguageModelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -383,7 +374,7 @@ export const se_DeleteMedicalTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteMedicalTranscriptionJob");
   let body: any;
-  body = JSON.stringify(se_DeleteMedicalTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -396,7 +387,7 @@ export const se_DeleteMedicalVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteMedicalVocabulary");
   let body: any;
-  body = JSON.stringify(se_DeleteMedicalVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -409,7 +400,7 @@ export const se_DeleteTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTranscriptionJob");
   let body: any;
-  body = JSON.stringify(se_DeleteTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -422,7 +413,7 @@ export const se_DeleteVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteVocabulary");
   let body: any;
-  body = JSON.stringify(se_DeleteVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -435,7 +426,7 @@ export const se_DeleteVocabularyFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteVocabularyFilter");
   let body: any;
-  body = JSON.stringify(se_DeleteVocabularyFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -448,7 +439,7 @@ export const se_DescribeLanguageModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLanguageModel");
   let body: any;
-  body = JSON.stringify(se_DescribeLanguageModelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -461,7 +452,7 @@ export const se_GetCallAnalyticsCategoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCallAnalyticsCategory");
   let body: any;
-  body = JSON.stringify(se_GetCallAnalyticsCategoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -474,7 +465,7 @@ export const se_GetCallAnalyticsJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCallAnalyticsJob");
   let body: any;
-  body = JSON.stringify(se_GetCallAnalyticsJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -487,7 +478,7 @@ export const se_GetMedicalTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetMedicalTranscriptionJob");
   let body: any;
-  body = JSON.stringify(se_GetMedicalTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -500,7 +491,7 @@ export const se_GetMedicalVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetMedicalVocabulary");
   let body: any;
-  body = JSON.stringify(se_GetMedicalVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -513,7 +504,7 @@ export const se_GetTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTranscriptionJob");
   let body: any;
-  body = JSON.stringify(se_GetTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -526,7 +517,7 @@ export const se_GetVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetVocabulary");
   let body: any;
-  body = JSON.stringify(se_GetVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -539,7 +530,7 @@ export const se_GetVocabularyFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetVocabularyFilter");
   let body: any;
-  body = JSON.stringify(se_GetVocabularyFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -552,7 +543,7 @@ export const se_ListCallAnalyticsCategoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCallAnalyticsCategories");
   let body: any;
-  body = JSON.stringify(se_ListCallAnalyticsCategoriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -565,7 +556,7 @@ export const se_ListCallAnalyticsJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCallAnalyticsJobs");
   let body: any;
-  body = JSON.stringify(se_ListCallAnalyticsJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -578,7 +569,7 @@ export const se_ListLanguageModelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLanguageModels");
   let body: any;
-  body = JSON.stringify(se_ListLanguageModelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -591,7 +582,7 @@ export const se_ListMedicalTranscriptionJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListMedicalTranscriptionJobs");
   let body: any;
-  body = JSON.stringify(se_ListMedicalTranscriptionJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -604,7 +595,7 @@ export const se_ListMedicalVocabulariesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListMedicalVocabularies");
   let body: any;
-  body = JSON.stringify(se_ListMedicalVocabulariesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -617,7 +608,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -630,7 +621,7 @@ export const se_ListTranscriptionJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTranscriptionJobs");
   let body: any;
-  body = JSON.stringify(se_ListTranscriptionJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -643,7 +634,7 @@ export const se_ListVocabulariesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVocabularies");
   let body: any;
-  body = JSON.stringify(se_ListVocabulariesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -656,7 +647,7 @@ export const se_ListVocabularyFiltersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVocabularyFilters");
   let body: any;
-  body = JSON.stringify(se_ListVocabularyFiltersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -669,7 +660,7 @@ export const se_StartCallAnalyticsJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartCallAnalyticsJob");
   let body: any;
-  body = JSON.stringify(se_StartCallAnalyticsJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -682,7 +673,7 @@ export const se_StartMedicalTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartMedicalTranscriptionJob");
   let body: any;
-  body = JSON.stringify(se_StartMedicalTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -695,7 +686,7 @@ export const se_StartTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartTranscriptionJob");
   let body: any;
-  body = JSON.stringify(se_StartTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -708,7 +699,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -721,7 +712,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -734,7 +725,7 @@ export const se_UpdateCallAnalyticsCategoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCallAnalyticsCategory");
   let body: any;
-  body = JSON.stringify(se_UpdateCallAnalyticsCategoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -747,7 +738,7 @@ export const se_UpdateMedicalVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateMedicalVocabulary");
   let body: any;
-  body = JSON.stringify(se_UpdateMedicalVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -760,7 +751,7 @@ export const se_UpdateVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateVocabulary");
   let body: any;
-  body = JSON.stringify(se_UpdateVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -773,7 +764,7 @@ export const se_UpdateVocabularyFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateVocabularyFilter");
   let body: any;
-  body = JSON.stringify(se_UpdateVocabularyFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -794,7 +785,7 @@ export const de_CreateCallAnalyticsCategoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -824,10 +815,9 @@ const de_CreateCallAnalyticsCategoryCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -845,12 +835,12 @@ export const de_CreateLanguageModelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLanguageModelResponse(data, context);
+  contents = _json(data);
   const response: CreateLanguageModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -880,10 +870,9 @@ const de_CreateLanguageModelCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -906,7 +895,7 @@ export const de_CreateMedicalVocabularyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -936,10 +925,9 @@ const de_CreateMedicalVocabularyCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -962,7 +950,7 @@ export const de_CreateVocabularyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -992,10 +980,9 @@ const de_CreateVocabularyCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1018,7 +1005,7 @@ export const de_CreateVocabularyFilterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1048,10 +1035,9 @@ const de_CreateVocabularyFilterCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1069,12 +1055,12 @@ export const de_DeleteCallAnalyticsCategoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteCallAnalyticsCategoryResponse(data, context);
+  contents = _json(data);
   const response: DeleteCallAnalyticsCategoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1104,10 +1090,9 @@ const de_DeleteCallAnalyticsCategoryCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1125,12 +1110,12 @@ export const de_DeleteCallAnalyticsJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteCallAnalyticsJobResponse(data, context);
+  contents = _json(data);
   const response: DeleteCallAnalyticsJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1157,10 +1142,9 @@ const de_DeleteCallAnalyticsJobCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1180,7 +1164,7 @@ export const de_DeleteLanguageModelCommand = async (
   const response: DeleteLanguageModelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1207,10 +1191,9 @@ const de_DeleteLanguageModelCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1230,7 +1213,7 @@ export const de_DeleteMedicalTranscriptionJobCommand = async (
   const response: DeleteMedicalTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1257,10 +1240,9 @@ const de_DeleteMedicalTranscriptionJobCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1280,7 +1262,7 @@ export const de_DeleteMedicalVocabularyCommand = async (
   const response: DeleteMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1310,10 +1292,9 @@ const de_DeleteMedicalVocabularyCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1333,7 +1314,7 @@ export const de_DeleteTranscriptionJobCommand = async (
   const response: DeleteTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1360,10 +1341,9 @@ const de_DeleteTranscriptionJobCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1383,7 +1363,7 @@ export const de_DeleteVocabularyCommand = async (
   const response: DeleteVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1413,10 +1393,9 @@ const de_DeleteVocabularyCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1436,7 +1415,7 @@ export const de_DeleteVocabularyFilterCommand = async (
   const response: DeleteVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1466,10 +1445,9 @@ const de_DeleteVocabularyFilterCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1492,7 +1470,7 @@ export const de_DescribeLanguageModelCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1522,10 +1500,9 @@ const de_DescribeLanguageModelCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1548,7 +1525,7 @@ export const de_GetCallAnalyticsCategoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1578,10 +1555,9 @@ const de_GetCallAnalyticsCategoryCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1604,7 +1580,7 @@ export const de_GetCallAnalyticsJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1634,10 +1610,9 @@ const de_GetCallAnalyticsJobCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1660,7 +1635,7 @@ export const de_GetMedicalTranscriptionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1690,10 +1665,9 @@ const de_GetMedicalTranscriptionJobCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1716,7 +1690,7 @@ export const de_GetMedicalVocabularyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1746,10 +1720,9 @@ const de_GetMedicalVocabularyCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1772,7 +1745,7 @@ export const de_GetTranscriptionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1802,10 +1775,9 @@ const de_GetTranscriptionJobCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1828,7 +1800,7 @@ export const de_GetVocabularyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1858,10 +1830,9 @@ const de_GetVocabularyCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1884,7 +1855,7 @@ export const de_GetVocabularyFilterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1914,10 +1885,9 @@ const de_GetVocabularyFilterCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1940,7 +1910,7 @@ export const de_ListCallAnalyticsCategoriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1967,10 +1937,9 @@ const de_ListCallAnalyticsCategoriesCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1993,7 +1962,7 @@ export const de_ListCallAnalyticsJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2020,10 +1989,9 @@ const de_ListCallAnalyticsJobsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2046,7 +2014,7 @@ export const de_ListLanguageModelsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2073,10 +2041,9 @@ const de_ListLanguageModelsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2099,7 +2066,7 @@ export const de_ListMedicalTranscriptionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2126,10 +2093,9 @@ const de_ListMedicalTranscriptionJobsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2152,7 +2118,7 @@ export const de_ListMedicalVocabulariesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2179,10 +2145,9 @@ const de_ListMedicalVocabulariesCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2200,12 +2165,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2235,10 +2200,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2261,7 +2225,7 @@ export const de_ListTranscriptionJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2288,10 +2252,9 @@ const de_ListTranscriptionJobsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2314,7 +2277,7 @@ export const de_ListVocabulariesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2341,10 +2304,9 @@ const de_ListVocabulariesCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2367,7 +2329,7 @@ export const de_ListVocabularyFiltersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2394,10 +2356,9 @@ const de_ListVocabularyFiltersCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2420,7 +2381,7 @@ export const de_StartCallAnalyticsJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2450,10 +2411,9 @@ const de_StartCallAnalyticsJobCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2476,7 +2436,7 @@ export const de_StartMedicalTranscriptionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2506,10 +2466,9 @@ const de_StartMedicalTranscriptionJobCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2532,7 +2491,7 @@ export const de_StartTranscriptionJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2562,10 +2521,9 @@ const de_StartTranscriptionJobCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2583,12 +2541,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2621,10 +2579,9 @@ const de_TagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2642,12 +2599,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2680,10 +2637,9 @@ const de_UntagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2706,7 +2662,7 @@ export const de_UpdateCallAnalyticsCategoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2739,10 +2695,9 @@ const de_UpdateCallAnalyticsCategoryCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2765,7 +2720,7 @@ export const de_UpdateMedicalVocabularyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2798,10 +2753,9 @@ const de_UpdateMedicalVocabularyCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2824,7 +2778,7 @@ export const de_UpdateVocabularyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2857,10 +2811,9 @@ const de_UpdateVocabularyCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2883,7 +2836,7 @@ export const de_UpdateVocabularyFilterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2913,10 +2866,9 @@ const de_UpdateVocabularyFilterCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2927,7 +2879,7 @@ const de_UpdateVocabularyFilterCommandError = async (
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BadRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2940,7 +2892,7 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2956,7 +2908,7 @@ const de_InternalFailureExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalFailureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2972,7 +2924,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2985,7 +2937,7 @@ const de_LimitExceededExceptionRes = async (
  */
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2993,946 +2945,176 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AbsoluteTimeRange
- */
-const se_AbsoluteTimeRange = (input: AbsoluteTimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: input.EndTime }),
-    ...(input.First != null && { First: input.First }),
-    ...(input.Last != null && { Last: input.Last }),
-    ...(input.StartTime != null && { StartTime: input.StartTime }),
-  };
-};
-
-/**
- * serializeAws_json1_1CallAnalyticsJobSettings
- */
-const se_CallAnalyticsJobSettings = (input: CallAnalyticsJobSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentRedaction != null && { ContentRedaction: se_ContentRedaction(input.ContentRedaction, context) }),
-    ...(input.LanguageIdSettings != null && {
-      LanguageIdSettings: se_LanguageIdSettingsMap(input.LanguageIdSettings, context),
-    }),
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.LanguageOptions != null && { LanguageOptions: se_LanguageOptions(input.LanguageOptions, context) }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1ChannelDefinition
- */
-const se_ChannelDefinition = (input: ChannelDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelId != null && { ChannelId: input.ChannelId }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-  };
-};
-
-/**
- * serializeAws_json1_1ChannelDefinitions
- */
-const se_ChannelDefinitions = (input: ChannelDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ChannelDefinition(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ContentRedaction
- */
-const se_ContentRedaction = (input: ContentRedaction, context: __SerdeContext): any => {
-  return {
-    ...(input.PiiEntityTypes != null && { PiiEntityTypes: se_PiiEntityTypes(input.PiiEntityTypes, context) }),
-    ...(input.RedactionOutput != null && { RedactionOutput: input.RedactionOutput }),
-    ...(input.RedactionType != null && { RedactionType: input.RedactionType }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateCallAnalyticsCategoryRequest
- */
-const se_CreateCallAnalyticsCategoryRequest = (
-  input: CreateCallAnalyticsCategoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
-    ...(input.InputType != null && { InputType: input.InputType }),
-    ...(input.Rules != null && { Rules: se_RuleList(input.Rules, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateLanguageModelRequest
- */
-const se_CreateLanguageModelRequest = (input: CreateLanguageModelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BaseModelName != null && { BaseModelName: input.BaseModelName }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateMedicalVocabularyRequest
- */
-const se_CreateMedicalVocabularyRequest = (input: CreateMedicalVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateVocabularyFilterRequest
- */
-const se_CreateVocabularyFilterRequest = (input: CreateVocabularyFilterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VocabularyFilterFileUri != null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.Words != null && { Words: se_Words(input.Words, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateVocabularyRequest
- */
-const se_CreateVocabularyRequest = (input: CreateVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Phrases != null && { Phrases: se_Phrases(input.Phrases, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteCallAnalyticsCategoryRequest
- */
-const se_DeleteCallAnalyticsCategoryRequest = (
-  input: DeleteCallAnalyticsCategoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteCallAnalyticsJobRequest
- */
-const se_DeleteCallAnalyticsJobRequest = (input: DeleteCallAnalyticsJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CallAnalyticsJobName != null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteLanguageModelRequest
- */
-const se_DeleteLanguageModelRequest = (input: DeleteLanguageModelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteMedicalTranscriptionJobRequest
- */
-const se_DeleteMedicalTranscriptionJobRequest = (
-  input: DeleteMedicalTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MedicalTranscriptionJobName != null && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteMedicalVocabularyRequest
- */
-const se_DeleteMedicalVocabularyRequest = (input: DeleteMedicalVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteTranscriptionJobRequest
- */
-const se_DeleteTranscriptionJobRequest = (input: DeleteTranscriptionJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.TranscriptionJobName != null && { TranscriptionJobName: input.TranscriptionJobName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteVocabularyFilterRequest
- */
-const se_DeleteVocabularyFilterRequest = (input: DeleteVocabularyFilterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteVocabularyRequest
- */
-const se_DeleteVocabularyRequest = (input: DeleteVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeLanguageModelRequest
- */
-const se_DescribeLanguageModelRequest = (input: DescribeLanguageModelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetCallAnalyticsCategoryRequest
- */
-const se_GetCallAnalyticsCategoryRequest = (input: GetCallAnalyticsCategoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetCallAnalyticsJobRequest
- */
-const se_GetCallAnalyticsJobRequest = (input: GetCallAnalyticsJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CallAnalyticsJobName != null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetMedicalTranscriptionJobRequest
- */
-const se_GetMedicalTranscriptionJobRequest = (
-  input: GetMedicalTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MedicalTranscriptionJobName != null && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetMedicalVocabularyRequest
- */
-const se_GetMedicalVocabularyRequest = (input: GetMedicalVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetTranscriptionJobRequest
- */
-const se_GetTranscriptionJobRequest = (input: GetTranscriptionJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.TranscriptionJobName != null && { TranscriptionJobName: input.TranscriptionJobName }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetVocabularyFilterRequest
- */
-const se_GetVocabularyFilterRequest = (input: GetVocabularyFilterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetVocabularyRequest
- */
-const se_GetVocabularyRequest = (input: GetVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1InputDataConfig
- */
-const se_InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-    ...(input.TuningDataS3Uri != null && { TuningDataS3Uri: input.TuningDataS3Uri }),
-  };
-};
-
-/**
- * serializeAws_json1_1InterruptionFilter
- */
-const se_InterruptionFilter = (input: InterruptionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTimeRange != null && {
-      AbsoluteTimeRange: se_AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-    }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange != null && {
-      RelativeTimeRange: se_RelativeTimeRange(input.RelativeTimeRange, context),
-    }),
-    ...(input.Threshold != null && { Threshold: input.Threshold }),
-  };
-};
-
-/**
- * serializeAws_json1_1JobExecutionSettings
- */
-const se_JobExecutionSettings = (input: JobExecutionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowDeferredExecution != null && { AllowDeferredExecution: input.AllowDeferredExecution }),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1KMSEncryptionContextMap
- */
-const se_KMSEncryptionContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_json1_1LanguageIdSettings
- */
-const se_LanguageIdSettings = (input: LanguageIdSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1LanguageIdSettingsMap
- */
-const se_LanguageIdSettingsMap = (input: Record<string, LanguageIdSettings>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [LanguageCode | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_LanguageIdSettings(value, context);
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_json1_1LanguageOptions
- */
-const se_LanguageOptions = (input: (LanguageCode | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ListCallAnalyticsCategoriesRequest
- */
-const se_ListCallAnalyticsCategoriesRequest = (
-  input: ListCallAnalyticsCategoriesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListCallAnalyticsJobsRequest
- */
-const se_ListCallAnalyticsJobsRequest = (input: ListCallAnalyticsJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobNameContains != null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListLanguageModelsRequest
- */
-const se_ListLanguageModelsRequest = (input: ListLanguageModelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains != null && { NameContains: input.NameContains }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListMedicalTranscriptionJobsRequest
- */
-const se_ListMedicalTranscriptionJobsRequest = (
-  input: ListMedicalTranscriptionJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobNameContains != null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListMedicalVocabulariesRequest
- */
-const se_ListMedicalVocabulariesRequest = (input: ListMedicalVocabulariesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains != null && { NameContains: input.NameContains }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StateEquals != null && { StateEquals: input.StateEquals }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListTranscriptionJobsRequest
- */
-const se_ListTranscriptionJobsRequest = (input: ListTranscriptionJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobNameContains != null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListVocabulariesRequest
- */
-const se_ListVocabulariesRequest = (input: ListVocabulariesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains != null && { NameContains: input.NameContains }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StateEquals != null && { StateEquals: input.StateEquals }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListVocabularyFiltersRequest
- */
-const se_ListVocabularyFiltersRequest = (input: ListVocabularyFiltersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains != null && { NameContains: input.NameContains }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1Media
- */
-const se_Media = (input: Media, context: __SerdeContext): any => {
-  return {
-    ...(input.MediaFileUri != null && { MediaFileUri: input.MediaFileUri }),
-    ...(input.RedactedMediaFileUri != null && { RedactedMediaFileUri: input.RedactedMediaFileUri }),
-  };
-};
-
-/**
- * serializeAws_json1_1MedicalTranscriptionSetting
- */
-const se_MedicalTranscriptionSetting = (input: MedicalTranscriptionSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelIdentification != null && { ChannelIdentification: input.ChannelIdentification }),
-    ...(input.MaxAlternatives != null && { MaxAlternatives: input.MaxAlternatives }),
-    ...(input.MaxSpeakerLabels != null && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
-    ...(input.ShowAlternatives != null && { ShowAlternatives: input.ShowAlternatives }),
-    ...(input.ShowSpeakerLabels != null && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1ModelSettings
- */
-const se_ModelSettings = (input: ModelSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-  };
-};
-
-/**
- * serializeAws_json1_1NonTalkTimeFilter
- */
-const se_NonTalkTimeFilter = (input: NonTalkTimeFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTimeRange != null && {
-      AbsoluteTimeRange: se_AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-    }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.RelativeTimeRange != null && {
-      RelativeTimeRange: se_RelativeTimeRange(input.RelativeTimeRange, context),
-    }),
-    ...(input.Threshold != null && { Threshold: input.Threshold }),
-  };
-};
-
-/**
- * serializeAws_json1_1Phrases
- */
-const se_Phrases = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1PiiEntityTypes
- */
-const se_PiiEntityTypes = (input: (PiiEntityType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1RelativeTimeRange
- */
-const se_RelativeTimeRange = (input: RelativeTimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndPercentage != null && { EndPercentage: input.EndPercentage }),
-    ...(input.First != null && { First: input.First }),
-    ...(input.Last != null && { Last: input.Last }),
-    ...(input.StartPercentage != null && { StartPercentage: input.StartPercentage }),
-  };
-};
-
-/**
- * serializeAws_json1_1Rule
- */
-const se_Rule = (input: Rule, context: __SerdeContext): any => {
-  return Rule.visit(input, {
-    InterruptionFilter: (value) => ({ InterruptionFilter: se_InterruptionFilter(value, context) }),
-    NonTalkTimeFilter: (value) => ({ NonTalkTimeFilter: se_NonTalkTimeFilter(value, context) }),
-    SentimentFilter: (value) => ({ SentimentFilter: se_SentimentFilter(value, context) }),
-    TranscriptFilter: (value) => ({ TranscriptFilter: se_TranscriptFilter(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_json1_1RuleList
- */
-const se_RuleList = (input: Rule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Rule(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1SentimentFilter
- */
-const se_SentimentFilter = (input: SentimentFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTimeRange != null && {
-      AbsoluteTimeRange: se_AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-    }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange != null && {
-      RelativeTimeRange: se_RelativeTimeRange(input.RelativeTimeRange, context),
-    }),
-    ...(input.Sentiments != null && { Sentiments: se_SentimentValueList(input.Sentiments, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1SentimentValueList
- */
-const se_SentimentValueList = (input: (SentimentValue | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1Settings
- */
-const se_Settings = (input: Settings, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelIdentification != null && { ChannelIdentification: input.ChannelIdentification }),
-    ...(input.MaxAlternatives != null && { MaxAlternatives: input.MaxAlternatives }),
-    ...(input.MaxSpeakerLabels != null && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
-    ...(input.ShowAlternatives != null && { ShowAlternatives: input.ShowAlternatives }),
-    ...(input.ShowSpeakerLabels != null && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1StartCallAnalyticsJobRequest
- */
-const se_StartCallAnalyticsJobRequest = (input: StartCallAnalyticsJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CallAnalyticsJobName != null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
-    ...(input.ChannelDefinitions != null && {
-      ChannelDefinitions: se_ChannelDefinitions(input.ChannelDefinitions, context),
-    }),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.Media != null && { Media: se_Media(input.Media, context) }),
-    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputLocation != null && { OutputLocation: input.OutputLocation }),
-    ...(input.Settings != null && { Settings: se_CallAnalyticsJobSettings(input.Settings, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1StartMedicalTranscriptionJobRequest
- */
-const se_StartMedicalTranscriptionJobRequest = (
-  input: StartMedicalTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.KMSEncryptionContext != null && {
-      KMSEncryptionContext: se_KMSEncryptionContextMap(input.KMSEncryptionContext, context),
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Media != null && { Media: se_Media(input.Media, context) }),
-    ...(input.MediaFormat != null && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz != null && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
-    ...(input.MedicalTranscriptionJobName != null && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
-    ...(input.OutputBucketName != null && { OutputBucketName: input.OutputBucketName }),
-    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputKey != null && { OutputKey: input.OutputKey }),
-    ...(input.Settings != null && { Settings: se_MedicalTranscriptionSetting(input.Settings, context) }),
-    ...(input.Specialty != null && { Specialty: input.Specialty }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-/**
- * serializeAws_json1_1StartTranscriptionJobRequest
- */
-const se_StartTranscriptionJobRequest = (input: StartTranscriptionJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentRedaction != null && { ContentRedaction: se_ContentRedaction(input.ContentRedaction, context) }),
-    ...(input.IdentifyLanguage != null && { IdentifyLanguage: input.IdentifyLanguage }),
-    ...(input.IdentifyMultipleLanguages != null && { IdentifyMultipleLanguages: input.IdentifyMultipleLanguages }),
-    ...(input.JobExecutionSettings != null && {
-      JobExecutionSettings: se_JobExecutionSettings(input.JobExecutionSettings, context),
-    }),
-    ...(input.KMSEncryptionContext != null && {
-      KMSEncryptionContext: se_KMSEncryptionContextMap(input.KMSEncryptionContext, context),
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageIdSettings != null && {
-      LanguageIdSettings: se_LanguageIdSettingsMap(input.LanguageIdSettings, context),
-    }),
-    ...(input.LanguageOptions != null && { LanguageOptions: se_LanguageOptions(input.LanguageOptions, context) }),
-    ...(input.Media != null && { Media: se_Media(input.Media, context) }),
-    ...(input.MediaFormat != null && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz != null && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
-    ...(input.ModelSettings != null && { ModelSettings: se_ModelSettings(input.ModelSettings, context) }),
-    ...(input.OutputBucketName != null && { OutputBucketName: input.OutputBucketName }),
-    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputKey != null && { OutputKey: input.OutputKey }),
-    ...(input.Settings != null && { Settings: se_Settings(input.Settings, context) }),
-    ...(input.Subtitles != null && { Subtitles: se_Subtitles(input.Subtitles, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.TranscriptionJobName != null && { TranscriptionJobName: input.TranscriptionJobName }),
-  };
-};
-
-/**
- * serializeAws_json1_1StringTargetList
- */
-const se_StringTargetList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1SubtitleFormats
- */
-const se_SubtitleFormats = (input: (SubtitleFormat | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1Subtitles
- */
-const se_Subtitles = (input: Subtitles, context: __SerdeContext): any => {
-  return {
-    ...(input.Formats != null && { Formats: se_SubtitleFormats(input.Formats, context) }),
-    ...(input.OutputStartIndex != null && { OutputStartIndex: input.OutputStartIndex }),
-  };
-};
-
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1TranscriptFilter
- */
-const se_TranscriptFilter = (input: TranscriptFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTimeRange != null && {
-      AbsoluteTimeRange: se_AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-    }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange != null && {
-      RelativeTimeRange: se_RelativeTimeRange(input.RelativeTimeRange, context),
-    }),
-    ...(input.Targets != null && { Targets: se_StringTargetList(input.Targets, context) }),
-    ...(input.TranscriptFilterType != null && { TranscriptFilterType: input.TranscriptFilterType }),
-  };
-};
-
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateCallAnalyticsCategoryRequest
- */
-const se_UpdateCallAnalyticsCategoryRequest = (
-  input: UpdateCallAnalyticsCategoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
-    ...(input.InputType != null && { InputType: input.InputType }),
-    ...(input.Rules != null && { Rules: se_RuleList(input.Rules, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateMedicalVocabularyRequest
- */
-const se_UpdateMedicalVocabularyRequest = (input: UpdateMedicalVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateVocabularyFilterRequest
- */
-const se_UpdateVocabularyFilterRequest = (input: UpdateVocabularyFilterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.VocabularyFilterFileUri != null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.Words != null && { Words: se_Words(input.Words, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateVocabularyRequest
- */
-const se_UpdateVocabularyRequest = (input: UpdateVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Phrases != null && { Phrases: se_Phrases(input.Phrases, context) }),
-    ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_json1_1Words
- */
-const se_Words = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * deserializeAws_json1_1AbsoluteTimeRange
- */
-const de_AbsoluteTimeRange = (output: any, context: __SerdeContext): AbsoluteTimeRange => {
-  return {
-    EndTime: __expectLong(output.EndTime),
-    First: __expectLong(output.First),
-    Last: __expectLong(output.Last),
-    StartTime: __expectLong(output.StartTime),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1BadRequestException
- */
-const de_BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// se_AbsoluteTimeRange omitted.
+
+// se_CallAnalyticsJobSettings omitted.
+
+// se_ChannelDefinition omitted.
+
+// se_ChannelDefinitions omitted.
+
+// se_ContentRedaction omitted.
+
+// se_CreateCallAnalyticsCategoryRequest omitted.
+
+// se_CreateLanguageModelRequest omitted.
+
+// se_CreateMedicalVocabularyRequest omitted.
+
+// se_CreateVocabularyFilterRequest omitted.
+
+// se_CreateVocabularyRequest omitted.
+
+// se_DeleteCallAnalyticsCategoryRequest omitted.
+
+// se_DeleteCallAnalyticsJobRequest omitted.
+
+// se_DeleteLanguageModelRequest omitted.
+
+// se_DeleteMedicalTranscriptionJobRequest omitted.
+
+// se_DeleteMedicalVocabularyRequest omitted.
+
+// se_DeleteTranscriptionJobRequest omitted.
+
+// se_DeleteVocabularyFilterRequest omitted.
+
+// se_DeleteVocabularyRequest omitted.
+
+// se_DescribeLanguageModelRequest omitted.
+
+// se_GetCallAnalyticsCategoryRequest omitted.
+
+// se_GetCallAnalyticsJobRequest omitted.
+
+// se_GetMedicalTranscriptionJobRequest omitted.
+
+// se_GetMedicalVocabularyRequest omitted.
+
+// se_GetTranscriptionJobRequest omitted.
+
+// se_GetVocabularyFilterRequest omitted.
+
+// se_GetVocabularyRequest omitted.
+
+// se_InputDataConfig omitted.
+
+// se_InterruptionFilter omitted.
+
+// se_JobExecutionSettings omitted.
+
+// se_KMSEncryptionContextMap omitted.
+
+// se_LanguageIdSettings omitted.
+
+// se_LanguageIdSettingsMap omitted.
+
+// se_LanguageOptions omitted.
+
+// se_ListCallAnalyticsCategoriesRequest omitted.
+
+// se_ListCallAnalyticsJobsRequest omitted.
+
+// se_ListLanguageModelsRequest omitted.
+
+// se_ListMedicalTranscriptionJobsRequest omitted.
+
+// se_ListMedicalVocabulariesRequest omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
+// se_ListTranscriptionJobsRequest omitted.
+
+// se_ListVocabulariesRequest omitted.
+
+// se_ListVocabularyFiltersRequest omitted.
+
+// se_Media omitted.
+
+// se_MedicalTranscriptionSetting omitted.
+
+// se_ModelSettings omitted.
+
+// se_NonTalkTimeFilter omitted.
+
+// se_Phrases omitted.
+
+// se_PiiEntityTypes omitted.
+
+// se_RelativeTimeRange omitted.
+
+// se_Rule omitted.
+
+// se_RuleList omitted.
+
+// se_SentimentFilter omitted.
+
+// se_SentimentValueList omitted.
+
+// se_Settings omitted.
+
+// se_StartCallAnalyticsJobRequest omitted.
+
+// se_StartMedicalTranscriptionJobRequest omitted.
+
+// se_StartTranscriptionJobRequest omitted.
+
+// se_StringTargetList omitted.
+
+// se_SubtitleFormats omitted.
+
+// se_Subtitles omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_TranscriptFilter omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateCallAnalyticsCategoryRequest omitted.
+
+// se_UpdateMedicalVocabularyRequest omitted.
+
+// se_UpdateVocabularyFilterRequest omitted.
+
+// se_UpdateVocabularyRequest omitted.
+
+// se_Words omitted.
+
+// de_AbsoluteTimeRange omitted.
+
+// de_BadRequestException omitted.
 
 /**
  * deserializeAws_json1_1CallAnalyticsJob
  */
 const de_CallAnalyticsJob = (output: any, context: __SerdeContext): CallAnalyticsJob => {
-  return {
-    CallAnalyticsJobName: __expectString(output.CallAnalyticsJobName),
-    CallAnalyticsJobStatus: __expectString(output.CallAnalyticsJobStatus),
-    ChannelDefinitions:
-      output.ChannelDefinitions != null ? de_ChannelDefinitions(output.ChannelDefinitions, context) : undefined,
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
-    LanguageCode: __expectString(output.LanguageCode),
-    Media: output.Media != null ? de_Media(output.Media, context) : undefined,
-    MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
-    Settings: output.Settings != null ? de_CallAnalyticsJobSettings(output.Settings, context) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Transcript: output.Transcript != null ? de_Transcript(output.Transcript, context) : undefined,
-  } as any;
+  return take(output, {
+    CallAnalyticsJobName: __expectString,
+    CallAnalyticsJobStatus: __expectString,
+    ChannelDefinitions: _json,
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataAccessRoleArn: __expectString,
+    FailureReason: __expectString,
+    IdentifiedLanguageScore: __limitedParseFloat32,
+    LanguageCode: __expectString,
+    Media: _json,
+    MediaFormat: __expectString,
+    MediaSampleRateHertz: __expectInt32,
+    Settings: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Transcript: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CallAnalyticsJobSettings
- */
-const de_CallAnalyticsJobSettings = (output: any, context: __SerdeContext): CallAnalyticsJobSettings => {
-  return {
-    ContentRedaction:
-      output.ContentRedaction != null ? de_ContentRedaction(output.ContentRedaction, context) : undefined,
-    LanguageIdSettings:
-      output.LanguageIdSettings != null ? de_LanguageIdSettingsMap(output.LanguageIdSettings, context) : undefined,
-    LanguageModelName: __expectString(output.LanguageModelName),
-    LanguageOptions: output.LanguageOptions != null ? de_LanguageOptions(output.LanguageOptions, context) : undefined,
-    VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
+// de_CallAnalyticsJobSettings omitted.
 
 /**
  * deserializeAws_json1_1CallAnalyticsJobSummaries
@@ -3941,9 +3123,6 @@ const de_CallAnalyticsJobSummaries = (output: any, context: __SerdeContext): Cal
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CallAnalyticsJobSummary(entry, context);
     });
   return retVal;
@@ -3953,39 +3132,28 @@ const de_CallAnalyticsJobSummaries = (output: any, context: __SerdeContext): Cal
  * deserializeAws_json1_1CallAnalyticsJobSummary
  */
 const de_CallAnalyticsJobSummary = (output: any, context: __SerdeContext): CallAnalyticsJobSummary => {
-  return {
-    CallAnalyticsJobName: __expectString(output.CallAnalyticsJobName),
-    CallAnalyticsJobStatus: __expectString(output.CallAnalyticsJobStatus),
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    CallAnalyticsJobName: __expectString,
+    CallAnalyticsJobStatus: __expectString,
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CategoryProperties
  */
 const de_CategoryProperties = (output: any, context: __SerdeContext): CategoryProperties => {
-  return {
-    CategoryName: __expectString(output.CategoryName),
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
-    InputType: __expectString(output.InputType),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    Rules: output.Rules != null ? de_RuleList(output.Rules, context) : undefined,
-  } as any;
+  return take(output, {
+    CategoryName: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputType: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Rules: _json,
+  }) as any;
 };
 
 /**
@@ -3995,58 +3163,18 @@ const de_CategoryPropertiesList = (output: any, context: __SerdeContext): Catego
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CategoryProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ChannelDefinition
- */
-const de_ChannelDefinition = (output: any, context: __SerdeContext): ChannelDefinition => {
-  return {
-    ChannelId: __expectInt32(output.ChannelId),
-    ParticipantRole: __expectString(output.ParticipantRole),
-  } as any;
-};
+// de_ChannelDefinition omitted.
 
-/**
- * deserializeAws_json1_1ChannelDefinitions
- */
-const de_ChannelDefinitions = (output: any, context: __SerdeContext): ChannelDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelDefinitions omitted.
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_1ContentRedaction
- */
-const de_ContentRedaction = (output: any, context: __SerdeContext): ContentRedaction => {
-  return {
-    PiiEntityTypes: output.PiiEntityTypes != null ? de_PiiEntityTypes(output.PiiEntityTypes, context) : undefined,
-    RedactionOutput: __expectString(output.RedactionOutput),
-    RedactionType: __expectString(output.RedactionType),
-  } as any;
-};
+// de_ContentRedaction omitted.
 
 /**
  * deserializeAws_json1_1CreateCallAnalyticsCategoryResponse
@@ -4055,95 +3183,61 @@ const de_CreateCallAnalyticsCategoryResponse = (
   output: any,
   context: __SerdeContext
 ): CreateCallAnalyticsCategoryResponse => {
-  return {
-    CategoryProperties:
-      output.CategoryProperties != null ? de_CategoryProperties(output.CategoryProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    CategoryProperties: (_: any) => de_CategoryProperties(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateLanguageModelResponse
- */
-const de_CreateLanguageModelResponse = (output: any, context: __SerdeContext): CreateLanguageModelResponse => {
-  return {
-    BaseModelName: __expectString(output.BaseModelName),
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-    ModelName: __expectString(output.ModelName),
-    ModelStatus: __expectString(output.ModelStatus),
-  } as any;
-};
+// de_CreateLanguageModelResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateMedicalVocabularyResponse
  */
 const de_CreateMedicalVocabularyResponse = (output: any, context: __SerdeContext): CreateMedicalVocabularyResponse => {
-  return {
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+  return take(output, {
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateVocabularyFilterResponse
  */
 const de_CreateVocabularyFilterResponse = (output: any, context: __SerdeContext): CreateVocabularyFilterResponse => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-  } as any;
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyFilterName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateVocabularyResponse
  */
 const de_CreateVocabularyResponse = (output: any, context: __SerdeContext): CreateVocabularyResponse => {
-  return {
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+  return take(output, {
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteCallAnalyticsCategoryResponse
- */
-const de_DeleteCallAnalyticsCategoryResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteCallAnalyticsCategoryResponse => {
-  return {} as any;
-};
+// de_DeleteCallAnalyticsCategoryResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteCallAnalyticsJobResponse
- */
-const de_DeleteCallAnalyticsJobResponse = (output: any, context: __SerdeContext): DeleteCallAnalyticsJobResponse => {
-  return {} as any;
-};
+// de_DeleteCallAnalyticsJobResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeLanguageModelResponse
  */
 const de_DescribeLanguageModelResponse = (output: any, context: __SerdeContext): DescribeLanguageModelResponse => {
-  return {
-    LanguageModel: output.LanguageModel != null ? de_LanguageModel(output.LanguageModel, context) : undefined,
-  } as any;
+  return take(output, {
+    LanguageModel: (_: any) => de_LanguageModel(_, context),
+  }) as any;
 };
 
 /**
@@ -4153,20 +3247,18 @@ const de_GetCallAnalyticsCategoryResponse = (
   output: any,
   context: __SerdeContext
 ): GetCallAnalyticsCategoryResponse => {
-  return {
-    CategoryProperties:
-      output.CategoryProperties != null ? de_CategoryProperties(output.CategoryProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    CategoryProperties: (_: any) => de_CategoryProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetCallAnalyticsJobResponse
  */
 const de_GetCallAnalyticsJobResponse = (output: any, context: __SerdeContext): GetCallAnalyticsJobResponse => {
-  return {
-    CallAnalyticsJob:
-      output.CallAnalyticsJob != null ? de_CallAnalyticsJob(output.CallAnalyticsJob, context) : undefined,
-  } as any;
+  return take(output, {
+    CallAnalyticsJob: (_: any) => de_CallAnalyticsJob(_, context),
+  }) as any;
 };
 
 /**
@@ -4176,126 +3268,76 @@ const de_GetMedicalTranscriptionJobResponse = (
   output: any,
   context: __SerdeContext
 ): GetMedicalTranscriptionJobResponse => {
-  return {
-    MedicalTranscriptionJob:
-      output.MedicalTranscriptionJob != null
-        ? de_MedicalTranscriptionJob(output.MedicalTranscriptionJob, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    MedicalTranscriptionJob: (_: any) => de_MedicalTranscriptionJob(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetMedicalVocabularyResponse
  */
 const de_GetMedicalVocabularyResponse = (output: any, context: __SerdeContext): GetMedicalVocabularyResponse => {
-  return {
-    DownloadUri: __expectString(output.DownloadUri),
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+  return take(output, {
+    DownloadUri: __expectString,
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetTranscriptionJobResponse
  */
 const de_GetTranscriptionJobResponse = (output: any, context: __SerdeContext): GetTranscriptionJobResponse => {
-  return {
-    TranscriptionJob:
-      output.TranscriptionJob != null ? de_TranscriptionJob(output.TranscriptionJob, context) : undefined,
-  } as any;
+  return take(output, {
+    TranscriptionJob: (_: any) => de_TranscriptionJob(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetVocabularyFilterResponse
  */
 const de_GetVocabularyFilterResponse = (output: any, context: __SerdeContext): GetVocabularyFilterResponse => {
-  return {
-    DownloadUri: __expectString(output.DownloadUri),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-  } as any;
+  return take(output, {
+    DownloadUri: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyFilterName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetVocabularyResponse
  */
 const de_GetVocabularyResponse = (output: any, context: __SerdeContext): GetVocabularyResponse => {
-  return {
-    DownloadUri: __expectString(output.DownloadUri),
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+  return take(output, {
+    DownloadUri: __expectString,
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InputDataConfig
- */
-const de_InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    S3Uri: __expectString(output.S3Uri),
-    TuningDataS3Uri: __expectString(output.TuningDataS3Uri),
-  } as any;
-};
+// de_InputDataConfig omitted.
 
-/**
- * deserializeAws_json1_1InternalFailureException
- */
-const de_InternalFailureException = (output: any, context: __SerdeContext): InternalFailureException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalFailureException omitted.
 
-/**
- * deserializeAws_json1_1InterruptionFilter
- */
-const de_InterruptionFilter = (output: any, context: __SerdeContext): InterruptionFilter => {
-  return {
-    AbsoluteTimeRange:
-      output.AbsoluteTimeRange != null ? de_AbsoluteTimeRange(output.AbsoluteTimeRange, context) : undefined,
-    Negate: __expectBoolean(output.Negate),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    RelativeTimeRange:
-      output.RelativeTimeRange != null ? de_RelativeTimeRange(output.RelativeTimeRange, context) : undefined,
-    Threshold: __expectLong(output.Threshold),
-  } as any;
-};
+// de_InterruptionFilter omitted.
 
-/**
- * deserializeAws_json1_1JobExecutionSettings
- */
-const de_JobExecutionSettings = (output: any, context: __SerdeContext): JobExecutionSettings => {
-  return {
-    AllowDeferredExecution: __expectBoolean(output.AllowDeferredExecution),
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-  } as any;
-};
+// de_JobExecutionSettings omitted.
 
 /**
  * deserializeAws_json1_1LanguageCodeItem
  */
 const de_LanguageCodeItem = (output: any, context: __SerdeContext): LanguageCodeItem => {
-  return {
-    DurationInSeconds: __limitedParseFloat32(output.DurationInSeconds),
-    LanguageCode: __expectString(output.LanguageCode),
-  } as any;
+  return take(output, {
+    DurationInSeconds: __limitedParseFloat32,
+    LanguageCode: __expectString,
+  }) as any;
 };
 
 /**
@@ -4305,85 +3347,35 @@ const de_LanguageCodeList = (output: any, context: __SerdeContext): LanguageCode
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LanguageCodeItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1LanguageIdSettings
- */
-const de_LanguageIdSettings = (output: any, context: __SerdeContext): LanguageIdSettings => {
-  return {
-    LanguageModelName: __expectString(output.LanguageModelName),
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
+// de_LanguageIdSettings omitted.
 
-/**
- * deserializeAws_json1_1LanguageIdSettingsMap
- */
-const de_LanguageIdSettingsMap = (output: any, context: __SerdeContext): Record<string, LanguageIdSettings> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, LanguageIdSettings>, [key, value]: [LanguageCode | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_LanguageIdSettings(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_LanguageIdSettingsMap omitted.
 
 /**
  * deserializeAws_json1_1LanguageModel
  */
 const de_LanguageModel = (output: any, context: __SerdeContext): LanguageModel => {
-  return {
-    BaseModelName: __expectString(output.BaseModelName),
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    ModelName: __expectString(output.ModelName),
-    ModelStatus: __expectString(output.ModelStatus),
-    UpgradeAvailability: __expectBoolean(output.UpgradeAvailability),
-  } as any;
+  return take(output, {
+    BaseModelName: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    InputDataConfig: _json,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ModelName: __expectString,
+    ModelStatus: __expectString,
+    UpgradeAvailability: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1LanguageOptions
- */
-const de_LanguageOptions = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LanguageOptions omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListCallAnalyticsCategoriesResponse
@@ -4392,34 +3384,31 @@ const de_ListCallAnalyticsCategoriesResponse = (
   output: any,
   context: __SerdeContext
 ): ListCallAnalyticsCategoriesResponse => {
-  return {
-    Categories: output.Categories != null ? de_CategoryPropertiesList(output.Categories, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Categories: (_: any) => de_CategoryPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListCallAnalyticsJobsResponse
  */
 const de_ListCallAnalyticsJobsResponse = (output: any, context: __SerdeContext): ListCallAnalyticsJobsResponse => {
-  return {
-    CallAnalyticsJobSummaries:
-      output.CallAnalyticsJobSummaries != null
-        ? de_CallAnalyticsJobSummaries(output.CallAnalyticsJobSummaries, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CallAnalyticsJobSummaries: (_: any) => de_CallAnalyticsJobSummaries(_, context),
+    NextToken: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListLanguageModelsResponse
  */
 const de_ListLanguageModelsResponse = (output: any, context: __SerdeContext): ListLanguageModelsResponse => {
-  return {
-    Models: output.Models != null ? de_Models(output.Models, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Models: (_: any) => de_Models(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -4429,121 +3418,84 @@ const de_ListMedicalTranscriptionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListMedicalTranscriptionJobsResponse => {
-  return {
-    MedicalTranscriptionJobSummaries:
-      output.MedicalTranscriptionJobSummaries != null
-        ? de_MedicalTranscriptionJobSummaries(output.MedicalTranscriptionJobSummaries, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    MedicalTranscriptionJobSummaries: (_: any) => de_MedicalTranscriptionJobSummaries(_, context),
+    NextToken: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListMedicalVocabulariesResponse
  */
 const de_ListMedicalVocabulariesResponse = (output: any, context: __SerdeContext): ListMedicalVocabulariesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-    Vocabularies: output.Vocabularies != null ? de_Vocabularies(output.Vocabularies, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Status: __expectString,
+    Vocabularies: (_: any) => de_Vocabularies(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    ResourceArn: __expectString(output.ResourceArn),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1ListTranscriptionJobsResponse
  */
 const de_ListTranscriptionJobsResponse = (output: any, context: __SerdeContext): ListTranscriptionJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-    TranscriptionJobSummaries:
-      output.TranscriptionJobSummaries != null
-        ? de_TranscriptionJobSummaries(output.TranscriptionJobSummaries, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Status: __expectString,
+    TranscriptionJobSummaries: (_: any) => de_TranscriptionJobSummaries(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListVocabulariesResponse
  */
 const de_ListVocabulariesResponse = (output: any, context: __SerdeContext): ListVocabulariesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-    Vocabularies: output.Vocabularies != null ? de_Vocabularies(output.Vocabularies, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Status: __expectString,
+    Vocabularies: (_: any) => de_Vocabularies(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListVocabularyFiltersResponse
  */
 const de_ListVocabularyFiltersResponse = (output: any, context: __SerdeContext): ListVocabularyFiltersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    VocabularyFilters:
-      output.VocabularyFilters != null ? de_VocabularyFilters(output.VocabularyFilters, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    VocabularyFilters: (_: any) => de_VocabularyFilters(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Media
- */
-const de_Media = (output: any, context: __SerdeContext): Media => {
-  return {
-    MediaFileUri: __expectString(output.MediaFileUri),
-    RedactedMediaFileUri: __expectString(output.RedactedMediaFileUri),
-  } as any;
-};
+// de_Media omitted.
 
-/**
- * deserializeAws_json1_1MedicalTranscript
- */
-const de_MedicalTranscript = (output: any, context: __SerdeContext): MedicalTranscript => {
-  return {
-    TranscriptFileUri: __expectString(output.TranscriptFileUri),
-  } as any;
-};
+// de_MedicalTranscript omitted.
 
 /**
  * deserializeAws_json1_1MedicalTranscriptionJob
  */
 const de_MedicalTranscriptionJob = (output: any, context: __SerdeContext): MedicalTranscriptionJob => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    ContentIdentificationType: __expectString(output.ContentIdentificationType),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    Media: output.Media != null ? de_Media(output.Media, context) : undefined,
-    MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
-    MedicalTranscriptionJobName: __expectString(output.MedicalTranscriptionJobName),
-    Settings: output.Settings != null ? de_MedicalTranscriptionSetting(output.Settings, context) : undefined,
-    Specialty: __expectString(output.Specialty),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-    Transcript: output.Transcript != null ? de_MedicalTranscript(output.Transcript, context) : undefined,
-    TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentIdentificationType: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    Media: _json,
+    MediaFormat: __expectString,
+    MediaSampleRateHertz: __expectInt32,
+    MedicalTranscriptionJobName: __expectString,
+    Settings: _json,
+    Specialty: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+    Transcript: _json,
+    TranscriptionJobStatus: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -4556,9 +3508,6 @@ const de_MedicalTranscriptionJobSummaries = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MedicalTranscriptionJobSummary(entry, context);
     });
   return retVal;
@@ -4568,41 +3517,22 @@ const de_MedicalTranscriptionJobSummaries = (
  * deserializeAws_json1_1MedicalTranscriptionJobSummary
  */
 const de_MedicalTranscriptionJobSummary = (output: any, context: __SerdeContext): MedicalTranscriptionJobSummary => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    ContentIdentificationType: __expectString(output.ContentIdentificationType),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    MedicalTranscriptionJobName: __expectString(output.MedicalTranscriptionJobName),
-    OutputLocationType: __expectString(output.OutputLocationType),
-    Specialty: __expectString(output.Specialty),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentIdentificationType: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    MedicalTranscriptionJobName: __expectString,
+    OutputLocationType: __expectString,
+    Specialty: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TranscriptionJobStatus: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1MedicalTranscriptionSetting
- */
-const de_MedicalTranscriptionSetting = (output: any, context: __SerdeContext): MedicalTranscriptionSetting => {
-  return {
-    ChannelIdentification: __expectBoolean(output.ChannelIdentification),
-    MaxAlternatives: __expectInt32(output.MaxAlternatives),
-    MaxSpeakerLabels: __expectInt32(output.MaxSpeakerLabels),
-    ShowAlternatives: __expectBoolean(output.ShowAlternatives),
-    ShowSpeakerLabels: __expectBoolean(output.ShowSpeakerLabels),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
+// de_MedicalTranscriptionSetting omitted.
 
 /**
  * deserializeAws_json1_1Models
@@ -4611,169 +3541,38 @@ const de_Models = (output: any, context: __SerdeContext): LanguageModel[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LanguageModel(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ModelSettings
- */
-const de_ModelSettings = (output: any, context: __SerdeContext): ModelSettings => {
-  return {
-    LanguageModelName: __expectString(output.LanguageModelName),
-  } as any;
-};
+// de_ModelSettings omitted.
 
-/**
- * deserializeAws_json1_1NonTalkTimeFilter
- */
-const de_NonTalkTimeFilter = (output: any, context: __SerdeContext): NonTalkTimeFilter => {
-  return {
-    AbsoluteTimeRange:
-      output.AbsoluteTimeRange != null ? de_AbsoluteTimeRange(output.AbsoluteTimeRange, context) : undefined,
-    Negate: __expectBoolean(output.Negate),
-    RelativeTimeRange:
-      output.RelativeTimeRange != null ? de_RelativeTimeRange(output.RelativeTimeRange, context) : undefined,
-    Threshold: __expectLong(output.Threshold),
-  } as any;
-};
+// de_NonTalkTimeFilter omitted.
 
-/**
- * deserializeAws_json1_1NotFoundException
- */
-const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NotFoundException omitted.
 
-/**
- * deserializeAws_json1_1PiiEntityTypes
- */
-const de_PiiEntityTypes = (output: any, context: __SerdeContext): (PiiEntityType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PiiEntityTypes omitted.
 
-/**
- * deserializeAws_json1_1RelativeTimeRange
- */
-const de_RelativeTimeRange = (output: any, context: __SerdeContext): RelativeTimeRange => {
-  return {
-    EndPercentage: __expectInt32(output.EndPercentage),
-    First: __expectInt32(output.First),
-    Last: __expectInt32(output.Last),
-    StartPercentage: __expectInt32(output.StartPercentage),
-  } as any;
-};
+// de_RelativeTimeRange omitted.
 
-/**
- * deserializeAws_json1_1Rule
- */
-const de_Rule = (output: any, context: __SerdeContext): Rule => {
-  if (output.InterruptionFilter != null) {
-    return {
-      InterruptionFilter: de_InterruptionFilter(output.InterruptionFilter, context),
-    };
-  }
-  if (output.NonTalkTimeFilter != null) {
-    return {
-      NonTalkTimeFilter: de_NonTalkTimeFilter(output.NonTalkTimeFilter, context),
-    };
-  }
-  if (output.SentimentFilter != null) {
-    return {
-      SentimentFilter: de_SentimentFilter(output.SentimentFilter, context),
-    };
-  }
-  if (output.TranscriptFilter != null) {
-    return {
-      TranscriptFilter: de_TranscriptFilter(output.TranscriptFilter, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_Rule omitted.
 
-/**
- * deserializeAws_json1_1RuleList
- */
-const de_RuleList = (output: any, context: __SerdeContext): Rule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Rule(__expectUnion(entry), context);
-    });
-  return retVal;
-};
+// de_RuleList omitted.
 
-/**
- * deserializeAws_json1_1SentimentFilter
- */
-const de_SentimentFilter = (output: any, context: __SerdeContext): SentimentFilter => {
-  return {
-    AbsoluteTimeRange:
-      output.AbsoluteTimeRange != null ? de_AbsoluteTimeRange(output.AbsoluteTimeRange, context) : undefined,
-    Negate: __expectBoolean(output.Negate),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    RelativeTimeRange:
-      output.RelativeTimeRange != null ? de_RelativeTimeRange(output.RelativeTimeRange, context) : undefined,
-    Sentiments: output.Sentiments != null ? de_SentimentValueList(output.Sentiments, context) : undefined,
-  } as any;
-};
+// de_SentimentFilter omitted.
 
-/**
- * deserializeAws_json1_1SentimentValueList
- */
-const de_SentimentValueList = (output: any, context: __SerdeContext): (SentimentValue | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SentimentValueList omitted.
 
-/**
- * deserializeAws_json1_1Settings
- */
-const de_Settings = (output: any, context: __SerdeContext): Settings => {
-  return {
-    ChannelIdentification: __expectBoolean(output.ChannelIdentification),
-    MaxAlternatives: __expectInt32(output.MaxAlternatives),
-    MaxSpeakerLabels: __expectInt32(output.MaxSpeakerLabels),
-    ShowAlternatives: __expectBoolean(output.ShowAlternatives),
-    ShowSpeakerLabels: __expectBoolean(output.ShowSpeakerLabels),
-    VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
+// de_Settings omitted.
 
 /**
  * deserializeAws_json1_1StartCallAnalyticsJobResponse
  */
 const de_StartCallAnalyticsJobResponse = (output: any, context: __SerdeContext): StartCallAnalyticsJobResponse => {
-  return {
-    CallAnalyticsJob:
-      output.CallAnalyticsJob != null ? de_CallAnalyticsJob(output.CallAnalyticsJob, context) : undefined,
-  } as any;
+  return take(output, {
+    CallAnalyticsJob: (_: any) => de_CallAnalyticsJob(_, context),
+  }) as any;
 };
 
 /**
@@ -4783,178 +3582,67 @@ const de_StartMedicalTranscriptionJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartMedicalTranscriptionJobResponse => {
-  return {
-    MedicalTranscriptionJob:
-      output.MedicalTranscriptionJob != null
-        ? de_MedicalTranscriptionJob(output.MedicalTranscriptionJob, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    MedicalTranscriptionJob: (_: any) => de_MedicalTranscriptionJob(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1StartTranscriptionJobResponse
  */
 const de_StartTranscriptionJobResponse = (output: any, context: __SerdeContext): StartTranscriptionJobResponse => {
-  return {
-    TranscriptionJob:
-      output.TranscriptionJob != null ? de_TranscriptionJob(output.TranscriptionJob, context) : undefined,
-  } as any;
+  return take(output, {
+    TranscriptionJob: (_: any) => de_TranscriptionJob(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1StringTargetList
- */
-const de_StringTargetList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringTargetList omitted.
 
-/**
- * deserializeAws_json1_1SubtitleFileUris
- */
-const de_SubtitleFileUris = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubtitleFileUris omitted.
 
-/**
- * deserializeAws_json1_1SubtitleFormats
- */
-const de_SubtitleFormats = (output: any, context: __SerdeContext): (SubtitleFormat | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubtitleFormats omitted.
 
-/**
- * deserializeAws_json1_1SubtitlesOutput
- */
-const de_SubtitlesOutput = (output: any, context: __SerdeContext): SubtitlesOutput => {
-  return {
-    Formats: output.Formats != null ? de_SubtitleFormats(output.Formats, context) : undefined,
-    OutputStartIndex: __expectInt32(output.OutputStartIndex),
-    SubtitleFileUris:
-      output.SubtitleFileUris != null ? de_SubtitleFileUris(output.SubtitleFileUris, context) : undefined,
-  } as any;
-};
+// de_SubtitlesOutput omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1Transcript
- */
-const de_Transcript = (output: any, context: __SerdeContext): Transcript => {
-  return {
-    RedactedTranscriptFileUri: __expectString(output.RedactedTranscriptFileUri),
-    TranscriptFileUri: __expectString(output.TranscriptFileUri),
-  } as any;
-};
+// de_Transcript omitted.
 
-/**
- * deserializeAws_json1_1TranscriptFilter
- */
-const de_TranscriptFilter = (output: any, context: __SerdeContext): TranscriptFilter => {
-  return {
-    AbsoluteTimeRange:
-      output.AbsoluteTimeRange != null ? de_AbsoluteTimeRange(output.AbsoluteTimeRange, context) : undefined,
-    Negate: __expectBoolean(output.Negate),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    RelativeTimeRange:
-      output.RelativeTimeRange != null ? de_RelativeTimeRange(output.RelativeTimeRange, context) : undefined,
-    Targets: output.Targets != null ? de_StringTargetList(output.Targets, context) : undefined,
-    TranscriptFilterType: __expectString(output.TranscriptFilterType),
-  } as any;
-};
+// de_TranscriptFilter omitted.
 
 /**
  * deserializeAws_json1_1TranscriptionJob
  */
 const de_TranscriptionJob = (output: any, context: __SerdeContext): TranscriptionJob => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    ContentRedaction:
-      output.ContentRedaction != null ? de_ContentRedaction(output.ContentRedaction, context) : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
-    IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
-    IdentifyMultipleLanguages: __expectBoolean(output.IdentifyMultipleLanguages),
-    JobExecutionSettings:
-      output.JobExecutionSettings != null ? de_JobExecutionSettings(output.JobExecutionSettings, context) : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageCodes: output.LanguageCodes != null ? de_LanguageCodeList(output.LanguageCodes, context) : undefined,
-    LanguageIdSettings:
-      output.LanguageIdSettings != null ? de_LanguageIdSettingsMap(output.LanguageIdSettings, context) : undefined,
-    LanguageOptions: output.LanguageOptions != null ? de_LanguageOptions(output.LanguageOptions, context) : undefined,
-    Media: output.Media != null ? de_Media(output.Media, context) : undefined,
-    MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
-    ModelSettings: output.ModelSettings != null ? de_ModelSettings(output.ModelSettings, context) : undefined,
-    Settings: output.Settings != null ? de_Settings(output.Settings, context) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Subtitles: output.Subtitles != null ? de_SubtitlesOutput(output.Subtitles, context) : undefined,
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-    Transcript: output.Transcript != null ? de_Transcript(output.Transcript, context) : undefined,
-    TranscriptionJobName: __expectString(output.TranscriptionJobName),
-    TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
-  } as any;
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentRedaction: _json,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    IdentifiedLanguageScore: __limitedParseFloat32,
+    IdentifyLanguage: __expectBoolean,
+    IdentifyMultipleLanguages: __expectBoolean,
+    JobExecutionSettings: _json,
+    LanguageCode: __expectString,
+    LanguageCodes: (_: any) => de_LanguageCodeList(_, context),
+    LanguageIdSettings: _json,
+    LanguageOptions: _json,
+    Media: _json,
+    MediaFormat: __expectString,
+    MediaSampleRateHertz: __expectInt32,
+    ModelSettings: _json,
+    Settings: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Subtitles: _json,
+    Tags: _json,
+    Transcript: _json,
+    TranscriptionJobName: __expectString,
+    TranscriptionJobStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -4964,9 +3652,6 @@ const de_TranscriptionJobSummaries = (output: any, context: __SerdeContext): Tra
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TranscriptionJobSummary(entry, context);
     });
   return retVal;
@@ -4976,38 +3661,25 @@ const de_TranscriptionJobSummaries = (output: any, context: __SerdeContext): Tra
  * deserializeAws_json1_1TranscriptionJobSummary
  */
 const de_TranscriptionJobSummary = (output: any, context: __SerdeContext): TranscriptionJobSummary => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    ContentRedaction:
-      output.ContentRedaction != null ? de_ContentRedaction(output.ContentRedaction, context) : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
-    IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
-    IdentifyMultipleLanguages: __expectBoolean(output.IdentifyMultipleLanguages),
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageCodes: output.LanguageCodes != null ? de_LanguageCodeList(output.LanguageCodes, context) : undefined,
-    ModelSettings: output.ModelSettings != null ? de_ModelSettings(output.ModelSettings, context) : undefined,
-    OutputLocationType: __expectString(output.OutputLocationType),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    TranscriptionJobName: __expectString(output.TranscriptionJobName),
-    TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
-  } as any;
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentRedaction: _json,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    IdentifiedLanguageScore: __limitedParseFloat32,
+    IdentifyLanguage: __expectBoolean,
+    IdentifyMultipleLanguages: __expectBoolean,
+    LanguageCode: __expectString,
+    LanguageCodes: (_: any) => de_LanguageCodeList(_, context),
+    ModelSettings: _json,
+    OutputLocationType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TranscriptionJobName: __expectString,
+    TranscriptionJobStatus: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateCallAnalyticsCategoryResponse
@@ -5016,54 +3688,44 @@ const de_UpdateCallAnalyticsCategoryResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateCallAnalyticsCategoryResponse => {
-  return {
-    CategoryProperties:
-      output.CategoryProperties != null ? de_CategoryProperties(output.CategoryProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    CategoryProperties: (_: any) => de_CategoryProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateMedicalVocabularyResponse
  */
 const de_UpdateMedicalVocabularyResponse = (output: any, context: __SerdeContext): UpdateMedicalVocabularyResponse => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateVocabularyFilterResponse
  */
 const de_UpdateVocabularyFilterResponse = (output: any, context: __SerdeContext): UpdateVocabularyFilterResponse => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-  } as any;
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyFilterName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateVocabularyResponse
  */
 const de_UpdateVocabularyResponse = (output: any, context: __SerdeContext): UpdateVocabularyResponse => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
 /**
@@ -5073,9 +3735,6 @@ const de_Vocabularies = (output: any, context: __SerdeContext): VocabularyInfo[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VocabularyInfo(entry, context);
     });
   return retVal;
@@ -5085,14 +3744,11 @@ const de_Vocabularies = (output: any, context: __SerdeContext): VocabularyInfo[]
  * deserializeAws_json1_1VocabularyFilterInfo
  */
 const de_VocabularyFilterInfo = (output: any, context: __SerdeContext): VocabularyFilterInfo => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-  } as any;
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyFilterName: __expectString,
+  }) as any;
 };
 
 /**
@@ -5102,9 +3758,6 @@ const de_VocabularyFilters = (output: any, context: __SerdeContext): VocabularyF
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VocabularyFilterInfo(entry, context);
     });
   return retVal;
@@ -5114,15 +3767,12 @@ const de_VocabularyFilters = (output: any, context: __SerdeContext): VocabularyF
  * deserializeAws_json1_1VocabularyInfo
  */
 const de_VocabularyInfo = (output: any, context: __SerdeContext): VocabularyInfo => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -5145,6 +3795,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

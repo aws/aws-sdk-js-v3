@@ -7740,7 +7740,7 @@ const de_RecursiveShapesInputOutputNested1 = (
 ): RecursiveShapesInputOutputNested1 => {
   return take(output, {
     foo: __expectString,
-    nested: (_) => de_RecursiveShapesInputOutputNested2(_, context),
+    nested: (_: any) => de_RecursiveShapesInputOutputNested2(_, context),
   }) as any;
 };
 
@@ -7753,7 +7753,7 @@ const de_RecursiveShapesInputOutputNested2 = (
 ): RecursiveShapesInputOutputNested2 => {
   return take(output, {
     bar: __expectString,
-    recursiveMember: (_) => de_RecursiveShapesInputOutputNested1(_, context),
+    recursiveMember: (_: any) => de_RecursiveShapesInputOutputNested1(_, context),
   }) as any;
 };
 

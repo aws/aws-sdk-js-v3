@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt32 as __expectInt32,
+  _json,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
-  expectString as __expectString,
-  map as __map,
+  map,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -16,7 +16,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchPutMetricsCommandInput, BatchPutMetricsCommandOutput } from "../commands/BatchPutMetricsCommand";
-import { BatchPutMetricsError, RawMetricData } from "../models/models_0";
+import { RawMetricData } from "../models/models_0";
 import { SageMakerMetricsServiceException as __BaseException } from "../models/SageMakerMetricsServiceException";
 
 /**
@@ -32,10 +32,12 @@ export const se_BatchPutMetricsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchPutMetrics";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MetricData != null && { MetricData: se_RawMetricDataList(input.MetricData, context) }),
-    ...(input.TrialComponentName != null && { TrialComponentName: input.TrialComponentName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MetricData: (_) => se_RawMetricDataList(_, context),
+      TrialComponentName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -61,9 +63,10 @@ export const de_BatchPutMetricsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_BatchPutMetricsErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -80,25 +83,24 @@ const de_BatchPutMetricsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * serializeAws_restJson1RawMetricData
  */
 const se_RawMetricData = (input: RawMetricData, context: __SerdeContext): any => {
-  return {
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Step != null && { Step: input.Step }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
-  };
+  return take(input, {
+    MetricName: [],
+    Step: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Value: (_) => __serializeFloat(_),
+  });
 };
 
 /**
@@ -112,30 +114,9 @@ const se_RawMetricDataList = (input: RawMetricData[], context: __SerdeContext): 
     });
 };
 
-/**
- * deserializeAws_restJson1BatchPutMetricsError
- */
-const de_BatchPutMetricsError = (output: any, context: __SerdeContext): BatchPutMetricsError => {
-  return {
-    Code: __expectString(output.Code),
-    MetricIndex: __expectInt32(output.MetricIndex),
-  } as any;
-};
+// de_BatchPutMetricsError omitted.
 
-/**
- * deserializeAws_restJson1BatchPutMetricsErrorList
- */
-const de_BatchPutMetricsErrorList = (output: any, context: __SerdeContext): BatchPutMetricsError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchPutMetricsError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchPutMetricsErrorList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

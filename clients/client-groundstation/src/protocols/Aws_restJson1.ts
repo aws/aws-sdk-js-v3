@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,11 +12,12 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -90,7 +92,6 @@ import { GroundStationServiceException as __BaseException } from "../models/Grou
 import {
   AgentDetails,
   AggregateStatus,
-  AntennaDemodDecodeDetails,
   AntennaDownlinkConfig,
   AntennaDownlinkDemodDecodeConfig,
   AntennaUplinkConfig,
@@ -98,37 +99,28 @@ import {
   CapabilityHealthReason,
   ComponentStatusData,
   ComponentVersion,
-  ConfigDetails,
-  ConfigListItem,
   ConfigTypeData,
   ConnectionDetails,
   ContactData,
   ContactStatus,
-  DataflowDetail,
   DataflowEndpoint,
   DataflowEndpointConfig,
-  DataflowEndpointListItem,
   DecodeConfig,
   DemodulationConfig,
   DependencyException,
-  Destination,
   DiscoveryData,
   Eirp,
   Elevation,
   EndpointDetails,
   EphemerisData,
-  EphemerisDescription,
   EphemerisItem,
   EphemerisMetaData,
   EphemerisStatus,
-  EphemerisTypeDescription,
   Frequency,
   FrequencyBandwidth,
-  GroundStationData,
   IntegerRange,
   InvalidParameterException,
   KmsKey,
-  MissionProfileListItem,
   OEMEphemeris,
   RangedConnectionDetails,
   RangedSocketAddress,
@@ -136,11 +128,9 @@ import {
   ResourceNotFoundException,
   S3Object,
   S3RecordingConfig,
-  S3RecordingDetails,
   SatelliteListItem,
   SecurityDetails,
   SocketAddress,
-  Source,
   SpectrumConfig,
   TimeRange,
   TLEData,
@@ -186,11 +176,13 @@ export const se_CreateConfigCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/config";
   let body: any;
-  body = JSON.stringify({
-    ...(input.configData != null && { configData: se_ConfigTypeData(input.configData, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      configData: (_) => se_ConfigTypeData(_, context),
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -215,16 +207,14 @@ export const se_CreateDataflowEndpointGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dataflowEndpointGroup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.contactPostPassDurationSeconds != null && {
-      contactPostPassDurationSeconds: input.contactPostPassDurationSeconds,
-    }),
-    ...(input.contactPrePassDurationSeconds != null && {
-      contactPrePassDurationSeconds: input.contactPrePassDurationSeconds,
-    }),
-    ...(input.endpointDetails != null && { endpointDetails: se_EndpointDetailsList(input.endpointDetails, context) }),
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contactPostPassDurationSeconds: [],
+      contactPrePassDurationSeconds: [],
+      endpointDetails: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -249,16 +239,18 @@ export const se_CreateEphemerisCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ephemeris";
   let body: any;
-  body = JSON.stringify({
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.ephemeris != null && { ephemeris: se_EphemerisData(input.ephemeris, context) }),
-    ...(input.expirationTime != null && { expirationTime: Math.round(input.expirationTime.getTime() / 1000) }),
-    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.priority != null && { priority: input.priority }),
-    ...(input.satelliteId != null && { satelliteId: input.satelliteId }),
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      enabled: [],
+      ephemeris: (_) => se_EphemerisData(_, context),
+      expirationTime: (_) => Math.round(_.getTime() / 1000),
+      kmsKeyArn: [],
+      name: [],
+      priority: [],
+      satelliteId: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -283,23 +275,19 @@ export const se_CreateMissionProfileCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/missionprofile";
   let body: any;
-  body = JSON.stringify({
-    ...(input.contactPostPassDurationSeconds != null && {
-      contactPostPassDurationSeconds: input.contactPostPassDurationSeconds,
-    }),
-    ...(input.contactPrePassDurationSeconds != null && {
-      contactPrePassDurationSeconds: input.contactPrePassDurationSeconds,
-    }),
-    ...(input.dataflowEdges != null && { dataflowEdges: se_DataflowEdgeList(input.dataflowEdges, context) }),
-    ...(input.minimumViableContactDurationSeconds != null && {
-      minimumViableContactDurationSeconds: input.minimumViableContactDurationSeconds,
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.streamsKmsKey != null && { streamsKmsKey: se_KmsKey(input.streamsKmsKey, context) }),
-    ...(input.streamsKmsRole != null && { streamsKmsRole: input.streamsKmsRole }),
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-    ...(input.trackingConfigArn != null && { trackingConfigArn: input.trackingConfigArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contactPostPassDurationSeconds: [],
+      contactPrePassDurationSeconds: [],
+      dataflowEdges: (_) => _json(_),
+      minimumViableContactDurationSeconds: [],
+      name: [],
+      streamsKmsKey: (_) => _json(_),
+      streamsKmsRole: [],
+      tags: (_) => _json(_),
+      trackingConfigArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -562,10 +550,12 @@ export const se_GetMinuteUsageCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/minute-usage";
   let body: any;
-  body = JSON.stringify({
-    ...(input.month != null && { month: input.month }),
-    ...(input.year != null && { year: input.year }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      month: [],
+      year: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -671,16 +661,18 @@ export const se_ListContactsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contacts";
   let body: any;
-  body = JSON.stringify({
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.groundStation != null && { groundStation: input.groundStation }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.missionProfileArn != null && { missionProfileArn: input.missionProfileArn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.satelliteArn != null && { satelliteArn: input.satelliteArn }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.statusList != null && { statusList: se_StatusList(input.statusList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      endTime: (_) => Math.round(_.getTime() / 1000),
+      groundStation: [],
+      maxResults: [],
+      missionProfileArn: [],
+      nextToken: [],
+      satelliteArn: [],
+      startTime: (_) => Math.round(_.getTime() / 1000),
+      statusList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -736,12 +728,14 @@ export const se_ListEphemeridesCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.satelliteId != null && { satelliteId: input.satelliteId }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.statusList != null && { statusList: se_EphemerisStatusList(input.statusList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      endTime: (_) => Math.round(_.getTime() / 1000),
+      satelliteId: [],
+      startTime: (_) => Math.round(_.getTime() / 1000),
+      statusList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -872,10 +866,12 @@ export const se_RegisterAgentCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agent";
   let body: any;
-  body = JSON.stringify({
-    ...(input.agentDetails != null && { agentDetails: se_AgentDetails(input.agentDetails, context) }),
-    ...(input.discoveryData != null && { discoveryData: se_DiscoveryData(input.discoveryData, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      agentDetails: (_) => _json(_),
+      discoveryData: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -900,14 +896,16 @@ export const se_ReserveContactCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact";
   let body: any;
-  body = JSON.stringify({
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.groundStation != null && { groundStation: input.groundStation }),
-    ...(input.missionProfileArn != null && { missionProfileArn: input.missionProfileArn }),
-    ...(input.satelliteArn != null && { satelliteArn: input.satelliteArn }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      endTime: (_) => Math.round(_.getTime() / 1000),
+      groundStation: [],
+      missionProfileArn: [],
+      satelliteArn: [],
+      startTime: (_) => Math.round(_.getTime() / 1000),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -933,9 +931,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -991,13 +991,13 @@ export const se_UpdateAgentStatusCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agent/{agentId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.aggregateStatus != null && { aggregateStatus: se_AggregateStatus(input.aggregateStatus, context) }),
-    ...(input.componentStatuses != null && {
-      componentStatuses: se_ComponentStatusList(input.componentStatuses, context),
-    }),
-    ...(input.taskId != null && { taskId: input.taskId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      aggregateStatus: (_) => _json(_),
+      componentStatuses: (_) => _json(_),
+      taskId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1025,10 +1025,12 @@ export const se_UpdateConfigCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "configId", () => input.configId!, "{configId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "configType", () => input.configType!, "{configType}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.configData != null && { configData: se_ConfigTypeData(input.configData, context) }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      configData: (_) => se_ConfigTypeData(_, context),
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1054,11 +1056,13 @@ export const se_UpdateEphemerisCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ephemeris/{ephemerisId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ephemerisId", () => input.ephemerisId!, "{ephemerisId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.priority != null && { priority: input.priority }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      enabled: [],
+      name: [],
+      priority: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1092,22 +1096,18 @@ export const se_UpdateMissionProfileCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.contactPostPassDurationSeconds != null && {
-      contactPostPassDurationSeconds: input.contactPostPassDurationSeconds,
-    }),
-    ...(input.contactPrePassDurationSeconds != null && {
-      contactPrePassDurationSeconds: input.contactPrePassDurationSeconds,
-    }),
-    ...(input.dataflowEdges != null && { dataflowEdges: se_DataflowEdgeList(input.dataflowEdges, context) }),
-    ...(input.minimumViableContactDurationSeconds != null && {
-      minimumViableContactDurationSeconds: input.minimumViableContactDurationSeconds,
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.streamsKmsKey != null && { streamsKmsKey: se_KmsKey(input.streamsKmsKey, context) }),
-    ...(input.streamsKmsRole != null && { streamsKmsRole: input.streamsKmsRole }),
-    ...(input.trackingConfigArn != null && { trackingConfigArn: input.trackingConfigArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contactPostPassDurationSeconds: [],
+      contactPrePassDurationSeconds: [],
+      dataflowEdges: (_) => _json(_),
+      minimumViableContactDurationSeconds: [],
+      name: [],
+      streamsKmsKey: (_) => _json(_),
+      streamsKmsRole: [],
+      trackingConfigArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1133,9 +1133,10 @@ export const de_CancelContactCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contactId != null) {
-    contents.contactId = __expectString(data.contactId);
-  }
+  const doc = take(data, {
+    contactId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1163,10 +1164,9 @@ const de_CancelContactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1186,15 +1186,12 @@ export const de_CreateConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configArn != null) {
-    contents.configArn = __expectString(data.configArn);
-  }
-  if (data.configId != null) {
-    contents.configId = __expectString(data.configId);
-  }
-  if (data.configType != null) {
-    contents.configType = __expectString(data.configType);
-  }
+  const doc = take(data, {
+    configArn: __expectString,
+    configId: __expectString,
+    configType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1225,10 +1222,9 @@ const de_CreateConfigCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1248,9 +1244,10 @@ export const de_CreateDataflowEndpointGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataflowEndpointGroupId != null) {
-    contents.dataflowEndpointGroupId = __expectString(data.dataflowEndpointGroupId);
-  }
+  const doc = take(data, {
+    dataflowEndpointGroupId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1278,10 +1275,9 @@ const de_CreateDataflowEndpointGroupCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1301,9 +1297,10 @@ export const de_CreateEphemerisCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ephemerisId != null) {
-    contents.ephemerisId = __expectString(data.ephemerisId);
-  }
+  const doc = take(data, {
+    ephemerisId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1331,10 +1328,9 @@ const de_CreateEphemerisCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1354,9 +1350,10 @@ export const de_CreateMissionProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.missionProfileId != null) {
-    contents.missionProfileId = __expectString(data.missionProfileId);
-  }
+  const doc = take(data, {
+    missionProfileId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1384,10 +1381,9 @@ const de_CreateMissionProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1407,15 +1403,12 @@ export const de_DeleteConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configArn != null) {
-    contents.configArn = __expectString(data.configArn);
-  }
-  if (data.configId != null) {
-    contents.configId = __expectString(data.configId);
-  }
-  if (data.configType != null) {
-    contents.configType = __expectString(data.configType);
-  }
+  const doc = take(data, {
+    configArn: __expectString,
+    configId: __expectString,
+    configType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1443,10 +1436,9 @@ const de_DeleteConfigCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1466,9 +1458,10 @@ export const de_DeleteDataflowEndpointGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataflowEndpointGroupId != null) {
-    contents.dataflowEndpointGroupId = __expectString(data.dataflowEndpointGroupId);
-  }
+  const doc = take(data, {
+    dataflowEndpointGroupId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1496,10 +1489,9 @@ const de_DeleteDataflowEndpointGroupCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1519,9 +1511,10 @@ export const de_DeleteEphemerisCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ephemerisId != null) {
-    contents.ephemerisId = __expectString(data.ephemerisId);
-  }
+  const doc = take(data, {
+    ephemerisId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1549,10 +1542,9 @@ const de_DeleteEphemerisCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1572,9 +1564,10 @@ export const de_DeleteMissionProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.missionProfileId != null) {
-    contents.missionProfileId = __expectString(data.missionProfileId);
-  }
+  const doc = take(data, {
+    missionProfileId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1602,10 +1595,9 @@ const de_DeleteMissionProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1625,48 +1617,23 @@ export const de_DescribeContactCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contactId != null) {
-    contents.contactId = __expectString(data.contactId);
-  }
-  if (data.contactStatus != null) {
-    contents.contactStatus = __expectString(data.contactStatus);
-  }
-  if (data.dataflowList != null) {
-    contents.dataflowList = de_DataflowList(data.dataflowList, context);
-  }
-  if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
-  }
-  if (data.errorMessage != null) {
-    contents.errorMessage = __expectString(data.errorMessage);
-  }
-  if (data.groundStation != null) {
-    contents.groundStation = __expectString(data.groundStation);
-  }
-  if (data.maximumElevation != null) {
-    contents.maximumElevation = de_Elevation(data.maximumElevation, context);
-  }
-  if (data.missionProfileArn != null) {
-    contents.missionProfileArn = __expectString(data.missionProfileArn);
-  }
-  if (data.postPassEndTime != null) {
-    contents.postPassEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.postPassEndTime)));
-  }
-  if (data.prePassStartTime != null) {
-    contents.prePassStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.prePassStartTime)));
-  }
-  if (data.region != null) {
-    contents.region = __expectString(data.region);
-  }
-  if (data.satelliteArn != null) {
-    contents.satelliteArn = __expectString(data.satelliteArn);
-  }
-  if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagsMap(data.tags, context);
-  }
+  const doc = take(data, {
+    contactId: __expectString,
+    contactStatus: __expectString,
+    dataflowList: _json,
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    errorMessage: __expectString,
+    groundStation: __expectString,
+    maximumElevation: (_) => de_Elevation(_, context),
+    missionProfileArn: __expectString,
+    postPassEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    prePassStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    region: __expectString,
+    satelliteArn: __expectString,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1694,10 +1661,9 @@ const de_DescribeContactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1717,36 +1683,19 @@ export const de_DescribeEphemerisCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.enabled != null) {
-    contents.enabled = __expectBoolean(data.enabled);
-  }
-  if (data.ephemerisId != null) {
-    contents.ephemerisId = __expectString(data.ephemerisId);
-  }
-  if (data.invalidReason != null) {
-    contents.invalidReason = __expectString(data.invalidReason);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.priority != null) {
-    contents.priority = __expectInt32(data.priority);
-  }
-  if (data.satelliteId != null) {
-    contents.satelliteId = __expectString(data.satelliteId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.suppliedData != null) {
-    contents.suppliedData = de_EphemerisTypeDescription(__expectUnion(data.suppliedData), context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagsMap(data.tags, context);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    enabled: __expectBoolean,
+    ephemerisId: __expectString,
+    invalidReason: __expectString,
+    name: __expectString,
+    priority: __expectInt32,
+    satelliteId: __expectString,
+    status: __expectString,
+    suppliedData: (_) => _json(__expectUnion(_)),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1774,10 +1723,9 @@ const de_DescribeEphemerisCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1797,12 +1745,11 @@ export const de_GetAgentConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.agentId != null) {
-    contents.agentId = __expectString(data.agentId);
-  }
-  if (data.taskingDocument != null) {
-    contents.taskingDocument = __expectString(data.taskingDocument);
-  }
+  const doc = take(data, {
+    agentId: __expectString,
+    taskingDocument: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1830,10 +1777,9 @@ const de_GetAgentConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1853,24 +1799,15 @@ export const de_GetConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configArn != null) {
-    contents.configArn = __expectString(data.configArn);
-  }
-  if (data.configData != null) {
-    contents.configData = de_ConfigTypeData(__expectUnion(data.configData), context);
-  }
-  if (data.configId != null) {
-    contents.configId = __expectString(data.configId);
-  }
-  if (data.configType != null) {
-    contents.configType = __expectString(data.configType);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagsMap(data.tags, context);
-  }
+  const doc = take(data, {
+    configArn: __expectString,
+    configData: (_) => de_ConfigTypeData(__expectUnion(_), context),
+    configId: __expectString,
+    configType: __expectString,
+    name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1898,10 +1835,9 @@ const de_GetConfigCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1921,24 +1857,15 @@ export const de_GetDataflowEndpointGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contactPostPassDurationSeconds != null) {
-    contents.contactPostPassDurationSeconds = __expectInt32(data.contactPostPassDurationSeconds);
-  }
-  if (data.contactPrePassDurationSeconds != null) {
-    contents.contactPrePassDurationSeconds = __expectInt32(data.contactPrePassDurationSeconds);
-  }
-  if (data.dataflowEndpointGroupArn != null) {
-    contents.dataflowEndpointGroupArn = __expectString(data.dataflowEndpointGroupArn);
-  }
-  if (data.dataflowEndpointGroupId != null) {
-    contents.dataflowEndpointGroupId = __expectString(data.dataflowEndpointGroupId);
-  }
-  if (data.endpointsDetails != null) {
-    contents.endpointsDetails = de_EndpointDetailsList(data.endpointsDetails, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagsMap(data.tags, context);
-  }
+  const doc = take(data, {
+    contactPostPassDurationSeconds: __expectInt32,
+    contactPrePassDurationSeconds: __expectInt32,
+    dataflowEndpointGroupArn: __expectString,
+    dataflowEndpointGroupId: __expectString,
+    endpointsDetails: _json,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1966,10 +1893,9 @@ const de_GetDataflowEndpointGroupCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1989,21 +1915,14 @@ export const de_GetMinuteUsageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.estimatedMinutesRemaining != null) {
-    contents.estimatedMinutesRemaining = __expectInt32(data.estimatedMinutesRemaining);
-  }
-  if (data.isReservedMinutesCustomer != null) {
-    contents.isReservedMinutesCustomer = __expectBoolean(data.isReservedMinutesCustomer);
-  }
-  if (data.totalReservedMinuteAllocation != null) {
-    contents.totalReservedMinuteAllocation = __expectInt32(data.totalReservedMinuteAllocation);
-  }
-  if (data.totalScheduledMinutes != null) {
-    contents.totalScheduledMinutes = __expectInt32(data.totalScheduledMinutes);
-  }
-  if (data.upcomingMinutesScheduled != null) {
-    contents.upcomingMinutesScheduled = __expectInt32(data.upcomingMinutesScheduled);
-  }
+  const doc = take(data, {
+    estimatedMinutesRemaining: __expectInt32,
+    isReservedMinutesCustomer: __expectBoolean,
+    totalReservedMinuteAllocation: __expectInt32,
+    totalScheduledMinutes: __expectInt32,
+    upcomingMinutesScheduled: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2031,10 +1950,9 @@ const de_GetMinuteUsageCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2054,42 +1972,21 @@ export const de_GetMissionProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contactPostPassDurationSeconds != null) {
-    contents.contactPostPassDurationSeconds = __expectInt32(data.contactPostPassDurationSeconds);
-  }
-  if (data.contactPrePassDurationSeconds != null) {
-    contents.contactPrePassDurationSeconds = __expectInt32(data.contactPrePassDurationSeconds);
-  }
-  if (data.dataflowEdges != null) {
-    contents.dataflowEdges = de_DataflowEdgeList(data.dataflowEdges, context);
-  }
-  if (data.minimumViableContactDurationSeconds != null) {
-    contents.minimumViableContactDurationSeconds = __expectInt32(data.minimumViableContactDurationSeconds);
-  }
-  if (data.missionProfileArn != null) {
-    contents.missionProfileArn = __expectString(data.missionProfileArn);
-  }
-  if (data.missionProfileId != null) {
-    contents.missionProfileId = __expectString(data.missionProfileId);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.region != null) {
-    contents.region = __expectString(data.region);
-  }
-  if (data.streamsKmsKey != null) {
-    contents.streamsKmsKey = de_KmsKey(__expectUnion(data.streamsKmsKey), context);
-  }
-  if (data.streamsKmsRole != null) {
-    contents.streamsKmsRole = __expectString(data.streamsKmsRole);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagsMap(data.tags, context);
-  }
-  if (data.trackingConfigArn != null) {
-    contents.trackingConfigArn = __expectString(data.trackingConfigArn);
-  }
+  const doc = take(data, {
+    contactPostPassDurationSeconds: __expectInt32,
+    contactPrePassDurationSeconds: __expectInt32,
+    dataflowEdges: _json,
+    minimumViableContactDurationSeconds: __expectInt32,
+    missionProfileArn: __expectString,
+    missionProfileId: __expectString,
+    name: __expectString,
+    region: __expectString,
+    streamsKmsKey: (_) => _json(__expectUnion(_)),
+    streamsKmsRole: __expectString,
+    tags: _json,
+    trackingConfigArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2117,10 +2014,9 @@ const de_GetMissionProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2140,21 +2036,14 @@ export const de_GetSatelliteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.currentEphemeris != null) {
-    contents.currentEphemeris = de_EphemerisMetaData(data.currentEphemeris, context);
-  }
-  if (data.groundStations != null) {
-    contents.groundStations = de_GroundStationIdList(data.groundStations, context);
-  }
-  if (data.noradSatelliteID != null) {
-    contents.noradSatelliteID = __expectInt32(data.noradSatelliteID);
-  }
-  if (data.satelliteArn != null) {
-    contents.satelliteArn = __expectString(data.satelliteArn);
-  }
-  if (data.satelliteId != null) {
-    contents.satelliteId = __expectString(data.satelliteId);
-  }
+  const doc = take(data, {
+    currentEphemeris: (_) => de_EphemerisMetaData(_, context),
+    groundStations: _json,
+    noradSatelliteID: __expectInt32,
+    satelliteArn: __expectString,
+    satelliteId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2182,10 +2071,9 @@ const de_GetSatelliteCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2205,12 +2093,11 @@ export const de_ListConfigsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configList != null) {
-    contents.configList = de_ConfigList(data.configList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    configList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2238,10 +2125,9 @@ const de_ListConfigsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2261,12 +2147,11 @@ export const de_ListContactsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contactList != null) {
-    contents.contactList = de_ContactList(data.contactList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    contactList: (_) => de_ContactList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2294,10 +2179,9 @@ const de_ListContactsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2317,12 +2201,11 @@ export const de_ListDataflowEndpointGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataflowEndpointGroupList != null) {
-    contents.dataflowEndpointGroupList = de_DataflowEndpointGroupList(data.dataflowEndpointGroupList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    dataflowEndpointGroupList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2350,10 +2233,9 @@ const de_ListDataflowEndpointGroupsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2373,12 +2255,11 @@ export const de_ListEphemeridesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ephemerides != null) {
-    contents.ephemerides = de_EphemeridesList(data.ephemerides, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    ephemerides: (_) => de_EphemeridesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2406,10 +2287,9 @@ const de_ListEphemeridesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2429,12 +2309,11 @@ export const de_ListGroundStationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.groundStationList != null) {
-    contents.groundStationList = de_GroundStationList(data.groundStationList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    groundStationList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2462,10 +2341,9 @@ const de_ListGroundStationsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2485,12 +2363,11 @@ export const de_ListMissionProfilesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.missionProfileList != null) {
-    contents.missionProfileList = de_MissionProfileList(data.missionProfileList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    missionProfileList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2518,10 +2395,9 @@ const de_ListMissionProfilesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2541,12 +2417,11 @@ export const de_ListSatellitesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.satellites != null) {
-    contents.satellites = de_SatelliteList(data.satellites, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    satellites: (_) => de_SatelliteList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2574,10 +2449,9 @@ const de_ListSatellitesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2597,9 +2471,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagsMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2627,10 +2502,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2650,9 +2524,10 @@ export const de_RegisterAgentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.agentId != null) {
-    contents.agentId = __expectString(data.agentId);
-  }
+  const doc = take(data, {
+    agentId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2680,10 +2555,9 @@ const de_RegisterAgentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2703,9 +2577,10 @@ export const de_ReserveContactCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contactId != null) {
-    contents.contactId = __expectString(data.contactId);
-  }
+  const doc = take(data, {
+    contactId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2733,10 +2608,9 @@ const de_ReserveContactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2783,10 +2657,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2833,10 +2706,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2856,9 +2728,10 @@ export const de_UpdateAgentStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.agentId != null) {
-    contents.agentId = __expectString(data.agentId);
-  }
+  const doc = take(data, {
+    agentId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2886,10 +2759,9 @@ const de_UpdateAgentStatusCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2909,15 +2781,12 @@ export const de_UpdateConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configArn != null) {
-    contents.configArn = __expectString(data.configArn);
-  }
-  if (data.configId != null) {
-    contents.configId = __expectString(data.configId);
-  }
-  if (data.configType != null) {
-    contents.configType = __expectString(data.configType);
-  }
+  const doc = take(data, {
+    configArn: __expectString,
+    configId: __expectString,
+    configType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2945,10 +2814,9 @@ const de_UpdateConfigCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2968,9 +2836,10 @@ export const de_UpdateEphemerisCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ephemerisId != null) {
-    contents.ephemerisId = __expectString(data.ephemerisId);
-  }
+  const doc = take(data, {
+    ephemerisId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2998,10 +2867,9 @@ const de_UpdateEphemerisCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3021,9 +2889,10 @@ export const de_UpdateMissionProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.missionProfileId != null) {
-    contents.missionProfileId = __expectString(data.missionProfileId);
-  }
+  const doc = take(data, {
+    missionProfileId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3051,28 +2920,26 @@ const de_UpdateMissionProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1DependencyExceptionRes
  */
 const de_DependencyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<DependencyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.parameterName != null) {
-    contents.parameterName = __expectString(data.parameterName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    parameterName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3089,12 +2956,11 @@ const de_InvalidParameterExceptionRes = async (
 ): Promise<InvalidParameterException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.parameterName != null) {
-    contents.parameterName = __expectString(data.parameterName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    parameterName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3111,12 +2977,11 @@ const de_ResourceLimitExceededExceptionRes = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.parameterName != null) {
-    contents.parameterName = __expectString(data.parameterName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    parameterName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3133,9 +2998,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3143,157 +3009,56 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AgentCpuCoresList
- */
-const se_AgentCpuCoresList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AgentCpuCoresList omitted.
 
-/**
- * serializeAws_restJson1AgentDetails
- */
-const se_AgentDetails = (input: AgentDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.agentCpuCores != null && { agentCpuCores: se_AgentCpuCoresList(input.agentCpuCores, context) }),
-    ...(input.agentVersion != null && { agentVersion: input.agentVersion }),
-    ...(input.componentVersions != null && {
-      componentVersions: se_ComponentVersionList(input.componentVersions, context),
-    }),
-    ...(input.instanceId != null && { instanceId: input.instanceId }),
-    ...(input.instanceType != null && { instanceType: input.instanceType }),
-    ...(input.reservedCpuCores != null && { reservedCpuCores: se_AgentCpuCoresList(input.reservedCpuCores, context) }),
-  };
-};
+// se_AgentDetails omitted.
 
-/**
- * serializeAws_restJson1AggregateStatus
- */
-const se_AggregateStatus = (input: AggregateStatus, context: __SerdeContext): any => {
-  return {
-    ...(input.signatureMap != null && { signatureMap: se_SignatureMap(input.signatureMap, context) }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_AggregateStatus omitted.
 
 /**
  * serializeAws_restJson1AntennaDownlinkConfig
  */
 const se_AntennaDownlinkConfig = (input: AntennaDownlinkConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.spectrumConfig != null && { spectrumConfig: se_SpectrumConfig(input.spectrumConfig, context) }),
-  };
+  return take(input, {
+    spectrumConfig: (_) => se_SpectrumConfig(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1AntennaDownlinkDemodDecodeConfig
  */
 const se_AntennaDownlinkDemodDecodeConfig = (input: AntennaDownlinkDemodDecodeConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.decodeConfig != null && { decodeConfig: se_DecodeConfig(input.decodeConfig, context) }),
-    ...(input.demodulationConfig != null && {
-      demodulationConfig: se_DemodulationConfig(input.demodulationConfig, context),
-    }),
-    ...(input.spectrumConfig != null && { spectrumConfig: se_SpectrumConfig(input.spectrumConfig, context) }),
-  };
+  return take(input, {
+    decodeConfig: (_) => _json(_),
+    demodulationConfig: (_) => _json(_),
+    spectrumConfig: (_) => se_SpectrumConfig(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1AntennaUplinkConfig
  */
 const se_AntennaUplinkConfig = (input: AntennaUplinkConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.spectrumConfig != null && { spectrumConfig: se_UplinkSpectrumConfig(input.spectrumConfig, context) }),
-    ...(input.targetEirp != null && { targetEirp: se_Eirp(input.targetEirp, context) }),
-    ...(input.transmitDisabled != null && { transmitDisabled: input.transmitDisabled }),
-  };
+  return take(input, {
+    spectrumConfig: (_) => se_UplinkSpectrumConfig(_, context),
+    targetEirp: (_) => se_Eirp(_, context),
+    transmitDisabled: [],
+  });
 };
 
-/**
- * serializeAws_restJson1AwsGroundStationAgentEndpoint
- */
-const se_AwsGroundStationAgentEndpoint = (input: AwsGroundStationAgentEndpoint, context: __SerdeContext): any => {
-  return {
-    ...(input.agentStatus != null && { agentStatus: input.agentStatus }),
-    ...(input.auditResults != null && { auditResults: input.auditResults }),
-    ...(input.egressAddress != null && { egressAddress: se_ConnectionDetails(input.egressAddress, context) }),
-    ...(input.ingressAddress != null && { ingressAddress: se_RangedConnectionDetails(input.ingressAddress, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_AwsGroundStationAgentEndpoint omitted.
 
-/**
- * serializeAws_restJson1CapabilityArnList
- */
-const se_CapabilityArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CapabilityArnList omitted.
 
-/**
- * serializeAws_restJson1CapabilityHealthReasonList
- */
-const se_CapabilityHealthReasonList = (input: (CapabilityHealthReason | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CapabilityHealthReasonList omitted.
 
-/**
- * serializeAws_restJson1ComponentStatusData
- */
-const se_ComponentStatusData = (input: ComponentStatusData, context: __SerdeContext): any => {
-  return {
-    ...(input.bytesReceived != null && { bytesReceived: input.bytesReceived }),
-    ...(input.bytesSent != null && { bytesSent: input.bytesSent }),
-    ...(input.capabilityArn != null && { capabilityArn: input.capabilityArn }),
-    ...(input.componentType != null && { componentType: input.componentType }),
-    ...(input.dataflowId != null && { dataflowId: input.dataflowId }),
-    ...(input.packetsDropped != null && { packetsDropped: input.packetsDropped }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_ComponentStatusData omitted.
 
-/**
- * serializeAws_restJson1ComponentStatusList
- */
-const se_ComponentStatusList = (input: ComponentStatusData[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ComponentStatusData(entry, context);
-    });
-};
+// se_ComponentStatusList omitted.
 
-/**
- * serializeAws_restJson1ComponentVersion
- */
-const se_ComponentVersion = (input: ComponentVersion, context: __SerdeContext): any => {
-  return {
-    ...(input.componentType != null && { componentType: input.componentType }),
-    ...(input.versions != null && { versions: se_VersionStringList(input.versions, context) }),
-  };
-};
+// se_ComponentVersion omitted.
 
-/**
- * serializeAws_restJson1ComponentVersionList
- */
-const se_ComponentVersionList = (input: ComponentVersion[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ComponentVersion(entry, context);
-    });
-};
+// se_ComponentVersionList omitted.
 
 /**
  * serializeAws_restJson1ConfigTypeData
@@ -3305,373 +3070,137 @@ const se_ConfigTypeData = (input: ConfigTypeData, context: __SerdeContext): any 
       antennaDownlinkDemodDecodeConfig: se_AntennaDownlinkDemodDecodeConfig(value, context),
     }),
     antennaUplinkConfig: (value) => ({ antennaUplinkConfig: se_AntennaUplinkConfig(value, context) }),
-    dataflowEndpointConfig: (value) => ({ dataflowEndpointConfig: se_DataflowEndpointConfig(value, context) }),
-    s3RecordingConfig: (value) => ({ s3RecordingConfig: se_S3RecordingConfig(value, context) }),
-    trackingConfig: (value) => ({ trackingConfig: se_TrackingConfig(value, context) }),
-    uplinkEchoConfig: (value) => ({ uplinkEchoConfig: se_UplinkEchoConfig(value, context) }),
+    dataflowEndpointConfig: (value) => ({ dataflowEndpointConfig: _json(value) }),
+    s3RecordingConfig: (value) => ({ s3RecordingConfig: _json(value) }),
+    trackingConfig: (value) => ({ trackingConfig: _json(value) }),
+    uplinkEchoConfig: (value) => ({ uplinkEchoConfig: _json(value) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-/**
- * serializeAws_restJson1ConnectionDetails
- */
-const se_ConnectionDetails = (input: ConnectionDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.mtu != null && { mtu: input.mtu }),
-    ...(input.socketAddress != null && { socketAddress: se_SocketAddress(input.socketAddress, context) }),
-  };
-};
+// se_ConnectionDetails omitted.
 
-/**
- * serializeAws_restJson1DataflowEdge
- */
-const se_DataflowEdge = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DataflowEdge omitted.
 
-/**
- * serializeAws_restJson1DataflowEdgeList
- */
-const se_DataflowEdgeList = (input: string[][], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DataflowEdge(entry, context);
-    });
-};
+// se_DataflowEdgeList omitted.
 
-/**
- * serializeAws_restJson1DataflowEndpoint
- */
-const se_DataflowEndpoint = (input: DataflowEndpoint, context: __SerdeContext): any => {
-  return {
-    ...(input.address != null && { address: se_SocketAddress(input.address, context) }),
-    ...(input.mtu != null && { mtu: input.mtu }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_DataflowEndpoint omitted.
 
-/**
- * serializeAws_restJson1DataflowEndpointConfig
- */
-const se_DataflowEndpointConfig = (input: DataflowEndpointConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.dataflowEndpointName != null && { dataflowEndpointName: input.dataflowEndpointName }),
-    ...(input.dataflowEndpointRegion != null && { dataflowEndpointRegion: input.dataflowEndpointRegion }),
-  };
-};
+// se_DataflowEndpointConfig omitted.
 
-/**
- * serializeAws_restJson1DecodeConfig
- */
-const se_DecodeConfig = (input: DecodeConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.unvalidatedJSON != null && { unvalidatedJSON: input.unvalidatedJSON }),
-  };
-};
+// se_DecodeConfig omitted.
 
-/**
- * serializeAws_restJson1DemodulationConfig
- */
-const se_DemodulationConfig = (input: DemodulationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.unvalidatedJSON != null && { unvalidatedJSON: input.unvalidatedJSON }),
-  };
-};
+// se_DemodulationConfig omitted.
 
-/**
- * serializeAws_restJson1DiscoveryData
- */
-const se_DiscoveryData = (input: DiscoveryData, context: __SerdeContext): any => {
-  return {
-    ...(input.capabilityArns != null && { capabilityArns: se_CapabilityArnList(input.capabilityArns, context) }),
-    ...(input.privateIpAddresses != null && {
-      privateIpAddresses: se_IpAddressList(input.privateIpAddresses, context),
-    }),
-    ...(input.publicIpAddresses != null && { publicIpAddresses: se_IpAddressList(input.publicIpAddresses, context) }),
-  };
-};
+// se_DiscoveryData omitted.
 
 /**
  * serializeAws_restJson1Eirp
  */
 const se_Eirp = (input: Eirp, context: __SerdeContext): any => {
-  return {
-    ...(input.units != null && { units: input.units }),
-    ...(input.value != null && { value: __serializeFloat(input.value) }),
-  };
+  return take(input, {
+    units: [],
+    value: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_restJson1EndpointDetails
- */
-const se_EndpointDetails = (input: EndpointDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.awsGroundStationAgentEndpoint != null && {
-      awsGroundStationAgentEndpoint: se_AwsGroundStationAgentEndpoint(input.awsGroundStationAgentEndpoint, context),
-    }),
-    ...(input.endpoint != null && { endpoint: se_DataflowEndpoint(input.endpoint, context) }),
-    ...(input.healthReasons != null && { healthReasons: se_CapabilityHealthReasonList(input.healthReasons, context) }),
-    ...(input.healthStatus != null && { healthStatus: input.healthStatus }),
-    ...(input.securityDetails != null && { securityDetails: se_SecurityDetails(input.securityDetails, context) }),
-  };
-};
+// se_EndpointDetails omitted.
 
-/**
- * serializeAws_restJson1EndpointDetailsList
- */
-const se_EndpointDetailsList = (input: EndpointDetails[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EndpointDetails(entry, context);
-    });
-};
+// se_EndpointDetailsList omitted.
 
 /**
  * serializeAws_restJson1EphemerisData
  */
 const se_EphemerisData = (input: EphemerisData, context: __SerdeContext): any => {
   return EphemerisData.visit(input, {
-    oem: (value) => ({ oem: se_OEMEphemeris(value, context) }),
+    oem: (value) => ({ oem: _json(value) }),
     tle: (value) => ({ tle: se_TLEEphemeris(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-/**
- * serializeAws_restJson1EphemerisStatusList
- */
-const se_EphemerisStatusList = (input: (EphemerisStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EphemerisStatusList omitted.
 
 /**
  * serializeAws_restJson1Frequency
  */
 const se_Frequency = (input: Frequency, context: __SerdeContext): any => {
-  return {
-    ...(input.units != null && { units: input.units }),
-    ...(input.value != null && { value: __serializeFloat(input.value) }),
-  };
+  return take(input, {
+    units: [],
+    value: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_restJson1FrequencyBandwidth
  */
 const se_FrequencyBandwidth = (input: FrequencyBandwidth, context: __SerdeContext): any => {
-  return {
-    ...(input.units != null && { units: input.units }),
-    ...(input.value != null && { value: __serializeFloat(input.value) }),
-  };
-};
-
-/**
- * serializeAws_restJson1IntegerRange
- */
-const se_IntegerRange = (input: IntegerRange, context: __SerdeContext): any => {
-  return {
-    ...(input.maximum != null && { maximum: input.maximum }),
-    ...(input.minimum != null && { minimum: input.minimum }),
-  };
-};
-
-/**
- * serializeAws_restJson1IpAddressList
- */
-const se_IpAddressList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1KmsKey
- */
-const se_KmsKey = (input: KmsKey, context: __SerdeContext): any => {
-  return KmsKey.visit(input, {
-    kmsAliasArn: (value) => ({ kmsAliasArn: value }),
-    kmsKeyArn: (value) => ({ kmsKeyArn: value }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    units: [],
+    value: (_) => __serializeFloat(_),
   });
 };
 
-/**
- * serializeAws_restJson1OEMEphemeris
- */
-const se_OEMEphemeris = (input: OEMEphemeris, context: __SerdeContext): any => {
-  return {
-    ...(input.oemData != null && { oemData: input.oemData }),
-    ...(input.s3Object != null && { s3Object: se_S3Object(input.s3Object, context) }),
-  };
-};
+// se_IntegerRange omitted.
 
-/**
- * serializeAws_restJson1RangedConnectionDetails
- */
-const se_RangedConnectionDetails = (input: RangedConnectionDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.mtu != null && { mtu: input.mtu }),
-    ...(input.socketAddress != null && { socketAddress: se_RangedSocketAddress(input.socketAddress, context) }),
-  };
-};
+// se_IpAddressList omitted.
 
-/**
- * serializeAws_restJson1RangedSocketAddress
- */
-const se_RangedSocketAddress = (input: RangedSocketAddress, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.portRange != null && { portRange: se_IntegerRange(input.portRange, context) }),
-  };
-};
+// se_KmsKey omitted.
 
-/**
- * serializeAws_restJson1S3Object
- */
-const se_S3Object = (input: S3Object, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.key != null && { key: input.key }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_OEMEphemeris omitted.
 
-/**
- * serializeAws_restJson1S3RecordingConfig
- */
-const se_S3RecordingConfig = (input: S3RecordingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketArn != null && { bucketArn: input.bucketArn }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-  };
-};
+// se_RangedConnectionDetails omitted.
 
-/**
- * serializeAws_restJson1SecurityDetails
- */
-const se_SecurityDetails = (input: SecurityDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: se_SecurityGroupIdList(input.securityGroupIds, context),
-    }),
-    ...(input.subnetIds != null && { subnetIds: se_SubnetList(input.subnetIds, context) }),
-  };
-};
+// se_RangedSocketAddress omitted.
 
-/**
- * serializeAws_restJson1SecurityGroupIdList
- */
-const se_SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_S3Object omitted.
 
-/**
- * serializeAws_restJson1SignatureMap
- */
-const se_SignatureMap = (input: Record<string, boolean>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_S3RecordingConfig omitted.
 
-/**
- * serializeAws_restJson1SocketAddress
- */
-const se_SocketAddress = (input: SocketAddress, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.port != null && { port: input.port }),
-  };
-};
+// se_SecurityDetails omitted.
+
+// se_SecurityGroupIdList omitted.
+
+// se_SignatureMap omitted.
+
+// se_SocketAddress omitted.
 
 /**
  * serializeAws_restJson1SpectrumConfig
  */
 const se_SpectrumConfig = (input: SpectrumConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bandwidth != null && { bandwidth: se_FrequencyBandwidth(input.bandwidth, context) }),
-    ...(input.centerFrequency != null && { centerFrequency: se_Frequency(input.centerFrequency, context) }),
-    ...(input.polarization != null && { polarization: input.polarization }),
-  };
+  return take(input, {
+    bandwidth: (_) => se_FrequencyBandwidth(_, context),
+    centerFrequency: (_) => se_Frequency(_, context),
+    polarization: [],
+  });
 };
 
-/**
- * serializeAws_restJson1StatusList
- */
-const se_StatusList = (input: (ContactStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StatusList omitted.
 
-/**
- * serializeAws_restJson1SubnetList
- */
-const se_SubnetList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetList omitted.
 
-/**
- * serializeAws_restJson1TagsMap
- */
-const se_TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagsMap omitted.
 
 /**
  * serializeAws_restJson1TimeRange
  */
 const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_restJson1TLEData
  */
 const se_TLEData = (input: TLEData, context: __SerdeContext): any => {
-  return {
-    ...(input.tleLine1 != null && { tleLine1: input.tleLine1 }),
-    ...(input.tleLine2 != null && { tleLine2: input.tleLine2 }),
-    ...(input.validTimeRange != null && { validTimeRange: se_TimeRange(input.validTimeRange, context) }),
-  };
+  return take(input, {
+    tleLine1: [],
+    tleLine2: [],
+    validTimeRange: (_) => se_TimeRange(_, context),
+  });
 };
 
 /**
@@ -3689,68 +3218,37 @@ const se_TLEDataList = (input: TLEData[], context: __SerdeContext): any => {
  * serializeAws_restJson1TLEEphemeris
  */
 const se_TLEEphemeris = (input: TLEEphemeris, context: __SerdeContext): any => {
-  return {
-    ...(input.s3Object != null && { s3Object: se_S3Object(input.s3Object, context) }),
-    ...(input.tleData != null && { tleData: se_TLEDataList(input.tleData, context) }),
-  };
+  return take(input, {
+    s3Object: (_) => _json(_),
+    tleData: (_) => se_TLEDataList(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1TrackingConfig
- */
-const se_TrackingConfig = (input: TrackingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.autotrack != null && { autotrack: input.autotrack }),
-  };
-};
+// se_TrackingConfig omitted.
 
-/**
- * serializeAws_restJson1UplinkEchoConfig
- */
-const se_UplinkEchoConfig = (input: UplinkEchoConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.antennaUplinkConfigArn != null && { antennaUplinkConfigArn: input.antennaUplinkConfigArn }),
-    ...(input.enabled != null && { enabled: input.enabled }),
-  };
-};
+// se_UplinkEchoConfig omitted.
 
 /**
  * serializeAws_restJson1UplinkSpectrumConfig
  */
 const se_UplinkSpectrumConfig = (input: UplinkSpectrumConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.centerFrequency != null && { centerFrequency: se_Frequency(input.centerFrequency, context) }),
-    ...(input.polarization != null && { polarization: input.polarization }),
-  };
+  return take(input, {
+    centerFrequency: (_) => se_Frequency(_, context),
+    polarization: [],
+  });
 };
 
-/**
- * serializeAws_restJson1VersionStringList
- */
-const se_VersionStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VersionStringList omitted.
 
-/**
- * deserializeAws_restJson1AntennaDemodDecodeDetails
- */
-const de_AntennaDemodDecodeDetails = (output: any, context: __SerdeContext): AntennaDemodDecodeDetails => {
-  return {
-    outputNode: __expectString(output.outputNode),
-  } as any;
-};
+// de_AntennaDemodDecodeDetails omitted.
 
 /**
  * deserializeAws_restJson1AntennaDownlinkConfig
  */
 const de_AntennaDownlinkConfig = (output: any, context: __SerdeContext): AntennaDownlinkConfig => {
-  return {
-    spectrumConfig: output.spectrumConfig != null ? de_SpectrumConfig(output.spectrumConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    spectrumConfig: (_: any) => de_SpectrumConfig(_, context),
+  }) as any;
 };
 
 /**
@@ -3760,102 +3258,33 @@ const de_AntennaDownlinkDemodDecodeConfig = (
   output: any,
   context: __SerdeContext
 ): AntennaDownlinkDemodDecodeConfig => {
-  return {
-    decodeConfig: output.decodeConfig != null ? de_DecodeConfig(output.decodeConfig, context) : undefined,
-    demodulationConfig:
-      output.demodulationConfig != null ? de_DemodulationConfig(output.demodulationConfig, context) : undefined,
-    spectrumConfig: output.spectrumConfig != null ? de_SpectrumConfig(output.spectrumConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    decodeConfig: _json,
+    demodulationConfig: _json,
+    spectrumConfig: (_: any) => de_SpectrumConfig(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AntennaUplinkConfig
  */
 const de_AntennaUplinkConfig = (output: any, context: __SerdeContext): AntennaUplinkConfig => {
-  return {
-    spectrumConfig: output.spectrumConfig != null ? de_UplinkSpectrumConfig(output.spectrumConfig, context) : undefined,
-    targetEirp: output.targetEirp != null ? de_Eirp(output.targetEirp, context) : undefined,
-    transmitDisabled: __expectBoolean(output.transmitDisabled),
-  } as any;
+  return take(output, {
+    spectrumConfig: (_: any) => de_UplinkSpectrumConfig(_, context),
+    targetEirp: (_: any) => de_Eirp(_, context),
+    transmitDisabled: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AwsGroundStationAgentEndpoint
- */
-const de_AwsGroundStationAgentEndpoint = (output: any, context: __SerdeContext): AwsGroundStationAgentEndpoint => {
-  return {
-    agentStatus: __expectString(output.agentStatus),
-    auditResults: __expectString(output.auditResults),
-    egressAddress: output.egressAddress != null ? de_ConnectionDetails(output.egressAddress, context) : undefined,
-    ingressAddress:
-      output.ingressAddress != null ? de_RangedConnectionDetails(output.ingressAddress, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_AwsGroundStationAgentEndpoint omitted.
 
-/**
- * deserializeAws_restJson1CapabilityHealthReasonList
- */
-const de_CapabilityHealthReasonList = (output: any, context: __SerdeContext): (CapabilityHealthReason | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CapabilityHealthReasonList omitted.
 
-/**
- * deserializeAws_restJson1ConfigDetails
- */
-const de_ConfigDetails = (output: any, context: __SerdeContext): ConfigDetails => {
-  if (output.antennaDemodDecodeDetails != null) {
-    return {
-      antennaDemodDecodeDetails: de_AntennaDemodDecodeDetails(output.antennaDemodDecodeDetails, context),
-    };
-  }
-  if (output.endpointDetails != null) {
-    return {
-      endpointDetails: de_EndpointDetails(output.endpointDetails, context),
-    };
-  }
-  if (output.s3RecordingDetails != null) {
-    return {
-      s3RecordingDetails: de_S3RecordingDetails(output.s3RecordingDetails, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ConfigDetails omitted.
 
-/**
- * deserializeAws_restJson1ConfigList
- */
-const de_ConfigList = (output: any, context: __SerdeContext): ConfigListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConfigListItem(entry, context);
-    });
-  return retVal;
-};
+// de_ConfigList omitted.
 
-/**
- * deserializeAws_restJson1ConfigListItem
- */
-const de_ConfigListItem = (output: any, context: __SerdeContext): ConfigListItem => {
-  return {
-    configArn: __expectString(output.configArn),
-    configId: __expectString(output.configId),
-    configType: __expectString(output.configType),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ConfigListItem omitted.
 
 /**
  * deserializeAws_restJson1ConfigTypeData
@@ -3881,64 +3310,48 @@ const de_ConfigTypeData = (output: any, context: __SerdeContext): ConfigTypeData
   }
   if (output.dataflowEndpointConfig != null) {
     return {
-      dataflowEndpointConfig: de_DataflowEndpointConfig(output.dataflowEndpointConfig, context),
+      dataflowEndpointConfig: _json(output.dataflowEndpointConfig),
     };
   }
   if (output.s3RecordingConfig != null) {
     return {
-      s3RecordingConfig: de_S3RecordingConfig(output.s3RecordingConfig, context),
+      s3RecordingConfig: _json(output.s3RecordingConfig),
     };
   }
   if (output.trackingConfig != null) {
     return {
-      trackingConfig: de_TrackingConfig(output.trackingConfig, context),
+      trackingConfig: _json(output.trackingConfig),
     };
   }
   if (output.uplinkEchoConfig != null) {
     return {
-      uplinkEchoConfig: de_UplinkEchoConfig(output.uplinkEchoConfig, context),
+      uplinkEchoConfig: _json(output.uplinkEchoConfig),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-/**
- * deserializeAws_restJson1ConnectionDetails
- */
-const de_ConnectionDetails = (output: any, context: __SerdeContext): ConnectionDetails => {
-  return {
-    mtu: __expectInt32(output.mtu),
-    socketAddress: output.socketAddress != null ? de_SocketAddress(output.socketAddress, context) : undefined,
-  } as any;
-};
+// de_ConnectionDetails omitted.
 
 /**
  * deserializeAws_restJson1ContactData
  */
 const de_ContactData = (output: any, context: __SerdeContext): ContactData => {
-  return {
-    contactId: __expectString(output.contactId),
-    contactStatus: __expectString(output.contactStatus),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    errorMessage: __expectString(output.errorMessage),
-    groundStation: __expectString(output.groundStation),
-    maximumElevation: output.maximumElevation != null ? de_Elevation(output.maximumElevation, context) : undefined,
-    missionProfileArn: __expectString(output.missionProfileArn),
-    postPassEndTime:
-      output.postPassEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.postPassEndTime)))
-        : undefined,
-    prePassStartTime:
-      output.prePassStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.prePassStartTime)))
-        : undefined,
-    region: __expectString(output.region),
-    satelliteArn: __expectString(output.satelliteArn),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    tags: output.tags != null ? de_TagsMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    contactId: __expectString,
+    contactStatus: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    errorMessage: __expectString,
+    groundStation: __expectString,
+    maximumElevation: (_: any) => de_Elevation(_, context),
+    missionProfileArn: __expectString,
+    postPassEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    prePassStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    region: __expectString,
+    satelliteArn: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    tags: _json,
+  }) as any;
 };
 
 /**
@@ -3948,199 +3361,56 @@ const de_ContactList = (output: any, context: __SerdeContext): ContactData[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ContactData(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DataflowDetail
- */
-const de_DataflowDetail = (output: any, context: __SerdeContext): DataflowDetail => {
-  return {
-    destination: output.destination != null ? de_Destination(output.destination, context) : undefined,
-    errorMessage: __expectString(output.errorMessage),
-    source: output.source != null ? de_Source(output.source, context) : undefined,
-  } as any;
-};
+// de_DataflowDetail omitted.
 
-/**
- * deserializeAws_restJson1DataflowEdge
- */
-const de_DataflowEdge = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DataflowEdge omitted.
 
-/**
- * deserializeAws_restJson1DataflowEdgeList
- */
-const de_DataflowEdgeList = (output: any, context: __SerdeContext): string[][] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataflowEdge(entry, context);
-    });
-  return retVal;
-};
+// de_DataflowEdgeList omitted.
 
-/**
- * deserializeAws_restJson1DataflowEndpoint
- */
-const de_DataflowEndpoint = (output: any, context: __SerdeContext): DataflowEndpoint => {
-  return {
-    address: output.address != null ? de_SocketAddress(output.address, context) : undefined,
-    mtu: __expectInt32(output.mtu),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_DataflowEndpoint omitted.
 
-/**
- * deserializeAws_restJson1DataflowEndpointConfig
- */
-const de_DataflowEndpointConfig = (output: any, context: __SerdeContext): DataflowEndpointConfig => {
-  return {
-    dataflowEndpointName: __expectString(output.dataflowEndpointName),
-    dataflowEndpointRegion: __expectString(output.dataflowEndpointRegion),
-  } as any;
-};
+// de_DataflowEndpointConfig omitted.
 
-/**
- * deserializeAws_restJson1DataflowEndpointGroupList
- */
-const de_DataflowEndpointGroupList = (output: any, context: __SerdeContext): DataflowEndpointListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataflowEndpointListItem(entry, context);
-    });
-  return retVal;
-};
+// de_DataflowEndpointGroupList omitted.
 
-/**
- * deserializeAws_restJson1DataflowEndpointListItem
- */
-const de_DataflowEndpointListItem = (output: any, context: __SerdeContext): DataflowEndpointListItem => {
-  return {
-    dataflowEndpointGroupArn: __expectString(output.dataflowEndpointGroupArn),
-    dataflowEndpointGroupId: __expectString(output.dataflowEndpointGroupId),
-  } as any;
-};
+// de_DataflowEndpointListItem omitted.
 
-/**
- * deserializeAws_restJson1DataflowList
- */
-const de_DataflowList = (output: any, context: __SerdeContext): DataflowDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataflowDetail(entry, context);
-    });
-  return retVal;
-};
+// de_DataflowList omitted.
 
-/**
- * deserializeAws_restJson1DecodeConfig
- */
-const de_DecodeConfig = (output: any, context: __SerdeContext): DecodeConfig => {
-  return {
-    unvalidatedJSON: __expectString(output.unvalidatedJSON),
-  } as any;
-};
+// de_DecodeConfig omitted.
 
-/**
- * deserializeAws_restJson1DemodulationConfig
- */
-const de_DemodulationConfig = (output: any, context: __SerdeContext): DemodulationConfig => {
-  return {
-    unvalidatedJSON: __expectString(output.unvalidatedJSON),
-  } as any;
-};
+// de_DemodulationConfig omitted.
 
-/**
- * deserializeAws_restJson1Destination
- */
-const de_Destination = (output: any, context: __SerdeContext): Destination => {
-  return {
-    configDetails:
-      output.configDetails != null ? de_ConfigDetails(__expectUnion(output.configDetails), context) : undefined,
-    configId: __expectString(output.configId),
-    configType: __expectString(output.configType),
-    dataflowDestinationRegion: __expectString(output.dataflowDestinationRegion),
-  } as any;
-};
+// de_Destination omitted.
 
 /**
  * deserializeAws_restJson1Eirp
  */
 const de_Eirp = (output: any, context: __SerdeContext): Eirp => {
-  return {
-    units: __expectString(output.units),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    units: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Elevation
  */
 const de_Elevation = (output: any, context: __SerdeContext): Elevation => {
-  return {
-    unit: __expectString(output.unit),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    unit: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EndpointDetails
- */
-const de_EndpointDetails = (output: any, context: __SerdeContext): EndpointDetails => {
-  return {
-    awsGroundStationAgentEndpoint:
-      output.awsGroundStationAgentEndpoint != null
-        ? de_AwsGroundStationAgentEndpoint(output.awsGroundStationAgentEndpoint, context)
-        : undefined,
-    endpoint: output.endpoint != null ? de_DataflowEndpoint(output.endpoint, context) : undefined,
-    healthReasons:
-      output.healthReasons != null ? de_CapabilityHealthReasonList(output.healthReasons, context) : undefined,
-    healthStatus: __expectString(output.healthStatus),
-    securityDetails: output.securityDetails != null ? de_SecurityDetails(output.securityDetails, context) : undefined,
-  } as any;
-};
+// de_EndpointDetails omitted.
 
-/**
- * deserializeAws_restJson1EndpointDetailsList
- */
-const de_EndpointDetailsList = (output: any, context: __SerdeContext): EndpointDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EndpointDetails(entry, context);
-    });
-  return retVal;
-};
+// de_EndpointDetailsList omitted.
 
 /**
  * deserializeAws_restJson1EphemeridesList
@@ -4149,233 +3419,85 @@ const de_EphemeridesList = (output: any, context: __SerdeContext): EphemerisItem
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EphemerisItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EphemerisDescription
- */
-const de_EphemerisDescription = (output: any, context: __SerdeContext): EphemerisDescription => {
-  return {
-    ephemerisData: __expectString(output.ephemerisData),
-    sourceS3Object: output.sourceS3Object != null ? de_S3Object(output.sourceS3Object, context) : undefined,
-  } as any;
-};
+// de_EphemerisDescription omitted.
 
 /**
  * deserializeAws_restJson1EphemerisItem
  */
 const de_EphemerisItem = (output: any, context: __SerdeContext): EphemerisItem => {
-  return {
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    enabled: __expectBoolean(output.enabled),
-    ephemerisId: __expectString(output.ephemerisId),
-    name: __expectString(output.name),
-    priority: __expectInt32(output.priority),
-    sourceS3Object: output.sourceS3Object != null ? de_S3Object(output.sourceS3Object, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    enabled: __expectBoolean,
+    ephemerisId: __expectString,
+    name: __expectString,
+    priority: __expectInt32,
+    sourceS3Object: _json,
+    status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EphemerisMetaData
  */
 const de_EphemerisMetaData = (output: any, context: __SerdeContext): EphemerisMetaData => {
-  return {
-    ephemerisId: __expectString(output.ephemerisId),
-    epoch: output.epoch != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.epoch))) : undefined,
-    name: __expectString(output.name),
-    source: __expectString(output.source),
-  } as any;
+  return take(output, {
+    ephemerisId: __expectString,
+    epoch: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    source: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EphemerisTypeDescription
- */
-const de_EphemerisTypeDescription = (output: any, context: __SerdeContext): EphemerisTypeDescription => {
-  if (output.oem != null) {
-    return {
-      oem: de_EphemerisDescription(output.oem, context),
-    };
-  }
-  if (output.tle != null) {
-    return {
-      tle: de_EphemerisDescription(output.tle, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_EphemerisTypeDescription omitted.
 
 /**
  * deserializeAws_restJson1Frequency
  */
 const de_Frequency = (output: any, context: __SerdeContext): Frequency => {
-  return {
-    units: __expectString(output.units),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    units: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1FrequencyBandwidth
  */
 const de_FrequencyBandwidth = (output: any, context: __SerdeContext): FrequencyBandwidth => {
-  return {
-    units: __expectString(output.units),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    units: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1GroundStationData
- */
-const de_GroundStationData = (output: any, context: __SerdeContext): GroundStationData => {
-  return {
-    groundStationId: __expectString(output.groundStationId),
-    groundStationName: __expectString(output.groundStationName),
-    region: __expectString(output.region),
-  } as any;
-};
+// de_GroundStationData omitted.
 
-/**
- * deserializeAws_restJson1GroundStationIdList
- */
-const de_GroundStationIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_GroundStationIdList omitted.
 
-/**
- * deserializeAws_restJson1GroundStationList
- */
-const de_GroundStationList = (output: any, context: __SerdeContext): GroundStationData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GroundStationData(entry, context);
-    });
-  return retVal;
-};
+// de_GroundStationList omitted.
 
-/**
- * deserializeAws_restJson1IntegerRange
- */
-const de_IntegerRange = (output: any, context: __SerdeContext): IntegerRange => {
-  return {
-    maximum: __expectInt32(output.maximum),
-    minimum: __expectInt32(output.minimum),
-  } as any;
-};
+// de_IntegerRange omitted.
 
-/**
- * deserializeAws_restJson1KmsKey
- */
-const de_KmsKey = (output: any, context: __SerdeContext): KmsKey => {
-  if (__expectString(output.kmsAliasArn) !== undefined) {
-    return { kmsAliasArn: __expectString(output.kmsAliasArn) as any };
-  }
-  if (__expectString(output.kmsKeyArn) !== undefined) {
-    return { kmsKeyArn: __expectString(output.kmsKeyArn) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_KmsKey omitted.
 
-/**
- * deserializeAws_restJson1MissionProfileList
- */
-const de_MissionProfileList = (output: any, context: __SerdeContext): MissionProfileListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MissionProfileListItem(entry, context);
-    });
-  return retVal;
-};
+// de_MissionProfileList omitted.
 
-/**
- * deserializeAws_restJson1MissionProfileListItem
- */
-const de_MissionProfileListItem = (output: any, context: __SerdeContext): MissionProfileListItem => {
-  return {
-    missionProfileArn: __expectString(output.missionProfileArn),
-    missionProfileId: __expectString(output.missionProfileId),
-    name: __expectString(output.name),
-    region: __expectString(output.region),
-  } as any;
-};
+// de_MissionProfileListItem omitted.
 
-/**
- * deserializeAws_restJson1RangedConnectionDetails
- */
-const de_RangedConnectionDetails = (output: any, context: __SerdeContext): RangedConnectionDetails => {
-  return {
-    mtu: __expectInt32(output.mtu),
-    socketAddress: output.socketAddress != null ? de_RangedSocketAddress(output.socketAddress, context) : undefined,
-  } as any;
-};
+// de_RangedConnectionDetails omitted.
 
-/**
- * deserializeAws_restJson1RangedSocketAddress
- */
-const de_RangedSocketAddress = (output: any, context: __SerdeContext): RangedSocketAddress => {
-  return {
-    name: __expectString(output.name),
-    portRange: output.portRange != null ? de_IntegerRange(output.portRange, context) : undefined,
-  } as any;
-};
+// de_RangedSocketAddress omitted.
 
-/**
- * deserializeAws_restJson1S3Object
- */
-const de_S3Object = (output: any, context: __SerdeContext): S3Object => {
-  return {
-    bucket: __expectString(output.bucket),
-    key: __expectString(output.key),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_S3Object omitted.
 
-/**
- * deserializeAws_restJson1S3RecordingConfig
- */
-const de_S3RecordingConfig = (output: any, context: __SerdeContext): S3RecordingConfig => {
-  return {
-    bucketArn: __expectString(output.bucketArn),
-    prefix: __expectString(output.prefix),
-    roleArn: __expectString(output.roleArn),
-  } as any;
-};
+// de_S3RecordingConfig omitted.
 
-/**
- * deserializeAws_restJson1S3RecordingDetails
- */
-const de_S3RecordingDetails = (output: any, context: __SerdeContext): S3RecordingDetails => {
-  return {
-    bucketArn: __expectString(output.bucketArn),
-    keyTemplate: __expectString(output.keyTemplate),
-  } as any;
-};
+// de_S3RecordingDetails omitted.
 
 /**
  * deserializeAws_restJson1SatelliteList
@@ -4384,9 +3506,6 @@ const de_SatelliteList = (output: any, context: __SerdeContext): SatelliteListIt
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SatelliteListItem(entry, context);
     });
   return retVal;
@@ -4396,132 +3515,50 @@ const de_SatelliteList = (output: any, context: __SerdeContext): SatelliteListIt
  * deserializeAws_restJson1SatelliteListItem
  */
 const de_SatelliteListItem = (output: any, context: __SerdeContext): SatelliteListItem => {
-  return {
-    currentEphemeris:
-      output.currentEphemeris != null ? de_EphemerisMetaData(output.currentEphemeris, context) : undefined,
-    groundStations: output.groundStations != null ? de_GroundStationIdList(output.groundStations, context) : undefined,
-    noradSatelliteID: __expectInt32(output.noradSatelliteID),
-    satelliteArn: __expectString(output.satelliteArn),
-    satelliteId: __expectString(output.satelliteId),
-  } as any;
+  return take(output, {
+    currentEphemeris: (_: any) => de_EphemerisMetaData(_, context),
+    groundStations: _json,
+    noradSatelliteID: __expectInt32,
+    satelliteArn: __expectString,
+    satelliteId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SecurityDetails
- */
-const de_SecurityDetails = (output: any, context: __SerdeContext): SecurityDetails => {
-  return {
-    roleArn: __expectString(output.roleArn),
-    securityGroupIds:
-      output.securityGroupIds != null ? de_SecurityGroupIdList(output.securityGroupIds, context) : undefined,
-    subnetIds: output.subnetIds != null ? de_SubnetList(output.subnetIds, context) : undefined,
-  } as any;
-};
+// de_SecurityDetails omitted.
 
-/**
- * deserializeAws_restJson1SecurityGroupIdList
- */
-const de_SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIdList omitted.
 
-/**
- * deserializeAws_restJson1SocketAddress
- */
-const de_SocketAddress = (output: any, context: __SerdeContext): SocketAddress => {
-  return {
-    name: __expectString(output.name),
-    port: __expectInt32(output.port),
-  } as any;
-};
+// de_SocketAddress omitted.
 
-/**
- * deserializeAws_restJson1Source
- */
-const de_Source = (output: any, context: __SerdeContext): Source => {
-  return {
-    configDetails:
-      output.configDetails != null ? de_ConfigDetails(__expectUnion(output.configDetails), context) : undefined,
-    configId: __expectString(output.configId),
-    configType: __expectString(output.configType),
-    dataflowSourceRegion: __expectString(output.dataflowSourceRegion),
-  } as any;
-};
+// de_Source omitted.
 
 /**
  * deserializeAws_restJson1SpectrumConfig
  */
 const de_SpectrumConfig = (output: any, context: __SerdeContext): SpectrumConfig => {
-  return {
-    bandwidth: output.bandwidth != null ? de_FrequencyBandwidth(output.bandwidth, context) : undefined,
-    centerFrequency: output.centerFrequency != null ? de_Frequency(output.centerFrequency, context) : undefined,
-    polarization: __expectString(output.polarization),
-  } as any;
+  return take(output, {
+    bandwidth: (_: any) => de_FrequencyBandwidth(_, context),
+    centerFrequency: (_: any) => de_Frequency(_, context),
+    polarization: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SubnetList
- */
-const de_SubnetList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetList omitted.
 
-/**
- * deserializeAws_restJson1TagsMap
- */
-const de_TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagsMap omitted.
 
-/**
- * deserializeAws_restJson1TrackingConfig
- */
-const de_TrackingConfig = (output: any, context: __SerdeContext): TrackingConfig => {
-  return {
-    autotrack: __expectString(output.autotrack),
-  } as any;
-};
+// de_TrackingConfig omitted.
 
-/**
- * deserializeAws_restJson1UplinkEchoConfig
- */
-const de_UplinkEchoConfig = (output: any, context: __SerdeContext): UplinkEchoConfig => {
-  return {
-    antennaUplinkConfigArn: __expectString(output.antennaUplinkConfigArn),
-    enabled: __expectBoolean(output.enabled),
-  } as any;
-};
+// de_UplinkEchoConfig omitted.
 
 /**
  * deserializeAws_restJson1UplinkSpectrumConfig
  */
 const de_UplinkSpectrumConfig = (output: any, context: __SerdeContext): UplinkSpectrumConfig => {
-  return {
-    centerFrequency: output.centerFrequency != null ? de_Frequency(output.centerFrequency, context) : undefined,
-    polarization: __expectString(output.polarization),
-  } as any;
+  return take(output, {
+    centerFrequency: (_: any) => de_Frequency(_, context),
+    polarization: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -12,10 +12,11 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -55,7 +56,6 @@ import {
   ConfigurationOverrides,
   ConflictException,
   Hive,
-  ImageConfiguration,
   ImageConfigurationInput,
   InitialCapacityConfig,
   InternalServerException,
@@ -73,7 +73,6 @@ import {
   TotalResourceUtilization,
   ValidationException,
   WorkerResourceConfig,
-  WorkerTypeSpecification,
   WorkerTypeSpecificationInput,
 } from "../models/models_0";
 
@@ -123,35 +122,23 @@ export const se_CreateApplicationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.architecture != null && { architecture: input.architecture }),
-    ...(input.autoStartConfiguration != null && {
-      autoStartConfiguration: se_AutoStartConfig(input.autoStartConfiguration, context),
-    }),
-    ...(input.autoStopConfiguration != null && {
-      autoStopConfiguration: se_AutoStopConfig(input.autoStopConfiguration, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.imageConfiguration != null && {
-      imageConfiguration: se_ImageConfigurationInput(input.imageConfiguration, context),
-    }),
-    ...(input.initialCapacity != null && {
-      initialCapacity: se_InitialCapacityConfigMap(input.initialCapacity, context),
-    }),
-    ...(input.maximumCapacity != null && {
-      maximumCapacity: se_MaximumAllowedResources(input.maximumCapacity, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.networkConfiguration != null && {
-      networkConfiguration: se_NetworkConfiguration(input.networkConfiguration, context),
-    }),
-    ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.type != null && { type: input.type }),
-    ...(input.workerTypeSpecifications != null && {
-      workerTypeSpecifications: se_WorkerTypeSpecificationInputMap(input.workerTypeSpecifications, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      architecture: [],
+      autoStartConfiguration: (_) => _json(_),
+      autoStopConfiguration: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      imageConfiguration: (_) => _json(_),
+      initialCapacity: (_) => _json(_),
+      maximumCapacity: (_) => _json(_),
+      name: [],
+      networkConfiguration: (_) => _json(_),
+      releaseLabel: [],
+      tags: (_) => _json(_),
+      type: [],
+      workerTypeSpecifications: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -440,17 +427,17 @@ export const se_StartJobRunCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configurationOverrides != null && {
-      configurationOverrides: se_ConfigurationOverrides(input.configurationOverrides, context),
-    }),
-    ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
-    ...(input.executionTimeoutMinutes != null && { executionTimeoutMinutes: input.executionTimeoutMinutes }),
-    ...(input.jobDriver != null && { jobDriver: se_JobDriver(input.jobDriver, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      configurationOverrides: (_) => se_ConfigurationOverrides(_, context),
+      executionRoleArn: [],
+      executionTimeoutMinutes: [],
+      jobDriver: (_) => _json(_),
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -507,9 +494,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -573,31 +562,19 @@ export const se_UpdateApplicationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.architecture != null && { architecture: input.architecture }),
-    ...(input.autoStartConfiguration != null && {
-      autoStartConfiguration: se_AutoStartConfig(input.autoStartConfiguration, context),
-    }),
-    ...(input.autoStopConfiguration != null && {
-      autoStopConfiguration: se_AutoStopConfig(input.autoStopConfiguration, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.imageConfiguration != null && {
-      imageConfiguration: se_ImageConfigurationInput(input.imageConfiguration, context),
-    }),
-    ...(input.initialCapacity != null && {
-      initialCapacity: se_InitialCapacityConfigMap(input.initialCapacity, context),
-    }),
-    ...(input.maximumCapacity != null && {
-      maximumCapacity: se_MaximumAllowedResources(input.maximumCapacity, context),
-    }),
-    ...(input.networkConfiguration != null && {
-      networkConfiguration: se_NetworkConfiguration(input.networkConfiguration, context),
-    }),
-    ...(input.workerTypeSpecifications != null && {
-      workerTypeSpecifications: se_WorkerTypeSpecificationInputMap(input.workerTypeSpecifications, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      architecture: [],
+      autoStartConfiguration: (_) => _json(_),
+      autoStopConfiguration: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      imageConfiguration: (_) => _json(_),
+      initialCapacity: (_) => _json(_),
+      maximumCapacity: (_) => _json(_),
+      networkConfiguration: (_) => _json(_),
+      workerTypeSpecifications: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -623,12 +600,11 @@ export const de_CancelJobRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.applicationId = __expectString(data.applicationId);
-  }
-  if (data.jobRunId != null) {
-    contents.jobRunId = __expectString(data.jobRunId);
-  }
+  const doc = take(data, {
+    applicationId: __expectString,
+    jobRunId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -656,10 +632,9 @@ const de_CancelJobRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -679,15 +654,12 @@ export const de_CreateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.applicationId = __expectString(data.applicationId);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
+  const doc = take(data, {
+    applicationId: __expectString,
+    arn: __expectString,
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -718,10 +690,9 @@ const de_CreateApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -768,10 +739,9 @@ const de_DeleteApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -791,9 +761,10 @@ export const de_GetApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.application != null) {
-    contents.application = de_Application(data.application, context);
-  }
+  const doc = take(data, {
+    application: (_) => de_Application(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -821,10 +792,9 @@ const de_GetApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -844,9 +814,10 @@ export const de_GetDashboardForJobRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.url != null) {
-    contents.url = __expectString(data.url);
-  }
+  const doc = take(data, {
+    url: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -874,10 +845,9 @@ const de_GetDashboardForJobRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -897,9 +867,10 @@ export const de_GetJobRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobRun != null) {
-    contents.jobRun = de_JobRun(data.jobRun, context);
-  }
+  const doc = take(data, {
+    jobRun: (_) => de_JobRun(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -927,10 +898,9 @@ const de_GetJobRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -950,12 +920,11 @@ export const de_ListApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applications != null) {
-    contents.applications = de_ApplicationList(data.applications, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    applications: (_) => de_ApplicationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -980,10 +949,9 @@ const de_ListApplicationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1003,12 +971,11 @@ export const de_ListJobRunsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobRuns != null) {
-    contents.jobRuns = de_JobRuns(data.jobRuns, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    jobRuns: (_) => de_JobRuns(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1033,10 +1000,9 @@ const de_ListJobRunsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1056,9 +1022,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1086,10 +1053,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1139,10 +1105,9 @@ const de_StartApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1162,15 +1127,12 @@ export const de_StartJobRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationId != null) {
-    contents.applicationId = __expectString(data.applicationId);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.jobRunId != null) {
-    contents.jobRunId = __expectString(data.jobRunId);
-  }
+  const doc = take(data, {
+    applicationId: __expectString,
+    arn: __expectString,
+    jobRunId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1201,10 +1163,9 @@ const de_StartJobRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1251,10 +1212,9 @@ const de_StopApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1301,10 +1261,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1351,10 +1310,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1374,9 +1332,10 @@ export const de_UpdateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.application != null) {
-    contents.application = de_Application(data.application, context);
-  }
+  const doc = take(data, {
+    application: (_) => de_Application(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1404,25 +1363,25 @@ const de_UpdateApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1439,9 +1398,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1458,9 +1418,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1477,9 +1438,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1493,9 +1455,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1503,34 +1466,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AutoStartConfig
- */
-const se_AutoStartConfig = (input: AutoStartConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.enabled != null && { enabled: input.enabled }),
-  };
-};
+// se_AutoStartConfig omitted.
 
-/**
- * serializeAws_restJson1AutoStopConfig
- */
-const se_AutoStopConfig = (input: AutoStopConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.idleTimeoutMinutes != null && { idleTimeoutMinutes: input.idleTimeoutMinutes }),
-  };
-};
+// se_AutoStopConfig omitted.
 
 /**
  * serializeAws_restJson1Configuration
  */
 const se_Configuration = (input: Configuration, context: __SerdeContext): any => {
-  return {
-    ...(input.classification != null && { classification: input.classification }),
-    ...(input.configurations != null && { configurations: se_ConfigurationList(input.configurations, context) }),
-    ...(input.properties != null && { properties: se_SensitivePropertiesMap(input.properties, context) }),
-  };
+  return take(input, {
+    classification: [],
+    configurations: (_) => se_ConfigurationList(_, context),
+    properties: (_) => _json(_),
+  });
 };
 
 /**
@@ -1548,278 +1496,74 @@ const se_ConfigurationList = (input: Configuration[], context: __SerdeContext): 
  * serializeAws_restJson1ConfigurationOverrides
  */
 const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __SerdeContext): any => {
-  return {
-    ...(input.applicationConfiguration != null && {
-      applicationConfiguration: se_ConfigurationList(input.applicationConfiguration, context),
-    }),
-    ...(input.monitoringConfiguration != null && {
-      monitoringConfiguration: se_MonitoringConfiguration(input.monitoringConfiguration, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1EntryPointArguments
- */
-const se_EntryPointArguments = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1Hive
- */
-const se_Hive = (input: Hive, context: __SerdeContext): any => {
-  return {
-    ...(input.initQueryFile != null && { initQueryFile: input.initQueryFile }),
-    ...(input.parameters != null && { parameters: input.parameters }),
-    ...(input.query != null && { query: input.query }),
-  };
-};
-
-/**
- * serializeAws_restJson1ImageConfigurationInput
- */
-const se_ImageConfigurationInput = (input: ImageConfigurationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.imageUri != null && { imageUri: input.imageUri }),
-  };
-};
-
-/**
- * serializeAws_restJson1InitialCapacityConfig
- */
-const se_InitialCapacityConfig = (input: InitialCapacityConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.workerConfiguration != null && {
-      workerConfiguration: se_WorkerResourceConfig(input.workerConfiguration, context),
-    }),
-    ...(input.workerCount != null && { workerCount: input.workerCount }),
-  };
-};
-
-/**
- * serializeAws_restJson1InitialCapacityConfigMap
- */
-const se_InitialCapacityConfigMap = (input: Record<string, InitialCapacityConfig>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_InitialCapacityConfig(value, context);
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_restJson1JobDriver
- */
-const se_JobDriver = (input: JobDriver, context: __SerdeContext): any => {
-  return JobDriver.visit(input, {
-    hive: (value) => ({ hive: se_Hive(value, context) }),
-    sparkSubmit: (value) => ({ sparkSubmit: se_SparkSubmit(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    applicationConfiguration: (_) => se_ConfigurationList(_, context),
+    monitoringConfiguration: (_) => _json(_),
   });
 };
 
-/**
- * serializeAws_restJson1ManagedPersistenceMonitoringConfiguration
- */
-const se_ManagedPersistenceMonitoringConfiguration = (
-  input: ManagedPersistenceMonitoringConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.encryptionKeyArn != null && { encryptionKeyArn: input.encryptionKeyArn }),
-  };
-};
+// se_EntryPointArguments omitted.
 
-/**
- * serializeAws_restJson1MaximumAllowedResources
- */
-const se_MaximumAllowedResources = (input: MaximumAllowedResources, context: __SerdeContext): any => {
-  return {
-    ...(input.cpu != null && { cpu: input.cpu }),
-    ...(input.disk != null && { disk: input.disk }),
-    ...(input.memory != null && { memory: input.memory }),
-  };
-};
+// se_Hive omitted.
 
-/**
- * serializeAws_restJson1MonitoringConfiguration
- */
-const se_MonitoringConfiguration = (input: MonitoringConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.managedPersistenceMonitoringConfiguration != null && {
-      managedPersistenceMonitoringConfiguration: se_ManagedPersistenceMonitoringConfiguration(
-        input.managedPersistenceMonitoringConfiguration,
-        context
-      ),
-    }),
-    ...(input.s3MonitoringConfiguration != null && {
-      s3MonitoringConfiguration: se_S3MonitoringConfiguration(input.s3MonitoringConfiguration, context),
-    }),
-  };
-};
+// se_ImageConfigurationInput omitted.
 
-/**
- * serializeAws_restJson1NetworkConfiguration
- */
-const se_NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.securityGroupIds != null && { securityGroupIds: se_SecurityGroupIds(input.securityGroupIds, context) }),
-    ...(input.subnetIds != null && { subnetIds: se_SubnetIds(input.subnetIds, context) }),
-  };
-};
+// se_InitialCapacityConfig omitted.
 
-/**
- * serializeAws_restJson1S3MonitoringConfiguration
- */
-const se_S3MonitoringConfiguration = (input: S3MonitoringConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.encryptionKeyArn != null && { encryptionKeyArn: input.encryptionKeyArn }),
-    ...(input.logUri != null && { logUri: input.logUri }),
-  };
-};
+// se_InitialCapacityConfigMap omitted.
 
-/**
- * serializeAws_restJson1SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_JobDriver omitted.
 
-/**
- * serializeAws_restJson1SensitivePropertiesMap
- */
-const se_SensitivePropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ManagedPersistenceMonitoringConfiguration omitted.
 
-/**
- * serializeAws_restJson1SparkSubmit
- */
-const se_SparkSubmit = (input: SparkSubmit, context: __SerdeContext): any => {
-  return {
-    ...(input.entryPoint != null && { entryPoint: input.entryPoint }),
-    ...(input.entryPointArguments != null && {
-      entryPointArguments: se_EntryPointArguments(input.entryPointArguments, context),
-    }),
-    ...(input.sparkSubmitParameters != null && { sparkSubmitParameters: input.sparkSubmitParameters }),
-  };
-};
+// se_MaximumAllowedResources omitted.
 
-/**
- * serializeAws_restJson1SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MonitoringConfiguration omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_NetworkConfiguration omitted.
 
-/**
- * serializeAws_restJson1WorkerResourceConfig
- */
-const se_WorkerResourceConfig = (input: WorkerResourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.cpu != null && { cpu: input.cpu }),
-    ...(input.disk != null && { disk: input.disk }),
-    ...(input.memory != null && { memory: input.memory }),
-  };
-};
+// se_S3MonitoringConfiguration omitted.
 
-/**
- * serializeAws_restJson1WorkerTypeSpecificationInput
- */
-const se_WorkerTypeSpecificationInput = (input: WorkerTypeSpecificationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.imageConfiguration != null && {
-      imageConfiguration: se_ImageConfigurationInput(input.imageConfiguration, context),
-    }),
-  };
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_restJson1WorkerTypeSpecificationInputMap
- */
-const se_WorkerTypeSpecificationInputMap = (
-  input: Record<string, WorkerTypeSpecificationInput>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_WorkerTypeSpecificationInput(value, context);
-    return acc;
-  }, {});
-};
+// se_SensitivePropertiesMap omitted.
+
+// se_SparkSubmit omitted.
+
+// se_SubnetIds omitted.
+
+// se_TagMap omitted.
+
+// se_WorkerResourceConfig omitted.
+
+// se_WorkerTypeSpecificationInput omitted.
+
+// se_WorkerTypeSpecificationInputMap omitted.
 
 /**
  * deserializeAws_restJson1Application
  */
 const de_Application = (output: any, context: __SerdeContext): Application => {
-  return {
-    applicationId: __expectString(output.applicationId),
-    architecture: __expectString(output.architecture),
-    arn: __expectString(output.arn),
-    autoStartConfiguration:
-      output.autoStartConfiguration != null ? de_AutoStartConfig(output.autoStartConfiguration, context) : undefined,
-    autoStopConfiguration:
-      output.autoStopConfiguration != null ? de_AutoStopConfig(output.autoStopConfiguration, context) : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    imageConfiguration:
-      output.imageConfiguration != null ? de_ImageConfiguration(output.imageConfiguration, context) : undefined,
-    initialCapacity:
-      output.initialCapacity != null ? de_InitialCapacityConfigMap(output.initialCapacity, context) : undefined,
-    maximumCapacity:
-      output.maximumCapacity != null ? de_MaximumAllowedResources(output.maximumCapacity, context) : undefined,
-    name: __expectString(output.name),
-    networkConfiguration:
-      output.networkConfiguration != null ? de_NetworkConfiguration(output.networkConfiguration, context) : undefined,
-    releaseLabel: __expectString(output.releaseLabel),
-    state: __expectString(output.state),
-    stateDetails: __expectString(output.stateDetails),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    type: __expectString(output.type),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-    workerTypeSpecifications:
-      output.workerTypeSpecifications != null
-        ? de_WorkerTypeSpecificationMap(output.workerTypeSpecifications, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    applicationId: __expectString,
+    architecture: __expectString,
+    arn: __expectString,
+    autoStartConfiguration: _json,
+    autoStopConfiguration: _json,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageConfiguration: _json,
+    initialCapacity: _json,
+    maximumCapacity: _json,
+    name: __expectString,
+    networkConfiguration: _json,
+    releaseLabel: __expectString,
+    state: __expectString,
+    stateDetails: __expectString,
+    tags: _json,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    workerTypeSpecifications: _json,
+  }) as any;
 };
 
 /**
@@ -1829,9 +1573,6 @@ const de_ApplicationList = (output: any, context: __SerdeContext): ApplicationSu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApplicationSummary(entry, context);
     });
   return retVal;
@@ -1841,50 +1582,33 @@ const de_ApplicationList = (output: any, context: __SerdeContext): ApplicationSu
  * deserializeAws_restJson1ApplicationSummary
  */
 const de_ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
-  return {
-    architecture: __expectString(output.architecture),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    releaseLabel: __expectString(output.releaseLabel),
-    state: __expectString(output.state),
-    stateDetails: __expectString(output.stateDetails),
-    type: __expectString(output.type),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    architecture: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    releaseLabel: __expectString,
+    state: __expectString,
+    stateDetails: __expectString,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AutoStartConfig
- */
-const de_AutoStartConfig = (output: any, context: __SerdeContext): AutoStartConfig => {
-  return {
-    enabled: __expectBoolean(output.enabled),
-  } as any;
-};
+// de_AutoStartConfig omitted.
 
-/**
- * deserializeAws_restJson1AutoStopConfig
- */
-const de_AutoStopConfig = (output: any, context: __SerdeContext): AutoStopConfig => {
-  return {
-    enabled: __expectBoolean(output.enabled),
-    idleTimeoutMinutes: __expectInt32(output.idleTimeoutMinutes),
-  } as any;
-};
+// de_AutoStopConfig omitted.
 
 /**
  * deserializeAws_restJson1Configuration
  */
 const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
-  return {
-    classification: __expectString(output.classification),
-    configurations: output.configurations != null ? de_ConfigurationList(output.configurations, context) : undefined,
-    properties: output.properties != null ? de_SensitivePropertiesMap(output.properties, context) : undefined,
-  } as any;
+  return take(output, {
+    classification: __expectString,
+    configurations: (_: any) => de_ConfigurationList(_, context),
+    properties: _json,
+  }) as any;
 };
 
 /**
@@ -1894,9 +1618,6 @@ const de_ConfigurationList = (output: any, context: __SerdeContext): Configurati
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Configuration(entry, context);
     });
   return retVal;
@@ -1906,128 +1627,48 @@ const de_ConfigurationList = (output: any, context: __SerdeContext): Configurati
  * deserializeAws_restJson1ConfigurationOverrides
  */
 const de_ConfigurationOverrides = (output: any, context: __SerdeContext): ConfigurationOverrides => {
-  return {
-    applicationConfiguration:
-      output.applicationConfiguration != null
-        ? de_ConfigurationList(output.applicationConfiguration, context)
-        : undefined,
-    monitoringConfiguration:
-      output.monitoringConfiguration != null
-        ? de_MonitoringConfiguration(output.monitoringConfiguration, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    applicationConfiguration: (_: any) => de_ConfigurationList(_, context),
+    monitoringConfiguration: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EntryPointArguments
- */
-const de_EntryPointArguments = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EntryPointArguments omitted.
 
-/**
- * deserializeAws_restJson1Hive
- */
-const de_Hive = (output: any, context: __SerdeContext): Hive => {
-  return {
-    initQueryFile: __expectString(output.initQueryFile),
-    parameters: __expectString(output.parameters),
-    query: __expectString(output.query),
-  } as any;
-};
+// de_Hive omitted.
 
-/**
- * deserializeAws_restJson1ImageConfiguration
- */
-const de_ImageConfiguration = (output: any, context: __SerdeContext): ImageConfiguration => {
-  return {
-    imageUri: __expectString(output.imageUri),
-    resolvedImageDigest: __expectString(output.resolvedImageDigest),
-  } as any;
-};
+// de_ImageConfiguration omitted.
 
-/**
- * deserializeAws_restJson1InitialCapacityConfig
- */
-const de_InitialCapacityConfig = (output: any, context: __SerdeContext): InitialCapacityConfig => {
-  return {
-    workerConfiguration:
-      output.workerConfiguration != null ? de_WorkerResourceConfig(output.workerConfiguration, context) : undefined,
-    workerCount: __expectLong(output.workerCount),
-  } as any;
-};
+// de_InitialCapacityConfig omitted.
 
-/**
- * deserializeAws_restJson1InitialCapacityConfigMap
- */
-const de_InitialCapacityConfigMap = (output: any, context: __SerdeContext): Record<string, InitialCapacityConfig> => {
-  return Object.entries(output).reduce((acc: Record<string, InitialCapacityConfig>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_InitialCapacityConfig(value, context);
-    return acc;
-  }, {});
-};
+// de_InitialCapacityConfigMap omitted.
 
-/**
- * deserializeAws_restJson1JobDriver
- */
-const de_JobDriver = (output: any, context: __SerdeContext): JobDriver => {
-  if (output.hive != null) {
-    return {
-      hive: de_Hive(output.hive, context),
-    };
-  }
-  if (output.sparkSubmit != null) {
-    return {
-      sparkSubmit: de_SparkSubmit(output.sparkSubmit, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_JobDriver omitted.
 
 /**
  * deserializeAws_restJson1JobRun
  */
 const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
-  return {
-    applicationId: __expectString(output.applicationId),
-    arn: __expectString(output.arn),
-    configurationOverrides:
-      output.configurationOverrides != null
-        ? de_ConfigurationOverrides(output.configurationOverrides, context)
-        : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    createdBy: __expectString(output.createdBy),
-    executionRole: __expectString(output.executionRole),
-    executionTimeoutMinutes: __expectLong(output.executionTimeoutMinutes),
-    jobDriver: output.jobDriver != null ? de_JobDriver(__expectUnion(output.jobDriver), context) : undefined,
-    jobRunId: __expectString(output.jobRunId),
-    name: __expectString(output.name),
-    networkConfiguration:
-      output.networkConfiguration != null ? de_NetworkConfiguration(output.networkConfiguration, context) : undefined,
-    releaseLabel: __expectString(output.releaseLabel),
-    state: __expectString(output.state),
-    stateDetails: __expectString(output.stateDetails),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    totalExecutionDurationSeconds: __expectInt32(output.totalExecutionDurationSeconds),
-    totalResourceUtilization:
-      output.totalResourceUtilization != null
-        ? de_TotalResourceUtilization(output.totalResourceUtilization, context)
-        : undefined,
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    applicationId: __expectString,
+    arn: __expectString,
+    configurationOverrides: (_: any) => de_ConfigurationOverrides(_, context),
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    executionRole: __expectString,
+    executionTimeoutMinutes: __expectLong,
+    jobDriver: (_: any) => _json(__expectUnion(_)),
+    jobRunId: __expectString,
+    name: __expectString,
+    networkConfiguration: _json,
+    releaseLabel: __expectString,
+    state: __expectString,
+    stateDetails: __expectString,
+    tags: _json,
+    totalExecutionDurationSeconds: __expectInt32,
+    totalResourceUtilization: (_: any) => de_TotalResourceUtilization(_, context),
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -2037,9 +1678,6 @@ const de_JobRuns = (output: any, context: __SerdeContext): JobRunSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_JobRunSummary(entry, context);
     });
   return retVal;
@@ -2049,200 +1687,58 @@ const de_JobRuns = (output: any, context: __SerdeContext): JobRunSummary[] => {
  * deserializeAws_restJson1JobRunSummary
  */
 const de_JobRunSummary = (output: any, context: __SerdeContext): JobRunSummary => {
-  return {
-    applicationId: __expectString(output.applicationId),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    createdBy: __expectString(output.createdBy),
-    executionRole: __expectString(output.executionRole),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    releaseLabel: __expectString(output.releaseLabel),
-    state: __expectString(output.state),
-    stateDetails: __expectString(output.stateDetails),
-    type: __expectString(output.type),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    applicationId: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    executionRole: __expectString,
+    id: __expectString,
+    name: __expectString,
+    releaseLabel: __expectString,
+    state: __expectString,
+    stateDetails: __expectString,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ManagedPersistenceMonitoringConfiguration
- */
-const de_ManagedPersistenceMonitoringConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ManagedPersistenceMonitoringConfiguration => {
-  return {
-    enabled: __expectBoolean(output.enabled),
-    encryptionKeyArn: __expectString(output.encryptionKeyArn),
-  } as any;
-};
+// de_ManagedPersistenceMonitoringConfiguration omitted.
 
-/**
- * deserializeAws_restJson1MaximumAllowedResources
- */
-const de_MaximumAllowedResources = (output: any, context: __SerdeContext): MaximumAllowedResources => {
-  return {
-    cpu: __expectString(output.cpu),
-    disk: __expectString(output.disk),
-    memory: __expectString(output.memory),
-  } as any;
-};
+// de_MaximumAllowedResources omitted.
 
-/**
- * deserializeAws_restJson1MonitoringConfiguration
- */
-const de_MonitoringConfiguration = (output: any, context: __SerdeContext): MonitoringConfiguration => {
-  return {
-    managedPersistenceMonitoringConfiguration:
-      output.managedPersistenceMonitoringConfiguration != null
-        ? de_ManagedPersistenceMonitoringConfiguration(output.managedPersistenceMonitoringConfiguration, context)
-        : undefined,
-    s3MonitoringConfiguration:
-      output.s3MonitoringConfiguration != null
-        ? de_S3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_MonitoringConfiguration omitted.
 
-/**
- * deserializeAws_restJson1NetworkConfiguration
- */
-const de_NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
-  return {
-    securityGroupIds:
-      output.securityGroupIds != null ? de_SecurityGroupIds(output.securityGroupIds, context) : undefined,
-    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
-  } as any;
-};
+// de_NetworkConfiguration omitted.
 
-/**
- * deserializeAws_restJson1S3MonitoringConfiguration
- */
-const de_S3MonitoringConfiguration = (output: any, context: __SerdeContext): S3MonitoringConfiguration => {
-  return {
-    encryptionKeyArn: __expectString(output.encryptionKeyArn),
-    logUri: __expectString(output.logUri),
-  } as any;
-};
+// de_S3MonitoringConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
-/**
- * deserializeAws_restJson1SensitivePropertiesMap
- */
-const de_SensitivePropertiesMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_SensitivePropertiesMap omitted.
 
-/**
- * deserializeAws_restJson1SparkSubmit
- */
-const de_SparkSubmit = (output: any, context: __SerdeContext): SparkSubmit => {
-  return {
-    entryPoint: __expectString(output.entryPoint),
-    entryPointArguments:
-      output.entryPointArguments != null ? de_EntryPointArguments(output.entryPointArguments, context) : undefined,
-    sparkSubmitParameters: __expectString(output.sparkSubmitParameters),
-  } as any;
-};
+// de_SparkSubmit omitted.
 
-/**
- * deserializeAws_restJson1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1TotalResourceUtilization
  */
 const de_TotalResourceUtilization = (output: any, context: __SerdeContext): TotalResourceUtilization => {
-  return {
-    memoryGBHour: __limitedParseDouble(output.memoryGBHour),
-    storageGBHour: __limitedParseDouble(output.storageGBHour),
-    vCPUHour: __limitedParseDouble(output.vCPUHour),
-  } as any;
+  return take(output, {
+    memoryGBHour: __limitedParseDouble,
+    storageGBHour: __limitedParseDouble,
+    vCPUHour: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1WorkerResourceConfig
- */
-const de_WorkerResourceConfig = (output: any, context: __SerdeContext): WorkerResourceConfig => {
-  return {
-    cpu: __expectString(output.cpu),
-    disk: __expectString(output.disk),
-    memory: __expectString(output.memory),
-  } as any;
-};
+// de_WorkerResourceConfig omitted.
 
-/**
- * deserializeAws_restJson1WorkerTypeSpecification
- */
-const de_WorkerTypeSpecification = (output: any, context: __SerdeContext): WorkerTypeSpecification => {
-  return {
-    imageConfiguration:
-      output.imageConfiguration != null ? de_ImageConfiguration(output.imageConfiguration, context) : undefined,
-  } as any;
-};
+// de_WorkerTypeSpecification omitted.
 
-/**
- * deserializeAws_restJson1WorkerTypeSpecificationMap
- */
-const de_WorkerTypeSpecificationMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, WorkerTypeSpecification> => {
-  return Object.entries(output).reduce((acc: Record<string, WorkerTypeSpecification>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_WorkerTypeSpecification(value, context);
-    return acc;
-  }, {});
-};
+// de_WorkerTypeSpecificationMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

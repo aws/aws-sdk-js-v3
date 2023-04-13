@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,7 +10,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -294,31 +296,23 @@ import {
   AccountTakeoverActionType,
   AccountTakeoverRiskConfigurationType,
   AddCustomAttributesRequest,
-  AddCustomAttributesResponse,
   AdminAddUserToGroupRequest,
   AdminConfirmSignUpRequest,
-  AdminConfirmSignUpResponse,
   AdminCreateUserConfigType,
   AdminCreateUserRequest,
   AdminCreateUserResponse,
   AdminDeleteUserAttributesRequest,
-  AdminDeleteUserAttributesResponse,
   AdminDeleteUserRequest,
   AdminDisableProviderForUserRequest,
-  AdminDisableProviderForUserResponse,
   AdminDisableUserRequest,
-  AdminDisableUserResponse,
   AdminEnableUserRequest,
-  AdminEnableUserResponse,
   AdminForgetDeviceRequest,
   AdminGetDeviceRequest,
   AdminGetDeviceResponse,
   AdminGetUserRequest,
   AdminGetUserResponse,
   AdminInitiateAuthRequest,
-  AdminInitiateAuthResponse,
   AdminLinkProviderForUserRequest,
-  AdminLinkProviderForUserResponse,
   AdminListDevicesRequest,
   AdminListDevicesResponse,
   AdminListGroupsForUserRequest,
@@ -327,60 +321,41 @@ import {
   AdminListUserAuthEventsResponse,
   AdminRemoveUserFromGroupRequest,
   AdminResetUserPasswordRequest,
-  AdminResetUserPasswordResponse,
   AdminRespondToAuthChallengeRequest,
-  AdminRespondToAuthChallengeResponse,
   AdminSetUserMFAPreferenceRequest,
-  AdminSetUserMFAPreferenceResponse,
   AdminSetUserPasswordRequest,
-  AdminSetUserPasswordResponse,
   AdminSetUserSettingsRequest,
-  AdminSetUserSettingsResponse,
   AdminUpdateAuthEventFeedbackRequest,
-  AdminUpdateAuthEventFeedbackResponse,
   AdminUpdateDeviceStatusRequest,
-  AdminUpdateDeviceStatusResponse,
   AdminUpdateUserAttributesRequest,
-  AdminUpdateUserAttributesResponse,
   AdminUserGlobalSignOutRequest,
-  AdminUserGlobalSignOutResponse,
   AliasAttributeType,
   AliasExistsException,
   AnalyticsConfigurationType,
   AnalyticsMetadataType,
   AssociateSoftwareTokenRequest,
-  AssociateSoftwareTokenResponse,
   AttributeType,
-  AuthenticationResultType,
   AuthEventType,
-  ChallengeResponseType,
   ChangePasswordRequest,
-  ChangePasswordResponse,
-  CodeDeliveryDetailsType,
   CodeDeliveryFailureException,
   CodeMismatchException,
   CompromisedCredentialsActionsType,
   CompromisedCredentialsRiskConfigurationType,
   ConcurrentModificationException,
   ConfirmDeviceRequest,
-  ConfirmDeviceResponse,
   ConfirmForgotPasswordRequest,
-  ConfirmForgotPasswordResponse,
   ConfirmSignUpRequest,
-  ConfirmSignUpResponse,
   ContextDataType,
   CreateGroupRequest,
   CreateGroupResponse,
   CreateIdentityProviderRequest,
   CreateIdentityProviderResponse,
   CreateResourceServerRequest,
-  CreateResourceServerResponse,
   CreateUserImportJobRequest,
   CreateUserImportJobResponse,
   CreateUserPoolClientRequest,
   CreateUserPoolClientResponse,
   CreateUserPoolDomainRequest,
-  CreateUserPoolDomainResponse,
   CreateUserPoolRequest,
   CreateUserPoolResponse,
   CustomDomainConfigType,
@@ -390,17 +365,14 @@ import {
   DeleteIdentityProviderRequest,
   DeleteResourceServerRequest,
   DeleteUserAttributesRequest,
-  DeleteUserAttributesResponse,
   DeleteUserPoolClientRequest,
   DeleteUserPoolDomainRequest,
-  DeleteUserPoolDomainResponse,
   DeleteUserPoolRequest,
   DeleteUserRequest,
   DeliveryMediumType,
   DescribeIdentityProviderRequest,
   DescribeIdentityProviderResponse,
   DescribeResourceServerRequest,
-  DescribeResourceServerResponse,
   DescribeRiskConfigurationRequest,
   DescribeRiskConfigurationResponse,
   DescribeUserImportJobRequest,
@@ -408,27 +380,21 @@ import {
   DescribeUserPoolClientRequest,
   DescribeUserPoolClientResponse,
   DescribeUserPoolDomainRequest,
-  DescribeUserPoolDomainResponse,
   DescribeUserPoolRequest,
   DescribeUserPoolResponse,
   DeviceConfigurationType,
   DeviceSecretVerifierConfigType,
   DeviceType,
-  DomainDescriptionType,
   DuplicateProviderException,
   EmailConfigurationType,
-  EventContextDataType,
   EventFeedbackType,
   EventFilterType,
-  EventRiskType,
   ExpiredCodeException,
   ExplicitAuthFlowsType,
   ForbiddenException,
   ForgetDeviceRequest,
   ForgotPasswordRequest,
-  ForgotPasswordResponse,
   GetCSVHeaderRequest,
-  GetCSVHeaderResponse,
   GetDeviceRequest,
   GetDeviceResponse,
   GetGroupRequest,
@@ -436,23 +402,17 @@ import {
   GetIdentityProviderByIdentifierRequest,
   GetIdentityProviderByIdentifierResponse,
   GetSigningCertificateRequest,
-  GetSigningCertificateResponse,
   GetUICustomizationRequest,
   GetUICustomizationResponse,
   GetUserAttributeVerificationCodeRequest,
-  GetUserAttributeVerificationCodeResponse,
   GetUserPoolMfaConfigRequest,
-  GetUserPoolMfaConfigResponse,
   GetUserRequest,
-  GetUserResponse,
   GlobalSignOutRequest,
-  GlobalSignOutResponse,
   GroupExistsException,
   GroupType,
   HttpHeader,
   IdentityProviderType,
   InitiateAuthRequest,
-  InitiateAuthResponse,
   InternalErrorException,
   InvalidEmailRoleAccessPolicyException,
   InvalidLambdaResponseException,
@@ -471,13 +431,10 @@ import {
   ListIdentityProvidersRequest,
   ListIdentityProvidersResponse,
   ListResourceServersRequest,
-  ListResourceServersResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListUserImportJobsRequest,
   ListUserImportJobsResponse,
   ListUserPoolClientsRequest,
-  ListUserPoolClientsResponse,
   ListUserPoolsRequest,
   ListUserPoolsResponse,
   ListUsersInGroupRequest,
@@ -487,7 +444,6 @@ import {
   MessageTemplateType,
   MFAMethodNotFoundException,
   MFAOptionType,
-  NewDeviceMetadataType,
   NotAuthorizedException,
   NotifyConfigurationType,
   NotifyEmailType,
@@ -500,14 +456,10 @@ import {
   ProviderUserIdentifierType,
   RecoveryOptionType,
   ResendConfirmationCodeRequest,
-  ResendConfirmationCodeResponse,
   ResourceNotFoundException,
   ResourceServerScopeType,
-  ResourceServerType,
   RespondToAuthChallengeRequest,
-  RespondToAuthChallengeResponse,
   RevokeTokenRequest,
-  RevokeTokenResponse,
   RiskConfigurationType,
   RiskExceptionConfigurationType,
   SchemaAttributeType,
@@ -517,11 +469,8 @@ import {
   SetUICustomizationRequest,
   SetUICustomizationResponse,
   SetUserMFAPreferenceRequest,
-  SetUserMFAPreferenceResponse,
   SetUserPoolMfaConfigRequest,
-  SetUserPoolMfaConfigResponse,
   SetUserSettingsRequest,
-  SetUserSettingsResponse,
   SmsConfigurationType,
   SmsMfaConfigType,
   SMSMfaSettingsType,
@@ -551,7 +500,6 @@ import {
   UserNotFoundException,
   UserPoolAddOnNotEnabledException,
   UserPoolAddOnsType,
-  UserPoolClientDescription,
   UserPoolClientType,
   UserPoolDescriptionType,
   UserPoolPolicyType,
@@ -564,37 +512,26 @@ import {
 import {
   EnableSoftwareTokenMFAException,
   SignUpRequest,
-  SignUpResponse,
   StartUserImportJobRequest,
   StartUserImportJobResponse,
   StopUserImportJobRequest,
   StopUserImportJobResponse,
   TagResourceRequest,
-  TagResourceResponse,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateAuthEventFeedbackRequest,
-  UpdateAuthEventFeedbackResponse,
   UpdateDeviceStatusRequest,
-  UpdateDeviceStatusResponse,
   UpdateGroupRequest,
   UpdateGroupResponse,
   UpdateIdentityProviderRequest,
   UpdateIdentityProviderResponse,
   UpdateResourceServerRequest,
-  UpdateResourceServerResponse,
   UpdateUserAttributesRequest,
-  UpdateUserAttributesResponse,
   UpdateUserPoolClientRequest,
   UpdateUserPoolClientResponse,
   UpdateUserPoolDomainRequest,
-  UpdateUserPoolDomainResponse,
   UpdateUserPoolRequest,
-  UpdateUserPoolResponse,
   VerifySoftwareTokenRequest,
-  VerifySoftwareTokenResponse,
   VerifyUserAttributeRequest,
-  VerifyUserAttributeResponse,
 } from "../models/models_1";
 
 /**
@@ -606,7 +543,7 @@ export const se_AddCustomAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddCustomAttributes");
   let body: any;
-  body = JSON.stringify(se_AddCustomAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -619,7 +556,7 @@ export const se_AdminAddUserToGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminAddUserToGroup");
   let body: any;
-  body = JSON.stringify(se_AdminAddUserToGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -632,7 +569,7 @@ export const se_AdminConfirmSignUpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminConfirmSignUp");
   let body: any;
-  body = JSON.stringify(se_AdminConfirmSignUpRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -645,7 +582,7 @@ export const se_AdminCreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminCreateUser");
   let body: any;
-  body = JSON.stringify(se_AdminCreateUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -658,7 +595,7 @@ export const se_AdminDeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminDeleteUser");
   let body: any;
-  body = JSON.stringify(se_AdminDeleteUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -671,7 +608,7 @@ export const se_AdminDeleteUserAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminDeleteUserAttributes");
   let body: any;
-  body = JSON.stringify(se_AdminDeleteUserAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -684,7 +621,7 @@ export const se_AdminDisableProviderForUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminDisableProviderForUser");
   let body: any;
-  body = JSON.stringify(se_AdminDisableProviderForUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -697,7 +634,7 @@ export const se_AdminDisableUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminDisableUser");
   let body: any;
-  body = JSON.stringify(se_AdminDisableUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -710,7 +647,7 @@ export const se_AdminEnableUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminEnableUser");
   let body: any;
-  body = JSON.stringify(se_AdminEnableUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -723,7 +660,7 @@ export const se_AdminForgetDeviceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminForgetDevice");
   let body: any;
-  body = JSON.stringify(se_AdminForgetDeviceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -736,7 +673,7 @@ export const se_AdminGetDeviceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminGetDevice");
   let body: any;
-  body = JSON.stringify(se_AdminGetDeviceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -749,7 +686,7 @@ export const se_AdminGetUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminGetUser");
   let body: any;
-  body = JSON.stringify(se_AdminGetUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -762,7 +699,7 @@ export const se_AdminInitiateAuthCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminInitiateAuth");
   let body: any;
-  body = JSON.stringify(se_AdminInitiateAuthRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -775,7 +712,7 @@ export const se_AdminLinkProviderForUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminLinkProviderForUser");
   let body: any;
-  body = JSON.stringify(se_AdminLinkProviderForUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -788,7 +725,7 @@ export const se_AdminListDevicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminListDevices");
   let body: any;
-  body = JSON.stringify(se_AdminListDevicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -801,7 +738,7 @@ export const se_AdminListGroupsForUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminListGroupsForUser");
   let body: any;
-  body = JSON.stringify(se_AdminListGroupsForUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -814,7 +751,7 @@ export const se_AdminListUserAuthEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminListUserAuthEvents");
   let body: any;
-  body = JSON.stringify(se_AdminListUserAuthEventsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -827,7 +764,7 @@ export const se_AdminRemoveUserFromGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminRemoveUserFromGroup");
   let body: any;
-  body = JSON.stringify(se_AdminRemoveUserFromGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -840,7 +777,7 @@ export const se_AdminResetUserPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminResetUserPassword");
   let body: any;
-  body = JSON.stringify(se_AdminResetUserPasswordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -853,7 +790,7 @@ export const se_AdminRespondToAuthChallengeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminRespondToAuthChallenge");
   let body: any;
-  body = JSON.stringify(se_AdminRespondToAuthChallengeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -866,7 +803,7 @@ export const se_AdminSetUserMFAPreferenceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminSetUserMFAPreference");
   let body: any;
-  body = JSON.stringify(se_AdminSetUserMFAPreferenceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -879,7 +816,7 @@ export const se_AdminSetUserPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminSetUserPassword");
   let body: any;
-  body = JSON.stringify(se_AdminSetUserPasswordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -892,7 +829,7 @@ export const se_AdminSetUserSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminSetUserSettings");
   let body: any;
-  body = JSON.stringify(se_AdminSetUserSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -905,7 +842,7 @@ export const se_AdminUpdateAuthEventFeedbackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminUpdateAuthEventFeedback");
   let body: any;
-  body = JSON.stringify(se_AdminUpdateAuthEventFeedbackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -918,7 +855,7 @@ export const se_AdminUpdateDeviceStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminUpdateDeviceStatus");
   let body: any;
-  body = JSON.stringify(se_AdminUpdateDeviceStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -931,7 +868,7 @@ export const se_AdminUpdateUserAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminUpdateUserAttributes");
   let body: any;
-  body = JSON.stringify(se_AdminUpdateUserAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -944,7 +881,7 @@ export const se_AdminUserGlobalSignOutCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AdminUserGlobalSignOut");
   let body: any;
-  body = JSON.stringify(se_AdminUserGlobalSignOutRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -957,7 +894,7 @@ export const se_AssociateSoftwareTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateSoftwareToken");
   let body: any;
-  body = JSON.stringify(se_AssociateSoftwareTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -970,7 +907,7 @@ export const se_ChangePasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ChangePassword");
   let body: any;
-  body = JSON.stringify(se_ChangePasswordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -983,7 +920,7 @@ export const se_ConfirmDeviceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConfirmDevice");
   let body: any;
-  body = JSON.stringify(se_ConfirmDeviceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -996,7 +933,7 @@ export const se_ConfirmForgotPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConfirmForgotPassword");
   let body: any;
-  body = JSON.stringify(se_ConfirmForgotPasswordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1009,7 +946,7 @@ export const se_ConfirmSignUpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConfirmSignUp");
   let body: any;
-  body = JSON.stringify(se_ConfirmSignUpRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1022,7 +959,7 @@ export const se_CreateGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateGroup");
   let body: any;
-  body = JSON.stringify(se_CreateGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1035,7 +972,7 @@ export const se_CreateIdentityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateIdentityProvider");
   let body: any;
-  body = JSON.stringify(se_CreateIdentityProviderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1048,7 +985,7 @@ export const se_CreateResourceServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateResourceServer");
   let body: any;
-  body = JSON.stringify(se_CreateResourceServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1061,7 +998,7 @@ export const se_CreateUserImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUserImportJob");
   let body: any;
-  body = JSON.stringify(se_CreateUserImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1074,7 +1011,7 @@ export const se_CreateUserPoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUserPool");
   let body: any;
-  body = JSON.stringify(se_CreateUserPoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1087,7 +1024,7 @@ export const se_CreateUserPoolClientCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUserPoolClient");
   let body: any;
-  body = JSON.stringify(se_CreateUserPoolClientRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1100,7 +1037,7 @@ export const se_CreateUserPoolDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUserPoolDomain");
   let body: any;
-  body = JSON.stringify(se_CreateUserPoolDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1113,7 +1050,7 @@ export const se_DeleteGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteGroup");
   let body: any;
-  body = JSON.stringify(se_DeleteGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1126,7 +1063,7 @@ export const se_DeleteIdentityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteIdentityProvider");
   let body: any;
-  body = JSON.stringify(se_DeleteIdentityProviderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1139,7 +1076,7 @@ export const se_DeleteResourceServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteResourceServer");
   let body: any;
-  body = JSON.stringify(se_DeleteResourceServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1152,7 +1089,7 @@ export const se_DeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
-  body = JSON.stringify(se_DeleteUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1165,7 +1102,7 @@ export const se_DeleteUserAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUserAttributes");
   let body: any;
-  body = JSON.stringify(se_DeleteUserAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1178,7 +1115,7 @@ export const se_DeleteUserPoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUserPool");
   let body: any;
-  body = JSON.stringify(se_DeleteUserPoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1191,7 +1128,7 @@ export const se_DeleteUserPoolClientCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUserPoolClient");
   let body: any;
-  body = JSON.stringify(se_DeleteUserPoolClientRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1204,7 +1141,7 @@ export const se_DeleteUserPoolDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUserPoolDomain");
   let body: any;
-  body = JSON.stringify(se_DeleteUserPoolDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1217,7 +1154,7 @@ export const se_DescribeIdentityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeIdentityProvider");
   let body: any;
-  body = JSON.stringify(se_DescribeIdentityProviderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1230,7 +1167,7 @@ export const se_DescribeResourceServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeResourceServer");
   let body: any;
-  body = JSON.stringify(se_DescribeResourceServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1243,7 +1180,7 @@ export const se_DescribeRiskConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRiskConfiguration");
   let body: any;
-  body = JSON.stringify(se_DescribeRiskConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1256,7 +1193,7 @@ export const se_DescribeUserImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeUserImportJob");
   let body: any;
-  body = JSON.stringify(se_DescribeUserImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1269,7 +1206,7 @@ export const se_DescribeUserPoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeUserPool");
   let body: any;
-  body = JSON.stringify(se_DescribeUserPoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1282,7 +1219,7 @@ export const se_DescribeUserPoolClientCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeUserPoolClient");
   let body: any;
-  body = JSON.stringify(se_DescribeUserPoolClientRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1295,7 +1232,7 @@ export const se_DescribeUserPoolDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeUserPoolDomain");
   let body: any;
-  body = JSON.stringify(se_DescribeUserPoolDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1308,7 +1245,7 @@ export const se_ForgetDeviceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ForgetDevice");
   let body: any;
-  body = JSON.stringify(se_ForgetDeviceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1321,7 +1258,7 @@ export const se_ForgotPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ForgotPassword");
   let body: any;
-  body = JSON.stringify(se_ForgotPasswordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1334,7 +1271,7 @@ export const se_GetCSVHeaderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCSVHeader");
   let body: any;
-  body = JSON.stringify(se_GetCSVHeaderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1347,7 +1284,7 @@ export const se_GetDeviceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDevice");
   let body: any;
-  body = JSON.stringify(se_GetDeviceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1360,7 +1297,7 @@ export const se_GetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetGroup");
   let body: any;
-  body = JSON.stringify(se_GetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1373,7 +1310,7 @@ export const se_GetIdentityProviderByIdentifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetIdentityProviderByIdentifier");
   let body: any;
-  body = JSON.stringify(se_GetIdentityProviderByIdentifierRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1386,7 +1323,7 @@ export const se_GetSigningCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSigningCertificate");
   let body: any;
-  body = JSON.stringify(se_GetSigningCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1399,7 +1336,7 @@ export const se_GetUICustomizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUICustomization");
   let body: any;
-  body = JSON.stringify(se_GetUICustomizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1412,7 +1349,7 @@ export const se_GetUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUser");
   let body: any;
-  body = JSON.stringify(se_GetUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1425,7 +1362,7 @@ export const se_GetUserAttributeVerificationCodeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUserAttributeVerificationCode");
   let body: any;
-  body = JSON.stringify(se_GetUserAttributeVerificationCodeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1438,7 +1375,7 @@ export const se_GetUserPoolMfaConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUserPoolMfaConfig");
   let body: any;
-  body = JSON.stringify(se_GetUserPoolMfaConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1451,7 +1388,7 @@ export const se_GlobalSignOutCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GlobalSignOut");
   let body: any;
-  body = JSON.stringify(se_GlobalSignOutRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1464,7 +1401,7 @@ export const se_InitiateAuthCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("InitiateAuth");
   let body: any;
-  body = JSON.stringify(se_InitiateAuthRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1477,7 +1414,7 @@ export const se_ListDevicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDevices");
   let body: any;
-  body = JSON.stringify(se_ListDevicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1490,7 +1427,7 @@ export const se_ListGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListGroups");
   let body: any;
-  body = JSON.stringify(se_ListGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1503,7 +1440,7 @@ export const se_ListIdentityProvidersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListIdentityProviders");
   let body: any;
-  body = JSON.stringify(se_ListIdentityProvidersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1516,7 +1453,7 @@ export const se_ListResourceServersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListResourceServers");
   let body: any;
-  body = JSON.stringify(se_ListResourceServersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1529,7 +1466,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1542,7 +1479,7 @@ export const se_ListUserImportJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUserImportJobs");
   let body: any;
-  body = JSON.stringify(se_ListUserImportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1555,7 +1492,7 @@ export const se_ListUserPoolClientsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUserPoolClients");
   let body: any;
-  body = JSON.stringify(se_ListUserPoolClientsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1568,7 +1505,7 @@ export const se_ListUserPoolsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUserPools");
   let body: any;
-  body = JSON.stringify(se_ListUserPoolsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1581,7 +1518,7 @@ export const se_ListUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUsers");
   let body: any;
-  body = JSON.stringify(se_ListUsersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1594,7 +1531,7 @@ export const se_ListUsersInGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUsersInGroup");
   let body: any;
-  body = JSON.stringify(se_ListUsersInGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1607,7 +1544,7 @@ export const se_ResendConfirmationCodeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResendConfirmationCode");
   let body: any;
-  body = JSON.stringify(se_ResendConfirmationCodeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1620,7 +1557,7 @@ export const se_RespondToAuthChallengeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RespondToAuthChallenge");
   let body: any;
-  body = JSON.stringify(se_RespondToAuthChallengeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1633,7 +1570,7 @@ export const se_RevokeTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RevokeToken");
   let body: any;
-  body = JSON.stringify(se_RevokeTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1646,7 +1583,7 @@ export const se_SetRiskConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetRiskConfiguration");
   let body: any;
-  body = JSON.stringify(se_SetRiskConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1672,7 +1609,7 @@ export const se_SetUserMFAPreferenceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetUserMFAPreference");
   let body: any;
-  body = JSON.stringify(se_SetUserMFAPreferenceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1685,7 +1622,7 @@ export const se_SetUserPoolMfaConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetUserPoolMfaConfig");
   let body: any;
-  body = JSON.stringify(se_SetUserPoolMfaConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1698,7 +1635,7 @@ export const se_SetUserSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetUserSettings");
   let body: any;
-  body = JSON.stringify(se_SetUserSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1708,7 +1645,7 @@ export const se_SetUserSettingsCommand = async (
 export const se_SignUpCommand = async (input: SignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SignUp");
   let body: any;
-  body = JSON.stringify(se_SignUpRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1721,7 +1658,7 @@ export const se_StartUserImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartUserImportJob");
   let body: any;
-  body = JSON.stringify(se_StartUserImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1734,7 +1671,7 @@ export const se_StopUserImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopUserImportJob");
   let body: any;
-  body = JSON.stringify(se_StopUserImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1747,7 +1684,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1760,7 +1697,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1773,7 +1710,7 @@ export const se_UpdateAuthEventFeedbackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAuthEventFeedback");
   let body: any;
-  body = JSON.stringify(se_UpdateAuthEventFeedbackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1786,7 +1723,7 @@ export const se_UpdateDeviceStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDeviceStatus");
   let body: any;
-  body = JSON.stringify(se_UpdateDeviceStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1799,7 +1736,7 @@ export const se_UpdateGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateGroup");
   let body: any;
-  body = JSON.stringify(se_UpdateGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1812,7 +1749,7 @@ export const se_UpdateIdentityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateIdentityProvider");
   let body: any;
-  body = JSON.stringify(se_UpdateIdentityProviderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1825,7 +1762,7 @@ export const se_UpdateResourceServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateResourceServer");
   let body: any;
-  body = JSON.stringify(se_UpdateResourceServerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1838,7 +1775,7 @@ export const se_UpdateUserAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateUserAttributes");
   let body: any;
-  body = JSON.stringify(se_UpdateUserAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1851,7 +1788,7 @@ export const se_UpdateUserPoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateUserPool");
   let body: any;
-  body = JSON.stringify(se_UpdateUserPoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1864,7 +1801,7 @@ export const se_UpdateUserPoolClientCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateUserPoolClient");
   let body: any;
-  body = JSON.stringify(se_UpdateUserPoolClientRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1877,7 +1814,7 @@ export const se_UpdateUserPoolDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateUserPoolDomain");
   let body: any;
-  body = JSON.stringify(se_UpdateUserPoolDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1890,7 +1827,7 @@ export const se_VerifySoftwareTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("VerifySoftwareToken");
   let body: any;
-  body = JSON.stringify(se_VerifySoftwareTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1903,7 +1840,7 @@ export const se_VerifyUserAttributeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("VerifyUserAttribute");
   let body: any;
-  body = JSON.stringify(se_VerifyUserAttributeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1919,12 +1856,12 @@ export const de_AddCustomAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddCustomAttributesResponse(data, context);
+  contents = _json(data);
   const response: AddCustomAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1960,10 +1897,9 @@ const de_AddCustomAttributesCommandError = async (
       throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1983,7 +1919,7 @@ export const de_AdminAddUserToGroupCommand = async (
   const response: AdminAddUserToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2019,10 +1955,9 @@ const de_AdminAddUserToGroupCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2040,12 +1975,12 @@ export const de_AdminConfirmSignUpCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminConfirmSignUpResponse(data, context);
+  contents = _json(data);
   const response: AdminConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2096,10 +2031,9 @@ const de_AdminConfirmSignUpCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2122,7 +2056,7 @@ export const de_AdminCreateUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2188,10 +2122,9 @@ const de_AdminCreateUserCommandError = async (
       throw await de_UsernameExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2211,7 +2144,7 @@ export const de_AdminDeleteUserCommand = async (
   const response: AdminDeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2247,10 +2180,9 @@ const de_AdminDeleteUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2268,12 +2200,12 @@ export const de_AdminDeleteUserAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminDeleteUserAttributesResponse(data, context);
+  contents = _json(data);
   const response: AdminDeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2309,10 +2241,9 @@ const de_AdminDeleteUserAttributesCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2330,12 +2261,12 @@ export const de_AdminDisableProviderForUserCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminDisableProviderForUserResponse(data, context);
+  contents = _json(data);
   const response: AdminDisableProviderForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2374,10 +2305,9 @@ const de_AdminDisableProviderForUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2395,12 +2325,12 @@ export const de_AdminDisableUserCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminDisableUserResponse(data, context);
+  contents = _json(data);
   const response: AdminDisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2436,10 +2366,9 @@ const de_AdminDisableUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2457,12 +2386,12 @@ export const de_AdminEnableUserCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminEnableUserResponse(data, context);
+  contents = _json(data);
   const response: AdminEnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2498,10 +2427,9 @@ const de_AdminEnableUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2521,7 +2449,7 @@ export const de_AdminForgetDeviceCommand = async (
   const response: AdminForgetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2560,10 +2488,9 @@ const de_AdminForgetDeviceCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2586,7 +2513,7 @@ export const de_AdminGetDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2622,10 +2549,9 @@ const de_AdminGetDeviceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2648,7 +2574,7 @@ export const de_AdminGetUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2684,10 +2610,9 @@ const de_AdminGetUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2705,12 +2630,12 @@ export const de_AdminInitiateAuthCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminInitiateAuthResponse(data, context);
+  contents = _json(data);
   const response: AdminInitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2773,10 +2698,9 @@ const de_AdminInitiateAuthCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2794,12 +2718,12 @@ export const de_AdminLinkProviderForUserCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminLinkProviderForUserResponse(data, context);
+  contents = _json(data);
   const response: AdminLinkProviderForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2841,10 +2765,9 @@ const de_AdminLinkProviderForUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2867,7 +2790,7 @@ export const de_AdminListDevicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2903,10 +2826,9 @@ const de_AdminListDevicesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2929,7 +2851,7 @@ export const de_AdminListGroupsForUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2965,10 +2887,9 @@ const de_AdminListGroupsForUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2991,7 +2912,7 @@ export const de_AdminListUserAuthEventsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3030,10 +2951,9 @@ const de_AdminListUserAuthEventsCommandError = async (
       throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3053,7 +2973,7 @@ export const de_AdminRemoveUserFromGroupCommand = async (
   const response: AdminRemoveUserFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3089,10 +3009,9 @@ const de_AdminRemoveUserFromGroupCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3110,12 +3029,12 @@ export const de_AdminResetUserPasswordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminResetUserPasswordResponse(data, context);
+  contents = _json(data);
   const response: AdminResetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3172,10 +3091,9 @@ const de_AdminResetUserPasswordCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3193,12 +3111,12 @@ export const de_AdminRespondToAuthChallengeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminRespondToAuthChallengeResponse(data, context);
+  contents = _json(data);
   const response: AdminRespondToAuthChallengeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3276,10 +3194,9 @@ const de_AdminRespondToAuthChallengeCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3297,12 +3214,12 @@ export const de_AdminSetUserMFAPreferenceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminSetUserMFAPreferenceResponse(data, context);
+  contents = _json(data);
   const response: AdminSetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3341,10 +3258,9 @@ const de_AdminSetUserMFAPreferenceCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3362,12 +3278,12 @@ export const de_AdminSetUserPasswordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminSetUserPasswordResponse(data, context);
+  contents = _json(data);
   const response: AdminSetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3406,10 +3322,9 @@ const de_AdminSetUserPasswordCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3427,12 +3342,12 @@ export const de_AdminSetUserSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminSetUserSettingsResponse(data, context);
+  contents = _json(data);
   const response: AdminSetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3465,10 +3380,9 @@ const de_AdminSetUserSettingsCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3486,12 +3400,12 @@ export const de_AdminUpdateAuthEventFeedbackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminUpdateAuthEventFeedbackResponse(data, context);
+  contents = _json(data);
   const response: AdminUpdateAuthEventFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3530,10 +3444,9 @@ const de_AdminUpdateAuthEventFeedbackCommandError = async (
       throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3551,12 +3464,12 @@ export const de_AdminUpdateDeviceStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminUpdateDeviceStatusResponse(data, context);
+  contents = _json(data);
   const response: AdminUpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3595,10 +3508,9 @@ const de_AdminUpdateDeviceStatusCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3616,12 +3528,12 @@ export const de_AdminUpdateUserAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminUpdateUserAttributesResponse(data, context);
+  contents = _json(data);
   const response: AdminUpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3678,10 +3590,9 @@ const de_AdminUpdateUserAttributesCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3699,12 +3610,12 @@ export const de_AdminUserGlobalSignOutCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AdminUserGlobalSignOutResponse(data, context);
+  contents = _json(data);
   const response: AdminUserGlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3740,10 +3651,9 @@ const de_AdminUserGlobalSignOutCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3761,12 +3671,12 @@ export const de_AssociateSoftwareTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateSoftwareTokenResponse(data, context);
+  contents = _json(data);
   const response: AssociateSoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3805,10 +3715,9 @@ const de_AssociateSoftwareTokenCommandError = async (
       throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3826,12 +3735,12 @@ export const de_ChangePasswordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ChangePasswordResponse(data, context);
+  contents = _json(data);
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3882,10 +3791,9 @@ const de_ChangePasswordCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3903,12 +3811,12 @@ export const de_ConfirmDeviceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConfirmDeviceResponse(data, context);
+  contents = _json(data);
   const response: ConfirmDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3965,10 +3873,9 @@ const de_ConfirmDeviceCommandError = async (
       throw await de_UsernameExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3986,12 +3893,12 @@ export const de_ConfirmForgotPasswordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConfirmForgotPasswordResponse(data, context);
+  contents = _json(data);
   const response: ConfirmForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4057,10 +3964,9 @@ const de_ConfirmForgotPasswordCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4078,12 +3984,12 @@ export const de_ConfirmSignUpCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConfirmSignUpResponse(data, context);
+  contents = _json(data);
   const response: ConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4146,10 +4052,9 @@ const de_ConfirmSignUpCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4172,7 +4077,7 @@ export const de_CreateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4211,10 +4116,9 @@ const de_CreateGroupCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4237,7 +4141,7 @@ export const de_CreateIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4276,10 +4180,9 @@ const de_CreateIdentityProviderCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4297,12 +4200,12 @@ export const de_CreateResourceServerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateResourceServerResponse(data, context);
+  contents = _json(data);
   const response: CreateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4338,10 +4241,9 @@ const de_CreateResourceServerCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4364,7 +4266,7 @@ export const de_CreateUserImportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4403,10 +4305,9 @@ const de_CreateUserImportJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4429,7 +4330,7 @@ export const de_CreateUserPoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4474,10 +4375,9 @@ const de_CreateUserPoolCommandError = async (
       throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4500,7 +4400,7 @@ export const de_CreateUserPoolClientCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4542,10 +4442,9 @@ const de_CreateUserPoolClientCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4563,12 +4462,12 @@ export const de_CreateUserPoolDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateUserPoolDomainResponse(data, context);
+  contents = _json(data);
   const response: CreateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4601,10 +4500,9 @@ const de_CreateUserPoolDomainCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4624,7 +4522,7 @@ export const de_DeleteGroupCommand = async (
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4657,10 +4555,9 @@ const de_DeleteGroupCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4680,7 +4577,7 @@ export const de_DeleteIdentityProviderCommand = async (
   const response: DeleteIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4719,10 +4616,9 @@ const de_DeleteIdentityProviderCommandError = async (
       throw await de_UnsupportedIdentityProviderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4742,7 +4638,7 @@ export const de_DeleteResourceServerCommand = async (
   const response: DeleteResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4775,10 +4671,9 @@ const de_DeleteResourceServerCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4798,7 +4693,7 @@ export const de_DeleteUserCommand = async (
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4843,10 +4738,9 @@ const de_DeleteUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4864,12 +4758,12 @@ export const de_DeleteUserAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteUserAttributesResponse(data, context);
+  contents = _json(data);
   const response: DeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4914,10 +4808,9 @@ const de_DeleteUserAttributesCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4937,7 +4830,7 @@ export const de_DeleteUserPoolCommand = async (
   const response: DeleteUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4973,10 +4866,9 @@ const de_DeleteUserPoolCommandError = async (
       throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4996,7 +4888,7 @@ export const de_DeleteUserPoolClientCommand = async (
   const response: DeleteUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5032,10 +4924,9 @@ const de_DeleteUserPoolClientCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5053,12 +4944,12 @@ export const de_DeleteUserPoolDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteUserPoolDomainResponse(data, context);
+  contents = _json(data);
   const response: DeleteUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5088,10 +4979,9 @@ const de_DeleteUserPoolDomainCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5114,7 +5004,7 @@ export const de_DescribeIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5147,10 +5037,9 @@ const de_DescribeIdentityProviderCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5168,12 +5057,12 @@ export const de_DescribeResourceServerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeResourceServerResponse(data, context);
+  contents = _json(data);
   const response: DescribeResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5206,10 +5095,9 @@ const de_DescribeResourceServerCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5232,7 +5120,7 @@ export const de_DescribeRiskConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5268,10 +5156,9 @@ const de_DescribeRiskConfigurationCommandError = async (
       throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5294,7 +5181,7 @@ export const de_DescribeUserImportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5327,10 +5214,9 @@ const de_DescribeUserImportJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5353,7 +5239,7 @@ export const de_DescribeUserPoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5389,10 +5275,9 @@ const de_DescribeUserPoolCommandError = async (
       throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5415,7 +5300,7 @@ export const de_DescribeUserPoolClientCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5448,10 +5333,9 @@ const de_DescribeUserPoolClientCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5469,12 +5353,12 @@ export const de_DescribeUserPoolDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeUserPoolDomainResponse(data, context);
+  contents = _json(data);
   const response: DescribeUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5504,10 +5388,9 @@ const de_DescribeUserPoolDomainCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5527,7 +5410,7 @@ export const de_ForgetDeviceCommand = async (
   const response: ForgetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5575,10 +5458,9 @@ const de_ForgetDeviceCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5596,12 +5478,12 @@ export const de_ForgotPasswordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ForgotPasswordResponse(data, context);
+  contents = _json(data);
   const response: ForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5664,10 +5546,9 @@ const de_ForgotPasswordCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5685,12 +5566,12 @@ export const de_GetCSVHeaderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCSVHeaderResponse(data, context);
+  contents = _json(data);
   const response: GetCSVHeaderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5723,10 +5604,9 @@ const de_GetCSVHeaderCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5749,7 +5629,7 @@ export const de_GetDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5797,10 +5677,9 @@ const de_GetDeviceCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5823,7 +5702,7 @@ export const de_GetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5856,10 +5735,9 @@ const de_GetGroupCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5882,7 +5760,7 @@ export const de_GetIdentityProviderByIdentifierCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5915,10 +5793,9 @@ const de_GetIdentityProviderByIdentifierCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5936,12 +5813,12 @@ export const de_GetSigningCertificateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSigningCertificateResponse(data, context);
+  contents = _json(data);
   const response: GetSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5968,10 +5845,9 @@ const de_GetSigningCertificateCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5994,7 +5870,7 @@ export const de_GetUICustomizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6027,10 +5903,9 @@ const de_GetUICustomizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6048,12 +5923,12 @@ export const de_GetUserCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetUserResponse(data, context);
+  contents = _json(data);
   const response: GetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6098,10 +5973,9 @@ const de_GetUserCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6119,12 +5993,12 @@ export const de_GetUserAttributeVerificationCodeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetUserAttributeVerificationCodeResponse(data, context);
+  contents = _json(data);
   const response: GetUserAttributeVerificationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6193,10 +6067,9 @@ const de_GetUserAttributeVerificationCodeCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6214,12 +6087,12 @@ export const de_GetUserPoolMfaConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetUserPoolMfaConfigResponse(data, context);
+  contents = _json(data);
   const response: GetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6252,10 +6125,9 @@ const de_GetUserPoolMfaConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6273,12 +6145,12 @@ export const de_GlobalSignOutCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GlobalSignOutResponse(data, context);
+  contents = _json(data);
   const response: GlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6320,10 +6192,9 @@ const de_GlobalSignOutCommandError = async (
       throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6341,12 +6212,12 @@ export const de_InitiateAuthCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_InitiateAuthResponse(data, context);
+  contents = _json(data);
   const response: InitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6409,10 +6280,9 @@ const de_InitiateAuthCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6435,7 +6305,7 @@ export const de_ListDevicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6483,10 +6353,9 @@ const de_ListDevicesCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6509,7 +6378,7 @@ export const de_ListGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6542,10 +6411,9 @@ const de_ListGroupsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6568,7 +6436,7 @@ export const de_ListIdentityProvidersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6601,10 +6469,9 @@ const de_ListIdentityProvidersCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6622,12 +6489,12 @@ export const de_ListResourceServersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListResourceServersResponse(data, context);
+  contents = _json(data);
   const response: ListResourceServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6660,10 +6527,9 @@ const de_ListResourceServersCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6681,12 +6547,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6719,10 +6585,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6745,7 +6610,7 @@ export const de_ListUserImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6778,10 +6643,9 @@ const de_ListUserImportJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6799,12 +6663,12 @@ export const de_ListUserPoolClientsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListUserPoolClientsResponse(data, context);
+  contents = _json(data);
   const response: ListUserPoolClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6837,10 +6701,9 @@ const de_ListUserPoolClientsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6863,7 +6726,7 @@ export const de_ListUserPoolsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6893,10 +6756,9 @@ const de_ListUserPoolsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6919,7 +6781,7 @@ export const de_ListUsersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6952,10 +6814,9 @@ const de_ListUsersCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6978,7 +6839,7 @@ export const de_ListUsersInGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7011,10 +6872,9 @@ const de_ListUsersInGroupCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7032,12 +6892,12 @@ export const de_ResendConfirmationCodeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ResendConfirmationCodeResponse(data, context);
+  contents = _json(data);
   const response: ResendConfirmationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7100,10 +6960,9 @@ const de_ResendConfirmationCodeCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7121,12 +6980,12 @@ export const de_RespondToAuthChallengeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RespondToAuthChallengeResponse(data, context);
+  contents = _json(data);
   const response: RespondToAuthChallengeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7207,10 +7066,9 @@ const de_RespondToAuthChallengeCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7228,12 +7086,12 @@ export const de_RevokeTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RevokeTokenResponse(data, context);
+  contents = _json(data);
   const response: RevokeTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7272,10 +7130,9 @@ const de_RevokeTokenCommandError = async (
       throw await de_UnsupportedTokenTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7298,7 +7155,7 @@ export const de_SetRiskConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7340,10 +7197,9 @@ const de_SetRiskConfigurationCommandError = async (
       throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7366,7 +7222,7 @@ export const de_SetUICustomizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7399,10 +7255,9 @@ const de_SetUICustomizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7420,12 +7275,12 @@ export const de_SetUserMFAPreferenceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetUserMFAPreferenceResponse(data, context);
+  contents = _json(data);
   const response: SetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7467,10 +7322,9 @@ const de_SetUserMFAPreferenceCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7488,12 +7342,12 @@ export const de_SetUserPoolMfaConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetUserPoolMfaConfigResponse(data, context);
+  contents = _json(data);
   const response: SetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7532,10 +7386,9 @@ const de_SetUserPoolMfaConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7553,12 +7406,12 @@ export const de_SetUserSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetUserSettingsResponse(data, context);
+  contents = _json(data);
   const response: SetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7600,10 +7453,9 @@ const de_SetUserSettingsCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7621,12 +7473,12 @@ export const de_SignUpCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SignUpResponse(data, context);
+  contents = _json(data);
   const response: SignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7686,10 +7538,9 @@ const de_SignUpCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_UsernameExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7712,7 +7563,7 @@ export const de_StartUserImportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7748,10 +7599,9 @@ const de_StartUserImportJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7774,7 +7624,7 @@ export const de_StopUserImportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7810,10 +7660,9 @@ const de_StopUserImportJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7831,12 +7680,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7869,10 +7718,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7890,12 +7738,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7928,10 +7776,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7949,12 +7796,12 @@ export const de_UpdateAuthEventFeedbackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateAuthEventFeedbackResponse(data, context);
+  contents = _json(data);
   const response: UpdateAuthEventFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7993,10 +7840,9 @@ const de_UpdateAuthEventFeedbackCommandError = async (
       throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8014,12 +7860,12 @@ export const de_UpdateDeviceStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDeviceStatusResponse(data, context);
+  contents = _json(data);
   const response: UpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8067,10 +7913,9 @@ const de_UpdateDeviceStatusCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8093,7 +7938,7 @@ export const de_UpdateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8126,10 +7971,9 @@ const de_UpdateGroupCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8152,7 +7996,7 @@ export const de_UpdateIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8191,10 +8035,9 @@ const de_UpdateIdentityProviderCommandError = async (
       throw await de_UnsupportedIdentityProviderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8212,12 +8055,12 @@ export const de_UpdateResourceServerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateResourceServerResponse(data, context);
+  contents = _json(data);
   const response: UpdateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8250,10 +8093,9 @@ const de_UpdateResourceServerCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8271,12 +8113,12 @@ export const de_UpdateUserAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateUserAttributesResponse(data, context);
+  contents = _json(data);
   const response: UpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8351,10 +8193,9 @@ const de_UpdateUserAttributesCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8372,12 +8213,12 @@ export const de_UpdateUserPoolCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateUserPoolResponse(data, context);
+  contents = _json(data);
   const response: UpdateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8428,10 +8269,9 @@ const de_UpdateUserPoolCommandError = async (
       throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8454,7 +8294,7 @@ export const de_UpdateUserPoolClientCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8496,10 +8336,9 @@ const de_UpdateUserPoolClientCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8517,12 +8356,12 @@ export const de_UpdateUserPoolDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateUserPoolDomainResponse(data, context);
+  contents = _json(data);
   const response: UpdateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8555,10 +8394,9 @@ const de_UpdateUserPoolDomainCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8576,12 +8414,12 @@ export const de_VerifySoftwareTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VerifySoftwareTokenResponse(data, context);
+  contents = _json(data);
   const response: VerifySoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8638,10 +8476,9 @@ const de_VerifySoftwareTokenCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8659,12 +8496,12 @@ export const de_VerifyUserAttributeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VerifyUserAttributeResponse(data, context);
+  contents = _json(data);
   const response: VerifyUserAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8721,10 +8558,9 @@ const de_VerifyUserAttributeCommandError = async (
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8738,7 +8574,7 @@ const de_AliasExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<AliasExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AliasExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AliasExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8754,7 +8590,7 @@ const de_CodeDeliveryFailureExceptionRes = async (
   context: __SerdeContext
 ): Promise<CodeDeliveryFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CodeDeliveryFailureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CodeDeliveryFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8770,7 +8606,7 @@ const de_CodeMismatchExceptionRes = async (
   context: __SerdeContext
 ): Promise<CodeMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CodeMismatchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CodeMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8786,7 +8622,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8802,7 +8638,7 @@ const de_DuplicateProviderExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateProviderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateProviderException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateProviderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8818,7 +8654,7 @@ const de_EnableSoftwareTokenMFAExceptionRes = async (
   context: __SerdeContext
 ): Promise<EnableSoftwareTokenMFAException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EnableSoftwareTokenMFAException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EnableSoftwareTokenMFAException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8834,7 +8670,7 @@ const de_ExpiredCodeExceptionRes = async (
   context: __SerdeContext
 ): Promise<ExpiredCodeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ExpiredCodeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExpiredCodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8847,7 +8683,7 @@ const de_ExpiredCodeExceptionRes = async (
  */
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ForbiddenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8863,7 +8699,7 @@ const de_GroupExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<GroupExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_GroupExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new GroupExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8879,7 +8715,7 @@ const de_InternalErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8895,7 +8731,7 @@ const de_InvalidEmailRoleAccessPolicyExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidEmailRoleAccessPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidEmailRoleAccessPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidEmailRoleAccessPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8911,7 +8747,7 @@ const de_InvalidLambdaResponseExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidLambdaResponseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidLambdaResponseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidLambdaResponseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8927,7 +8763,7 @@ const de_InvalidOAuthFlowExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidOAuthFlowException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidOAuthFlowException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidOAuthFlowException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8943,7 +8779,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8959,7 +8795,7 @@ const de_InvalidPasswordExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPasswordException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPasswordException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPasswordException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8975,7 +8811,7 @@ const de_InvalidSmsRoleAccessPolicyExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidSmsRoleAccessPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidSmsRoleAccessPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSmsRoleAccessPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8991,7 +8827,7 @@ const de_InvalidSmsRoleTrustRelationshipExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidSmsRoleTrustRelationshipException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidSmsRoleTrustRelationshipException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSmsRoleTrustRelationshipException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9007,7 +8843,7 @@ const de_InvalidUserPoolConfigurationExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidUserPoolConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidUserPoolConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidUserPoolConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9023,7 +8859,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9039,7 +8875,7 @@ const de_MFAMethodNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<MFAMethodNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MFAMethodNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MFAMethodNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9055,7 +8891,7 @@ const de_NotAuthorizedExceptionRes = async (
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotAuthorizedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9071,7 +8907,7 @@ const de_PasswordResetRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<PasswordResetRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PasswordResetRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PasswordResetRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9087,7 +8923,7 @@ const de_PreconditionNotMetExceptionRes = async (
   context: __SerdeContext
 ): Promise<PreconditionNotMetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PreconditionNotMetException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PreconditionNotMetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9103,7 +8939,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9119,7 +8955,7 @@ const de_ScopeDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<ScopeDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ScopeDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ScopeDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9135,7 +8971,7 @@ const de_SoftwareTokenMFANotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<SoftwareTokenMFANotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SoftwareTokenMFANotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SoftwareTokenMFANotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9151,7 +8987,7 @@ const de_TooManyFailedAttemptsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyFailedAttemptsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyFailedAttemptsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyFailedAttemptsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9167,7 +9003,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9183,7 +9019,7 @@ const de_UnauthorizedExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnauthorizedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9199,7 +9035,7 @@ const de_UnexpectedLambdaExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnexpectedLambdaException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnexpectedLambdaException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnexpectedLambdaException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9215,7 +9051,7 @@ const de_UnsupportedIdentityProviderExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedIdentityProviderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedIdentityProviderException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedIdentityProviderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9231,7 +9067,7 @@ const de_UnsupportedOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9247,7 +9083,7 @@ const de_UnsupportedTokenTypeExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedTokenTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedTokenTypeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedTokenTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9263,7 +9099,7 @@ const de_UnsupportedUserStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedUserStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedUserStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedUserStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9279,7 +9115,7 @@ const de_UserImportInProgressExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserImportInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserImportInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserImportInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9295,7 +9131,7 @@ const de_UserLambdaValidationExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserLambdaValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserLambdaValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserLambdaValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9311,7 +9147,7 @@ const de_UsernameExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<UsernameExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UsernameExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UsernameExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9327,7 +9163,7 @@ const de_UserNotConfirmedExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserNotConfirmedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserNotConfirmedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserNotConfirmedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9343,7 +9179,7 @@ const de_UserNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9359,7 +9195,7 @@ const de_UserPoolAddOnNotEnabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserPoolAddOnNotEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserPoolAddOnNotEnabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserPoolAddOnNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9375,7 +9211,7 @@ const de_UserPoolTaggingExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserPoolTaggingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserPoolTaggingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserPoolTaggingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9383,2645 +9219,494 @@ const de_UserPoolTaggingExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AccountRecoverySettingType
- */
-const se_AccountRecoverySettingType = (input: AccountRecoverySettingType, context: __SerdeContext): any => {
-  return {
-    ...(input.RecoveryMechanisms != null && {
-      RecoveryMechanisms: se_RecoveryMechanismsType(input.RecoveryMechanisms, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1AccountTakeoverActionsType
- */
-const se_AccountTakeoverActionsType = (input: AccountTakeoverActionsType, context: __SerdeContext): any => {
-  return {
-    ...(input.HighAction != null && { HighAction: se_AccountTakeoverActionType(input.HighAction, context) }),
-    ...(input.LowAction != null && { LowAction: se_AccountTakeoverActionType(input.LowAction, context) }),
-    ...(input.MediumAction != null && { MediumAction: se_AccountTakeoverActionType(input.MediumAction, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1AccountTakeoverActionType
- */
-const se_AccountTakeoverActionType = (input: AccountTakeoverActionType, context: __SerdeContext): any => {
-  return {
-    ...(input.EventAction != null && { EventAction: input.EventAction }),
-    ...(input.Notify != null && { Notify: input.Notify }),
-  };
-};
-
-/**
- * serializeAws_json1_1AccountTakeoverRiskConfigurationType
- */
-const se_AccountTakeoverRiskConfigurationType = (
-  input: AccountTakeoverRiskConfigurationType,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Actions != null && { Actions: se_AccountTakeoverActionsType(input.Actions, context) }),
-    ...(input.NotifyConfiguration != null && {
-      NotifyConfiguration: se_NotifyConfigurationType(input.NotifyConfiguration, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1AddCustomAttributesRequest
- */
-const se_AddCustomAttributesRequest = (input: AddCustomAttributesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomAttributes != null && {
-      CustomAttributes: se_CustomAttributesListType(input.CustomAttributes, context),
-    }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminAddUserToGroupRequest
- */
-const se_AdminAddUserToGroupRequest = (input: AdminAddUserToGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminConfirmSignUpRequest
- */
-const se_AdminConfirmSignUpRequest = (input: AdminConfirmSignUpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminCreateUserConfigType
- */
-const se_AdminCreateUserConfigType = (input: AdminCreateUserConfigType, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowAdminCreateUserOnly != null && { AllowAdminCreateUserOnly: input.AllowAdminCreateUserOnly }),
-    ...(input.InviteMessageTemplate != null && {
-      InviteMessageTemplate: se_MessageTemplateType(input.InviteMessageTemplate, context),
-    }),
-    ...(input.UnusedAccountValidityDays != null && { UnusedAccountValidityDays: input.UnusedAccountValidityDays }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminCreateUserRequest
- */
-const se_AdminCreateUserRequest = (input: AdminCreateUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.DesiredDeliveryMediums != null && {
-      DesiredDeliveryMediums: se_DeliveryMediumListType(input.DesiredDeliveryMediums, context),
-    }),
-    ...(input.ForceAliasCreation != null && { ForceAliasCreation: input.ForceAliasCreation }),
-    ...(input.MessageAction != null && { MessageAction: input.MessageAction }),
-    ...(input.TemporaryPassword != null && { TemporaryPassword: input.TemporaryPassword }),
-    ...(input.UserAttributes != null && { UserAttributes: se_AttributeListType(input.UserAttributes, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-    ...(input.ValidationData != null && { ValidationData: se_AttributeListType(input.ValidationData, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminDeleteUserAttributesRequest
- */
-const se_AdminDeleteUserAttributesRequest = (input: AdminDeleteUserAttributesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserAttributeNames != null && {
-      UserAttributeNames: se_AttributeNameListType(input.UserAttributeNames, context),
-    }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminDeleteUserRequest
- */
-const se_AdminDeleteUserRequest = (input: AdminDeleteUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminDisableProviderForUserRequest
- */
-const se_AdminDisableProviderForUserRequest = (
-  input: AdminDisableProviderForUserRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.User != null && { User: se_ProviderUserIdentifierType(input.User, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminDisableUserRequest
- */
-const se_AdminDisableUserRequest = (input: AdminDisableUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminEnableUserRequest
- */
-const se_AdminEnableUserRequest = (input: AdminEnableUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminForgetDeviceRequest
- */
-const se_AdminForgetDeviceRequest = (input: AdminForgetDeviceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminGetDeviceRequest
- */
-const se_AdminGetDeviceRequest = (input: AdminGetDeviceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminGetUserRequest
- */
-const se_AdminGetUserRequest = (input: AdminGetUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminInitiateAuthRequest
- */
-const se_AdminInitiateAuthRequest = (input: AdminInitiateAuthRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.AuthFlow != null && { AuthFlow: input.AuthFlow }),
-    ...(input.AuthParameters != null && { AuthParameters: se_AuthParametersType(input.AuthParameters, context) }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.ContextData != null && { ContextData: se_ContextDataType(input.ContextData, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminLinkProviderForUserRequest
- */
-const se_AdminLinkProviderForUserRequest = (input: AdminLinkProviderForUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationUser != null && {
-      DestinationUser: se_ProviderUserIdentifierType(input.DestinationUser, context),
-    }),
-    ...(input.SourceUser != null && { SourceUser: se_ProviderUserIdentifierType(input.SourceUser, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminListDevicesRequest
- */
-const se_AdminListDevicesRequest = (input: AdminListDevicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminListGroupsForUserRequest
- */
-const se_AdminListGroupsForUserRequest = (input: AdminListGroupsForUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminListUserAuthEventsRequest
- */
-const se_AdminListUserAuthEventsRequest = (input: AdminListUserAuthEventsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminRemoveUserFromGroupRequest
- */
-const se_AdminRemoveUserFromGroupRequest = (input: AdminRemoveUserFromGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminResetUserPasswordRequest
- */
-const se_AdminResetUserPasswordRequest = (input: AdminResetUserPasswordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminRespondToAuthChallengeRequest
- */
-const se_AdminRespondToAuthChallengeRequest = (
-  input: AdminRespondToAuthChallengeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.ChallengeName != null && { ChallengeName: input.ChallengeName }),
-    ...(input.ChallengeResponses != null && {
-      ChallengeResponses: se_ChallengeResponsesType(input.ChallengeResponses, context),
-    }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.ContextData != null && { ContextData: se_ContextDataType(input.ContextData, context) }),
-    ...(input.Session != null && { Session: input.Session }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminSetUserMFAPreferenceRequest
- */
-const se_AdminSetUserMFAPreferenceRequest = (input: AdminSetUserMFAPreferenceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SMSMfaSettings != null && { SMSMfaSettings: se_SMSMfaSettingsType(input.SMSMfaSettings, context) }),
-    ...(input.SoftwareTokenMfaSettings != null && {
-      SoftwareTokenMfaSettings: se_SoftwareTokenMfaSettingsType(input.SoftwareTokenMfaSettings, context),
-    }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminSetUserPasswordRequest
- */
-const se_AdminSetUserPasswordRequest = (input: AdminSetUserPasswordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.Permanent != null && { Permanent: input.Permanent }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminSetUserSettingsRequest
- */
-const se_AdminSetUserSettingsRequest = (input: AdminSetUserSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MFAOptions != null && { MFAOptions: se_MFAOptionListType(input.MFAOptions, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest
- */
-const se_AdminUpdateAuthEventFeedbackRequest = (
-  input: AdminUpdateAuthEventFeedbackRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EventId != null && { EventId: input.EventId }),
-    ...(input.FeedbackValue != null && { FeedbackValue: input.FeedbackValue }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminUpdateDeviceStatusRequest
- */
-const se_AdminUpdateDeviceStatusRequest = (input: AdminUpdateDeviceStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
-    ...(input.DeviceRememberedStatus != null && { DeviceRememberedStatus: input.DeviceRememberedStatus }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminUpdateUserAttributesRequest
- */
-const se_AdminUpdateUserAttributesRequest = (input: AdminUpdateUserAttributesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.UserAttributes != null && { UserAttributes: se_AttributeListType(input.UserAttributes, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AdminUserGlobalSignOutRequest
- */
-const se_AdminUserGlobalSignOutRequest = (input: AdminUserGlobalSignOutRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1AliasAttributesListType
- */
-const se_AliasAttributesListType = (input: (AliasAttributeType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1AnalyticsConfigurationType
- */
-const se_AnalyticsConfigurationType = (input: AnalyticsConfigurationType, context: __SerdeContext): any => {
-  return {
-    ...(input.ApplicationArn != null && { ApplicationArn: input.ApplicationArn }),
-    ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.UserDataShared != null && { UserDataShared: input.UserDataShared }),
-  };
-};
-
-/**
- * serializeAws_json1_1AnalyticsMetadataType
- */
-const se_AnalyticsMetadataType = (input: AnalyticsMetadataType, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsEndpointId != null && { AnalyticsEndpointId: input.AnalyticsEndpointId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AssociateSoftwareTokenRequest
- */
-const se_AssociateSoftwareTokenRequest = (input: AssociateSoftwareTokenRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.Session != null && { Session: input.Session }),
-  };
-};
-
-/**
- * serializeAws_json1_1AttributeListType
- */
-const se_AttributeListType = (input: AttributeType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AttributeType(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1AttributeMappingType
- */
-const se_AttributeMappingType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_json1_1AttributeNameListType
- */
-const se_AttributeNameListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1AttributesRequireVerificationBeforeUpdateType
- */
-const se_AttributesRequireVerificationBeforeUpdateType = (
-  input: (VerifiedAttributeType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1AttributeType
- */
-const se_AttributeType = (input: AttributeType, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_json1_1AuthParametersType
- */
-const se_AuthParametersType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_json1_1BlockedIPRangeListType
- */
-const se_BlockedIPRangeListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1CallbackURLsListType
- */
-const se_CallbackURLsListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ChallengeResponsesType
- */
-const se_ChallengeResponsesType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_json1_1ChangePasswordRequest
- */
-const se_ChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.PreviousPassword != null && { PreviousPassword: input.PreviousPassword }),
-    ...(input.ProposedPassword != null && { ProposedPassword: input.ProposedPassword }),
-  };
-};
-
-/**
- * serializeAws_json1_1ClientMetadataType
- */
-const se_ClientMetadataType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_json1_1ClientPermissionListType
- */
-const se_ClientPermissionListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1CompromisedCredentialsActionsType
- */
-const se_CompromisedCredentialsActionsType = (
-  input: CompromisedCredentialsActionsType,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EventAction != null && { EventAction: input.EventAction }),
-  };
-};
-
-/**
- * serializeAws_json1_1CompromisedCredentialsRiskConfigurationType
- */
-const se_CompromisedCredentialsRiskConfigurationType = (
-  input: CompromisedCredentialsRiskConfigurationType,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Actions != null && { Actions: se_CompromisedCredentialsActionsType(input.Actions, context) }),
-    ...(input.EventFilter != null && { EventFilter: se_EventFiltersType(input.EventFilter, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfirmDeviceRequest
- */
-const se_ConfirmDeviceRequest = (input: ConfirmDeviceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
-    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-    ...(input.DeviceSecretVerifierConfig != null && {
-      DeviceSecretVerifierConfig: se_DeviceSecretVerifierConfigType(input.DeviceSecretVerifierConfig, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfirmForgotPasswordRequest
- */
-const se_ConfirmForgotPasswordRequest = (input: ConfirmForgotPasswordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.ConfirmationCode != null && { ConfirmationCode: input.ConfirmationCode }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfirmSignUpRequest
- */
-const se_ConfirmSignUpRequest = (input: ConfirmSignUpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.ConfirmationCode != null && { ConfirmationCode: input.ConfirmationCode }),
-    ...(input.ForceAliasCreation != null && { ForceAliasCreation: input.ForceAliasCreation }),
-    ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1ContextDataType
- */
-const se_ContextDataType = (input: ContextDataType, context: __SerdeContext): any => {
-  return {
-    ...(input.EncodedData != null && { EncodedData: input.EncodedData }),
-    ...(input.HttpHeaders != null && { HttpHeaders: se_HttpHeaderList(input.HttpHeaders, context) }),
-    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
-    ...(input.ServerName != null && { ServerName: input.ServerName }),
-    ...(input.ServerPath != null && { ServerPath: input.ServerPath }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateGroupRequest
- */
-const se_CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.Precedence != null && { Precedence: input.Precedence }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateIdentityProviderRequest
- */
-const se_CreateIdentityProviderRequest = (input: CreateIdentityProviderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeMapping != null && {
-      AttributeMapping: se_AttributeMappingType(input.AttributeMapping, context),
-    }),
-    ...(input.IdpIdentifiers != null && { IdpIdentifiers: se_IdpIdentifiersListType(input.IdpIdentifiers, context) }),
-    ...(input.ProviderDetails != null && { ProviderDetails: se_ProviderDetailsType(input.ProviderDetails, context) }),
-    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.ProviderType != null && { ProviderType: input.ProviderType }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateResourceServerRequest
- */
-const se_CreateResourceServerRequest = (input: CreateResourceServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Scopes != null && { Scopes: se_ResourceServerScopeListType(input.Scopes, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateUserImportJobRequest
- */
-const se_CreateUserImportJobRequest = (input: CreateUserImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLogsRoleArn != null && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateUserPoolClientRequest
- */
-const se_CreateUserPoolClientRequest = (input: CreateUserPoolClientRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessTokenValidity != null && { AccessTokenValidity: input.AccessTokenValidity }),
-    ...(input.AllowedOAuthFlows != null && { AllowedOAuthFlows: se_OAuthFlowsType(input.AllowedOAuthFlows, context) }),
-    ...(input.AllowedOAuthFlowsUserPoolClient != null && {
-      AllowedOAuthFlowsUserPoolClient: input.AllowedOAuthFlowsUserPoolClient,
-    }),
-    ...(input.AllowedOAuthScopes != null && {
-      AllowedOAuthScopes: se_ScopeListType(input.AllowedOAuthScopes, context),
-    }),
-    ...(input.AnalyticsConfiguration != null && {
-      AnalyticsConfiguration: se_AnalyticsConfigurationType(input.AnalyticsConfiguration, context),
-    }),
-    ...(input.AuthSessionValidity != null && { AuthSessionValidity: input.AuthSessionValidity }),
-    ...(input.CallbackURLs != null && { CallbackURLs: se_CallbackURLsListType(input.CallbackURLs, context) }),
-    ...(input.ClientName != null && { ClientName: input.ClientName }),
-    ...(input.DefaultRedirectURI != null && { DefaultRedirectURI: input.DefaultRedirectURI }),
-    ...(input.EnablePropagateAdditionalUserContextData != null && {
-      EnablePropagateAdditionalUserContextData: input.EnablePropagateAdditionalUserContextData,
-    }),
-    ...(input.EnableTokenRevocation != null && { EnableTokenRevocation: input.EnableTokenRevocation }),
-    ...(input.ExplicitAuthFlows != null && {
-      ExplicitAuthFlows: se_ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
-    }),
-    ...(input.GenerateSecret != null && { GenerateSecret: input.GenerateSecret }),
-    ...(input.IdTokenValidity != null && { IdTokenValidity: input.IdTokenValidity }),
-    ...(input.LogoutURLs != null && { LogoutURLs: se_LogoutURLsListType(input.LogoutURLs, context) }),
-    ...(input.PreventUserExistenceErrors != null && { PreventUserExistenceErrors: input.PreventUserExistenceErrors }),
-    ...(input.ReadAttributes != null && { ReadAttributes: se_ClientPermissionListType(input.ReadAttributes, context) }),
-    ...(input.RefreshTokenValidity != null && { RefreshTokenValidity: input.RefreshTokenValidity }),
-    ...(input.SupportedIdentityProviders != null && {
-      SupportedIdentityProviders: se_SupportedIdentityProvidersListType(input.SupportedIdentityProviders, context),
-    }),
-    ...(input.TokenValidityUnits != null && {
-      TokenValidityUnits: se_TokenValidityUnitsType(input.TokenValidityUnits, context),
-    }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.WriteAttributes != null && {
-      WriteAttributes: se_ClientPermissionListType(input.WriteAttributes, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateUserPoolDomainRequest
- */
-const se_CreateUserPoolDomainRequest = (input: CreateUserPoolDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomDomainConfig != null && {
-      CustomDomainConfig: se_CustomDomainConfigType(input.CustomDomainConfig, context),
-    }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateUserPoolRequest
- */
-const se_CreateUserPoolRequest = (input: CreateUserPoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountRecoverySetting != null && {
-      AccountRecoverySetting: se_AccountRecoverySettingType(input.AccountRecoverySetting, context),
-    }),
-    ...(input.AdminCreateUserConfig != null && {
-      AdminCreateUserConfig: se_AdminCreateUserConfigType(input.AdminCreateUserConfig, context),
-    }),
-    ...(input.AliasAttributes != null && {
-      AliasAttributes: se_AliasAttributesListType(input.AliasAttributes, context),
-    }),
-    ...(input.AutoVerifiedAttributes != null && {
-      AutoVerifiedAttributes: se_VerifiedAttributesListType(input.AutoVerifiedAttributes, context),
-    }),
-    ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
-    ...(input.DeviceConfiguration != null && {
-      DeviceConfiguration: se_DeviceConfigurationType(input.DeviceConfiguration, context),
-    }),
-    ...(input.EmailConfiguration != null && {
-      EmailConfiguration: se_EmailConfigurationType(input.EmailConfiguration, context),
-    }),
-    ...(input.EmailVerificationMessage != null && { EmailVerificationMessage: input.EmailVerificationMessage }),
-    ...(input.EmailVerificationSubject != null && { EmailVerificationSubject: input.EmailVerificationSubject }),
-    ...(input.LambdaConfig != null && { LambdaConfig: se_LambdaConfigType(input.LambdaConfig, context) }),
-    ...(input.MfaConfiguration != null && { MfaConfiguration: input.MfaConfiguration }),
-    ...(input.Policies != null && { Policies: se_UserPoolPolicyType(input.Policies, context) }),
-    ...(input.PoolName != null && { PoolName: input.PoolName }),
-    ...(input.Schema != null && { Schema: se_SchemaAttributesListType(input.Schema, context) }),
-    ...(input.SmsAuthenticationMessage != null && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
-    ...(input.SmsConfiguration != null && {
-      SmsConfiguration: se_SmsConfigurationType(input.SmsConfiguration, context),
-    }),
-    ...(input.SmsVerificationMessage != null && { SmsVerificationMessage: input.SmsVerificationMessage }),
-    ...(input.UserAttributeUpdateSettings != null && {
-      UserAttributeUpdateSettings: se_UserAttributeUpdateSettingsType(input.UserAttributeUpdateSettings, context),
-    }),
-    ...(input.UserPoolAddOns != null && { UserPoolAddOns: se_UserPoolAddOnsType(input.UserPoolAddOns, context) }),
-    ...(input.UserPoolTags != null && { UserPoolTags: se_UserPoolTagsType(input.UserPoolTags, context) }),
-    ...(input.UsernameAttributes != null && {
-      UsernameAttributes: se_UsernameAttributesListType(input.UsernameAttributes, context),
-    }),
-    ...(input.UsernameConfiguration != null && {
-      UsernameConfiguration: se_UsernameConfigurationType(input.UsernameConfiguration, context),
-    }),
-    ...(input.VerificationMessageTemplate != null && {
-      VerificationMessageTemplate: se_VerificationMessageTemplateType(input.VerificationMessageTemplate, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1CustomAttributesListType
- */
-const se_CustomAttributesListType = (input: SchemaAttributeType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SchemaAttributeType(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1CustomDomainConfigType
- */
-const se_CustomDomainConfigType = (input: CustomDomainConfigType, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1CustomEmailLambdaVersionConfigType
- */
-const se_CustomEmailLambdaVersionConfigType = (
-  input: CustomEmailLambdaVersionConfigType,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LambdaArn != null && { LambdaArn: input.LambdaArn }),
-    ...(input.LambdaVersion != null && { LambdaVersion: input.LambdaVersion }),
-  };
-};
-
-/**
- * serializeAws_json1_1CustomSMSLambdaVersionConfigType
- */
-const se_CustomSMSLambdaVersionConfigType = (input: CustomSMSLambdaVersionConfigType, context: __SerdeContext): any => {
-  return {
-    ...(input.LambdaArn != null && { LambdaArn: input.LambdaArn }),
-    ...(input.LambdaVersion != null && { LambdaVersion: input.LambdaVersion }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteGroupRequest
- */
-const se_DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteIdentityProviderRequest
- */
-const se_DeleteIdentityProviderRequest = (input: DeleteIdentityProviderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteResourceServerRequest
- */
-const se_DeleteResourceServerRequest = (input: DeleteResourceServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteUserAttributesRequest
- */
-const se_DeleteUserAttributesRequest = (input: DeleteUserAttributesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.UserAttributeNames != null && {
-      UserAttributeNames: se_AttributeNameListType(input.UserAttributeNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteUserPoolClientRequest
- */
-const se_DeleteUserPoolClientRequest = (input: DeleteUserPoolClientRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteUserPoolDomainRequest
- */
-const se_DeleteUserPoolDomainRequest = (input: DeleteUserPoolDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteUserPoolRequest
- */
-const se_DeleteUserPoolRequest = (input: DeleteUserPoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteUserRequest
- */
-const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeliveryMediumListType
- */
-const se_DeliveryMediumListType = (input: (DeliveryMediumType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1DescribeIdentityProviderRequest
- */
-const se_DescribeIdentityProviderRequest = (input: DescribeIdentityProviderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeResourceServerRequest
- */
-const se_DescribeResourceServerRequest = (input: DescribeResourceServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeRiskConfigurationRequest
- */
-const se_DescribeRiskConfigurationRequest = (input: DescribeRiskConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeUserImportJobRequest
- */
-const se_DescribeUserImportJobRequest = (input: DescribeUserImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeUserPoolClientRequest
- */
-const se_DescribeUserPoolClientRequest = (input: DescribeUserPoolClientRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeUserPoolDomainRequest
- */
-const se_DescribeUserPoolDomainRequest = (input: DescribeUserPoolDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Domain != null && { Domain: input.Domain }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeUserPoolRequest
- */
-const se_DescribeUserPoolRequest = (input: DescribeUserPoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeviceConfigurationType
- */
-const se_DeviceConfigurationType = (input: DeviceConfigurationType, context: __SerdeContext): any => {
-  return {
-    ...(input.ChallengeRequiredOnNewDevice != null && {
-      ChallengeRequiredOnNewDevice: input.ChallengeRequiredOnNewDevice,
-    }),
-    ...(input.DeviceOnlyRememberedOnUserPrompt != null && {
-      DeviceOnlyRememberedOnUserPrompt: input.DeviceOnlyRememberedOnUserPrompt,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeviceSecretVerifierConfigType
- */
-const se_DeviceSecretVerifierConfigType = (input: DeviceSecretVerifierConfigType, context: __SerdeContext): any => {
-  return {
-    ...(input.PasswordVerifier != null && { PasswordVerifier: input.PasswordVerifier }),
-    ...(input.Salt != null && { Salt: input.Salt }),
-  };
-};
-
-/**
- * serializeAws_json1_1EmailConfigurationType
- */
-const se_EmailConfigurationType = (input: EmailConfigurationType, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSet != null && { ConfigurationSet: input.ConfigurationSet }),
-    ...(input.EmailSendingAccount != null && { EmailSendingAccount: input.EmailSendingAccount }),
-    ...(input.From != null && { From: input.From }),
-    ...(input.ReplyToEmailAddress != null && { ReplyToEmailAddress: input.ReplyToEmailAddress }),
-    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1EventFiltersType
- */
-const se_EventFiltersType = (input: (EventFilterType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ExplicitAuthFlowsListType
- */
-const se_ExplicitAuthFlowsListType = (input: (ExplicitAuthFlowsType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ForgetDeviceRequest
- */
-const se_ForgetDeviceRequest = (input: ForgetDeviceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
-  };
-};
-
-/**
- * serializeAws_json1_1ForgotPasswordRequest
- */
-const se_ForgotPasswordRequest = (input: ForgotPasswordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetCSVHeaderRequest
- */
-const se_GetCSVHeaderRequest = (input: GetCSVHeaderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetDeviceRequest
- */
-const se_GetDeviceRequest = (input: GetDeviceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetGroupRequest
- */
-const se_GetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetIdentityProviderByIdentifierRequest
- */
-const se_GetIdentityProviderByIdentifierRequest = (
-  input: GetIdentityProviderByIdentifierRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IdpIdentifier != null && { IdpIdentifier: input.IdpIdentifier }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetSigningCertificateRequest
- */
-const se_GetSigningCertificateRequest = (input: GetSigningCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetUICustomizationRequest
- */
-const se_GetUICustomizationRequest = (input: GetUICustomizationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetUserAttributeVerificationCodeRequest
- */
-const se_GetUserAttributeVerificationCodeRequest = (
-  input: GetUserAttributeVerificationCodeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetUserPoolMfaConfigRequest
- */
-const se_GetUserPoolMfaConfigRequest = (input: GetUserPoolMfaConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1GetUserRequest
- */
-const se_GetUserRequest = (input: GetUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1GlobalSignOutRequest
- */
-const se_GlobalSignOutRequest = (input: GlobalSignOutRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1HttpHeader
- */
-const se_HttpHeader = (input: HttpHeader, context: __SerdeContext): any => {
-  return {
-    ...(input.headerName != null && { headerName: input.headerName }),
-    ...(input.headerValue != null && { headerValue: input.headerValue }),
-  };
-};
-
-/**
- * serializeAws_json1_1HttpHeaderList
- */
-const se_HttpHeaderList = (input: HttpHeader[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HttpHeader(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1IdpIdentifiersListType
- */
-const se_IdpIdentifiersListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1InitiateAuthRequest
- */
-const se_InitiateAuthRequest = (input: InitiateAuthRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.AuthFlow != null && { AuthFlow: input.AuthFlow }),
-    ...(input.AuthParameters != null && { AuthParameters: se_AuthParametersType(input.AuthParameters, context) }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1LambdaConfigType
- */
-const se_LambdaConfigType = (input: LambdaConfigType, context: __SerdeContext): any => {
-  return {
-    ...(input.CreateAuthChallenge != null && { CreateAuthChallenge: input.CreateAuthChallenge }),
-    ...(input.CustomEmailSender != null && {
-      CustomEmailSender: se_CustomEmailLambdaVersionConfigType(input.CustomEmailSender, context),
-    }),
-    ...(input.CustomMessage != null && { CustomMessage: input.CustomMessage }),
-    ...(input.CustomSMSSender != null && {
-      CustomSMSSender: se_CustomSMSLambdaVersionConfigType(input.CustomSMSSender, context),
-    }),
-    ...(input.DefineAuthChallenge != null && { DefineAuthChallenge: input.DefineAuthChallenge }),
-    ...(input.KMSKeyID != null && { KMSKeyID: input.KMSKeyID }),
-    ...(input.PostAuthentication != null && { PostAuthentication: input.PostAuthentication }),
-    ...(input.PostConfirmation != null && { PostConfirmation: input.PostConfirmation }),
-    ...(input.PreAuthentication != null && { PreAuthentication: input.PreAuthentication }),
-    ...(input.PreSignUp != null && { PreSignUp: input.PreSignUp }),
-    ...(input.PreTokenGeneration != null && { PreTokenGeneration: input.PreTokenGeneration }),
-    ...(input.UserMigration != null && { UserMigration: input.UserMigration }),
-    ...(input.VerifyAuthChallengeResponse != null && {
-      VerifyAuthChallengeResponse: input.VerifyAuthChallengeResponse,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListDevicesRequest
- */
-const se_ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListGroupsRequest
- */
-const se_ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListIdentityProvidersRequest
- */
-const se_ListIdentityProvidersRequest = (input: ListIdentityProvidersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListResourceServersRequest
- */
-const se_ListResourceServersRequest = (input: ListResourceServersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListUserImportJobsRequest
- */
-const se_ListUserImportJobsRequest = (input: ListUserImportJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListUserPoolClientsRequest
- */
-const se_ListUserPoolClientsRequest = (input: ListUserPoolClientsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListUserPoolsRequest
- */
-const se_ListUserPoolsRequest = (input: ListUserPoolsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListUsersInGroupRequest
- */
-const se_ListUsersInGroupRequest = (input: ListUsersInGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListUsersRequest
- */
-const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributesToGet != null && {
-      AttributesToGet: se_SearchedAttributeNamesListType(input.AttributesToGet, context),
-    }),
-    ...(input.Filter != null && { Filter: input.Filter }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
-
-/**
- * serializeAws_json1_1LogoutURLsListType
- */
-const se_LogoutURLsListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1MessageTemplateType
- */
-const se_MessageTemplateType = (input: MessageTemplateType, context: __SerdeContext): any => {
-  return {
-    ...(input.EmailMessage != null && { EmailMessage: input.EmailMessage }),
-    ...(input.EmailSubject != null && { EmailSubject: input.EmailSubject }),
-    ...(input.SMSMessage != null && { SMSMessage: input.SMSMessage }),
-  };
-};
-
-/**
- * serializeAws_json1_1MFAOptionListType
- */
-const se_MFAOptionListType = (input: MFAOptionType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MFAOptionType(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1MFAOptionType
- */
-const se_MFAOptionType = (input: MFAOptionType, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.DeliveryMedium != null && { DeliveryMedium: input.DeliveryMedium }),
-  };
-};
-
-/**
- * serializeAws_json1_1NotifyConfigurationType
- */
-const se_NotifyConfigurationType = (input: NotifyConfigurationType, context: __SerdeContext): any => {
-  return {
-    ...(input.BlockEmail != null && { BlockEmail: se_NotifyEmailType(input.BlockEmail, context) }),
-    ...(input.From != null && { From: input.From }),
-    ...(input.MfaEmail != null && { MfaEmail: se_NotifyEmailType(input.MfaEmail, context) }),
-    ...(input.NoActionEmail != null && { NoActionEmail: se_NotifyEmailType(input.NoActionEmail, context) }),
-    ...(input.ReplyTo != null && { ReplyTo: input.ReplyTo }),
-    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
-  };
-};
-
-/**
- * serializeAws_json1_1NotifyEmailType
- */
-const se_NotifyEmailType = (input: NotifyEmailType, context: __SerdeContext): any => {
-  return {
-    ...(input.HtmlBody != null && { HtmlBody: input.HtmlBody }),
-    ...(input.Subject != null && { Subject: input.Subject }),
-    ...(input.TextBody != null && { TextBody: input.TextBody }),
-  };
-};
-
-/**
- * serializeAws_json1_1NumberAttributeConstraintsType
- */
-const se_NumberAttributeConstraintsType = (input: NumberAttributeConstraintsType, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxValue != null && { MaxValue: input.MaxValue }),
-    ...(input.MinValue != null && { MinValue: input.MinValue }),
-  };
-};
-
-/**
- * serializeAws_json1_1OAuthFlowsType
- */
-const se_OAuthFlowsType = (input: (OAuthFlowType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1PasswordPolicyType
- */
-const se_PasswordPolicyType = (input: PasswordPolicyType, context: __SerdeContext): any => {
-  return {
-    ...(input.MinimumLength != null && { MinimumLength: input.MinimumLength }),
-    ...(input.RequireLowercase != null && { RequireLowercase: input.RequireLowercase }),
-    ...(input.RequireNumbers != null && { RequireNumbers: input.RequireNumbers }),
-    ...(input.RequireSymbols != null && { RequireSymbols: input.RequireSymbols }),
-    ...(input.RequireUppercase != null && { RequireUppercase: input.RequireUppercase }),
-    ...(input.TemporaryPasswordValidityDays != null && {
-      TemporaryPasswordValidityDays: input.TemporaryPasswordValidityDays,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1ProviderDetailsType
- */
-const se_ProviderDetailsType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_json1_1ProviderUserIdentifierType
- */
-const se_ProviderUserIdentifierType = (input: ProviderUserIdentifierType, context: __SerdeContext): any => {
-  return {
-    ...(input.ProviderAttributeName != null && { ProviderAttributeName: input.ProviderAttributeName }),
-    ...(input.ProviderAttributeValue != null && { ProviderAttributeValue: input.ProviderAttributeValue }),
-    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-  };
-};
-
-/**
- * serializeAws_json1_1RecoveryMechanismsType
- */
-const se_RecoveryMechanismsType = (input: RecoveryOptionType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RecoveryOptionType(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1RecoveryOptionType
- */
-const se_RecoveryOptionType = (input: RecoveryOptionType, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-  };
-};
-
-/**
- * serializeAws_json1_1ResendConfirmationCodeRequest
- */
-const se_ResendConfirmationCodeRequest = (input: ResendConfirmationCodeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_json1_1ResourceServerScopeListType
- */
-const se_ResourceServerScopeListType = (input: ResourceServerScopeType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourceServerScopeType(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ResourceServerScopeType
- */
-const se_ResourceServerScopeType = (input: ResourceServerScopeType, context: __SerdeContext): any => {
-  return {
-    ...(input.ScopeDescription != null && { ScopeDescription: input.ScopeDescription }),
-    ...(input.ScopeName != null && { ScopeName: input.ScopeName }),
-  };
-};
-
-/**
- * serializeAws_json1_1RespondToAuthChallengeRequest
- */
-const se_RespondToAuthChallengeRequest = (input: RespondToAuthChallengeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.ChallengeName != null && { ChallengeName: input.ChallengeName }),
-    ...(input.ChallengeResponses != null && {
-      ChallengeResponses: se_ChallengeResponsesType(input.ChallengeResponses, context),
-    }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.Session != null && { Session: input.Session }),
-    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1RevokeTokenRequest
- */
-const se_RevokeTokenRequest = (input: RevokeTokenRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientSecret != null && { ClientSecret: input.ClientSecret }),
-    ...(input.Token != null && { Token: input.Token }),
-  };
-};
-
-/**
- * serializeAws_json1_1RiskExceptionConfigurationType
- */
-const se_RiskExceptionConfigurationType = (input: RiskExceptionConfigurationType, context: __SerdeContext): any => {
-  return {
-    ...(input.BlockedIPRangeList != null && {
-      BlockedIPRangeList: se_BlockedIPRangeListType(input.BlockedIPRangeList, context),
-    }),
-    ...(input.SkippedIPRangeList != null && {
-      SkippedIPRangeList: se_SkippedIPRangeListType(input.SkippedIPRangeList, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1SchemaAttributesListType
- */
-const se_SchemaAttributesListType = (input: SchemaAttributeType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SchemaAttributeType(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1SchemaAttributeType
- */
-const se_SchemaAttributeType = (input: SchemaAttributeType, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeDataType != null && { AttributeDataType: input.AttributeDataType }),
-    ...(input.DeveloperOnlyAttribute != null && { DeveloperOnlyAttribute: input.DeveloperOnlyAttribute }),
-    ...(input.Mutable != null && { Mutable: input.Mutable }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NumberAttributeConstraints != null && {
-      NumberAttributeConstraints: se_NumberAttributeConstraintsType(input.NumberAttributeConstraints, context),
-    }),
-    ...(input.Required != null && { Required: input.Required }),
-    ...(input.StringAttributeConstraints != null && {
-      StringAttributeConstraints: se_StringAttributeConstraintsType(input.StringAttributeConstraints, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1ScopeListType
- */
-const se_ScopeListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1SearchedAttributeNamesListType
- */
-const se_SearchedAttributeNamesListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1SetRiskConfigurationRequest
- */
-const se_SetRiskConfigurationRequest = (input: SetRiskConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountTakeoverRiskConfiguration != null && {
-      AccountTakeoverRiskConfiguration: se_AccountTakeoverRiskConfigurationType(
-        input.AccountTakeoverRiskConfiguration,
-        context
-      ),
-    }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.CompromisedCredentialsRiskConfiguration != null && {
-      CompromisedCredentialsRiskConfiguration: se_CompromisedCredentialsRiskConfigurationType(
-        input.CompromisedCredentialsRiskConfiguration,
-        context
-      ),
-    }),
-    ...(input.RiskExceptionConfiguration != null && {
-      RiskExceptionConfiguration: se_RiskExceptionConfigurationType(input.RiskExceptionConfiguration, context),
-    }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_AccountRecoverySettingType omitted.
+
+// se_AccountTakeoverActionsType omitted.
+
+// se_AccountTakeoverActionType omitted.
+
+// se_AccountTakeoverRiskConfigurationType omitted.
+
+// se_AddCustomAttributesRequest omitted.
+
+// se_AdminAddUserToGroupRequest omitted.
+
+// se_AdminConfirmSignUpRequest omitted.
+
+// se_AdminCreateUserConfigType omitted.
+
+// se_AdminCreateUserRequest omitted.
+
+// se_AdminDeleteUserAttributesRequest omitted.
+
+// se_AdminDeleteUserRequest omitted.
+
+// se_AdminDisableProviderForUserRequest omitted.
+
+// se_AdminDisableUserRequest omitted.
+
+// se_AdminEnableUserRequest omitted.
+
+// se_AdminForgetDeviceRequest omitted.
+
+// se_AdminGetDeviceRequest omitted.
+
+// se_AdminGetUserRequest omitted.
+
+// se_AdminInitiateAuthRequest omitted.
+
+// se_AdminLinkProviderForUserRequest omitted.
+
+// se_AdminListDevicesRequest omitted.
+
+// se_AdminListGroupsForUserRequest omitted.
+
+// se_AdminListUserAuthEventsRequest omitted.
+
+// se_AdminRemoveUserFromGroupRequest omitted.
+
+// se_AdminResetUserPasswordRequest omitted.
+
+// se_AdminRespondToAuthChallengeRequest omitted.
+
+// se_AdminSetUserMFAPreferenceRequest omitted.
+
+// se_AdminSetUserPasswordRequest omitted.
+
+// se_AdminSetUserSettingsRequest omitted.
+
+// se_AdminUpdateAuthEventFeedbackRequest omitted.
+
+// se_AdminUpdateDeviceStatusRequest omitted.
+
+// se_AdminUpdateUserAttributesRequest omitted.
+
+// se_AdminUserGlobalSignOutRequest omitted.
+
+// se_AliasAttributesListType omitted.
+
+// se_AnalyticsConfigurationType omitted.
+
+// se_AnalyticsMetadataType omitted.
+
+// se_AssociateSoftwareTokenRequest omitted.
+
+// se_AttributeListType omitted.
+
+// se_AttributeMappingType omitted.
+
+// se_AttributeNameListType omitted.
+
+// se_AttributesRequireVerificationBeforeUpdateType omitted.
+
+// se_AttributeType omitted.
+
+// se_AuthParametersType omitted.
+
+// se_BlockedIPRangeListType omitted.
+
+// se_CallbackURLsListType omitted.
+
+// se_ChallengeResponsesType omitted.
+
+// se_ChangePasswordRequest omitted.
+
+// se_ClientMetadataType omitted.
+
+// se_ClientPermissionListType omitted.
+
+// se_CompromisedCredentialsActionsType omitted.
+
+// se_CompromisedCredentialsRiskConfigurationType omitted.
+
+// se_ConfirmDeviceRequest omitted.
+
+// se_ConfirmForgotPasswordRequest omitted.
+
+// se_ConfirmSignUpRequest omitted.
+
+// se_ContextDataType omitted.
+
+// se_CreateGroupRequest omitted.
+
+// se_CreateIdentityProviderRequest omitted.
+
+// se_CreateResourceServerRequest omitted.
+
+// se_CreateUserImportJobRequest omitted.
+
+// se_CreateUserPoolClientRequest omitted.
+
+// se_CreateUserPoolDomainRequest omitted.
+
+// se_CreateUserPoolRequest omitted.
+
+// se_CustomAttributesListType omitted.
+
+// se_CustomDomainConfigType omitted.
+
+// se_CustomEmailLambdaVersionConfigType omitted.
+
+// se_CustomSMSLambdaVersionConfigType omitted.
+
+// se_DeleteGroupRequest omitted.
+
+// se_DeleteIdentityProviderRequest omitted.
+
+// se_DeleteResourceServerRequest omitted.
+
+// se_DeleteUserAttributesRequest omitted.
+
+// se_DeleteUserPoolClientRequest omitted.
+
+// se_DeleteUserPoolDomainRequest omitted.
+
+// se_DeleteUserPoolRequest omitted.
+
+// se_DeleteUserRequest omitted.
+
+// se_DeliveryMediumListType omitted.
+
+// se_DescribeIdentityProviderRequest omitted.
+
+// se_DescribeResourceServerRequest omitted.
+
+// se_DescribeRiskConfigurationRequest omitted.
+
+// se_DescribeUserImportJobRequest omitted.
+
+// se_DescribeUserPoolClientRequest omitted.
+
+// se_DescribeUserPoolDomainRequest omitted.
+
+// se_DescribeUserPoolRequest omitted.
+
+// se_DeviceConfigurationType omitted.
+
+// se_DeviceSecretVerifierConfigType omitted.
+
+// se_EmailConfigurationType omitted.
+
+// se_EventFiltersType omitted.
+
+// se_ExplicitAuthFlowsListType omitted.
+
+// se_ForgetDeviceRequest omitted.
+
+// se_ForgotPasswordRequest omitted.
+
+// se_GetCSVHeaderRequest omitted.
+
+// se_GetDeviceRequest omitted.
+
+// se_GetGroupRequest omitted.
+
+// se_GetIdentityProviderByIdentifierRequest omitted.
+
+// se_GetSigningCertificateRequest omitted.
+
+// se_GetUICustomizationRequest omitted.
+
+// se_GetUserAttributeVerificationCodeRequest omitted.
+
+// se_GetUserPoolMfaConfigRequest omitted.
+
+// se_GetUserRequest omitted.
+
+// se_GlobalSignOutRequest omitted.
+
+// se_HttpHeader omitted.
+
+// se_HttpHeaderList omitted.
+
+// se_IdpIdentifiersListType omitted.
+
+// se_InitiateAuthRequest omitted.
+
+// se_LambdaConfigType omitted.
+
+// se_ListDevicesRequest omitted.
+
+// se_ListGroupsRequest omitted.
+
+// se_ListIdentityProvidersRequest omitted.
+
+// se_ListResourceServersRequest omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
+// se_ListUserImportJobsRequest omitted.
+
+// se_ListUserPoolClientsRequest omitted.
+
+// se_ListUserPoolsRequest omitted.
+
+// se_ListUsersInGroupRequest omitted.
+
+// se_ListUsersRequest omitted.
+
+// se_LogoutURLsListType omitted.
+
+// se_MessageTemplateType omitted.
+
+// se_MFAOptionListType omitted.
+
+// se_MFAOptionType omitted.
+
+// se_NotifyConfigurationType omitted.
+
+// se_NotifyEmailType omitted.
+
+// se_NumberAttributeConstraintsType omitted.
+
+// se_OAuthFlowsType omitted.
+
+// se_PasswordPolicyType omitted.
+
+// se_ProviderDetailsType omitted.
+
+// se_ProviderUserIdentifierType omitted.
+
+// se_RecoveryMechanismsType omitted.
+
+// se_RecoveryOptionType omitted.
+
+// se_ResendConfirmationCodeRequest omitted.
+
+// se_ResourceServerScopeListType omitted.
+
+// se_ResourceServerScopeType omitted.
+
+// se_RespondToAuthChallengeRequest omitted.
+
+// se_RevokeTokenRequest omitted.
+
+// se_RiskExceptionConfigurationType omitted.
+
+// se_SchemaAttributesListType omitted.
+
+// se_SchemaAttributeType omitted.
+
+// se_ScopeListType omitted.
+
+// se_SearchedAttributeNamesListType omitted.
+
+// se_SetRiskConfigurationRequest omitted.
 
 /**
  * serializeAws_json1_1SetUICustomizationRequest
  */
 const se_SetUICustomizationRequest = (input: SetUICustomizationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CSS != null && { CSS: input.CSS }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ImageFile != null && { ImageFile: context.base64Encoder(input.ImageFile) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
+  return take(input, {
+    CSS: [],
+    ClientId: [],
+    ImageFile: (_) => context.base64Encoder(_),
+    UserPoolId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1SetUserMFAPreferenceRequest
- */
-const se_SetUserMFAPreferenceRequest = (input: SetUserMFAPreferenceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.SMSMfaSettings != null && { SMSMfaSettings: se_SMSMfaSettingsType(input.SMSMfaSettings, context) }),
-    ...(input.SoftwareTokenMfaSettings != null && {
-      SoftwareTokenMfaSettings: se_SoftwareTokenMfaSettingsType(input.SoftwareTokenMfaSettings, context),
-    }),
-  };
-};
+// se_SetUserMFAPreferenceRequest omitted.
 
-/**
- * serializeAws_json1_1SetUserPoolMfaConfigRequest
- */
-const se_SetUserPoolMfaConfigRequest = (input: SetUserPoolMfaConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MfaConfiguration != null && { MfaConfiguration: input.MfaConfiguration }),
-    ...(input.SmsMfaConfiguration != null && {
-      SmsMfaConfiguration: se_SmsMfaConfigType(input.SmsMfaConfiguration, context),
-    }),
-    ...(input.SoftwareTokenMfaConfiguration != null && {
-      SoftwareTokenMfaConfiguration: se_SoftwareTokenMfaConfigType(input.SoftwareTokenMfaConfiguration, context),
-    }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_SetUserPoolMfaConfigRequest omitted.
 
-/**
- * serializeAws_json1_1SetUserSettingsRequest
- */
-const se_SetUserSettingsRequest = (input: SetUserSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.MFAOptions != null && { MFAOptions: se_MFAOptionListType(input.MFAOptions, context) }),
-  };
-};
+// se_SetUserSettingsRequest omitted.
 
-/**
- * serializeAws_json1_1SignUpRequest
- */
-const se_SignUpRequest = (input: SignUpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
-    }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserAttributes != null && { UserAttributes: se_AttributeListType(input.UserAttributes, context) }),
-    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
-    ...(input.Username != null && { Username: input.Username }),
-    ...(input.ValidationData != null && { ValidationData: se_AttributeListType(input.ValidationData, context) }),
-  };
-};
+// se_SignUpRequest omitted.
 
-/**
- * serializeAws_json1_1SkippedIPRangeListType
- */
-const se_SkippedIPRangeListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SkippedIPRangeListType omitted.
 
-/**
- * serializeAws_json1_1SmsConfigurationType
- */
-const se_SmsConfigurationType = (input: SmsConfigurationType, context: __SerdeContext): any => {
-  return {
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.SnsCallerArn != null && { SnsCallerArn: input.SnsCallerArn }),
-    ...(input.SnsRegion != null && { SnsRegion: input.SnsRegion }),
-  };
-};
+// se_SmsConfigurationType omitted.
 
-/**
- * serializeAws_json1_1SmsMfaConfigType
- */
-const se_SmsMfaConfigType = (input: SmsMfaConfigType, context: __SerdeContext): any => {
-  return {
-    ...(input.SmsAuthenticationMessage != null && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
-    ...(input.SmsConfiguration != null && {
-      SmsConfiguration: se_SmsConfigurationType(input.SmsConfiguration, context),
-    }),
-  };
-};
+// se_SmsMfaConfigType omitted.
 
-/**
- * serializeAws_json1_1SMSMfaSettingsType
- */
-const se_SMSMfaSettingsType = (input: SMSMfaSettingsType, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.PreferredMfa != null && { PreferredMfa: input.PreferredMfa }),
-  };
-};
+// se_SMSMfaSettingsType omitted.
 
-/**
- * serializeAws_json1_1SoftwareTokenMfaConfigType
- */
-const se_SoftwareTokenMfaConfigType = (input: SoftwareTokenMfaConfigType, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
+// se_SoftwareTokenMfaConfigType omitted.
 
-/**
- * serializeAws_json1_1SoftwareTokenMfaSettingsType
- */
-const se_SoftwareTokenMfaSettingsType = (input: SoftwareTokenMfaSettingsType, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.PreferredMfa != null && { PreferredMfa: input.PreferredMfa }),
-  };
-};
+// se_SoftwareTokenMfaSettingsType omitted.
 
-/**
- * serializeAws_json1_1StartUserImportJobRequest
- */
-const se_StartUserImportJobRequest = (input: StartUserImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_StartUserImportJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopUserImportJobRequest
- */
-const se_StopUserImportJobRequest = (input: StopUserImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_StopUserImportJobRequest omitted.
 
-/**
- * serializeAws_json1_1StringAttributeConstraintsType
- */
-const se_StringAttributeConstraintsType = (input: StringAttributeConstraintsType, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxLength != null && { MaxLength: input.MaxLength }),
-    ...(input.MinLength != null && { MinLength: input.MinLength }),
-  };
-};
+// se_StringAttributeConstraintsType omitted.
 
-/**
- * serializeAws_json1_1SupportedIdentityProvidersListType
- */
-const se_SupportedIdentityProvidersListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SupportedIdentityProvidersListType omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_UserPoolTagsType(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1TokenValidityUnitsType
- */
-const se_TokenValidityUnitsType = (input: TokenValidityUnitsType, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.IdToken != null && { IdToken: input.IdToken }),
-    ...(input.RefreshToken != null && { RefreshToken: input.RefreshToken }),
-  };
-};
+// se_TokenValidityUnitsType omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_UserPoolTagsListType(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAuthEventFeedbackRequest
- */
-const se_UpdateAuthEventFeedbackRequest = (input: UpdateAuthEventFeedbackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EventId != null && { EventId: input.EventId }),
-    ...(input.FeedbackToken != null && { FeedbackToken: input.FeedbackToken }),
-    ...(input.FeedbackValue != null && { FeedbackValue: input.FeedbackValue }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_UpdateAuthEventFeedbackRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateDeviceStatusRequest
- */
-const se_UpdateDeviceStatusRequest = (input: UpdateDeviceStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
-    ...(input.DeviceRememberedStatus != null && { DeviceRememberedStatus: input.DeviceRememberedStatus }),
-  };
-};
+// se_UpdateDeviceStatusRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateGroupRequest
- */
-const se_UpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.Precedence != null && { Precedence: input.Precedence }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_UpdateGroupRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateIdentityProviderRequest
- */
-const se_UpdateIdentityProviderRequest = (input: UpdateIdentityProviderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeMapping != null && {
-      AttributeMapping: se_AttributeMappingType(input.AttributeMapping, context),
-    }),
-    ...(input.IdpIdentifiers != null && { IdpIdentifiers: se_IdpIdentifiersListType(input.IdpIdentifiers, context) }),
-    ...(input.ProviderDetails != null && { ProviderDetails: se_ProviderDetailsType(input.ProviderDetails, context) }),
-    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_UpdateIdentityProviderRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateResourceServerRequest
- */
-const se_UpdateResourceServerRequest = (input: UpdateResourceServerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Scopes != null && { Scopes: se_ResourceServerScopeListType(input.Scopes, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_UpdateResourceServerRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateUserAttributesRequest
- */
-const se_UpdateUserAttributesRequest = (input: UpdateUserAttributesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
-    ...(input.UserAttributes != null && { UserAttributes: se_AttributeListType(input.UserAttributes, context) }),
-  };
-};
+// se_UpdateUserAttributesRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateUserPoolClientRequest
- */
-const se_UpdateUserPoolClientRequest = (input: UpdateUserPoolClientRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessTokenValidity != null && { AccessTokenValidity: input.AccessTokenValidity }),
-    ...(input.AllowedOAuthFlows != null && { AllowedOAuthFlows: se_OAuthFlowsType(input.AllowedOAuthFlows, context) }),
-    ...(input.AllowedOAuthFlowsUserPoolClient != null && {
-      AllowedOAuthFlowsUserPoolClient: input.AllowedOAuthFlowsUserPoolClient,
-    }),
-    ...(input.AllowedOAuthScopes != null && {
-      AllowedOAuthScopes: se_ScopeListType(input.AllowedOAuthScopes, context),
-    }),
-    ...(input.AnalyticsConfiguration != null && {
-      AnalyticsConfiguration: se_AnalyticsConfigurationType(input.AnalyticsConfiguration, context),
-    }),
-    ...(input.AuthSessionValidity != null && { AuthSessionValidity: input.AuthSessionValidity }),
-    ...(input.CallbackURLs != null && { CallbackURLs: se_CallbackURLsListType(input.CallbackURLs, context) }),
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientName != null && { ClientName: input.ClientName }),
-    ...(input.DefaultRedirectURI != null && { DefaultRedirectURI: input.DefaultRedirectURI }),
-    ...(input.EnablePropagateAdditionalUserContextData != null && {
-      EnablePropagateAdditionalUserContextData: input.EnablePropagateAdditionalUserContextData,
-    }),
-    ...(input.EnableTokenRevocation != null && { EnableTokenRevocation: input.EnableTokenRevocation }),
-    ...(input.ExplicitAuthFlows != null && {
-      ExplicitAuthFlows: se_ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
-    }),
-    ...(input.IdTokenValidity != null && { IdTokenValidity: input.IdTokenValidity }),
-    ...(input.LogoutURLs != null && { LogoutURLs: se_LogoutURLsListType(input.LogoutURLs, context) }),
-    ...(input.PreventUserExistenceErrors != null && { PreventUserExistenceErrors: input.PreventUserExistenceErrors }),
-    ...(input.ReadAttributes != null && { ReadAttributes: se_ClientPermissionListType(input.ReadAttributes, context) }),
-    ...(input.RefreshTokenValidity != null && { RefreshTokenValidity: input.RefreshTokenValidity }),
-    ...(input.SupportedIdentityProviders != null && {
-      SupportedIdentityProviders: se_SupportedIdentityProvidersListType(input.SupportedIdentityProviders, context),
-    }),
-    ...(input.TokenValidityUnits != null && {
-      TokenValidityUnits: se_TokenValidityUnitsType(input.TokenValidityUnits, context),
-    }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.WriteAttributes != null && {
-      WriteAttributes: se_ClientPermissionListType(input.WriteAttributes, context),
-    }),
-  };
-};
+// se_UpdateUserPoolClientRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateUserPoolDomainRequest
- */
-const se_UpdateUserPoolDomainRequest = (input: UpdateUserPoolDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomDomainConfig != null && {
-      CustomDomainConfig: se_CustomDomainConfigType(input.CustomDomainConfig, context),
-    }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
-};
+// se_UpdateUserPoolDomainRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateUserPoolRequest
- */
-const se_UpdateUserPoolRequest = (input: UpdateUserPoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountRecoverySetting != null && {
-      AccountRecoverySetting: se_AccountRecoverySettingType(input.AccountRecoverySetting, context),
-    }),
-    ...(input.AdminCreateUserConfig != null && {
-      AdminCreateUserConfig: se_AdminCreateUserConfigType(input.AdminCreateUserConfig, context),
-    }),
-    ...(input.AutoVerifiedAttributes != null && {
-      AutoVerifiedAttributes: se_VerifiedAttributesListType(input.AutoVerifiedAttributes, context),
-    }),
-    ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
-    ...(input.DeviceConfiguration != null && {
-      DeviceConfiguration: se_DeviceConfigurationType(input.DeviceConfiguration, context),
-    }),
-    ...(input.EmailConfiguration != null && {
-      EmailConfiguration: se_EmailConfigurationType(input.EmailConfiguration, context),
-    }),
-    ...(input.EmailVerificationMessage != null && { EmailVerificationMessage: input.EmailVerificationMessage }),
-    ...(input.EmailVerificationSubject != null && { EmailVerificationSubject: input.EmailVerificationSubject }),
-    ...(input.LambdaConfig != null && { LambdaConfig: se_LambdaConfigType(input.LambdaConfig, context) }),
-    ...(input.MfaConfiguration != null && { MfaConfiguration: input.MfaConfiguration }),
-    ...(input.Policies != null && { Policies: se_UserPoolPolicyType(input.Policies, context) }),
-    ...(input.SmsAuthenticationMessage != null && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
-    ...(input.SmsConfiguration != null && {
-      SmsConfiguration: se_SmsConfigurationType(input.SmsConfiguration, context),
-    }),
-    ...(input.SmsVerificationMessage != null && { SmsVerificationMessage: input.SmsVerificationMessage }),
-    ...(input.UserAttributeUpdateSettings != null && {
-      UserAttributeUpdateSettings: se_UserAttributeUpdateSettingsType(input.UserAttributeUpdateSettings, context),
-    }),
-    ...(input.UserPoolAddOns != null && { UserPoolAddOns: se_UserPoolAddOnsType(input.UserPoolAddOns, context) }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.UserPoolTags != null && { UserPoolTags: se_UserPoolTagsType(input.UserPoolTags, context) }),
-    ...(input.VerificationMessageTemplate != null && {
-      VerificationMessageTemplate: se_VerificationMessageTemplateType(input.VerificationMessageTemplate, context),
-    }),
-  };
-};
+// se_UpdateUserPoolRequest omitted.
 
-/**
- * serializeAws_json1_1UserAttributeUpdateSettingsType
- */
-const se_UserAttributeUpdateSettingsType = (input: UserAttributeUpdateSettingsType, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributesRequireVerificationBeforeUpdate != null && {
-      AttributesRequireVerificationBeforeUpdate: se_AttributesRequireVerificationBeforeUpdateType(
-        input.AttributesRequireVerificationBeforeUpdate,
-        context
-      ),
-    }),
-  };
-};
+// se_UserAttributeUpdateSettingsType omitted.
 
-/**
- * serializeAws_json1_1UserContextDataType
- */
-const se_UserContextDataType = (input: UserContextDataType, context: __SerdeContext): any => {
-  return {
-    ...(input.EncodedData != null && { EncodedData: input.EncodedData }),
-    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
-  };
-};
+// se_UserContextDataType omitted.
 
-/**
- * serializeAws_json1_1UsernameAttributesListType
- */
-const se_UsernameAttributesListType = (input: (UsernameAttributeType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UsernameAttributesListType omitted.
 
-/**
- * serializeAws_json1_1UsernameConfigurationType
- */
-const se_UsernameConfigurationType = (input: UsernameConfigurationType, context: __SerdeContext): any => {
-  return {
-    ...(input.CaseSensitive != null && { CaseSensitive: input.CaseSensitive }),
-  };
-};
+// se_UsernameConfigurationType omitted.
 
-/**
- * serializeAws_json1_1UserPoolAddOnsType
- */
-const se_UserPoolAddOnsType = (input: UserPoolAddOnsType, context: __SerdeContext): any => {
-  return {
-    ...(input.AdvancedSecurityMode != null && { AdvancedSecurityMode: input.AdvancedSecurityMode }),
-  };
-};
+// se_UserPoolAddOnsType omitted.
 
-/**
- * serializeAws_json1_1UserPoolPolicyType
- */
-const se_UserPoolPolicyType = (input: UserPoolPolicyType, context: __SerdeContext): any => {
-  return {
-    ...(input.PasswordPolicy != null && { PasswordPolicy: se_PasswordPolicyType(input.PasswordPolicy, context) }),
-  };
-};
+// se_UserPoolPolicyType omitted.
 
-/**
- * serializeAws_json1_1UserPoolTagsListType
- */
-const se_UserPoolTagsListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UserPoolTagsListType omitted.
 
-/**
- * serializeAws_json1_1UserPoolTagsType
- */
-const se_UserPoolTagsType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_UserPoolTagsType omitted.
 
-/**
- * serializeAws_json1_1VerificationMessageTemplateType
- */
-const se_VerificationMessageTemplateType = (input: VerificationMessageTemplateType, context: __SerdeContext): any => {
-  return {
-    ...(input.DefaultEmailOption != null && { DefaultEmailOption: input.DefaultEmailOption }),
-    ...(input.EmailMessage != null && { EmailMessage: input.EmailMessage }),
-    ...(input.EmailMessageByLink != null && { EmailMessageByLink: input.EmailMessageByLink }),
-    ...(input.EmailSubject != null && { EmailSubject: input.EmailSubject }),
-    ...(input.EmailSubjectByLink != null && { EmailSubjectByLink: input.EmailSubjectByLink }),
-    ...(input.SmsMessage != null && { SmsMessage: input.SmsMessage }),
-  };
-};
+// se_VerificationMessageTemplateType omitted.
 
-/**
- * serializeAws_json1_1VerifiedAttributesListType
- */
-const se_VerifiedAttributesListType = (input: (VerifiedAttributeType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VerifiedAttributesListType omitted.
 
-/**
- * serializeAws_json1_1VerifySoftwareTokenRequest
- */
-const se_VerifySoftwareTokenRequest = (input: VerifySoftwareTokenRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.FriendlyDeviceName != null && { FriendlyDeviceName: input.FriendlyDeviceName }),
-    ...(input.Session != null && { Session: input.Session }),
-    ...(input.UserCode != null && { UserCode: input.UserCode }),
-  };
-};
+// se_VerifySoftwareTokenRequest omitted.
 
-/**
- * serializeAws_json1_1VerifyUserAttributeRequest
- */
-const se_VerifyUserAttributeRequest = (input: VerifyUserAttributeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.Code != null && { Code: input.Code }),
-  };
-};
+// se_VerifyUserAttributeRequest omitted.
 
-/**
- * deserializeAws_json1_1AccountRecoverySettingType
- */
-const de_AccountRecoverySettingType = (output: any, context: __SerdeContext): AccountRecoverySettingType => {
-  return {
-    RecoveryMechanisms:
-      output.RecoveryMechanisms != null ? de_RecoveryMechanismsType(output.RecoveryMechanisms, context) : undefined,
-  } as any;
-};
+// de_AccountRecoverySettingType omitted.
 
-/**
- * deserializeAws_json1_1AccountTakeoverActionsType
- */
-const de_AccountTakeoverActionsType = (output: any, context: __SerdeContext): AccountTakeoverActionsType => {
-  return {
-    HighAction: output.HighAction != null ? de_AccountTakeoverActionType(output.HighAction, context) : undefined,
-    LowAction: output.LowAction != null ? de_AccountTakeoverActionType(output.LowAction, context) : undefined,
-    MediumAction: output.MediumAction != null ? de_AccountTakeoverActionType(output.MediumAction, context) : undefined,
-  } as any;
-};
+// de_AccountTakeoverActionsType omitted.
 
-/**
- * deserializeAws_json1_1AccountTakeoverActionType
- */
-const de_AccountTakeoverActionType = (output: any, context: __SerdeContext): AccountTakeoverActionType => {
-  return {
-    EventAction: __expectString(output.EventAction),
-    Notify: __expectBoolean(output.Notify),
-  } as any;
-};
+// de_AccountTakeoverActionType omitted.
 
-/**
- * deserializeAws_json1_1AccountTakeoverRiskConfigurationType
- */
-const de_AccountTakeoverRiskConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): AccountTakeoverRiskConfigurationType => {
-  return {
-    Actions: output.Actions != null ? de_AccountTakeoverActionsType(output.Actions, context) : undefined,
-    NotifyConfiguration:
-      output.NotifyConfiguration != null ? de_NotifyConfigurationType(output.NotifyConfiguration, context) : undefined,
-  } as any;
-};
+// de_AccountTakeoverRiskConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1AddCustomAttributesResponse
- */
-const de_AddCustomAttributesResponse = (output: any, context: __SerdeContext): AddCustomAttributesResponse => {
-  return {} as any;
-};
+// de_AddCustomAttributesResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminConfirmSignUpResponse
- */
-const de_AdminConfirmSignUpResponse = (output: any, context: __SerdeContext): AdminConfirmSignUpResponse => {
-  return {} as any;
-};
+// de_AdminConfirmSignUpResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminCreateUserConfigType
- */
-const de_AdminCreateUserConfigType = (output: any, context: __SerdeContext): AdminCreateUserConfigType => {
-  return {
-    AllowAdminCreateUserOnly: __expectBoolean(output.AllowAdminCreateUserOnly),
-    InviteMessageTemplate:
-      output.InviteMessageTemplate != null ? de_MessageTemplateType(output.InviteMessageTemplate, context) : undefined,
-    UnusedAccountValidityDays: __expectInt32(output.UnusedAccountValidityDays),
-  } as any;
-};
+// de_AdminCreateUserConfigType omitted.
 
 /**
  * deserializeAws_json1_1AdminCreateUserResponse
  */
 const de_AdminCreateUserResponse = (output: any, context: __SerdeContext): AdminCreateUserResponse => {
-  return {
-    User: output.User != null ? de_UserType(output.User, context) : undefined,
-  } as any;
+  return take(output, {
+    User: (_: any) => de_UserType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AdminDeleteUserAttributesResponse
- */
-const de_AdminDeleteUserAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminDeleteUserAttributesResponse => {
-  return {} as any;
-};
+// de_AdminDeleteUserAttributesResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminDisableProviderForUserResponse
- */
-const de_AdminDisableProviderForUserResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminDisableProviderForUserResponse => {
-  return {} as any;
-};
+// de_AdminDisableProviderForUserResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminDisableUserResponse
- */
-const de_AdminDisableUserResponse = (output: any, context: __SerdeContext): AdminDisableUserResponse => {
-  return {} as any;
-};
+// de_AdminDisableUserResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminEnableUserResponse
- */
-const de_AdminEnableUserResponse = (output: any, context: __SerdeContext): AdminEnableUserResponse => {
-  return {} as any;
-};
+// de_AdminEnableUserResponse omitted.
 
 /**
  * deserializeAws_json1_1AdminGetDeviceResponse
  */
 const de_AdminGetDeviceResponse = (output: any, context: __SerdeContext): AdminGetDeviceResponse => {
-  return {
-    Device: output.Device != null ? de_DeviceType(output.Device, context) : undefined,
-  } as any;
+  return take(output, {
+    Device: (_: any) => de_DeviceType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AdminGetUserResponse
  */
 const de_AdminGetUserResponse = (output: any, context: __SerdeContext): AdminGetUserResponse => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    MFAOptions: output.MFAOptions != null ? de_MFAOptionListType(output.MFAOptions, context) : undefined,
-    PreferredMfaSetting: __expectString(output.PreferredMfaSetting),
-    UserAttributes: output.UserAttributes != null ? de_AttributeListType(output.UserAttributes, context) : undefined,
-    UserCreateDate:
-      output.UserCreateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserCreateDate)))
-        : undefined,
-    UserLastModifiedDate:
-      output.UserLastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserLastModifiedDate)))
-        : undefined,
-    UserMFASettingList:
-      output.UserMFASettingList != null ? de_UserMFASettingListType(output.UserMFASettingList, context) : undefined,
-    UserStatus: __expectString(output.UserStatus),
-    Username: __expectString(output.Username),
-  } as any;
+  return take(output, {
+    Enabled: __expectBoolean,
+    MFAOptions: _json,
+    PreferredMfaSetting: __expectString,
+    UserAttributes: _json,
+    UserCreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UserLastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UserMFASettingList: _json,
+    UserStatus: __expectString,
+    Username: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AdminInitiateAuthResponse
- */
-const de_AdminInitiateAuthResponse = (output: any, context: __SerdeContext): AdminInitiateAuthResponse => {
-  return {
-    AuthenticationResult:
-      output.AuthenticationResult != null
-        ? de_AuthenticationResultType(output.AuthenticationResult, context)
-        : undefined,
-    ChallengeName: __expectString(output.ChallengeName),
-    ChallengeParameters:
-      output.ChallengeParameters != null ? de_ChallengeParametersType(output.ChallengeParameters, context) : undefined,
-    Session: __expectString(output.Session),
-  } as any;
-};
+// de_AdminInitiateAuthResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminLinkProviderForUserResponse
- */
-const de_AdminLinkProviderForUserResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminLinkProviderForUserResponse => {
-  return {} as any;
-};
+// de_AdminLinkProviderForUserResponse omitted.
 
 /**
  * deserializeAws_json1_1AdminListDevicesResponse
  */
 const de_AdminListDevicesResponse = (output: any, context: __SerdeContext): AdminListDevicesResponse => {
-  return {
-    Devices: output.Devices != null ? de_DeviceListType(output.Devices, context) : undefined,
-    PaginationToken: __expectString(output.PaginationToken),
-  } as any;
+  return take(output, {
+    Devices: (_: any) => de_DeviceListType(_, context),
+    PaginationToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AdminListGroupsForUserResponse
  */
 const de_AdminListGroupsForUserResponse = (output: any, context: __SerdeContext): AdminListGroupsForUserResponse => {
-  return {
-    Groups: output.Groups != null ? de_GroupListType(output.Groups, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Groups: (_: any) => de_GroupListType(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AdminListUserAuthEventsResponse
  */
 const de_AdminListUserAuthEventsResponse = (output: any, context: __SerdeContext): AdminListUserAuthEventsResponse => {
-  return {
-    AuthEvents: output.AuthEvents != null ? de_AuthEventsType(output.AuthEvents, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AuthEvents: (_: any) => de_AuthEventsType(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AdminResetUserPasswordResponse
- */
-const de_AdminResetUserPasswordResponse = (output: any, context: __SerdeContext): AdminResetUserPasswordResponse => {
-  return {} as any;
-};
+// de_AdminResetUserPasswordResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminRespondToAuthChallengeResponse
- */
-const de_AdminRespondToAuthChallengeResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminRespondToAuthChallengeResponse => {
-  return {
-    AuthenticationResult:
-      output.AuthenticationResult != null
-        ? de_AuthenticationResultType(output.AuthenticationResult, context)
-        : undefined,
-    ChallengeName: __expectString(output.ChallengeName),
-    ChallengeParameters:
-      output.ChallengeParameters != null ? de_ChallengeParametersType(output.ChallengeParameters, context) : undefined,
-    Session: __expectString(output.Session),
-  } as any;
-};
+// de_AdminRespondToAuthChallengeResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminSetUserMFAPreferenceResponse
- */
-const de_AdminSetUserMFAPreferenceResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminSetUserMFAPreferenceResponse => {
-  return {} as any;
-};
+// de_AdminSetUserMFAPreferenceResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminSetUserPasswordResponse
- */
-const de_AdminSetUserPasswordResponse = (output: any, context: __SerdeContext): AdminSetUserPasswordResponse => {
-  return {} as any;
-};
+// de_AdminSetUserPasswordResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminSetUserSettingsResponse
- */
-const de_AdminSetUserSettingsResponse = (output: any, context: __SerdeContext): AdminSetUserSettingsResponse => {
-  return {} as any;
-};
+// de_AdminSetUserSettingsResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse
- */
-const de_AdminUpdateAuthEventFeedbackResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminUpdateAuthEventFeedbackResponse => {
-  return {} as any;
-};
+// de_AdminUpdateAuthEventFeedbackResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminUpdateDeviceStatusResponse
- */
-const de_AdminUpdateDeviceStatusResponse = (output: any, context: __SerdeContext): AdminUpdateDeviceStatusResponse => {
-  return {} as any;
-};
+// de_AdminUpdateDeviceStatusResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminUpdateUserAttributesResponse
- */
-const de_AdminUpdateUserAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminUpdateUserAttributesResponse => {
-  return {} as any;
-};
+// de_AdminUpdateUserAttributesResponse omitted.
 
-/**
- * deserializeAws_json1_1AdminUserGlobalSignOutResponse
- */
-const de_AdminUserGlobalSignOutResponse = (output: any, context: __SerdeContext): AdminUserGlobalSignOutResponse => {
-  return {} as any;
-};
+// de_AdminUserGlobalSignOutResponse omitted.
 
-/**
- * deserializeAws_json1_1AliasAttributesListType
- */
-const de_AliasAttributesListType = (output: any, context: __SerdeContext): (AliasAttributeType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AliasAttributesListType omitted.
 
-/**
- * deserializeAws_json1_1AliasExistsException
- */
-const de_AliasExistsException = (output: any, context: __SerdeContext): AliasExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AliasExistsException omitted.
 
-/**
- * deserializeAws_json1_1AnalyticsConfigurationType
- */
-const de_AnalyticsConfigurationType = (output: any, context: __SerdeContext): AnalyticsConfigurationType => {
-  return {
-    ApplicationArn: __expectString(output.ApplicationArn),
-    ApplicationId: __expectString(output.ApplicationId),
-    ExternalId: __expectString(output.ExternalId),
-    RoleArn: __expectString(output.RoleArn),
-    UserDataShared: __expectBoolean(output.UserDataShared),
-  } as any;
-};
+// de_AnalyticsConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1AssociateSoftwareTokenResponse
- */
-const de_AssociateSoftwareTokenResponse = (output: any, context: __SerdeContext): AssociateSoftwareTokenResponse => {
-  return {
-    SecretCode: __expectString(output.SecretCode),
-    Session: __expectString(output.Session),
-  } as any;
-};
+// de_AssociateSoftwareTokenResponse omitted.
 
-/**
- * deserializeAws_json1_1AttributeListType
- */
-const de_AttributeListType = (output: any, context: __SerdeContext): AttributeType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AttributeType(entry, context);
-    });
-  return retVal;
-};
+// de_AttributeListType omitted.
 
-/**
- * deserializeAws_json1_1AttributeMappingType
- */
-const de_AttributeMappingType = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_AttributeMappingType omitted.
 
-/**
- * deserializeAws_json1_1AttributesRequireVerificationBeforeUpdateType
- */
-const de_AttributesRequireVerificationBeforeUpdateType = (
-  output: any,
-  context: __SerdeContext
-): (VerifiedAttributeType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AttributesRequireVerificationBeforeUpdateType omitted.
 
-/**
- * deserializeAws_json1_1AttributeType
- */
-const de_AttributeType = (output: any, context: __SerdeContext): AttributeType => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_AttributeType omitted.
 
-/**
- * deserializeAws_json1_1AuthenticationResultType
- */
-const de_AuthenticationResultType = (output: any, context: __SerdeContext): AuthenticationResultType => {
-  return {
-    AccessToken: __expectString(output.AccessToken),
-    ExpiresIn: __expectInt32(output.ExpiresIn),
-    IdToken: __expectString(output.IdToken),
-    NewDeviceMetadata:
-      output.NewDeviceMetadata != null ? de_NewDeviceMetadataType(output.NewDeviceMetadata, context) : undefined,
-    RefreshToken: __expectString(output.RefreshToken),
-    TokenType: __expectString(output.TokenType),
-  } as any;
-};
+// de_AuthenticationResultType omitted.
 
 /**
  * deserializeAws_json1_1AuthEventsType
@@ -12030,9 +9715,6 @@ const de_AuthEventsType = (output: any, context: __SerdeContext): AuthEventType[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AuthEventType(entry, context);
     });
   return retVal;
@@ -12042,326 +9724,110 @@ const de_AuthEventsType = (output: any, context: __SerdeContext): AuthEventType[
  * deserializeAws_json1_1AuthEventType
  */
 const de_AuthEventType = (output: any, context: __SerdeContext): AuthEventType => {
-  return {
-    ChallengeResponses:
-      output.ChallengeResponses != null ? de_ChallengeResponseListType(output.ChallengeResponses, context) : undefined,
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    EventContextData:
-      output.EventContextData != null ? de_EventContextDataType(output.EventContextData, context) : undefined,
-    EventFeedback: output.EventFeedback != null ? de_EventFeedbackType(output.EventFeedback, context) : undefined,
-    EventId: __expectString(output.EventId),
-    EventResponse: __expectString(output.EventResponse),
-    EventRisk: output.EventRisk != null ? de_EventRiskType(output.EventRisk, context) : undefined,
-    EventType: __expectString(output.EventType),
-  } as any;
+  return take(output, {
+    ChallengeResponses: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EventContextData: _json,
+    EventFeedback: (_: any) => de_EventFeedbackType(_, context),
+    EventId: __expectString,
+    EventResponse: __expectString,
+    EventRisk: _json,
+    EventType: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1BlockedIPRangeListType
- */
-const de_BlockedIPRangeListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_BlockedIPRangeListType omitted.
 
-/**
- * deserializeAws_json1_1CallbackURLsListType
- */
-const de_CallbackURLsListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CallbackURLsListType omitted.
 
-/**
- * deserializeAws_json1_1ChallengeParametersType
- */
-const de_ChallengeParametersType = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ChallengeParametersType omitted.
 
-/**
- * deserializeAws_json1_1ChallengeResponseListType
- */
-const de_ChallengeResponseListType = (output: any, context: __SerdeContext): ChallengeResponseType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChallengeResponseType(entry, context);
-    });
-  return retVal;
-};
+// de_ChallengeResponseListType omitted.
 
-/**
- * deserializeAws_json1_1ChallengeResponseType
- */
-const de_ChallengeResponseType = (output: any, context: __SerdeContext): ChallengeResponseType => {
-  return {
-    ChallengeName: __expectString(output.ChallengeName),
-    ChallengeResponse: __expectString(output.ChallengeResponse),
-  } as any;
-};
+// de_ChallengeResponseType omitted.
 
-/**
- * deserializeAws_json1_1ChangePasswordResponse
- */
-const de_ChangePasswordResponse = (output: any, context: __SerdeContext): ChangePasswordResponse => {
-  return {} as any;
-};
+// de_ChangePasswordResponse omitted.
 
-/**
- * deserializeAws_json1_1ClientPermissionListType
- */
-const de_ClientPermissionListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ClientPermissionListType omitted.
 
-/**
- * deserializeAws_json1_1CodeDeliveryDetailsListType
- */
-const de_CodeDeliveryDetailsListType = (output: any, context: __SerdeContext): CodeDeliveryDetailsType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CodeDeliveryDetailsType(entry, context);
-    });
-  return retVal;
-};
+// de_CodeDeliveryDetailsListType omitted.
 
-/**
- * deserializeAws_json1_1CodeDeliveryDetailsType
- */
-const de_CodeDeliveryDetailsType = (output: any, context: __SerdeContext): CodeDeliveryDetailsType => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    DeliveryMedium: __expectString(output.DeliveryMedium),
-    Destination: __expectString(output.Destination),
-  } as any;
-};
+// de_CodeDeliveryDetailsType omitted.
 
-/**
- * deserializeAws_json1_1CodeDeliveryFailureException
- */
-const de_CodeDeliveryFailureException = (output: any, context: __SerdeContext): CodeDeliveryFailureException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CodeDeliveryFailureException omitted.
 
-/**
- * deserializeAws_json1_1CodeMismatchException
- */
-const de_CodeMismatchException = (output: any, context: __SerdeContext): CodeMismatchException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CodeMismatchException omitted.
 
-/**
- * deserializeAws_json1_1CompromisedCredentialsActionsType
- */
-const de_CompromisedCredentialsActionsType = (
-  output: any,
-  context: __SerdeContext
-): CompromisedCredentialsActionsType => {
-  return {
-    EventAction: __expectString(output.EventAction),
-  } as any;
-};
+// de_CompromisedCredentialsActionsType omitted.
 
-/**
- * deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType
- */
-const de_CompromisedCredentialsRiskConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): CompromisedCredentialsRiskConfigurationType => {
-  return {
-    Actions: output.Actions != null ? de_CompromisedCredentialsActionsType(output.Actions, context) : undefined,
-    EventFilter: output.EventFilter != null ? de_EventFiltersType(output.EventFilter, context) : undefined,
-  } as any;
-};
+// de_CompromisedCredentialsRiskConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_1ConfirmDeviceResponse
- */
-const de_ConfirmDeviceResponse = (output: any, context: __SerdeContext): ConfirmDeviceResponse => {
-  return {
-    UserConfirmationNecessary: __expectBoolean(output.UserConfirmationNecessary),
-  } as any;
-};
+// de_ConfirmDeviceResponse omitted.
 
-/**
- * deserializeAws_json1_1ConfirmForgotPasswordResponse
- */
-const de_ConfirmForgotPasswordResponse = (output: any, context: __SerdeContext): ConfirmForgotPasswordResponse => {
-  return {} as any;
-};
+// de_ConfirmForgotPasswordResponse omitted.
 
-/**
- * deserializeAws_json1_1ConfirmSignUpResponse
- */
-const de_ConfirmSignUpResponse = (output: any, context: __SerdeContext): ConfirmSignUpResponse => {
-  return {} as any;
-};
+// de_ConfirmSignUpResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateGroupResponse
  */
 const de_CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
-  return {
-    Group: output.Group != null ? de_GroupType(output.Group, context) : undefined,
-  } as any;
+  return take(output, {
+    Group: (_: any) => de_GroupType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateIdentityProviderResponse
  */
 const de_CreateIdentityProviderResponse = (output: any, context: __SerdeContext): CreateIdentityProviderResponse => {
-  return {
-    IdentityProvider:
-      output.IdentityProvider != null ? de_IdentityProviderType(output.IdentityProvider, context) : undefined,
-  } as any;
+  return take(output, {
+    IdentityProvider: (_: any) => de_IdentityProviderType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateResourceServerResponse
- */
-const de_CreateResourceServerResponse = (output: any, context: __SerdeContext): CreateResourceServerResponse => {
-  return {
-    ResourceServer: output.ResourceServer != null ? de_ResourceServerType(output.ResourceServer, context) : undefined,
-  } as any;
-};
+// de_CreateResourceServerResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateUserImportJobResponse
  */
 const de_CreateUserImportJobResponse = (output: any, context: __SerdeContext): CreateUserImportJobResponse => {
-  return {
-    UserImportJob: output.UserImportJob != null ? de_UserImportJobType(output.UserImportJob, context) : undefined,
-  } as any;
+  return take(output, {
+    UserImportJob: (_: any) => de_UserImportJobType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateUserPoolClientResponse
  */
 const de_CreateUserPoolClientResponse = (output: any, context: __SerdeContext): CreateUserPoolClientResponse => {
-  return {
-    UserPoolClient: output.UserPoolClient != null ? de_UserPoolClientType(output.UserPoolClient, context) : undefined,
-  } as any;
+  return take(output, {
+    UserPoolClient: (_: any) => de_UserPoolClientType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateUserPoolDomainResponse
- */
-const de_CreateUserPoolDomainResponse = (output: any, context: __SerdeContext): CreateUserPoolDomainResponse => {
-  return {
-    CloudFrontDomain: __expectString(output.CloudFrontDomain),
-  } as any;
-};
+// de_CreateUserPoolDomainResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateUserPoolResponse
  */
 const de_CreateUserPoolResponse = (output: any, context: __SerdeContext): CreateUserPoolResponse => {
-  return {
-    UserPool: output.UserPool != null ? de_UserPoolType(output.UserPool, context) : undefined,
-  } as any;
+  return take(output, {
+    UserPool: (_: any) => de_UserPoolType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CustomDomainConfigType
- */
-const de_CustomDomainConfigType = (output: any, context: __SerdeContext): CustomDomainConfigType => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-  } as any;
-};
+// de_CustomDomainConfigType omitted.
 
-/**
- * deserializeAws_json1_1CustomEmailLambdaVersionConfigType
- */
-const de_CustomEmailLambdaVersionConfigType = (
-  output: any,
-  context: __SerdeContext
-): CustomEmailLambdaVersionConfigType => {
-  return {
-    LambdaArn: __expectString(output.LambdaArn),
-    LambdaVersion: __expectString(output.LambdaVersion),
-  } as any;
-};
+// de_CustomEmailLambdaVersionConfigType omitted.
 
-/**
- * deserializeAws_json1_1CustomSMSLambdaVersionConfigType
- */
-const de_CustomSMSLambdaVersionConfigType = (
-  output: any,
-  context: __SerdeContext
-): CustomSMSLambdaVersionConfigType => {
-  return {
-    LambdaArn: __expectString(output.LambdaArn),
-    LambdaVersion: __expectString(output.LambdaVersion),
-  } as any;
-};
+// de_CustomSMSLambdaVersionConfigType omitted.
 
-/**
- * deserializeAws_json1_1DeleteUserAttributesResponse
- */
-const de_DeleteUserAttributesResponse = (output: any, context: __SerdeContext): DeleteUserAttributesResponse => {
-  return {} as any;
-};
+// de_DeleteUserAttributesResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteUserPoolDomainResponse
- */
-const de_DeleteUserPoolDomainResponse = (output: any, context: __SerdeContext): DeleteUserPoolDomainResponse => {
-  return {} as any;
-};
+// de_DeleteUserPoolDomainResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeIdentityProviderResponse
@@ -12370,20 +9836,12 @@ const de_DescribeIdentityProviderResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeIdentityProviderResponse => {
-  return {
-    IdentityProvider:
-      output.IdentityProvider != null ? de_IdentityProviderType(output.IdentityProvider, context) : undefined,
-  } as any;
+  return take(output, {
+    IdentityProvider: (_: any) => de_IdentityProviderType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeResourceServerResponse
- */
-const de_DescribeResourceServerResponse = (output: any, context: __SerdeContext): DescribeResourceServerResponse => {
-  return {
-    ResourceServer: output.ResourceServer != null ? de_ResourceServerType(output.ResourceServer, context) : undefined,
-  } as any;
-};
+// de_DescribeResourceServerResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeRiskConfigurationResponse
@@ -12392,58 +9850,41 @@ const de_DescribeRiskConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRiskConfigurationResponse => {
-  return {
-    RiskConfiguration:
-      output.RiskConfiguration != null ? de_RiskConfigurationType(output.RiskConfiguration, context) : undefined,
-  } as any;
+  return take(output, {
+    RiskConfiguration: (_: any) => de_RiskConfigurationType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeUserImportJobResponse
  */
 const de_DescribeUserImportJobResponse = (output: any, context: __SerdeContext): DescribeUserImportJobResponse => {
-  return {
-    UserImportJob: output.UserImportJob != null ? de_UserImportJobType(output.UserImportJob, context) : undefined,
-  } as any;
+  return take(output, {
+    UserImportJob: (_: any) => de_UserImportJobType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeUserPoolClientResponse
  */
 const de_DescribeUserPoolClientResponse = (output: any, context: __SerdeContext): DescribeUserPoolClientResponse => {
-  return {
-    UserPoolClient: output.UserPoolClient != null ? de_UserPoolClientType(output.UserPoolClient, context) : undefined,
-  } as any;
+  return take(output, {
+    UserPoolClient: (_: any) => de_UserPoolClientType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeUserPoolDomainResponse
- */
-const de_DescribeUserPoolDomainResponse = (output: any, context: __SerdeContext): DescribeUserPoolDomainResponse => {
-  return {
-    DomainDescription:
-      output.DomainDescription != null ? de_DomainDescriptionType(output.DomainDescription, context) : undefined,
-  } as any;
-};
+// de_DescribeUserPoolDomainResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeUserPoolResponse
  */
 const de_DescribeUserPoolResponse = (output: any, context: __SerdeContext): DescribeUserPoolResponse => {
-  return {
-    UserPool: output.UserPool != null ? de_UserPoolType(output.UserPool, context) : undefined,
-  } as any;
+  return take(output, {
+    UserPool: (_: any) => de_UserPoolType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeviceConfigurationType
- */
-const de_DeviceConfigurationType = (output: any, context: __SerdeContext): DeviceConfigurationType => {
-  return {
-    ChallengeRequiredOnNewDevice: __expectBoolean(output.ChallengeRequiredOnNewDevice),
-    DeviceOnlyRememberedOnUserPrompt: __expectBoolean(output.DeviceOnlyRememberedOnUserPrompt),
-  } as any;
-};
+// de_DeviceConfigurationType omitted.
 
 /**
  * deserializeAws_json1_1DeviceListType
@@ -12452,9 +9893,6 @@ const de_DeviceListType = (output: any, context: __SerdeContext): DeviceType[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeviceType(entry, context);
     });
   return retVal;
@@ -12464,195 +9902,66 @@ const de_DeviceListType = (output: any, context: __SerdeContext): DeviceType[] =
  * deserializeAws_json1_1DeviceType
  */
 const de_DeviceType = (output: any, context: __SerdeContext): DeviceType => {
-  return {
-    DeviceAttributes:
-      output.DeviceAttributes != null ? de_AttributeListType(output.DeviceAttributes, context) : undefined,
-    DeviceCreateDate:
-      output.DeviceCreateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceCreateDate)))
-        : undefined,
-    DeviceKey: __expectString(output.DeviceKey),
-    DeviceLastAuthenticatedDate:
-      output.DeviceLastAuthenticatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceLastAuthenticatedDate)))
-        : undefined,
-    DeviceLastModifiedDate:
-      output.DeviceLastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceLastModifiedDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    DeviceAttributes: _json,
+    DeviceCreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeviceKey: __expectString,
+    DeviceLastAuthenticatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeviceLastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DomainDescriptionType
- */
-const de_DomainDescriptionType = (output: any, context: __SerdeContext): DomainDescriptionType => {
-  return {
-    AWSAccountId: __expectString(output.AWSAccountId),
-    CloudFrontDistribution: __expectString(output.CloudFrontDistribution),
-    CustomDomainConfig:
-      output.CustomDomainConfig != null ? de_CustomDomainConfigType(output.CustomDomainConfig, context) : undefined,
-    Domain: __expectString(output.Domain),
-    S3Bucket: __expectString(output.S3Bucket),
-    Status: __expectString(output.Status),
-    UserPoolId: __expectString(output.UserPoolId),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_DomainDescriptionType omitted.
 
-/**
- * deserializeAws_json1_1DuplicateProviderException
- */
-const de_DuplicateProviderException = (output: any, context: __SerdeContext): DuplicateProviderException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DuplicateProviderException omitted.
 
-/**
- * deserializeAws_json1_1EmailConfigurationType
- */
-const de_EmailConfigurationType = (output: any, context: __SerdeContext): EmailConfigurationType => {
-  return {
-    ConfigurationSet: __expectString(output.ConfigurationSet),
-    EmailSendingAccount: __expectString(output.EmailSendingAccount),
-    From: __expectString(output.From),
-    ReplyToEmailAddress: __expectString(output.ReplyToEmailAddress),
-    SourceArn: __expectString(output.SourceArn),
-  } as any;
-};
+// de_EmailConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1EnableSoftwareTokenMFAException
- */
-const de_EnableSoftwareTokenMFAException = (output: any, context: __SerdeContext): EnableSoftwareTokenMFAException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_EnableSoftwareTokenMFAException omitted.
 
-/**
- * deserializeAws_json1_1EventContextDataType
- */
-const de_EventContextDataType = (output: any, context: __SerdeContext): EventContextDataType => {
-  return {
-    City: __expectString(output.City),
-    Country: __expectString(output.Country),
-    DeviceName: __expectString(output.DeviceName),
-    IpAddress: __expectString(output.IpAddress),
-    Timezone: __expectString(output.Timezone),
-  } as any;
-};
+// de_EventContextDataType omitted.
 
 /**
  * deserializeAws_json1_1EventFeedbackType
  */
 const de_EventFeedbackType = (output: any, context: __SerdeContext): EventFeedbackType => {
-  return {
-    FeedbackDate:
-      output.FeedbackDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FeedbackDate)))
-        : undefined,
-    FeedbackValue: __expectString(output.FeedbackValue),
-    Provider: __expectString(output.Provider),
-  } as any;
+  return take(output, {
+    FeedbackDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FeedbackValue: __expectString,
+    Provider: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EventFiltersType
- */
-const de_EventFiltersType = (output: any, context: __SerdeContext): (EventFilterType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EventFiltersType omitted.
 
-/**
- * deserializeAws_json1_1EventRiskType
- */
-const de_EventRiskType = (output: any, context: __SerdeContext): EventRiskType => {
-  return {
-    CompromisedCredentialsDetected: __expectBoolean(output.CompromisedCredentialsDetected),
-    RiskDecision: __expectString(output.RiskDecision),
-    RiskLevel: __expectString(output.RiskLevel),
-  } as any;
-};
+// de_EventRiskType omitted.
 
-/**
- * deserializeAws_json1_1ExpiredCodeException
- */
-const de_ExpiredCodeException = (output: any, context: __SerdeContext): ExpiredCodeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ExpiredCodeException omitted.
 
-/**
- * deserializeAws_json1_1ExplicitAuthFlowsListType
- */
-const de_ExplicitAuthFlowsListType = (output: any, context: __SerdeContext): (ExplicitAuthFlowsType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ExplicitAuthFlowsListType omitted.
 
-/**
- * deserializeAws_json1_1ForbiddenException
- */
-const de_ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ForbiddenException omitted.
 
-/**
- * deserializeAws_json1_1ForgotPasswordResponse
- */
-const de_ForgotPasswordResponse = (output: any, context: __SerdeContext): ForgotPasswordResponse => {
-  return {
-    CodeDeliveryDetails:
-      output.CodeDeliveryDetails != null ? de_CodeDeliveryDetailsType(output.CodeDeliveryDetails, context) : undefined,
-  } as any;
-};
+// de_ForgotPasswordResponse omitted.
 
-/**
- * deserializeAws_json1_1GetCSVHeaderResponse
- */
-const de_GetCSVHeaderResponse = (output: any, context: __SerdeContext): GetCSVHeaderResponse => {
-  return {
-    CSVHeader: output.CSVHeader != null ? de_ListOfStringTypes(output.CSVHeader, context) : undefined,
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
-};
+// de_GetCSVHeaderResponse omitted.
 
 /**
  * deserializeAws_json1_1GetDeviceResponse
  */
 const de_GetDeviceResponse = (output: any, context: __SerdeContext): GetDeviceResponse => {
-  return {
-    Device: output.Device != null ? de_DeviceType(output.Device, context) : undefined,
-  } as any;
+  return take(output, {
+    Device: (_: any) => de_DeviceType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetGroupResponse
  */
 const de_GetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
-  return {
-    Group: output.Group != null ? de_GroupType(output.Group, context) : undefined,
-  } as any;
+  return take(output, {
+    Group: (_: any) => de_GroupType(_, context),
+  }) as any;
 };
 
 /**
@@ -12662,88 +9971,31 @@ const de_GetIdentityProviderByIdentifierResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityProviderByIdentifierResponse => {
-  return {
-    IdentityProvider:
-      output.IdentityProvider != null ? de_IdentityProviderType(output.IdentityProvider, context) : undefined,
-  } as any;
+  return take(output, {
+    IdentityProvider: (_: any) => de_IdentityProviderType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetSigningCertificateResponse
- */
-const de_GetSigningCertificateResponse = (output: any, context: __SerdeContext): GetSigningCertificateResponse => {
-  return {
-    Certificate: __expectString(output.Certificate),
-  } as any;
-};
+// de_GetSigningCertificateResponse omitted.
 
 /**
  * deserializeAws_json1_1GetUICustomizationResponse
  */
 const de_GetUICustomizationResponse = (output: any, context: __SerdeContext): GetUICustomizationResponse => {
-  return {
-    UICustomization:
-      output.UICustomization != null ? de_UICustomizationType(output.UICustomization, context) : undefined,
-  } as any;
+  return take(output, {
+    UICustomization: (_: any) => de_UICustomizationType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetUserAttributeVerificationCodeResponse
- */
-const de_GetUserAttributeVerificationCodeResponse = (
-  output: any,
-  context: __SerdeContext
-): GetUserAttributeVerificationCodeResponse => {
-  return {
-    CodeDeliveryDetails:
-      output.CodeDeliveryDetails != null ? de_CodeDeliveryDetailsType(output.CodeDeliveryDetails, context) : undefined,
-  } as any;
-};
+// de_GetUserAttributeVerificationCodeResponse omitted.
 
-/**
- * deserializeAws_json1_1GetUserPoolMfaConfigResponse
- */
-const de_GetUserPoolMfaConfigResponse = (output: any, context: __SerdeContext): GetUserPoolMfaConfigResponse => {
-  return {
-    MfaConfiguration: __expectString(output.MfaConfiguration),
-    SmsMfaConfiguration:
-      output.SmsMfaConfiguration != null ? de_SmsMfaConfigType(output.SmsMfaConfiguration, context) : undefined,
-    SoftwareTokenMfaConfiguration:
-      output.SoftwareTokenMfaConfiguration != null
-        ? de_SoftwareTokenMfaConfigType(output.SoftwareTokenMfaConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_GetUserPoolMfaConfigResponse omitted.
 
-/**
- * deserializeAws_json1_1GetUserResponse
- */
-const de_GetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
-  return {
-    MFAOptions: output.MFAOptions != null ? de_MFAOptionListType(output.MFAOptions, context) : undefined,
-    PreferredMfaSetting: __expectString(output.PreferredMfaSetting),
-    UserAttributes: output.UserAttributes != null ? de_AttributeListType(output.UserAttributes, context) : undefined,
-    UserMFASettingList:
-      output.UserMFASettingList != null ? de_UserMFASettingListType(output.UserMFASettingList, context) : undefined,
-    Username: __expectString(output.Username),
-  } as any;
-};
+// de_GetUserResponse omitted.
 
-/**
- * deserializeAws_json1_1GlobalSignOutResponse
- */
-const de_GlobalSignOutResponse = (output: any, context: __SerdeContext): GlobalSignOutResponse => {
-  return {} as any;
-};
+// de_GlobalSignOutResponse omitted.
 
-/**
- * deserializeAws_json1_1GroupExistsException
- */
-const de_GroupExistsException = (output: any, context: __SerdeContext): GroupExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_GroupExistsException omitted.
 
 /**
  * deserializeAws_json1_1GroupListType
@@ -12752,9 +10004,6 @@ const de_GroupListType = (output: any, context: __SerdeContext): GroupType[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_GroupType(entry, context);
     });
   return retVal;
@@ -12764,514 +10013,178 @@ const de_GroupListType = (output: any, context: __SerdeContext): GroupType[] => 
  * deserializeAws_json1_1GroupType
  */
 const de_GroupType = (output: any, context: __SerdeContext): GroupType => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    Description: __expectString(output.Description),
-    GroupName: __expectString(output.GroupName),
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    Precedence: __expectInt32(output.Precedence),
-    RoleArn: __expectString(output.RoleArn),
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    GroupName: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Precedence: __expectInt32,
+    RoleArn: __expectString,
+    UserPoolId: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1IdentityProviderType
  */
 const de_IdentityProviderType = (output: any, context: __SerdeContext): IdentityProviderType => {
-  return {
-    AttributeMapping:
-      output.AttributeMapping != null ? de_AttributeMappingType(output.AttributeMapping, context) : undefined,
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    IdpIdentifiers:
-      output.IdpIdentifiers != null ? de_IdpIdentifiersListType(output.IdpIdentifiers, context) : undefined,
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    ProviderDetails:
-      output.ProviderDetails != null ? de_ProviderDetailsType(output.ProviderDetails, context) : undefined,
-    ProviderName: __expectString(output.ProviderName),
-    ProviderType: __expectString(output.ProviderType),
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
+  return take(output, {
+    AttributeMapping: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IdpIdentifiers: _json,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ProviderDetails: _json,
+    ProviderName: __expectString,
+    ProviderType: __expectString,
+    UserPoolId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1IdpIdentifiersListType
- */
-const de_IdpIdentifiersListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IdpIdentifiersListType omitted.
 
-/**
- * deserializeAws_json1_1InitiateAuthResponse
- */
-const de_InitiateAuthResponse = (output: any, context: __SerdeContext): InitiateAuthResponse => {
-  return {
-    AuthenticationResult:
-      output.AuthenticationResult != null
-        ? de_AuthenticationResultType(output.AuthenticationResult, context)
-        : undefined,
-    ChallengeName: __expectString(output.ChallengeName),
-    ChallengeParameters:
-      output.ChallengeParameters != null ? de_ChallengeParametersType(output.ChallengeParameters, context) : undefined,
-    Session: __expectString(output.Session),
-  } as any;
-};
+// de_InitiateAuthResponse omitted.
 
-/**
- * deserializeAws_json1_1InternalErrorException
- */
-const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalErrorException omitted.
 
-/**
- * deserializeAws_json1_1InvalidEmailRoleAccessPolicyException
- */
-const de_InvalidEmailRoleAccessPolicyException = (
-  output: any,
-  context: __SerdeContext
-): InvalidEmailRoleAccessPolicyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidEmailRoleAccessPolicyException omitted.
 
-/**
- * deserializeAws_json1_1InvalidLambdaResponseException
- */
-const de_InvalidLambdaResponseException = (output: any, context: __SerdeContext): InvalidLambdaResponseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidLambdaResponseException omitted.
 
-/**
- * deserializeAws_json1_1InvalidOAuthFlowException
- */
-const de_InvalidOAuthFlowException = (output: any, context: __SerdeContext): InvalidOAuthFlowException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidOAuthFlowException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPasswordException
- */
-const de_InvalidPasswordException = (output: any, context: __SerdeContext): InvalidPasswordException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPasswordException omitted.
 
-/**
- * deserializeAws_json1_1InvalidSmsRoleAccessPolicyException
- */
-const de_InvalidSmsRoleAccessPolicyException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSmsRoleAccessPolicyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidSmsRoleAccessPolicyException omitted.
 
-/**
- * deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException
- */
-const de_InvalidSmsRoleTrustRelationshipException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSmsRoleTrustRelationshipException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidSmsRoleTrustRelationshipException omitted.
 
-/**
- * deserializeAws_json1_1InvalidUserPoolConfigurationException
- */
-const de_InvalidUserPoolConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidUserPoolConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidUserPoolConfigurationException omitted.
 
-/**
- * deserializeAws_json1_1LambdaConfigType
- */
-const de_LambdaConfigType = (output: any, context: __SerdeContext): LambdaConfigType => {
-  return {
-    CreateAuthChallenge: __expectString(output.CreateAuthChallenge),
-    CustomEmailSender:
-      output.CustomEmailSender != null
-        ? de_CustomEmailLambdaVersionConfigType(output.CustomEmailSender, context)
-        : undefined,
-    CustomMessage: __expectString(output.CustomMessage),
-    CustomSMSSender:
-      output.CustomSMSSender != null ? de_CustomSMSLambdaVersionConfigType(output.CustomSMSSender, context) : undefined,
-    DefineAuthChallenge: __expectString(output.DefineAuthChallenge),
-    KMSKeyID: __expectString(output.KMSKeyID),
-    PostAuthentication: __expectString(output.PostAuthentication),
-    PostConfirmation: __expectString(output.PostConfirmation),
-    PreAuthentication: __expectString(output.PreAuthentication),
-    PreSignUp: __expectString(output.PreSignUp),
-    PreTokenGeneration: __expectString(output.PreTokenGeneration),
-    UserMigration: __expectString(output.UserMigration),
-    VerifyAuthChallengeResponse: __expectString(output.VerifyAuthChallengeResponse),
-  } as any;
-};
+// de_LambdaConfigType omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListDevicesResponse
  */
 const de_ListDevicesResponse = (output: any, context: __SerdeContext): ListDevicesResponse => {
-  return {
-    Devices: output.Devices != null ? de_DeviceListType(output.Devices, context) : undefined,
-    PaginationToken: __expectString(output.PaginationToken),
-  } as any;
+  return take(output, {
+    Devices: (_: any) => de_DeviceListType(_, context),
+    PaginationToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListGroupsResponse
  */
 const de_ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
-  return {
-    Groups: output.Groups != null ? de_GroupListType(output.Groups, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Groups: (_: any) => de_GroupListType(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListIdentityProvidersResponse
  */
 const de_ListIdentityProvidersResponse = (output: any, context: __SerdeContext): ListIdentityProvidersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Providers: output.Providers != null ? de_ProvidersListType(output.Providers, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Providers: (_: any) => de_ProvidersListType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListOfStringTypes
- */
-const de_ListOfStringTypes = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfStringTypes omitted.
 
-/**
- * deserializeAws_json1_1ListResourceServersResponse
- */
-const de_ListResourceServersResponse = (output: any, context: __SerdeContext): ListResourceServersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ResourceServers:
-      output.ResourceServers != null ? de_ResourceServersListType(output.ResourceServers, context) : undefined,
-  } as any;
-};
+// de_ListResourceServersResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_UserPoolTagsType(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1ListUserImportJobsResponse
  */
 const de_ListUserImportJobsResponse = (output: any, context: __SerdeContext): ListUserImportJobsResponse => {
-  return {
-    PaginationToken: __expectString(output.PaginationToken),
-    UserImportJobs:
-      output.UserImportJobs != null ? de_UserImportJobsListType(output.UserImportJobs, context) : undefined,
-  } as any;
+  return take(output, {
+    PaginationToken: __expectString,
+    UserImportJobs: (_: any) => de_UserImportJobsListType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListUserPoolClientsResponse
- */
-const de_ListUserPoolClientsResponse = (output: any, context: __SerdeContext): ListUserPoolClientsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    UserPoolClients:
-      output.UserPoolClients != null ? de_UserPoolClientListType(output.UserPoolClients, context) : undefined,
-  } as any;
-};
+// de_ListUserPoolClientsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListUserPoolsResponse
  */
 const de_ListUserPoolsResponse = (output: any, context: __SerdeContext): ListUserPoolsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    UserPools: output.UserPools != null ? de_UserPoolListType(output.UserPools, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    UserPools: (_: any) => de_UserPoolListType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListUsersInGroupResponse
  */
 const de_ListUsersInGroupResponse = (output: any, context: __SerdeContext): ListUsersInGroupResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Users: output.Users != null ? de_UsersListType(output.Users, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Users: (_: any) => de_UsersListType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListUsersResponse
  */
 const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
-  return {
-    PaginationToken: __expectString(output.PaginationToken),
-    Users: output.Users != null ? de_UsersListType(output.Users, context) : undefined,
-  } as any;
+  return take(output, {
+    PaginationToken: __expectString,
+    Users: (_: any) => de_UsersListType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1LogoutURLsListType
- */
-const de_LogoutURLsListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LogoutURLsListType omitted.
 
-/**
- * deserializeAws_json1_1MessageTemplateType
- */
-const de_MessageTemplateType = (output: any, context: __SerdeContext): MessageTemplateType => {
-  return {
-    EmailMessage: __expectString(output.EmailMessage),
-    EmailSubject: __expectString(output.EmailSubject),
-    SMSMessage: __expectString(output.SMSMessage),
-  } as any;
-};
+// de_MessageTemplateType omitted.
 
-/**
- * deserializeAws_json1_1MFAMethodNotFoundException
- */
-const de_MFAMethodNotFoundException = (output: any, context: __SerdeContext): MFAMethodNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MFAMethodNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1MFAOptionListType
- */
-const de_MFAOptionListType = (output: any, context: __SerdeContext): MFAOptionType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MFAOptionType(entry, context);
-    });
-  return retVal;
-};
+// de_MFAOptionListType omitted.
 
-/**
- * deserializeAws_json1_1MFAOptionType
- */
-const de_MFAOptionType = (output: any, context: __SerdeContext): MFAOptionType => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    DeliveryMedium: __expectString(output.DeliveryMedium),
-  } as any;
-};
+// de_MFAOptionType omitted.
 
-/**
- * deserializeAws_json1_1NewDeviceMetadataType
- */
-const de_NewDeviceMetadataType = (output: any, context: __SerdeContext): NewDeviceMetadataType => {
-  return {
-    DeviceGroupKey: __expectString(output.DeviceGroupKey),
-    DeviceKey: __expectString(output.DeviceKey),
-  } as any;
-};
+// de_NewDeviceMetadataType omitted.
 
-/**
- * deserializeAws_json1_1NotAuthorizedException
- */
-const de_NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NotAuthorizedException omitted.
 
-/**
- * deserializeAws_json1_1NotifyConfigurationType
- */
-const de_NotifyConfigurationType = (output: any, context: __SerdeContext): NotifyConfigurationType => {
-  return {
-    BlockEmail: output.BlockEmail != null ? de_NotifyEmailType(output.BlockEmail, context) : undefined,
-    From: __expectString(output.From),
-    MfaEmail: output.MfaEmail != null ? de_NotifyEmailType(output.MfaEmail, context) : undefined,
-    NoActionEmail: output.NoActionEmail != null ? de_NotifyEmailType(output.NoActionEmail, context) : undefined,
-    ReplyTo: __expectString(output.ReplyTo),
-    SourceArn: __expectString(output.SourceArn),
-  } as any;
-};
+// de_NotifyConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1NotifyEmailType
- */
-const de_NotifyEmailType = (output: any, context: __SerdeContext): NotifyEmailType => {
-  return {
-    HtmlBody: __expectString(output.HtmlBody),
-    Subject: __expectString(output.Subject),
-    TextBody: __expectString(output.TextBody),
-  } as any;
-};
+// de_NotifyEmailType omitted.
 
-/**
- * deserializeAws_json1_1NumberAttributeConstraintsType
- */
-const de_NumberAttributeConstraintsType = (output: any, context: __SerdeContext): NumberAttributeConstraintsType => {
-  return {
-    MaxValue: __expectString(output.MaxValue),
-    MinValue: __expectString(output.MinValue),
-  } as any;
-};
+// de_NumberAttributeConstraintsType omitted.
 
-/**
- * deserializeAws_json1_1OAuthFlowsType
- */
-const de_OAuthFlowsType = (output: any, context: __SerdeContext): (OAuthFlowType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_OAuthFlowsType omitted.
 
-/**
- * deserializeAws_json1_1PasswordPolicyType
- */
-const de_PasswordPolicyType = (output: any, context: __SerdeContext): PasswordPolicyType => {
-  return {
-    MinimumLength: __expectInt32(output.MinimumLength),
-    RequireLowercase: __expectBoolean(output.RequireLowercase),
-    RequireNumbers: __expectBoolean(output.RequireNumbers),
-    RequireSymbols: __expectBoolean(output.RequireSymbols),
-    RequireUppercase: __expectBoolean(output.RequireUppercase),
-    TemporaryPasswordValidityDays: __expectInt32(output.TemporaryPasswordValidityDays),
-  } as any;
-};
+// de_PasswordPolicyType omitted.
 
-/**
- * deserializeAws_json1_1PasswordResetRequiredException
- */
-const de_PasswordResetRequiredException = (output: any, context: __SerdeContext): PasswordResetRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PasswordResetRequiredException omitted.
 
-/**
- * deserializeAws_json1_1PreconditionNotMetException
- */
-const de_PreconditionNotMetException = (output: any, context: __SerdeContext): PreconditionNotMetException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PreconditionNotMetException omitted.
 
 /**
  * deserializeAws_json1_1ProviderDescription
  */
 const de_ProviderDescription = (output: any, context: __SerdeContext): ProviderDescription => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    ProviderName: __expectString(output.ProviderName),
-    ProviderType: __expectString(output.ProviderType),
-  } as any;
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ProviderName: __expectString,
+    ProviderType: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ProviderDetailsType
- */
-const de_ProviderDetailsType = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ProviderDetailsType omitted.
 
 /**
  * deserializeAws_json1_1ProvidersListType
@@ -13280,613 +10193,192 @@ const de_ProvidersListType = (output: any, context: __SerdeContext): ProviderDes
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProviderDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1RecoveryMechanismsType
- */
-const de_RecoveryMechanismsType = (output: any, context: __SerdeContext): RecoveryOptionType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecoveryOptionType(entry, context);
-    });
-  return retVal;
-};
+// de_RecoveryMechanismsType omitted.
 
-/**
- * deserializeAws_json1_1RecoveryOptionType
- */
-const de_RecoveryOptionType = (output: any, context: __SerdeContext): RecoveryOptionType => {
-  return {
-    Name: __expectString(output.Name),
-    Priority: __expectInt32(output.Priority),
-  } as any;
-};
+// de_RecoveryOptionType omitted.
 
-/**
- * deserializeAws_json1_1ResendConfirmationCodeResponse
- */
-const de_ResendConfirmationCodeResponse = (output: any, context: __SerdeContext): ResendConfirmationCodeResponse => {
-  return {
-    CodeDeliveryDetails:
-      output.CodeDeliveryDetails != null ? de_CodeDeliveryDetailsType(output.CodeDeliveryDetails, context) : undefined,
-  } as any;
-};
+// de_ResendConfirmationCodeResponse omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResourceServerScopeListType
- */
-const de_ResourceServerScopeListType = (output: any, context: __SerdeContext): ResourceServerScopeType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceServerScopeType(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceServerScopeListType omitted.
 
-/**
- * deserializeAws_json1_1ResourceServerScopeType
- */
-const de_ResourceServerScopeType = (output: any, context: __SerdeContext): ResourceServerScopeType => {
-  return {
-    ScopeDescription: __expectString(output.ScopeDescription),
-    ScopeName: __expectString(output.ScopeName),
-  } as any;
-};
+// de_ResourceServerScopeType omitted.
 
-/**
- * deserializeAws_json1_1ResourceServersListType
- */
-const de_ResourceServersListType = (output: any, context: __SerdeContext): ResourceServerType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceServerType(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceServersListType omitted.
 
-/**
- * deserializeAws_json1_1ResourceServerType
- */
-const de_ResourceServerType = (output: any, context: __SerdeContext): ResourceServerType => {
-  return {
-    Identifier: __expectString(output.Identifier),
-    Name: __expectString(output.Name),
-    Scopes: output.Scopes != null ? de_ResourceServerScopeListType(output.Scopes, context) : undefined,
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
-};
+// de_ResourceServerType omitted.
 
-/**
- * deserializeAws_json1_1RespondToAuthChallengeResponse
- */
-const de_RespondToAuthChallengeResponse = (output: any, context: __SerdeContext): RespondToAuthChallengeResponse => {
-  return {
-    AuthenticationResult:
-      output.AuthenticationResult != null
-        ? de_AuthenticationResultType(output.AuthenticationResult, context)
-        : undefined,
-    ChallengeName: __expectString(output.ChallengeName),
-    ChallengeParameters:
-      output.ChallengeParameters != null ? de_ChallengeParametersType(output.ChallengeParameters, context) : undefined,
-    Session: __expectString(output.Session),
-  } as any;
-};
+// de_RespondToAuthChallengeResponse omitted.
 
-/**
- * deserializeAws_json1_1RevokeTokenResponse
- */
-const de_RevokeTokenResponse = (output: any, context: __SerdeContext): RevokeTokenResponse => {
-  return {} as any;
-};
+// de_RevokeTokenResponse omitted.
 
 /**
  * deserializeAws_json1_1RiskConfigurationType
  */
 const de_RiskConfigurationType = (output: any, context: __SerdeContext): RiskConfigurationType => {
-  return {
-    AccountTakeoverRiskConfiguration:
-      output.AccountTakeoverRiskConfiguration != null
-        ? de_AccountTakeoverRiskConfigurationType(output.AccountTakeoverRiskConfiguration, context)
-        : undefined,
-    ClientId: __expectString(output.ClientId),
-    CompromisedCredentialsRiskConfiguration:
-      output.CompromisedCredentialsRiskConfiguration != null
-        ? de_CompromisedCredentialsRiskConfigurationType(output.CompromisedCredentialsRiskConfiguration, context)
-        : undefined,
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    RiskExceptionConfiguration:
-      output.RiskExceptionConfiguration != null
-        ? de_RiskExceptionConfigurationType(output.RiskExceptionConfiguration, context)
-        : undefined,
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
+  return take(output, {
+    AccountTakeoverRiskConfiguration: _json,
+    ClientId: __expectString,
+    CompromisedCredentialsRiskConfiguration: _json,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RiskExceptionConfiguration: _json,
+    UserPoolId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RiskExceptionConfigurationType
- */
-const de_RiskExceptionConfigurationType = (output: any, context: __SerdeContext): RiskExceptionConfigurationType => {
-  return {
-    BlockedIPRangeList:
-      output.BlockedIPRangeList != null ? de_BlockedIPRangeListType(output.BlockedIPRangeList, context) : undefined,
-    SkippedIPRangeList:
-      output.SkippedIPRangeList != null ? de_SkippedIPRangeListType(output.SkippedIPRangeList, context) : undefined,
-  } as any;
-};
+// de_RiskExceptionConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1SchemaAttributesListType
- */
-const de_SchemaAttributesListType = (output: any, context: __SerdeContext): SchemaAttributeType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SchemaAttributeType(entry, context);
-    });
-  return retVal;
-};
+// de_SchemaAttributesListType omitted.
 
-/**
- * deserializeAws_json1_1SchemaAttributeType
- */
-const de_SchemaAttributeType = (output: any, context: __SerdeContext): SchemaAttributeType => {
-  return {
-    AttributeDataType: __expectString(output.AttributeDataType),
-    DeveloperOnlyAttribute: __expectBoolean(output.DeveloperOnlyAttribute),
-    Mutable: __expectBoolean(output.Mutable),
-    Name: __expectString(output.Name),
-    NumberAttributeConstraints:
-      output.NumberAttributeConstraints != null
-        ? de_NumberAttributeConstraintsType(output.NumberAttributeConstraints, context)
-        : undefined,
-    Required: __expectBoolean(output.Required),
-    StringAttributeConstraints:
-      output.StringAttributeConstraints != null
-        ? de_StringAttributeConstraintsType(output.StringAttributeConstraints, context)
-        : undefined,
-  } as any;
-};
+// de_SchemaAttributeType omitted.
 
-/**
- * deserializeAws_json1_1ScopeDoesNotExistException
- */
-const de_ScopeDoesNotExistException = (output: any, context: __SerdeContext): ScopeDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ScopeDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1ScopeListType
- */
-const de_ScopeListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ScopeListType omitted.
 
 /**
  * deserializeAws_json1_1SetRiskConfigurationResponse
  */
 const de_SetRiskConfigurationResponse = (output: any, context: __SerdeContext): SetRiskConfigurationResponse => {
-  return {
-    RiskConfiguration:
-      output.RiskConfiguration != null ? de_RiskConfigurationType(output.RiskConfiguration, context) : undefined,
-  } as any;
+  return take(output, {
+    RiskConfiguration: (_: any) => de_RiskConfigurationType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SetUICustomizationResponse
  */
 const de_SetUICustomizationResponse = (output: any, context: __SerdeContext): SetUICustomizationResponse => {
-  return {
-    UICustomization:
-      output.UICustomization != null ? de_UICustomizationType(output.UICustomization, context) : undefined,
-  } as any;
+  return take(output, {
+    UICustomization: (_: any) => de_UICustomizationType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SetUserMFAPreferenceResponse
- */
-const de_SetUserMFAPreferenceResponse = (output: any, context: __SerdeContext): SetUserMFAPreferenceResponse => {
-  return {} as any;
-};
+// de_SetUserMFAPreferenceResponse omitted.
 
-/**
- * deserializeAws_json1_1SetUserPoolMfaConfigResponse
- */
-const de_SetUserPoolMfaConfigResponse = (output: any, context: __SerdeContext): SetUserPoolMfaConfigResponse => {
-  return {
-    MfaConfiguration: __expectString(output.MfaConfiguration),
-    SmsMfaConfiguration:
-      output.SmsMfaConfiguration != null ? de_SmsMfaConfigType(output.SmsMfaConfiguration, context) : undefined,
-    SoftwareTokenMfaConfiguration:
-      output.SoftwareTokenMfaConfiguration != null
-        ? de_SoftwareTokenMfaConfigType(output.SoftwareTokenMfaConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_SetUserPoolMfaConfigResponse omitted.
 
-/**
- * deserializeAws_json1_1SetUserSettingsResponse
- */
-const de_SetUserSettingsResponse = (output: any, context: __SerdeContext): SetUserSettingsResponse => {
-  return {} as any;
-};
+// de_SetUserSettingsResponse omitted.
 
-/**
- * deserializeAws_json1_1SignUpResponse
- */
-const de_SignUpResponse = (output: any, context: __SerdeContext): SignUpResponse => {
-  return {
-    CodeDeliveryDetails:
-      output.CodeDeliveryDetails != null ? de_CodeDeliveryDetailsType(output.CodeDeliveryDetails, context) : undefined,
-    UserConfirmed: __expectBoolean(output.UserConfirmed),
-    UserSub: __expectString(output.UserSub),
-  } as any;
-};
+// de_SignUpResponse omitted.
 
-/**
- * deserializeAws_json1_1SkippedIPRangeListType
- */
-const de_SkippedIPRangeListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SkippedIPRangeListType omitted.
 
-/**
- * deserializeAws_json1_1SmsConfigurationType
- */
-const de_SmsConfigurationType = (output: any, context: __SerdeContext): SmsConfigurationType => {
-  return {
-    ExternalId: __expectString(output.ExternalId),
-    SnsCallerArn: __expectString(output.SnsCallerArn),
-    SnsRegion: __expectString(output.SnsRegion),
-  } as any;
-};
+// de_SmsConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1SmsMfaConfigType
- */
-const de_SmsMfaConfigType = (output: any, context: __SerdeContext): SmsMfaConfigType => {
-  return {
-    SmsAuthenticationMessage: __expectString(output.SmsAuthenticationMessage),
-    SmsConfiguration:
-      output.SmsConfiguration != null ? de_SmsConfigurationType(output.SmsConfiguration, context) : undefined,
-  } as any;
-};
+// de_SmsMfaConfigType omitted.
 
-/**
- * deserializeAws_json1_1SoftwareTokenMfaConfigType
- */
-const de_SoftwareTokenMfaConfigType = (output: any, context: __SerdeContext): SoftwareTokenMfaConfigType => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
+// de_SoftwareTokenMfaConfigType omitted.
 
-/**
- * deserializeAws_json1_1SoftwareTokenMFANotFoundException
- */
-const de_SoftwareTokenMFANotFoundException = (
-  output: any,
-  context: __SerdeContext
-): SoftwareTokenMFANotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_SoftwareTokenMFANotFoundException omitted.
 
 /**
  * deserializeAws_json1_1StartUserImportJobResponse
  */
 const de_StartUserImportJobResponse = (output: any, context: __SerdeContext): StartUserImportJobResponse => {
-  return {
-    UserImportJob: output.UserImportJob != null ? de_UserImportJobType(output.UserImportJob, context) : undefined,
-  } as any;
+  return take(output, {
+    UserImportJob: (_: any) => de_UserImportJobType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1StopUserImportJobResponse
  */
 const de_StopUserImportJobResponse = (output: any, context: __SerdeContext): StopUserImportJobResponse => {
-  return {
-    UserImportJob: output.UserImportJob != null ? de_UserImportJobType(output.UserImportJob, context) : undefined,
-  } as any;
+  return take(output, {
+    UserImportJob: (_: any) => de_UserImportJobType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1StringAttributeConstraintsType
- */
-const de_StringAttributeConstraintsType = (output: any, context: __SerdeContext): StringAttributeConstraintsType => {
-  return {
-    MaxLength: __expectString(output.MaxLength),
-    MinLength: __expectString(output.MinLength),
-  } as any;
-};
+// de_StringAttributeConstraintsType omitted.
 
-/**
- * deserializeAws_json1_1SupportedIdentityProvidersListType
- */
-const de_SupportedIdentityProvidersListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SupportedIdentityProvidersListType omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TokenValidityUnitsType
- */
-const de_TokenValidityUnitsType = (output: any, context: __SerdeContext): TokenValidityUnitsType => {
-  return {
-    AccessToken: __expectString(output.AccessToken),
-    IdToken: __expectString(output.IdToken),
-    RefreshToken: __expectString(output.RefreshToken),
-  } as any;
-};
+// de_TokenValidityUnitsType omitted.
 
-/**
- * deserializeAws_json1_1TooManyFailedAttemptsException
- */
-const de_TooManyFailedAttemptsException = (output: any, context: __SerdeContext): TooManyFailedAttemptsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyFailedAttemptsException omitted.
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
 /**
  * deserializeAws_json1_1UICustomizationType
  */
 const de_UICustomizationType = (output: any, context: __SerdeContext): UICustomizationType => {
-  return {
-    CSS: __expectString(output.CSS),
-    CSSVersion: __expectString(output.CSSVersion),
-    ClientId: __expectString(output.ClientId),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    ImageUrl: __expectString(output.ImageUrl),
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
+  return take(output, {
+    CSS: __expectString,
+    CSSVersion: __expectString,
+    ClientId: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ImageUrl: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UserPoolId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UnauthorizedException
- */
-const de_UnauthorizedException = (output: any, context: __SerdeContext): UnauthorizedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnauthorizedException omitted.
 
-/**
- * deserializeAws_json1_1UnexpectedLambdaException
- */
-const de_UnexpectedLambdaException = (output: any, context: __SerdeContext): UnexpectedLambdaException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnexpectedLambdaException omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedIdentityProviderException
- */
-const de_UnsupportedIdentityProviderException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedIdentityProviderException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedIdentityProviderException omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedOperationException
- */
-const de_UnsupportedOperationException = (output: any, context: __SerdeContext): UnsupportedOperationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedOperationException omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedTokenTypeException
- */
-const de_UnsupportedTokenTypeException = (output: any, context: __SerdeContext): UnsupportedTokenTypeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedTokenTypeException omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedUserStateException
- */
-const de_UnsupportedUserStateException = (output: any, context: __SerdeContext): UnsupportedUserStateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedUserStateException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateAuthEventFeedbackResponse
- */
-const de_UpdateAuthEventFeedbackResponse = (output: any, context: __SerdeContext): UpdateAuthEventFeedbackResponse => {
-  return {} as any;
-};
+// de_UpdateAuthEventFeedbackResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateDeviceStatusResponse
- */
-const de_UpdateDeviceStatusResponse = (output: any, context: __SerdeContext): UpdateDeviceStatusResponse => {
-  return {} as any;
-};
+// de_UpdateDeviceStatusResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateGroupResponse
  */
 const de_UpdateGroupResponse = (output: any, context: __SerdeContext): UpdateGroupResponse => {
-  return {
-    Group: output.Group != null ? de_GroupType(output.Group, context) : undefined,
-  } as any;
+  return take(output, {
+    Group: (_: any) => de_GroupType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateIdentityProviderResponse
  */
 const de_UpdateIdentityProviderResponse = (output: any, context: __SerdeContext): UpdateIdentityProviderResponse => {
-  return {
-    IdentityProvider:
-      output.IdentityProvider != null ? de_IdentityProviderType(output.IdentityProvider, context) : undefined,
-  } as any;
+  return take(output, {
+    IdentityProvider: (_: any) => de_IdentityProviderType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateResourceServerResponse
- */
-const de_UpdateResourceServerResponse = (output: any, context: __SerdeContext): UpdateResourceServerResponse => {
-  return {
-    ResourceServer: output.ResourceServer != null ? de_ResourceServerType(output.ResourceServer, context) : undefined,
-  } as any;
-};
+// de_UpdateResourceServerResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateUserAttributesResponse
- */
-const de_UpdateUserAttributesResponse = (output: any, context: __SerdeContext): UpdateUserAttributesResponse => {
-  return {
-    CodeDeliveryDetailsList:
-      output.CodeDeliveryDetailsList != null
-        ? de_CodeDeliveryDetailsListType(output.CodeDeliveryDetailsList, context)
-        : undefined,
-  } as any;
-};
+// de_UpdateUserAttributesResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateUserPoolClientResponse
  */
 const de_UpdateUserPoolClientResponse = (output: any, context: __SerdeContext): UpdateUserPoolClientResponse => {
-  return {
-    UserPoolClient: output.UserPoolClient != null ? de_UserPoolClientType(output.UserPoolClient, context) : undefined,
-  } as any;
+  return take(output, {
+    UserPoolClient: (_: any) => de_UserPoolClientType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateUserPoolDomainResponse
- */
-const de_UpdateUserPoolDomainResponse = (output: any, context: __SerdeContext): UpdateUserPoolDomainResponse => {
-  return {
-    CloudFrontDomain: __expectString(output.CloudFrontDomain),
-  } as any;
-};
+// de_UpdateUserPoolDomainResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateUserPoolResponse
- */
-const de_UpdateUserPoolResponse = (output: any, context: __SerdeContext): UpdateUserPoolResponse => {
-  return {} as any;
-};
+// de_UpdateUserPoolResponse omitted.
 
-/**
- * deserializeAws_json1_1UserAttributeUpdateSettingsType
- */
-const de_UserAttributeUpdateSettingsType = (output: any, context: __SerdeContext): UserAttributeUpdateSettingsType => {
-  return {
-    AttributesRequireVerificationBeforeUpdate:
-      output.AttributesRequireVerificationBeforeUpdate != null
-        ? de_AttributesRequireVerificationBeforeUpdateType(output.AttributesRequireVerificationBeforeUpdate, context)
-        : undefined,
-  } as any;
-};
+// de_UserAttributeUpdateSettingsType omitted.
 
-/**
- * deserializeAws_json1_1UserImportInProgressException
- */
-const de_UserImportInProgressException = (output: any, context: __SerdeContext): UserImportInProgressException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserImportInProgressException omitted.
 
 /**
  * deserializeAws_json1_1UserImportJobsListType
@@ -13895,9 +10387,6 @@ const de_UserImportJobsListType = (output: any, context: __SerdeContext): UserIm
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UserImportJobType(entry, context);
     });
   return retVal;
@@ -13907,221 +10396,90 @@ const de_UserImportJobsListType = (output: any, context: __SerdeContext): UserIm
  * deserializeAws_json1_1UserImportJobType
  */
 const de_UserImportJobType = (output: any, context: __SerdeContext): UserImportJobType => {
-  return {
-    CloudWatchLogsRoleArn: __expectString(output.CloudWatchLogsRoleArn),
-    CompletionDate:
-      output.CompletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CompletionMessage: __expectString(output.CompletionMessage),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    FailedUsers: __expectLong(output.FailedUsers),
-    ImportedUsers: __expectLong(output.ImportedUsers),
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    PreSignedUrl: __expectString(output.PreSignedUrl),
-    SkippedUsers: __expectLong(output.SkippedUsers),
-    StartDate:
-      output.StartDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate))) : undefined,
-    Status: __expectString(output.Status),
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
+  return take(output, {
+    CloudWatchLogsRoleArn: __expectString,
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CompletionMessage: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailedUsers: __expectLong,
+    ImportedUsers: __expectLong,
+    JobId: __expectString,
+    JobName: __expectString,
+    PreSignedUrl: __expectString,
+    SkippedUsers: __expectLong,
+    StartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    UserPoolId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UserLambdaValidationException
- */
-const de_UserLambdaValidationException = (output: any, context: __SerdeContext): UserLambdaValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserLambdaValidationException omitted.
 
-/**
- * deserializeAws_json1_1UserMFASettingListType
- */
-const de_UserMFASettingListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_UserMFASettingListType omitted.
 
-/**
- * deserializeAws_json1_1UsernameAttributesListType
- */
-const de_UsernameAttributesListType = (output: any, context: __SerdeContext): (UsernameAttributeType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_UsernameAttributesListType omitted.
 
-/**
- * deserializeAws_json1_1UsernameConfigurationType
- */
-const de_UsernameConfigurationType = (output: any, context: __SerdeContext): UsernameConfigurationType => {
-  return {
-    CaseSensitive: __expectBoolean(output.CaseSensitive),
-  } as any;
-};
+// de_UsernameConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1UsernameExistsException
- */
-const de_UsernameExistsException = (output: any, context: __SerdeContext): UsernameExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UsernameExistsException omitted.
 
-/**
- * deserializeAws_json1_1UserNotConfirmedException
- */
-const de_UserNotConfirmedException = (output: any, context: __SerdeContext): UserNotConfirmedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserNotConfirmedException omitted.
 
-/**
- * deserializeAws_json1_1UserNotFoundException
- */
-const de_UserNotFoundException = (output: any, context: __SerdeContext): UserNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1UserPoolAddOnNotEnabledException
- */
-const de_UserPoolAddOnNotEnabledException = (
-  output: any,
-  context: __SerdeContext
-): UserPoolAddOnNotEnabledException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserPoolAddOnNotEnabledException omitted.
 
-/**
- * deserializeAws_json1_1UserPoolAddOnsType
- */
-const de_UserPoolAddOnsType = (output: any, context: __SerdeContext): UserPoolAddOnsType => {
-  return {
-    AdvancedSecurityMode: __expectString(output.AdvancedSecurityMode),
-  } as any;
-};
+// de_UserPoolAddOnsType omitted.
 
-/**
- * deserializeAws_json1_1UserPoolClientDescription
- */
-const de_UserPoolClientDescription = (output: any, context: __SerdeContext): UserPoolClientDescription => {
-  return {
-    ClientId: __expectString(output.ClientId),
-    ClientName: __expectString(output.ClientName),
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
-};
+// de_UserPoolClientDescription omitted.
 
-/**
- * deserializeAws_json1_1UserPoolClientListType
- */
-const de_UserPoolClientListType = (output: any, context: __SerdeContext): UserPoolClientDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UserPoolClientDescription(entry, context);
-    });
-  return retVal;
-};
+// de_UserPoolClientListType omitted.
 
 /**
  * deserializeAws_json1_1UserPoolClientType
  */
 const de_UserPoolClientType = (output: any, context: __SerdeContext): UserPoolClientType => {
-  return {
-    AccessTokenValidity: __expectInt32(output.AccessTokenValidity),
-    AllowedOAuthFlows:
-      output.AllowedOAuthFlows != null ? de_OAuthFlowsType(output.AllowedOAuthFlows, context) : undefined,
-    AllowedOAuthFlowsUserPoolClient: __expectBoolean(output.AllowedOAuthFlowsUserPoolClient),
-    AllowedOAuthScopes:
-      output.AllowedOAuthScopes != null ? de_ScopeListType(output.AllowedOAuthScopes, context) : undefined,
-    AnalyticsConfiguration:
-      output.AnalyticsConfiguration != null
-        ? de_AnalyticsConfigurationType(output.AnalyticsConfiguration, context)
-        : undefined,
-    AuthSessionValidity: __expectInt32(output.AuthSessionValidity),
-    CallbackURLs: output.CallbackURLs != null ? de_CallbackURLsListType(output.CallbackURLs, context) : undefined,
-    ClientId: __expectString(output.ClientId),
-    ClientName: __expectString(output.ClientName),
-    ClientSecret: __expectString(output.ClientSecret),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    DefaultRedirectURI: __expectString(output.DefaultRedirectURI),
-    EnablePropagateAdditionalUserContextData: __expectBoolean(output.EnablePropagateAdditionalUserContextData),
-    EnableTokenRevocation: __expectBoolean(output.EnableTokenRevocation),
-    ExplicitAuthFlows:
-      output.ExplicitAuthFlows != null ? de_ExplicitAuthFlowsListType(output.ExplicitAuthFlows, context) : undefined,
-    IdTokenValidity: __expectInt32(output.IdTokenValidity),
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    LogoutURLs: output.LogoutURLs != null ? de_LogoutURLsListType(output.LogoutURLs, context) : undefined,
-    PreventUserExistenceErrors: __expectString(output.PreventUserExistenceErrors),
-    ReadAttributes:
-      output.ReadAttributes != null ? de_ClientPermissionListType(output.ReadAttributes, context) : undefined,
-    RefreshTokenValidity: __expectInt32(output.RefreshTokenValidity),
-    SupportedIdentityProviders:
-      output.SupportedIdentityProviders != null
-        ? de_SupportedIdentityProvidersListType(output.SupportedIdentityProviders, context)
-        : undefined,
-    TokenValidityUnits:
-      output.TokenValidityUnits != null ? de_TokenValidityUnitsType(output.TokenValidityUnits, context) : undefined,
-    UserPoolId: __expectString(output.UserPoolId),
-    WriteAttributes:
-      output.WriteAttributes != null ? de_ClientPermissionListType(output.WriteAttributes, context) : undefined,
-  } as any;
+  return take(output, {
+    AccessTokenValidity: __expectInt32,
+    AllowedOAuthFlows: _json,
+    AllowedOAuthFlowsUserPoolClient: __expectBoolean,
+    AllowedOAuthScopes: _json,
+    AnalyticsConfiguration: _json,
+    AuthSessionValidity: __expectInt32,
+    CallbackURLs: _json,
+    ClientId: __expectString,
+    ClientName: __expectString,
+    ClientSecret: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultRedirectURI: __expectString,
+    EnablePropagateAdditionalUserContextData: __expectBoolean,
+    EnableTokenRevocation: __expectBoolean,
+    ExplicitAuthFlows: _json,
+    IdTokenValidity: __expectInt32,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogoutURLs: _json,
+    PreventUserExistenceErrors: __expectString,
+    ReadAttributes: _json,
+    RefreshTokenValidity: __expectInt32,
+    SupportedIdentityProviders: _json,
+    TokenValidityUnits: _json,
+    UserPoolId: __expectString,
+    WriteAttributes: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UserPoolDescriptionType
  */
 const de_UserPoolDescriptionType = (output: any, context: __SerdeContext): UserPoolDescriptionType => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    Id: __expectString(output.Id),
-    LambdaConfig: output.LambdaConfig != null ? de_LambdaConfigType(output.LambdaConfig, context) : undefined,
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    LambdaConfig: _json,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -14131,114 +10489,56 @@ const de_UserPoolListType = (output: any, context: __SerdeContext): UserPoolDesc
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UserPoolDescriptionType(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1UserPoolPolicyType
- */
-const de_UserPoolPolicyType = (output: any, context: __SerdeContext): UserPoolPolicyType => {
-  return {
-    PasswordPolicy: output.PasswordPolicy != null ? de_PasswordPolicyType(output.PasswordPolicy, context) : undefined,
-  } as any;
-};
+// de_UserPoolPolicyType omitted.
 
-/**
- * deserializeAws_json1_1UserPoolTaggingException
- */
-const de_UserPoolTaggingException = (output: any, context: __SerdeContext): UserPoolTaggingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserPoolTaggingException omitted.
 
-/**
- * deserializeAws_json1_1UserPoolTagsType
- */
-const de_UserPoolTagsType = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_UserPoolTagsType omitted.
 
 /**
  * deserializeAws_json1_1UserPoolType
  */
 const de_UserPoolType = (output: any, context: __SerdeContext): UserPoolType => {
-  return {
-    AccountRecoverySetting:
-      output.AccountRecoverySetting != null
-        ? de_AccountRecoverySettingType(output.AccountRecoverySetting, context)
-        : undefined,
-    AdminCreateUserConfig:
-      output.AdminCreateUserConfig != null
-        ? de_AdminCreateUserConfigType(output.AdminCreateUserConfig, context)
-        : undefined,
-    AliasAttributes:
-      output.AliasAttributes != null ? de_AliasAttributesListType(output.AliasAttributes, context) : undefined,
-    Arn: __expectString(output.Arn),
-    AutoVerifiedAttributes:
-      output.AutoVerifiedAttributes != null
-        ? de_VerifiedAttributesListType(output.AutoVerifiedAttributes, context)
-        : undefined,
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CustomDomain: __expectString(output.CustomDomain),
-    DeletionProtection: __expectString(output.DeletionProtection),
-    DeviceConfiguration:
-      output.DeviceConfiguration != null ? de_DeviceConfigurationType(output.DeviceConfiguration, context) : undefined,
-    Domain: __expectString(output.Domain),
-    EmailConfiguration:
-      output.EmailConfiguration != null ? de_EmailConfigurationType(output.EmailConfiguration, context) : undefined,
-    EmailConfigurationFailure: __expectString(output.EmailConfigurationFailure),
-    EmailVerificationMessage: __expectString(output.EmailVerificationMessage),
-    EmailVerificationSubject: __expectString(output.EmailVerificationSubject),
-    EstimatedNumberOfUsers: __expectInt32(output.EstimatedNumberOfUsers),
-    Id: __expectString(output.Id),
-    LambdaConfig: output.LambdaConfig != null ? de_LambdaConfigType(output.LambdaConfig, context) : undefined,
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    MfaConfiguration: __expectString(output.MfaConfiguration),
-    Name: __expectString(output.Name),
-    Policies: output.Policies != null ? de_UserPoolPolicyType(output.Policies, context) : undefined,
-    SchemaAttributes:
-      output.SchemaAttributes != null ? de_SchemaAttributesListType(output.SchemaAttributes, context) : undefined,
-    SmsAuthenticationMessage: __expectString(output.SmsAuthenticationMessage),
-    SmsConfiguration:
-      output.SmsConfiguration != null ? de_SmsConfigurationType(output.SmsConfiguration, context) : undefined,
-    SmsConfigurationFailure: __expectString(output.SmsConfigurationFailure),
-    SmsVerificationMessage: __expectString(output.SmsVerificationMessage),
-    Status: __expectString(output.Status),
-    UserAttributeUpdateSettings:
-      output.UserAttributeUpdateSettings != null
-        ? de_UserAttributeUpdateSettingsType(output.UserAttributeUpdateSettings, context)
-        : undefined,
-    UserPoolAddOns: output.UserPoolAddOns != null ? de_UserPoolAddOnsType(output.UserPoolAddOns, context) : undefined,
-    UserPoolTags: output.UserPoolTags != null ? de_UserPoolTagsType(output.UserPoolTags, context) : undefined,
-    UsernameAttributes:
-      output.UsernameAttributes != null ? de_UsernameAttributesListType(output.UsernameAttributes, context) : undefined,
-    UsernameConfiguration:
-      output.UsernameConfiguration != null
-        ? de_UsernameConfigurationType(output.UsernameConfiguration, context)
-        : undefined,
-    VerificationMessageTemplate:
-      output.VerificationMessageTemplate != null
-        ? de_VerificationMessageTemplateType(output.VerificationMessageTemplate, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountRecoverySetting: _json,
+    AdminCreateUserConfig: _json,
+    AliasAttributes: _json,
+    Arn: __expectString,
+    AutoVerifiedAttributes: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomDomain: __expectString,
+    DeletionProtection: __expectString,
+    DeviceConfiguration: _json,
+    Domain: __expectString,
+    EmailConfiguration: _json,
+    EmailConfigurationFailure: __expectString,
+    EmailVerificationMessage: __expectString,
+    EmailVerificationSubject: __expectString,
+    EstimatedNumberOfUsers: __expectInt32,
+    Id: __expectString,
+    LambdaConfig: _json,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MfaConfiguration: __expectString,
+    Name: __expectString,
+    Policies: _json,
+    SchemaAttributes: _json,
+    SmsAuthenticationMessage: __expectString,
+    SmsConfiguration: _json,
+    SmsConfigurationFailure: __expectString,
+    SmsVerificationMessage: __expectString,
+    Status: __expectString,
+    UserAttributeUpdateSettings: _json,
+    UserPoolAddOns: _json,
+    UserPoolTags: _json,
+    UsernameAttributes: _json,
+    UsernameConfiguration: _json,
+    VerificationMessageTemplate: _json,
+  }) as any;
 };
 
 /**
@@ -14248,9 +10548,6 @@ const de_UsersListType = (output: any, context: __SerdeContext): UserType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UserType(entry, context);
     });
   return retVal;
@@ -14260,68 +10557,24 @@ const de_UsersListType = (output: any, context: __SerdeContext): UserType[] => {
  * deserializeAws_json1_1UserType
  */
 const de_UserType = (output: any, context: __SerdeContext): UserType => {
-  return {
-    Attributes: output.Attributes != null ? de_AttributeListType(output.Attributes, context) : undefined,
-    Enabled: __expectBoolean(output.Enabled),
-    MFAOptions: output.MFAOptions != null ? de_MFAOptionListType(output.MFAOptions, context) : undefined,
-    UserCreateDate:
-      output.UserCreateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserCreateDate)))
-        : undefined,
-    UserLastModifiedDate:
-      output.UserLastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserLastModifiedDate)))
-        : undefined,
-    UserStatus: __expectString(output.UserStatus),
-    Username: __expectString(output.Username),
-  } as any;
+  return take(output, {
+    Attributes: _json,
+    Enabled: __expectBoolean,
+    MFAOptions: _json,
+    UserCreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UserLastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UserStatus: __expectString,
+    Username: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1VerificationMessageTemplateType
- */
-const de_VerificationMessageTemplateType = (output: any, context: __SerdeContext): VerificationMessageTemplateType => {
-  return {
-    DefaultEmailOption: __expectString(output.DefaultEmailOption),
-    EmailMessage: __expectString(output.EmailMessage),
-    EmailMessageByLink: __expectString(output.EmailMessageByLink),
-    EmailSubject: __expectString(output.EmailSubject),
-    EmailSubjectByLink: __expectString(output.EmailSubjectByLink),
-    SmsMessage: __expectString(output.SmsMessage),
-  } as any;
-};
+// de_VerificationMessageTemplateType omitted.
 
-/**
- * deserializeAws_json1_1VerifiedAttributesListType
- */
-const de_VerifiedAttributesListType = (output: any, context: __SerdeContext): (VerifiedAttributeType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_VerifiedAttributesListType omitted.
 
-/**
- * deserializeAws_json1_1VerifySoftwareTokenResponse
- */
-const de_VerifySoftwareTokenResponse = (output: any, context: __SerdeContext): VerifySoftwareTokenResponse => {
-  return {
-    Session: __expectString(output.Session),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_VerifySoftwareTokenResponse omitted.
 
-/**
- * deserializeAws_json1_1VerifyUserAttributeResponse
- */
-const de_VerifyUserAttributeResponse = (output: any, context: __SerdeContext): VerifyUserAttributeResponse => {
-  return {} as any;
-};
+// de_VerifyUserAttributeResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -14343,6 +10596,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

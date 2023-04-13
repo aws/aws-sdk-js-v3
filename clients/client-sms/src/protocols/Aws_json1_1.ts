@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,7 +9,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -115,40 +117,26 @@ import {
 import {
   AppSummary,
   AppValidationConfiguration,
-  AppValidationOutput,
   Connector,
-  ConnectorCapability,
   CreateAppRequest,
   CreateAppResponse,
   CreateReplicationJobRequest,
-  CreateReplicationJobResponse,
   DeleteAppLaunchConfigurationRequest,
-  DeleteAppLaunchConfigurationResponse,
   DeleteAppReplicationConfigurationRequest,
-  DeleteAppReplicationConfigurationResponse,
   DeleteAppRequest,
-  DeleteAppResponse,
   DeleteAppValidationConfigurationRequest,
-  DeleteAppValidationConfigurationResponse,
   DeleteReplicationJobRequest,
-  DeleteReplicationJobResponse,
   DeleteServerCatalogRequest,
-  DeleteServerCatalogResponse,
   DisassociateConnectorRequest,
-  DisassociateConnectorResponse,
   DryRunOperationException,
   GenerateChangeSetRequest,
-  GenerateChangeSetResponse,
   GenerateTemplateRequest,
-  GenerateTemplateResponse,
   GetAppLaunchConfigurationRequest,
-  GetAppLaunchConfigurationResponse,
   GetAppReplicationConfigurationRequest,
   GetAppReplicationConfigurationResponse,
   GetAppRequest,
   GetAppResponse,
   GetAppValidationConfigurationRequest,
-  GetAppValidationConfigurationResponse,
   GetAppValidationOutputRequest,
   GetAppValidationOutputResponse,
   GetConnectorsRequest,
@@ -160,13 +148,10 @@ import {
   GetServersRequest,
   GetServersResponse,
   ImportAppCatalogRequest,
-  ImportAppCatalogResponse,
   ImportServerCatalogRequest,
-  ImportServerCatalogResponse,
   InternalError,
   InvalidParameterException,
   LaunchAppRequest,
-  LaunchAppResponse,
   LaunchDetails,
   ListAppsRequest,
   ListAppsResponse,
@@ -174,20 +159,15 @@ import {
   NoConnectorsAvailableException,
   NotificationContext,
   NotifyAppValidationOutputRequest,
-  NotifyAppValidationOutputResponse,
   OperationNotPermittedException,
   PutAppLaunchConfigurationRequest,
-  PutAppLaunchConfigurationResponse,
   PutAppReplicationConfigurationRequest,
-  PutAppReplicationConfigurationResponse,
   PutAppValidationConfigurationRequest,
-  PutAppValidationConfigurationResponse,
   ReplicationJob,
   ReplicationJobAlreadyExistsException,
   ReplicationJobNotFoundException,
   ReplicationRun,
   ReplicationRunLimitExceededException,
-  ReplicationRunStageDetails,
   S3Location,
   Server,
   ServerCannotBeReplicatedException,
@@ -199,27 +179,19 @@ import {
   ServerReplicationConfiguration,
   ServerReplicationParameters,
   ServerValidationConfiguration,
-  ServerValidationOutput,
   Source,
-  SSMOutput,
   SSMValidationParameters,
   StartAppReplicationRequest,
-  StartAppReplicationResponse,
   StartOnDemandAppReplicationRequest,
-  StartOnDemandAppReplicationResponse,
   StartOnDemandReplicationRunRequest,
-  StartOnDemandReplicationRunResponse,
   StopAppReplicationRequest,
-  StopAppReplicationResponse,
   Tag,
   TemporarilyUnavailableException,
   TerminateAppRequest,
-  TerminateAppResponse,
   UnauthorizedOperationException,
   UpdateAppRequest,
   UpdateAppResponse,
   UpdateReplicationJobRequest,
-  UpdateReplicationJobResponse,
   UserData,
   UserDataValidationParameters,
   ValidationOutput,
@@ -237,7 +209,7 @@ export const se_CreateAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateApp");
   let body: any;
-  body = JSON.stringify(se_CreateAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -263,7 +235,7 @@ export const se_DeleteAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteApp");
   let body: any;
-  body = JSON.stringify(se_DeleteAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -276,7 +248,7 @@ export const se_DeleteAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAppLaunchConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteAppLaunchConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -289,7 +261,7 @@ export const se_DeleteAppReplicationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAppReplicationConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteAppReplicationConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -302,7 +274,7 @@ export const se_DeleteAppValidationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAppValidationConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteAppValidationConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -315,7 +287,7 @@ export const se_DeleteReplicationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteReplicationJob");
   let body: any;
-  body = JSON.stringify(se_DeleteReplicationJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -328,7 +300,7 @@ export const se_DeleteServerCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteServerCatalog");
   let body: any;
-  body = JSON.stringify(se_DeleteServerCatalogRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -341,7 +313,7 @@ export const se_DisassociateConnectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateConnector");
   let body: any;
-  body = JSON.stringify(se_DisassociateConnectorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -354,7 +326,7 @@ export const se_GenerateChangeSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GenerateChangeSet");
   let body: any;
-  body = JSON.stringify(se_GenerateChangeSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -367,7 +339,7 @@ export const se_GenerateTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GenerateTemplate");
   let body: any;
-  body = JSON.stringify(se_GenerateTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -377,7 +349,7 @@ export const se_GenerateTemplateCommand = async (
 export const se_GetAppCommand = async (input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetApp");
   let body: any;
-  body = JSON.stringify(se_GetAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -390,7 +362,7 @@ export const se_GetAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAppLaunchConfiguration");
   let body: any;
-  body = JSON.stringify(se_GetAppLaunchConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -403,7 +375,7 @@ export const se_GetAppReplicationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAppReplicationConfiguration");
   let body: any;
-  body = JSON.stringify(se_GetAppReplicationConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -416,7 +388,7 @@ export const se_GetAppValidationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAppValidationConfiguration");
   let body: any;
-  body = JSON.stringify(se_GetAppValidationConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -429,7 +401,7 @@ export const se_GetAppValidationOutputCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAppValidationOutput");
   let body: any;
-  body = JSON.stringify(se_GetAppValidationOutputRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -442,7 +414,7 @@ export const se_GetConnectorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetConnectors");
   let body: any;
-  body = JSON.stringify(se_GetConnectorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -455,7 +427,7 @@ export const se_GetReplicationJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetReplicationJobs");
   let body: any;
-  body = JSON.stringify(se_GetReplicationJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -468,7 +440,7 @@ export const se_GetReplicationRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetReplicationRuns");
   let body: any;
-  body = JSON.stringify(se_GetReplicationRunsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -481,7 +453,7 @@ export const se_GetServersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServers");
   let body: any;
-  body = JSON.stringify(se_GetServersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -494,7 +466,7 @@ export const se_ImportAppCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportAppCatalog");
   let body: any;
-  body = JSON.stringify(se_ImportAppCatalogRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -507,7 +479,7 @@ export const se_ImportServerCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportServerCatalog");
   let body: any;
-  body = JSON.stringify(se_ImportServerCatalogRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -520,7 +492,7 @@ export const se_LaunchAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("LaunchApp");
   let body: any;
-  body = JSON.stringify(se_LaunchAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -533,7 +505,7 @@ export const se_ListAppsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListApps");
   let body: any;
-  body = JSON.stringify(se_ListAppsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -546,7 +518,7 @@ export const se_NotifyAppValidationOutputCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("NotifyAppValidationOutput");
   let body: any;
-  body = JSON.stringify(se_NotifyAppValidationOutputRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -559,7 +531,7 @@ export const se_PutAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutAppLaunchConfiguration");
   let body: any;
-  body = JSON.stringify(se_PutAppLaunchConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -585,7 +557,7 @@ export const se_PutAppValidationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutAppValidationConfiguration");
   let body: any;
-  body = JSON.stringify(se_PutAppValidationConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -598,7 +570,7 @@ export const se_StartAppReplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartAppReplication");
   let body: any;
-  body = JSON.stringify(se_StartAppReplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -611,7 +583,7 @@ export const se_StartOnDemandAppReplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartOnDemandAppReplication");
   let body: any;
-  body = JSON.stringify(se_StartOnDemandAppReplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -624,7 +596,7 @@ export const se_StartOnDemandReplicationRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartOnDemandReplicationRun");
   let body: any;
-  body = JSON.stringify(se_StartOnDemandReplicationRunRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -637,7 +609,7 @@ export const se_StopAppReplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopAppReplication");
   let body: any;
-  body = JSON.stringify(se_StopAppReplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -650,7 +622,7 @@ export const se_TerminateAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TerminateApp");
   let body: any;
-  body = JSON.stringify(se_TerminateAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -663,7 +635,7 @@ export const se_UpdateAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateApp");
   let body: any;
-  body = JSON.stringify(se_UpdateAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -697,7 +669,7 @@ export const de_CreateAppCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -730,10 +702,9 @@ const de_CreateAppCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -751,12 +722,12 @@ export const de_CreateReplicationJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateReplicationJobResponse(data, context);
+  contents = _json(data);
   const response: CreateReplicationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -801,10 +772,9 @@ const de_CreateReplicationJobCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -822,12 +792,12 @@ export const de_DeleteAppCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteAppResponse(data, context);
+  contents = _json(data);
   const response: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -860,10 +830,9 @@ const de_DeleteAppCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -881,12 +850,12 @@ export const de_DeleteAppLaunchConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteAppLaunchConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DeleteAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -919,10 +888,9 @@ const de_DeleteAppLaunchConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -940,12 +908,12 @@ export const de_DeleteAppReplicationConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteAppReplicationConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DeleteAppReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -978,10 +946,9 @@ const de_DeleteAppReplicationConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -999,12 +966,12 @@ export const de_DeleteAppValidationConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteAppValidationConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DeleteAppValidationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1037,10 +1004,9 @@ const de_DeleteAppValidationConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1058,12 +1024,12 @@ export const de_DeleteReplicationJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteReplicationJobResponse(data, context);
+  contents = _json(data);
   const response: DeleteReplicationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1096,10 +1062,9 @@ const de_DeleteReplicationJobCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1117,12 +1082,12 @@ export const de_DeleteServerCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteServerCatalogResponse(data, context);
+  contents = _json(data);
   const response: DeleteServerCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1152,10 +1117,9 @@ const de_DeleteServerCatalogCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1173,12 +1137,12 @@ export const de_DisassociateConnectorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateConnectorResponse(data, context);
+  contents = _json(data);
   const response: DisassociateConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1208,10 +1172,9 @@ const de_DisassociateConnectorCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1229,12 +1192,12 @@ export const de_GenerateChangeSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GenerateChangeSetResponse(data, context);
+  contents = _json(data);
   const response: GenerateChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1267,10 +1230,9 @@ const de_GenerateChangeSetCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1288,12 +1250,12 @@ export const de_GenerateTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GenerateTemplateResponse(data, context);
+  contents = _json(data);
   const response: GenerateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1326,10 +1288,9 @@ const de_GenerateTemplateCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1352,7 +1313,7 @@ export const de_GetAppCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1382,10 +1343,9 @@ const de_GetAppCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1403,12 +1363,12 @@ export const de_GetAppLaunchConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAppLaunchConfigurationResponse(data, context);
+  contents = _json(data);
   const response: GetAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1441,10 +1401,9 @@ const de_GetAppLaunchConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1467,7 +1426,7 @@ export const de_GetAppReplicationConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1500,10 +1459,9 @@ const de_GetAppReplicationConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1521,12 +1479,12 @@ export const de_GetAppValidationConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAppValidationConfigurationResponse(data, context);
+  contents = _json(data);
   const response: GetAppValidationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1559,10 +1517,9 @@ const de_GetAppValidationConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1585,7 +1542,7 @@ export const de_GetAppValidationOutputCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1618,10 +1575,9 @@ const de_GetAppValidationOutputCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1644,7 +1600,7 @@ export const de_GetConnectorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1665,10 +1621,9 @@ const de_GetConnectorsCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1691,7 +1646,7 @@ export const de_GetReplicationJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1718,10 +1673,9 @@ const de_GetReplicationJobsCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1744,7 +1698,7 @@ export const de_GetReplicationRunsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1771,10 +1725,9 @@ const de_GetReplicationRunsCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1797,7 +1750,7 @@ export const de_GetServersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1827,10 +1780,9 @@ const de_GetServersCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1848,12 +1800,12 @@ export const de_ImportAppCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportAppCatalogResponse(data, context);
+  contents = _json(data);
   const response: ImportAppCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1886,10 +1838,9 @@ const de_ImportAppCatalogCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1907,12 +1858,12 @@ export const de_ImportServerCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportServerCatalogResponse(data, context);
+  contents = _json(data);
   const response: ImportServerCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1945,10 +1896,9 @@ const de_ImportServerCatalogCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1966,12 +1916,12 @@ export const de_LaunchAppCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_LaunchAppResponse(data, context);
+  contents = _json(data);
   const response: LaunchAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2004,10 +1954,9 @@ const de_LaunchAppCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2030,7 +1979,7 @@ export const de_ListAppsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2063,10 +2012,9 @@ const de_ListAppsCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2084,12 +2032,12 @@ export const de_NotifyAppValidationOutputCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NotifyAppValidationOutputResponse(data, context);
+  contents = _json(data);
   const response: NotifyAppValidationOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2122,10 +2070,9 @@ const de_NotifyAppValidationOutputCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2143,12 +2090,12 @@ export const de_PutAppLaunchConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutAppLaunchConfigurationResponse(data, context);
+  contents = _json(data);
   const response: PutAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2181,10 +2128,9 @@ const de_PutAppLaunchConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2202,12 +2148,12 @@ export const de_PutAppReplicationConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutAppReplicationConfigurationResponse(data, context);
+  contents = _json(data);
   const response: PutAppReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2240,10 +2186,9 @@ const de_PutAppReplicationConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2261,12 +2206,12 @@ export const de_PutAppValidationConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutAppValidationConfigurationResponse(data, context);
+  contents = _json(data);
   const response: PutAppValidationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2299,10 +2244,9 @@ const de_PutAppValidationConfigurationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2320,12 +2264,12 @@ export const de_StartAppReplicationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartAppReplicationResponse(data, context);
+  contents = _json(data);
   const response: StartAppReplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2358,10 +2302,9 @@ const de_StartAppReplicationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2379,12 +2322,12 @@ export const de_StartOnDemandAppReplicationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartOnDemandAppReplicationResponse(data, context);
+  contents = _json(data);
   const response: StartOnDemandAppReplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2417,10 +2360,9 @@ const de_StartOnDemandAppReplicationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2438,12 +2380,12 @@ export const de_StartOnDemandReplicationRunCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartOnDemandReplicationRunResponse(data, context);
+  contents = _json(data);
   const response: StartOnDemandReplicationRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2479,10 +2421,9 @@ const de_StartOnDemandReplicationRunCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2500,12 +2441,12 @@ export const de_StopAppReplicationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopAppReplicationResponse(data, context);
+  contents = _json(data);
   const response: StopAppReplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2538,10 +2479,9 @@ const de_StopAppReplicationCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2559,12 +2499,12 @@ export const de_TerminateAppCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TerminateAppResponse(data, context);
+  contents = _json(data);
   const response: TerminateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2597,10 +2537,9 @@ const de_TerminateAppCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2623,7 +2562,7 @@ export const de_UpdateAppCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2656,10 +2595,9 @@ const de_UpdateAppCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2677,12 +2615,12 @@ export const de_UpdateReplicationJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateReplicationJobResponse(data, context);
+  contents = _json(data);
   const response: UpdateReplicationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2724,10 +2662,9 @@ const de_UpdateReplicationJobCommandError = async (
       throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2741,7 +2678,7 @@ const de_DryRunOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<DryRunOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DryRunOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DryRunOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2754,7 +2691,7 @@ const de_DryRunOperationExceptionRes = async (
  */
 const de_InternalErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2770,7 +2707,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2786,7 +2723,7 @@ const de_MissingRequiredParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<MissingRequiredParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MissingRequiredParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MissingRequiredParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2802,7 +2739,7 @@ const de_NoConnectorsAvailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoConnectorsAvailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoConnectorsAvailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoConnectorsAvailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2818,7 +2755,7 @@ const de_OperationNotPermittedExceptionRes = async (
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OperationNotPermittedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OperationNotPermittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2834,7 +2771,7 @@ const de_ReplicationJobAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReplicationJobAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReplicationJobAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReplicationJobAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2850,7 +2787,7 @@ const de_ReplicationJobNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReplicationJobNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReplicationJobNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReplicationJobNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2866,7 +2803,7 @@ const de_ReplicationRunLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReplicationRunLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReplicationRunLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReplicationRunLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2882,7 +2819,7 @@ const de_ServerCannotBeReplicatedExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServerCannotBeReplicatedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServerCannotBeReplicatedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServerCannotBeReplicatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2898,7 +2835,7 @@ const de_TemporarilyUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<TemporarilyUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TemporarilyUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TemporarilyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2914,7 +2851,7 @@ const de_UnauthorizedOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnauthorizedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnauthorizedOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnauthorizedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2922,339 +2859,81 @@ const de_UnauthorizedOperationExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AppIds
- */
-const se_AppIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AppIds omitted.
 
-/**
- * serializeAws_json1_1AppValidationConfiguration
- */
-const se_AppValidationConfiguration = (input: AppValidationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.appValidationStrategy != null && { appValidationStrategy: input.appValidationStrategy }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.ssmValidationParameters != null && {
-      ssmValidationParameters: se_SSMValidationParameters(input.ssmValidationParameters, context),
-    }),
-    ...(input.validationId != null && { validationId: input.validationId }),
-  };
-};
+// se_AppValidationConfiguration omitted.
 
-/**
- * serializeAws_json1_1AppValidationConfigurations
- */
-const se_AppValidationConfigurations = (input: AppValidationConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AppValidationConfiguration(entry, context);
-    });
-};
+// se_AppValidationConfigurations omitted.
 
-/**
- * serializeAws_json1_1CreateAppRequest
- */
-const se_CreateAppRequest = (input: CreateAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.roleName != null && { roleName: input.roleName }),
-    ...(input.serverGroups != null && { serverGroups: se_ServerGroups(input.serverGroups, context) }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  };
-};
+// se_CreateAppRequest omitted.
 
 /**
  * serializeAws_json1_1CreateReplicationJobRequest
  */
 const se_CreateReplicationJobRequest = (input: CreateReplicationJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.encrypted != null && { encrypted: input.encrypted }),
-    ...(input.frequency != null && { frequency: input.frequency }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.licenseType != null && { licenseType: input.licenseType }),
-    ...(input.numberOfRecentAmisToKeep != null && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
-    ...(input.roleName != null && { roleName: input.roleName }),
-    ...(input.runOnce != null && { runOnce: input.runOnce }),
-    ...(input.seedReplicationTime != null && {
-      seedReplicationTime: Math.round(input.seedReplicationTime.getTime() / 1000),
-    }),
-    ...(input.serverId != null && { serverId: input.serverId }),
-  };
+  return take(input, {
+    description: [],
+    encrypted: [],
+    frequency: [],
+    kmsKeyId: [],
+    licenseType: [],
+    numberOfRecentAmisToKeep: [],
+    roleName: [],
+    runOnce: [],
+    seedReplicationTime: (_) => Math.round(_.getTime() / 1000),
+    serverId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DeleteAppLaunchConfigurationRequest
- */
-const se_DeleteAppLaunchConfigurationRequest = (
-  input: DeleteAppLaunchConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_DeleteAppLaunchConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteAppReplicationConfigurationRequest
- */
-const se_DeleteAppReplicationConfigurationRequest = (
-  input: DeleteAppReplicationConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_DeleteAppReplicationConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteAppRequest
- */
-const se_DeleteAppRequest = (input: DeleteAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.forceStopAppReplication != null && { forceStopAppReplication: input.forceStopAppReplication }),
-    ...(input.forceTerminateApp != null && { forceTerminateApp: input.forceTerminateApp }),
-  };
-};
+// se_DeleteAppRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteAppValidationConfigurationRequest
- */
-const se_DeleteAppValidationConfigurationRequest = (
-  input: DeleteAppValidationConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_DeleteAppValidationConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteReplicationJobRequest
- */
-const se_DeleteReplicationJobRequest = (input: DeleteReplicationJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.replicationJobId != null && { replicationJobId: input.replicationJobId }),
-  };
-};
+// se_DeleteReplicationJobRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteServerCatalogRequest
- */
-const se_DeleteServerCatalogRequest = (input: DeleteServerCatalogRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_DeleteServerCatalogRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateConnectorRequest
- */
-const se_DisassociateConnectorRequest = (input: DisassociateConnectorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectorId != null && { connectorId: input.connectorId }),
-  };
-};
+// se_DisassociateConnectorRequest omitted.
 
-/**
- * serializeAws_json1_1GenerateChangeSetRequest
- */
-const se_GenerateChangeSetRequest = (input: GenerateChangeSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.changesetFormat != null && { changesetFormat: input.changesetFormat }),
-  };
-};
+// se_GenerateChangeSetRequest omitted.
 
-/**
- * serializeAws_json1_1GenerateTemplateRequest
- */
-const se_GenerateTemplateRequest = (input: GenerateTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.templateFormat != null && { templateFormat: input.templateFormat }),
-  };
-};
+// se_GenerateTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1GetAppLaunchConfigurationRequest
- */
-const se_GetAppLaunchConfigurationRequest = (input: GetAppLaunchConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_GetAppLaunchConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1GetAppReplicationConfigurationRequest
- */
-const se_GetAppReplicationConfigurationRequest = (
-  input: GetAppReplicationConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_GetAppReplicationConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1GetAppRequest
- */
-const se_GetAppRequest = (input: GetAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_GetAppRequest omitted.
 
-/**
- * serializeAws_json1_1GetAppValidationConfigurationRequest
- */
-const se_GetAppValidationConfigurationRequest = (
-  input: GetAppValidationConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_GetAppValidationConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1GetAppValidationOutputRequest
- */
-const se_GetAppValidationOutputRequest = (input: GetAppValidationOutputRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_GetAppValidationOutputRequest omitted.
 
-/**
- * serializeAws_json1_1GetConnectorsRequest
- */
-const se_GetConnectorsRequest = (input: GetConnectorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_GetConnectorsRequest omitted.
 
-/**
- * serializeAws_json1_1GetReplicationJobsRequest
- */
-const se_GetReplicationJobsRequest = (input: GetReplicationJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.replicationJobId != null && { replicationJobId: input.replicationJobId }),
-  };
-};
+// se_GetReplicationJobsRequest omitted.
 
-/**
- * serializeAws_json1_1GetReplicationRunsRequest
- */
-const se_GetReplicationRunsRequest = (input: GetReplicationRunsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.replicationJobId != null && { replicationJobId: input.replicationJobId }),
-  };
-};
+// se_GetReplicationRunsRequest omitted.
 
-/**
- * serializeAws_json1_1GetServersRequest
- */
-const se_GetServersRequest = (input: GetServersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.vmServerAddressList != null && {
-      vmServerAddressList: se_VmServerAddressList(input.vmServerAddressList, context),
-    }),
-  };
-};
+// se_GetServersRequest omitted.
 
-/**
- * serializeAws_json1_1ImportAppCatalogRequest
- */
-const se_ImportAppCatalogRequest = (input: ImportAppCatalogRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.roleName != null && { roleName: input.roleName }),
-  };
-};
+// se_ImportAppCatalogRequest omitted.
 
-/**
- * serializeAws_json1_1ImportServerCatalogRequest
- */
-const se_ImportServerCatalogRequest = (input: ImportServerCatalogRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_ImportServerCatalogRequest omitted.
 
-/**
- * serializeAws_json1_1LaunchAppRequest
- */
-const se_LaunchAppRequest = (input: LaunchAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_LaunchAppRequest omitted.
 
-/**
- * serializeAws_json1_1ListAppsRequest
- */
-const se_ListAppsRequest = (input: ListAppsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appIds != null && { appIds: se_AppIds(input.appIds, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListAppsRequest omitted.
 
-/**
- * serializeAws_json1_1NotificationContext
- */
-const se_NotificationContext = (input: NotificationContext, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-    ...(input.statusMessage != null && { statusMessage: input.statusMessage }),
-    ...(input.validationId != null && { validationId: input.validationId }),
-  };
-};
+// se_NotificationContext omitted.
 
-/**
- * serializeAws_json1_1NotifyAppValidationOutputRequest
- */
-const se_NotifyAppValidationOutputRequest = (input: NotifyAppValidationOutputRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.notificationContext != null && {
-      notificationContext: se_NotificationContext(input.notificationContext, context),
-    }),
-  };
-};
+// se_NotifyAppValidationOutputRequest omitted.
 
-/**
- * serializeAws_json1_1PutAppLaunchConfigurationRequest
- */
-const se_PutAppLaunchConfigurationRequest = (input: PutAppLaunchConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.autoLaunch != null && { autoLaunch: input.autoLaunch }),
-    ...(input.roleName != null && { roleName: input.roleName }),
-    ...(input.serverGroupLaunchConfigurations != null && {
-      serverGroupLaunchConfigurations: se_ServerGroupLaunchConfigurations(
-        input.serverGroupLaunchConfigurations,
-        context
-      ),
-    }),
-  };
-};
+// se_PutAppLaunchConfigurationRequest omitted.
 
 /**
  * serializeAws_json1_1PutAppReplicationConfigurationRequest
@@ -3263,95 +2942,23 @@ const se_PutAppReplicationConfigurationRequest = (
   input: PutAppReplicationConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.serverGroupReplicationConfigurations != null && {
-      serverGroupReplicationConfigurations: se_ServerGroupReplicationConfigurations(
-        input.serverGroupReplicationConfigurations,
-        context
-      ),
-    }),
-  };
+  return take(input, {
+    appId: [],
+    serverGroupReplicationConfigurations: (_) => se_ServerGroupReplicationConfigurations(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1PutAppValidationConfigurationRequest
- */
-const se_PutAppValidationConfigurationRequest = (
-  input: PutAppValidationConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.appValidationConfigurations != null && {
-      appValidationConfigurations: se_AppValidationConfigurations(input.appValidationConfigurations, context),
-    }),
-    ...(input.serverGroupValidationConfigurations != null && {
-      serverGroupValidationConfigurations: se_ServerGroupValidationConfigurations(
-        input.serverGroupValidationConfigurations,
-        context
-      ),
-    }),
-  };
-};
+// se_PutAppValidationConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1S3Location
- */
-const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.key != null && { key: input.key }),
-  };
-};
+// se_S3Location omitted.
 
-/**
- * serializeAws_json1_1Server
- */
-const se_Server = (input: Server, context: __SerdeContext): any => {
-  return {
-    ...(input.replicationJobId != null && { replicationJobId: input.replicationJobId }),
-    ...(input.replicationJobTerminated != null && { replicationJobTerminated: input.replicationJobTerminated }),
-    ...(input.serverId != null && { serverId: input.serverId }),
-    ...(input.serverType != null && { serverType: input.serverType }),
-    ...(input.vmServer != null && { vmServer: se_VmServer(input.vmServer, context) }),
-  };
-};
+// se_Server omitted.
 
-/**
- * serializeAws_json1_1ServerGroup
- */
-const se_ServerGroup = (input: ServerGroup, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.serverGroupId != null && { serverGroupId: input.serverGroupId }),
-    ...(input.serverList != null && { serverList: se_ServerList(input.serverList, context) }),
-  };
-};
+// se_ServerGroup omitted.
 
-/**
- * serializeAws_json1_1ServerGroupLaunchConfiguration
- */
-const se_ServerGroupLaunchConfiguration = (input: ServerGroupLaunchConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.launchOrder != null && { launchOrder: input.launchOrder }),
-    ...(input.serverGroupId != null && { serverGroupId: input.serverGroupId }),
-    ...(input.serverLaunchConfigurations != null && {
-      serverLaunchConfigurations: se_ServerLaunchConfigurations(input.serverLaunchConfigurations, context),
-    }),
-  };
-};
+// se_ServerGroupLaunchConfiguration omitted.
 
-/**
- * serializeAws_json1_1ServerGroupLaunchConfigurations
- */
-const se_ServerGroupLaunchConfigurations = (input: ServerGroupLaunchConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ServerGroupLaunchConfiguration(entry, context);
-    });
-};
+// se_ServerGroupLaunchConfigurations omitted.
 
 /**
  * serializeAws_json1_1ServerGroupReplicationConfiguration
@@ -3360,15 +2967,10 @@ const se_ServerGroupReplicationConfiguration = (
   input: ServerGroupReplicationConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.serverGroupId != null && { serverGroupId: input.serverGroupId }),
-    ...(input.serverReplicationConfigurations != null && {
-      serverReplicationConfigurations: se_ServerReplicationConfigurations(
-        input.serverReplicationConfigurations,
-        context
-      ),
-    }),
-  };
+  return take(input, {
+    serverGroupId: [],
+    serverReplicationConfigurations: (_) => se_ServerReplicationConfigurations(_, context),
+  });
 };
 
 /**
@@ -3385,98 +2987,26 @@ const se_ServerGroupReplicationConfigurations = (
     });
 };
 
-/**
- * serializeAws_json1_1ServerGroups
- */
-const se_ServerGroups = (input: ServerGroup[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ServerGroup(entry, context);
-    });
-};
+// se_ServerGroups omitted.
 
-/**
- * serializeAws_json1_1ServerGroupValidationConfiguration
- */
-const se_ServerGroupValidationConfiguration = (
-  input: ServerGroupValidationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.serverGroupId != null && { serverGroupId: input.serverGroupId }),
-    ...(input.serverValidationConfigurations != null && {
-      serverValidationConfigurations: se_ServerValidationConfigurations(input.serverValidationConfigurations, context),
-    }),
-  };
-};
+// se_ServerGroupValidationConfiguration omitted.
 
-/**
- * serializeAws_json1_1ServerGroupValidationConfigurations
- */
-const se_ServerGroupValidationConfigurations = (
-  input: ServerGroupValidationConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ServerGroupValidationConfiguration(entry, context);
-    });
-};
+// se_ServerGroupValidationConfigurations omitted.
 
-/**
- * serializeAws_json1_1ServerLaunchConfiguration
- */
-const se_ServerLaunchConfiguration = (input: ServerLaunchConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.associatePublicIpAddress != null && { associatePublicIpAddress: input.associatePublicIpAddress }),
-    ...(input.configureScript != null && { configureScript: se_S3Location(input.configureScript, context) }),
-    ...(input.configureScriptType != null && { configureScriptType: input.configureScriptType }),
-    ...(input.ec2KeyName != null && { ec2KeyName: input.ec2KeyName }),
-    ...(input.iamInstanceProfileName != null && { iamInstanceProfileName: input.iamInstanceProfileName }),
-    ...(input.instanceType != null && { instanceType: input.instanceType }),
-    ...(input.logicalId != null && { logicalId: input.logicalId }),
-    ...(input.securityGroup != null && { securityGroup: input.securityGroup }),
-    ...(input.server != null && { server: se_Server(input.server, context) }),
-    ...(input.subnet != null && { subnet: input.subnet }),
-    ...(input.userData != null && { userData: se_UserData(input.userData, context) }),
-    ...(input.vpc != null && { vpc: input.vpc }),
-  };
-};
+// se_ServerLaunchConfiguration omitted.
 
-/**
- * serializeAws_json1_1ServerLaunchConfigurations
- */
-const se_ServerLaunchConfigurations = (input: ServerLaunchConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ServerLaunchConfiguration(entry, context);
-    });
-};
+// se_ServerLaunchConfigurations omitted.
 
-/**
- * serializeAws_json1_1ServerList
- */
-const se_ServerList = (input: Server[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Server(entry, context);
-    });
-};
+// se_ServerList omitted.
 
 /**
  * serializeAws_json1_1ServerReplicationConfiguration
  */
 const se_ServerReplicationConfiguration = (input: ServerReplicationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.server != null && { server: se_Server(input.server, context) }),
-    ...(input.serverReplicationParameters != null && {
-      serverReplicationParameters: se_ServerReplicationParameters(input.serverReplicationParameters, context),
-    }),
-  };
+  return take(input, {
+    server: (_) => _json(_),
+    serverReplicationParameters: (_) => se_ServerReplicationParameters(_, context),
+  });
 };
 
 /**
@@ -3494,225 +3024,67 @@ const se_ServerReplicationConfigurations = (input: ServerReplicationConfiguratio
  * serializeAws_json1_1ServerReplicationParameters
  */
 const se_ServerReplicationParameters = (input: ServerReplicationParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.encrypted != null && { encrypted: input.encrypted }),
-    ...(input.frequency != null && { frequency: input.frequency }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.licenseType != null && { licenseType: input.licenseType }),
-    ...(input.numberOfRecentAmisToKeep != null && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
-    ...(input.runOnce != null && { runOnce: input.runOnce }),
-    ...(input.seedTime != null && { seedTime: Math.round(input.seedTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    encrypted: [],
+    frequency: [],
+    kmsKeyId: [],
+    licenseType: [],
+    numberOfRecentAmisToKeep: [],
+    runOnce: [],
+    seedTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1ServerValidationConfiguration
- */
-const se_ServerValidationConfiguration = (input: ServerValidationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.server != null && { server: se_Server(input.server, context) }),
-    ...(input.serverValidationStrategy != null && { serverValidationStrategy: input.serverValidationStrategy }),
-    ...(input.userDataValidationParameters != null && {
-      userDataValidationParameters: se_UserDataValidationParameters(input.userDataValidationParameters, context),
-    }),
-    ...(input.validationId != null && { validationId: input.validationId }),
-  };
-};
+// se_ServerValidationConfiguration omitted.
 
-/**
- * serializeAws_json1_1ServerValidationConfigurations
- */
-const se_ServerValidationConfigurations = (input: ServerValidationConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ServerValidationConfiguration(entry, context);
-    });
-};
+// se_ServerValidationConfigurations omitted.
 
-/**
- * serializeAws_json1_1Source
- */
-const se_Source = (input: Source, context: __SerdeContext): any => {
-  return {
-    ...(input.s3Location != null && { s3Location: se_S3Location(input.s3Location, context) }),
-  };
-};
+// se_Source omitted.
 
-/**
- * serializeAws_json1_1SSMValidationParameters
- */
-const se_SSMValidationParameters = (input: SSMValidationParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.command != null && { command: input.command }),
-    ...(input.executionTimeoutSeconds != null && { executionTimeoutSeconds: input.executionTimeoutSeconds }),
-    ...(input.instanceId != null && { instanceId: input.instanceId }),
-    ...(input.outputS3BucketName != null && { outputS3BucketName: input.outputS3BucketName }),
-    ...(input.scriptType != null && { scriptType: input.scriptType }),
-    ...(input.source != null && { source: se_Source(input.source, context) }),
-  };
-};
+// se_SSMValidationParameters omitted.
 
-/**
- * serializeAws_json1_1StartAppReplicationRequest
- */
-const se_StartAppReplicationRequest = (input: StartAppReplicationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_StartAppReplicationRequest omitted.
 
-/**
- * serializeAws_json1_1StartOnDemandAppReplicationRequest
- */
-const se_StartOnDemandAppReplicationRequest = (
-  input: StartOnDemandAppReplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.description != null && { description: input.description }),
-  };
-};
+// se_StartOnDemandAppReplicationRequest omitted.
 
-/**
- * serializeAws_json1_1StartOnDemandReplicationRunRequest
- */
-const se_StartOnDemandReplicationRunRequest = (
-  input: StartOnDemandReplicationRunRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.replicationJobId != null && { replicationJobId: input.replicationJobId }),
-  };
-};
+// se_StartOnDemandReplicationRunRequest omitted.
 
-/**
- * serializeAws_json1_1StopAppReplicationRequest
- */
-const se_StopAppReplicationRequest = (input: StopAppReplicationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_StopAppReplicationRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_1TerminateAppRequest
- */
-const se_TerminateAppRequest = (input: TerminateAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-  };
-};
+// se_TerminateAppRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAppRequest
- */
-const se_UpdateAppRequest = (input: UpdateAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.roleName != null && { roleName: input.roleName }),
-    ...(input.serverGroups != null && { serverGroups: se_ServerGroups(input.serverGroups, context) }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  };
-};
+// se_UpdateAppRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateReplicationJobRequest
  */
 const se_UpdateReplicationJobRequest = (input: UpdateReplicationJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.encrypted != null && { encrypted: input.encrypted }),
-    ...(input.frequency != null && { frequency: input.frequency }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.licenseType != null && { licenseType: input.licenseType }),
-    ...(input.nextReplicationRunStartTime != null && {
-      nextReplicationRunStartTime: Math.round(input.nextReplicationRunStartTime.getTime() / 1000),
-    }),
-    ...(input.numberOfRecentAmisToKeep != null && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
-    ...(input.replicationJobId != null && { replicationJobId: input.replicationJobId }),
-    ...(input.roleName != null && { roleName: input.roleName }),
-  };
+  return take(input, {
+    description: [],
+    encrypted: [],
+    frequency: [],
+    kmsKeyId: [],
+    licenseType: [],
+    nextReplicationRunStartTime: (_) => Math.round(_.getTime() / 1000),
+    numberOfRecentAmisToKeep: [],
+    replicationJobId: [],
+    roleName: [],
+  });
 };
 
-/**
- * serializeAws_json1_1UserData
- */
-const se_UserData = (input: UserData, context: __SerdeContext): any => {
-  return {
-    ...(input.s3Location != null && { s3Location: se_S3Location(input.s3Location, context) }),
-  };
-};
+// se_UserData omitted.
 
-/**
- * serializeAws_json1_1UserDataValidationParameters
- */
-const se_UserDataValidationParameters = (input: UserDataValidationParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.scriptType != null && { scriptType: input.scriptType }),
-    ...(input.source != null && { source: se_Source(input.source, context) }),
-  };
-};
+// se_UserDataValidationParameters omitted.
 
-/**
- * serializeAws_json1_1VmServer
- */
-const se_VmServer = (input: VmServer, context: __SerdeContext): any => {
-  return {
-    ...(input.vmManagerName != null && { vmManagerName: input.vmManagerName }),
-    ...(input.vmManagerType != null && { vmManagerType: input.vmManagerType }),
-    ...(input.vmName != null && { vmName: input.vmName }),
-    ...(input.vmPath != null && { vmPath: input.vmPath }),
-    ...(input.vmServerAddress != null && { vmServerAddress: se_VmServerAddress(input.vmServerAddress, context) }),
-  };
-};
+// se_VmServer omitted.
 
-/**
- * serializeAws_json1_1VmServerAddress
- */
-const se_VmServerAddress = (input: VmServerAddress, context: __SerdeContext): any => {
-  return {
-    ...(input.vmId != null && { vmId: input.vmId }),
-    ...(input.vmManagerId != null && { vmManagerId: input.vmManagerId }),
-  };
-};
+// se_VmServerAddress omitted.
 
-/**
- * serializeAws_json1_1VmServerAddressList
- */
-const se_VmServerAddressList = (input: VmServerAddress[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_VmServerAddress(entry, context);
-    });
-};
+// se_VmServerAddressList omitted.
 
 /**
  * deserializeAws_json1_1Apps
@@ -3721,9 +3093,6 @@ const de_Apps = (output: any, context: __SerdeContext): AppSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AppSummary(entry, context);
     });
   return retVal;
@@ -3733,113 +3102,54 @@ const de_Apps = (output: any, context: __SerdeContext): AppSummary[] => {
  * deserializeAws_json1_1AppSummary
  */
 const de_AppSummary = (output: any, context: __SerdeContext): AppSummary => {
-  return {
-    appId: __expectString(output.appId),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    importedAppId: __expectString(output.importedAppId),
-    lastModified:
-      output.lastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModified)))
-        : undefined,
-    latestReplicationTime:
-      output.latestReplicationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestReplicationTime)))
-        : undefined,
-    launchConfigurationStatus: __expectString(output.launchConfigurationStatus),
-    launchDetails: output.launchDetails != null ? de_LaunchDetails(output.launchDetails, context) : undefined,
-    launchStatus: __expectString(output.launchStatus),
-    launchStatusMessage: __expectString(output.launchStatusMessage),
-    name: __expectString(output.name),
-    replicationConfigurationStatus: __expectString(output.replicationConfigurationStatus),
-    replicationStatus: __expectString(output.replicationStatus),
-    replicationStatusMessage: __expectString(output.replicationStatusMessage),
-    roleName: __expectString(output.roleName),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    totalServerGroups: __expectInt32(output.totalServerGroups),
-    totalServers: __expectInt32(output.totalServers),
-  } as any;
+  return take(output, {
+    appId: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    importedAppId: __expectString,
+    lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestReplicationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    launchConfigurationStatus: __expectString,
+    launchDetails: (_: any) => de_LaunchDetails(_, context),
+    launchStatus: __expectString,
+    launchStatusMessage: __expectString,
+    name: __expectString,
+    replicationConfigurationStatus: __expectString,
+    replicationStatus: __expectString,
+    replicationStatusMessage: __expectString,
+    roleName: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    totalServerGroups: __expectInt32,
+    totalServers: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AppValidationConfiguration
- */
-const de_AppValidationConfiguration = (output: any, context: __SerdeContext): AppValidationConfiguration => {
-  return {
-    appValidationStrategy: __expectString(output.appValidationStrategy),
-    name: __expectString(output.name),
-    ssmValidationParameters:
-      output.ssmValidationParameters != null
-        ? de_SSMValidationParameters(output.ssmValidationParameters, context)
-        : undefined,
-    validationId: __expectString(output.validationId),
-  } as any;
-};
+// de_AppValidationConfiguration omitted.
 
-/**
- * deserializeAws_json1_1AppValidationConfigurations
- */
-const de_AppValidationConfigurations = (output: any, context: __SerdeContext): AppValidationConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppValidationConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_AppValidationConfigurations omitted.
 
-/**
- * deserializeAws_json1_1AppValidationOutput
- */
-const de_AppValidationOutput = (output: any, context: __SerdeContext): AppValidationOutput => {
-  return {
-    ssmOutput: output.ssmOutput != null ? de_SSMOutput(output.ssmOutput, context) : undefined,
-  } as any;
-};
+// de_AppValidationOutput omitted.
 
 /**
  * deserializeAws_json1_1Connector
  */
 const de_Connector = (output: any, context: __SerdeContext): Connector => {
-  return {
-    associatedOn:
-      output.associatedOn != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.associatedOn)))
-        : undefined,
-    capabilityList:
-      output.capabilityList != null ? de_ConnectorCapabilityList(output.capabilityList, context) : undefined,
-    connectorId: __expectString(output.connectorId),
-    ipAddress: __expectString(output.ipAddress),
-    macAddress: __expectString(output.macAddress),
-    status: __expectString(output.status),
-    version: __expectString(output.version),
-    vmManagerId: __expectString(output.vmManagerId),
-    vmManagerName: __expectString(output.vmManagerName),
-    vmManagerType: __expectString(output.vmManagerType),
-  } as any;
+  return take(output, {
+    associatedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    capabilityList: _json,
+    connectorId: __expectString,
+    ipAddress: __expectString,
+    macAddress: __expectString,
+    status: __expectString,
+    version: __expectString,
+    vmManagerId: __expectString,
+    vmManagerName: __expectString,
+    vmManagerType: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ConnectorCapabilityList
- */
-const de_ConnectorCapabilityList = (output: any, context: __SerdeContext): (ConnectorCapability | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ConnectorCapabilityList omitted.
 
 /**
  * deserializeAws_json1_1ConnectorList
@@ -3848,9 +3158,6 @@ const de_ConnectorList = (output: any, context: __SerdeContext): Connector[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Connector(entry, context);
     });
   return retVal;
@@ -3860,124 +3167,36 @@ const de_ConnectorList = (output: any, context: __SerdeContext): Connector[] => 
  * deserializeAws_json1_1CreateAppResponse
  */
 const de_CreateAppResponse = (output: any, context: __SerdeContext): CreateAppResponse => {
-  return {
-    appSummary: output.appSummary != null ? de_AppSummary(output.appSummary, context) : undefined,
-    serverGroups: output.serverGroups != null ? de_ServerGroups(output.serverGroups, context) : undefined,
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    appSummary: (_: any) => de_AppSummary(_, context),
+    serverGroups: _json,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateReplicationJobResponse
- */
-const de_CreateReplicationJobResponse = (output: any, context: __SerdeContext): CreateReplicationJobResponse => {
-  return {
-    replicationJobId: __expectString(output.replicationJobId),
-  } as any;
-};
+// de_CreateReplicationJobResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteAppLaunchConfigurationResponse
- */
-const de_DeleteAppLaunchConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteAppLaunchConfigurationResponse => {
-  return {} as any;
-};
+// de_DeleteAppLaunchConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteAppReplicationConfigurationResponse
- */
-const de_DeleteAppReplicationConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteAppReplicationConfigurationResponse => {
-  return {} as any;
-};
+// de_DeleteAppReplicationConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteAppResponse
- */
-const de_DeleteAppResponse = (output: any, context: __SerdeContext): DeleteAppResponse => {
-  return {} as any;
-};
+// de_DeleteAppResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteAppValidationConfigurationResponse
- */
-const de_DeleteAppValidationConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteAppValidationConfigurationResponse => {
-  return {} as any;
-};
+// de_DeleteAppValidationConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteReplicationJobResponse
- */
-const de_DeleteReplicationJobResponse = (output: any, context: __SerdeContext): DeleteReplicationJobResponse => {
-  return {} as any;
-};
+// de_DeleteReplicationJobResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteServerCatalogResponse
- */
-const de_DeleteServerCatalogResponse = (output: any, context: __SerdeContext): DeleteServerCatalogResponse => {
-  return {} as any;
-};
+// de_DeleteServerCatalogResponse omitted.
 
-/**
- * deserializeAws_json1_1DisassociateConnectorResponse
- */
-const de_DisassociateConnectorResponse = (output: any, context: __SerdeContext): DisassociateConnectorResponse => {
-  return {} as any;
-};
+// de_DisassociateConnectorResponse omitted.
 
-/**
- * deserializeAws_json1_1DryRunOperationException
- */
-const de_DryRunOperationException = (output: any, context: __SerdeContext): DryRunOperationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DryRunOperationException omitted.
 
-/**
- * deserializeAws_json1_1GenerateChangeSetResponse
- */
-const de_GenerateChangeSetResponse = (output: any, context: __SerdeContext): GenerateChangeSetResponse => {
-  return {
-    s3Location: output.s3Location != null ? de_S3Location(output.s3Location, context) : undefined,
-  } as any;
-};
+// de_GenerateChangeSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GenerateTemplateResponse
- */
-const de_GenerateTemplateResponse = (output: any, context: __SerdeContext): GenerateTemplateResponse => {
-  return {
-    s3Location: output.s3Location != null ? de_S3Location(output.s3Location, context) : undefined,
-  } as any;
-};
+// de_GenerateTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1GetAppLaunchConfigurationResponse
- */
-const de_GetAppLaunchConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAppLaunchConfigurationResponse => {
-  return {
-    appId: __expectString(output.appId),
-    autoLaunch: __expectBoolean(output.autoLaunch),
-    roleName: __expectString(output.roleName),
-    serverGroupLaunchConfigurations:
-      output.serverGroupLaunchConfigurations != null
-        ? de_ServerGroupLaunchConfigurations(output.serverGroupLaunchConfigurations, context)
-        : undefined,
-  } as any;
-};
+// de_GetAppLaunchConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1GetAppReplicationConfigurationResponse
@@ -3986,279 +3205,148 @@ const de_GetAppReplicationConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): GetAppReplicationConfigurationResponse => {
-  return {
-    serverGroupReplicationConfigurations:
-      output.serverGroupReplicationConfigurations != null
-        ? de_ServerGroupReplicationConfigurations(output.serverGroupReplicationConfigurations, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    serverGroupReplicationConfigurations: (_: any) => de_ServerGroupReplicationConfigurations(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetAppResponse
  */
 const de_GetAppResponse = (output: any, context: __SerdeContext): GetAppResponse => {
-  return {
-    appSummary: output.appSummary != null ? de_AppSummary(output.appSummary, context) : undefined,
-    serverGroups: output.serverGroups != null ? de_ServerGroups(output.serverGroups, context) : undefined,
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    appSummary: (_: any) => de_AppSummary(_, context),
+    serverGroups: _json,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetAppValidationConfigurationResponse
- */
-const de_GetAppValidationConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAppValidationConfigurationResponse => {
-  return {
-    appValidationConfigurations:
-      output.appValidationConfigurations != null
-        ? de_AppValidationConfigurations(output.appValidationConfigurations, context)
-        : undefined,
-    serverGroupValidationConfigurations:
-      output.serverGroupValidationConfigurations != null
-        ? de_ServerGroupValidationConfigurations(output.serverGroupValidationConfigurations, context)
-        : undefined,
-  } as any;
-};
+// de_GetAppValidationConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1GetAppValidationOutputResponse
  */
 const de_GetAppValidationOutputResponse = (output: any, context: __SerdeContext): GetAppValidationOutputResponse => {
-  return {
-    validationOutputList:
-      output.validationOutputList != null ? de_ValidationOutputList(output.validationOutputList, context) : undefined,
-  } as any;
+  return take(output, {
+    validationOutputList: (_: any) => de_ValidationOutputList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetConnectorsResponse
  */
 const de_GetConnectorsResponse = (output: any, context: __SerdeContext): GetConnectorsResponse => {
-  return {
-    connectorList: output.connectorList != null ? de_ConnectorList(output.connectorList, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    connectorList: (_: any) => de_ConnectorList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetReplicationJobsResponse
  */
 const de_GetReplicationJobsResponse = (output: any, context: __SerdeContext): GetReplicationJobsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    replicationJobList:
-      output.replicationJobList != null ? de_ReplicationJobList(output.replicationJobList, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    replicationJobList: (_: any) => de_ReplicationJobList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetReplicationRunsResponse
  */
 const de_GetReplicationRunsResponse = (output: any, context: __SerdeContext): GetReplicationRunsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    replicationJob: output.replicationJob != null ? de_ReplicationJob(output.replicationJob, context) : undefined,
-    replicationRunList:
-      output.replicationRunList != null ? de_ReplicationRunList(output.replicationRunList, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    replicationJob: (_: any) => de_ReplicationJob(_, context),
+    replicationRunList: (_: any) => de_ReplicationRunList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetServersResponse
  */
 const de_GetServersResponse = (output: any, context: __SerdeContext): GetServersResponse => {
-  return {
-    lastModifiedOn:
-      output.lastModifiedOn != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedOn)))
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-    serverCatalogStatus: __expectString(output.serverCatalogStatus),
-    serverList: output.serverList != null ? de_ServerList(output.serverList, context) : undefined,
-  } as any;
+  return take(output, {
+    lastModifiedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    nextToken: __expectString,
+    serverCatalogStatus: __expectString,
+    serverList: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ImportAppCatalogResponse
- */
-const de_ImportAppCatalogResponse = (output: any, context: __SerdeContext): ImportAppCatalogResponse => {
-  return {} as any;
-};
+// de_ImportAppCatalogResponse omitted.
 
-/**
- * deserializeAws_json1_1ImportServerCatalogResponse
- */
-const de_ImportServerCatalogResponse = (output: any, context: __SerdeContext): ImportServerCatalogResponse => {
-  return {} as any;
-};
+// de_ImportServerCatalogResponse omitted.
 
-/**
- * deserializeAws_json1_1InternalError
- */
-const de_InternalError = (output: any, context: __SerdeContext): InternalError => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalError omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1LaunchAppResponse
- */
-const de_LaunchAppResponse = (output: any, context: __SerdeContext): LaunchAppResponse => {
-  return {} as any;
-};
+// de_LaunchAppResponse omitted.
 
 /**
  * deserializeAws_json1_1LaunchDetails
  */
 const de_LaunchDetails = (output: any, context: __SerdeContext): LaunchDetails => {
-  return {
-    latestLaunchTime:
-      output.latestLaunchTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestLaunchTime)))
-        : undefined,
-    stackId: __expectString(output.stackId),
-    stackName: __expectString(output.stackName),
-  } as any;
+  return take(output, {
+    latestLaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stackId: __expectString,
+    stackName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListAppsResponse
  */
 const de_ListAppsResponse = (output: any, context: __SerdeContext): ListAppsResponse => {
-  return {
-    apps: output.apps != null ? de_Apps(output.apps, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    apps: (_: any) => de_Apps(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1MissingRequiredParameterException
- */
-const de_MissingRequiredParameterException = (
-  output: any,
-  context: __SerdeContext
-): MissingRequiredParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MissingRequiredParameterException omitted.
 
-/**
- * deserializeAws_json1_1NoConnectorsAvailableException
- */
-const de_NoConnectorsAvailableException = (output: any, context: __SerdeContext): NoConnectorsAvailableException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoConnectorsAvailableException omitted.
 
-/**
- * deserializeAws_json1_1NotifyAppValidationOutputResponse
- */
-const de_NotifyAppValidationOutputResponse = (
-  output: any,
-  context: __SerdeContext
-): NotifyAppValidationOutputResponse => {
-  return {} as any;
-};
+// de_NotifyAppValidationOutputResponse omitted.
 
-/**
- * deserializeAws_json1_1OperationNotPermittedException
- */
-const de_OperationNotPermittedException = (output: any, context: __SerdeContext): OperationNotPermittedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OperationNotPermittedException omitted.
 
-/**
- * deserializeAws_json1_1PutAppLaunchConfigurationResponse
- */
-const de_PutAppLaunchConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): PutAppLaunchConfigurationResponse => {
-  return {} as any;
-};
+// de_PutAppLaunchConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1PutAppReplicationConfigurationResponse
- */
-const de_PutAppReplicationConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): PutAppReplicationConfigurationResponse => {
-  return {} as any;
-};
+// de_PutAppReplicationConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1PutAppValidationConfigurationResponse
- */
-const de_PutAppValidationConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): PutAppValidationConfigurationResponse => {
-  return {} as any;
-};
+// de_PutAppValidationConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1ReplicationJob
  */
 const de_ReplicationJob = (output: any, context: __SerdeContext): ReplicationJob => {
-  return {
-    description: __expectString(output.description),
-    encrypted: __expectBoolean(output.encrypted),
-    frequency: __expectInt32(output.frequency),
-    kmsKeyId: __expectString(output.kmsKeyId),
-    latestAmiId: __expectString(output.latestAmiId),
-    licenseType: __expectString(output.licenseType),
-    nextReplicationRunStartTime:
-      output.nextReplicationRunStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.nextReplicationRunStartTime)))
-        : undefined,
-    numberOfRecentAmisToKeep: __expectInt32(output.numberOfRecentAmisToKeep),
-    replicationJobId: __expectString(output.replicationJobId),
-    replicationRunList:
-      output.replicationRunList != null ? de_ReplicationRunList(output.replicationRunList, context) : undefined,
-    roleName: __expectString(output.roleName),
-    runOnce: __expectBoolean(output.runOnce),
-    seedReplicationTime:
-      output.seedReplicationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.seedReplicationTime)))
-        : undefined,
-    serverId: __expectString(output.serverId),
-    serverType: __expectString(output.serverType),
-    state: __expectString(output.state),
-    statusMessage: __expectString(output.statusMessage),
-    vmServer: output.vmServer != null ? de_VmServer(output.vmServer, context) : undefined,
-  } as any;
+  return take(output, {
+    description: __expectString,
+    encrypted: __expectBoolean,
+    frequency: __expectInt32,
+    kmsKeyId: __expectString,
+    latestAmiId: __expectString,
+    licenseType: __expectString,
+    nextReplicationRunStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    numberOfRecentAmisToKeep: __expectInt32,
+    replicationJobId: __expectString,
+    replicationRunList: (_: any) => de_ReplicationRunList(_, context),
+    roleName: __expectString,
+    runOnce: __expectBoolean,
+    seedReplicationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    serverId: __expectString,
+    serverType: __expectString,
+    state: __expectString,
+    statusMessage: __expectString,
+    vmServer: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ReplicationJobAlreadyExistsException
- */
-const de_ReplicationJobAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ReplicationJobAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReplicationJobAlreadyExistsException omitted.
 
 /**
  * deserializeAws_json1_1ReplicationJobList
@@ -4267,59 +3355,33 @@ const de_ReplicationJobList = (output: any, context: __SerdeContext): Replicatio
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReplicationJob(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ReplicationJobNotFoundException
- */
-const de_ReplicationJobNotFoundException = (output: any, context: __SerdeContext): ReplicationJobNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReplicationJobNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1ReplicationRun
  */
 const de_ReplicationRun = (output: any, context: __SerdeContext): ReplicationRun => {
-  return {
-    amiId: __expectString(output.amiId),
-    completedTime:
-      output.completedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completedTime)))
-        : undefined,
-    description: __expectString(output.description),
-    encrypted: __expectBoolean(output.encrypted),
-    kmsKeyId: __expectString(output.kmsKeyId),
-    replicationRunId: __expectString(output.replicationRunId),
-    scheduledStartTime:
-      output.scheduledStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scheduledStartTime)))
-        : undefined,
-    stageDetails: output.stageDetails != null ? de_ReplicationRunStageDetails(output.stageDetails, context) : undefined,
-    state: __expectString(output.state),
-    statusMessage: __expectString(output.statusMessage),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    amiId: __expectString,
+    completedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    encrypted: __expectBoolean,
+    kmsKeyId: __expectString,
+    replicationRunId: __expectString,
+    scheduledStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stageDetails: _json,
+    state: __expectString,
+    statusMessage: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ReplicationRunLimitExceededException
- */
-const de_ReplicationRunLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): ReplicationRunLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReplicationRunLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ReplicationRunList
@@ -4328,98 +3390,24 @@ const de_ReplicationRunList = (output: any, context: __SerdeContext): Replicatio
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReplicationRun(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ReplicationRunStageDetails
- */
-const de_ReplicationRunStageDetails = (output: any, context: __SerdeContext): ReplicationRunStageDetails => {
-  return {
-    stage: __expectString(output.stage),
-    stageProgress: __expectString(output.stageProgress),
-  } as any;
-};
+// de_ReplicationRunStageDetails omitted.
 
-/**
- * deserializeAws_json1_1S3Location
- */
-const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
-  return {
-    bucket: __expectString(output.bucket),
-    key: __expectString(output.key),
-  } as any;
-};
+// de_S3Location omitted.
 
-/**
- * deserializeAws_json1_1Server
- */
-const de_Server = (output: any, context: __SerdeContext): Server => {
-  return {
-    replicationJobId: __expectString(output.replicationJobId),
-    replicationJobTerminated: __expectBoolean(output.replicationJobTerminated),
-    serverId: __expectString(output.serverId),
-    serverType: __expectString(output.serverType),
-    vmServer: output.vmServer != null ? de_VmServer(output.vmServer, context) : undefined,
-  } as any;
-};
+// de_Server omitted.
 
-/**
- * deserializeAws_json1_1ServerCannotBeReplicatedException
- */
-const de_ServerCannotBeReplicatedException = (
-  output: any,
-  context: __SerdeContext
-): ServerCannotBeReplicatedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServerCannotBeReplicatedException omitted.
 
-/**
- * deserializeAws_json1_1ServerGroup
- */
-const de_ServerGroup = (output: any, context: __SerdeContext): ServerGroup => {
-  return {
-    name: __expectString(output.name),
-    serverGroupId: __expectString(output.serverGroupId),
-    serverList: output.serverList != null ? de_ServerList(output.serverList, context) : undefined,
-  } as any;
-};
+// de_ServerGroup omitted.
 
-/**
- * deserializeAws_json1_1ServerGroupLaunchConfiguration
- */
-const de_ServerGroupLaunchConfiguration = (output: any, context: __SerdeContext): ServerGroupLaunchConfiguration => {
-  return {
-    launchOrder: __expectInt32(output.launchOrder),
-    serverGroupId: __expectString(output.serverGroupId),
-    serverLaunchConfigurations:
-      output.serverLaunchConfigurations != null
-        ? de_ServerLaunchConfigurations(output.serverLaunchConfigurations, context)
-        : undefined,
-  } as any;
-};
+// de_ServerGroupLaunchConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ServerGroupLaunchConfigurations
- */
-const de_ServerGroupLaunchConfigurations = (output: any, context: __SerdeContext): ServerGroupLaunchConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServerGroupLaunchConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_ServerGroupLaunchConfigurations omitted.
 
 /**
  * deserializeAws_json1_1ServerGroupReplicationConfiguration
@@ -4428,13 +3416,10 @@ const de_ServerGroupReplicationConfiguration = (
   output: any,
   context: __SerdeContext
 ): ServerGroupReplicationConfiguration => {
-  return {
-    serverGroupId: __expectString(output.serverGroupId),
-    serverReplicationConfigurations:
-      output.serverReplicationConfigurations != null
-        ? de_ServerReplicationConfigurations(output.serverReplicationConfigurations, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    serverGroupId: __expectString,
+    serverReplicationConfigurations: (_: any) => de_ServerReplicationConfigurations(_, context),
+  }) as any;
 };
 
 /**
@@ -4447,124 +3432,31 @@ const de_ServerGroupReplicationConfigurations = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServerGroupReplicationConfiguration(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ServerGroups
- */
-const de_ServerGroups = (output: any, context: __SerdeContext): ServerGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServerGroup(entry, context);
-    });
-  return retVal;
-};
+// de_ServerGroups omitted.
 
-/**
- * deserializeAws_json1_1ServerGroupValidationConfiguration
- */
-const de_ServerGroupValidationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ServerGroupValidationConfiguration => {
-  return {
-    serverGroupId: __expectString(output.serverGroupId),
-    serverValidationConfigurations:
-      output.serverValidationConfigurations != null
-        ? de_ServerValidationConfigurations(output.serverValidationConfigurations, context)
-        : undefined,
-  } as any;
-};
+// de_ServerGroupValidationConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ServerGroupValidationConfigurations
- */
-const de_ServerGroupValidationConfigurations = (
-  output: any,
-  context: __SerdeContext
-): ServerGroupValidationConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServerGroupValidationConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_ServerGroupValidationConfigurations omitted.
 
-/**
- * deserializeAws_json1_1ServerLaunchConfiguration
- */
-const de_ServerLaunchConfiguration = (output: any, context: __SerdeContext): ServerLaunchConfiguration => {
-  return {
-    associatePublicIpAddress: __expectBoolean(output.associatePublicIpAddress),
-    configureScript: output.configureScript != null ? de_S3Location(output.configureScript, context) : undefined,
-    configureScriptType: __expectString(output.configureScriptType),
-    ec2KeyName: __expectString(output.ec2KeyName),
-    iamInstanceProfileName: __expectString(output.iamInstanceProfileName),
-    instanceType: __expectString(output.instanceType),
-    logicalId: __expectString(output.logicalId),
-    securityGroup: __expectString(output.securityGroup),
-    server: output.server != null ? de_Server(output.server, context) : undefined,
-    subnet: __expectString(output.subnet),
-    userData: output.userData != null ? de_UserData(output.userData, context) : undefined,
-    vpc: __expectString(output.vpc),
-  } as any;
-};
+// de_ServerLaunchConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ServerLaunchConfigurations
- */
-const de_ServerLaunchConfigurations = (output: any, context: __SerdeContext): ServerLaunchConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServerLaunchConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_ServerLaunchConfigurations omitted.
 
-/**
- * deserializeAws_json1_1ServerList
- */
-const de_ServerList = (output: any, context: __SerdeContext): Server[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Server(entry, context);
-    });
-  return retVal;
-};
+// de_ServerList omitted.
 
 /**
  * deserializeAws_json1_1ServerReplicationConfiguration
  */
 const de_ServerReplicationConfiguration = (output: any, context: __SerdeContext): ServerReplicationConfiguration => {
-  return {
-    server: output.server != null ? de_Server(output.server, context) : undefined,
-    serverReplicationParameters:
-      output.serverReplicationParameters != null
-        ? de_ServerReplicationParameters(output.serverReplicationParameters, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    server: _json,
+    serverReplicationParameters: (_: any) => de_ServerReplicationParameters(_, context),
+  }) as any;
 };
 
 /**
@@ -4574,9 +3466,6 @@ const de_ServerReplicationConfigurations = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServerReplicationConfiguration(entry, context);
     });
   return retVal;
@@ -4586,231 +3475,77 @@ const de_ServerReplicationConfigurations = (output: any, context: __SerdeContext
  * deserializeAws_json1_1ServerReplicationParameters
  */
 const de_ServerReplicationParameters = (output: any, context: __SerdeContext): ServerReplicationParameters => {
-  return {
-    encrypted: __expectBoolean(output.encrypted),
-    frequency: __expectInt32(output.frequency),
-    kmsKeyId: __expectString(output.kmsKeyId),
-    licenseType: __expectString(output.licenseType),
-    numberOfRecentAmisToKeep: __expectInt32(output.numberOfRecentAmisToKeep),
-    runOnce: __expectBoolean(output.runOnce),
-    seedTime:
-      output.seedTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.seedTime))) : undefined,
-  } as any;
+  return take(output, {
+    encrypted: __expectBoolean,
+    frequency: __expectInt32,
+    kmsKeyId: __expectString,
+    licenseType: __expectString,
+    numberOfRecentAmisToKeep: __expectInt32,
+    runOnce: __expectBoolean,
+    seedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ServerValidationConfiguration
- */
-const de_ServerValidationConfiguration = (output: any, context: __SerdeContext): ServerValidationConfiguration => {
-  return {
-    name: __expectString(output.name),
-    server: output.server != null ? de_Server(output.server, context) : undefined,
-    serverValidationStrategy: __expectString(output.serverValidationStrategy),
-    userDataValidationParameters:
-      output.userDataValidationParameters != null
-        ? de_UserDataValidationParameters(output.userDataValidationParameters, context)
-        : undefined,
-    validationId: __expectString(output.validationId),
-  } as any;
-};
+// de_ServerValidationConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ServerValidationConfigurations
- */
-const de_ServerValidationConfigurations = (output: any, context: __SerdeContext): ServerValidationConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServerValidationConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_ServerValidationConfigurations omitted.
 
-/**
- * deserializeAws_json1_1ServerValidationOutput
- */
-const de_ServerValidationOutput = (output: any, context: __SerdeContext): ServerValidationOutput => {
-  return {
-    server: output.server != null ? de_Server(output.server, context) : undefined,
-  } as any;
-};
+// de_ServerValidationOutput omitted.
 
-/**
- * deserializeAws_json1_1Source
- */
-const de_Source = (output: any, context: __SerdeContext): Source => {
-  return {
-    s3Location: output.s3Location != null ? de_S3Location(output.s3Location, context) : undefined,
-  } as any;
-};
+// de_Source omitted.
 
-/**
- * deserializeAws_json1_1SSMOutput
- */
-const de_SSMOutput = (output: any, context: __SerdeContext): SSMOutput => {
-  return {
-    s3Location: output.s3Location != null ? de_S3Location(output.s3Location, context) : undefined,
-  } as any;
-};
+// de_SSMOutput omitted.
 
-/**
- * deserializeAws_json1_1SSMValidationParameters
- */
-const de_SSMValidationParameters = (output: any, context: __SerdeContext): SSMValidationParameters => {
-  return {
-    command: __expectString(output.command),
-    executionTimeoutSeconds: __expectInt32(output.executionTimeoutSeconds),
-    instanceId: __expectString(output.instanceId),
-    outputS3BucketName: __expectString(output.outputS3BucketName),
-    scriptType: __expectString(output.scriptType),
-    source: output.source != null ? de_Source(output.source, context) : undefined,
-  } as any;
-};
+// de_SSMValidationParameters omitted.
 
-/**
- * deserializeAws_json1_1StartAppReplicationResponse
- */
-const de_StartAppReplicationResponse = (output: any, context: __SerdeContext): StartAppReplicationResponse => {
-  return {} as any;
-};
+// de_StartAppReplicationResponse omitted.
 
-/**
- * deserializeAws_json1_1StartOnDemandAppReplicationResponse
- */
-const de_StartOnDemandAppReplicationResponse = (
-  output: any,
-  context: __SerdeContext
-): StartOnDemandAppReplicationResponse => {
-  return {} as any;
-};
+// de_StartOnDemandAppReplicationResponse omitted.
 
-/**
- * deserializeAws_json1_1StartOnDemandReplicationRunResponse
- */
-const de_StartOnDemandReplicationRunResponse = (
-  output: any,
-  context: __SerdeContext
-): StartOnDemandReplicationRunResponse => {
-  return {
-    replicationRunId: __expectString(output.replicationRunId),
-  } as any;
-};
+// de_StartOnDemandReplicationRunResponse omitted.
 
-/**
- * deserializeAws_json1_1StopAppReplicationResponse
- */
-const de_StopAppReplicationResponse = (output: any, context: __SerdeContext): StopAppReplicationResponse => {
-  return {} as any;
-};
+// de_StopAppReplicationResponse omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_1TemporarilyUnavailableException
- */
-const de_TemporarilyUnavailableException = (output: any, context: __SerdeContext): TemporarilyUnavailableException => {
-  return {} as any;
-};
+// de_TemporarilyUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1TerminateAppResponse
- */
-const de_TerminateAppResponse = (output: any, context: __SerdeContext): TerminateAppResponse => {
-  return {} as any;
-};
+// de_TerminateAppResponse omitted.
 
-/**
- * deserializeAws_json1_1UnauthorizedOperationException
- */
-const de_UnauthorizedOperationException = (output: any, context: __SerdeContext): UnauthorizedOperationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnauthorizedOperationException omitted.
 
 /**
  * deserializeAws_json1_1UpdateAppResponse
  */
 const de_UpdateAppResponse = (output: any, context: __SerdeContext): UpdateAppResponse => {
-  return {
-    appSummary: output.appSummary != null ? de_AppSummary(output.appSummary, context) : undefined,
-    serverGroups: output.serverGroups != null ? de_ServerGroups(output.serverGroups, context) : undefined,
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    appSummary: (_: any) => de_AppSummary(_, context),
+    serverGroups: _json,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateReplicationJobResponse
- */
-const de_UpdateReplicationJobResponse = (output: any, context: __SerdeContext): UpdateReplicationJobResponse => {
-  return {} as any;
-};
+// de_UpdateReplicationJobResponse omitted.
 
-/**
- * deserializeAws_json1_1UserData
- */
-const de_UserData = (output: any, context: __SerdeContext): UserData => {
-  return {
-    s3Location: output.s3Location != null ? de_S3Location(output.s3Location, context) : undefined,
-  } as any;
-};
+// de_UserData omitted.
 
-/**
- * deserializeAws_json1_1UserDataValidationParameters
- */
-const de_UserDataValidationParameters = (output: any, context: __SerdeContext): UserDataValidationParameters => {
-  return {
-    scriptType: __expectString(output.scriptType),
-    source: output.source != null ? de_Source(output.source, context) : undefined,
-  } as any;
-};
+// de_UserDataValidationParameters omitted.
 
 /**
  * deserializeAws_json1_1ValidationOutput
  */
 const de_ValidationOutput = (output: any, context: __SerdeContext): ValidationOutput => {
-  return {
-    appValidationOutput:
-      output.appValidationOutput != null ? de_AppValidationOutput(output.appValidationOutput, context) : undefined,
-    latestValidationTime:
-      output.latestValidationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestValidationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    serverValidationOutput:
-      output.serverValidationOutput != null
-        ? de_ServerValidationOutput(output.serverValidationOutput, context)
-        : undefined,
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    validationId: __expectString(output.validationId),
-  } as any;
+  return take(output, {
+    appValidationOutput: _json,
+    latestValidationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    serverValidationOutput: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    validationId: __expectString,
+  }) as any;
 };
 
 /**
@@ -4820,36 +3555,14 @@ const de_ValidationOutputList = (output: any, context: __SerdeContext): Validati
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ValidationOutput(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1VmServer
- */
-const de_VmServer = (output: any, context: __SerdeContext): VmServer => {
-  return {
-    vmManagerName: __expectString(output.vmManagerName),
-    vmManagerType: __expectString(output.vmManagerType),
-    vmName: __expectString(output.vmName),
-    vmPath: __expectString(output.vmPath),
-    vmServerAddress: output.vmServerAddress != null ? de_VmServerAddress(output.vmServerAddress, context) : undefined,
-  } as any;
-};
+// de_VmServer omitted.
 
-/**
- * deserializeAws_json1_1VmServerAddress
- */
-const de_VmServerAddress = (output: any, context: __SerdeContext): VmServerAddress => {
-  return {
-    vmId: __expectString(output.vmId),
-    vmManagerId: __expectString(output.vmManagerId),
-  } as any;
-};
+// de_VmServerAddress omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -4871,6 +3584,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

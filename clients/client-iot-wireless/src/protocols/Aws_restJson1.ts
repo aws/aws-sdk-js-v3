@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -12,12 +13,13 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -399,20 +401,12 @@ import {
   CdmaNmrObj,
   CdmaObj,
   CellTowers,
-  CertificateList,
   ConflictException,
   ConnectionStatusEventConfiguration,
   ConnectionStatusResourceTypeEventConfiguration,
-  DakCertificateMetadata,
-  Destinations,
-  DeviceProfile,
   DeviceRegistrationStateEventConfiguration,
   DeviceRegistrationStateResourceTypeEventConfiguration,
-  DownlinkQueueMessage,
-  EventConfigurationItem,
-  EventNotificationItemConfigurations,
   FPorts,
-  FuotaTask,
   GatewayListItem,
   GlobalIdentity,
   Gnss,
@@ -433,15 +427,11 @@ import {
   LoRaWANFuotaTask,
   LoRaWANFuotaTaskGetInfo,
   LoRaWANGateway,
-  LoRaWANGatewayCurrentVersion,
   LoRaWANGatewayMetadata,
   LoRaWANGatewayVersion,
-  LoRaWANGetServiceProfileInfo,
   LoRaWANJoinEventNotificationConfigurations,
   LoRaWANJoinResourceTypeEventConfiguration,
-  LoRaWANListDevice,
   LoRaWANMulticast,
-  LoRaWANMulticastGet,
   LoRaWANMulticastSession,
   LoRaWANSendDataToDevice,
   LoRaWANServiceProfile,
@@ -451,32 +441,19 @@ import {
   LteObj,
   MessageDeliveryStatusEventConfiguration,
   MessageDeliveryStatusResourceTypeEventConfiguration,
-  MulticastGroup,
-  MulticastGroupByFuotaTask,
-  NetworkAnalyzerConfigurations,
   OtaaV1_0_x,
   OtaaV1_1,
   ParticipatingGateways,
-  PositionConfigurationItem,
   Positioning,
-  PositionSolverDetails,
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
   ResourceNotFoundException,
-  SemtechGnssDetail,
-  ServiceProfile,
   SessionKeysAbpV1_0_x,
   SessionKeysAbpV1_1,
   SidewalkAccountInfo,
-  SidewalkAccountInfoWithFingerprint,
   SidewalkCreateDeviceProfile,
   SidewalkCreateWirelessDevice,
-  SidewalkDevice,
-  SidewalkDeviceMetadata,
   SidewalkEventNotificationConfigurations,
-  SidewalkGetDeviceProfile,
-  SidewalkGetStartImportInfo,
-  SidewalkListDevice,
   SidewalkResourceTypeEventConfiguration,
   Tag,
   TdscdmaLocalId,
@@ -500,7 +477,6 @@ import {
   LoRaWANMulticastMetadata,
   LoRaWANStartFuotaTask,
   LoRaWANUpdateDevice,
-  LoRaWANUpdateGatewayTaskEntry,
   MulticastWirelessMetadata,
   PositionSolverConfigurations,
   SemtechGnssConfiguration,
@@ -513,9 +489,6 @@ import {
   UpdateAbpV1_0_x,
   UpdateAbpV1_1,
   UpdateFPorts,
-  UpdateWirelessGatewayTaskEntry,
-  WirelessDeviceStatistics,
-  WirelessGatewayStatistics,
   WirelessMetadata,
 } from "../models/models_1";
 
@@ -532,11 +505,13 @@ export const se_AssociateAwsAccountWithPartnerAccountCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkAccountInfo(input.Sidewalk, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Sidewalk: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -563,9 +538,11 @@ export const se_AssociateMulticastGroupWithFuotaTaskCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}/multicast-group";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MulticastGroupId != null && { MulticastGroupId: input.MulticastGroupId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MulticastGroupId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -592,9 +569,11 @@ export const se_AssociateWirelessDeviceWithFuotaTaskCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}/wireless-device";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.WirelessDeviceId != null && { WirelessDeviceId: input.WirelessDeviceId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      WirelessDeviceId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -621,9 +600,11 @@ export const se_AssociateWirelessDeviceWithMulticastGroupCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/wireless-device";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.WirelessDeviceId != null && { WirelessDeviceId: input.WirelessDeviceId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      WirelessDeviceId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -650,9 +631,11 @@ export const se_AssociateWirelessDeviceWithThingCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/thing";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ThingArn != null && { ThingArn: input.ThingArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ThingArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -679,9 +662,11 @@ export const se_AssociateWirelessGatewayWithCertificateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/certificate";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.IotCertificateId != null && { IotCertificateId: input.IotCertificateId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IotCertificateId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -708,9 +693,11 @@ export const se_AssociateWirelessGatewayWithThingCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/thing";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ThingArn != null && { ThingArn: input.ThingArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ThingArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -759,15 +746,17 @@ export const se_CreateDestinationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Expression != null && { Expression: input.Expression }),
-    ...(input.ExpressionType != null && { ExpressionType: input.ExpressionType }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      Expression: [],
+      ExpressionType: [],
+      Name: [],
+      RoleArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -792,13 +781,15 @@ export const se_CreateDeviceProfileCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANDeviceProfile(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkCreateDeviceProfile(input.Sidewalk, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+      Sidewalk: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -823,18 +814,20 @@ export const se_CreateFuotaTaskCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FirmwareUpdateImage != null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
-    ...(input.FirmwareUpdateRole != null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
-    ...(input.FragmentIntervalMS != null && { FragmentIntervalMS: input.FragmentIntervalMS }),
-    ...(input.FragmentSizeBytes != null && { FragmentSizeBytes: input.FragmentSizeBytes }),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANFuotaTask(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RedundancyPercent != null && { RedundancyPercent: input.RedundancyPercent }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      FirmwareUpdateImage: [],
+      FirmwareUpdateRole: [],
+      FragmentIntervalMS: [],
+      FragmentSizeBytes: [],
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+      RedundancyPercent: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -859,13 +852,15 @@ export const se_CreateMulticastGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANMulticast(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -891,17 +886,17 @@ export const se_CreateNetworkAnalyzerConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/network-analyzer-configurations";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.TraceContent != null && { TraceContent: se_TraceContent(input.TraceContent, context) }),
-    ...(input.WirelessDevices != null && { WirelessDevices: se_WirelessDeviceList(input.WirelessDevices, context) }),
-    ...(input.WirelessGateways != null && {
-      WirelessGateways: se_WirelessGatewayList(input.WirelessGateways, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      Name: [],
+      Tags: (_) => _json(_),
+      TraceContent: (_) => _json(_),
+      WirelessDevices: (_) => _json(_),
+      WirelessGateways: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -926,12 +921,14 @@ export const se_CreateServiceProfileCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANServiceProfile(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -956,17 +953,19 @@ export const se_CreateWirelessDeviceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANDevice(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Positioning != null && { Positioning: input.Positioning }),
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkCreateWirelessDevice(input.Sidewalk, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      DestinationName: [],
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+      Positioning: [],
+      Sidewalk: (_) => _json(_),
+      Tags: (_) => _json(_),
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -991,13 +990,15 @@ export const se_CreateWirelessGatewayCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANGateway(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1024,11 +1025,11 @@ export const se_CreateWirelessGatewayTaskCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/tasks";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.WirelessGatewayTaskDefinitionId != null && {
-      WirelessGatewayTaskDefinitionId: input.WirelessGatewayTaskDefinitionId,
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      WirelessGatewayTaskDefinitionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1054,13 +1055,15 @@ export const se_CreateWirelessGatewayTaskDefinitionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AutoCreateTasks != null && { AutoCreateTasks: input.AutoCreateTasks }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.Update != null && { Update: se_UpdateWirelessGatewayTaskCreate(input.Update, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AutoCreateTasks: [],
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Name: [],
+      Tags: (_) => _json(_),
+      Update: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1918,13 +1921,15 @@ export const se_GetPositionEstimateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/position-estimate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CellTowers != null && { CellTowers: se_CellTowers(input.CellTowers, context) }),
-    ...(input.Gnss != null && { Gnss: se_Gnss(input.Gnss, context) }),
-    ...(input.Ip != null && { Ip: se_Ip(input.Ip, context) }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.WiFiAccessPoints != null && { WiFiAccessPoints: se_WiFiAccessPoints(input.WiFiAccessPoints, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CellTowers: (_) => se_CellTowers(_, context),
+      Gnss: (_) => se_Gnss(_, context),
+      Ip: (_) => _json(_),
+      Timestamp: (_) => Math.round(_.getTime() / 1000),
+      WiFiAccessPoints: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2831,10 +2836,12 @@ export const se_PutPositionConfigurationCommand = async (
     resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Destination != null && { Destination: input.Destination }),
-    ...(input.Solvers != null && { Solvers: se_PositionSolverConfigurations(input.Solvers, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Destination: [],
+      Solvers: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2872,9 +2879,11 @@ export const se_PutResourceLogLevelCommand = async (
     resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LogLevel: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2962,12 +2971,12 @@ export const se_SendDataToMulticastGroupCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/data";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.PayloadData != null && { PayloadData: input.PayloadData }),
-    ...(input.WirelessMetadata != null && {
-      WirelessMetadata: se_MulticastWirelessMetadata(input.WirelessMetadata, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PayloadData: [],
+      WirelessMetadata: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2994,11 +3003,13 @@ export const se_SendDataToWirelessDeviceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/data";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.PayloadData != null && { PayloadData: input.PayloadData }),
-    ...(input.TransmitMode != null && { TransmitMode: input.TransmitMode }),
-    ...(input.WirelessMetadata != null && { WirelessMetadata: se_WirelessMetadata(input.WirelessMetadata, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PayloadData: [],
+      TransmitMode: [],
+      WirelessMetadata: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3025,10 +3036,12 @@ export const se_StartBulkAssociateWirelessDeviceWithMulticastGroupCommand = asyn
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/bulk";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.QueryString != null && { QueryString: input.QueryString }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      QueryString: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3055,10 +3068,12 @@ export const se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand = a
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/bulk";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.QueryString != null && { QueryString: input.QueryString }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      QueryString: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3084,9 +3099,11 @@ export const se_StartFuotaTaskCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANStartFuotaTask(input.LoRaWAN, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LoRaWAN: (_) => se_LoRaWANStartFuotaTask(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3113,9 +3130,11 @@ export const se_StartMulticastGroupSessionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/session";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANMulticastSession(input.LoRaWAN, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LoRaWAN: (_) => se_LoRaWANMulticastSession(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3141,13 +3160,15 @@ export const se_StartSingleWirelessDeviceImportTaskCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_single_device_import_task";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
-    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkSingleStartImportInfo(input.Sidewalk, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      DestinationName: [],
+      DeviceName: [],
+      Sidewalk: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3173,12 +3194,14 @@ export const se_StartWirelessDeviceImportTaskCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkStartImportInfo(input.Sidewalk, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      DestinationName: [],
+      Sidewalk: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3206,9 +3229,11 @@ export const se_TagResourceCommand = async (
     resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3289,12 +3314,14 @@ export const se_UpdateDestinationCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations/{Name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Expression != null && { Expression: input.Expression }),
-    ...(input.ExpressionType != null && { ExpressionType: input.ExpressionType }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Expression: [],
+      ExpressionType: [],
+      RoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3320,25 +3347,15 @@ export const se_UpdateEventConfigurationByResourceTypesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations-resource-types";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConnectionStatus != null && {
-      ConnectionStatus: se_ConnectionStatusResourceTypeEventConfiguration(input.ConnectionStatus, context),
-    }),
-    ...(input.DeviceRegistrationState != null && {
-      DeviceRegistrationState: se_DeviceRegistrationStateResourceTypeEventConfiguration(
-        input.DeviceRegistrationState,
-        context
-      ),
-    }),
-    ...(input.Join != null && { Join: se_JoinResourceTypeEventConfiguration(input.Join, context) }),
-    ...(input.MessageDeliveryStatus != null && {
-      MessageDeliveryStatus: se_MessageDeliveryStatusResourceTypeEventConfiguration(
-        input.MessageDeliveryStatus,
-        context
-      ),
-    }),
-    ...(input.Proximity != null && { Proximity: se_ProximityResourceTypeEventConfiguration(input.Proximity, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConnectionStatus: (_) => _json(_),
+      DeviceRegistrationState: (_) => _json(_),
+      Join: (_) => _json(_),
+      MessageDeliveryStatus: (_) => _json(_),
+      Proximity: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3364,16 +3381,18 @@ export const se_UpdateFuotaTaskCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FirmwareUpdateImage != null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
-    ...(input.FirmwareUpdateRole != null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
-    ...(input.FragmentIntervalMS != null && { FragmentIntervalMS: input.FragmentIntervalMS }),
-    ...(input.FragmentSizeBytes != null && { FragmentSizeBytes: input.FragmentSizeBytes }),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANFuotaTask(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RedundancyPercent != null && { RedundancyPercent: input.RedundancyPercent }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      FirmwareUpdateImage: [],
+      FirmwareUpdateRole: [],
+      FragmentIntervalMS: [],
+      FragmentSizeBytes: [],
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+      RedundancyPercent: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3398,15 +3417,13 @@ export const se_UpdateLogLevelsByResourceTypesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DefaultLogLevel != null && { DefaultLogLevel: input.DefaultLogLevel }),
-    ...(input.WirelessDeviceLogOptions != null && {
-      WirelessDeviceLogOptions: se_WirelessDeviceLogOptionList(input.WirelessDeviceLogOptions, context),
-    }),
-    ...(input.WirelessGatewayLogOptions != null && {
-      WirelessGatewayLogOptions: se_WirelessGatewayLogOptionList(input.WirelessGatewayLogOptions, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DefaultLogLevel: [],
+      WirelessDeviceLogOptions: (_) => _json(_),
+      WirelessGatewayLogOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3432,11 +3449,13 @@ export const se_UpdateMulticastGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANMulticast(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3471,22 +3490,16 @@ export const se_UpdateNetworkAnalyzerConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.TraceContent != null && { TraceContent: se_TraceContent(input.TraceContent, context) }),
-    ...(input.WirelessDevicesToAdd != null && {
-      WirelessDevicesToAdd: se_WirelessDeviceList(input.WirelessDevicesToAdd, context),
-    }),
-    ...(input.WirelessDevicesToRemove != null && {
-      WirelessDevicesToRemove: se_WirelessDeviceList(input.WirelessDevicesToRemove, context),
-    }),
-    ...(input.WirelessGatewaysToAdd != null && {
-      WirelessGatewaysToAdd: se_WirelessGatewayList(input.WirelessGatewaysToAdd, context),
-    }),
-    ...(input.WirelessGatewaysToRemove != null && {
-      WirelessGatewaysToRemove: se_WirelessGatewayList(input.WirelessGatewaysToRemove, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      TraceContent: (_) => _json(_),
+      WirelessDevicesToAdd: (_) => _json(_),
+      WirelessDevicesToRemove: (_) => _json(_),
+      WirelessGatewaysToAdd: (_) => _json(_),
+      WirelessGatewaysToRemove: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3523,9 +3536,11 @@ export const se_UpdatePartnerAccountCommand = async (
     partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkUpdateAccount(input.Sidewalk, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Sidewalk: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3563,9 +3578,11 @@ export const se_UpdatePositionCommand = async (
     resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Position != null && { Position: se_PositionCoordinate(input.Position, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Position: (_) => se_PositionCoordinate(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3597,19 +3614,15 @@ export const se_UpdateResourceEventConfigurationCommand = async (
     partnerType: [, input.PartnerType!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConnectionStatus != null && {
-      ConnectionStatus: se_ConnectionStatusEventConfiguration(input.ConnectionStatus, context),
-    }),
-    ...(input.DeviceRegistrationState != null && {
-      DeviceRegistrationState: se_DeviceRegistrationStateEventConfiguration(input.DeviceRegistrationState, context),
-    }),
-    ...(input.Join != null && { Join: se_JoinEventConfiguration(input.Join, context) }),
-    ...(input.MessageDeliveryStatus != null && {
-      MessageDeliveryStatus: se_MessageDeliveryStatusEventConfiguration(input.MessageDeliveryStatus, context),
-    }),
-    ...(input.Proximity != null && { Proximity: se_ProximityEventConfiguration(input.Proximity, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConnectionStatus: (_) => _json(_),
+      DeviceRegistrationState: (_) => _json(_),
+      Join: (_) => _json(_),
+      MessageDeliveryStatus: (_) => _json(_),
+      Proximity: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3676,13 +3689,15 @@ export const se_UpdateWirelessDeviceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANUpdateDevice(input.LoRaWAN, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Positioning != null && { Positioning: input.Positioning }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      DestinationName: [],
+      LoRaWAN: (_) => _json(_),
+      Name: [],
+      Positioning: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3709,9 +3724,11 @@ export const se_UpdateWirelessDeviceImportTaskCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkUpdateImportInfo(input.Sidewalk, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Sidewalk: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3737,12 +3754,14 @@ export const se_UpdateWirelessGatewayCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.JoinEuiFilters != null && { JoinEuiFilters: se_JoinEuiFilters(input.JoinEuiFilters, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NetIdFilters != null && { NetIdFilters: se_NetIdFilters(input.NetIdFilters, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      JoinEuiFilters: (_) => _json(_),
+      Name: [],
+      NetIdFilters: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3768,12 +3787,11 @@ export const de_AssociateAwsAccountWithPartnerAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Sidewalk != null) {
-    contents.Sidewalk = de_SidewalkAccountInfo(data.Sidewalk, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Sidewalk: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3810,10 +3828,9 @@ const de_AssociateAwsAccountWithPartnerAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3869,10 +3886,9 @@ const de_AssociateMulticastGroupWithFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3928,10 +3944,9 @@ const de_AssociateWirelessDeviceWithFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3987,10 +4002,9 @@ const de_AssociateWirelessDeviceWithMulticastGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4046,10 +4060,9 @@ const de_AssociateWirelessDeviceWithThingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4069,9 +4082,10 @@ export const de_AssociateWirelessGatewayWithCertificateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IotCertificateId != null) {
-    contents.IotCertificateId = __expectString(data.IotCertificateId);
-  }
+  const doc = take(data, {
+    IotCertificateId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4108,10 +4122,9 @@ const de_AssociateWirelessGatewayWithCertificateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4167,10 +4180,9 @@ const de_AssociateWirelessGatewayWithThingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4226,10 +4238,9 @@ const de_CancelMulticastGroupSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4249,12 +4260,11 @@ export const de_CreateDestinationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4291,10 +4301,9 @@ const de_CreateDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4314,12 +4323,11 @@ export const de_CreateDeviceProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4353,10 +4361,9 @@ const de_CreateDeviceProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4376,12 +4383,11 @@ export const de_CreateFuotaTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4418,10 +4424,9 @@ const de_CreateFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4441,12 +4446,11 @@ export const de_CreateMulticastGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4483,10 +4487,9 @@ const de_CreateMulticastGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4506,12 +4509,11 @@ export const de_CreateNetworkAnalyzerConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4548,10 +4550,9 @@ const de_CreateNetworkAnalyzerConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4571,12 +4572,11 @@ export const de_CreateServiceProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4610,10 +4610,9 @@ const de_CreateServiceProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4633,12 +4632,11 @@ export const de_CreateWirelessDeviceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4675,10 +4673,9 @@ const de_CreateWirelessDeviceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4698,12 +4695,11 @@ export const de_CreateWirelessGatewayCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4737,10 +4733,9 @@ const de_CreateWirelessGatewayCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4760,12 +4755,11 @@ export const de_CreateWirelessGatewayTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.WirelessGatewayTaskDefinitionId != null) {
-    contents.WirelessGatewayTaskDefinitionId = __expectString(data.WirelessGatewayTaskDefinitionId);
-  }
+  const doc = take(data, {
+    Status: __expectString,
+    WirelessGatewayTaskDefinitionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4802,10 +4796,9 @@ const de_CreateWirelessGatewayTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4825,12 +4818,11 @@ export const de_CreateWirelessGatewayTaskDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4867,10 +4859,9 @@ const de_CreateWirelessGatewayTaskDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4926,10 +4917,9 @@ const de_DeleteDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4985,10 +4975,9 @@ const de_DeleteDeviceProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5041,10 +5030,9 @@ const de_DeleteFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5100,10 +5088,9 @@ const de_DeleteMulticastGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5159,10 +5146,9 @@ const de_DeleteNetworkAnalyzerConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5215,10 +5201,9 @@ const de_DeleteQueuedMessagesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5274,10 +5259,9 @@ const de_DeleteServiceProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5330,10 +5314,9 @@ const de_DeleteWirelessDeviceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5389,10 +5372,9 @@ const de_DeleteWirelessDeviceImportTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5445,10 +5427,9 @@ const de_DeleteWirelessGatewayCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5501,10 +5482,9 @@ const de_DeleteWirelessGatewayTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5557,10 +5537,9 @@ const de_DeleteWirelessGatewayTaskDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5610,10 +5589,9 @@ const de_DeregisterWirelessDeviceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5663,10 +5641,9 @@ const de_DisassociateAwsAccountFromPartnerAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5719,10 +5696,9 @@ const de_DisassociateMulticastGroupFromFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5778,10 +5754,9 @@ const de_DisassociateWirelessDeviceFromFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5834,10 +5809,9 @@ const de_DisassociateWirelessDeviceFromMulticastGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5893,10 +5867,9 @@ const de_DisassociateWirelessDeviceFromThingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5949,10 +5922,9 @@ const de_DisassociateWirelessGatewayFromCertificateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6008,10 +5980,9 @@ const de_DisassociateWirelessGatewayFromThingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6031,24 +6002,15 @@ export const de_GetDestinationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Expression != null) {
-    contents.Expression = __expectString(data.Expression);
-  }
-  if (data.ExpressionType != null) {
-    contents.ExpressionType = __expectString(data.ExpressionType);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RoleArn != null) {
-    contents.RoleArn = __expectString(data.RoleArn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    Expression: __expectString,
+    ExpressionType: __expectString,
+    Name: __expectString,
+    RoleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6082,10 +6044,9 @@ const de_GetDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6105,21 +6066,14 @@ export const de_GetDeviceProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANDeviceProfile(data.LoRaWAN, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Sidewalk != null) {
-    contents.Sidewalk = de_SidewalkGetDeviceProfile(data.Sidewalk, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+    LoRaWAN: _json,
+    Name: __expectString,
+    Sidewalk: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6153,10 +6107,9 @@ const de_GetDeviceProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6176,27 +6129,14 @@ export const de_GetEventConfigurationByResourceTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionStatus != null) {
-    contents.ConnectionStatus = de_ConnectionStatusResourceTypeEventConfiguration(data.ConnectionStatus, context);
-  }
-  if (data.DeviceRegistrationState != null) {
-    contents.DeviceRegistrationState = de_DeviceRegistrationStateResourceTypeEventConfiguration(
-      data.DeviceRegistrationState,
-      context
-    );
-  }
-  if (data.Join != null) {
-    contents.Join = de_JoinResourceTypeEventConfiguration(data.Join, context);
-  }
-  if (data.MessageDeliveryStatus != null) {
-    contents.MessageDeliveryStatus = de_MessageDeliveryStatusResourceTypeEventConfiguration(
-      data.MessageDeliveryStatus,
-      context
-    );
-  }
-  if (data.Proximity != null) {
-    contents.Proximity = de_ProximityResourceTypeEventConfiguration(data.Proximity, context);
-  }
+  const doc = take(data, {
+    ConnectionStatus: _json,
+    DeviceRegistrationState: _json,
+    Join: _json,
+    MessageDeliveryStatus: _json,
+    Proximity: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6224,10 +6164,9 @@ const de_GetEventConfigurationByResourceTypesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6247,42 +6186,21 @@ export const de_GetFuotaTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FirmwareUpdateImage != null) {
-    contents.FirmwareUpdateImage = __expectString(data.FirmwareUpdateImage);
-  }
-  if (data.FirmwareUpdateRole != null) {
-    contents.FirmwareUpdateRole = __expectString(data.FirmwareUpdateRole);
-  }
-  if (data.FragmentIntervalMS != null) {
-    contents.FragmentIntervalMS = __expectInt32(data.FragmentIntervalMS);
-  }
-  if (data.FragmentSizeBytes != null) {
-    contents.FragmentSizeBytes = __expectInt32(data.FragmentSizeBytes);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANFuotaTaskGetInfo(data.LoRaWAN, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RedundancyPercent != null) {
-    contents.RedundancyPercent = __expectInt32(data.RedundancyPercent);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    FirmwareUpdateImage: __expectString,
+    FirmwareUpdateRole: __expectString,
+    FragmentIntervalMS: __expectInt32,
+    FragmentSizeBytes: __expectInt32,
+    Id: __expectString,
+    LoRaWAN: (_) => de_LoRaWANFuotaTaskGetInfo(_, context),
+    Name: __expectString,
+    RedundancyPercent: __expectInt32,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6316,10 +6234,9 @@ const de_GetFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6339,15 +6256,12 @@ export const de_GetLogLevelsByResourceTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DefaultLogLevel != null) {
-    contents.DefaultLogLevel = __expectString(data.DefaultLogLevel);
-  }
-  if (data.WirelessDeviceLogOptions != null) {
-    contents.WirelessDeviceLogOptions = de_WirelessDeviceLogOptionList(data.WirelessDeviceLogOptions, context);
-  }
-  if (data.WirelessGatewayLogOptions != null) {
-    contents.WirelessGatewayLogOptions = de_WirelessGatewayLogOptionList(data.WirelessGatewayLogOptions, context);
-  }
+  const doc = take(data, {
+    DefaultLogLevel: __expectString,
+    WirelessDeviceLogOptions: _json,
+    WirelessGatewayLogOptions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6381,10 +6295,9 @@ const de_GetLogLevelsByResourceTypesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6404,27 +6317,16 @@ export const de_GetMulticastGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANMulticastGet(data.LoRaWAN, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Id: __expectString,
+    LoRaWAN: _json,
+    Name: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6458,10 +6360,9 @@ const de_GetMulticastGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6481,9 +6382,10 @@ export const de_GetMulticastGroupSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANMulticastSession(data.LoRaWAN, context);
-  }
+  const doc = take(data, {
+    LoRaWAN: (_) => de_LoRaWANMulticastSession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6517,10 +6419,9 @@ const de_GetMulticastGroupSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6540,24 +6441,15 @@ export const de_GetNetworkAnalyzerConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.TraceContent != null) {
-    contents.TraceContent = de_TraceContent(data.TraceContent, context);
-  }
-  if (data.WirelessDevices != null) {
-    contents.WirelessDevices = de_WirelessDeviceList(data.WirelessDevices, context);
-  }
-  if (data.WirelessGateways != null) {
-    contents.WirelessGateways = de_WirelessGatewayList(data.WirelessGateways, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    Name: __expectString,
+    TraceContent: _json,
+    WirelessDevices: _json,
+    WirelessGateways: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6591,10 +6483,9 @@ const de_GetNetworkAnalyzerConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6614,12 +6505,11 @@ export const de_GetPartnerAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountLinked != null) {
-    contents.AccountLinked = __expectBoolean(data.AccountLinked);
-  }
-  if (data.Sidewalk != null) {
-    contents.Sidewalk = de_SidewalkAccountInfoWithFingerprint(data.Sidewalk, context);
-  }
+  const doc = take(data, {
+    AccountLinked: __expectBoolean,
+    Sidewalk: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6650,10 +6540,9 @@ const de_GetPartnerAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6673,24 +6562,15 @@ export const de_GetPositionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Accuracy != null) {
-    contents.Accuracy = de_Accuracy(data.Accuracy, context);
-  }
-  if (data.Position != null) {
-    contents.Position = de_PositionCoordinate(data.Position, context);
-  }
-  if (data.SolverProvider != null) {
-    contents.SolverProvider = __expectString(data.SolverProvider);
-  }
-  if (data.SolverType != null) {
-    contents.SolverType = __expectString(data.SolverType);
-  }
-  if (data.SolverVersion != null) {
-    contents.SolverVersion = __expectString(data.SolverVersion);
-  }
-  if (data.Timestamp != null) {
-    contents.Timestamp = __expectString(data.Timestamp);
-  }
+  const doc = take(data, {
+    Accuracy: (_) => de_Accuracy(_, context),
+    Position: (_) => de_PositionCoordinate(_, context),
+    SolverProvider: __expectString,
+    SolverType: __expectString,
+    SolverVersion: __expectString,
+    Timestamp: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6724,10 +6604,9 @@ const de_GetPositionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6747,12 +6626,11 @@ export const de_GetPositionConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Destination != null) {
-    contents.Destination = __expectString(data.Destination);
-  }
-  if (data.Solvers != null) {
-    contents.Solvers = de_PositionSolverDetails(data.Solvers, context);
-  }
+  const doc = take(data, {
+    Destination: __expectString,
+    Solvers: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6786,10 +6664,9 @@ const de_GetPositionConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6843,10 +6720,9 @@ const de_GetPositionEstimateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6866,24 +6742,14 @@ export const de_GetResourceEventConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionStatus != null) {
-    contents.ConnectionStatus = de_ConnectionStatusEventConfiguration(data.ConnectionStatus, context);
-  }
-  if (data.DeviceRegistrationState != null) {
-    contents.DeviceRegistrationState = de_DeviceRegistrationStateEventConfiguration(
-      data.DeviceRegistrationState,
-      context
-    );
-  }
-  if (data.Join != null) {
-    contents.Join = de_JoinEventConfiguration(data.Join, context);
-  }
-  if (data.MessageDeliveryStatus != null) {
-    contents.MessageDeliveryStatus = de_MessageDeliveryStatusEventConfiguration(data.MessageDeliveryStatus, context);
-  }
-  if (data.Proximity != null) {
-    contents.Proximity = de_ProximityEventConfiguration(data.Proximity, context);
-  }
+  const doc = take(data, {
+    ConnectionStatus: _json,
+    DeviceRegistrationState: _json,
+    Join: _json,
+    MessageDeliveryStatus: _json,
+    Proximity: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6917,10 +6783,9 @@ const de_GetResourceEventConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6940,9 +6805,10 @@ export const de_GetResourceLogLevelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LogLevel != null) {
-    contents.LogLevel = __expectString(data.LogLevel);
-  }
+  const doc = take(data, {
+    LogLevel: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6976,10 +6842,9 @@ const de_GetResourceLogLevelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7033,10 +6898,9 @@ const de_GetResourcePositionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7056,15 +6920,12 @@ export const de_GetServiceEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ServerTrust != null) {
-    contents.ServerTrust = __expectString(data.ServerTrust);
-  }
-  if (data.ServiceEndpoint != null) {
-    contents.ServiceEndpoint = __expectString(data.ServiceEndpoint);
-  }
-  if (data.ServiceType != null) {
-    contents.ServiceType = __expectString(data.ServiceType);
-  }
+  const doc = take(data, {
+    ServerTrust: __expectString,
+    ServiceEndpoint: __expectString,
+    ServiceType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7095,10 +6956,9 @@ const de_GetServiceEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7118,18 +6978,13 @@ export const de_GetServiceProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANGetServiceProfileInfo(data.LoRaWAN, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+    LoRaWAN: _json,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7163,10 +7018,9 @@ const de_GetServiceProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7186,39 +7040,20 @@ export const de_GetWirelessDeviceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.DestinationName != null) {
-    contents.DestinationName = __expectString(data.DestinationName);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANDevice(data.LoRaWAN, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Positioning != null) {
-    contents.Positioning = __expectString(data.Positioning);
-  }
-  if (data.Sidewalk != null) {
-    contents.Sidewalk = de_SidewalkDevice(data.Sidewalk, context);
-  }
-  if (data.ThingArn != null) {
-    contents.ThingArn = __expectString(data.ThingArn);
-  }
-  if (data.ThingName != null) {
-    contents.ThingName = __expectString(data.ThingName);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    DestinationName: __expectString,
+    Id: __expectString,
+    LoRaWAN: _json,
+    Name: __expectString,
+    Positioning: __expectString,
+    Sidewalk: _json,
+    ThingArn: __expectString,
+    ThingName: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7252,10 +7087,9 @@ const de_GetWirelessDeviceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7275,39 +7109,20 @@ export const de_GetWirelessDeviceImportTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
-  }
-  if (data.DestinationName != null) {
-    contents.DestinationName = __expectString(data.DestinationName);
-  }
-  if (data.FailedImportedDeviceCount != null) {
-    contents.FailedImportedDeviceCount = __expectLong(data.FailedImportedDeviceCount);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.InitializedImportedDeviceCount != null) {
-    contents.InitializedImportedDeviceCount = __expectLong(data.InitializedImportedDeviceCount);
-  }
-  if (data.OnboardedImportedDeviceCount != null) {
-    contents.OnboardedImportedDeviceCount = __expectLong(data.OnboardedImportedDeviceCount);
-  }
-  if (data.PendingImportedDeviceCount != null) {
-    contents.PendingImportedDeviceCount = __expectLong(data.PendingImportedDeviceCount);
-  }
-  if (data.Sidewalk != null) {
-    contents.Sidewalk = de_SidewalkGetStartImportInfo(data.Sidewalk, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusReason != null) {
-    contents.StatusReason = __expectString(data.StatusReason);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DestinationName: __expectString,
+    FailedImportedDeviceCount: __expectLong,
+    Id: __expectString,
+    InitializedImportedDeviceCount: __expectLong,
+    OnboardedImportedDeviceCount: __expectLong,
+    PendingImportedDeviceCount: __expectLong,
+    Sidewalk: _json,
+    Status: __expectString,
+    StatusReason: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7344,10 +7159,9 @@ const de_GetWirelessDeviceImportTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7367,18 +7181,13 @@ export const de_GetWirelessDeviceStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LastUplinkReceivedAt != null) {
-    contents.LastUplinkReceivedAt = __expectString(data.LastUplinkReceivedAt);
-  }
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANDeviceMetadata(data.LoRaWAN, context);
-  }
-  if (data.Sidewalk != null) {
-    contents.Sidewalk = de_SidewalkDeviceMetadata(data.Sidewalk, context);
-  }
-  if (data.WirelessDeviceId != null) {
-    contents.WirelessDeviceId = __expectString(data.WirelessDeviceId);
-  }
+  const doc = take(data, {
+    LastUplinkReceivedAt: __expectString,
+    LoRaWAN: (_) => de_LoRaWANDeviceMetadata(_, context),
+    Sidewalk: _json,
+    WirelessDeviceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7412,10 +7221,9 @@ const de_GetWirelessDeviceStatisticsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7435,27 +7243,16 @@ export const de_GetWirelessGatewayCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANGateway(data.LoRaWAN, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ThingArn != null) {
-    contents.ThingArn = __expectString(data.ThingArn);
-  }
-  if (data.ThingName != null) {
-    contents.ThingName = __expectString(data.ThingName);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LoRaWAN: _json,
+    Name: __expectString,
+    ThingArn: __expectString,
+    ThingName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7489,10 +7286,9 @@ const de_GetWirelessGatewayCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7512,12 +7308,11 @@ export const de_GetWirelessGatewayCertificateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IotCertificateId != null) {
-    contents.IotCertificateId = __expectString(data.IotCertificateId);
-  }
-  if (data.LoRaWANNetworkServerCertificateId != null) {
-    contents.LoRaWANNetworkServerCertificateId = __expectString(data.LoRaWANNetworkServerCertificateId);
-  }
+  const doc = take(data, {
+    IotCertificateId: __expectString,
+    LoRaWANNetworkServerCertificateId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7551,10 +7346,9 @@ const de_GetWirelessGatewayCertificateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7574,9 +7368,10 @@ export const de_GetWirelessGatewayFirmwareInformationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LoRaWAN != null) {
-    contents.LoRaWAN = de_LoRaWANGatewayCurrentVersion(data.LoRaWAN, context);
-  }
+  const doc = take(data, {
+    LoRaWAN: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7610,10 +7405,9 @@ const de_GetWirelessGatewayFirmwareInformationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7633,15 +7427,12 @@ export const de_GetWirelessGatewayStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionStatus != null) {
-    contents.ConnectionStatus = __expectString(data.ConnectionStatus);
-  }
-  if (data.LastUplinkReceivedAt != null) {
-    contents.LastUplinkReceivedAt = __expectString(data.LastUplinkReceivedAt);
-  }
-  if (data.WirelessGatewayId != null) {
-    contents.WirelessGatewayId = __expectString(data.WirelessGatewayId);
-  }
+  const doc = take(data, {
+    ConnectionStatus: __expectString,
+    LastUplinkReceivedAt: __expectString,
+    WirelessGatewayId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7675,10 +7466,9 @@ const de_GetWirelessGatewayStatisticsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7698,21 +7488,14 @@ export const de_GetWirelessGatewayTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LastUplinkReceivedAt != null) {
-    contents.LastUplinkReceivedAt = __expectString(data.LastUplinkReceivedAt);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.TaskCreatedAt != null) {
-    contents.TaskCreatedAt = __expectString(data.TaskCreatedAt);
-  }
-  if (data.WirelessGatewayId != null) {
-    contents.WirelessGatewayId = __expectString(data.WirelessGatewayId);
-  }
-  if (data.WirelessGatewayTaskDefinitionId != null) {
-    contents.WirelessGatewayTaskDefinitionId = __expectString(data.WirelessGatewayTaskDefinitionId);
-  }
+  const doc = take(data, {
+    LastUplinkReceivedAt: __expectString,
+    Status: __expectString,
+    TaskCreatedAt: __expectString,
+    WirelessGatewayId: __expectString,
+    WirelessGatewayTaskDefinitionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7746,10 +7529,9 @@ const de_GetWirelessGatewayTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7769,18 +7551,13 @@ export const de_GetWirelessGatewayTaskDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AutoCreateTasks != null) {
-    contents.AutoCreateTasks = __expectBoolean(data.AutoCreateTasks);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Update != null) {
-    contents.Update = de_UpdateWirelessGatewayTaskCreate(data.Update, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AutoCreateTasks: __expectBoolean,
+    Name: __expectString,
+    Update: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7814,10 +7591,9 @@ const de_GetWirelessGatewayTaskDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7837,12 +7613,11 @@ export const de_ListDestinationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DestinationList != null) {
-    contents.DestinationList = de_DestinationList(data.DestinationList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DestinationList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7873,10 +7648,9 @@ const de_ListDestinationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7896,12 +7670,11 @@ export const de_ListDeviceProfilesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeviceProfileList != null) {
-    contents.DeviceProfileList = de_DeviceProfileList(data.DeviceProfileList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DeviceProfileList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7932,10 +7705,9 @@ const de_ListDeviceProfilesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7955,15 +7727,12 @@ export const de_ListDevicesForWirelessDeviceImportTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DestinationName != null) {
-    contents.DestinationName = __expectString(data.DestinationName);
-  }
-  if (data.ImportedWirelessDeviceList != null) {
-    contents.ImportedWirelessDeviceList = de_ImportedWirelessDeviceList(data.ImportedWirelessDeviceList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DestinationName: __expectString,
+    ImportedWirelessDeviceList: (_) => de_ImportedWirelessDeviceList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8000,10 +7769,9 @@ const de_ListDevicesForWirelessDeviceImportTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8023,12 +7791,11 @@ export const de_ListEventConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventConfigurationsList != null) {
-    contents.EventConfigurationsList = de_EventConfigurationsList(data.EventConfigurationsList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EventConfigurationsList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8059,10 +7826,9 @@ const de_ListEventConfigurationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8082,12 +7848,11 @@ export const de_ListFuotaTasksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FuotaTaskList != null) {
-    contents.FuotaTaskList = de_FuotaTaskList(data.FuotaTaskList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    FuotaTaskList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8118,10 +7883,9 @@ const de_ListFuotaTasksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8141,12 +7905,11 @@ export const de_ListMulticastGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MulticastGroupList != null) {
-    contents.MulticastGroupList = de_MulticastGroupList(data.MulticastGroupList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MulticastGroupList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8177,10 +7940,9 @@ const de_ListMulticastGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8200,12 +7962,11 @@ export const de_ListMulticastGroupsByFuotaTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MulticastGroupList != null) {
-    contents.MulticastGroupList = de_MulticastGroupListByFuotaTask(data.MulticastGroupList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MulticastGroupList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8239,10 +8000,9 @@ const de_ListMulticastGroupsByFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8262,15 +8022,11 @@ export const de_ListNetworkAnalyzerConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NetworkAnalyzerConfigurationList != null) {
-    contents.NetworkAnalyzerConfigurationList = de_NetworkAnalyzerConfigurationList(
-      data.NetworkAnalyzerConfigurationList,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    NetworkAnalyzerConfigurationList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8301,10 +8057,9 @@ const de_ListNetworkAnalyzerConfigurationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8324,12 +8079,11 @@ export const de_ListPartnerAccountsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Sidewalk != null) {
-    contents.Sidewalk = de_SidewalkAccountList(data.Sidewalk, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Sidewalk: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8360,10 +8114,9 @@ const de_ListPartnerAccountsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8383,12 +8136,11 @@ export const de_ListPositionConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PositionConfigurationList != null) {
-    contents.PositionConfigurationList = de_PositionConfigurationList(data.PositionConfigurationList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PositionConfigurationList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8419,10 +8171,9 @@ const de_ListPositionConfigurationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8442,12 +8193,11 @@ export const de_ListQueuedMessagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DownlinkQueueMessagesList != null) {
-    contents.DownlinkQueueMessagesList = de_DownlinkQueueMessagesList(data.DownlinkQueueMessagesList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DownlinkQueueMessagesList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8481,10 +8231,9 @@ const de_ListQueuedMessagesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8504,12 +8253,11 @@ export const de_ListServiceProfilesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ServiceProfileList != null) {
-    contents.ServiceProfileList = de_ServiceProfileList(data.ServiceProfileList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ServiceProfileList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8540,10 +8288,9 @@ const de_ListServiceProfilesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8563,9 +8310,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8599,10 +8347,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8622,12 +8369,11 @@ export const de_ListWirelessDeviceImportTasksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WirelessDeviceImportTaskList != null) {
-    contents.WirelessDeviceImportTaskList = de_WirelessDeviceImportTaskList(data.WirelessDeviceImportTaskList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    WirelessDeviceImportTaskList: (_) => de_WirelessDeviceImportTaskList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8664,10 +8410,9 @@ const de_ListWirelessDeviceImportTasksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8687,12 +8432,11 @@ export const de_ListWirelessDevicesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WirelessDeviceList != null) {
-    contents.WirelessDeviceList = de_WirelessDeviceStatisticsList(data.WirelessDeviceList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    WirelessDeviceList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8723,10 +8467,9 @@ const de_ListWirelessDevicesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8746,12 +8489,11 @@ export const de_ListWirelessGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WirelessGatewayList != null) {
-    contents.WirelessGatewayList = de_WirelessGatewayStatisticsList(data.WirelessGatewayList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    WirelessGatewayList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8782,10 +8524,9 @@ const de_ListWirelessGatewaysCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8805,12 +8546,11 @@ export const de_ListWirelessGatewayTaskDefinitionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.TaskDefinitions != null) {
-    contents.TaskDefinitions = de_WirelessGatewayTaskDefinitionList(data.TaskDefinitions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    TaskDefinitions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8841,10 +8581,9 @@ const de_ListWirelessGatewayTaskDefinitionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8897,10 +8636,9 @@ const de_PutPositionConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8953,10 +8691,9 @@ const de_PutResourceLogLevelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9009,10 +8746,9 @@ const de_ResetAllResourceLogLevelsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9065,10 +8801,9 @@ const de_ResetResourceLogLevelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9088,9 +8823,10 @@ export const de_SendDataToMulticastGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
+  const doc = take(data, {
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9127,10 +8863,9 @@ const de_SendDataToMulticastGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9150,9 +8885,10 @@ export const de_SendDataToWirelessDeviceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
+  const doc = take(data, {
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9183,10 +8919,9 @@ const de_SendDataToWirelessDeviceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9239,10 +8974,9 @@ const de_StartBulkAssociateWirelessDeviceWithMulticastGroupCommandError = async 
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9295,10 +9029,9 @@ const de_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandError = asy
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9354,10 +9087,9 @@ const de_StartFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9413,10 +9145,9 @@ const de_StartMulticastGroupSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9436,12 +9167,11 @@ export const de_StartSingleWirelessDeviceImportTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9478,10 +9208,9 @@ const de_StartSingleWirelessDeviceImportTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9501,12 +9230,11 @@ export const de_StartWirelessDeviceImportTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9543,10 +9271,9 @@ const de_StartWirelessDeviceImportTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9602,10 +9329,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9625,9 +9351,10 @@ export const de_TestWirelessDeviceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Result != null) {
-    contents.Result = __expectString(data.Result);
-  }
+  const doc = take(data, {
+    Result: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9658,10 +9385,9 @@ const de_TestWirelessDeviceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9714,10 +9440,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9770,10 +9495,9 @@ const de_UpdateDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9823,10 +9547,9 @@ const de_UpdateEventConfigurationByResourceTypesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9882,10 +9605,9 @@ const de_UpdateFuotaTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9941,10 +9663,9 @@ const de_UpdateLogLevelsByResourceTypesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10000,10 +9721,9 @@ const de_UpdateMulticastGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10056,10 +9776,9 @@ const de_UpdateNetworkAnalyzerConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10109,10 +9828,9 @@ const de_UpdatePartnerAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10165,10 +9883,9 @@ const de_UpdatePositionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10224,10 +9941,9 @@ const de_UpdateResourceEventConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10280,10 +9996,9 @@ const de_UpdateResourcePositionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10336,10 +10051,9 @@ const de_UpdateWirelessDeviceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10395,10 +10109,9 @@ const de_UpdateWirelessDeviceImportTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10451,16 +10164,15 @@ const de_UpdateWirelessGatewayCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -10470,9 +10182,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -10486,15 +10199,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -10511,9 +10221,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -10530,15 +10241,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -10552,9 +10260,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -10571,12 +10280,11 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -10590,9 +10298,10 @@ const de_TooManyTagsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -10600,49 +10309,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AbpV1_0_x
- */
-const se_AbpV1_0_x = (input: AbpV1_0_x, context: __SerdeContext): any => {
-  return {
-    ...(input.DevAddr != null && { DevAddr: input.DevAddr }),
-    ...(input.FCntStart != null && { FCntStart: input.FCntStart }),
-    ...(input.SessionKeys != null && { SessionKeys: se_SessionKeysAbpV1_0_x(input.SessionKeys, context) }),
-  };
-};
+// se_AbpV1_0_x omitted.
 
-/**
- * serializeAws_restJson1AbpV1_1
- */
-const se_AbpV1_1 = (input: AbpV1_1, context: __SerdeContext): any => {
-  return {
-    ...(input.DevAddr != null && { DevAddr: input.DevAddr }),
-    ...(input.FCntStart != null && { FCntStart: input.FCntStart }),
-    ...(input.SessionKeys != null && { SessionKeys: se_SessionKeysAbpV1_1(input.SessionKeys, context) }),
-  };
-};
+// se_AbpV1_1 omitted.
 
-/**
- * serializeAws_restJson1ApplicationConfig
- */
-const se_ApplicationConfig = (input: ApplicationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
-    ...(input.FPort != null && { FPort: input.FPort }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ApplicationConfig omitted.
 
-/**
- * serializeAws_restJson1Applications
- */
-const se_Applications = (input: ApplicationConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ApplicationConfig(entry, context);
-    });
-};
+// se_Applications omitted.
 
 /**
  * serializeAws_restJson1AssistPosition
@@ -10655,26 +10328,9 @@ const se_AssistPosition = (input: number[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1Beaconing
- */
-const se_Beaconing = (input: Beaconing, context: __SerdeContext): any => {
-  return {
-    ...(input.DataRate != null && { DataRate: input.DataRate }),
-    ...(input.Frequencies != null && { Frequencies: se_BeaconingFrequencies(input.Frequencies, context) }),
-  };
-};
+// se_Beaconing omitted.
 
-/**
- * serializeAws_restJson1BeaconingFrequencies
- */
-const se_BeaconingFrequencies = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BeaconingFrequencies omitted.
 
 /**
  * serializeAws_restJson1CdmaList
@@ -10687,523 +10343,144 @@ const se_CdmaList = (input: CdmaObj[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1CdmaLocalId
- */
-const se_CdmaLocalId = (input: CdmaLocalId, context: __SerdeContext): any => {
-  return {
-    ...(input.CdmaChannel != null && { CdmaChannel: input.CdmaChannel }),
-    ...(input.PnOffset != null && { PnOffset: input.PnOffset }),
-  };
-};
+// se_CdmaLocalId omitted.
 
-/**
- * serializeAws_restJson1CdmaNmrList
- */
-const se_CdmaNmrList = (input: CdmaNmrObj[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CdmaNmrObj(entry, context);
-    });
-};
+// se_CdmaNmrList omitted.
 
-/**
- * serializeAws_restJson1CdmaNmrObj
- */
-const se_CdmaNmrObj = (input: CdmaNmrObj, context: __SerdeContext): any => {
-  return {
-    ...(input.BaseStationId != null && { BaseStationId: input.BaseStationId }),
-    ...(input.CdmaChannel != null && { CdmaChannel: input.CdmaChannel }),
-    ...(input.PilotPower != null && { PilotPower: input.PilotPower }),
-    ...(input.PnOffset != null && { PnOffset: input.PnOffset }),
-  };
-};
+// se_CdmaNmrObj omitted.
 
 /**
  * serializeAws_restJson1CdmaObj
  */
 const se_CdmaObj = (input: CdmaObj, context: __SerdeContext): any => {
-  return {
-    ...(input.BaseLat != null && { BaseLat: __serializeFloat(input.BaseLat) }),
-    ...(input.BaseLng != null && { BaseLng: __serializeFloat(input.BaseLng) }),
-    ...(input.BaseStationId != null && { BaseStationId: input.BaseStationId }),
-    ...(input.CdmaLocalId != null && { CdmaLocalId: se_CdmaLocalId(input.CdmaLocalId, context) }),
-    ...(input.CdmaNmr != null && { CdmaNmr: se_CdmaNmrList(input.CdmaNmr, context) }),
-    ...(input.NetworkId != null && { NetworkId: input.NetworkId }),
-    ...(input.PilotPower != null && { PilotPower: input.PilotPower }),
-    ...(input.RegistrationZone != null && { RegistrationZone: input.RegistrationZone }),
-    ...(input.SystemId != null && { SystemId: input.SystemId }),
-  };
+  return take(input, {
+    BaseLat: (_) => __serializeFloat(_),
+    BaseLng: (_) => __serializeFloat(_),
+    BaseStationId: [],
+    CdmaLocalId: (_) => _json(_),
+    CdmaNmr: (_) => _json(_),
+    NetworkId: [],
+    PilotPower: [],
+    RegistrationZone: [],
+    SystemId: [],
+  });
 };
 
 /**
  * serializeAws_restJson1CellTowers
  */
 const se_CellTowers = (input: CellTowers, context: __SerdeContext): any => {
-  return {
-    ...(input.Cdma != null && { Cdma: se_CdmaList(input.Cdma, context) }),
-    ...(input.Gsm != null && { Gsm: se_GsmList(input.Gsm, context) }),
-    ...(input.Lte != null && { Lte: se_LteList(input.Lte, context) }),
-    ...(input.Tdscdma != null && { Tdscdma: se_TdscdmaList(input.Tdscdma, context) }),
-    ...(input.Wcdma != null && { Wcdma: se_WcdmaList(input.Wcdma, context) }),
-  };
+  return take(input, {
+    Cdma: (_) => se_CdmaList(_, context),
+    Gsm: (_) => _json(_),
+    Lte: (_) => se_LteList(_, context),
+    Tdscdma: (_) => _json(_),
+    Wcdma: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_restJson1ConnectionStatusEventConfiguration
- */
-const se_ConnectionStatusEventConfiguration = (
-  input: ConnectionStatusEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LoRaWAN != null && {
-      LoRaWAN: se_LoRaWANConnectionStatusEventNotificationConfigurations(input.LoRaWAN, context),
-    }),
-    ...(input.WirelessGatewayIdEventTopic != null && {
-      WirelessGatewayIdEventTopic: input.WirelessGatewayIdEventTopic,
-    }),
-  };
-};
+// se_ConnectionStatusEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration
- */
-const se_ConnectionStatusResourceTypeEventConfiguration = (
-  input: ConnectionStatusResourceTypeEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LoRaWAN != null && {
-      LoRaWAN: se_LoRaWANConnectionStatusResourceTypeEventConfiguration(input.LoRaWAN, context),
-    }),
-  };
-};
+// se_ConnectionStatusResourceTypeEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1DeviceRegistrationStateEventConfiguration
- */
-const se_DeviceRegistrationStateEventConfiguration = (
-  input: DeviceRegistrationStateEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkEventNotificationConfigurations(input.Sidewalk, context) }),
-    ...(input.WirelessDeviceIdEventTopic != null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
-  };
-};
+// se_DeviceRegistrationStateEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfiguration
- */
-const se_DeviceRegistrationStateResourceTypeEventConfiguration = (
-  input: DeviceRegistrationStateResourceTypeEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkResourceTypeEventConfiguration(input.Sidewalk, context) }),
-  };
-};
+// se_DeviceRegistrationStateResourceTypeEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1FactoryPresetFreqsList
- */
-const se_FactoryPresetFreqsList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FactoryPresetFreqsList omitted.
 
-/**
- * serializeAws_restJson1FPorts
- */
-const se_FPorts = (input: FPorts, context: __SerdeContext): any => {
-  return {
-    ...(input.Applications != null && { Applications: se_Applications(input.Applications, context) }),
-    ...(input.ClockSync != null && { ClockSync: input.ClockSync }),
-    ...(input.Fuota != null && { Fuota: input.Fuota }),
-    ...(input.Multicast != null && { Multicast: input.Multicast }),
-    ...(input.Positioning != null && { Positioning: se_Positioning(input.Positioning, context) }),
-  };
-};
+// se_FPorts omitted.
 
-/**
- * serializeAws_restJson1GatewayList
- */
-const se_GatewayList = (input: GatewayListItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_GatewayListItem(entry, context);
-    });
-};
+// se_GatewayList omitted.
 
-/**
- * serializeAws_restJson1GatewayListItem
- */
-const se_GatewayListItem = (input: GatewayListItem, context: __SerdeContext): any => {
-  return {
-    ...(input.DownlinkFrequency != null && { DownlinkFrequency: input.DownlinkFrequency }),
-    ...(input.GatewayId != null && { GatewayId: input.GatewayId }),
-  };
-};
+// se_GatewayListItem omitted.
 
-/**
- * serializeAws_restJson1GlobalIdentity
- */
-const se_GlobalIdentity = (input: GlobalIdentity, context: __SerdeContext): any => {
-  return {
-    ...(input.GeranCid != null && { GeranCid: input.GeranCid }),
-    ...(input.Lac != null && { Lac: input.Lac }),
-  };
-};
+// se_GlobalIdentity omitted.
 
 /**
  * serializeAws_restJson1Gnss
  */
 const se_Gnss = (input: Gnss, context: __SerdeContext): any => {
-  return {
-    ...(input.AssistAltitude != null && { AssistAltitude: __serializeFloat(input.AssistAltitude) }),
-    ...(input.AssistPosition != null && { AssistPosition: se_AssistPosition(input.AssistPosition, context) }),
-    ...(input.CaptureTime != null && { CaptureTime: __serializeFloat(input.CaptureTime) }),
-    ...(input.CaptureTimeAccuracy != null && { CaptureTimeAccuracy: __serializeFloat(input.CaptureTimeAccuracy) }),
-    ...(input.Payload != null && { Payload: input.Payload }),
-    ...(input.Use2DSolver != null && { Use2DSolver: input.Use2DSolver }),
-  };
+  return take(input, {
+    AssistAltitude: (_) => __serializeFloat(_),
+    AssistPosition: (_) => se_AssistPosition(_, context),
+    CaptureTime: (_) => __serializeFloat(_),
+    CaptureTimeAccuracy: (_) => __serializeFloat(_),
+    Payload: [],
+    Use2DSolver: [],
+  });
 };
 
-/**
- * serializeAws_restJson1GsmList
- */
-const se_GsmList = (input: GsmObj[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_GsmObj(entry, context);
-    });
-};
+// se_GsmList omitted.
 
-/**
- * serializeAws_restJson1GsmLocalId
- */
-const se_GsmLocalId = (input: GsmLocalId, context: __SerdeContext): any => {
-  return {
-    ...(input.Bcch != null && { Bcch: input.Bcch }),
-    ...(input.Bsic != null && { Bsic: input.Bsic }),
-  };
-};
+// se_GsmLocalId omitted.
 
-/**
- * serializeAws_restJson1GsmNmrList
- */
-const se_GsmNmrList = (input: GsmNmrObj[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_GsmNmrObj(entry, context);
-    });
-};
+// se_GsmNmrList omitted.
 
-/**
- * serializeAws_restJson1GsmNmrObj
- */
-const se_GsmNmrObj = (input: GsmNmrObj, context: __SerdeContext): any => {
-  return {
-    ...(input.Bcch != null && { Bcch: input.Bcch }),
-    ...(input.Bsic != null && { Bsic: input.Bsic }),
-    ...(input.GlobalIdentity != null && { GlobalIdentity: se_GlobalIdentity(input.GlobalIdentity, context) }),
-    ...(input.RxLevel != null && { RxLevel: input.RxLevel }),
-  };
-};
+// se_GsmNmrObj omitted.
 
-/**
- * serializeAws_restJson1GsmObj
- */
-const se_GsmObj = (input: GsmObj, context: __SerdeContext): any => {
-  return {
-    ...(input.GeranCid != null && { GeranCid: input.GeranCid }),
-    ...(input.GsmLocalId != null && { GsmLocalId: se_GsmLocalId(input.GsmLocalId, context) }),
-    ...(input.GsmNmr != null && { GsmNmr: se_GsmNmrList(input.GsmNmr, context) }),
-    ...(input.GsmTimingAdvance != null && { GsmTimingAdvance: input.GsmTimingAdvance }),
-    ...(input.Lac != null && { Lac: input.Lac }),
-    ...(input.Mcc != null && { Mcc: input.Mcc }),
-    ...(input.Mnc != null && { Mnc: input.Mnc }),
-    ...(input.RxLevel != null && { RxLevel: input.RxLevel }),
-  };
-};
+// se_GsmObj omitted.
 
-/**
- * serializeAws_restJson1Ip
- */
-const se_Ip = (input: Ip, context: __SerdeContext): any => {
-  return {
-    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
-  };
-};
+// se_Ip omitted.
 
-/**
- * serializeAws_restJson1JoinEuiFilters
- */
-const se_JoinEuiFilters = (input: string[][], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_JoinEuiRange(entry, context);
-    });
-};
+// se_JoinEuiFilters omitted.
 
-/**
- * serializeAws_restJson1JoinEuiRange
- */
-const se_JoinEuiRange = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_JoinEuiRange omitted.
 
-/**
- * serializeAws_restJson1JoinEventConfiguration
- */
-const se_JoinEventConfiguration = (input: JoinEventConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANJoinEventNotificationConfigurations(input.LoRaWAN, context) }),
-    ...(input.WirelessDeviceIdEventTopic != null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
-  };
-};
+// se_JoinEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1JoinResourceTypeEventConfiguration
- */
-const se_JoinResourceTypeEventConfiguration = (
-  input: JoinResourceTypeEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANJoinResourceTypeEventConfiguration(input.LoRaWAN, context) }),
-  };
-};
+// se_JoinResourceTypeEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfigurations
- */
-const se_LoRaWANConnectionStatusEventNotificationConfigurations = (
-  input: LoRaWANConnectionStatusEventNotificationConfigurations,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GatewayEuiEventTopic != null && { GatewayEuiEventTopic: input.GatewayEuiEventTopic }),
-  };
-};
+// se_LoRaWANConnectionStatusEventNotificationConfigurations omitted.
 
-/**
- * serializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguration
- */
-const se_LoRaWANConnectionStatusResourceTypeEventConfiguration = (
-  input: LoRaWANConnectionStatusResourceTypeEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.WirelessGatewayEventTopic != null && { WirelessGatewayEventTopic: input.WirelessGatewayEventTopic }),
-  };
-};
+// se_LoRaWANConnectionStatusResourceTypeEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1LoRaWANDevice
- */
-const se_LoRaWANDevice = (input: LoRaWANDevice, context: __SerdeContext): any => {
-  return {
-    ...(input.AbpV1_0_x != null && { AbpV1_0_x: se_AbpV1_0_x(input.AbpV1_0_x, context) }),
-    ...(input.AbpV1_1 != null && { AbpV1_1: se_AbpV1_1(input.AbpV1_1, context) }),
-    ...(input.DevEui != null && { DevEui: input.DevEui }),
-    ...(input.DeviceProfileId != null && { DeviceProfileId: input.DeviceProfileId }),
-    ...(input.FPorts != null && { FPorts: se_FPorts(input.FPorts, context) }),
-    ...(input.OtaaV1_0_x != null && { OtaaV1_0_x: se_OtaaV1_0_x(input.OtaaV1_0_x, context) }),
-    ...(input.OtaaV1_1 != null && { OtaaV1_1: se_OtaaV1_1(input.OtaaV1_1, context) }),
-    ...(input.ServiceProfileId != null && { ServiceProfileId: input.ServiceProfileId }),
-  };
-};
+// se_LoRaWANDevice omitted.
 
-/**
- * serializeAws_restJson1LoRaWANDeviceProfile
- */
-const se_LoRaWANDeviceProfile = (input: LoRaWANDeviceProfile, context: __SerdeContext): any => {
-  return {
-    ...(input.ClassBTimeout != null && { ClassBTimeout: input.ClassBTimeout }),
-    ...(input.ClassCTimeout != null && { ClassCTimeout: input.ClassCTimeout }),
-    ...(input.FactoryPresetFreqsList != null && {
-      FactoryPresetFreqsList: se_FactoryPresetFreqsList(input.FactoryPresetFreqsList, context),
-    }),
-    ...(input.MacVersion != null && { MacVersion: input.MacVersion }),
-    ...(input.MaxDutyCycle != null && { MaxDutyCycle: input.MaxDutyCycle }),
-    ...(input.MaxEirp != null && { MaxEirp: input.MaxEirp }),
-    ...(input.PingSlotDr != null && { PingSlotDr: input.PingSlotDr }),
-    ...(input.PingSlotFreq != null && { PingSlotFreq: input.PingSlotFreq }),
-    ...(input.PingSlotPeriod != null && { PingSlotPeriod: input.PingSlotPeriod }),
-    ...(input.RegParamsRevision != null && { RegParamsRevision: input.RegParamsRevision }),
-    ...(input.RfRegion != null && { RfRegion: input.RfRegion }),
-    ...(input.RxDataRate2 != null && { RxDataRate2: input.RxDataRate2 }),
-    ...(input.RxDelay1 != null && { RxDelay1: input.RxDelay1 }),
-    ...(input.RxDrOffset1 != null && { RxDrOffset1: input.RxDrOffset1 }),
-    ...(input.RxFreq2 != null && { RxFreq2: input.RxFreq2 }),
-    ...(input.Supports32BitFCnt != null && { Supports32BitFCnt: input.Supports32BitFCnt }),
-    ...(input.SupportsClassB != null && { SupportsClassB: input.SupportsClassB }),
-    ...(input.SupportsClassC != null && { SupportsClassC: input.SupportsClassC }),
-    ...(input.SupportsJoin != null && { SupportsJoin: input.SupportsJoin }),
-  };
-};
+// se_LoRaWANDeviceProfile omitted.
 
-/**
- * serializeAws_restJson1LoRaWANFuotaTask
- */
-const se_LoRaWANFuotaTask = (input: LoRaWANFuotaTask, context: __SerdeContext): any => {
-  return {
-    ...(input.RfRegion != null && { RfRegion: input.RfRegion }),
-  };
-};
+// se_LoRaWANFuotaTask omitted.
 
-/**
- * serializeAws_restJson1LoRaWANGateway
- */
-const se_LoRaWANGateway = (input: LoRaWANGateway, context: __SerdeContext): any => {
-  return {
-    ...(input.Beaconing != null && { Beaconing: se_Beaconing(input.Beaconing, context) }),
-    ...(input.GatewayEui != null && { GatewayEui: input.GatewayEui }),
-    ...(input.JoinEuiFilters != null && { JoinEuiFilters: se_JoinEuiFilters(input.JoinEuiFilters, context) }),
-    ...(input.NetIdFilters != null && { NetIdFilters: se_NetIdFilters(input.NetIdFilters, context) }),
-    ...(input.RfRegion != null && { RfRegion: input.RfRegion }),
-    ...(input.SubBands != null && { SubBands: se_SubBands(input.SubBands, context) }),
-  };
-};
+// se_LoRaWANGateway omitted.
 
-/**
- * serializeAws_restJson1LoRaWANGatewayVersion
- */
-const se_LoRaWANGatewayVersion = (input: LoRaWANGatewayVersion, context: __SerdeContext): any => {
-  return {
-    ...(input.Model != null && { Model: input.Model }),
-    ...(input.PackageVersion != null && { PackageVersion: input.PackageVersion }),
-    ...(input.Station != null && { Station: input.Station }),
-  };
-};
+// se_LoRaWANGatewayVersion omitted.
 
-/**
- * serializeAws_restJson1LoRaWANJoinEventNotificationConfigurations
- */
-const se_LoRaWANJoinEventNotificationConfigurations = (
-  input: LoRaWANJoinEventNotificationConfigurations,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DevEuiEventTopic != null && { DevEuiEventTopic: input.DevEuiEventTopic }),
-  };
-};
+// se_LoRaWANJoinEventNotificationConfigurations omitted.
 
-/**
- * serializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration
- */
-const se_LoRaWANJoinResourceTypeEventConfiguration = (
-  input: LoRaWANJoinResourceTypeEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.WirelessDeviceEventTopic != null && { WirelessDeviceEventTopic: input.WirelessDeviceEventTopic }),
-  };
-};
+// se_LoRaWANJoinResourceTypeEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1LoRaWANMulticast
- */
-const se_LoRaWANMulticast = (input: LoRaWANMulticast, context: __SerdeContext): any => {
-  return {
-    ...(input.DlClass != null && { DlClass: input.DlClass }),
-    ...(input.RfRegion != null && { RfRegion: input.RfRegion }),
-  };
-};
+// se_LoRaWANMulticast omitted.
 
-/**
- * serializeAws_restJson1LoRaWANMulticastMetadata
- */
-const se_LoRaWANMulticastMetadata = (input: LoRaWANMulticastMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.FPort != null && { FPort: input.FPort }),
-  };
-};
+// se_LoRaWANMulticastMetadata omitted.
 
 /**
  * serializeAws_restJson1LoRaWANMulticastSession
  */
 const se_LoRaWANMulticastSession = (input: LoRaWANMulticastSession, context: __SerdeContext): any => {
-  return {
-    ...(input.DlDr != null && { DlDr: input.DlDr }),
-    ...(input.DlFreq != null && { DlFreq: input.DlFreq }),
-    ...(input.SessionStartTime != null && {
-      SessionStartTime: input.SessionStartTime.toISOString().split(".")[0] + "Z",
-    }),
-    ...(input.SessionTimeout != null && { SessionTimeout: input.SessionTimeout }),
-  };
+  return take(input, {
+    DlDr: [],
+    DlFreq: [],
+    SessionStartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    SessionTimeout: [],
+  });
 };
 
-/**
- * serializeAws_restJson1LoRaWANSendDataToDevice
- */
-const se_LoRaWANSendDataToDevice = (input: LoRaWANSendDataToDevice, context: __SerdeContext): any => {
-  return {
-    ...(input.FPort != null && { FPort: input.FPort }),
-    ...(input.ParticipatingGateways != null && {
-      ParticipatingGateways: se_ParticipatingGateways(input.ParticipatingGateways, context),
-    }),
-  };
-};
+// se_LoRaWANSendDataToDevice omitted.
 
-/**
- * serializeAws_restJson1LoRaWANServiceProfile
- */
-const se_LoRaWANServiceProfile = (input: LoRaWANServiceProfile, context: __SerdeContext): any => {
-  return {
-    ...(input.AddGwMetadata != null && { AddGwMetadata: input.AddGwMetadata }),
-    ...(input.DrMax != null && { DrMax: input.DrMax }),
-    ...(input.DrMin != null && { DrMin: input.DrMin }),
-  };
-};
+// se_LoRaWANServiceProfile omitted.
 
 /**
  * serializeAws_restJson1LoRaWANStartFuotaTask
  */
 const se_LoRaWANStartFuotaTask = (input: LoRaWANStartFuotaTask, context: __SerdeContext): any => {
-  return {
-    ...(input.StartTime != null && { StartTime: input.StartTime.toISOString().split(".")[0] + "Z" }),
-  };
+  return take(input, {
+    StartTime: (_) => _.toISOString().split(".")[0] + "Z",
+  });
 };
 
-/**
- * serializeAws_restJson1LoRaWANUpdateDevice
- */
-const se_LoRaWANUpdateDevice = (input: LoRaWANUpdateDevice, context: __SerdeContext): any => {
-  return {
-    ...(input.AbpV1_0_x != null && { AbpV1_0_x: se_UpdateAbpV1_0_x(input.AbpV1_0_x, context) }),
-    ...(input.AbpV1_1 != null && { AbpV1_1: se_UpdateAbpV1_1(input.AbpV1_1, context) }),
-    ...(input.DeviceProfileId != null && { DeviceProfileId: input.DeviceProfileId }),
-    ...(input.FPorts != null && { FPorts: se_UpdateFPorts(input.FPorts, context) }),
-    ...(input.ServiceProfileId != null && { ServiceProfileId: input.ServiceProfileId }),
-  };
-};
+// se_LoRaWANUpdateDevice omitted.
 
-/**
- * serializeAws_restJson1LoRaWANUpdateGatewayTaskCreate
- */
-const se_LoRaWANUpdateGatewayTaskCreate = (input: LoRaWANUpdateGatewayTaskCreate, context: __SerdeContext): any => {
-  return {
-    ...(input.CurrentVersion != null && { CurrentVersion: se_LoRaWANGatewayVersion(input.CurrentVersion, context) }),
-    ...(input.SigKeyCrc != null && { SigKeyCrc: input.SigKeyCrc }),
-    ...(input.UpdateSignature != null && { UpdateSignature: input.UpdateSignature }),
-    ...(input.UpdateVersion != null && { UpdateVersion: se_LoRaWANGatewayVersion(input.UpdateVersion, context) }),
-  };
-};
+// se_LoRaWANUpdateGatewayTaskCreate omitted.
 
 /**
  * serializeAws_restJson1LteList
@@ -11216,15 +10493,7 @@ const se_LteList = (input: LteObj[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1LteLocalId
- */
-const se_LteLocalId = (input: LteLocalId, context: __SerdeContext): any => {
-  return {
-    ...(input.Earfcn != null && { Earfcn: input.Earfcn }),
-    ...(input.Pci != null && { Pci: input.Pci }),
-  };
-};
+// se_LteLocalId omitted.
 
 /**
  * serializeAws_restJson1LteNmrList
@@ -11241,110 +10510,46 @@ const se_LteNmrList = (input: LteNmrObj[], context: __SerdeContext): any => {
  * serializeAws_restJson1LteNmrObj
  */
 const se_LteNmrObj = (input: LteNmrObj, context: __SerdeContext): any => {
-  return {
-    ...(input.Earfcn != null && { Earfcn: input.Earfcn }),
-    ...(input.EutranCid != null && { EutranCid: input.EutranCid }),
-    ...(input.Pci != null && { Pci: input.Pci }),
-    ...(input.Rsrp != null && { Rsrp: input.Rsrp }),
-    ...(input.Rsrq != null && { Rsrq: __serializeFloat(input.Rsrq) }),
-  };
+  return take(input, {
+    Earfcn: [],
+    EutranCid: [],
+    Pci: [],
+    Rsrp: [],
+    Rsrq: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_restJson1LteObj
  */
 const se_LteObj = (input: LteObj, context: __SerdeContext): any => {
-  return {
-    ...(input.EutranCid != null && { EutranCid: input.EutranCid }),
-    ...(input.LteLocalId != null && { LteLocalId: se_LteLocalId(input.LteLocalId, context) }),
-    ...(input.LteNmr != null && { LteNmr: se_LteNmrList(input.LteNmr, context) }),
-    ...(input.LteTimingAdvance != null && { LteTimingAdvance: input.LteTimingAdvance }),
-    ...(input.Mcc != null && { Mcc: input.Mcc }),
-    ...(input.Mnc != null && { Mnc: input.Mnc }),
-    ...(input.NrCapable != null && { NrCapable: input.NrCapable }),
-    ...(input.Rsrp != null && { Rsrp: input.Rsrp }),
-    ...(input.Rsrq != null && { Rsrq: __serializeFloat(input.Rsrq) }),
-    ...(input.Tac != null && { Tac: input.Tac }),
-  };
+  return take(input, {
+    EutranCid: [],
+    LteLocalId: (_) => _json(_),
+    LteNmr: (_) => se_LteNmrList(_, context),
+    LteTimingAdvance: [],
+    Mcc: [],
+    Mnc: [],
+    NrCapable: [],
+    Rsrp: [],
+    Rsrq: (_) => __serializeFloat(_),
+    Tac: [],
+  });
 };
 
-/**
- * serializeAws_restJson1MessageDeliveryStatusEventConfiguration
- */
-const se_MessageDeliveryStatusEventConfiguration = (
-  input: MessageDeliveryStatusEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkEventNotificationConfigurations(input.Sidewalk, context) }),
-    ...(input.WirelessDeviceIdEventTopic != null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
-  };
-};
+// se_MessageDeliveryStatusEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1MessageDeliveryStatusResourceTypeEventConfiguration
- */
-const se_MessageDeliveryStatusResourceTypeEventConfiguration = (
-  input: MessageDeliveryStatusResourceTypeEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkResourceTypeEventConfiguration(input.Sidewalk, context) }),
-  };
-};
+// se_MessageDeliveryStatusResourceTypeEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1MulticastWirelessMetadata
- */
-const se_MulticastWirelessMetadata = (input: MulticastWirelessMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANMulticastMetadata(input.LoRaWAN, context) }),
-  };
-};
+// se_MulticastWirelessMetadata omitted.
 
-/**
- * serializeAws_restJson1NetIdFilters
- */
-const se_NetIdFilters = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NetIdFilters omitted.
 
-/**
- * serializeAws_restJson1OtaaV1_0_x
- */
-const se_OtaaV1_0_x = (input: OtaaV1_0_x, context: __SerdeContext): any => {
-  return {
-    ...(input.AppEui != null && { AppEui: input.AppEui }),
-    ...(input.AppKey != null && { AppKey: input.AppKey }),
-    ...(input.GenAppKey != null && { GenAppKey: input.GenAppKey }),
-  };
-};
+// se_OtaaV1_0_x omitted.
 
-/**
- * serializeAws_restJson1OtaaV1_1
- */
-const se_OtaaV1_1 = (input: OtaaV1_1, context: __SerdeContext): any => {
-  return {
-    ...(input.AppKey != null && { AppKey: input.AppKey }),
-    ...(input.JoinEui != null && { JoinEui: input.JoinEui }),
-    ...(input.NwkKey != null && { NwkKey: input.NwkKey }),
-  };
-};
+// se_OtaaV1_1 omitted.
 
-/**
- * serializeAws_restJson1ParticipatingGateways
- */
-const se_ParticipatingGateways = (input: ParticipatingGateways, context: __SerdeContext): any => {
-  return {
-    ...(input.DownlinkMode != null && { DownlinkMode: input.DownlinkMode }),
-    ...(input.GatewayList != null && { GatewayList: se_GatewayList(input.GatewayList, context) }),
-    ...(input.TransmissionInterval != null && { TransmissionInterval: input.TransmissionInterval }),
-  };
-};
+// se_ParticipatingGateways omitted.
 
 /**
  * serializeAws_restJson1PositionCoordinate
@@ -11357,964 +10562,191 @@ const se_PositionCoordinate = (input: number[], context: __SerdeContext): any =>
     });
 };
 
-/**
- * serializeAws_restJson1Positioning
- */
-const se_Positioning = (input: Positioning, context: __SerdeContext): any => {
-  return {
-    ...(input.ClockSync != null && { ClockSync: input.ClockSync }),
-    ...(input.Gnss != null && { Gnss: input.Gnss }),
-    ...(input.Stream != null && { Stream: input.Stream }),
-  };
-};
+// se_Positioning omitted.
 
-/**
- * serializeAws_restJson1PositionSolverConfigurations
- */
-const se_PositionSolverConfigurations = (input: PositionSolverConfigurations, context: __SerdeContext): any => {
-  return {
-    ...(input.SemtechGnss != null && { SemtechGnss: se_SemtechGnssConfiguration(input.SemtechGnss, context) }),
-  };
-};
+// se_PositionSolverConfigurations omitted.
 
-/**
- * serializeAws_restJson1ProximityEventConfiguration
- */
-const se_ProximityEventConfiguration = (input: ProximityEventConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkEventNotificationConfigurations(input.Sidewalk, context) }),
-    ...(input.WirelessDeviceIdEventTopic != null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
-  };
-};
+// se_ProximityEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1ProximityResourceTypeEventConfiguration
- */
-const se_ProximityResourceTypeEventConfiguration = (
-  input: ProximityResourceTypeEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkResourceTypeEventConfiguration(input.Sidewalk, context) }),
-  };
-};
+// se_ProximityResourceTypeEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1SemtechGnssConfiguration
- */
-const se_SemtechGnssConfiguration = (input: SemtechGnssConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Fec != null && { Fec: input.Fec }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_SemtechGnssConfiguration omitted.
 
-/**
- * serializeAws_restJson1SessionKeysAbpV1_0_x
- */
-const se_SessionKeysAbpV1_0_x = (input: SessionKeysAbpV1_0_x, context: __SerdeContext): any => {
-  return {
-    ...(input.AppSKey != null && { AppSKey: input.AppSKey }),
-    ...(input.NwkSKey != null && { NwkSKey: input.NwkSKey }),
-  };
-};
+// se_SessionKeysAbpV1_0_x omitted.
 
-/**
- * serializeAws_restJson1SessionKeysAbpV1_1
- */
-const se_SessionKeysAbpV1_1 = (input: SessionKeysAbpV1_1, context: __SerdeContext): any => {
-  return {
-    ...(input.AppSKey != null && { AppSKey: input.AppSKey }),
-    ...(input.FNwkSIntKey != null && { FNwkSIntKey: input.FNwkSIntKey }),
-    ...(input.NwkSEncKey != null && { NwkSEncKey: input.NwkSEncKey }),
-    ...(input.SNwkSIntKey != null && { SNwkSIntKey: input.SNwkSIntKey }),
-  };
-};
+// se_SessionKeysAbpV1_1 omitted.
 
-/**
- * serializeAws_restJson1SidewalkAccountInfo
- */
-const se_SidewalkAccountInfo = (input: SidewalkAccountInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.AmazonId != null && { AmazonId: input.AmazonId }),
-    ...(input.AppServerPrivateKey != null && { AppServerPrivateKey: input.AppServerPrivateKey }),
-  };
-};
+// se_SidewalkAccountInfo omitted.
 
-/**
- * serializeAws_restJson1SidewalkCreateDeviceProfile
- */
-const se_SidewalkCreateDeviceProfile = (input: SidewalkCreateDeviceProfile, context: __SerdeContext): any => {
-  return {};
-};
+// se_SidewalkCreateDeviceProfile omitted.
 
-/**
- * serializeAws_restJson1SidewalkCreateWirelessDevice
- */
-const se_SidewalkCreateWirelessDevice = (input: SidewalkCreateWirelessDevice, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceProfileId != null && { DeviceProfileId: input.DeviceProfileId }),
-  };
-};
+// se_SidewalkCreateWirelessDevice omitted.
 
-/**
- * serializeAws_restJson1SidewalkEventNotificationConfigurations
- */
-const se_SidewalkEventNotificationConfigurations = (
-  input: SidewalkEventNotificationConfigurations,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AmazonIdEventTopic != null && { AmazonIdEventTopic: input.AmazonIdEventTopic }),
-  };
-};
+// se_SidewalkEventNotificationConfigurations omitted.
 
-/**
- * serializeAws_restJson1SidewalkResourceTypeEventConfiguration
- */
-const se_SidewalkResourceTypeEventConfiguration = (
-  input: SidewalkResourceTypeEventConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.WirelessDeviceEventTopic != null && { WirelessDeviceEventTopic: input.WirelessDeviceEventTopic }),
-  };
-};
+// se_SidewalkResourceTypeEventConfiguration omitted.
 
-/**
- * serializeAws_restJson1SidewalkSendDataToDevice
- */
-const se_SidewalkSendDataToDevice = (input: SidewalkSendDataToDevice, context: __SerdeContext): any => {
-  return {
-    ...(input.AckModeRetryDurationSecs != null && { AckModeRetryDurationSecs: input.AckModeRetryDurationSecs }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.Seq != null && { Seq: input.Seq }),
-  };
-};
+// se_SidewalkSendDataToDevice omitted.
 
-/**
- * serializeAws_restJson1SidewalkSingleStartImportInfo
- */
-const se_SidewalkSingleStartImportInfo = (input: SidewalkSingleStartImportInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.SidewalkManufacturingSn != null && { SidewalkManufacturingSn: input.SidewalkManufacturingSn }),
-  };
-};
+// se_SidewalkSingleStartImportInfo omitted.
 
-/**
- * serializeAws_restJson1SidewalkStartImportInfo
- */
-const se_SidewalkStartImportInfo = (input: SidewalkStartImportInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceCreationFile != null && { DeviceCreationFile: input.DeviceCreationFile }),
-    ...(input.Role != null && { Role: input.Role }),
-  };
-};
+// se_SidewalkStartImportInfo omitted.
 
-/**
- * serializeAws_restJson1SidewalkUpdateAccount
- */
-const se_SidewalkUpdateAccount = (input: SidewalkUpdateAccount, context: __SerdeContext): any => {
-  return {
-    ...(input.AppServerPrivateKey != null && { AppServerPrivateKey: input.AppServerPrivateKey }),
-  };
-};
+// se_SidewalkUpdateAccount omitted.
 
-/**
- * serializeAws_restJson1SidewalkUpdateImportInfo
- */
-const se_SidewalkUpdateImportInfo = (input: SidewalkUpdateImportInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceCreationFile != null && { DeviceCreationFile: input.DeviceCreationFile }),
-  };
-};
+// se_SidewalkUpdateImportInfo omitted.
 
-/**
- * serializeAws_restJson1SubBands
- */
-const se_SubBands = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubBands omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_restJson1TdscdmaList
- */
-const se_TdscdmaList = (input: TdscdmaObj[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TdscdmaObj(entry, context);
-    });
-};
+// se_TdscdmaList omitted.
 
-/**
- * serializeAws_restJson1TdscdmaLocalId
- */
-const se_TdscdmaLocalId = (input: TdscdmaLocalId, context: __SerdeContext): any => {
-  return {
-    ...(input.CellParams != null && { CellParams: input.CellParams }),
-    ...(input.Uarfcn != null && { Uarfcn: input.Uarfcn }),
-  };
-};
+// se_TdscdmaLocalId omitted.
 
-/**
- * serializeAws_restJson1TdscdmaNmrList
- */
-const se_TdscdmaNmrList = (input: TdscdmaNmrObj[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TdscdmaNmrObj(entry, context);
-    });
-};
+// se_TdscdmaNmrList omitted.
 
-/**
- * serializeAws_restJson1TdscdmaNmrObj
- */
-const se_TdscdmaNmrObj = (input: TdscdmaNmrObj, context: __SerdeContext): any => {
-  return {
-    ...(input.CellParams != null && { CellParams: input.CellParams }),
-    ...(input.PathLoss != null && { PathLoss: input.PathLoss }),
-    ...(input.Rscp != null && { Rscp: input.Rscp }),
-    ...(input.Uarfcn != null && { Uarfcn: input.Uarfcn }),
-    ...(input.UtranCid != null && { UtranCid: input.UtranCid }),
-  };
-};
+// se_TdscdmaNmrObj omitted.
 
-/**
- * serializeAws_restJson1TdscdmaObj
- */
-const se_TdscdmaObj = (input: TdscdmaObj, context: __SerdeContext): any => {
-  return {
-    ...(input.Lac != null && { Lac: input.Lac }),
-    ...(input.Mcc != null && { Mcc: input.Mcc }),
-    ...(input.Mnc != null && { Mnc: input.Mnc }),
-    ...(input.PathLoss != null && { PathLoss: input.PathLoss }),
-    ...(input.Rscp != null && { Rscp: input.Rscp }),
-    ...(input.TdscdmaLocalId != null && { TdscdmaLocalId: se_TdscdmaLocalId(input.TdscdmaLocalId, context) }),
-    ...(input.TdscdmaNmr != null && { TdscdmaNmr: se_TdscdmaNmrList(input.TdscdmaNmr, context) }),
-    ...(input.TdscdmaTimingAdvance != null && { TdscdmaTimingAdvance: input.TdscdmaTimingAdvance }),
-    ...(input.UtranCid != null && { UtranCid: input.UtranCid }),
-  };
-};
+// se_TdscdmaObj omitted.
 
-/**
- * serializeAws_restJson1TraceContent
- */
-const se_TraceContent = (input: TraceContent, context: __SerdeContext): any => {
-  return {
-    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
-    ...(input.WirelessDeviceFrameInfo != null && { WirelessDeviceFrameInfo: input.WirelessDeviceFrameInfo }),
-  };
-};
+// se_TraceContent omitted.
 
-/**
- * serializeAws_restJson1UpdateAbpV1_0_x
- */
-const se_UpdateAbpV1_0_x = (input: UpdateAbpV1_0_x, context: __SerdeContext): any => {
-  return {
-    ...(input.FCntStart != null && { FCntStart: input.FCntStart }),
-  };
-};
+// se_UpdateAbpV1_0_x omitted.
 
-/**
- * serializeAws_restJson1UpdateAbpV1_1
- */
-const se_UpdateAbpV1_1 = (input: UpdateAbpV1_1, context: __SerdeContext): any => {
-  return {
-    ...(input.FCntStart != null && { FCntStart: input.FCntStart }),
-  };
-};
+// se_UpdateAbpV1_1 omitted.
 
-/**
- * serializeAws_restJson1UpdateFPorts
- */
-const se_UpdateFPorts = (input: UpdateFPorts, context: __SerdeContext): any => {
-  return {
-    ...(input.Applications != null && { Applications: se_Applications(input.Applications, context) }),
-    ...(input.Positioning != null && { Positioning: se_Positioning(input.Positioning, context) }),
-  };
-};
+// se_UpdateFPorts omitted.
 
-/**
- * serializeAws_restJson1UpdateWirelessGatewayTaskCreate
- */
-const se_UpdateWirelessGatewayTaskCreate = (input: UpdateWirelessGatewayTaskCreate, context: __SerdeContext): any => {
-  return {
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANUpdateGatewayTaskCreate(input.LoRaWAN, context) }),
-    ...(input.UpdateDataRole != null && { UpdateDataRole: input.UpdateDataRole }),
-    ...(input.UpdateDataSource != null && { UpdateDataSource: input.UpdateDataSource }),
-  };
-};
+// se_UpdateWirelessGatewayTaskCreate omitted.
 
-/**
- * serializeAws_restJson1WcdmaList
- */
-const se_WcdmaList = (input: WcdmaObj[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WcdmaObj(entry, context);
-    });
-};
+// se_WcdmaList omitted.
 
-/**
- * serializeAws_restJson1WcdmaLocalId
- */
-const se_WcdmaLocalId = (input: WcdmaLocalId, context: __SerdeContext): any => {
-  return {
-    ...(input.Psc != null && { Psc: input.Psc }),
-    ...(input.Uarfcndl != null && { Uarfcndl: input.Uarfcndl }),
-  };
-};
+// se_WcdmaLocalId omitted.
 
-/**
- * serializeAws_restJson1WcdmaNmrList
- */
-const se_WcdmaNmrList = (input: WcdmaNmrObj[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WcdmaNmrObj(entry, context);
-    });
-};
+// se_WcdmaNmrList omitted.
 
-/**
- * serializeAws_restJson1WcdmaNmrObj
- */
-const se_WcdmaNmrObj = (input: WcdmaNmrObj, context: __SerdeContext): any => {
-  return {
-    ...(input.PathLoss != null && { PathLoss: input.PathLoss }),
-    ...(input.Psc != null && { Psc: input.Psc }),
-    ...(input.Rscp != null && { Rscp: input.Rscp }),
-    ...(input.Uarfcndl != null && { Uarfcndl: input.Uarfcndl }),
-    ...(input.UtranCid != null && { UtranCid: input.UtranCid }),
-  };
-};
+// se_WcdmaNmrObj omitted.
 
-/**
- * serializeAws_restJson1WcdmaObj
- */
-const se_WcdmaObj = (input: WcdmaObj, context: __SerdeContext): any => {
-  return {
-    ...(input.Lac != null && { Lac: input.Lac }),
-    ...(input.Mcc != null && { Mcc: input.Mcc }),
-    ...(input.Mnc != null && { Mnc: input.Mnc }),
-    ...(input.PathLoss != null && { PathLoss: input.PathLoss }),
-    ...(input.Rscp != null && { Rscp: input.Rscp }),
-    ...(input.UtranCid != null && { UtranCid: input.UtranCid }),
-    ...(input.WcdmaLocalId != null && { WcdmaLocalId: se_WcdmaLocalId(input.WcdmaLocalId, context) }),
-    ...(input.WcdmaNmr != null && { WcdmaNmr: se_WcdmaNmrList(input.WcdmaNmr, context) }),
-  };
-};
+// se_WcdmaObj omitted.
 
-/**
- * serializeAws_restJson1WiFiAccessPoint
- */
-const se_WiFiAccessPoint = (input: WiFiAccessPoint, context: __SerdeContext): any => {
-  return {
-    ...(input.MacAddress != null && { MacAddress: input.MacAddress }),
-    ...(input.Rss != null && { Rss: input.Rss }),
-  };
-};
+// se_WiFiAccessPoint omitted.
 
-/**
- * serializeAws_restJson1WiFiAccessPoints
- */
-const se_WiFiAccessPoints = (input: WiFiAccessPoint[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WiFiAccessPoint(entry, context);
-    });
-};
+// se_WiFiAccessPoints omitted.
 
-/**
- * serializeAws_restJson1WirelessDeviceEventLogOption
- */
-const se_WirelessDeviceEventLogOption = (input: WirelessDeviceEventLogOption, context: __SerdeContext): any => {
-  return {
-    ...(input.Event != null && { Event: input.Event }),
-    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
-  };
-};
+// se_WirelessDeviceEventLogOption omitted.
 
-/**
- * serializeAws_restJson1WirelessDeviceEventLogOptionList
- */
-const se_WirelessDeviceEventLogOptionList = (input: WirelessDeviceEventLogOption[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WirelessDeviceEventLogOption(entry, context);
-    });
-};
+// se_WirelessDeviceEventLogOptionList omitted.
 
-/**
- * serializeAws_restJson1WirelessDeviceList
- */
-const se_WirelessDeviceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WirelessDeviceList omitted.
 
-/**
- * serializeAws_restJson1WirelessDeviceLogOption
- */
-const se_WirelessDeviceLogOption = (input: WirelessDeviceLogOption, context: __SerdeContext): any => {
-  return {
-    ...(input.Events != null && { Events: se_WirelessDeviceEventLogOptionList(input.Events, context) }),
-    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_WirelessDeviceLogOption omitted.
 
-/**
- * serializeAws_restJson1WirelessDeviceLogOptionList
- */
-const se_WirelessDeviceLogOptionList = (input: WirelessDeviceLogOption[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WirelessDeviceLogOption(entry, context);
-    });
-};
+// se_WirelessDeviceLogOptionList omitted.
 
-/**
- * serializeAws_restJson1WirelessGatewayEventLogOption
- */
-const se_WirelessGatewayEventLogOption = (input: WirelessGatewayEventLogOption, context: __SerdeContext): any => {
-  return {
-    ...(input.Event != null && { Event: input.Event }),
-    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
-  };
-};
+// se_WirelessGatewayEventLogOption omitted.
 
-/**
- * serializeAws_restJson1WirelessGatewayEventLogOptionList
- */
-const se_WirelessGatewayEventLogOptionList = (input: WirelessGatewayEventLogOption[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WirelessGatewayEventLogOption(entry, context);
-    });
-};
+// se_WirelessGatewayEventLogOptionList omitted.
 
-/**
- * serializeAws_restJson1WirelessGatewayList
- */
-const se_WirelessGatewayList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WirelessGatewayList omitted.
 
-/**
- * serializeAws_restJson1WirelessGatewayLogOption
- */
-const se_WirelessGatewayLogOption = (input: WirelessGatewayLogOption, context: __SerdeContext): any => {
-  return {
-    ...(input.Events != null && { Events: se_WirelessGatewayEventLogOptionList(input.Events, context) }),
-    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_WirelessGatewayLogOption omitted.
 
-/**
- * serializeAws_restJson1WirelessGatewayLogOptionList
- */
-const se_WirelessGatewayLogOptionList = (input: WirelessGatewayLogOption[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WirelessGatewayLogOption(entry, context);
-    });
-};
+// se_WirelessGatewayLogOptionList omitted.
 
-/**
- * serializeAws_restJson1WirelessMetadata
- */
-const se_WirelessMetadata = (input: WirelessMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.LoRaWAN != null && { LoRaWAN: se_LoRaWANSendDataToDevice(input.LoRaWAN, context) }),
-    ...(input.Sidewalk != null && { Sidewalk: se_SidewalkSendDataToDevice(input.Sidewalk, context) }),
-  };
-};
+// se_WirelessMetadata omitted.
 
-/**
- * deserializeAws_restJson1AbpV1_0_x
- */
-const de_AbpV1_0_x = (output: any, context: __SerdeContext): AbpV1_0_x => {
-  return {
-    DevAddr: __expectString(output.DevAddr),
-    FCntStart: __expectInt32(output.FCntStart),
-    SessionKeys: output.SessionKeys != null ? de_SessionKeysAbpV1_0_x(output.SessionKeys, context) : undefined,
-  } as any;
-};
+// de_AbpV1_0_x omitted.
 
-/**
- * deserializeAws_restJson1AbpV1_1
- */
-const de_AbpV1_1 = (output: any, context: __SerdeContext): AbpV1_1 => {
-  return {
-    DevAddr: __expectString(output.DevAddr),
-    FCntStart: __expectInt32(output.FCntStart),
-    SessionKeys: output.SessionKeys != null ? de_SessionKeysAbpV1_1(output.SessionKeys, context) : undefined,
-  } as any;
-};
+// de_AbpV1_1 omitted.
 
 /**
  * deserializeAws_restJson1Accuracy
  */
 const de_Accuracy = (output: any, context: __SerdeContext): Accuracy => {
-  return {
-    HorizontalAccuracy: __limitedParseFloat32(output.HorizontalAccuracy),
-    VerticalAccuracy: __limitedParseFloat32(output.VerticalAccuracy),
-  } as any;
+  return take(output, {
+    HorizontalAccuracy: __limitedParseFloat32,
+    VerticalAccuracy: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ApplicationConfig
- */
-const de_ApplicationConfig = (output: any, context: __SerdeContext): ApplicationConfig => {
-  return {
-    DestinationName: __expectString(output.DestinationName),
-    FPort: __expectInt32(output.FPort),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ApplicationConfig omitted.
 
-/**
- * deserializeAws_restJson1Applications
- */
-const de_Applications = (output: any, context: __SerdeContext): ApplicationConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ApplicationConfig(entry, context);
-    });
-  return retVal;
-};
+// de_Applications omitted.
 
-/**
- * deserializeAws_restJson1Beaconing
- */
-const de_Beaconing = (output: any, context: __SerdeContext): Beaconing => {
-  return {
-    DataRate: __expectInt32(output.DataRate),
-    Frequencies: output.Frequencies != null ? de_BeaconingFrequencies(output.Frequencies, context) : undefined,
-  } as any;
-};
+// de_Beaconing omitted.
 
-/**
- * deserializeAws_restJson1BeaconingFrequencies
- */
-const de_BeaconingFrequencies = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_BeaconingFrequencies omitted.
 
-/**
- * deserializeAws_restJson1CertificateList
- */
-const de_CertificateList = (output: any, context: __SerdeContext): CertificateList => {
-  return {
-    SigningAlg: __expectString(output.SigningAlg),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_CertificateList omitted.
 
-/**
- * deserializeAws_restJson1ConnectionStatusEventConfiguration
- */
-const de_ConnectionStatusEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ConnectionStatusEventConfiguration => {
-  return {
-    LoRaWAN:
-      output.LoRaWAN != null
-        ? de_LoRaWANConnectionStatusEventNotificationConfigurations(output.LoRaWAN, context)
-        : undefined,
-    WirelessGatewayIdEventTopic: __expectString(output.WirelessGatewayIdEventTopic),
-  } as any;
-};
+// de_ConnectionStatusEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration
- */
-const de_ConnectionStatusResourceTypeEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ConnectionStatusResourceTypeEventConfiguration => {
-  return {
-    LoRaWAN:
-      output.LoRaWAN != null
-        ? de_LoRaWANConnectionStatusResourceTypeEventConfiguration(output.LoRaWAN, context)
-        : undefined,
-  } as any;
-};
+// de_ConnectionStatusResourceTypeEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1DakCertificateMetadata
- */
-const de_DakCertificateMetadata = (output: any, context: __SerdeContext): DakCertificateMetadata => {
-  return {
-    ApId: __expectString(output.ApId),
-    CertificateId: __expectString(output.CertificateId),
-    DeviceTypeId: __expectString(output.DeviceTypeId),
-    FactorySupport: __expectBoolean(output.FactorySupport),
-    MaxAllowedSignature: __expectInt32(output.MaxAllowedSignature),
-  } as any;
-};
+// de_DakCertificateMetadata omitted.
 
-/**
- * deserializeAws_restJson1DakCertificateMetadataList
- */
-const de_DakCertificateMetadataList = (output: any, context: __SerdeContext): DakCertificateMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DakCertificateMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_DakCertificateMetadataList omitted.
 
-/**
- * deserializeAws_restJson1DestinationList
- */
-const de_DestinationList = (output: any, context: __SerdeContext): Destinations[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Destinations(entry, context);
-    });
-  return retVal;
-};
+// de_DestinationList omitted.
 
-/**
- * deserializeAws_restJson1Destinations
- */
-const de_Destinations = (output: any, context: __SerdeContext): Destinations => {
-  return {
-    Arn: __expectString(output.Arn),
-    Description: __expectString(output.Description),
-    Expression: __expectString(output.Expression),
-    ExpressionType: __expectString(output.ExpressionType),
-    Name: __expectString(output.Name),
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_Destinations omitted.
 
-/**
- * deserializeAws_restJson1DeviceCertificateList
- */
-const de_DeviceCertificateList = (output: any, context: __SerdeContext): CertificateList[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CertificateList(entry, context);
-    });
-  return retVal;
-};
+// de_DeviceCertificateList omitted.
 
-/**
- * deserializeAws_restJson1DeviceCreationFileList
- */
-const de_DeviceCreationFileList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DeviceCreationFileList omitted.
 
-/**
- * deserializeAws_restJson1DeviceProfile
- */
-const de_DeviceProfile = (output: any, context: __SerdeContext): DeviceProfile => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_DeviceProfile omitted.
 
-/**
- * deserializeAws_restJson1DeviceProfileList
- */
-const de_DeviceProfileList = (output: any, context: __SerdeContext): DeviceProfile[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DeviceProfile(entry, context);
-    });
-  return retVal;
-};
+// de_DeviceProfileList omitted.
 
-/**
- * deserializeAws_restJson1DeviceRegistrationStateEventConfiguration
- */
-const de_DeviceRegistrationStateEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DeviceRegistrationStateEventConfiguration => {
-  return {
-    Sidewalk:
-      output.Sidewalk != null ? de_SidewalkEventNotificationConfigurations(output.Sidewalk, context) : undefined,
-    WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
-  } as any;
-};
+// de_DeviceRegistrationStateEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfiguration
- */
-const de_DeviceRegistrationStateResourceTypeEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DeviceRegistrationStateResourceTypeEventConfiguration => {
-  return {
-    Sidewalk: output.Sidewalk != null ? de_SidewalkResourceTypeEventConfiguration(output.Sidewalk, context) : undefined,
-  } as any;
-};
+// de_DeviceRegistrationStateResourceTypeEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1DownlinkQueueMessage
- */
-const de_DownlinkQueueMessage = (output: any, context: __SerdeContext): DownlinkQueueMessage => {
-  return {
-    LoRaWAN: output.LoRaWAN != null ? de_LoRaWANSendDataToDevice(output.LoRaWAN, context) : undefined,
-    MessageId: __expectString(output.MessageId),
-    ReceivedAt: __expectString(output.ReceivedAt),
-    TransmitMode: __expectInt32(output.TransmitMode),
-  } as any;
-};
+// de_DownlinkQueueMessage omitted.
 
-/**
- * deserializeAws_restJson1DownlinkQueueMessagesList
- */
-const de_DownlinkQueueMessagesList = (output: any, context: __SerdeContext): DownlinkQueueMessage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DownlinkQueueMessage(entry, context);
-    });
-  return retVal;
-};
+// de_DownlinkQueueMessagesList omitted.
 
-/**
- * deserializeAws_restJson1EventConfigurationItem
- */
-const de_EventConfigurationItem = (output: any, context: __SerdeContext): EventConfigurationItem => {
-  return {
-    Events: output.Events != null ? de_EventNotificationItemConfigurations(output.Events, context) : undefined,
-    Identifier: __expectString(output.Identifier),
-    IdentifierType: __expectString(output.IdentifierType),
-    PartnerType: __expectString(output.PartnerType),
-  } as any;
-};
+// de_EventConfigurationItem omitted.
 
-/**
- * deserializeAws_restJson1EventConfigurationsList
- */
-const de_EventConfigurationsList = (output: any, context: __SerdeContext): EventConfigurationItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventConfigurationItem(entry, context);
-    });
-  return retVal;
-};
+// de_EventConfigurationsList omitted.
 
-/**
- * deserializeAws_restJson1EventNotificationItemConfigurations
- */
-const de_EventNotificationItemConfigurations = (
-  output: any,
-  context: __SerdeContext
-): EventNotificationItemConfigurations => {
-  return {
-    ConnectionStatus:
-      output.ConnectionStatus != null
-        ? de_ConnectionStatusEventConfiguration(output.ConnectionStatus, context)
-        : undefined,
-    DeviceRegistrationState:
-      output.DeviceRegistrationState != null
-        ? de_DeviceRegistrationStateEventConfiguration(output.DeviceRegistrationState, context)
-        : undefined,
-    Join: output.Join != null ? de_JoinEventConfiguration(output.Join, context) : undefined,
-    MessageDeliveryStatus:
-      output.MessageDeliveryStatus != null
-        ? de_MessageDeliveryStatusEventConfiguration(output.MessageDeliveryStatus, context)
-        : undefined,
-    Proximity: output.Proximity != null ? de_ProximityEventConfiguration(output.Proximity, context) : undefined,
-  } as any;
-};
+// de_EventNotificationItemConfigurations omitted.
 
-/**
- * deserializeAws_restJson1FactoryPresetFreqsList
- */
-const de_FactoryPresetFreqsList = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_FactoryPresetFreqsList omitted.
 
-/**
- * deserializeAws_restJson1FPorts
- */
-const de_FPorts = (output: any, context: __SerdeContext): FPorts => {
-  return {
-    Applications: output.Applications != null ? de_Applications(output.Applications, context) : undefined,
-    ClockSync: __expectInt32(output.ClockSync),
-    Fuota: __expectInt32(output.Fuota),
-    Multicast: __expectInt32(output.Multicast),
-    Positioning: output.Positioning != null ? de_Positioning(output.Positioning, context) : undefined,
-  } as any;
-};
+// de_FPorts omitted.
 
-/**
- * deserializeAws_restJson1FuotaTask
- */
-const de_FuotaTask = (output: any, context: __SerdeContext): FuotaTask => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_FuotaTask omitted.
 
-/**
- * deserializeAws_restJson1FuotaTaskList
- */
-const de_FuotaTaskList = (output: any, context: __SerdeContext): FuotaTask[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FuotaTask(entry, context);
-    });
-  return retVal;
-};
+// de_FuotaTaskList omitted.
 
-/**
- * deserializeAws_restJson1GatewayList
- */
-const de_GatewayList = (output: any, context: __SerdeContext): GatewayListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GatewayListItem(entry, context);
-    });
-  return retVal;
-};
+// de_GatewayList omitted.
 
-/**
- * deserializeAws_restJson1GatewayListItem
- */
-const de_GatewayListItem = (output: any, context: __SerdeContext): GatewayListItem => {
-  return {
-    DownlinkFrequency: __expectInt32(output.DownlinkFrequency),
-    GatewayId: __expectString(output.GatewayId),
-  } as any;
-};
+// de_GatewayListItem omitted.
 
 /**
  * deserializeAws_restJson1ImportedSidewalkDevice
  */
 const de_ImportedSidewalkDevice = (output: any, context: __SerdeContext): ImportedSidewalkDevice => {
-  return {
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdateTime))
-        : undefined,
-    OnboardingStatus: __expectString(output.OnboardingStatus),
-    OnboardingStatusReason: __expectString(output.OnboardingStatusReason),
-    SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
-  } as any;
+  return take(output, {
+    LastUpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    OnboardingStatus: __expectString,
+    OnboardingStatusReason: __expectString,
+    SidewalkManufacturingSn: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ImportedWirelessDevice
  */
 const de_ImportedWirelessDevice = (output: any, context: __SerdeContext): ImportedWirelessDevice => {
-  return {
-    Sidewalk: output.Sidewalk != null ? de_ImportedSidewalkDevice(output.Sidewalk, context) : undefined,
-  } as any;
+  return take(output, {
+    Sidewalk: (_: any) => de_ImportedSidewalkDevice(_, context),
+  }) as any;
 };
 
 /**
@@ -12324,195 +10756,64 @@ const de_ImportedWirelessDeviceList = (output: any, context: __SerdeContext): Im
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ImportedWirelessDevice(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1JoinEuiFilters
- */
-const de_JoinEuiFilters = (output: any, context: __SerdeContext): string[][] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_JoinEuiRange(entry, context);
-    });
-  return retVal;
-};
+// de_JoinEuiFilters omitted.
 
-/**
- * deserializeAws_restJson1JoinEuiRange
- */
-const de_JoinEuiRange = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_JoinEuiRange omitted.
 
-/**
- * deserializeAws_restJson1JoinEventConfiguration
- */
-const de_JoinEventConfiguration = (output: any, context: __SerdeContext): JoinEventConfiguration => {
-  return {
-    LoRaWAN:
-      output.LoRaWAN != null ? de_LoRaWANJoinEventNotificationConfigurations(output.LoRaWAN, context) : undefined,
-    WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
-  } as any;
-};
+// de_JoinEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1JoinResourceTypeEventConfiguration
- */
-const de_JoinResourceTypeEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): JoinResourceTypeEventConfiguration => {
-  return {
-    LoRaWAN: output.LoRaWAN != null ? de_LoRaWANJoinResourceTypeEventConfiguration(output.LoRaWAN, context) : undefined,
-  } as any;
-};
+// de_JoinResourceTypeEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfigurations
- */
-const de_LoRaWANConnectionStatusEventNotificationConfigurations = (
-  output: any,
-  context: __SerdeContext
-): LoRaWANConnectionStatusEventNotificationConfigurations => {
-  return {
-    GatewayEuiEventTopic: __expectString(output.GatewayEuiEventTopic),
-  } as any;
-};
+// de_LoRaWANConnectionStatusEventNotificationConfigurations omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguration
- */
-const de_LoRaWANConnectionStatusResourceTypeEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LoRaWANConnectionStatusResourceTypeEventConfiguration => {
-  return {
-    WirelessGatewayEventTopic: __expectString(output.WirelessGatewayEventTopic),
-  } as any;
-};
+// de_LoRaWANConnectionStatusResourceTypeEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANDevice
- */
-const de_LoRaWANDevice = (output: any, context: __SerdeContext): LoRaWANDevice => {
-  return {
-    AbpV1_0_x: output.AbpV1_0_x != null ? de_AbpV1_0_x(output.AbpV1_0_x, context) : undefined,
-    AbpV1_1: output.AbpV1_1 != null ? de_AbpV1_1(output.AbpV1_1, context) : undefined,
-    DevEui: __expectString(output.DevEui),
-    DeviceProfileId: __expectString(output.DeviceProfileId),
-    FPorts: output.FPorts != null ? de_FPorts(output.FPorts, context) : undefined,
-    OtaaV1_0_x: output.OtaaV1_0_x != null ? de_OtaaV1_0_x(output.OtaaV1_0_x, context) : undefined,
-    OtaaV1_1: output.OtaaV1_1 != null ? de_OtaaV1_1(output.OtaaV1_1, context) : undefined,
-    ServiceProfileId: __expectString(output.ServiceProfileId),
-  } as any;
-};
+// de_LoRaWANDevice omitted.
 
 /**
  * deserializeAws_restJson1LoRaWANDeviceMetadata
  */
 const de_LoRaWANDeviceMetadata = (output: any, context: __SerdeContext): LoRaWANDeviceMetadata => {
-  return {
-    DataRate: __expectInt32(output.DataRate),
-    DevEui: __expectString(output.DevEui),
-    FPort: __expectInt32(output.FPort),
-    Frequency: __expectInt32(output.Frequency),
-    Gateways: output.Gateways != null ? de_LoRaWANGatewayMetadataList(output.Gateways, context) : undefined,
-    Timestamp: __expectString(output.Timestamp),
-  } as any;
+  return take(output, {
+    DataRate: __expectInt32,
+    DevEui: __expectString,
+    FPort: __expectInt32,
+    Frequency: __expectInt32,
+    Gateways: (_: any) => de_LoRaWANGatewayMetadataList(_, context),
+    Timestamp: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LoRaWANDeviceProfile
- */
-const de_LoRaWANDeviceProfile = (output: any, context: __SerdeContext): LoRaWANDeviceProfile => {
-  return {
-    ClassBTimeout: __expectInt32(output.ClassBTimeout),
-    ClassCTimeout: __expectInt32(output.ClassCTimeout),
-    FactoryPresetFreqsList:
-      output.FactoryPresetFreqsList != null
-        ? de_FactoryPresetFreqsList(output.FactoryPresetFreqsList, context)
-        : undefined,
-    MacVersion: __expectString(output.MacVersion),
-    MaxDutyCycle: __expectInt32(output.MaxDutyCycle),
-    MaxEirp: __expectInt32(output.MaxEirp),
-    PingSlotDr: __expectInt32(output.PingSlotDr),
-    PingSlotFreq: __expectInt32(output.PingSlotFreq),
-    PingSlotPeriod: __expectInt32(output.PingSlotPeriod),
-    RegParamsRevision: __expectString(output.RegParamsRevision),
-    RfRegion: __expectString(output.RfRegion),
-    RxDataRate2: __expectInt32(output.RxDataRate2),
-    RxDelay1: __expectInt32(output.RxDelay1),
-    RxDrOffset1: __expectInt32(output.RxDrOffset1),
-    RxFreq2: __expectInt32(output.RxFreq2),
-    Supports32BitFCnt: __expectBoolean(output.Supports32BitFCnt),
-    SupportsClassB: __expectBoolean(output.SupportsClassB),
-    SupportsClassC: __expectBoolean(output.SupportsClassC),
-    SupportsJoin: __expectBoolean(output.SupportsJoin),
-  } as any;
-};
+// de_LoRaWANDeviceProfile omitted.
 
 /**
  * deserializeAws_restJson1LoRaWANFuotaTaskGetInfo
  */
 const de_LoRaWANFuotaTaskGetInfo = (output: any, context: __SerdeContext): LoRaWANFuotaTaskGetInfo => {
-  return {
-    RfRegion: __expectString(output.RfRegion),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartTime)) : undefined,
-  } as any;
+  return take(output, {
+    RfRegion: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LoRaWANGateway
- */
-const de_LoRaWANGateway = (output: any, context: __SerdeContext): LoRaWANGateway => {
-  return {
-    Beaconing: output.Beaconing != null ? de_Beaconing(output.Beaconing, context) : undefined,
-    GatewayEui: __expectString(output.GatewayEui),
-    JoinEuiFilters: output.JoinEuiFilters != null ? de_JoinEuiFilters(output.JoinEuiFilters, context) : undefined,
-    NetIdFilters: output.NetIdFilters != null ? de_NetIdFilters(output.NetIdFilters, context) : undefined,
-    RfRegion: __expectString(output.RfRegion),
-    SubBands: output.SubBands != null ? de_SubBands(output.SubBands, context) : undefined,
-  } as any;
-};
+// de_LoRaWANGateway omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANGatewayCurrentVersion
- */
-const de_LoRaWANGatewayCurrentVersion = (output: any, context: __SerdeContext): LoRaWANGatewayCurrentVersion => {
-  return {
-    CurrentVersion:
-      output.CurrentVersion != null ? de_LoRaWANGatewayVersion(output.CurrentVersion, context) : undefined,
-  } as any;
-};
+// de_LoRaWANGatewayCurrentVersion omitted.
 
 /**
  * deserializeAws_restJson1LoRaWANGatewayMetadata
  */
 const de_LoRaWANGatewayMetadata = (output: any, context: __SerdeContext): LoRaWANGatewayMetadata => {
-  return {
-    GatewayEui: __expectString(output.GatewayEui),
-    Rssi: __limitedParseDouble(output.Rssi),
-    Snr: __limitedParseDouble(output.Snr),
-  } as any;
+  return take(output, {
+    GatewayEui: __expectString,
+    Rssi: __limitedParseDouble,
+    Snr: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -12522,324 +10823,68 @@ const de_LoRaWANGatewayMetadataList = (output: any, context: __SerdeContext): Lo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LoRaWANGatewayMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LoRaWANGatewayVersion
- */
-const de_LoRaWANGatewayVersion = (output: any, context: __SerdeContext): LoRaWANGatewayVersion => {
-  return {
-    Model: __expectString(output.Model),
-    PackageVersion: __expectString(output.PackageVersion),
-    Station: __expectString(output.Station),
-  } as any;
-};
+// de_LoRaWANGatewayVersion omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANGetServiceProfileInfo
- */
-const de_LoRaWANGetServiceProfileInfo = (output: any, context: __SerdeContext): LoRaWANGetServiceProfileInfo => {
-  return {
-    AddGwMetadata: __expectBoolean(output.AddGwMetadata),
-    ChannelMask: __expectString(output.ChannelMask),
-    DevStatusReqFreq: __expectInt32(output.DevStatusReqFreq),
-    DlBucketSize: __expectInt32(output.DlBucketSize),
-    DlRate: __expectInt32(output.DlRate),
-    DlRatePolicy: __expectString(output.DlRatePolicy),
-    DrMax: __expectInt32(output.DrMax),
-    DrMin: __expectInt32(output.DrMin),
-    HrAllowed: __expectBoolean(output.HrAllowed),
-    MinGwDiversity: __expectInt32(output.MinGwDiversity),
-    NwkGeoLoc: __expectBoolean(output.NwkGeoLoc),
-    PrAllowed: __expectBoolean(output.PrAllowed),
-    RaAllowed: __expectBoolean(output.RaAllowed),
-    ReportDevStatusBattery: __expectBoolean(output.ReportDevStatusBattery),
-    ReportDevStatusMargin: __expectBoolean(output.ReportDevStatusMargin),
-    TargetPer: __expectInt32(output.TargetPer),
-    UlBucketSize: __expectInt32(output.UlBucketSize),
-    UlRate: __expectInt32(output.UlRate),
-    UlRatePolicy: __expectString(output.UlRatePolicy),
-  } as any;
-};
+// de_LoRaWANGetServiceProfileInfo omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANJoinEventNotificationConfigurations
- */
-const de_LoRaWANJoinEventNotificationConfigurations = (
-  output: any,
-  context: __SerdeContext
-): LoRaWANJoinEventNotificationConfigurations => {
-  return {
-    DevEuiEventTopic: __expectString(output.DevEuiEventTopic),
-  } as any;
-};
+// de_LoRaWANJoinEventNotificationConfigurations omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration
- */
-const de_LoRaWANJoinResourceTypeEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LoRaWANJoinResourceTypeEventConfiguration => {
-  return {
-    WirelessDeviceEventTopic: __expectString(output.WirelessDeviceEventTopic),
-  } as any;
-};
+// de_LoRaWANJoinResourceTypeEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANListDevice
- */
-const de_LoRaWANListDevice = (output: any, context: __SerdeContext): LoRaWANListDevice => {
-  return {
-    DevEui: __expectString(output.DevEui),
-  } as any;
-};
+// de_LoRaWANListDevice omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANMulticastGet
- */
-const de_LoRaWANMulticastGet = (output: any, context: __SerdeContext): LoRaWANMulticastGet => {
-  return {
-    DlClass: __expectString(output.DlClass),
-    NumberOfDevicesInGroup: __expectInt32(output.NumberOfDevicesInGroup),
-    NumberOfDevicesRequested: __expectInt32(output.NumberOfDevicesRequested),
-    RfRegion: __expectString(output.RfRegion),
-  } as any;
-};
+// de_LoRaWANMulticastGet omitted.
 
 /**
  * deserializeAws_restJson1LoRaWANMulticastSession
  */
 const de_LoRaWANMulticastSession = (output: any, context: __SerdeContext): LoRaWANMulticastSession => {
-  return {
-    DlDr: __expectInt32(output.DlDr),
-    DlFreq: __expectInt32(output.DlFreq),
-    SessionStartTime:
-      output.SessionStartTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SessionStartTime))
-        : undefined,
-    SessionTimeout: __expectInt32(output.SessionTimeout),
-  } as any;
+  return take(output, {
+    DlDr: __expectInt32,
+    DlFreq: __expectInt32,
+    SessionStartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SessionTimeout: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LoRaWANSendDataToDevice
- */
-const de_LoRaWANSendDataToDevice = (output: any, context: __SerdeContext): LoRaWANSendDataToDevice => {
-  return {
-    FPort: __expectInt32(output.FPort),
-    ParticipatingGateways:
-      output.ParticipatingGateways != null
-        ? de_ParticipatingGateways(output.ParticipatingGateways, context)
-        : undefined,
-  } as any;
-};
+// de_LoRaWANSendDataToDevice omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANUpdateGatewayTaskCreate
- */
-const de_LoRaWANUpdateGatewayTaskCreate = (output: any, context: __SerdeContext): LoRaWANUpdateGatewayTaskCreate => {
-  return {
-    CurrentVersion:
-      output.CurrentVersion != null ? de_LoRaWANGatewayVersion(output.CurrentVersion, context) : undefined,
-    SigKeyCrc: __expectLong(output.SigKeyCrc),
-    UpdateSignature: __expectString(output.UpdateSignature),
-    UpdateVersion: output.UpdateVersion != null ? de_LoRaWANGatewayVersion(output.UpdateVersion, context) : undefined,
-  } as any;
-};
+// de_LoRaWANUpdateGatewayTaskCreate omitted.
 
-/**
- * deserializeAws_restJson1LoRaWANUpdateGatewayTaskEntry
- */
-const de_LoRaWANUpdateGatewayTaskEntry = (output: any, context: __SerdeContext): LoRaWANUpdateGatewayTaskEntry => {
-  return {
-    CurrentVersion:
-      output.CurrentVersion != null ? de_LoRaWANGatewayVersion(output.CurrentVersion, context) : undefined,
-    UpdateVersion: output.UpdateVersion != null ? de_LoRaWANGatewayVersion(output.UpdateVersion, context) : undefined,
-  } as any;
-};
+// de_LoRaWANUpdateGatewayTaskEntry omitted.
 
-/**
- * deserializeAws_restJson1MessageDeliveryStatusEventConfiguration
- */
-const de_MessageDeliveryStatusEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MessageDeliveryStatusEventConfiguration => {
-  return {
-    Sidewalk:
-      output.Sidewalk != null ? de_SidewalkEventNotificationConfigurations(output.Sidewalk, context) : undefined,
-    WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
-  } as any;
-};
+// de_MessageDeliveryStatusEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1MessageDeliveryStatusResourceTypeEventConfiguration
- */
-const de_MessageDeliveryStatusResourceTypeEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MessageDeliveryStatusResourceTypeEventConfiguration => {
-  return {
-    Sidewalk: output.Sidewalk != null ? de_SidewalkResourceTypeEventConfiguration(output.Sidewalk, context) : undefined,
-  } as any;
-};
+// de_MessageDeliveryStatusResourceTypeEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1MulticastGroup
- */
-const de_MulticastGroup = (output: any, context: __SerdeContext): MulticastGroup => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_MulticastGroup omitted.
 
-/**
- * deserializeAws_restJson1MulticastGroupByFuotaTask
- */
-const de_MulticastGroupByFuotaTask = (output: any, context: __SerdeContext): MulticastGroupByFuotaTask => {
-  return {
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_MulticastGroupByFuotaTask omitted.
 
-/**
- * deserializeAws_restJson1MulticastGroupList
- */
-const de_MulticastGroupList = (output: any, context: __SerdeContext): MulticastGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MulticastGroup(entry, context);
-    });
-  return retVal;
-};
+// de_MulticastGroupList omitted.
 
-/**
- * deserializeAws_restJson1MulticastGroupListByFuotaTask
- */
-const de_MulticastGroupListByFuotaTask = (output: any, context: __SerdeContext): MulticastGroupByFuotaTask[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MulticastGroupByFuotaTask(entry, context);
-    });
-  return retVal;
-};
+// de_MulticastGroupListByFuotaTask omitted.
 
-/**
- * deserializeAws_restJson1NetIdFilters
- */
-const de_NetIdFilters = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NetIdFilters omitted.
 
-/**
- * deserializeAws_restJson1NetworkAnalyzerConfigurationList
- */
-const de_NetworkAnalyzerConfigurationList = (output: any, context: __SerdeContext): NetworkAnalyzerConfigurations[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NetworkAnalyzerConfigurations(entry, context);
-    });
-  return retVal;
-};
+// de_NetworkAnalyzerConfigurationList omitted.
 
-/**
- * deserializeAws_restJson1NetworkAnalyzerConfigurations
- */
-const de_NetworkAnalyzerConfigurations = (output: any, context: __SerdeContext): NetworkAnalyzerConfigurations => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_NetworkAnalyzerConfigurations omitted.
 
-/**
- * deserializeAws_restJson1OtaaV1_0_x
- */
-const de_OtaaV1_0_x = (output: any, context: __SerdeContext): OtaaV1_0_x => {
-  return {
-    AppEui: __expectString(output.AppEui),
-    AppKey: __expectString(output.AppKey),
-    GenAppKey: __expectString(output.GenAppKey),
-  } as any;
-};
+// de_OtaaV1_0_x omitted.
 
-/**
- * deserializeAws_restJson1OtaaV1_1
- */
-const de_OtaaV1_1 = (output: any, context: __SerdeContext): OtaaV1_1 => {
-  return {
-    AppKey: __expectString(output.AppKey),
-    JoinEui: __expectString(output.JoinEui),
-    NwkKey: __expectString(output.NwkKey),
-  } as any;
-};
+// de_OtaaV1_1 omitted.
 
-/**
- * deserializeAws_restJson1ParticipatingGateways
- */
-const de_ParticipatingGateways = (output: any, context: __SerdeContext): ParticipatingGateways => {
-  return {
-    DownlinkMode: __expectString(output.DownlinkMode),
-    GatewayList: output.GatewayList != null ? de_GatewayList(output.GatewayList, context) : undefined,
-    TransmissionInterval: __expectInt32(output.TransmissionInterval),
-  } as any;
-};
+// de_ParticipatingGateways omitted.
 
-/**
- * deserializeAws_restJson1PositionConfigurationItem
- */
-const de_PositionConfigurationItem = (output: any, context: __SerdeContext): PositionConfigurationItem => {
-  return {
-    Destination: __expectString(output.Destination),
-    ResourceIdentifier: __expectString(output.ResourceIdentifier),
-    ResourceType: __expectString(output.ResourceType),
-    Solvers: output.Solvers != null ? de_PositionSolverDetails(output.Solvers, context) : undefined,
-  } as any;
-};
+// de_PositionConfigurationItem omitted.
 
-/**
- * deserializeAws_restJson1PositionConfigurationList
- */
-const de_PositionConfigurationList = (output: any, context: __SerdeContext): PositionConfigurationItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PositionConfigurationItem(entry, context);
-    });
-  return retVal;
-};
+// de_PositionConfigurationList omitted.
 
 /**
  * deserializeAws_restJson1PositionCoordinate
@@ -12848,381 +10893,84 @@ const de_PositionCoordinate = (output: any, context: __SerdeContext): number[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseFloat32(entry) as any;
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Positioning
- */
-const de_Positioning = (output: any, context: __SerdeContext): Positioning => {
-  return {
-    ClockSync: __expectInt32(output.ClockSync),
-    Gnss: __expectInt32(output.Gnss),
-    Stream: __expectInt32(output.Stream),
-  } as any;
-};
+// de_Positioning omitted.
 
-/**
- * deserializeAws_restJson1PositionSolverDetails
- */
-const de_PositionSolverDetails = (output: any, context: __SerdeContext): PositionSolverDetails => {
-  return {
-    SemtechGnss: output.SemtechGnss != null ? de_SemtechGnssDetail(output.SemtechGnss, context) : undefined,
-  } as any;
-};
+// de_PositionSolverDetails omitted.
 
-/**
- * deserializeAws_restJson1PrivateKeysList
- */
-const de_PrivateKeysList = (output: any, context: __SerdeContext): CertificateList[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CertificateList(entry, context);
-    });
-  return retVal;
-};
+// de_PrivateKeysList omitted.
 
-/**
- * deserializeAws_restJson1ProximityEventConfiguration
- */
-const de_ProximityEventConfiguration = (output: any, context: __SerdeContext): ProximityEventConfiguration => {
-  return {
-    Sidewalk:
-      output.Sidewalk != null ? de_SidewalkEventNotificationConfigurations(output.Sidewalk, context) : undefined,
-    WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
-  } as any;
-};
+// de_ProximityEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ProximityResourceTypeEventConfiguration
- */
-const de_ProximityResourceTypeEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ProximityResourceTypeEventConfiguration => {
-  return {
-    Sidewalk: output.Sidewalk != null ? de_SidewalkResourceTypeEventConfiguration(output.Sidewalk, context) : undefined,
-  } as any;
-};
+// de_ProximityResourceTypeEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SemtechGnssDetail
- */
-const de_SemtechGnssDetail = (output: any, context: __SerdeContext): SemtechGnssDetail => {
-  return {
-    Fec: __expectString(output.Fec),
-    Provider: __expectString(output.Provider),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_SemtechGnssDetail omitted.
 
-/**
- * deserializeAws_restJson1ServiceProfile
- */
-const de_ServiceProfile = (output: any, context: __SerdeContext): ServiceProfile => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ServiceProfile omitted.
 
-/**
- * deserializeAws_restJson1ServiceProfileList
- */
-const de_ServiceProfileList = (output: any, context: __SerdeContext): ServiceProfile[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServiceProfile(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceProfileList omitted.
 
-/**
- * deserializeAws_restJson1SessionKeysAbpV1_0_x
- */
-const de_SessionKeysAbpV1_0_x = (output: any, context: __SerdeContext): SessionKeysAbpV1_0_x => {
-  return {
-    AppSKey: __expectString(output.AppSKey),
-    NwkSKey: __expectString(output.NwkSKey),
-  } as any;
-};
+// de_SessionKeysAbpV1_0_x omitted.
 
-/**
- * deserializeAws_restJson1SessionKeysAbpV1_1
- */
-const de_SessionKeysAbpV1_1 = (output: any, context: __SerdeContext): SessionKeysAbpV1_1 => {
-  return {
-    AppSKey: __expectString(output.AppSKey),
-    FNwkSIntKey: __expectString(output.FNwkSIntKey),
-    NwkSEncKey: __expectString(output.NwkSEncKey),
-    SNwkSIntKey: __expectString(output.SNwkSIntKey),
-  } as any;
-};
+// de_SessionKeysAbpV1_1 omitted.
 
-/**
- * deserializeAws_restJson1SidewalkAccountInfo
- */
-const de_SidewalkAccountInfo = (output: any, context: __SerdeContext): SidewalkAccountInfo => {
-  return {
-    AmazonId: __expectString(output.AmazonId),
-    AppServerPrivateKey: __expectString(output.AppServerPrivateKey),
-  } as any;
-};
+// de_SidewalkAccountInfo omitted.
 
-/**
- * deserializeAws_restJson1SidewalkAccountInfoWithFingerprint
- */
-const de_SidewalkAccountInfoWithFingerprint = (
-  output: any,
-  context: __SerdeContext
-): SidewalkAccountInfoWithFingerprint => {
-  return {
-    AmazonId: __expectString(output.AmazonId),
-    Arn: __expectString(output.Arn),
-    Fingerprint: __expectString(output.Fingerprint),
-  } as any;
-};
+// de_SidewalkAccountInfoWithFingerprint omitted.
 
-/**
- * deserializeAws_restJson1SidewalkAccountList
- */
-const de_SidewalkAccountList = (output: any, context: __SerdeContext): SidewalkAccountInfoWithFingerprint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SidewalkAccountInfoWithFingerprint(entry, context);
-    });
-  return retVal;
-};
+// de_SidewalkAccountList omitted.
 
-/**
- * deserializeAws_restJson1SidewalkDevice
- */
-const de_SidewalkDevice = (output: any, context: __SerdeContext): SidewalkDevice => {
-  return {
-    AmazonId: __expectString(output.AmazonId),
-    CertificateId: __expectString(output.CertificateId),
-    DeviceCertificates:
-      output.DeviceCertificates != null ? de_DeviceCertificateList(output.DeviceCertificates, context) : undefined,
-    DeviceProfileId: __expectString(output.DeviceProfileId),
-    PrivateKeys: output.PrivateKeys != null ? de_PrivateKeysList(output.PrivateKeys, context) : undefined,
-    SidewalkId: __expectString(output.SidewalkId),
-    SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_SidewalkDevice omitted.
 
-/**
- * deserializeAws_restJson1SidewalkDeviceMetadata
- */
-const de_SidewalkDeviceMetadata = (output: any, context: __SerdeContext): SidewalkDeviceMetadata => {
-  return {
-    BatteryLevel: __expectString(output.BatteryLevel),
-    DeviceState: __expectString(output.DeviceState),
-    Event: __expectString(output.Event),
-    Rssi: __expectInt32(output.Rssi),
-  } as any;
-};
+// de_SidewalkDeviceMetadata omitted.
 
-/**
- * deserializeAws_restJson1SidewalkEventNotificationConfigurations
- */
-const de_SidewalkEventNotificationConfigurations = (
-  output: any,
-  context: __SerdeContext
-): SidewalkEventNotificationConfigurations => {
-  return {
-    AmazonIdEventTopic: __expectString(output.AmazonIdEventTopic),
-  } as any;
-};
+// de_SidewalkEventNotificationConfigurations omitted.
 
-/**
- * deserializeAws_restJson1SidewalkGetDeviceProfile
- */
-const de_SidewalkGetDeviceProfile = (output: any, context: __SerdeContext): SidewalkGetDeviceProfile => {
-  return {
-    ApplicationServerPublicKey: __expectString(output.ApplicationServerPublicKey),
-    DakCertificateMetadata:
-      output.DakCertificateMetadata != null
-        ? de_DakCertificateMetadataList(output.DakCertificateMetadata, context)
-        : undefined,
-    QualificationStatus: __expectBoolean(output.QualificationStatus),
-  } as any;
-};
+// de_SidewalkGetDeviceProfile omitted.
 
-/**
- * deserializeAws_restJson1SidewalkGetStartImportInfo
- */
-const de_SidewalkGetStartImportInfo = (output: any, context: __SerdeContext): SidewalkGetStartImportInfo => {
-  return {
-    DeviceCreationFileList:
-      output.DeviceCreationFileList != null
-        ? de_DeviceCreationFileList(output.DeviceCreationFileList, context)
-        : undefined,
-    Role: __expectString(output.Role),
-  } as any;
-};
+// de_SidewalkGetStartImportInfo omitted.
 
-/**
- * deserializeAws_restJson1SidewalkListDevice
- */
-const de_SidewalkListDevice = (output: any, context: __SerdeContext): SidewalkListDevice => {
-  return {
-    AmazonId: __expectString(output.AmazonId),
-    DeviceCertificates:
-      output.DeviceCertificates != null ? de_DeviceCertificateList(output.DeviceCertificates, context) : undefined,
-    DeviceProfileId: __expectString(output.DeviceProfileId),
-    SidewalkId: __expectString(output.SidewalkId),
-    SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_SidewalkListDevice omitted.
 
-/**
- * deserializeAws_restJson1SidewalkResourceTypeEventConfiguration
- */
-const de_SidewalkResourceTypeEventConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SidewalkResourceTypeEventConfiguration => {
-  return {
-    WirelessDeviceEventTopic: __expectString(output.WirelessDeviceEventTopic),
-  } as any;
-};
+// de_SidewalkResourceTypeEventConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SubBands
- */
-const de_SubBands = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_SubBands omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_restJson1TraceContent
- */
-const de_TraceContent = (output: any, context: __SerdeContext): TraceContent => {
-  return {
-    LogLevel: __expectString(output.LogLevel),
-    WirelessDeviceFrameInfo: __expectString(output.WirelessDeviceFrameInfo),
-  } as any;
-};
+// de_TraceContent omitted.
 
-/**
- * deserializeAws_restJson1UpdateWirelessGatewayTaskCreate
- */
-const de_UpdateWirelessGatewayTaskCreate = (output: any, context: __SerdeContext): UpdateWirelessGatewayTaskCreate => {
-  return {
-    LoRaWAN: output.LoRaWAN != null ? de_LoRaWANUpdateGatewayTaskCreate(output.LoRaWAN, context) : undefined,
-    UpdateDataRole: __expectString(output.UpdateDataRole),
-    UpdateDataSource: __expectString(output.UpdateDataSource),
-  } as any;
-};
+// de_UpdateWirelessGatewayTaskCreate omitted.
 
-/**
- * deserializeAws_restJson1UpdateWirelessGatewayTaskEntry
- */
-const de_UpdateWirelessGatewayTaskEntry = (output: any, context: __SerdeContext): UpdateWirelessGatewayTaskEntry => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    LoRaWAN: output.LoRaWAN != null ? de_LoRaWANUpdateGatewayTaskEntry(output.LoRaWAN, context) : undefined,
-  } as any;
-};
+// de_UpdateWirelessGatewayTaskEntry omitted.
 
-/**
- * deserializeAws_restJson1WirelessDeviceEventLogOption
- */
-const de_WirelessDeviceEventLogOption = (output: any, context: __SerdeContext): WirelessDeviceEventLogOption => {
-  return {
-    Event: __expectString(output.Event),
-    LogLevel: __expectString(output.LogLevel),
-  } as any;
-};
+// de_WirelessDeviceEventLogOption omitted.
 
-/**
- * deserializeAws_restJson1WirelessDeviceEventLogOptionList
- */
-const de_WirelessDeviceEventLogOptionList = (output: any, context: __SerdeContext): WirelessDeviceEventLogOption[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WirelessDeviceEventLogOption(entry, context);
-    });
-  return retVal;
-};
+// de_WirelessDeviceEventLogOptionList omitted.
 
 /**
  * deserializeAws_restJson1WirelessDeviceImportTask
  */
 const de_WirelessDeviceImportTask = (output: any, context: __SerdeContext): WirelessDeviceImportTask => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationTime)) : undefined,
-    DestinationName: __expectString(output.DestinationName),
-    FailedImportedDeviceCount: __expectLong(output.FailedImportedDeviceCount),
-    Id: __expectString(output.Id),
-    InitializedImportedDeviceCount: __expectLong(output.InitializedImportedDeviceCount),
-    OnboardedImportedDeviceCount: __expectLong(output.OnboardedImportedDeviceCount),
-    PendingImportedDeviceCount: __expectLong(output.PendingImportedDeviceCount),
-    Sidewalk: output.Sidewalk != null ? de_SidewalkGetStartImportInfo(output.Sidewalk, context) : undefined,
-    Status: __expectString(output.Status),
-    StatusReason: __expectString(output.StatusReason),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DestinationName: __expectString,
+    FailedImportedDeviceCount: __expectLong,
+    Id: __expectString,
+    InitializedImportedDeviceCount: __expectLong,
+    OnboardedImportedDeviceCount: __expectLong,
+    PendingImportedDeviceCount: __expectLong,
+    Sidewalk: _json,
+    Status: __expectString,
+    StatusReason: __expectString,
+  }) as any;
 };
 
 /**
@@ -13232,204 +10980,36 @@ const de_WirelessDeviceImportTaskList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WirelessDeviceImportTask(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1WirelessDeviceList
- */
-const de_WirelessDeviceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WirelessDeviceList omitted.
 
-/**
- * deserializeAws_restJson1WirelessDeviceLogOption
- */
-const de_WirelessDeviceLogOption = (output: any, context: __SerdeContext): WirelessDeviceLogOption => {
-  return {
-    Events: output.Events != null ? de_WirelessDeviceEventLogOptionList(output.Events, context) : undefined,
-    LogLevel: __expectString(output.LogLevel),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_WirelessDeviceLogOption omitted.
 
-/**
- * deserializeAws_restJson1WirelessDeviceLogOptionList
- */
-const de_WirelessDeviceLogOptionList = (output: any, context: __SerdeContext): WirelessDeviceLogOption[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WirelessDeviceLogOption(entry, context);
-    });
-  return retVal;
-};
+// de_WirelessDeviceLogOptionList omitted.
 
-/**
- * deserializeAws_restJson1WirelessDeviceStatistics
- */
-const de_WirelessDeviceStatistics = (output: any, context: __SerdeContext): WirelessDeviceStatistics => {
-  return {
-    Arn: __expectString(output.Arn),
-    DestinationName: __expectString(output.DestinationName),
-    FuotaDeviceStatus: __expectString(output.FuotaDeviceStatus),
-    Id: __expectString(output.Id),
-    LastUplinkReceivedAt: __expectString(output.LastUplinkReceivedAt),
-    LoRaWAN: output.LoRaWAN != null ? de_LoRaWANListDevice(output.LoRaWAN, context) : undefined,
-    McGroupId: __expectInt32(output.McGroupId),
-    MulticastDeviceStatus: __expectString(output.MulticastDeviceStatus),
-    Name: __expectString(output.Name),
-    Sidewalk: output.Sidewalk != null ? de_SidewalkListDevice(output.Sidewalk, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_WirelessDeviceStatistics omitted.
 
-/**
- * deserializeAws_restJson1WirelessDeviceStatisticsList
- */
-const de_WirelessDeviceStatisticsList = (output: any, context: __SerdeContext): WirelessDeviceStatistics[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WirelessDeviceStatistics(entry, context);
-    });
-  return retVal;
-};
+// de_WirelessDeviceStatisticsList omitted.
 
-/**
- * deserializeAws_restJson1WirelessGatewayEventLogOption
- */
-const de_WirelessGatewayEventLogOption = (output: any, context: __SerdeContext): WirelessGatewayEventLogOption => {
-  return {
-    Event: __expectString(output.Event),
-    LogLevel: __expectString(output.LogLevel),
-  } as any;
-};
+// de_WirelessGatewayEventLogOption omitted.
 
-/**
- * deserializeAws_restJson1WirelessGatewayEventLogOptionList
- */
-const de_WirelessGatewayEventLogOptionList = (
-  output: any,
-  context: __SerdeContext
-): WirelessGatewayEventLogOption[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WirelessGatewayEventLogOption(entry, context);
-    });
-  return retVal;
-};
+// de_WirelessGatewayEventLogOptionList omitted.
 
-/**
- * deserializeAws_restJson1WirelessGatewayList
- */
-const de_WirelessGatewayList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WirelessGatewayList omitted.
 
-/**
- * deserializeAws_restJson1WirelessGatewayLogOption
- */
-const de_WirelessGatewayLogOption = (output: any, context: __SerdeContext): WirelessGatewayLogOption => {
-  return {
-    Events: output.Events != null ? de_WirelessGatewayEventLogOptionList(output.Events, context) : undefined,
-    LogLevel: __expectString(output.LogLevel),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_WirelessGatewayLogOption omitted.
 
-/**
- * deserializeAws_restJson1WirelessGatewayLogOptionList
- */
-const de_WirelessGatewayLogOptionList = (output: any, context: __SerdeContext): WirelessGatewayLogOption[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WirelessGatewayLogOption(entry, context);
-    });
-  return retVal;
-};
+// de_WirelessGatewayLogOptionList omitted.
 
-/**
- * deserializeAws_restJson1WirelessGatewayStatistics
- */
-const de_WirelessGatewayStatistics = (output: any, context: __SerdeContext): WirelessGatewayStatistics => {
-  return {
-    Arn: __expectString(output.Arn),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    LastUplinkReceivedAt: __expectString(output.LastUplinkReceivedAt),
-    LoRaWAN: output.LoRaWAN != null ? de_LoRaWANGateway(output.LoRaWAN, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_WirelessGatewayStatistics omitted.
 
-/**
- * deserializeAws_restJson1WirelessGatewayStatisticsList
- */
-const de_WirelessGatewayStatisticsList = (output: any, context: __SerdeContext): WirelessGatewayStatistics[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WirelessGatewayStatistics(entry, context);
-    });
-  return retVal;
-};
+// de_WirelessGatewayStatisticsList omitted.
 
-/**
- * deserializeAws_restJson1WirelessGatewayTaskDefinitionList
- */
-const de_WirelessGatewayTaskDefinitionList = (
-  output: any,
-  context: __SerdeContext
-): UpdateWirelessGatewayTaskEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UpdateWirelessGatewayTaskEntry(entry, context);
-    });
-  return retVal;
-};
+// de_WirelessGatewayTaskDefinitionList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

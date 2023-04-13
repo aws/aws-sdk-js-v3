@@ -1,18 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -78,16 +79,11 @@ import {
   AnswerMachineDetectionConfig,
   Campaign,
   CampaignFilters,
-  CampaignSummary,
   ConflictException,
   DialerConfig,
   DialRequest,
   EncryptionConfig,
-  FailedCampaignStateResponse,
-  FailedRequest,
-  InstanceConfig,
   InstanceIdFilter,
-  InstanceOnboardingJobStatus,
   InternalServerException,
   InvalidCampaignStateException,
   InvalidStateException,
@@ -96,8 +92,6 @@ import {
   ProgressiveDialerConfig,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
-  SuccessfulCampaignStateResponse,
-  SuccessfulRequest,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -115,15 +109,15 @@ export const se_CreateCampaignCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns";
   let body: any;
-  body = JSON.stringify({
-    ...(input.connectInstanceId != null && { connectInstanceId: input.connectInstanceId }),
-    ...(input.dialerConfig != null && { dialerConfig: se_DialerConfig(input.dialerConfig, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.outboundCallConfig != null && {
-      outboundCallConfig: se_OutboundCallConfig(input.outboundCallConfig, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      connectInstanceId: [],
+      dialerConfig: (_) => se_DialerConfig(_, context),
+      name: [],
+      outboundCallConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -281,9 +275,11 @@ export const se_GetCampaignStateBatchCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns-state";
   let body: any;
-  body = JSON.stringify({
-    ...(input.campaignIds != null && { campaignIds: se_CampaignIdList(input.campaignIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      campaignIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -372,11 +368,13 @@ export const se_ListCampaignsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns-summary";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_CampaignFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -449,9 +447,11 @@ export const se_PutDialRequestBatchCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns/{id}/dial-requests";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.dialRequests != null && { dialRequests: se_DialRequestList(input.dialRequests, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      dialRequests: (_) => se_DialRequestList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -532,9 +532,11 @@ export const se_StartInstanceOnboardingJobCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.encryptionConfig != null && { encryptionConfig: se_EncryptionConfig(input.encryptionConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      encryptionConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -583,9 +585,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{arn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "arn", () => input.arn!, "{arn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -642,9 +646,11 @@ export const se_UpdateCampaignDialerConfigCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns/{id}/dialer-config";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.dialerConfig != null && { dialerConfig: se_DialerConfig(input.dialerConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      dialerConfig: (_) => se_DialerConfig(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -670,9 +676,11 @@ export const se_UpdateCampaignNameCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns/{id}/name";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -699,13 +707,13 @@ export const se_UpdateCampaignOutboundCallConfigCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns/{id}/outbound-call-config";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.answerMachineDetectionConfig != null && {
-      answerMachineDetectionConfig: se_AnswerMachineDetectionConfig(input.answerMachineDetectionConfig, context),
-    }),
-    ...(input.connectContactFlowId != null && { connectContactFlowId: input.connectContactFlowId }),
-    ...(input.connectSourcePhoneNumber != null && { connectSourcePhoneNumber: input.connectSourcePhoneNumber }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      answerMachineDetectionConfig: (_) => _json(_),
+      connectContactFlowId: [],
+      connectSourcePhoneNumber: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -731,15 +739,12 @@ export const de_CreateCampaignCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -779,10 +784,9 @@ const de_CreateCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -832,10 +836,9 @@ const de_DeleteCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -891,10 +894,9 @@ const de_DeleteConnectInstanceConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -947,10 +949,9 @@ const de_DeleteInstanceOnboardingJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -970,9 +971,10 @@ export const de_DescribeCampaignCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.campaign != null) {
-    contents.campaign = de_Campaign(data.campaign, context);
-  }
+  const doc = take(data, {
+    campaign: (_) => de_Campaign(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1003,10 +1005,9 @@ const de_DescribeCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1026,9 +1027,10 @@ export const de_GetCampaignStateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.state != null) {
-    contents.state = __expectString(data.state);
-  }
+  const doc = take(data, {
+    state: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1062,10 +1064,9 @@ const de_GetCampaignStateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1085,12 +1086,11 @@ export const de_GetCampaignStateBatchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedRequests != null) {
-    contents.failedRequests = de_FailedCampaignStateResponseList(data.failedRequests, context);
-  }
-  if (data.successfulRequests != null) {
-    contents.successfulRequests = de_SuccessfulCampaignStateResponseList(data.successfulRequests, context);
-  }
+  const doc = take(data, {
+    failedRequests: _json,
+    successfulRequests: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1121,10 +1121,9 @@ const de_GetCampaignStateBatchCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1144,9 +1143,10 @@ export const de_GetConnectInstanceConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.connectInstanceConfig != null) {
-    contents.connectInstanceConfig = de_InstanceConfig(data.connectInstanceConfig, context);
-  }
+  const doc = take(data, {
+    connectInstanceConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1177,10 +1177,9 @@ const de_GetConnectInstanceConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1200,12 +1199,10 @@ export const de_GetInstanceOnboardingJobStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.connectInstanceOnboardingJobStatus != null) {
-    contents.connectInstanceOnboardingJobStatus = de_InstanceOnboardingJobStatus(
-      data.connectInstanceOnboardingJobStatus,
-      context
-    );
-  }
+  const doc = take(data, {
+    connectInstanceOnboardingJobStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1236,10 +1233,9 @@ const de_GetInstanceOnboardingJobStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1259,12 +1255,11 @@ export const de_ListCampaignsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.campaignSummaryList != null) {
-    contents.campaignSummaryList = de_CampaignSummaryList(data.campaignSummaryList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    campaignSummaryList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1292,10 +1287,9 @@ const de_ListCampaignsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1315,9 +1309,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1351,10 +1346,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1413,10 +1407,9 @@ const de_PauseCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1436,12 +1429,11 @@ export const de_PutDialRequestBatchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedRequests != null) {
-    contents.failedRequests = de_FailedRequestList(data.failedRequests, context);
-  }
-  if (data.successfulRequests != null) {
-    contents.successfulRequests = de_SuccessfulRequestList(data.successfulRequests, context);
-  }
+  const doc = take(data, {
+    failedRequests: _json,
+    successfulRequests: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1481,10 +1473,9 @@ const de_PutDialRequestBatchCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1543,10 +1534,9 @@ const de_ResumeCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1605,10 +1595,9 @@ const de_StartCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1628,12 +1617,10 @@ export const de_StartInstanceOnboardingJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.connectInstanceOnboardingJobStatus != null) {
-    contents.connectInstanceOnboardingJobStatus = de_InstanceOnboardingJobStatus(
-      data.connectInstanceOnboardingJobStatus,
-      context
-    );
-  }
+  const doc = take(data, {
+    connectInstanceOnboardingJobStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1670,10 +1657,9 @@ const de_StartInstanceOnboardingJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1732,10 +1718,9 @@ const de_StopCampaignCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1788,10 +1773,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1844,10 +1828,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1900,10 +1883,9 @@ const de_UpdateCampaignDialerConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1956,10 +1938,9 @@ const de_UpdateCampaignNameCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2015,16 +1996,15 @@ const de_UpdateCampaignOutboundCallConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2036,9 +2016,10 @@ const de_AccessDeniedExceptionRes = async (
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2054,9 +2035,10 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2075,9 +2057,10 @@ const de_InternalServerExceptionRes = async (
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2096,12 +2079,11 @@ const de_InvalidCampaignStateExceptionRes = async (
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.state != null) {
-    contents.state = __expectString(data.state);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    state: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidCampaignStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2120,9 +2102,10 @@ const de_InvalidStateExceptionRes = async (
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2141,9 +2124,10 @@ const de_ResourceNotFoundExceptionRes = async (
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2162,9 +2146,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2180,9 +2165,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2198,9 +2184,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2208,49 +2195,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AnswerMachineDetectionConfig
- */
-const se_AnswerMachineDetectionConfig = (input: AnswerMachineDetectionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.enableAnswerMachineDetection != null && {
-      enableAnswerMachineDetection: input.enableAnswerMachineDetection,
-    }),
-  };
-};
+// se_AnswerMachineDetectionConfig omitted.
 
-/**
- * serializeAws_restJson1Attributes
- */
-const se_Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Attributes omitted.
 
-/**
- * serializeAws_restJson1CampaignFilters
- */
-const se_CampaignFilters = (input: CampaignFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.instanceIdFilter != null && { instanceIdFilter: se_InstanceIdFilter(input.instanceIdFilter, context) }),
-  };
-};
+// se_CampaignFilters omitted.
 
-/**
- * serializeAws_restJson1CampaignIdList
- */
-const se_CampaignIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CampaignIdList omitted.
 
 /**
  * serializeAws_restJson1DialerConfig
@@ -2267,12 +2218,12 @@ const se_DialerConfig = (input: DialerConfig, context: __SerdeContext): any => {
  * serializeAws_restJson1DialRequest
  */
 const se_DialRequest = (input: DialRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.attributes != null && { attributes: se_Attributes(input.attributes, context) }),
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.expirationTime != null && { expirationTime: input.expirationTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.phoneNumber != null && { phoneNumber: input.phoneNumber }),
-  };
+  return take(input, {
+    attributes: (_) => _json(_),
+    clientToken: [],
+    expirationTime: (_) => _.toISOString().split(".")[0] + "Z",
+    phoneNumber: [],
+  });
 };
 
 /**
@@ -2286,124 +2237,52 @@ const se_DialRequestList = (input: DialRequest[], context: __SerdeContext): any 
     });
 };
 
-/**
- * serializeAws_restJson1EncryptionConfig
- */
-const se_EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.encryptionType != null && { encryptionType: input.encryptionType }),
-    ...(input.keyArn != null && { keyArn: input.keyArn }),
-  };
-};
+// se_EncryptionConfig omitted.
 
-/**
- * serializeAws_restJson1InstanceIdFilter
- */
-const se_InstanceIdFilter = (input: InstanceIdFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_InstanceIdFilter omitted.
 
-/**
- * serializeAws_restJson1OutboundCallConfig
- */
-const se_OutboundCallConfig = (input: OutboundCallConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.answerMachineDetectionConfig != null && {
-      answerMachineDetectionConfig: se_AnswerMachineDetectionConfig(input.answerMachineDetectionConfig, context),
-    }),
-    ...(input.connectContactFlowId != null && { connectContactFlowId: input.connectContactFlowId }),
-    ...(input.connectQueueId != null && { connectQueueId: input.connectQueueId }),
-    ...(input.connectSourcePhoneNumber != null && { connectSourcePhoneNumber: input.connectSourcePhoneNumber }),
-  };
-};
+// se_OutboundCallConfig omitted.
 
 /**
  * serializeAws_restJson1PredictiveDialerConfig
  */
 const se_PredictiveDialerConfig = (input: PredictiveDialerConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bandwidthAllocation != null && { bandwidthAllocation: __serializeFloat(input.bandwidthAllocation) }),
-  };
+  return take(input, {
+    bandwidthAllocation: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_restJson1ProgressiveDialerConfig
  */
 const se_ProgressiveDialerConfig = (input: ProgressiveDialerConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bandwidthAllocation != null && { bandwidthAllocation: __serializeFloat(input.bandwidthAllocation) }),
-  };
+  return take(input, {
+    bandwidthAllocation: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1AnswerMachineDetectionConfig
- */
-const de_AnswerMachineDetectionConfig = (output: any, context: __SerdeContext): AnswerMachineDetectionConfig => {
-  return {
-    enableAnswerMachineDetection: __expectBoolean(output.enableAnswerMachineDetection),
-  } as any;
-};
+// de_AnswerMachineDetectionConfig omitted.
 
 /**
  * deserializeAws_restJson1Campaign
  */
 const de_Campaign = (output: any, context: __SerdeContext): Campaign => {
-  return {
-    arn: __expectString(output.arn),
-    connectInstanceId: __expectString(output.connectInstanceId),
-    dialerConfig:
-      output.dialerConfig != null ? de_DialerConfig(__expectUnion(output.dialerConfig), context) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    outboundCallConfig:
-      output.outboundCallConfig != null ? de_OutboundCallConfig(output.outboundCallConfig, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    connectInstanceId: __expectString,
+    dialerConfig: (_: any) => de_DialerConfig(__expectUnion(_), context),
+    id: __expectString,
+    name: __expectString,
+    outboundCallConfig: _json,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CampaignSummary
- */
-const de_CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
-  return {
-    arn: __expectString(output.arn),
-    connectInstanceId: __expectString(output.connectInstanceId),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_CampaignSummary omitted.
 
-/**
- * deserializeAws_restJson1CampaignSummaryList
- */
-const de_CampaignSummaryList = (output: any, context: __SerdeContext): CampaignSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CampaignSummary(entry, context);
-    });
-  return retVal;
-};
+// de_CampaignSummaryList omitted.
 
 /**
  * deserializeAws_restJson1DialerConfig
@@ -2422,189 +2301,49 @@ const de_DialerConfig = (output: any, context: __SerdeContext): DialerConfig => 
   return { $unknown: Object.entries(output)[0] };
 };
 
-/**
- * deserializeAws_restJson1EncryptionConfig
- */
-const de_EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
-  return {
-    enabled: __expectBoolean(output.enabled),
-    encryptionType: __expectString(output.encryptionType),
-    keyArn: __expectString(output.keyArn),
-  } as any;
-};
+// de_EncryptionConfig omitted.
 
-/**
- * deserializeAws_restJson1FailedCampaignStateResponse
- */
-const de_FailedCampaignStateResponse = (output: any, context: __SerdeContext): FailedCampaignStateResponse => {
-  return {
-    campaignId: __expectString(output.campaignId),
-    failureCode: __expectString(output.failureCode),
-  } as any;
-};
+// de_FailedCampaignStateResponse omitted.
 
-/**
- * deserializeAws_restJson1FailedCampaignStateResponseList
- */
-const de_FailedCampaignStateResponseList = (output: any, context: __SerdeContext): FailedCampaignStateResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FailedCampaignStateResponse(entry, context);
-    });
-  return retVal;
-};
+// de_FailedCampaignStateResponseList omitted.
 
-/**
- * deserializeAws_restJson1FailedRequest
- */
-const de_FailedRequest = (output: any, context: __SerdeContext): FailedRequest => {
-  return {
-    clientToken: __expectString(output.clientToken),
-    failureCode: __expectString(output.failureCode),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_FailedRequest omitted.
 
-/**
- * deserializeAws_restJson1FailedRequestList
- */
-const de_FailedRequestList = (output: any, context: __SerdeContext): FailedRequest[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FailedRequest(entry, context);
-    });
-  return retVal;
-};
+// de_FailedRequestList omitted.
 
-/**
- * deserializeAws_restJson1InstanceConfig
- */
-const de_InstanceConfig = (output: any, context: __SerdeContext): InstanceConfig => {
-  return {
-    connectInstanceId: __expectString(output.connectInstanceId),
-    encryptionConfig:
-      output.encryptionConfig != null ? de_EncryptionConfig(output.encryptionConfig, context) : undefined,
-    serviceLinkedRoleArn: __expectString(output.serviceLinkedRoleArn),
-  } as any;
-};
+// de_InstanceConfig omitted.
 
-/**
- * deserializeAws_restJson1InstanceOnboardingJobStatus
- */
-const de_InstanceOnboardingJobStatus = (output: any, context: __SerdeContext): InstanceOnboardingJobStatus => {
-  return {
-    connectInstanceId: __expectString(output.connectInstanceId),
-    failureCode: __expectString(output.failureCode),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_InstanceOnboardingJobStatus omitted.
 
-/**
- * deserializeAws_restJson1OutboundCallConfig
- */
-const de_OutboundCallConfig = (output: any, context: __SerdeContext): OutboundCallConfig => {
-  return {
-    answerMachineDetectionConfig:
-      output.answerMachineDetectionConfig != null
-        ? de_AnswerMachineDetectionConfig(output.answerMachineDetectionConfig, context)
-        : undefined,
-    connectContactFlowId: __expectString(output.connectContactFlowId),
-    connectQueueId: __expectString(output.connectQueueId),
-    connectSourcePhoneNumber: __expectString(output.connectSourcePhoneNumber),
-  } as any;
-};
+// de_OutboundCallConfig omitted.
 
 /**
  * deserializeAws_restJson1PredictiveDialerConfig
  */
 const de_PredictiveDialerConfig = (output: any, context: __SerdeContext): PredictiveDialerConfig => {
-  return {
-    bandwidthAllocation: __limitedParseDouble(output.bandwidthAllocation),
-  } as any;
+  return take(output, {
+    bandwidthAllocation: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ProgressiveDialerConfig
  */
 const de_ProgressiveDialerConfig = (output: any, context: __SerdeContext): ProgressiveDialerConfig => {
-  return {
-    bandwidthAllocation: __limitedParseDouble(output.bandwidthAllocation),
-  } as any;
+  return take(output, {
+    bandwidthAllocation: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SuccessfulCampaignStateResponse
- */
-const de_SuccessfulCampaignStateResponse = (output: any, context: __SerdeContext): SuccessfulCampaignStateResponse => {
-  return {
-    campaignId: __expectString(output.campaignId),
-    state: __expectString(output.state),
-  } as any;
-};
+// de_SuccessfulCampaignStateResponse omitted.
 
-/**
- * deserializeAws_restJson1SuccessfulCampaignStateResponseList
- */
-const de_SuccessfulCampaignStateResponseList = (
-  output: any,
-  context: __SerdeContext
-): SuccessfulCampaignStateResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SuccessfulCampaignStateResponse(entry, context);
-    });
-  return retVal;
-};
+// de_SuccessfulCampaignStateResponseList omitted.
 
-/**
- * deserializeAws_restJson1SuccessfulRequest
- */
-const de_SuccessfulRequest = (output: any, context: __SerdeContext): SuccessfulRequest => {
-  return {
-    clientToken: __expectString(output.clientToken),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_SuccessfulRequest omitted.
 
-/**
- * deserializeAws_restJson1SuccessfulRequestList
- */
-const de_SuccessfulRequestList = (output: any, context: __SerdeContext): SuccessfulRequest[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SuccessfulRequest(entry, context);
-    });
-  return retVal;
-};
+// de_SuccessfulRequestList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   convertMap,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
@@ -12,11 +13,12 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -254,42 +256,26 @@ import { UpdateUsagePlanCommandInput, UpdateUsagePlanCommandOutput } from "../co
 import { UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput } from "../commands/UpdateVpcLinkCommand";
 import { APIGatewayServiceException as __BaseException } from "../models/APIGatewayServiceException";
 import {
-  AccessLogSettings,
   ApiKey,
   ApiStage,
-  Authorizer,
   BadRequestException,
-  BasePathMapping,
   CanarySettings,
   ClientCertificate,
   ConflictException,
   Deployment,
   DeploymentCanarySettings,
-  DocumentationPart,
   DocumentationPartLocation,
   DocumentationVersion,
   DomainName,
   EndpointConfiguration,
   EndpointType,
-  GatewayResponse,
-  Integration,
-  IntegrationResponse,
   LimitExceededException,
-  Method,
-  MethodResponse,
   MethodSetting,
-  MethodSnapshot,
-  Model,
-  MutualTlsAuthentication,
   MutualTlsAuthenticationInput,
   NotFoundException,
   PatchOperation,
   QuotaSettings,
-  RequestValidator,
-  Resource,
   RestApi,
-  SdkConfigurationProperty,
-  SdkType,
   ServiceUnavailableException,
   Stage,
   StageKey,
@@ -298,8 +284,6 @@ import {
   TooManyRequestsException,
   UnauthorizedException,
   UsagePlan,
-  UsagePlanKey,
-  VpcLink,
 } from "../models/models_0";
 
 /**
@@ -315,16 +299,18 @@ export const se_CreateApiKeyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apikeys";
   let body: any;
-  body = JSON.stringify({
-    ...(input.customerId != null && { customerId: input.customerId }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.generateDistinctId != null && { generateDistinctId: input.generateDistinctId }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.stageKeys != null && { stageKeys: se_ListOfStageKeys(input.stageKeys, context) }),
-    ...(input.tags != null && { tags: se_MapOfStringToString(input.tags, context) }),
-    ...(input.value != null && { value: input.value }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      customerId: [],
+      description: [],
+      enabled: [],
+      generateDistinctId: [],
+      name: [],
+      stageKeys: (_) => _json(_),
+      tags: (_) => _json(_),
+      value: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -351,21 +337,19 @@ export const se_CreateAuthorizerCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restapis/{restApiId}/authorizers";
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.authType != null && { authType: input.authType }),
-    ...(input.authorizerCredentials != null && { authorizerCredentials: input.authorizerCredentials }),
-    ...(input.authorizerResultTtlInSeconds != null && {
-      authorizerResultTtlInSeconds: input.authorizerResultTtlInSeconds,
-    }),
-    ...(input.authorizerUri != null && { authorizerUri: input.authorizerUri }),
-    ...(input.identitySource != null && { identitySource: input.identitySource }),
-    ...(input.identityValidationExpression != null && {
-      identityValidationExpression: input.identityValidationExpression,
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.providerARNs != null && { providerARNs: se_ListOfARNs(input.providerARNs, context) }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authType: [],
+      authorizerCredentials: [],
+      authorizerResultTtlInSeconds: [],
+      authorizerUri: [],
+      identitySource: [],
+      identityValidationExpression: [],
+      name: [],
+      providerARNs: (_) => _json(_),
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -393,11 +377,13 @@ export const se_CreateBasePathMappingCommand = async (
     "/domainnames/{domainName}/basepathmappings";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainName", () => input.domainName!, "{domainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.basePath != null && { basePath: input.basePath }),
-    ...(input.restApiId != null && { restApiId: input.restApiId }),
-    ...(input.stage != null && { stage: input.stage }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      basePath: [],
+      restApiId: [],
+      stage: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -424,16 +410,18 @@ export const se_CreateDeploymentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restapis/{restApiId}/deployments";
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.cacheClusterEnabled != null && { cacheClusterEnabled: input.cacheClusterEnabled }),
-    ...(input.cacheClusterSize != null && { cacheClusterSize: input.cacheClusterSize }),
-    ...(input.canarySettings != null && { canarySettings: se_DeploymentCanarySettings(input.canarySettings, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.stageDescription != null && { stageDescription: input.stageDescription }),
-    ...(input.stageName != null && { stageName: input.stageName }),
-    ...(input.tracingEnabled != null && { tracingEnabled: input.tracingEnabled }),
-    ...(input.variables != null && { variables: se_MapOfStringToString(input.variables, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cacheClusterEnabled: [],
+      cacheClusterSize: [],
+      canarySettings: (_) => se_DeploymentCanarySettings(_, context),
+      description: [],
+      stageDescription: [],
+      stageName: [],
+      tracingEnabled: [],
+      variables: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -460,10 +448,12 @@ export const se_CreateDocumentationPartCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restapis/{restApiId}/documentation/parts";
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.location != null && { location: se_DocumentationPartLocation(input.location, context) }),
-    ...(input.properties != null && { properties: input.properties }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      location: (_) => _json(_),
+      properties: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -491,11 +481,13 @@ export const se_CreateDocumentationVersionCommand = async (
     "/restapis/{restApiId}/documentation/versions";
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.documentationVersion != null && { documentationVersion: input.documentationVersion }),
-    ...(input.stageName != null && { stageName: input.stageName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      documentationVersion: [],
+      stageName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -520,27 +512,23 @@ export const se_CreateDomainNameCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames";
   let body: any;
-  body = JSON.stringify({
-    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
-    ...(input.certificateBody != null && { certificateBody: input.certificateBody }),
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-    ...(input.certificateName != null && { certificateName: input.certificateName }),
-    ...(input.certificatePrivateKey != null && { certificatePrivateKey: input.certificatePrivateKey }),
-    ...(input.domainName != null && { domainName: input.domainName }),
-    ...(input.endpointConfiguration != null && {
-      endpointConfiguration: se_EndpointConfiguration(input.endpointConfiguration, context),
-    }),
-    ...(input.mutualTlsAuthentication != null && {
-      mutualTlsAuthentication: se_MutualTlsAuthenticationInput(input.mutualTlsAuthentication, context),
-    }),
-    ...(input.ownershipVerificationCertificateArn != null && {
-      ownershipVerificationCertificateArn: input.ownershipVerificationCertificateArn,
-    }),
-    ...(input.regionalCertificateArn != null && { regionalCertificateArn: input.regionalCertificateArn }),
-    ...(input.regionalCertificateName != null && { regionalCertificateName: input.regionalCertificateName }),
-    ...(input.securityPolicy != null && { securityPolicy: input.securityPolicy }),
-    ...(input.tags != null && { tags: se_MapOfStringToString(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      certificateArn: [],
+      certificateBody: [],
+      certificateChain: [],
+      certificateName: [],
+      certificatePrivateKey: [],
+      domainName: [],
+      endpointConfiguration: (_) => _json(_),
+      mutualTlsAuthentication: (_) => _json(_),
+      ownershipVerificationCertificateArn: [],
+      regionalCertificateArn: [],
+      regionalCertificateName: [],
+      securityPolicy: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -567,12 +555,14 @@ export const se_CreateModelCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restapis/{restApiId}/models";
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.contentType != null && { contentType: input.contentType }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.schema != null && { schema: input.schema }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contentType: [],
+      description: [],
+      name: [],
+      schema: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -599,11 +589,13 @@ export const se_CreateRequestValidatorCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restapis/{restApiId}/requestvalidators";
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.name != null && { name: input.name }),
-    ...(input.validateRequestBody != null && { validateRequestBody: input.validateRequestBody }),
-    ...(input.validateRequestParameters != null && { validateRequestParameters: input.validateRequestParameters }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+      validateRequestBody: [],
+      validateRequestParameters: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -632,9 +624,11 @@ export const se_CreateResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "parentId", () => input.parentId!, "{parentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.pathPart != null && { pathPart: input.pathPart }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      pathPart: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -659,21 +653,21 @@ export const se_CreateRestApiCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restapis";
   let body: any;
-  body = JSON.stringify({
-    ...(input.apiKeySource != null && { apiKeySource: input.apiKeySource }),
-    ...(input.binaryMediaTypes != null && { binaryMediaTypes: se_ListOfString(input.binaryMediaTypes, context) }),
-    ...(input.cloneFrom != null && { cloneFrom: input.cloneFrom }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.disableExecuteApiEndpoint != null && { disableExecuteApiEndpoint: input.disableExecuteApiEndpoint }),
-    ...(input.endpointConfiguration != null && {
-      endpointConfiguration: se_EndpointConfiguration(input.endpointConfiguration, context),
-    }),
-    ...(input.minimumCompressionSize != null && { minimumCompressionSize: input.minimumCompressionSize }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.policy != null && { policy: input.policy }),
-    ...(input.tags != null && { tags: se_MapOfStringToString(input.tags, context) }),
-    ...(input.version != null && { version: input.version }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      apiKeySource: [],
+      binaryMediaTypes: (_) => _json(_),
+      cloneFrom: [],
+      description: [],
+      disableExecuteApiEndpoint: [],
+      endpointConfiguration: (_) => _json(_),
+      minimumCompressionSize: [],
+      name: [],
+      policy: [],
+      tags: (_) => _json(_),
+      version: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -700,18 +694,20 @@ export const se_CreateStageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restapis/{restApiId}/stages";
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.cacheClusterEnabled != null && { cacheClusterEnabled: input.cacheClusterEnabled }),
-    ...(input.cacheClusterSize != null && { cacheClusterSize: input.cacheClusterSize }),
-    ...(input.canarySettings != null && { canarySettings: se_CanarySettings(input.canarySettings, context) }),
-    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.documentationVersion != null && { documentationVersion: input.documentationVersion }),
-    ...(input.stageName != null && { stageName: input.stageName }),
-    ...(input.tags != null && { tags: se_MapOfStringToString(input.tags, context) }),
-    ...(input.tracingEnabled != null && { tracingEnabled: input.tracingEnabled }),
-    ...(input.variables != null && { variables: se_MapOfStringToString(input.variables, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cacheClusterEnabled: [],
+      cacheClusterSize: [],
+      canarySettings: (_) => se_CanarySettings(_, context),
+      deploymentId: [],
+      description: [],
+      documentationVersion: [],
+      stageName: [],
+      tags: (_) => _json(_),
+      tracingEnabled: [],
+      variables: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -736,14 +732,16 @@ export const se_CreateUsagePlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/usageplans";
   let body: any;
-  body = JSON.stringify({
-    ...(input.apiStages != null && { apiStages: se_ListOfApiStage(input.apiStages, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.quota != null && { quota: se_QuotaSettings(input.quota, context) }),
-    ...(input.tags != null && { tags: se_MapOfStringToString(input.tags, context) }),
-    ...(input.throttle != null && { throttle: se_ThrottleSettings(input.throttle, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      apiStages: (_) => se_ListOfApiStage(_, context),
+      description: [],
+      name: [],
+      quota: (_) => _json(_),
+      tags: (_) => _json(_),
+      throttle: (_) => se_ThrottleSettings(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -770,10 +768,12 @@ export const se_CreateUsagePlanKeyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/usageplans/{usagePlanId}/keys";
   resolvedPath = __resolvedPath(resolvedPath, input, "usagePlanId", () => input.usagePlanId!, "{usagePlanId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.keyId != null && { keyId: input.keyId }),
-    ...(input.keyType != null && { keyType: input.keyType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      keyId: [],
+      keyType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -798,12 +798,14 @@ export const se_CreateVpcLinkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vpclinks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_MapOfStringToString(input.tags, context) }),
-    ...(input.targetArns != null && { targetArns: se_ListOfString(input.targetArns, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      tags: (_) => _json(_),
+      targetArns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1463,10 +1465,12 @@ export const se_GenerateClientCertificateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clientcertificates";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.tags != null && { tags: se_MapOfStringToString(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2915,15 +2919,13 @@ export const se_PutGatewayResponseCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.responseParameters != null && {
-      responseParameters: se_MapOfStringToString(input.responseParameters, context),
-    }),
-    ...(input.responseTemplates != null && {
-      responseTemplates: se_MapOfStringToString(input.responseTemplates, context),
-    }),
-    ...(input.statusCode != null && { statusCode: input.statusCode }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      responseParameters: (_) => _json(_),
+      responseTemplates: (_) => _json(_),
+      statusCode: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2953,26 +2955,24 @@ export const se_PutIntegrationCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceId", () => input.resourceId!, "{resourceId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.cacheKeyParameters != null && { cacheKeyParameters: se_ListOfString(input.cacheKeyParameters, context) }),
-    ...(input.cacheNamespace != null && { cacheNamespace: input.cacheNamespace }),
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.connectionType != null && { connectionType: input.connectionType }),
-    ...(input.contentHandling != null && { contentHandling: input.contentHandling }),
-    ...(input.credentials != null && { credentials: input.credentials }),
-    ...(input.integrationHttpMethod != null && { httpMethod: input.integrationHttpMethod }),
-    ...(input.passthroughBehavior != null && { passthroughBehavior: input.passthroughBehavior }),
-    ...(input.requestParameters != null && {
-      requestParameters: se_MapOfStringToString(input.requestParameters, context),
-    }),
-    ...(input.requestTemplates != null && {
-      requestTemplates: se_MapOfStringToString(input.requestTemplates, context),
-    }),
-    ...(input.timeoutInMillis != null && { timeoutInMillis: input.timeoutInMillis }),
-    ...(input.tlsConfig != null && { tlsConfig: se_TlsConfig(input.tlsConfig, context) }),
-    ...(input.type != null && { type: input.type }),
-    ...(input.uri != null && { uri: input.uri }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cacheKeyParameters: (_) => _json(_),
+      cacheNamespace: [],
+      connectionId: [],
+      connectionType: [],
+      contentHandling: [],
+      credentials: [],
+      httpMethod: [, , `integrationHttpMethod`],
+      passthroughBehavior: [],
+      requestParameters: (_) => _json(_),
+      requestTemplates: (_) => _json(_),
+      timeoutInMillis: [],
+      tlsConfig: (_) => _json(_),
+      type: [],
+      uri: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3003,16 +3003,14 @@ export const se_PutIntegrationResponseCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "statusCode", () => input.statusCode!, "{statusCode}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.contentHandling != null && { contentHandling: input.contentHandling }),
-    ...(input.responseParameters != null && {
-      responseParameters: se_MapOfStringToString(input.responseParameters, context),
-    }),
-    ...(input.responseTemplates != null && {
-      responseTemplates: se_MapOfStringToString(input.responseTemplates, context),
-    }),
-    ...(input.selectionPattern != null && { selectionPattern: input.selectionPattern }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contentHandling: [],
+      responseParameters: (_) => _json(_),
+      responseTemplates: (_) => _json(_),
+      selectionPattern: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3042,20 +3040,18 @@ export const se_PutMethodCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceId", () => input.resourceId!, "{resourceId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.apiKeyRequired != null && { apiKeyRequired: input.apiKeyRequired }),
-    ...(input.authorizationScopes != null && {
-      authorizationScopes: se_ListOfString(input.authorizationScopes, context),
-    }),
-    ...(input.authorizationType != null && { authorizationType: input.authorizationType }),
-    ...(input.authorizerId != null && { authorizerId: input.authorizerId }),
-    ...(input.operationName != null && { operationName: input.operationName }),
-    ...(input.requestModels != null && { requestModels: se_MapOfStringToString(input.requestModels, context) }),
-    ...(input.requestParameters != null && {
-      requestParameters: se_MapOfStringToBoolean(input.requestParameters, context),
-    }),
-    ...(input.requestValidatorId != null && { requestValidatorId: input.requestValidatorId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      apiKeyRequired: [],
+      authorizationScopes: (_) => _json(_),
+      authorizationType: [],
+      authorizerId: [],
+      operationName: [],
+      requestModels: (_) => _json(_),
+      requestParameters: (_) => _json(_),
+      requestValidatorId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3086,12 +3082,12 @@ export const se_PutMethodResponseCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "statusCode", () => input.statusCode!, "{statusCode}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.responseModels != null && { responseModels: se_MapOfStringToString(input.responseModels, context) }),
-    ...(input.responseParameters != null && {
-      responseParameters: se_MapOfStringToBoolean(input.responseParameters, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      responseModels: (_) => _json(_),
+      responseParameters: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3151,9 +3147,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_MapOfStringToString(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3189,18 +3187,16 @@ export const se_TestInvokeAuthorizerCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalContext != null && {
-      additionalContext: se_MapOfStringToString(input.additionalContext, context),
-    }),
-    ...(input.body != null && { body: input.body }),
-    ...(input.headers != null && { headers: se_MapOfStringToString(input.headers, context) }),
-    ...(input.multiValueHeaders != null && {
-      multiValueHeaders: se_MapOfStringToList(input.multiValueHeaders, context),
-    }),
-    ...(input.pathWithQueryString != null && { pathWithQueryString: input.pathWithQueryString }),
-    ...(input.stageVariables != null && { stageVariables: se_MapOfStringToString(input.stageVariables, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalContext: (_) => _json(_),
+      body: [],
+      headers: (_) => _json(_),
+      multiValueHeaders: (_) => _json(_),
+      pathWithQueryString: [],
+      stageVariables: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3230,16 +3226,16 @@ export const se_TestInvokeMethodCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceId", () => input.resourceId!, "{resourceId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.body != null && { body: input.body }),
-    ...(input.clientCertificateId != null && { clientCertificateId: input.clientCertificateId }),
-    ...(input.headers != null && { headers: se_MapOfStringToString(input.headers, context) }),
-    ...(input.multiValueHeaders != null && {
-      multiValueHeaders: se_MapOfStringToList(input.multiValueHeaders, context),
-    }),
-    ...(input.pathWithQueryString != null && { pathWithQueryString: input.pathWithQueryString }),
-    ...(input.stageVariables != null && { stageVariables: se_MapOfStringToString(input.stageVariables, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      body: [],
+      clientCertificateId: [],
+      headers: (_) => _json(_),
+      multiValueHeaders: (_) => _json(_),
+      pathWithQueryString: [],
+      stageVariables: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3294,9 +3290,11 @@ export const se_UpdateAccountCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account";
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3322,9 +3320,11 @@ export const se_UpdateApiKeyCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apikeys/{apiKey}";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiKey", () => input.apiKey!, "{apiKey}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3360,9 +3360,11 @@ export const se_UpdateAuthorizerCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3391,9 +3393,11 @@ export const se_UpdateBasePathMappingCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "domainName", () => input.domainName!, "{domainName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "basePath", () => input.basePath!, "{basePath}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3427,9 +3431,11 @@ export const se_UpdateClientCertificateCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3465,9 +3471,11 @@ export const se_UpdateDeploymentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3503,9 +3511,11 @@ export const se_UpdateDocumentationPartCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3541,9 +3551,11 @@ export const se_UpdateDocumentationVersionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3570,9 +3582,11 @@ export const se_UpdateDomainNameCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames/{domainName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainName", () => input.domainName!, "{domainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3608,9 +3622,11 @@ export const se_UpdateGatewayResponseCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3640,9 +3656,11 @@ export const se_UpdateIntegrationCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceId", () => input.resourceId!, "{resourceId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3673,9 +3691,11 @@ export const se_UpdateIntegrationResponseCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "statusCode", () => input.statusCode!, "{statusCode}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3705,9 +3725,11 @@ export const se_UpdateMethodCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceId", () => input.resourceId!, "{resourceId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3738,9 +3760,11 @@ export const se_UpdateMethodResponseCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "httpMethod", () => input.httpMethod!, "{httpMethod}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "statusCode", () => input.statusCode!, "{statusCode}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3768,9 +3792,11 @@ export const se_UpdateModelCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "modelName", () => input.modelName!, "{modelName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3806,9 +3832,11 @@ export const se_UpdateRequestValidatorCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3837,9 +3865,11 @@ export const se_UpdateResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceId", () => input.resourceId!, "{resourceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3865,9 +3895,11 @@ export const se_UpdateRestApiCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restapis/{restApiId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3895,9 +3927,11 @@ export const se_UpdateStageCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "restApiId", () => input.restApiId!, "{restApiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "stageName", () => input.stageName!, "{stageName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3926,9 +3960,11 @@ export const se_UpdateUsageCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "usagePlanId", () => input.usagePlanId!, "{usagePlanId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "keyId", () => input.keyId!, "{keyId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3955,9 +3991,11 @@ export const se_UpdateUsagePlanCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/usageplans/{usagePlanId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "usagePlanId", () => input.usagePlanId!, "{usagePlanId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3983,9 +4021,11 @@ export const se_UpdateVpcLinkCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vpclinks/{vpcLinkId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "vpcLinkId", () => input.vpcLinkId!, "{vpcLinkId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.patchOperations != null && { patchOperations: se_ListOfPatchOperation(input.patchOperations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      patchOperations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4011,36 +4051,19 @@ export const de_CreateApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.customerId != null) {
-    contents.customerId = __expectString(data.customerId);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enabled != null) {
-    contents.enabled = __expectBoolean(data.enabled);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.stageKeys != null) {
-    contents.stageKeys = de_ListOfString(data.stageKeys, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.value != null) {
-    contents.value = __expectString(data.value);
-  }
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerId: __expectString,
+    description: __expectString,
+    enabled: __expectBoolean,
+    id: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    stageKeys: _json,
+    tags: _json,
+    value: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4077,10 +4100,9 @@ const de_CreateApiKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4100,36 +4122,19 @@ export const de_CreateAuthorizerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authType != null) {
-    contents.authType = __expectString(data.authType);
-  }
-  if (data.authorizerCredentials != null) {
-    contents.authorizerCredentials = __expectString(data.authorizerCredentials);
-  }
-  if (data.authorizerResultTtlInSeconds != null) {
-    contents.authorizerResultTtlInSeconds = __expectInt32(data.authorizerResultTtlInSeconds);
-  }
-  if (data.authorizerUri != null) {
-    contents.authorizerUri = __expectString(data.authorizerUri);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.identitySource != null) {
-    contents.identitySource = __expectString(data.identitySource);
-  }
-  if (data.identityValidationExpression != null) {
-    contents.identityValidationExpression = __expectString(data.identityValidationExpression);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.providerARNs != null) {
-    contents.providerARNs = de_ListOfARNs(data.providerARNs, context);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    authType: __expectString,
+    authorizerCredentials: __expectString,
+    authorizerResultTtlInSeconds: __expectInt32,
+    authorizerUri: __expectString,
+    id: __expectString,
+    identitySource: __expectString,
+    identityValidationExpression: __expectString,
+    name: __expectString,
+    providerARNs: _json,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4166,10 +4171,9 @@ const de_CreateAuthorizerCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4189,15 +4193,12 @@ export const de_CreateBasePathMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.basePath != null) {
-    contents.basePath = __expectString(data.basePath);
-  }
-  if (data.restApiId != null) {
-    contents.restApiId = __expectString(data.restApiId);
-  }
-  if (data.stage != null) {
-    contents.stage = __expectString(data.stage);
-  }
+  const doc = take(data, {
+    basePath: __expectString,
+    restApiId: __expectString,
+    stage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4234,10 +4235,9 @@ const de_CreateBasePathMappingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4257,18 +4257,13 @@ export const de_CreateDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiSummary != null) {
-    contents.apiSummary = de_PathToMapOfMethodSnapshot(data.apiSummary, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
+  const doc = take(data, {
+    apiSummary: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4308,10 +4303,9 @@ const de_CreateDeploymentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4331,15 +4325,12 @@ export const de_CreateDocumentationPartCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.location != null) {
-    contents.location = de_DocumentationPartLocation(data.location, context);
-  }
-  if (data.properties != null) {
-    contents.properties = __expectString(data.properties);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    location: _json,
+    properties: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4376,10 +4367,9 @@ const de_CreateDocumentationPartCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4399,15 +4389,12 @@ export const de_CreateDocumentationVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4444,10 +4431,9 @@ const de_CreateDocumentationVersionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4467,57 +4453,26 @@ export const de_CreateDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.certificateArn != null) {
-    contents.certificateArn = __expectString(data.certificateArn);
-  }
-  if (data.certificateName != null) {
-    contents.certificateName = __expectString(data.certificateName);
-  }
-  if (data.certificateUploadDate != null) {
-    contents.certificateUploadDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.certificateUploadDate)));
-  }
-  if (data.distributionDomainName != null) {
-    contents.distributionDomainName = __expectString(data.distributionDomainName);
-  }
-  if (data.distributionHostedZoneId != null) {
-    contents.distributionHostedZoneId = __expectString(data.distributionHostedZoneId);
-  }
-  if (data.domainName != null) {
-    contents.domainName = __expectString(data.domainName);
-  }
-  if (data.domainNameStatus != null) {
-    contents.domainNameStatus = __expectString(data.domainNameStatus);
-  }
-  if (data.domainNameStatusMessage != null) {
-    contents.domainNameStatusMessage = __expectString(data.domainNameStatusMessage);
-  }
-  if (data.endpointConfiguration != null) {
-    contents.endpointConfiguration = de_EndpointConfiguration(data.endpointConfiguration, context);
-  }
-  if (data.mutualTlsAuthentication != null) {
-    contents.mutualTlsAuthentication = de_MutualTlsAuthentication(data.mutualTlsAuthentication, context);
-  }
-  if (data.ownershipVerificationCertificateArn != null) {
-    contents.ownershipVerificationCertificateArn = __expectString(data.ownershipVerificationCertificateArn);
-  }
-  if (data.regionalCertificateArn != null) {
-    contents.regionalCertificateArn = __expectString(data.regionalCertificateArn);
-  }
-  if (data.regionalCertificateName != null) {
-    contents.regionalCertificateName = __expectString(data.regionalCertificateName);
-  }
-  if (data.regionalDomainName != null) {
-    contents.regionalDomainName = __expectString(data.regionalDomainName);
-  }
-  if (data.regionalHostedZoneId != null) {
-    contents.regionalHostedZoneId = __expectString(data.regionalHostedZoneId);
-  }
-  if (data.securityPolicy != null) {
-    contents.securityPolicy = __expectString(data.securityPolicy);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
+  const doc = take(data, {
+    certificateArn: __expectString,
+    certificateName: __expectString,
+    certificateUploadDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    distributionDomainName: __expectString,
+    distributionHostedZoneId: __expectString,
+    domainName: __expectString,
+    domainNameStatus: __expectString,
+    domainNameStatusMessage: __expectString,
+    endpointConfiguration: _json,
+    mutualTlsAuthentication: _json,
+    ownershipVerificationCertificateArn: __expectString,
+    regionalCertificateArn: __expectString,
+    regionalCertificateName: __expectString,
+    regionalDomainName: __expectString,
+    regionalHostedZoneId: __expectString,
+    securityPolicy: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4551,10 +4506,9 @@ const de_CreateDomainNameCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4574,21 +4528,14 @@ export const de_CreateModelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentType != null) {
-    contents.contentType = __expectString(data.contentType);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.schema != null) {
-    contents.schema = __expectString(data.schema);
-  }
+  const doc = take(data, {
+    contentType: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    schema: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4625,10 +4572,9 @@ const de_CreateModelCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4648,18 +4594,13 @@ export const de_CreateRequestValidatorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.validateRequestBody != null) {
-    contents.validateRequestBody = __expectBoolean(data.validateRequestBody);
-  }
-  if (data.validateRequestParameters != null) {
-    contents.validateRequestParameters = __expectBoolean(data.validateRequestParameters);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    validateRequestBody: __expectBoolean,
+    validateRequestParameters: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4696,10 +4637,9 @@ const de_CreateRequestValidatorCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4719,21 +4659,14 @@ export const de_CreateResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.parentId != null) {
-    contents.parentId = __expectString(data.parentId);
-  }
-  if (data.path != null) {
-    contents.path = __expectString(data.path);
-  }
-  if (data.pathPart != null) {
-    contents.pathPart = __expectString(data.pathPart);
-  }
-  if (data.resourceMethods != null) {
-    contents.resourceMethods = de_MapOfMethod(data.resourceMethods, context);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    parentId: __expectString,
+    path: __expectString,
+    pathPart: __expectString,
+    resourceMethods: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4770,10 +4703,9 @@ const de_CreateResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4793,45 +4725,22 @@ export const de_CreateRestApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeySource != null) {
-    contents.apiKeySource = __expectString(data.apiKeySource);
-  }
-  if (data.binaryMediaTypes != null) {
-    contents.binaryMediaTypes = de_ListOfString(data.binaryMediaTypes, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.disableExecuteApiEndpoint != null) {
-    contents.disableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
-  }
-  if (data.endpointConfiguration != null) {
-    contents.endpointConfiguration = de_EndpointConfiguration(data.endpointConfiguration, context);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.minimumCompressionSize != null) {
-    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.policy != null) {
-    contents.policy = __expectString(data.policy);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_ListOfString(data.warnings, context);
-  }
+  const doc = take(data, {
+    apiKeySource: __expectString,
+    binaryMediaTypes: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    disableExecuteApiEndpoint: __expectBoolean,
+    endpointConfiguration: _json,
+    id: __expectString,
+    minimumCompressionSize: __expectInt32,
+    name: __expectString,
+    policy: __expectString,
+    tags: _json,
+    version: __expectString,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4865,10 +4774,9 @@ const de_CreateRestApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4888,57 +4796,26 @@ export const de_CreateStageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessLogSettings != null) {
-    contents.accessLogSettings = de_AccessLogSettings(data.accessLogSettings, context);
-  }
-  if (data.cacheClusterEnabled != null) {
-    contents.cacheClusterEnabled = __expectBoolean(data.cacheClusterEnabled);
-  }
-  if (data.cacheClusterSize != null) {
-    contents.cacheClusterSize = __expectString(data.cacheClusterSize);
-  }
-  if (data.cacheClusterStatus != null) {
-    contents.cacheClusterStatus = __expectString(data.cacheClusterStatus);
-  }
-  if (data.canarySettings != null) {
-    contents.canarySettings = de_CanarySettings(data.canarySettings, context);
-  }
-  if (data.clientCertificateId != null) {
-    contents.clientCertificateId = __expectString(data.clientCertificateId);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.deploymentId != null) {
-    contents.deploymentId = __expectString(data.deploymentId);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.documentationVersion != null) {
-    contents.documentationVersion = __expectString(data.documentationVersion);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.methodSettings != null) {
-    contents.methodSettings = de_MapOfMethodSettings(data.methodSettings, context);
-  }
-  if (data.stageName != null) {
-    contents.stageName = __expectString(data.stageName);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.tracingEnabled != null) {
-    contents.tracingEnabled = __expectBoolean(data.tracingEnabled);
-  }
-  if (data.variables != null) {
-    contents.variables = de_MapOfStringToString(data.variables, context);
-  }
-  if (data.webAclArn != null) {
-    contents.webAclArn = __expectString(data.webAclArn);
-  }
+  const doc = take(data, {
+    accessLogSettings: _json,
+    cacheClusterEnabled: __expectBoolean,
+    cacheClusterSize: __expectString,
+    cacheClusterStatus: __expectString,
+    canarySettings: (_) => de_CanarySettings(_, context),
+    clientCertificateId: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentId: __expectString,
+    description: __expectString,
+    documentationVersion: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    methodSettings: (_) => de_MapOfMethodSettings(_, context),
+    stageName: __expectString,
+    tags: _json,
+    tracingEnabled: __expectBoolean,
+    variables: _json,
+    webAclArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4975,10 +4852,9 @@ const de_CreateStageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4998,30 +4874,17 @@ export const de_CreateUsagePlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiStages != null) {
-    contents.apiStages = de_ListOfApiStage(data.apiStages, context);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.productCode != null) {
-    contents.productCode = __expectString(data.productCode);
-  }
-  if (data.quota != null) {
-    contents.quota = de_QuotaSettings(data.quota, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.throttle != null) {
-    contents.throttle = de_ThrottleSettings(data.throttle, context);
-  }
+  const doc = take(data, {
+    apiStages: (_) => de_ListOfApiStage(_, context),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    productCode: __expectString,
+    quota: _json,
+    tags: _json,
+    throttle: (_) => de_ThrottleSettings(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5058,10 +4921,9 @@ const de_CreateUsagePlanCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5081,18 +4943,13 @@ export const de_CreateUsagePlanKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
-  if (data.value != null) {
-    contents.value = __expectString(data.value);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    type: __expectString,
+    value: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5129,10 +4986,9 @@ const de_CreateUsagePlanKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5152,27 +5008,16 @@ export const de_CreateVpcLinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.targetArns != null) {
-    contents.targetArns = de_ListOfString(data.targetArns, context);
-  }
+  const doc = take(data, {
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    tags: _json,
+    targetArns: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5206,10 +5051,9 @@ const de_CreateVpcLinkCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5262,10 +5106,9 @@ const de_DeleteApiKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5318,10 +5161,9 @@ const de_DeleteAuthorizerCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5374,10 +5216,9 @@ const de_DeleteBasePathMappingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5430,10 +5271,9 @@ const de_DeleteClientCertificateCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5489,10 +5329,9 @@ const de_DeleteDeploymentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5545,10 +5384,9 @@ const de_DeleteDocumentationPartCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5601,10 +5439,9 @@ const de_DeleteDocumentationVersionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5657,10 +5494,9 @@ const de_DeleteDomainNameCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5713,10 +5549,9 @@ const de_DeleteGatewayResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5769,10 +5604,9 @@ const de_DeleteIntegrationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5825,10 +5659,9 @@ const de_DeleteIntegrationResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5878,10 +5711,9 @@ const de_DeleteMethodCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5934,10 +5766,9 @@ const de_DeleteMethodResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5990,10 +5821,9 @@ const de_DeleteModelCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6046,10 +5876,9 @@ const de_DeleteRequestValidatorCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6102,10 +5931,9 @@ const de_DeleteResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6158,10 +5986,9 @@ const de_DeleteRestApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6217,10 +6044,9 @@ const de_DeleteStageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6273,10 +6099,9 @@ const de_DeleteUsagePlanCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6329,10 +6154,9 @@ const de_DeleteUsagePlanKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6385,10 +6209,9 @@ const de_DeleteVpcLinkCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6444,10 +6267,9 @@ const de_FlushStageAuthorizersCacheCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6503,10 +6325,9 @@ const de_FlushStageCacheCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6526,24 +6347,15 @@ export const de_GenerateClientCertificateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientCertificateId != null) {
-    contents.clientCertificateId = __expectString(data.clientCertificateId);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.expirationDate != null) {
-    contents.expirationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expirationDate)));
-  }
-  if (data.pemEncodedCertificate != null) {
-    contents.pemEncodedCertificate = __expectString(data.pemEncodedCertificate);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
+  const doc = take(data, {
+    clientCertificateId: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    expirationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pemEncodedCertificate: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6577,10 +6389,9 @@ const de_GenerateClientCertificateCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6600,18 +6411,13 @@ export const de_GetAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeyVersion != null) {
-    contents.apiKeyVersion = __expectString(data.apiKeyVersion);
-  }
-  if (data.cloudwatchRoleArn != null) {
-    contents.cloudwatchRoleArn = __expectString(data.cloudwatchRoleArn);
-  }
-  if (data.features != null) {
-    contents.features = de_ListOfString(data.features, context);
-  }
-  if (data.throttleSettings != null) {
-    contents.throttleSettings = de_ThrottleSettings(data.throttleSettings, context);
-  }
+  const doc = take(data, {
+    apiKeyVersion: __expectString,
+    cloudwatchRoleArn: __expectString,
+    features: _json,
+    throttleSettings: (_) => de_ThrottleSettings(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6642,10 +6448,9 @@ const de_GetAccountCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6665,36 +6470,19 @@ export const de_GetApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.customerId != null) {
-    contents.customerId = __expectString(data.customerId);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enabled != null) {
-    contents.enabled = __expectBoolean(data.enabled);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.stageKeys != null) {
-    contents.stageKeys = de_ListOfString(data.stageKeys, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.value != null) {
-    contents.value = __expectString(data.value);
-  }
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerId: __expectString,
+    description: __expectString,
+    enabled: __expectBoolean,
+    id: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    stageKeys: _json,
+    tags: _json,
+    value: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6725,10 +6513,9 @@ const de_GetApiKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6748,15 +6535,12 @@ export const de_GetApiKeysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfApiKey(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_ListOfString(data.warnings, context);
-  }
+  const doc = take(data, {
+    items: [, (_) => de_ListOfApiKey(_, context), `item`],
+    position: __expectString,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6787,10 +6571,9 @@ const de_GetApiKeysCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6810,36 +6593,19 @@ export const de_GetAuthorizerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authType != null) {
-    contents.authType = __expectString(data.authType);
-  }
-  if (data.authorizerCredentials != null) {
-    contents.authorizerCredentials = __expectString(data.authorizerCredentials);
-  }
-  if (data.authorizerResultTtlInSeconds != null) {
-    contents.authorizerResultTtlInSeconds = __expectInt32(data.authorizerResultTtlInSeconds);
-  }
-  if (data.authorizerUri != null) {
-    contents.authorizerUri = __expectString(data.authorizerUri);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.identitySource != null) {
-    contents.identitySource = __expectString(data.identitySource);
-  }
-  if (data.identityValidationExpression != null) {
-    contents.identityValidationExpression = __expectString(data.identityValidationExpression);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.providerARNs != null) {
-    contents.providerARNs = de_ListOfARNs(data.providerARNs, context);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    authType: __expectString,
+    authorizerCredentials: __expectString,
+    authorizerResultTtlInSeconds: __expectInt32,
+    authorizerUri: __expectString,
+    id: __expectString,
+    identitySource: __expectString,
+    identityValidationExpression: __expectString,
+    name: __expectString,
+    providerARNs: _json,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6870,10 +6636,9 @@ const de_GetAuthorizerCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6893,12 +6658,11 @@ export const de_GetAuthorizersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfAuthorizer(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6929,10 +6693,9 @@ const de_GetAuthorizersCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6952,15 +6715,12 @@ export const de_GetBasePathMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.basePath != null) {
-    contents.basePath = __expectString(data.basePath);
-  }
-  if (data.restApiId != null) {
-    contents.restApiId = __expectString(data.restApiId);
-  }
-  if (data.stage != null) {
-    contents.stage = __expectString(data.stage);
-  }
+  const doc = take(data, {
+    basePath: __expectString,
+    restApiId: __expectString,
+    stage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6991,10 +6751,9 @@ const de_GetBasePathMappingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7014,12 +6773,11 @@ export const de_GetBasePathMappingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfBasePathMapping(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7050,10 +6808,9 @@ const de_GetBasePathMappingsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7073,24 +6830,15 @@ export const de_GetClientCertificateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientCertificateId != null) {
-    contents.clientCertificateId = __expectString(data.clientCertificateId);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.expirationDate != null) {
-    contents.expirationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expirationDate)));
-  }
-  if (data.pemEncodedCertificate != null) {
-    contents.pemEncodedCertificate = __expectString(data.pemEncodedCertificate);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
+  const doc = take(data, {
+    clientCertificateId: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    expirationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pemEncodedCertificate: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7121,10 +6869,9 @@ const de_GetClientCertificateCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7144,12 +6891,11 @@ export const de_GetClientCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfClientCertificate(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, (_) => de_ListOfClientCertificate(_, context), `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7180,10 +6926,9 @@ const de_GetClientCertificatesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7203,18 +6948,13 @@ export const de_GetDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiSummary != null) {
-    contents.apiSummary = de_PathToMapOfMethodSnapshot(data.apiSummary, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
+  const doc = take(data, {
+    apiSummary: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7248,10 +6988,9 @@ const de_GetDeploymentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7271,12 +7010,11 @@ export const de_GetDeploymentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfDeployment(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, (_) => de_ListOfDeployment(_, context), `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7310,10 +7048,9 @@ const de_GetDeploymentsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7333,15 +7070,12 @@ export const de_GetDocumentationPartCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.location != null) {
-    contents.location = de_DocumentationPartLocation(data.location, context);
-  }
-  if (data.properties != null) {
-    contents.properties = __expectString(data.properties);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    location: _json,
+    properties: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7372,10 +7106,9 @@ const de_GetDocumentationPartCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7395,12 +7128,11 @@ export const de_GetDocumentationPartsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfDocumentationPart(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7431,10 +7163,9 @@ const de_GetDocumentationPartsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7454,15 +7185,12 @@ export const de_GetDocumentationVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7490,10 +7218,9 @@ const de_GetDocumentationVersionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7513,12 +7240,11 @@ export const de_GetDocumentationVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfDocumentationVersion(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, (_) => de_ListOfDocumentationVersion(_, context), `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7549,10 +7275,9 @@ const de_GetDocumentationVersionsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7572,57 +7297,26 @@ export const de_GetDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.certificateArn != null) {
-    contents.certificateArn = __expectString(data.certificateArn);
-  }
-  if (data.certificateName != null) {
-    contents.certificateName = __expectString(data.certificateName);
-  }
-  if (data.certificateUploadDate != null) {
-    contents.certificateUploadDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.certificateUploadDate)));
-  }
-  if (data.distributionDomainName != null) {
-    contents.distributionDomainName = __expectString(data.distributionDomainName);
-  }
-  if (data.distributionHostedZoneId != null) {
-    contents.distributionHostedZoneId = __expectString(data.distributionHostedZoneId);
-  }
-  if (data.domainName != null) {
-    contents.domainName = __expectString(data.domainName);
-  }
-  if (data.domainNameStatus != null) {
-    contents.domainNameStatus = __expectString(data.domainNameStatus);
-  }
-  if (data.domainNameStatusMessage != null) {
-    contents.domainNameStatusMessage = __expectString(data.domainNameStatusMessage);
-  }
-  if (data.endpointConfiguration != null) {
-    contents.endpointConfiguration = de_EndpointConfiguration(data.endpointConfiguration, context);
-  }
-  if (data.mutualTlsAuthentication != null) {
-    contents.mutualTlsAuthentication = de_MutualTlsAuthentication(data.mutualTlsAuthentication, context);
-  }
-  if (data.ownershipVerificationCertificateArn != null) {
-    contents.ownershipVerificationCertificateArn = __expectString(data.ownershipVerificationCertificateArn);
-  }
-  if (data.regionalCertificateArn != null) {
-    contents.regionalCertificateArn = __expectString(data.regionalCertificateArn);
-  }
-  if (data.regionalCertificateName != null) {
-    contents.regionalCertificateName = __expectString(data.regionalCertificateName);
-  }
-  if (data.regionalDomainName != null) {
-    contents.regionalDomainName = __expectString(data.regionalDomainName);
-  }
-  if (data.regionalHostedZoneId != null) {
-    contents.regionalHostedZoneId = __expectString(data.regionalHostedZoneId);
-  }
-  if (data.securityPolicy != null) {
-    contents.securityPolicy = __expectString(data.securityPolicy);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
+  const doc = take(data, {
+    certificateArn: __expectString,
+    certificateName: __expectString,
+    certificateUploadDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    distributionDomainName: __expectString,
+    distributionHostedZoneId: __expectString,
+    domainName: __expectString,
+    domainNameStatus: __expectString,
+    domainNameStatusMessage: __expectString,
+    endpointConfiguration: _json,
+    mutualTlsAuthentication: _json,
+    ownershipVerificationCertificateArn: __expectString,
+    regionalCertificateArn: __expectString,
+    regionalCertificateName: __expectString,
+    regionalDomainName: __expectString,
+    regionalHostedZoneId: __expectString,
+    securityPolicy: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7653,10 +7347,9 @@ const de_GetDomainNameCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7676,12 +7369,11 @@ export const de_GetDomainNamesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfDomainName(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, (_) => de_ListOfDomainName(_, context), `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7712,10 +7404,9 @@ const de_GetDomainNamesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7774,10 +7465,9 @@ const de_GetExportCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7797,21 +7487,14 @@ export const de_GetGatewayResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.defaultResponse != null) {
-    contents.defaultResponse = __expectBoolean(data.defaultResponse);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToString(data.responseParameters, context);
-  }
-  if (data.responseTemplates != null) {
-    contents.responseTemplates = de_MapOfStringToString(data.responseTemplates, context);
-  }
-  if (data.responseType != null) {
-    contents.responseType = __expectString(data.responseType);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    defaultResponse: __expectBoolean,
+    responseParameters: _json,
+    responseTemplates: _json,
+    responseType: __expectString,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7842,10 +7525,9 @@ const de_GetGatewayResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7865,12 +7547,11 @@ export const de_GetGatewayResponsesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfGatewayResponse(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7901,10 +7582,9 @@ const de_GetGatewayResponsesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7924,51 +7604,24 @@ export const de_GetIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cacheKeyParameters != null) {
-    contents.cacheKeyParameters = de_ListOfString(data.cacheKeyParameters, context);
-  }
-  if (data.cacheNamespace != null) {
-    contents.cacheNamespace = __expectString(data.cacheNamespace);
-  }
-  if (data.connectionId != null) {
-    contents.connectionId = __expectString(data.connectionId);
-  }
-  if (data.connectionType != null) {
-    contents.connectionType = __expectString(data.connectionType);
-  }
-  if (data.contentHandling != null) {
-    contents.contentHandling = __expectString(data.contentHandling);
-  }
-  if (data.credentials != null) {
-    contents.credentials = __expectString(data.credentials);
-  }
-  if (data.httpMethod != null) {
-    contents.httpMethod = __expectString(data.httpMethod);
-  }
-  if (data.integrationResponses != null) {
-    contents.integrationResponses = de_MapOfIntegrationResponse(data.integrationResponses, context);
-  }
-  if (data.passthroughBehavior != null) {
-    contents.passthroughBehavior = __expectString(data.passthroughBehavior);
-  }
-  if (data.requestParameters != null) {
-    contents.requestParameters = de_MapOfStringToString(data.requestParameters, context);
-  }
-  if (data.requestTemplates != null) {
-    contents.requestTemplates = de_MapOfStringToString(data.requestTemplates, context);
-  }
-  if (data.timeoutInMillis != null) {
-    contents.timeoutInMillis = __expectInt32(data.timeoutInMillis);
-  }
-  if (data.tlsConfig != null) {
-    contents.tlsConfig = de_TlsConfig(data.tlsConfig, context);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
-  if (data.uri != null) {
-    contents.uri = __expectString(data.uri);
-  }
+  const doc = take(data, {
+    cacheKeyParameters: _json,
+    cacheNamespace: __expectString,
+    connectionId: __expectString,
+    connectionType: __expectString,
+    contentHandling: __expectString,
+    credentials: __expectString,
+    httpMethod: __expectString,
+    integrationResponses: _json,
+    passthroughBehavior: __expectString,
+    requestParameters: _json,
+    requestTemplates: _json,
+    timeoutInMillis: __expectInt32,
+    tlsConfig: _json,
+    type: __expectString,
+    uri: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7999,10 +7652,9 @@ const de_GetIntegrationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8022,21 +7674,14 @@ export const de_GetIntegrationResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentHandling != null) {
-    contents.contentHandling = __expectString(data.contentHandling);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToString(data.responseParameters, context);
-  }
-  if (data.responseTemplates != null) {
-    contents.responseTemplates = de_MapOfStringToString(data.responseTemplates, context);
-  }
-  if (data.selectionPattern != null) {
-    contents.selectionPattern = __expectString(data.selectionPattern);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    contentHandling: __expectString,
+    responseParameters: _json,
+    responseTemplates: _json,
+    selectionPattern: __expectString,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8067,10 +7712,9 @@ const de_GetIntegrationResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8090,39 +7734,20 @@ export const de_GetMethodCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeyRequired != null) {
-    contents.apiKeyRequired = __expectBoolean(data.apiKeyRequired);
-  }
-  if (data.authorizationScopes != null) {
-    contents.authorizationScopes = de_ListOfString(data.authorizationScopes, context);
-  }
-  if (data.authorizationType != null) {
-    contents.authorizationType = __expectString(data.authorizationType);
-  }
-  if (data.authorizerId != null) {
-    contents.authorizerId = __expectString(data.authorizerId);
-  }
-  if (data.httpMethod != null) {
-    contents.httpMethod = __expectString(data.httpMethod);
-  }
-  if (data.methodIntegration != null) {
-    contents.methodIntegration = de_Integration(data.methodIntegration, context);
-  }
-  if (data.methodResponses != null) {
-    contents.methodResponses = de_MapOfMethodResponse(data.methodResponses, context);
-  }
-  if (data.operationName != null) {
-    contents.operationName = __expectString(data.operationName);
-  }
-  if (data.requestModels != null) {
-    contents.requestModels = de_MapOfStringToString(data.requestModels, context);
-  }
-  if (data.requestParameters != null) {
-    contents.requestParameters = de_MapOfStringToBoolean(data.requestParameters, context);
-  }
-  if (data.requestValidatorId != null) {
-    contents.requestValidatorId = __expectString(data.requestValidatorId);
-  }
+  const doc = take(data, {
+    apiKeyRequired: __expectBoolean,
+    authorizationScopes: _json,
+    authorizationType: __expectString,
+    authorizerId: __expectString,
+    httpMethod: __expectString,
+    methodIntegration: _json,
+    methodResponses: _json,
+    operationName: __expectString,
+    requestModels: _json,
+    requestParameters: _json,
+    requestValidatorId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8150,10 +7775,9 @@ const de_GetMethodCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8173,15 +7797,12 @@ export const de_GetMethodResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.responseModels != null) {
-    contents.responseModels = de_MapOfStringToString(data.responseModels, context);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToBoolean(data.responseParameters, context);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    responseModels: _json,
+    responseParameters: _json,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8209,10 +7830,9 @@ const de_GetMethodResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8232,21 +7852,14 @@ export const de_GetModelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentType != null) {
-    contents.contentType = __expectString(data.contentType);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.schema != null) {
-    contents.schema = __expectString(data.schema);
-  }
+  const doc = take(data, {
+    contentType: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    schema: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8277,10 +7890,9 @@ const de_GetModelCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8300,12 +7912,11 @@ export const de_GetModelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfModel(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8336,10 +7947,9 @@ const de_GetModelsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8359,9 +7969,10 @@ export const de_GetModelTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.value != null) {
-    contents.value = __expectString(data.value);
-  }
+  const doc = take(data, {
+    value: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8392,10 +8003,9 @@ const de_GetModelTemplateCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8415,18 +8025,13 @@ export const de_GetRequestValidatorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.validateRequestBody != null) {
-    contents.validateRequestBody = __expectBoolean(data.validateRequestBody);
-  }
-  if (data.validateRequestParameters != null) {
-    contents.validateRequestParameters = __expectBoolean(data.validateRequestParameters);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    validateRequestBody: __expectBoolean,
+    validateRequestParameters: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8457,10 +8062,9 @@ const de_GetRequestValidatorCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8480,12 +8084,11 @@ export const de_GetRequestValidatorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfRequestValidator(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8516,10 +8119,9 @@ const de_GetRequestValidatorsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8539,21 +8141,14 @@ export const de_GetResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.parentId != null) {
-    contents.parentId = __expectString(data.parentId);
-  }
-  if (data.path != null) {
-    contents.path = __expectString(data.path);
-  }
-  if (data.pathPart != null) {
-    contents.pathPart = __expectString(data.pathPart);
-  }
-  if (data.resourceMethods != null) {
-    contents.resourceMethods = de_MapOfMethod(data.resourceMethods, context);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    parentId: __expectString,
+    path: __expectString,
+    pathPart: __expectString,
+    resourceMethods: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8581,10 +8176,9 @@ const de_GetResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8604,12 +8198,11 @@ export const de_GetResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfResource(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8640,10 +8233,9 @@ const de_GetResourcesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8663,45 +8255,22 @@ export const de_GetRestApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeySource != null) {
-    contents.apiKeySource = __expectString(data.apiKeySource);
-  }
-  if (data.binaryMediaTypes != null) {
-    contents.binaryMediaTypes = de_ListOfString(data.binaryMediaTypes, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.disableExecuteApiEndpoint != null) {
-    contents.disableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
-  }
-  if (data.endpointConfiguration != null) {
-    contents.endpointConfiguration = de_EndpointConfiguration(data.endpointConfiguration, context);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.minimumCompressionSize != null) {
-    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.policy != null) {
-    contents.policy = __expectString(data.policy);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_ListOfString(data.warnings, context);
-  }
+  const doc = take(data, {
+    apiKeySource: __expectString,
+    binaryMediaTypes: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    disableExecuteApiEndpoint: __expectBoolean,
+    endpointConfiguration: _json,
+    id: __expectString,
+    minimumCompressionSize: __expectInt32,
+    name: __expectString,
+    policy: __expectString,
+    tags: _json,
+    version: __expectString,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8732,10 +8301,9 @@ const de_GetRestApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8755,12 +8323,11 @@ export const de_GetRestApisCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfRestApi(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, (_) => de_ListOfRestApi(_, context), `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8791,10 +8358,9 @@ const de_GetRestApisCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8850,10 +8416,9 @@ const de_GetSdkCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8873,18 +8438,13 @@ export const de_GetSdkTypeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurationProperties != null) {
-    contents.configurationProperties = de_ListOfSdkConfigurationProperty(data.configurationProperties, context);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.friendlyName != null) {
-    contents.friendlyName = __expectString(data.friendlyName);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
+  const doc = take(data, {
+    configurationProperties: _json,
+    description: __expectString,
+    friendlyName: __expectString,
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8915,10 +8475,9 @@ const de_GetSdkTypeCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8938,9 +8497,10 @@ export const de_GetSdkTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfSdkType(data.item, context);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8971,10 +8531,9 @@ const de_GetSdkTypesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8994,57 +8553,26 @@ export const de_GetStageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessLogSettings != null) {
-    contents.accessLogSettings = de_AccessLogSettings(data.accessLogSettings, context);
-  }
-  if (data.cacheClusterEnabled != null) {
-    contents.cacheClusterEnabled = __expectBoolean(data.cacheClusterEnabled);
-  }
-  if (data.cacheClusterSize != null) {
-    contents.cacheClusterSize = __expectString(data.cacheClusterSize);
-  }
-  if (data.cacheClusterStatus != null) {
-    contents.cacheClusterStatus = __expectString(data.cacheClusterStatus);
-  }
-  if (data.canarySettings != null) {
-    contents.canarySettings = de_CanarySettings(data.canarySettings, context);
-  }
-  if (data.clientCertificateId != null) {
-    contents.clientCertificateId = __expectString(data.clientCertificateId);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.deploymentId != null) {
-    contents.deploymentId = __expectString(data.deploymentId);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.documentationVersion != null) {
-    contents.documentationVersion = __expectString(data.documentationVersion);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.methodSettings != null) {
-    contents.methodSettings = de_MapOfMethodSettings(data.methodSettings, context);
-  }
-  if (data.stageName != null) {
-    contents.stageName = __expectString(data.stageName);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.tracingEnabled != null) {
-    contents.tracingEnabled = __expectBoolean(data.tracingEnabled);
-  }
-  if (data.variables != null) {
-    contents.variables = de_MapOfStringToString(data.variables, context);
-  }
-  if (data.webAclArn != null) {
-    contents.webAclArn = __expectString(data.webAclArn);
-  }
+  const doc = take(data, {
+    accessLogSettings: _json,
+    cacheClusterEnabled: __expectBoolean,
+    cacheClusterSize: __expectString,
+    cacheClusterStatus: __expectString,
+    canarySettings: (_) => de_CanarySettings(_, context),
+    clientCertificateId: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentId: __expectString,
+    description: __expectString,
+    documentationVersion: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    methodSettings: (_) => de_MapOfMethodSettings(_, context),
+    stageName: __expectString,
+    tags: _json,
+    tracingEnabled: __expectBoolean,
+    variables: _json,
+    webAclArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9081,10 +8609,9 @@ const de_GetStageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9104,9 +8631,10 @@ export const de_GetStagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.item = de_ListOfStage(data.item, context);
-  }
+  const doc = take(data, {
+    item: (_) => de_ListOfStage(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9143,10 +8671,9 @@ const de_GetStagesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9166,9 +8693,10 @@ export const de_GetTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9199,10 +8727,9 @@ const de_GetTagsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9222,21 +8749,14 @@ export const de_GetUsageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endDate != null) {
-    contents.endDate = __expectString(data.endDate);
-  }
-  if (data.values != null) {
-    contents.items = de_MapOfKeyUsages(data.values, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
-  if (data.startDate != null) {
-    contents.startDate = __expectString(data.startDate);
-  }
-  if (data.usagePlanId != null) {
-    contents.usagePlanId = __expectString(data.usagePlanId);
-  }
+  const doc = take(data, {
+    endDate: __expectString,
+    items: [, _json, `values`],
+    position: __expectString,
+    startDate: __expectString,
+    usagePlanId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9267,10 +8787,9 @@ const de_GetUsageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9290,30 +8809,17 @@ export const de_GetUsagePlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiStages != null) {
-    contents.apiStages = de_ListOfApiStage(data.apiStages, context);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.productCode != null) {
-    contents.productCode = __expectString(data.productCode);
-  }
-  if (data.quota != null) {
-    contents.quota = de_QuotaSettings(data.quota, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.throttle != null) {
-    contents.throttle = de_ThrottleSettings(data.throttle, context);
-  }
+  const doc = take(data, {
+    apiStages: (_) => de_ListOfApiStage(_, context),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    productCode: __expectString,
+    quota: _json,
+    tags: _json,
+    throttle: (_) => de_ThrottleSettings(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9344,10 +8850,9 @@ const de_GetUsagePlanCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9367,18 +8872,13 @@ export const de_GetUsagePlanKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
-  if (data.value != null) {
-    contents.value = __expectString(data.value);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    type: __expectString,
+    value: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9409,10 +8909,9 @@ const de_GetUsagePlanKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9432,12 +8931,11 @@ export const de_GetUsagePlanKeysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfUsagePlanKey(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9468,10 +8966,9 @@ const de_GetUsagePlanKeysCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9491,12 +8988,11 @@ export const de_GetUsagePlansCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfUsagePlan(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, (_) => de_ListOfUsagePlan(_, context), `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9527,10 +9023,9 @@ const de_GetUsagePlansCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9550,27 +9045,16 @@ export const de_GetVpcLinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.targetArns != null) {
-    contents.targetArns = de_ListOfString(data.targetArns, context);
-  }
+  const doc = take(data, {
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    tags: _json,
+    targetArns: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9601,10 +9085,9 @@ const de_GetVpcLinkCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9624,12 +9107,11 @@ export const de_GetVpcLinksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.item != null) {
-    contents.items = de_ListOfVpcLink(data.item, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9660,10 +9142,9 @@ const de_GetVpcLinksCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9683,12 +9164,11 @@ export const de_ImportApiKeysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ids != null) {
-    contents.ids = de_ListOfString(data.ids, context);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_ListOfString(data.warnings, context);
-  }
+  const doc = take(data, {
+    ids: _json,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9725,10 +9205,9 @@ const de_ImportApiKeysCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9748,12 +9227,11 @@ export const de_ImportDocumentationPartsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ids != null) {
-    contents.ids = de_ListOfString(data.ids, context);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_ListOfString(data.warnings, context);
-  }
+  const doc = take(data, {
+    ids: _json,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9790,10 +9268,9 @@ const de_ImportDocumentationPartsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9813,45 +9290,22 @@ export const de_ImportRestApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeySource != null) {
-    contents.apiKeySource = __expectString(data.apiKeySource);
-  }
-  if (data.binaryMediaTypes != null) {
-    contents.binaryMediaTypes = de_ListOfString(data.binaryMediaTypes, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.disableExecuteApiEndpoint != null) {
-    contents.disableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
-  }
-  if (data.endpointConfiguration != null) {
-    contents.endpointConfiguration = de_EndpointConfiguration(data.endpointConfiguration, context);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.minimumCompressionSize != null) {
-    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.policy != null) {
-    contents.policy = __expectString(data.policy);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_ListOfString(data.warnings, context);
-  }
+  const doc = take(data, {
+    apiKeySource: __expectString,
+    binaryMediaTypes: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    disableExecuteApiEndpoint: __expectBoolean,
+    endpointConfiguration: _json,
+    id: __expectString,
+    minimumCompressionSize: __expectInt32,
+    name: __expectString,
+    policy: __expectString,
+    tags: _json,
+    version: __expectString,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9888,10 +9342,9 @@ const de_ImportRestApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9911,21 +9364,14 @@ export const de_PutGatewayResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.defaultResponse != null) {
-    contents.defaultResponse = __expectBoolean(data.defaultResponse);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToString(data.responseParameters, context);
-  }
-  if (data.responseTemplates != null) {
-    contents.responseTemplates = de_MapOfStringToString(data.responseTemplates, context);
-  }
-  if (data.responseType != null) {
-    contents.responseType = __expectString(data.responseType);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    defaultResponse: __expectBoolean,
+    responseParameters: _json,
+    responseTemplates: _json,
+    responseType: __expectString,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9962,10 +9408,9 @@ const de_PutGatewayResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9985,51 +9430,24 @@ export const de_PutIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cacheKeyParameters != null) {
-    contents.cacheKeyParameters = de_ListOfString(data.cacheKeyParameters, context);
-  }
-  if (data.cacheNamespace != null) {
-    contents.cacheNamespace = __expectString(data.cacheNamespace);
-  }
-  if (data.connectionId != null) {
-    contents.connectionId = __expectString(data.connectionId);
-  }
-  if (data.connectionType != null) {
-    contents.connectionType = __expectString(data.connectionType);
-  }
-  if (data.contentHandling != null) {
-    contents.contentHandling = __expectString(data.contentHandling);
-  }
-  if (data.credentials != null) {
-    contents.credentials = __expectString(data.credentials);
-  }
-  if (data.httpMethod != null) {
-    contents.httpMethod = __expectString(data.httpMethod);
-  }
-  if (data.integrationResponses != null) {
-    contents.integrationResponses = de_MapOfIntegrationResponse(data.integrationResponses, context);
-  }
-  if (data.passthroughBehavior != null) {
-    contents.passthroughBehavior = __expectString(data.passthroughBehavior);
-  }
-  if (data.requestParameters != null) {
-    contents.requestParameters = de_MapOfStringToString(data.requestParameters, context);
-  }
-  if (data.requestTemplates != null) {
-    contents.requestTemplates = de_MapOfStringToString(data.requestTemplates, context);
-  }
-  if (data.timeoutInMillis != null) {
-    contents.timeoutInMillis = __expectInt32(data.timeoutInMillis);
-  }
-  if (data.tlsConfig != null) {
-    contents.tlsConfig = de_TlsConfig(data.tlsConfig, context);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
-  if (data.uri != null) {
-    contents.uri = __expectString(data.uri);
-  }
+  const doc = take(data, {
+    cacheKeyParameters: _json,
+    cacheNamespace: __expectString,
+    connectionId: __expectString,
+    connectionType: __expectString,
+    contentHandling: __expectString,
+    credentials: __expectString,
+    httpMethod: __expectString,
+    integrationResponses: _json,
+    passthroughBehavior: __expectString,
+    requestParameters: _json,
+    requestTemplates: _json,
+    timeoutInMillis: __expectInt32,
+    tlsConfig: _json,
+    type: __expectString,
+    uri: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10066,10 +9484,9 @@ const de_PutIntegrationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10089,21 +9506,14 @@ export const de_PutIntegrationResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentHandling != null) {
-    contents.contentHandling = __expectString(data.contentHandling);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToString(data.responseParameters, context);
-  }
-  if (data.responseTemplates != null) {
-    contents.responseTemplates = de_MapOfStringToString(data.responseTemplates, context);
-  }
-  if (data.selectionPattern != null) {
-    contents.selectionPattern = __expectString(data.selectionPattern);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    contentHandling: __expectString,
+    responseParameters: _json,
+    responseTemplates: _json,
+    selectionPattern: __expectString,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10140,10 +9550,9 @@ const de_PutIntegrationResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10163,39 +9572,20 @@ export const de_PutMethodCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeyRequired != null) {
-    contents.apiKeyRequired = __expectBoolean(data.apiKeyRequired);
-  }
-  if (data.authorizationScopes != null) {
-    contents.authorizationScopes = de_ListOfString(data.authorizationScopes, context);
-  }
-  if (data.authorizationType != null) {
-    contents.authorizationType = __expectString(data.authorizationType);
-  }
-  if (data.authorizerId != null) {
-    contents.authorizerId = __expectString(data.authorizerId);
-  }
-  if (data.httpMethod != null) {
-    contents.httpMethod = __expectString(data.httpMethod);
-  }
-  if (data.methodIntegration != null) {
-    contents.methodIntegration = de_Integration(data.methodIntegration, context);
-  }
-  if (data.methodResponses != null) {
-    contents.methodResponses = de_MapOfMethodResponse(data.methodResponses, context);
-  }
-  if (data.operationName != null) {
-    contents.operationName = __expectString(data.operationName);
-  }
-  if (data.requestModels != null) {
-    contents.requestModels = de_MapOfStringToString(data.requestModels, context);
-  }
-  if (data.requestParameters != null) {
-    contents.requestParameters = de_MapOfStringToBoolean(data.requestParameters, context);
-  }
-  if (data.requestValidatorId != null) {
-    contents.requestValidatorId = __expectString(data.requestValidatorId);
-  }
+  const doc = take(data, {
+    apiKeyRequired: __expectBoolean,
+    authorizationScopes: _json,
+    authorizationType: __expectString,
+    authorizerId: __expectString,
+    httpMethod: __expectString,
+    methodIntegration: _json,
+    methodResponses: _json,
+    operationName: __expectString,
+    requestModels: _json,
+    requestParameters: _json,
+    requestValidatorId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10232,10 +9622,9 @@ const de_PutMethodCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10255,15 +9644,12 @@ export const de_PutMethodResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.responseModels != null) {
-    contents.responseModels = de_MapOfStringToString(data.responseModels, context);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToBoolean(data.responseParameters, context);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    responseModels: _json,
+    responseParameters: _json,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10300,10 +9686,9 @@ const de_PutMethodResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10323,45 +9708,22 @@ export const de_PutRestApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeySource != null) {
-    contents.apiKeySource = __expectString(data.apiKeySource);
-  }
-  if (data.binaryMediaTypes != null) {
-    contents.binaryMediaTypes = de_ListOfString(data.binaryMediaTypes, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.disableExecuteApiEndpoint != null) {
-    contents.disableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
-  }
-  if (data.endpointConfiguration != null) {
-    contents.endpointConfiguration = de_EndpointConfiguration(data.endpointConfiguration, context);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.minimumCompressionSize != null) {
-    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.policy != null) {
-    contents.policy = __expectString(data.policy);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_ListOfString(data.warnings, context);
-  }
+  const doc = take(data, {
+    apiKeySource: __expectString,
+    binaryMediaTypes: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    disableExecuteApiEndpoint: __expectBoolean,
+    endpointConfiguration: _json,
+    id: __expectString,
+    minimumCompressionSize: __expectInt32,
+    name: __expectString,
+    policy: __expectString,
+    tags: _json,
+    version: __expectString,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10398,10 +9760,9 @@ const de_PutRestApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10457,10 +9818,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10480,27 +9840,16 @@ export const de_TestInvokeAuthorizerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authorization != null) {
-    contents.authorization = de_MapOfStringToList(data.authorization, context);
-  }
-  if (data.claims != null) {
-    contents.claims = de_MapOfStringToString(data.claims, context);
-  }
-  if (data.clientStatus != null) {
-    contents.clientStatus = __expectInt32(data.clientStatus);
-  }
-  if (data.latency != null) {
-    contents.latency = __expectLong(data.latency);
-  }
-  if (data.log != null) {
-    contents.log = __expectString(data.log);
-  }
-  if (data.policy != null) {
-    contents.policy = __expectString(data.policy);
-  }
-  if (data.principalId != null) {
-    contents.principalId = __expectString(data.principalId);
-  }
+  const doc = take(data, {
+    authorization: _json,
+    claims: _json,
+    clientStatus: __expectInt32,
+    latency: __expectLong,
+    log: __expectString,
+    policy: __expectString,
+    principalId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10531,10 +9880,9 @@ const de_TestInvokeAuthorizerCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10554,24 +9902,15 @@ export const de_TestInvokeMethodCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.body != null) {
-    contents.body = __expectString(data.body);
-  }
-  if (data.headers != null) {
-    contents.headers = de_MapOfStringToString(data.headers, context);
-  }
-  if (data.latency != null) {
-    contents.latency = __expectLong(data.latency);
-  }
-  if (data.log != null) {
-    contents.log = __expectString(data.log);
-  }
-  if (data.multiValueHeaders != null) {
-    contents.multiValueHeaders = de_MapOfStringToList(data.multiValueHeaders, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectInt32(data.status);
-  }
+  const doc = take(data, {
+    body: __expectString,
+    headers: _json,
+    latency: __expectLong,
+    log: __expectString,
+    multiValueHeaders: _json,
+    status: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10602,10 +9941,9 @@ const de_TestInvokeMethodCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10661,10 +9999,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10684,18 +10021,13 @@ export const de_UpdateAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeyVersion != null) {
-    contents.apiKeyVersion = __expectString(data.apiKeyVersion);
-  }
-  if (data.cloudwatchRoleArn != null) {
-    contents.cloudwatchRoleArn = __expectString(data.cloudwatchRoleArn);
-  }
-  if (data.features != null) {
-    contents.features = de_ListOfString(data.features, context);
-  }
-  if (data.throttleSettings != null) {
-    contents.throttleSettings = de_ThrottleSettings(data.throttleSettings, context);
-  }
+  const doc = take(data, {
+    apiKeyVersion: __expectString,
+    cloudwatchRoleArn: __expectString,
+    features: _json,
+    throttleSettings: (_) => de_ThrottleSettings(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10732,10 +10064,9 @@ const de_UpdateAccountCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10755,36 +10086,19 @@ export const de_UpdateApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.customerId != null) {
-    contents.customerId = __expectString(data.customerId);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enabled != null) {
-    contents.enabled = __expectBoolean(data.enabled);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.stageKeys != null) {
-    contents.stageKeys = de_ListOfString(data.stageKeys, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.value != null) {
-    contents.value = __expectString(data.value);
-  }
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerId: __expectString,
+    description: __expectString,
+    enabled: __expectBoolean,
+    id: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    stageKeys: _json,
+    tags: _json,
+    value: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10821,10 +10135,9 @@ const de_UpdateApiKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10844,36 +10157,19 @@ export const de_UpdateAuthorizerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authType != null) {
-    contents.authType = __expectString(data.authType);
-  }
-  if (data.authorizerCredentials != null) {
-    contents.authorizerCredentials = __expectString(data.authorizerCredentials);
-  }
-  if (data.authorizerResultTtlInSeconds != null) {
-    contents.authorizerResultTtlInSeconds = __expectInt32(data.authorizerResultTtlInSeconds);
-  }
-  if (data.authorizerUri != null) {
-    contents.authorizerUri = __expectString(data.authorizerUri);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.identitySource != null) {
-    contents.identitySource = __expectString(data.identitySource);
-  }
-  if (data.identityValidationExpression != null) {
-    contents.identityValidationExpression = __expectString(data.identityValidationExpression);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.providerARNs != null) {
-    contents.providerARNs = de_ListOfARNs(data.providerARNs, context);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    authType: __expectString,
+    authorizerCredentials: __expectString,
+    authorizerResultTtlInSeconds: __expectInt32,
+    authorizerUri: __expectString,
+    id: __expectString,
+    identitySource: __expectString,
+    identityValidationExpression: __expectString,
+    name: __expectString,
+    providerARNs: _json,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10910,10 +10206,9 @@ const de_UpdateAuthorizerCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10933,15 +10228,12 @@ export const de_UpdateBasePathMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.basePath != null) {
-    contents.basePath = __expectString(data.basePath);
-  }
-  if (data.restApiId != null) {
-    contents.restApiId = __expectString(data.restApiId);
-  }
-  if (data.stage != null) {
-    contents.stage = __expectString(data.stage);
-  }
+  const doc = take(data, {
+    basePath: __expectString,
+    restApiId: __expectString,
+    stage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10978,10 +10270,9 @@ const de_UpdateBasePathMappingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11001,24 +10292,15 @@ export const de_UpdateClientCertificateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientCertificateId != null) {
-    contents.clientCertificateId = __expectString(data.clientCertificateId);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.expirationDate != null) {
-    contents.expirationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expirationDate)));
-  }
-  if (data.pemEncodedCertificate != null) {
-    contents.pemEncodedCertificate = __expectString(data.pemEncodedCertificate);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
+  const doc = take(data, {
+    clientCertificateId: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    expirationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pemEncodedCertificate: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11055,10 +10337,9 @@ const de_UpdateClientCertificateCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11078,18 +10359,13 @@ export const de_UpdateDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiSummary != null) {
-    contents.apiSummary = de_PathToMapOfMethodSnapshot(data.apiSummary, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
+  const doc = take(data, {
+    apiSummary: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11129,10 +10405,9 @@ const de_UpdateDeploymentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11152,15 +10427,12 @@ export const de_UpdateDocumentationPartCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.location != null) {
-    contents.location = de_DocumentationPartLocation(data.location, context);
-  }
-  if (data.properties != null) {
-    contents.properties = __expectString(data.properties);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    location: _json,
+    properties: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11197,10 +10469,9 @@ const de_UpdateDocumentationPartCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11220,15 +10491,12 @@ export const de_UpdateDocumentationVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11265,10 +10533,9 @@ const de_UpdateDocumentationVersionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11288,57 +10555,26 @@ export const de_UpdateDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.certificateArn != null) {
-    contents.certificateArn = __expectString(data.certificateArn);
-  }
-  if (data.certificateName != null) {
-    contents.certificateName = __expectString(data.certificateName);
-  }
-  if (data.certificateUploadDate != null) {
-    contents.certificateUploadDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.certificateUploadDate)));
-  }
-  if (data.distributionDomainName != null) {
-    contents.distributionDomainName = __expectString(data.distributionDomainName);
-  }
-  if (data.distributionHostedZoneId != null) {
-    contents.distributionHostedZoneId = __expectString(data.distributionHostedZoneId);
-  }
-  if (data.domainName != null) {
-    contents.domainName = __expectString(data.domainName);
-  }
-  if (data.domainNameStatus != null) {
-    contents.domainNameStatus = __expectString(data.domainNameStatus);
-  }
-  if (data.domainNameStatusMessage != null) {
-    contents.domainNameStatusMessage = __expectString(data.domainNameStatusMessage);
-  }
-  if (data.endpointConfiguration != null) {
-    contents.endpointConfiguration = de_EndpointConfiguration(data.endpointConfiguration, context);
-  }
-  if (data.mutualTlsAuthentication != null) {
-    contents.mutualTlsAuthentication = de_MutualTlsAuthentication(data.mutualTlsAuthentication, context);
-  }
-  if (data.ownershipVerificationCertificateArn != null) {
-    contents.ownershipVerificationCertificateArn = __expectString(data.ownershipVerificationCertificateArn);
-  }
-  if (data.regionalCertificateArn != null) {
-    contents.regionalCertificateArn = __expectString(data.regionalCertificateArn);
-  }
-  if (data.regionalCertificateName != null) {
-    contents.regionalCertificateName = __expectString(data.regionalCertificateName);
-  }
-  if (data.regionalDomainName != null) {
-    contents.regionalDomainName = __expectString(data.regionalDomainName);
-  }
-  if (data.regionalHostedZoneId != null) {
-    contents.regionalHostedZoneId = __expectString(data.regionalHostedZoneId);
-  }
-  if (data.securityPolicy != null) {
-    contents.securityPolicy = __expectString(data.securityPolicy);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
+  const doc = take(data, {
+    certificateArn: __expectString,
+    certificateName: __expectString,
+    certificateUploadDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    distributionDomainName: __expectString,
+    distributionHostedZoneId: __expectString,
+    domainName: __expectString,
+    domainNameStatus: __expectString,
+    domainNameStatusMessage: __expectString,
+    endpointConfiguration: _json,
+    mutualTlsAuthentication: _json,
+    ownershipVerificationCertificateArn: __expectString,
+    regionalCertificateArn: __expectString,
+    regionalCertificateName: __expectString,
+    regionalDomainName: __expectString,
+    regionalHostedZoneId: __expectString,
+    securityPolicy: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11375,10 +10611,9 @@ const de_UpdateDomainNameCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11398,21 +10633,14 @@ export const de_UpdateGatewayResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.defaultResponse != null) {
-    contents.defaultResponse = __expectBoolean(data.defaultResponse);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToString(data.responseParameters, context);
-  }
-  if (data.responseTemplates != null) {
-    contents.responseTemplates = de_MapOfStringToString(data.responseTemplates, context);
-  }
-  if (data.responseType != null) {
-    contents.responseType = __expectString(data.responseType);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    defaultResponse: __expectBoolean,
+    responseParameters: _json,
+    responseTemplates: _json,
+    responseType: __expectString,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11449,10 +10677,9 @@ const de_UpdateGatewayResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11472,51 +10699,24 @@ export const de_UpdateIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cacheKeyParameters != null) {
-    contents.cacheKeyParameters = de_ListOfString(data.cacheKeyParameters, context);
-  }
-  if (data.cacheNamespace != null) {
-    contents.cacheNamespace = __expectString(data.cacheNamespace);
-  }
-  if (data.connectionId != null) {
-    contents.connectionId = __expectString(data.connectionId);
-  }
-  if (data.connectionType != null) {
-    contents.connectionType = __expectString(data.connectionType);
-  }
-  if (data.contentHandling != null) {
-    contents.contentHandling = __expectString(data.contentHandling);
-  }
-  if (data.credentials != null) {
-    contents.credentials = __expectString(data.credentials);
-  }
-  if (data.httpMethod != null) {
-    contents.httpMethod = __expectString(data.httpMethod);
-  }
-  if (data.integrationResponses != null) {
-    contents.integrationResponses = de_MapOfIntegrationResponse(data.integrationResponses, context);
-  }
-  if (data.passthroughBehavior != null) {
-    contents.passthroughBehavior = __expectString(data.passthroughBehavior);
-  }
-  if (data.requestParameters != null) {
-    contents.requestParameters = de_MapOfStringToString(data.requestParameters, context);
-  }
-  if (data.requestTemplates != null) {
-    contents.requestTemplates = de_MapOfStringToString(data.requestTemplates, context);
-  }
-  if (data.timeoutInMillis != null) {
-    contents.timeoutInMillis = __expectInt32(data.timeoutInMillis);
-  }
-  if (data.tlsConfig != null) {
-    contents.tlsConfig = de_TlsConfig(data.tlsConfig, context);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
-  if (data.uri != null) {
-    contents.uri = __expectString(data.uri);
-  }
+  const doc = take(data, {
+    cacheKeyParameters: _json,
+    cacheNamespace: __expectString,
+    connectionId: __expectString,
+    connectionType: __expectString,
+    contentHandling: __expectString,
+    credentials: __expectString,
+    httpMethod: __expectString,
+    integrationResponses: _json,
+    passthroughBehavior: __expectString,
+    requestParameters: _json,
+    requestTemplates: _json,
+    timeoutInMillis: __expectInt32,
+    tlsConfig: _json,
+    type: __expectString,
+    uri: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11553,10 +10753,9 @@ const de_UpdateIntegrationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11576,21 +10775,14 @@ export const de_UpdateIntegrationResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentHandling != null) {
-    contents.contentHandling = __expectString(data.contentHandling);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToString(data.responseParameters, context);
-  }
-  if (data.responseTemplates != null) {
-    contents.responseTemplates = de_MapOfStringToString(data.responseTemplates, context);
-  }
-  if (data.selectionPattern != null) {
-    contents.selectionPattern = __expectString(data.selectionPattern);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    contentHandling: __expectString,
+    responseParameters: _json,
+    responseTemplates: _json,
+    selectionPattern: __expectString,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11627,10 +10819,9 @@ const de_UpdateIntegrationResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11650,39 +10841,20 @@ export const de_UpdateMethodCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeyRequired != null) {
-    contents.apiKeyRequired = __expectBoolean(data.apiKeyRequired);
-  }
-  if (data.authorizationScopes != null) {
-    contents.authorizationScopes = de_ListOfString(data.authorizationScopes, context);
-  }
-  if (data.authorizationType != null) {
-    contents.authorizationType = __expectString(data.authorizationType);
-  }
-  if (data.authorizerId != null) {
-    contents.authorizerId = __expectString(data.authorizerId);
-  }
-  if (data.httpMethod != null) {
-    contents.httpMethod = __expectString(data.httpMethod);
-  }
-  if (data.methodIntegration != null) {
-    contents.methodIntegration = de_Integration(data.methodIntegration, context);
-  }
-  if (data.methodResponses != null) {
-    contents.methodResponses = de_MapOfMethodResponse(data.methodResponses, context);
-  }
-  if (data.operationName != null) {
-    contents.operationName = __expectString(data.operationName);
-  }
-  if (data.requestModels != null) {
-    contents.requestModels = de_MapOfStringToString(data.requestModels, context);
-  }
-  if (data.requestParameters != null) {
-    contents.requestParameters = de_MapOfStringToBoolean(data.requestParameters, context);
-  }
-  if (data.requestValidatorId != null) {
-    contents.requestValidatorId = __expectString(data.requestValidatorId);
-  }
+  const doc = take(data, {
+    apiKeyRequired: __expectBoolean,
+    authorizationScopes: _json,
+    authorizationType: __expectString,
+    authorizerId: __expectString,
+    httpMethod: __expectString,
+    methodIntegration: _json,
+    methodResponses: _json,
+    operationName: __expectString,
+    requestModels: _json,
+    requestParameters: _json,
+    requestValidatorId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11716,10 +10888,9 @@ const de_UpdateMethodCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11739,15 +10910,12 @@ export const de_UpdateMethodResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.responseModels != null) {
-    contents.responseModels = de_MapOfStringToString(data.responseModels, context);
-  }
-  if (data.responseParameters != null) {
-    contents.responseParameters = de_MapOfStringToBoolean(data.responseParameters, context);
-  }
-  if (data.statusCode != null) {
-    contents.statusCode = __expectString(data.statusCode);
-  }
+  const doc = take(data, {
+    responseModels: _json,
+    responseParameters: _json,
+    statusCode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11784,10 +10952,9 @@ const de_UpdateMethodResponseCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11807,21 +10974,14 @@ export const de_UpdateModelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentType != null) {
-    contents.contentType = __expectString(data.contentType);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.schema != null) {
-    contents.schema = __expectString(data.schema);
-  }
+  const doc = take(data, {
+    contentType: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    schema: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11858,10 +11018,9 @@ const de_UpdateModelCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11881,18 +11040,13 @@ export const de_UpdateRequestValidatorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.validateRequestBody != null) {
-    contents.validateRequestBody = __expectBoolean(data.validateRequestBody);
-  }
-  if (data.validateRequestParameters != null) {
-    contents.validateRequestParameters = __expectBoolean(data.validateRequestParameters);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    validateRequestBody: __expectBoolean,
+    validateRequestParameters: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11929,10 +11083,9 @@ const de_UpdateRequestValidatorCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11952,21 +11105,14 @@ export const de_UpdateResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.parentId != null) {
-    contents.parentId = __expectString(data.parentId);
-  }
-  if (data.path != null) {
-    contents.path = __expectString(data.path);
-  }
-  if (data.pathPart != null) {
-    contents.pathPart = __expectString(data.pathPart);
-  }
-  if (data.resourceMethods != null) {
-    contents.resourceMethods = de_MapOfMethod(data.resourceMethods, context);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    parentId: __expectString,
+    path: __expectString,
+    pathPart: __expectString,
+    resourceMethods: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12000,10 +11146,9 @@ const de_UpdateResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12023,45 +11168,22 @@ export const de_UpdateRestApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeySource != null) {
-    contents.apiKeySource = __expectString(data.apiKeySource);
-  }
-  if (data.binaryMediaTypes != null) {
-    contents.binaryMediaTypes = de_ListOfString(data.binaryMediaTypes, context);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.disableExecuteApiEndpoint != null) {
-    contents.disableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
-  }
-  if (data.endpointConfiguration != null) {
-    contents.endpointConfiguration = de_EndpointConfiguration(data.endpointConfiguration, context);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.minimumCompressionSize != null) {
-    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.policy != null) {
-    contents.policy = __expectString(data.policy);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_ListOfString(data.warnings, context);
-  }
+  const doc = take(data, {
+    apiKeySource: __expectString,
+    binaryMediaTypes: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    disableExecuteApiEndpoint: __expectBoolean,
+    endpointConfiguration: _json,
+    id: __expectString,
+    minimumCompressionSize: __expectInt32,
+    name: __expectString,
+    policy: __expectString,
+    tags: _json,
+    version: __expectString,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12098,10 +11220,9 @@ const de_UpdateRestApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12121,57 +11242,26 @@ export const de_UpdateStageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessLogSettings != null) {
-    contents.accessLogSettings = de_AccessLogSettings(data.accessLogSettings, context);
-  }
-  if (data.cacheClusterEnabled != null) {
-    contents.cacheClusterEnabled = __expectBoolean(data.cacheClusterEnabled);
-  }
-  if (data.cacheClusterSize != null) {
-    contents.cacheClusterSize = __expectString(data.cacheClusterSize);
-  }
-  if (data.cacheClusterStatus != null) {
-    contents.cacheClusterStatus = __expectString(data.cacheClusterStatus);
-  }
-  if (data.canarySettings != null) {
-    contents.canarySettings = de_CanarySettings(data.canarySettings, context);
-  }
-  if (data.clientCertificateId != null) {
-    contents.clientCertificateId = __expectString(data.clientCertificateId);
-  }
-  if (data.createdDate != null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.deploymentId != null) {
-    contents.deploymentId = __expectString(data.deploymentId);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.documentationVersion != null) {
-    contents.documentationVersion = __expectString(data.documentationVersion);
-  }
-  if (data.lastUpdatedDate != null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.methodSettings != null) {
-    contents.methodSettings = de_MapOfMethodSettings(data.methodSettings, context);
-  }
-  if (data.stageName != null) {
-    contents.stageName = __expectString(data.stageName);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.tracingEnabled != null) {
-    contents.tracingEnabled = __expectBoolean(data.tracingEnabled);
-  }
-  if (data.variables != null) {
-    contents.variables = de_MapOfStringToString(data.variables, context);
-  }
-  if (data.webAclArn != null) {
-    contents.webAclArn = __expectString(data.webAclArn);
-  }
+  const doc = take(data, {
+    accessLogSettings: _json,
+    cacheClusterEnabled: __expectBoolean,
+    cacheClusterSize: __expectString,
+    cacheClusterStatus: __expectString,
+    canarySettings: (_) => de_CanarySettings(_, context),
+    clientCertificateId: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentId: __expectString,
+    description: __expectString,
+    documentationVersion: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    methodSettings: (_) => de_MapOfMethodSettings(_, context),
+    stageName: __expectString,
+    tags: _json,
+    tracingEnabled: __expectBoolean,
+    variables: _json,
+    webAclArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12208,10 +11298,9 @@ const de_UpdateStageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12231,21 +11320,14 @@ export const de_UpdateUsageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endDate != null) {
-    contents.endDate = __expectString(data.endDate);
-  }
-  if (data.values != null) {
-    contents.items = de_MapOfKeyUsages(data.values, context);
-  }
-  if (data.position != null) {
-    contents.position = __expectString(data.position);
-  }
-  if (data.startDate != null) {
-    contents.startDate = __expectString(data.startDate);
-  }
-  if (data.usagePlanId != null) {
-    contents.usagePlanId = __expectString(data.usagePlanId);
-  }
+  const doc = take(data, {
+    endDate: __expectString,
+    items: [, _json, `values`],
+    position: __expectString,
+    startDate: __expectString,
+    usagePlanId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12282,10 +11364,9 @@ const de_UpdateUsageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12305,30 +11386,17 @@ export const de_UpdateUsagePlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiStages != null) {
-    contents.apiStages = de_ListOfApiStage(data.apiStages, context);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.productCode != null) {
-    contents.productCode = __expectString(data.productCode);
-  }
-  if (data.quota != null) {
-    contents.quota = de_QuotaSettings(data.quota, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.throttle != null) {
-    contents.throttle = de_ThrottleSettings(data.throttle, context);
-  }
+  const doc = take(data, {
+    apiStages: (_) => de_ListOfApiStage(_, context),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    productCode: __expectString,
+    quota: _json,
+    tags: _json,
+    throttle: (_) => de_ThrottleSettings(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12365,10 +11433,9 @@ const de_UpdateUsagePlanCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12388,27 +11455,16 @@ export const de_UpdateVpcLinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.tags != null) {
-    contents.tags = de_MapOfStringToString(data.tags, context);
-  }
-  if (data.targetArns != null) {
-    contents.targetArns = de_ListOfString(data.targetArns, context);
-  }
+  const doc = take(data, {
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    tags: _json,
+    targetArns: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12445,25 +11501,25 @@ const de_UpdateVpcLinkCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -12477,9 +11533,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -12498,9 +11555,10 @@ const de_LimitExceededExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -12514,9 +11572,10 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -12535,9 +11594,10 @@ const de_ServiceUnavailableExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -12556,9 +11616,10 @@ const de_TooManyRequestsExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -12575,9 +11636,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -12589,62 +11651,39 @@ const de_UnauthorizedExceptionRes = async (
  * serializeAws_restJson1ApiStage
  */
 const se_ApiStage = (input: ApiStage, context: __SerdeContext): any => {
-  return {
-    ...(input.apiId != null && { apiId: input.apiId }),
-    ...(input.stage != null && { stage: input.stage }),
-    ...(input.throttle != null && { throttle: se_MapOfApiStageThrottleSettings(input.throttle, context) }),
-  };
+  return take(input, {
+    apiId: [],
+    stage: [],
+    throttle: (_) => se_MapOfApiStageThrottleSettings(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1CanarySettings
  */
 const se_CanarySettings = (input: CanarySettings, context: __SerdeContext): any => {
-  return {
-    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
-    ...(input.percentTraffic != null && { percentTraffic: __serializeFloat(input.percentTraffic) }),
-    ...(input.stageVariableOverrides != null && {
-      stageVariableOverrides: se_MapOfStringToString(input.stageVariableOverrides, context),
-    }),
-    ...(input.useStageCache != null && { useStageCache: input.useStageCache }),
-  };
+  return take(input, {
+    deploymentId: [],
+    percentTraffic: (_) => __serializeFloat(_),
+    stageVariableOverrides: (_) => _json(_),
+    useStageCache: [],
+  });
 };
 
 /**
  * serializeAws_restJson1DeploymentCanarySettings
  */
 const se_DeploymentCanarySettings = (input: DeploymentCanarySettings, context: __SerdeContext): any => {
-  return {
-    ...(input.percentTraffic != null && { percentTraffic: __serializeFloat(input.percentTraffic) }),
-    ...(input.stageVariableOverrides != null && {
-      stageVariableOverrides: se_MapOfStringToString(input.stageVariableOverrides, context),
-    }),
-    ...(input.useStageCache != null && { useStageCache: input.useStageCache }),
-  };
+  return take(input, {
+    percentTraffic: (_) => __serializeFloat(_),
+    stageVariableOverrides: (_) => _json(_),
+    useStageCache: [],
+  });
 };
 
-/**
- * serializeAws_restJson1DocumentationPartLocation
- */
-const se_DocumentationPartLocation = (input: DocumentationPartLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.method != null && { method: input.method }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.path != null && { path: input.path }),
-    ...(input.statusCode != null && { statusCode: input.statusCode }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_DocumentationPartLocation omitted.
 
-/**
- * serializeAws_restJson1EndpointConfiguration
- */
-const se_EndpointConfiguration = (input: EndpointConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.types != null && { types: se_ListOfEndpointType(input.types, context) }),
-    ...(input.vpcEndpointIds != null && { vpcEndpointIds: se_ListOfString(input.vpcEndpointIds, context) }),
-  };
-};
+// se_EndpointConfiguration omitted.
 
 /**
  * serializeAws_restJson1ListOfApiStage
@@ -12657,60 +11696,15 @@ const se_ListOfApiStage = (input: ApiStage[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1ListOfARNs
- */
-const se_ListOfARNs = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfARNs omitted.
 
-/**
- * serializeAws_restJson1ListOfEndpointType
- */
-const se_ListOfEndpointType = (input: (EndpointType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfEndpointType omitted.
 
-/**
- * serializeAws_restJson1ListOfPatchOperation
- */
-const se_ListOfPatchOperation = (input: PatchOperation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PatchOperation(entry, context);
-    });
-};
+// se_ListOfPatchOperation omitted.
 
-/**
- * serializeAws_restJson1ListOfStageKeys
- */
-const se_ListOfStageKeys = (input: StageKey[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StageKey(entry, context);
-    });
-};
+// se_ListOfStageKeys omitted.
 
-/**
- * serializeAws_restJson1ListOfString
- */
-const se_ListOfString = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfString omitted.
 
 /**
  * serializeAws_restJson1MapOfApiStageThrottleSettings
@@ -12725,371 +11719,152 @@ const se_MapOfApiStageThrottleSettings = (input: Record<string, ThrottleSettings
   }, {});
 };
 
-/**
- * serializeAws_restJson1MapOfStringToBoolean
- */
-const se_MapOfStringToBoolean = (input: Record<string, boolean>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_MapOfStringToBoolean omitted.
 
-/**
- * serializeAws_restJson1MapOfStringToList
- */
-const se_MapOfStringToList = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_ListOfString(value, context);
-    return acc;
-  }, {});
-};
+// se_MapOfStringToList omitted.
 
-/**
- * serializeAws_restJson1MapOfStringToString
- */
-const se_MapOfStringToString = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_MapOfStringToString omitted.
 
-/**
- * serializeAws_restJson1MutualTlsAuthenticationInput
- */
-const se_MutualTlsAuthenticationInput = (input: MutualTlsAuthenticationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.truststoreUri != null && { truststoreUri: input.truststoreUri }),
-    ...(input.truststoreVersion != null && { truststoreVersion: input.truststoreVersion }),
-  };
-};
+// se_MutualTlsAuthenticationInput omitted.
 
-/**
- * serializeAws_restJson1PatchOperation
- */
-const se_PatchOperation = (input: PatchOperation, context: __SerdeContext): any => {
-  return {
-    ...(input.from != null && { from: input.from }),
-    ...(input.op != null && { op: input.op }),
-    ...(input.path != null && { path: input.path }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_PatchOperation omitted.
 
-/**
- * serializeAws_restJson1QuotaSettings
- */
-const se_QuotaSettings = (input: QuotaSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.limit != null && { limit: input.limit }),
-    ...(input.offset != null && { offset: input.offset }),
-    ...(input.period != null && { period: input.period }),
-  };
-};
+// se_QuotaSettings omitted.
 
-/**
- * serializeAws_restJson1StageKey
- */
-const se_StageKey = (input: StageKey, context: __SerdeContext): any => {
-  return {
-    ...(input.restApiId != null && { restApiId: input.restApiId }),
-    ...(input.stageName != null && { stageName: input.stageName }),
-  };
-};
+// se_StageKey omitted.
 
 /**
  * serializeAws_restJson1ThrottleSettings
  */
 const se_ThrottleSettings = (input: ThrottleSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.burstLimit != null && { burstLimit: input.burstLimit }),
-    ...(input.rateLimit != null && { rateLimit: __serializeFloat(input.rateLimit) }),
-  };
+  return take(input, {
+    burstLimit: [],
+    rateLimit: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_restJson1TlsConfig
- */
-const se_TlsConfig = (input: TlsConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.insecureSkipVerification != null && { insecureSkipVerification: input.insecureSkipVerification }),
-  };
-};
+// se_TlsConfig omitted.
 
-/**
- * deserializeAws_restJson1AccessLogSettings
- */
-const de_AccessLogSettings = (output: any, context: __SerdeContext): AccessLogSettings => {
-  return {
-    destinationArn: __expectString(output.destinationArn),
-    format: __expectString(output.format),
-  } as any;
-};
+// de_AccessLogSettings omitted.
 
 /**
  * deserializeAws_restJson1ApiKey
  */
 const de_ApiKey = (output: any, context: __SerdeContext): ApiKey => {
-  return {
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    customerId: __expectString(output.customerId),
-    description: __expectString(output.description),
-    enabled: __expectBoolean(output.enabled),
-    id: __expectString(output.id),
-    lastUpdatedDate:
-      output.lastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-    stageKeys: output.stageKeys != null ? de_ListOfString(output.stageKeys, context) : undefined,
-    tags: output.tags != null ? de_MapOfStringToString(output.tags, context) : undefined,
-    value: __expectString(output.value),
-  } as any;
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerId: __expectString,
+    description: __expectString,
+    enabled: __expectBoolean,
+    id: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    stageKeys: _json,
+    tags: _json,
+    value: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ApiStage
  */
 const de_ApiStage = (output: any, context: __SerdeContext): ApiStage => {
-  return {
-    apiId: __expectString(output.apiId),
-    stage: __expectString(output.stage),
-    throttle: output.throttle != null ? de_MapOfApiStageThrottleSettings(output.throttle, context) : undefined,
-  } as any;
+  return take(output, {
+    apiId: __expectString,
+    stage: __expectString,
+    throttle: (_: any) => de_MapOfApiStageThrottleSettings(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Authorizer
- */
-const de_Authorizer = (output: any, context: __SerdeContext): Authorizer => {
-  return {
-    authType: __expectString(output.authType),
-    authorizerCredentials: __expectString(output.authorizerCredentials),
-    authorizerResultTtlInSeconds: __expectInt32(output.authorizerResultTtlInSeconds),
-    authorizerUri: __expectString(output.authorizerUri),
-    id: __expectString(output.id),
-    identitySource: __expectString(output.identitySource),
-    identityValidationExpression: __expectString(output.identityValidationExpression),
-    name: __expectString(output.name),
-    providerARNs: output.providerARNs != null ? de_ListOfARNs(output.providerARNs, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_Authorizer omitted.
 
-/**
- * deserializeAws_restJson1BasePathMapping
- */
-const de_BasePathMapping = (output: any, context: __SerdeContext): BasePathMapping => {
-  return {
-    basePath: __expectString(output.basePath),
-    restApiId: __expectString(output.restApiId),
-    stage: __expectString(output.stage),
-  } as any;
-};
+// de_BasePathMapping omitted.
 
 /**
  * deserializeAws_restJson1CanarySettings
  */
 const de_CanarySettings = (output: any, context: __SerdeContext): CanarySettings => {
-  return {
-    deploymentId: __expectString(output.deploymentId),
-    percentTraffic: __limitedParseDouble(output.percentTraffic),
-    stageVariableOverrides:
-      output.stageVariableOverrides != null
-        ? de_MapOfStringToString(output.stageVariableOverrides, context)
-        : undefined,
-    useStageCache: __expectBoolean(output.useStageCache),
-  } as any;
+  return take(output, {
+    deploymentId: __expectString,
+    percentTraffic: __limitedParseDouble,
+    stageVariableOverrides: _json,
+    useStageCache: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ClientCertificate
  */
 const de_ClientCertificate = (output: any, context: __SerdeContext): ClientCertificate => {
-  return {
-    clientCertificateId: __expectString(output.clientCertificateId),
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    expirationDate:
-      output.expirationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expirationDate)))
-        : undefined,
-    pemEncodedCertificate: __expectString(output.pemEncodedCertificate),
-    tags: output.tags != null ? de_MapOfStringToString(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    clientCertificateId: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    expirationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pemEncodedCertificate: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Deployment
  */
 const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
-  return {
-    apiSummary: output.apiSummary != null ? de_PathToMapOfMethodSnapshot(output.apiSummary, context) : undefined,
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-  } as any;
+  return take(output, {
+    apiSummary: _json,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DocumentationPart
- */
-const de_DocumentationPart = (output: any, context: __SerdeContext): DocumentationPart => {
-  return {
-    id: __expectString(output.id),
-    location: output.location != null ? de_DocumentationPartLocation(output.location, context) : undefined,
-    properties: __expectString(output.properties),
-  } as any;
-};
+// de_DocumentationPart omitted.
 
-/**
- * deserializeAws_restJson1DocumentationPartLocation
- */
-const de_DocumentationPartLocation = (output: any, context: __SerdeContext): DocumentationPartLocation => {
-  return {
-    method: __expectString(output.method),
-    name: __expectString(output.name),
-    path: __expectString(output.path),
-    statusCode: __expectString(output.statusCode),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_DocumentationPartLocation omitted.
 
 /**
  * deserializeAws_restJson1DocumentationVersion
  */
 const de_DocumentationVersion = (output: any, context: __SerdeContext): DocumentationVersion => {
-  return {
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DomainName
  */
 const de_DomainName = (output: any, context: __SerdeContext): DomainName => {
-  return {
-    certificateArn: __expectString(output.certificateArn),
-    certificateName: __expectString(output.certificateName),
-    certificateUploadDate:
-      output.certificateUploadDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.certificateUploadDate)))
-        : undefined,
-    distributionDomainName: __expectString(output.distributionDomainName),
-    distributionHostedZoneId: __expectString(output.distributionHostedZoneId),
-    domainName: __expectString(output.domainName),
-    domainNameStatus: __expectString(output.domainNameStatus),
-    domainNameStatusMessage: __expectString(output.domainNameStatusMessage),
-    endpointConfiguration:
-      output.endpointConfiguration != null
-        ? de_EndpointConfiguration(output.endpointConfiguration, context)
-        : undefined,
-    mutualTlsAuthentication:
-      output.mutualTlsAuthentication != null
-        ? de_MutualTlsAuthentication(output.mutualTlsAuthentication, context)
-        : undefined,
-    ownershipVerificationCertificateArn: __expectString(output.ownershipVerificationCertificateArn),
-    regionalCertificateArn: __expectString(output.regionalCertificateArn),
-    regionalCertificateName: __expectString(output.regionalCertificateName),
-    regionalDomainName: __expectString(output.regionalDomainName),
-    regionalHostedZoneId: __expectString(output.regionalHostedZoneId),
-    securityPolicy: __expectString(output.securityPolicy),
-    tags: output.tags != null ? de_MapOfStringToString(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    certificateArn: __expectString,
+    certificateName: __expectString,
+    certificateUploadDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    distributionDomainName: __expectString,
+    distributionHostedZoneId: __expectString,
+    domainName: __expectString,
+    domainNameStatus: __expectString,
+    domainNameStatusMessage: __expectString,
+    endpointConfiguration: _json,
+    mutualTlsAuthentication: _json,
+    ownershipVerificationCertificateArn: __expectString,
+    regionalCertificateArn: __expectString,
+    regionalCertificateName: __expectString,
+    regionalDomainName: __expectString,
+    regionalHostedZoneId: __expectString,
+    securityPolicy: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EndpointConfiguration
- */
-const de_EndpointConfiguration = (output: any, context: __SerdeContext): EndpointConfiguration => {
-  return {
-    types: output.types != null ? de_ListOfEndpointType(output.types, context) : undefined,
-    vpcEndpointIds: output.vpcEndpointIds != null ? de_ListOfString(output.vpcEndpointIds, context) : undefined,
-  } as any;
-};
+// de_EndpointConfiguration omitted.
 
-/**
- * deserializeAws_restJson1GatewayResponse
- */
-const de_GatewayResponse = (output: any, context: __SerdeContext): GatewayResponse => {
-  return {
-    defaultResponse: __expectBoolean(output.defaultResponse),
-    responseParameters:
-      output.responseParameters != null ? de_MapOfStringToString(output.responseParameters, context) : undefined,
-    responseTemplates:
-      output.responseTemplates != null ? de_MapOfStringToString(output.responseTemplates, context) : undefined,
-    responseType: __expectString(output.responseType),
-    statusCode: __expectString(output.statusCode),
-  } as any;
-};
+// de_GatewayResponse omitted.
 
-/**
- * deserializeAws_restJson1Integration
- */
-const de_Integration = (output: any, context: __SerdeContext): Integration => {
-  return {
-    cacheKeyParameters:
-      output.cacheKeyParameters != null ? de_ListOfString(output.cacheKeyParameters, context) : undefined,
-    cacheNamespace: __expectString(output.cacheNamespace),
-    connectionId: __expectString(output.connectionId),
-    connectionType: __expectString(output.connectionType),
-    contentHandling: __expectString(output.contentHandling),
-    credentials: __expectString(output.credentials),
-    httpMethod: __expectString(output.httpMethod),
-    integrationResponses:
-      output.integrationResponses != null
-        ? de_MapOfIntegrationResponse(output.integrationResponses, context)
-        : undefined,
-    passthroughBehavior: __expectString(output.passthroughBehavior),
-    requestParameters:
-      output.requestParameters != null ? de_MapOfStringToString(output.requestParameters, context) : undefined,
-    requestTemplates:
-      output.requestTemplates != null ? de_MapOfStringToString(output.requestTemplates, context) : undefined,
-    timeoutInMillis: __expectInt32(output.timeoutInMillis),
-    tlsConfig: output.tlsConfig != null ? de_TlsConfig(output.tlsConfig, context) : undefined,
-    type: __expectString(output.type),
-    uri: __expectString(output.uri),
-  } as any;
-};
+// de_Integration omitted.
 
-/**
- * deserializeAws_restJson1IntegrationResponse
- */
-const de_IntegrationResponse = (output: any, context: __SerdeContext): IntegrationResponse => {
-  return {
-    contentHandling: __expectString(output.contentHandling),
-    responseParameters:
-      output.responseParameters != null ? de_MapOfStringToString(output.responseParameters, context) : undefined,
-    responseTemplates:
-      output.responseTemplates != null ? de_MapOfStringToString(output.responseTemplates, context) : undefined,
-    selectionPattern: __expectString(output.selectionPattern),
-    statusCode: __expectString(output.statusCode),
-  } as any;
-};
+// de_IntegrationResponse omitted.
 
 /**
  * deserializeAws_restJson1ListOfApiKey
@@ -13098,9 +11873,6 @@ const de_ListOfApiKey = (output: any, context: __SerdeContext): ApiKey[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApiKey(entry, context);
     });
   return retVal;
@@ -13113,58 +11885,16 @@ const de_ListOfApiStage = (output: any, context: __SerdeContext): ApiStage[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApiStage(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfARNs
- */
-const de_ListOfARNs = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfARNs omitted.
 
-/**
- * deserializeAws_restJson1ListOfAuthorizer
- */
-const de_ListOfAuthorizer = (output: any, context: __SerdeContext): Authorizer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Authorizer(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfAuthorizer omitted.
 
-/**
- * deserializeAws_restJson1ListOfBasePathMapping
- */
-const de_ListOfBasePathMapping = (output: any, context: __SerdeContext): BasePathMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BasePathMapping(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfBasePathMapping omitted.
 
 /**
  * deserializeAws_restJson1ListOfClientCertificate
@@ -13173,9 +11903,6 @@ const de_ListOfClientCertificate = (output: any, context: __SerdeContext): Clien
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ClientCertificate(entry, context);
     });
   return retVal;
@@ -13188,28 +11915,12 @@ const de_ListOfDeployment = (output: any, context: __SerdeContext): Deployment[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Deployment(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfDocumentationPart
- */
-const de_ListOfDocumentationPart = (output: any, context: __SerdeContext): DocumentationPart[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DocumentationPart(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfDocumentationPart omitted.
 
 /**
  * deserializeAws_restJson1ListOfDocumentationVersion
@@ -13218,9 +11929,6 @@ const de_ListOfDocumentationVersion = (output: any, context: __SerdeContext): Do
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DocumentationVersion(entry, context);
     });
   return retVal;
@@ -13233,103 +11941,22 @@ const de_ListOfDomainName = (output: any, context: __SerdeContext): DomainName[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainName(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfEndpointType
- */
-const de_ListOfEndpointType = (output: any, context: __SerdeContext): (EndpointType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfEndpointType omitted.
 
-/**
- * deserializeAws_restJson1ListOfGatewayResponse
- */
-const de_ListOfGatewayResponse = (output: any, context: __SerdeContext): GatewayResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GatewayResponse(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfGatewayResponse omitted.
 
-/**
- * deserializeAws_restJson1ListOfLong
- */
-const de_ListOfLong = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectLong(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfLong omitted.
 
-/**
- * deserializeAws_restJson1ListOfModel
- */
-const de_ListOfModel = (output: any, context: __SerdeContext): Model[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Model(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfModel omitted.
 
-/**
- * deserializeAws_restJson1ListOfRequestValidator
- */
-const de_ListOfRequestValidator = (output: any, context: __SerdeContext): RequestValidator[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RequestValidator(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfRequestValidator omitted.
 
-/**
- * deserializeAws_restJson1ListOfResource
- */
-const de_ListOfResource = (output: any, context: __SerdeContext): Resource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Resource(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfResource omitted.
 
 /**
  * deserializeAws_restJson1ListOfRestApi
@@ -13338,43 +11965,14 @@ const de_ListOfRestApi = (output: any, context: __SerdeContext): RestApi[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RestApi(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfSdkConfigurationProperty
- */
-const de_ListOfSdkConfigurationProperty = (output: any, context: __SerdeContext): SdkConfigurationProperty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SdkConfigurationProperty(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfSdkConfigurationProperty omitted.
 
-/**
- * deserializeAws_restJson1ListOfSdkType
- */
-const de_ListOfSdkType = (output: any, context: __SerdeContext): SdkType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SdkType(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfSdkType omitted.
 
 /**
  * deserializeAws_restJson1ListOfStage
@@ -13383,43 +11981,14 @@ const de_ListOfStage = (output: any, context: __SerdeContext): Stage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Stage(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfString
- */
-const de_ListOfString = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfString omitted.
 
-/**
- * deserializeAws_restJson1ListOfUsage
- */
-const de_ListOfUsage = (output: any, context: __SerdeContext): number[][] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListOfLong(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfUsage omitted.
 
 /**
  * deserializeAws_restJson1ListOfUsagePlan
@@ -13428,43 +11997,14 @@ const de_ListOfUsagePlan = (output: any, context: __SerdeContext): UsagePlan[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UsagePlan(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfUsagePlanKey
- */
-const de_ListOfUsagePlanKey = (output: any, context: __SerdeContext): UsagePlanKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UsagePlanKey(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfUsagePlanKey omitted.
 
-/**
- * deserializeAws_restJson1ListOfVpcLink
- */
-const de_ListOfVpcLink = (output: any, context: __SerdeContext): VpcLink[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VpcLink(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfVpcLink omitted.
 
 /**
  * deserializeAws_restJson1MapOfApiStageThrottleSettings
@@ -13479,57 +12019,13 @@ const de_MapOfApiStageThrottleSettings = (output: any, context: __SerdeContext):
   }, {});
 };
 
-/**
- * deserializeAws_restJson1MapOfIntegrationResponse
- */
-const de_MapOfIntegrationResponse = (output: any, context: __SerdeContext): Record<string, IntegrationResponse> => {
-  return Object.entries(output).reduce((acc: Record<string, IntegrationResponse>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_IntegrationResponse(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfIntegrationResponse omitted.
 
-/**
- * deserializeAws_restJson1MapOfKeyUsages
- */
-const de_MapOfKeyUsages = (output: any, context: __SerdeContext): Record<string, number[][]> => {
-  return Object.entries(output).reduce((acc: Record<string, number[][]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_ListOfUsage(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfKeyUsages omitted.
 
-/**
- * deserializeAws_restJson1MapOfMethod
- */
-const de_MapOfMethod = (output: any, context: __SerdeContext): Record<string, Method> => {
-  return Object.entries(output).reduce((acc: Record<string, Method>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_Method(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfMethod omitted.
 
-/**
- * deserializeAws_restJson1MapOfMethodResponse
- */
-const de_MapOfMethodResponse = (output: any, context: __SerdeContext): Record<string, MethodResponse> => {
-  return Object.entries(output).reduce((acc: Record<string, MethodResponse>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_MethodResponse(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfMethodResponse omitted.
 
 /**
  * deserializeAws_restJson1MapOfMethodSettings
@@ -13544,348 +12040,131 @@ const de_MapOfMethodSettings = (output: any, context: __SerdeContext): Record<st
   }, {});
 };
 
-/**
- * deserializeAws_restJson1MapOfMethodSnapshot
- */
-const de_MapOfMethodSnapshot = (output: any, context: __SerdeContext): Record<string, MethodSnapshot> => {
-  return Object.entries(output).reduce((acc: Record<string, MethodSnapshot>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_MethodSnapshot(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfMethodSnapshot omitted.
 
-/**
- * deserializeAws_restJson1MapOfStringToBoolean
- */
-const de_MapOfStringToBoolean = (output: any, context: __SerdeContext): Record<string, boolean> => {
-  return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectBoolean(value) as any;
-    return acc;
-  }, {});
-};
+// de_MapOfStringToBoolean omitted.
 
-/**
- * deserializeAws_restJson1MapOfStringToList
- */
-const de_MapOfStringToList = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_ListOfString(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfStringToList omitted.
 
-/**
- * deserializeAws_restJson1MapOfStringToString
- */
-const de_MapOfStringToString = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_MapOfStringToString omitted.
 
-/**
- * deserializeAws_restJson1Method
- */
-const de_Method = (output: any, context: __SerdeContext): Method => {
-  return {
-    apiKeyRequired: __expectBoolean(output.apiKeyRequired),
-    authorizationScopes:
-      output.authorizationScopes != null ? de_ListOfString(output.authorizationScopes, context) : undefined,
-    authorizationType: __expectString(output.authorizationType),
-    authorizerId: __expectString(output.authorizerId),
-    httpMethod: __expectString(output.httpMethod),
-    methodIntegration: output.methodIntegration != null ? de_Integration(output.methodIntegration, context) : undefined,
-    methodResponses:
-      output.methodResponses != null ? de_MapOfMethodResponse(output.methodResponses, context) : undefined,
-    operationName: __expectString(output.operationName),
-    requestModels: output.requestModels != null ? de_MapOfStringToString(output.requestModels, context) : undefined,
-    requestParameters:
-      output.requestParameters != null ? de_MapOfStringToBoolean(output.requestParameters, context) : undefined,
-    requestValidatorId: __expectString(output.requestValidatorId),
-  } as any;
-};
+// de_Method omitted.
 
-/**
- * deserializeAws_restJson1MethodResponse
- */
-const de_MethodResponse = (output: any, context: __SerdeContext): MethodResponse => {
-  return {
-    responseModels: output.responseModels != null ? de_MapOfStringToString(output.responseModels, context) : undefined,
-    responseParameters:
-      output.responseParameters != null ? de_MapOfStringToBoolean(output.responseParameters, context) : undefined,
-    statusCode: __expectString(output.statusCode),
-  } as any;
-};
+// de_MethodResponse omitted.
 
 /**
  * deserializeAws_restJson1MethodSetting
  */
 const de_MethodSetting = (output: any, context: __SerdeContext): MethodSetting => {
-  return {
-    cacheDataEncrypted: __expectBoolean(output.cacheDataEncrypted),
-    cacheTtlInSeconds: __expectInt32(output.cacheTtlInSeconds),
-    cachingEnabled: __expectBoolean(output.cachingEnabled),
-    dataTraceEnabled: __expectBoolean(output.dataTraceEnabled),
-    loggingLevel: __expectString(output.loggingLevel),
-    metricsEnabled: __expectBoolean(output.metricsEnabled),
-    requireAuthorizationForCacheControl: __expectBoolean(output.requireAuthorizationForCacheControl),
-    throttlingBurstLimit: __expectInt32(output.throttlingBurstLimit),
-    throttlingRateLimit: __limitedParseDouble(output.throttlingRateLimit),
-    unauthorizedCacheControlHeaderStrategy: __expectString(output.unauthorizedCacheControlHeaderStrategy),
-  } as any;
+  return take(output, {
+    cacheDataEncrypted: __expectBoolean,
+    cacheTtlInSeconds: __expectInt32,
+    cachingEnabled: __expectBoolean,
+    dataTraceEnabled: __expectBoolean,
+    loggingLevel: __expectString,
+    metricsEnabled: __expectBoolean,
+    requireAuthorizationForCacheControl: __expectBoolean,
+    throttlingBurstLimit: __expectInt32,
+    throttlingRateLimit: __limitedParseDouble,
+    unauthorizedCacheControlHeaderStrategy: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1MethodSnapshot
- */
-const de_MethodSnapshot = (output: any, context: __SerdeContext): MethodSnapshot => {
-  return {
-    apiKeyRequired: __expectBoolean(output.apiKeyRequired),
-    authorizationType: __expectString(output.authorizationType),
-  } as any;
-};
+// de_MethodSnapshot omitted.
 
-/**
- * deserializeAws_restJson1Model
- */
-const de_Model = (output: any, context: __SerdeContext): Model => {
-  return {
-    contentType: __expectString(output.contentType),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    schema: __expectString(output.schema),
-  } as any;
-};
+// de_Model omitted.
 
-/**
- * deserializeAws_restJson1MutualTlsAuthentication
- */
-const de_MutualTlsAuthentication = (output: any, context: __SerdeContext): MutualTlsAuthentication => {
-  return {
-    truststoreUri: __expectString(output.truststoreUri),
-    truststoreVersion: __expectString(output.truststoreVersion),
-    truststoreWarnings:
-      output.truststoreWarnings != null ? de_ListOfString(output.truststoreWarnings, context) : undefined,
-  } as any;
-};
+// de_MutualTlsAuthentication omitted.
 
-/**
- * deserializeAws_restJson1PathToMapOfMethodSnapshot
- */
-const de_PathToMapOfMethodSnapshot = (
-  output: any,
-  context: __SerdeContext
-): Record<string, Record<string, MethodSnapshot>> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, MethodSnapshot>>, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_MapOfMethodSnapshot(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_PathToMapOfMethodSnapshot omitted.
 
-/**
- * deserializeAws_restJson1QuotaSettings
- */
-const de_QuotaSettings = (output: any, context: __SerdeContext): QuotaSettings => {
-  return {
-    limit: __expectInt32(output.limit),
-    offset: __expectInt32(output.offset),
-    period: __expectString(output.period),
-  } as any;
-};
+// de_QuotaSettings omitted.
 
-/**
- * deserializeAws_restJson1RequestValidator
- */
-const de_RequestValidator = (output: any, context: __SerdeContext): RequestValidator => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    validateRequestBody: __expectBoolean(output.validateRequestBody),
-    validateRequestParameters: __expectBoolean(output.validateRequestParameters),
-  } as any;
-};
+// de_RequestValidator omitted.
 
-/**
- * deserializeAws_restJson1Resource
- */
-const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    id: __expectString(output.id),
-    parentId: __expectString(output.parentId),
-    path: __expectString(output.path),
-    pathPart: __expectString(output.pathPart),
-    resourceMethods: output.resourceMethods != null ? de_MapOfMethod(output.resourceMethods, context) : undefined,
-  } as any;
-};
+// de_Resource omitted.
 
 /**
  * deserializeAws_restJson1RestApi
  */
 const de_RestApi = (output: any, context: __SerdeContext): RestApi => {
-  return {
-    apiKeySource: __expectString(output.apiKeySource),
-    binaryMediaTypes: output.binaryMediaTypes != null ? de_ListOfString(output.binaryMediaTypes, context) : undefined,
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    disableExecuteApiEndpoint: __expectBoolean(output.disableExecuteApiEndpoint),
-    endpointConfiguration:
-      output.endpointConfiguration != null
-        ? de_EndpointConfiguration(output.endpointConfiguration, context)
-        : undefined,
-    id: __expectString(output.id),
-    minimumCompressionSize: __expectInt32(output.minimumCompressionSize),
-    name: __expectString(output.name),
-    policy: __expectString(output.policy),
-    tags: output.tags != null ? de_MapOfStringToString(output.tags, context) : undefined,
-    version: __expectString(output.version),
-    warnings: output.warnings != null ? de_ListOfString(output.warnings, context) : undefined,
-  } as any;
+  return take(output, {
+    apiKeySource: __expectString,
+    binaryMediaTypes: _json,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    disableExecuteApiEndpoint: __expectBoolean,
+    endpointConfiguration: _json,
+    id: __expectString,
+    minimumCompressionSize: __expectInt32,
+    name: __expectString,
+    policy: __expectString,
+    tags: _json,
+    version: __expectString,
+    warnings: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SdkConfigurationProperty
- */
-const de_SdkConfigurationProperty = (output: any, context: __SerdeContext): SdkConfigurationProperty => {
-  return {
-    defaultValue: __expectString(output.defaultValue),
-    description: __expectString(output.description),
-    friendlyName: __expectString(output.friendlyName),
-    name: __expectString(output.name),
-    required: __expectBoolean(output.required),
-  } as any;
-};
+// de_SdkConfigurationProperty omitted.
 
-/**
- * deserializeAws_restJson1SdkType
- */
-const de_SdkType = (output: any, context: __SerdeContext): SdkType => {
-  return {
-    configurationProperties:
-      output.configurationProperties != null
-        ? de_ListOfSdkConfigurationProperty(output.configurationProperties, context)
-        : undefined,
-    description: __expectString(output.description),
-    friendlyName: __expectString(output.friendlyName),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_SdkType omitted.
 
 /**
  * deserializeAws_restJson1Stage
  */
 const de_Stage = (output: any, context: __SerdeContext): Stage => {
-  return {
-    accessLogSettings:
-      output.accessLogSettings != null ? de_AccessLogSettings(output.accessLogSettings, context) : undefined,
-    cacheClusterEnabled: __expectBoolean(output.cacheClusterEnabled),
-    cacheClusterSize: __expectString(output.cacheClusterSize),
-    cacheClusterStatus: __expectString(output.cacheClusterStatus),
-    canarySettings: output.canarySettings != null ? de_CanarySettings(output.canarySettings, context) : undefined,
-    clientCertificateId: __expectString(output.clientCertificateId),
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    deploymentId: __expectString(output.deploymentId),
-    description: __expectString(output.description),
-    documentationVersion: __expectString(output.documentationVersion),
-    lastUpdatedDate:
-      output.lastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    methodSettings: output.methodSettings != null ? de_MapOfMethodSettings(output.methodSettings, context) : undefined,
-    stageName: __expectString(output.stageName),
-    tags: output.tags != null ? de_MapOfStringToString(output.tags, context) : undefined,
-    tracingEnabled: __expectBoolean(output.tracingEnabled),
-    variables: output.variables != null ? de_MapOfStringToString(output.variables, context) : undefined,
-    webAclArn: __expectString(output.webAclArn),
-  } as any;
+  return take(output, {
+    accessLogSettings: _json,
+    cacheClusterEnabled: __expectBoolean,
+    cacheClusterSize: __expectString,
+    cacheClusterStatus: __expectString,
+    canarySettings: (_: any) => de_CanarySettings(_, context),
+    clientCertificateId: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentId: __expectString,
+    description: __expectString,
+    documentationVersion: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    methodSettings: (_: any) => de_MapOfMethodSettings(_, context),
+    stageName: __expectString,
+    tags: _json,
+    tracingEnabled: __expectBoolean,
+    variables: _json,
+    webAclArn: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ThrottleSettings
  */
 const de_ThrottleSettings = (output: any, context: __SerdeContext): ThrottleSettings => {
-  return {
-    burstLimit: __expectInt32(output.burstLimit),
-    rateLimit: __limitedParseDouble(output.rateLimit),
-  } as any;
+  return take(output, {
+    burstLimit: __expectInt32,
+    rateLimit: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TlsConfig
- */
-const de_TlsConfig = (output: any, context: __SerdeContext): TlsConfig => {
-  return {
-    insecureSkipVerification: __expectBoolean(output.insecureSkipVerification),
-  } as any;
-};
+// de_TlsConfig omitted.
 
 /**
  * deserializeAws_restJson1UsagePlan
  */
 const de_UsagePlan = (output: any, context: __SerdeContext): UsagePlan => {
-  return {
-    apiStages: output.apiStages != null ? de_ListOfApiStage(output.apiStages, context) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    productCode: __expectString(output.productCode),
-    quota: output.quota != null ? de_QuotaSettings(output.quota, context) : undefined,
-    tags: output.tags != null ? de_MapOfStringToString(output.tags, context) : undefined,
-    throttle: output.throttle != null ? de_ThrottleSettings(output.throttle, context) : undefined,
-  } as any;
+  return take(output, {
+    apiStages: (_: any) => de_ListOfApiStage(_, context),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    productCode: __expectString,
+    quota: _json,
+    tags: _json,
+    throttle: (_: any) => de_ThrottleSettings(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1UsagePlanKey
- */
-const de_UsagePlanKey = (output: any, context: __SerdeContext): UsagePlanKey => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_UsagePlanKey omitted.
 
-/**
- * deserializeAws_restJson1VpcLink
- */
-const de_VpcLink = (output: any, context: __SerdeContext): VpcLink => {
-  return {
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    tags: output.tags != null ? de_MapOfStringToString(output.tags, context) : undefined,
-    targetArns: output.targetArns != null ? de_ListOfString(output.targetArns, context) : undefined,
-  } as any;
-};
+// de_VpcLink omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

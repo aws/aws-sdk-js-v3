@@ -8,14 +8,14 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
-  map as __map,
+  map,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2808,10 +2808,9 @@ const de_ActivateKeySigningKeyCommandError = async (
       throw await de_NoSuchKeySigningKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2876,10 +2875,9 @@ const de_AssociateVPCWithHostedZoneCommandError = async (
       throw await de_PublicZoneVPCAssociationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2938,10 +2936,9 @@ const de_ChangeCidrCollectionCommandError = async (
       throw await de_NoSuchCidrCollectionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2997,10 +2994,9 @@ const de_ChangeResourceRecordSetsCommandError = async (
       throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3053,10 +3049,9 @@ const de_ChangeTagsForResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3110,10 +3105,9 @@ const de_CreateCidrCollectionCommandError = async (
       throw await de_LimitsExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3164,10 +3158,9 @@ const de_CreateHealthCheckCommandError = async (
       throw await de_TooManyHealthChecksRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3245,10 +3238,9 @@ const de_CreateHostedZoneCommandError = async (
       throw await de_TooManyHostedZonesRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3323,10 +3315,9 @@ const de_CreateKeySigningKeyCommandError = async (
       throw await de_TooManyKeySigningKeysRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3386,10 +3377,9 @@ const de_CreateQueryLoggingConfigCommandError = async (
       throw await de_QueryLoggingConfigAlreadyExistsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3452,10 +3442,9 @@ const de_CreateReusableDelegationSetCommandError = async (
       throw await de_LimitsExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3509,10 +3498,9 @@ const de_CreateTrafficPolicyCommandError = async (
       throw await de_TrafficPolicyAlreadyExistsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3569,10 +3557,9 @@ const de_CreateTrafficPolicyInstanceCommandError = async (
       throw await de_TrafficPolicyInstanceAlreadyExistsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3629,10 +3616,9 @@ const de_CreateTrafficPolicyVersionCommandError = async (
       throw await de_TooManyTrafficPolicyVersionsForCurrentPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3691,10 +3677,9 @@ const de_CreateVPCAssociationAuthorizationCommandError = async (
       throw await de_TooManyVPCAssociationAuthorizationsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3756,10 +3741,9 @@ const de_DeactivateKeySigningKeyCommandError = async (
       throw await de_NoSuchKeySigningKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3809,10 +3793,9 @@ const de_DeleteCidrCollectionCommandError = async (
       throw await de_NoSuchCidrCollectionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3859,10 +3842,9 @@ const de_DeleteHealthCheckCommandError = async (
       throw await de_NoSuchHealthCheckRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3918,10 +3900,9 @@ const de_DeleteHostedZoneCommandError = async (
       throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3980,10 +3961,9 @@ const de_DeleteKeySigningKeyCommandError = async (
       throw await de_NoSuchKeySigningKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4030,10 +4010,9 @@ const de_DeleteQueryLoggingConfigCommandError = async (
       throw await de_NoSuchQueryLoggingConfigRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4083,10 +4062,9 @@ const de_DeleteReusableDelegationSetCommandError = async (
       throw await de_NoSuchDelegationSetRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4136,10 +4114,9 @@ const de_DeleteTrafficPolicyCommandError = async (
       throw await de_TrafficPolicyInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4186,10 +4163,9 @@ const de_DeleteTrafficPolicyInstanceCommandError = async (
       throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4242,10 +4218,9 @@ const de_DeleteVPCAssociationAuthorizationCommandError = async (
       throw await de_VPCAssociationAuthorizationNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4310,10 +4285,9 @@ const de_DisableHostedZoneDNSSECCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4369,10 +4343,9 @@ const de_DisassociateVPCFromHostedZoneCommandError = async (
       throw await de_VPCAssociationNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4440,10 +4413,9 @@ const de_EnableHostedZoneDNSSECCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4490,10 +4462,9 @@ const de_GetAccountLimitCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4540,10 +4511,9 @@ const de_GetChangeCommandError = async (
       throw await de_NoSuchChangeRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4584,10 +4554,9 @@ const de_GetCheckerIpRangesCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4641,10 +4610,9 @@ const de_GetDNSSECCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4691,10 +4659,9 @@ const de_GetGeoLocationCommandError = async (
       throw await de_NoSuchGeoLocationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4744,10 +4711,9 @@ const de_GetHealthCheckCommandError = async (
       throw await de_NoSuchHealthCheckRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4786,10 +4752,9 @@ const de_GetHealthCheckCountCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4843,10 +4808,9 @@ const de_GetHealthCheckLastFailureReasonCommandError = async (
       throw await de_NoSuchHealthCheckRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4901,10 +4865,9 @@ const de_GetHealthCheckStatusCommandError = async (
       throw await de_NoSuchHealthCheckRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4959,10 +4922,9 @@ const de_GetHostedZoneCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5006,10 +4968,9 @@ const de_GetHostedZoneCountCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5062,10 +5023,9 @@ const de_GetHostedZoneLimitCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5112,10 +5072,9 @@ const de_GetQueryLoggingConfigCommandError = async (
       throw await de_NoSuchQueryLoggingConfigRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5165,10 +5124,9 @@ const de_GetReusableDelegationSetCommandError = async (
       throw await de_NoSuchDelegationSetRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5218,10 +5176,9 @@ const de_GetReusableDelegationSetLimitCommandError = async (
       throw await de_NoSuchDelegationSetRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5268,10 +5225,9 @@ const de_GetTrafficPolicyCommandError = async (
       throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5318,10 +5274,9 @@ const de_GetTrafficPolicyInstanceCommandError = async (
       throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5360,10 +5315,9 @@ const de_GetTrafficPolicyInstanceCountCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5417,10 +5371,9 @@ const de_ListCidrBlocksCommandError = async (
       throw await de_NoSuchCidrLocationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5472,10 +5425,9 @@ const de_ListCidrCollectionsCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5527,10 +5479,9 @@ const de_ListCidrLocationsCommandError = async (
       throw await de_NoSuchCidrCollectionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5597,10 +5548,9 @@ const de_ListGeoLocationsCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5661,10 +5611,9 @@ const de_ListHealthChecksCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5728,10 +5677,9 @@ const de_ListHostedZonesCommandError = async (
       throw await de_NoSuchDelegationSetRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5798,10 +5746,9 @@ const de_ListHostedZonesByNameCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5862,10 +5809,9 @@ const de_ListHostedZonesByVPCCommandError = async (
       throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5926,10 +5872,9 @@ const de_ListQueryLoggingConfigsCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5999,10 +5944,9 @@ const de_ListResourceRecordSetsCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6063,10 +6007,9 @@ const de_ListReusableDelegationSetsCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6122,10 +6065,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6186,10 +6128,9 @@ const de_ListTagsForResourcesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6250,10 +6191,9 @@ const de_ListTrafficPoliciesCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6323,10 +6263,9 @@ const de_ListTrafficPolicyInstancesCommandError = async (
       throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6396,10 +6335,9 @@ const de_ListTrafficPolicyInstancesByHostedZoneCommandError = async (
       throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6472,10 +6410,9 @@ const de_ListTrafficPolicyInstancesByPolicyCommandError = async (
       throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6536,10 +6473,9 @@ const de_ListTrafficPolicyVersionsCommandError = async (
       throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6597,10 +6533,9 @@ const de_ListVPCAssociationAuthorizationsCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6664,10 +6599,9 @@ const de_TestDNSAnswerCommandError = async (
       throw await de_NoSuchHostedZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6717,10 +6651,9 @@ const de_UpdateHealthCheckCommandError = async (
       throw await de_NoSuchHealthCheckRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6770,10 +6703,9 @@ const de_UpdateHostedZoneCommentCommandError = async (
       throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6823,10 +6755,9 @@ const de_UpdateTrafficPolicyCommentCommandError = async (
       throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6882,16 +6813,15 @@ const de_UpdateTrafficPolicyInstanceCommandError = async (
       throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restXmlCidrBlockInUseExceptionRes
  */

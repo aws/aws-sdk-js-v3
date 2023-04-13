@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -8,8 +9,9 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -21,20 +23,7 @@ import { SearchCommandInput, SearchCommandOutput } from "../commands/SearchComma
 import { SuggestCommandInput, SuggestCommandOutput } from "../commands/SuggestCommand";
 import { UploadDocumentsCommandInput, UploadDocumentsCommandOutput } from "../commands/UploadDocumentsCommand";
 import { CloudSearchDomainServiceException as __BaseException } from "../models/CloudSearchDomainServiceException";
-import {
-  Bucket,
-  BucketInfo,
-  DocumentServiceException,
-  DocumentServiceWarning,
-  FieldStats,
-  Hit,
-  Hits,
-  SearchException,
-  SearchStatus,
-  SuggestionMatch,
-  SuggestModel,
-  SuggestStatus,
-} from "../models/models_0";
+import { DocumentServiceException, FieldStats, SearchException } from "../models/models_0";
 
 /**
  * serializeAws_restJson1SearchCommand
@@ -150,18 +139,13 @@ export const de_SearchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.facets != null) {
-    contents.facets = de_Facets(data.facets, context);
-  }
-  if (data.hits != null) {
-    contents.hits = de_Hits(data.hits, context);
-  }
-  if (data.stats != null) {
-    contents.stats = de_Stats(data.stats, context);
-  }
-  if (data.status != null) {
-    contents.status = de_SearchStatus(data.status, context);
-  }
+  const doc = take(data, {
+    facets: _json,
+    hits: _json,
+    stats: (_) => de_Stats(_, context),
+    status: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -180,10 +164,9 @@ const de_SearchCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_SearchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -203,12 +186,11 @@ export const de_SuggestCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = de_SuggestStatus(data.status, context);
-  }
-  if (data.suggest != null) {
-    contents.suggest = de_SuggestModel(data.suggest, context);
-  }
+  const doc = take(data, {
+    status: _json,
+    suggest: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -230,10 +212,9 @@ const de_SuggestCommandError = async (
       throw await de_SearchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -253,18 +234,13 @@ export const de_UploadDocumentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adds != null) {
-    contents.adds = __expectLong(data.adds);
-  }
-  if (data.deletes != null) {
-    contents.deletes = __expectLong(data.deletes);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.warnings != null) {
-    contents.warnings = de_DocumentServiceWarnings(data.warnings, context);
-  }
+  const doc = take(data, {
+    adds: __expectLong,
+    deletes: __expectLong,
+    status: __expectString,
+    warnings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -286,16 +262,15 @@ const de_UploadDocumentsCommandError = async (
       throw await de_DocumentServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1DocumentServiceExceptionRes
  */
@@ -305,12 +280,11 @@ const de_DocumentServiceExceptionRes = async (
 ): Promise<DocumentServiceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DocumentServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -324,9 +298,10 @@ const de_DocumentServiceExceptionRes = async (
 const de_SearchExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<SearchException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SearchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -334,195 +309,49 @@ const de_SearchExceptionRes = async (parsedOutput: any, context: __SerdeContext)
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * deserializeAws_restJson1Bucket
- */
-const de_Bucket = (output: any, context: __SerdeContext): Bucket => {
-  return {
-    count: __expectLong(output.count),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Bucket omitted.
 
-/**
- * deserializeAws_restJson1BucketInfo
- */
-const de_BucketInfo = (output: any, context: __SerdeContext): BucketInfo => {
-  return {
-    buckets: output.buckets != null ? de_BucketList(output.buckets, context) : undefined,
-  } as any;
-};
+// de_BucketInfo omitted.
 
-/**
- * deserializeAws_restJson1BucketList
- */
-const de_BucketList = (output: any, context: __SerdeContext): Bucket[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Bucket(entry, context);
-    });
-  return retVal;
-};
+// de_BucketList omitted.
 
-/**
- * deserializeAws_restJson1DocumentServiceWarning
- */
-const de_DocumentServiceWarning = (output: any, context: __SerdeContext): DocumentServiceWarning => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DocumentServiceWarning omitted.
 
-/**
- * deserializeAws_restJson1DocumentServiceWarnings
- */
-const de_DocumentServiceWarnings = (output: any, context: __SerdeContext): DocumentServiceWarning[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DocumentServiceWarning(entry, context);
-    });
-  return retVal;
-};
+// de_DocumentServiceWarnings omitted.
 
-/**
- * deserializeAws_restJson1Exprs
- */
-const de_Exprs = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Exprs omitted.
 
-/**
- * deserializeAws_restJson1Facets
- */
-const de_Facets = (output: any, context: __SerdeContext): Record<string, BucketInfo> => {
-  return Object.entries(output).reduce((acc: Record<string, BucketInfo>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_BucketInfo(value, context);
-    return acc;
-  }, {});
-};
+// de_Facets omitted.
 
-/**
- * deserializeAws_restJson1Fields
- */
-const de_Fields = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_FieldValue(value, context);
-    return acc;
-  }, {});
-};
+// de_Fields omitted.
 
 /**
  * deserializeAws_restJson1FieldStats
  */
 const de_FieldStats = (output: any, context: __SerdeContext): FieldStats => {
-  return {
-    count: __expectLong(output.count),
-    max: __expectString(output.max),
-    mean: __expectString(output.mean),
-    min: __expectString(output.min),
-    missing: __expectLong(output.missing),
-    stddev: __limitedParseDouble(output.stddev),
-    sum: __limitedParseDouble(output.sum),
-    sumOfSquares: __limitedParseDouble(output.sumOfSquares),
-  } as any;
+  return take(output, {
+    count: __expectLong,
+    max: __expectString,
+    mean: __expectString,
+    min: __expectString,
+    missing: __expectLong,
+    stddev: __limitedParseDouble,
+    sum: __limitedParseDouble,
+    sumOfSquares: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FieldValue
- */
-const de_FieldValue = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FieldValue omitted.
 
-/**
- * deserializeAws_restJson1Highlights
- */
-const de_Highlights = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Highlights omitted.
 
-/**
- * deserializeAws_restJson1Hit
- */
-const de_Hit = (output: any, context: __SerdeContext): Hit => {
-  return {
-    exprs: output.exprs != null ? de_Exprs(output.exprs, context) : undefined,
-    fields: output.fields != null ? de_Fields(output.fields, context) : undefined,
-    highlights: output.highlights != null ? de_Highlights(output.highlights, context) : undefined,
-    id: __expectString(output.id),
-  } as any;
-};
+// de_Hit omitted.
 
-/**
- * deserializeAws_restJson1HitList
- */
-const de_HitList = (output: any, context: __SerdeContext): Hit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Hit(entry, context);
-    });
-  return retVal;
-};
+// de_HitList omitted.
 
-/**
- * deserializeAws_restJson1Hits
- */
-const de_Hits = (output: any, context: __SerdeContext): Hits => {
-  return {
-    cursor: __expectString(output.cursor),
-    found: __expectLong(output.found),
-    hit: output.hit != null ? de_HitList(output.hit, context) : undefined,
-    start: __expectLong(output.start),
-  } as any;
-};
+// de_Hits omitted.
 
-/**
- * deserializeAws_restJson1SearchStatus
- */
-const de_SearchStatus = (output: any, context: __SerdeContext): SearchStatus => {
-  return {
-    rid: __expectString(output.rid),
-    timems: __expectLong(output.timems),
-  } as any;
-};
+// de_SearchStatus omitted.
 
 /**
  * deserializeAws_restJson1Stats
@@ -537,52 +366,13 @@ const de_Stats = (output: any, context: __SerdeContext): Record<string, FieldSta
   }, {});
 };
 
-/**
- * deserializeAws_restJson1SuggestionMatch
- */
-const de_SuggestionMatch = (output: any, context: __SerdeContext): SuggestionMatch => {
-  return {
-    id: __expectString(output.id),
-    score: __expectLong(output.score),
-    suggestion: __expectString(output.suggestion),
-  } as any;
-};
+// de_SuggestionMatch omitted.
 
-/**
- * deserializeAws_restJson1Suggestions
- */
-const de_Suggestions = (output: any, context: __SerdeContext): SuggestionMatch[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SuggestionMatch(entry, context);
-    });
-  return retVal;
-};
+// de_Suggestions omitted.
 
-/**
- * deserializeAws_restJson1SuggestModel
- */
-const de_SuggestModel = (output: any, context: __SerdeContext): SuggestModel => {
-  return {
-    found: __expectLong(output.found),
-    query: __expectString(output.query),
-    suggestions: output.suggestions != null ? de_Suggestions(output.suggestions, context) : undefined,
-  } as any;
-};
+// de_SuggestModel omitted.
 
-/**
- * deserializeAws_restJson1SuggestStatus
- */
-const de_SuggestStatus = (output: any, context: __SerdeContext): SuggestStatus => {
-  return {
-    rid: __expectString(output.rid),
-    timems: __expectLong(output.timems),
-  } as any;
-};
+// de_SuggestStatus omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,7 +12,8 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -197,16 +199,11 @@ import { DeviceFarmServiceException as __BaseException } from "../models/DeviceF
 import {
   AccountSettings,
   ArgumentException,
-  Artifact,
   CannotDeleteException,
-  Counters,
   CPU,
   CreateDevicePoolRequest,
-  CreateDevicePoolResult,
   CreateInstanceProfileRequest,
-  CreateInstanceProfileResult,
   CreateNetworkProfileRequest,
-  CreateNetworkProfileResult,
   CreateProjectRequest,
   CreateProjectResult,
   CreateRemoteAccessSessionConfiguration,
@@ -219,53 +216,35 @@ import {
   CreateUploadRequest,
   CreateUploadResult,
   CreateVPCEConfigurationRequest,
-  CreateVPCEConfigurationResult,
   CustomerArtifactPaths,
   DeleteDevicePoolRequest,
-  DeleteDevicePoolResult,
   DeleteInstanceProfileRequest,
-  DeleteInstanceProfileResult,
   DeleteNetworkProfileRequest,
-  DeleteNetworkProfileResult,
   DeleteProjectRequest,
-  DeleteProjectResult,
   DeleteRemoteAccessSessionRequest,
-  DeleteRemoteAccessSessionResult,
   DeleteRunRequest,
-  DeleteRunResult,
   DeleteTestGridProjectRequest,
-  DeleteTestGridProjectResult,
   DeleteUploadRequest,
-  DeleteUploadResult,
   DeleteVPCEConfigurationRequest,
-  DeleteVPCEConfigurationResult,
   Device,
   DeviceFilter,
-  DeviceInstance,
   DeviceMinutes,
-  DevicePlatform,
-  DevicePool,
   DevicePoolCompatibilityResult,
   DeviceSelectionConfiguration,
-  DeviceSelectionResult,
   ExecutionConfiguration,
   ExecutionResult,
   GetAccountSettingsRequest,
   GetAccountSettingsResult,
   GetDeviceInstanceRequest,
-  GetDeviceInstanceResult,
   GetDevicePoolCompatibilityRequest,
   GetDevicePoolCompatibilityResult,
   GetDevicePoolRequest,
-  GetDevicePoolResult,
   GetDeviceRequest,
   GetDeviceResult,
   GetInstanceProfileRequest,
-  GetInstanceProfileResult,
   GetJobRequest,
   GetJobResult,
   GetNetworkProfileRequest,
-  GetNetworkProfileResult,
   GetOfferingStatusRequest,
   GetOfferingStatusResult,
   GetProjectRequest,
@@ -285,32 +264,23 @@ import {
   GetUploadRequest,
   GetUploadResult,
   GetVPCEConfigurationRequest,
-  GetVPCEConfigurationResult,
   IdempotencyException,
-  IncompatibilityMessage,
   InstallToRemoteAccessSessionRequest,
   InstallToRemoteAccessSessionResult,
-  InstanceProfile,
   InternalServiceException,
   InvalidOperationException,
   Job,
   LimitExceededException,
   ListArtifactsRequest,
-  ListArtifactsResult,
   ListDeviceInstancesRequest,
-  ListDeviceInstancesResult,
   ListDevicePoolsRequest,
-  ListDevicePoolsResult,
   ListDevicesRequest,
   ListDevicesResult,
   ListInstanceProfilesRequest,
-  ListInstanceProfilesResult,
   ListJobsRequest,
   ListJobsResult,
   ListNetworkProfilesRequest,
-  ListNetworkProfilesResult,
   ListOfferingPromotionsRequest,
-  ListOfferingPromotionsResult,
   ListOfferingsRequest,
   ListOfferingsResult,
   ListOfferingTransactionsRequest,
@@ -322,17 +292,14 @@ import {
   ListRunsRequest,
   ListRunsResult,
   ListSamplesRequest,
-  ListSamplesResult,
   ListSuitesRequest,
   ListSuitesResult,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTestGridProjectsRequest,
   ListTestGridProjectsResult,
   ListTestGridSessionActionsRequest,
   ListTestGridSessionActionsResult,
   ListTestGridSessionArtifactsRequest,
-  ListTestGridSessionArtifactsResult,
   ListTestGridSessionsRequest,
   ListTestGridSessionsResult,
   ListTestsRequest,
@@ -342,18 +309,14 @@ import {
   ListUploadsRequest,
   ListUploadsResult,
   ListVPCEConfigurationsRequest,
-  ListVPCEConfigurationsResult,
   Location,
   MonetaryAmount,
-  NetworkProfile,
   NotEligibleException,
   NotFoundException,
   Offering,
-  OfferingPromotion,
   OfferingStatus,
   OfferingTransaction,
   Problem,
-  ProblemDetail,
   Project,
   PurchaseOfferingRequest,
   PurchaseOfferingResult,
@@ -362,10 +325,8 @@ import {
   RemoteAccessSession,
   RenewOfferingRequest,
   RenewOfferingResult,
-  Resolution,
   Rule,
   Run,
-  Sample,
   ScheduleRunConfiguration,
   ScheduleRunRequest,
   ScheduleRunResult,
@@ -382,26 +343,19 @@ import {
   TagOperationException,
   TagPolicyException,
   TagResourceRequest,
-  TagResourceResponse,
   Test,
   TestGridProject,
   TestGridSession,
   TestGridSessionAction,
-  TestGridSessionArtifact,
   TestGridVpcConfig,
   TooManyTagsException,
   TrialMinutes,
   UniqueProblem,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateDeviceInstanceRequest,
-  UpdateDeviceInstanceResult,
   UpdateDevicePoolRequest,
-  UpdateDevicePoolResult,
   UpdateInstanceProfileRequest,
-  UpdateInstanceProfileResult,
   UpdateNetworkProfileRequest,
-  UpdateNetworkProfileResult,
   UpdateProjectRequest,
   UpdateProjectResult,
   UpdateTestGridProjectRequest,
@@ -409,10 +363,8 @@ import {
   UpdateUploadRequest,
   UpdateUploadResult,
   UpdateVPCEConfigurationRequest,
-  UpdateVPCEConfigurationResult,
   Upload,
   VpcConfig,
-  VPCEConfiguration,
 } from "../models/models_0";
 
 /**
@@ -424,7 +376,7 @@ export const se_CreateDevicePoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDevicePool");
   let body: any;
-  body = JSON.stringify(se_CreateDevicePoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -437,7 +389,7 @@ export const se_CreateInstanceProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateInstanceProfile");
   let body: any;
-  body = JSON.stringify(se_CreateInstanceProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -450,7 +402,7 @@ export const se_CreateNetworkProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateNetworkProfile");
   let body: any;
-  body = JSON.stringify(se_CreateNetworkProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -463,7 +415,7 @@ export const se_CreateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateProject");
   let body: any;
-  body = JSON.stringify(se_CreateProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -476,7 +428,7 @@ export const se_CreateRemoteAccessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRemoteAccessSession");
   let body: any;
-  body = JSON.stringify(se_CreateRemoteAccessSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -489,7 +441,7 @@ export const se_CreateTestGridProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTestGridProject");
   let body: any;
-  body = JSON.stringify(se_CreateTestGridProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -502,7 +454,7 @@ export const se_CreateTestGridUrlCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTestGridUrl");
   let body: any;
-  body = JSON.stringify(se_CreateTestGridUrlRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -515,7 +467,7 @@ export const se_CreateUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUpload");
   let body: any;
-  body = JSON.stringify(se_CreateUploadRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -528,7 +480,7 @@ export const se_CreateVPCEConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateVPCEConfiguration");
   let body: any;
-  body = JSON.stringify(se_CreateVPCEConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -541,7 +493,7 @@ export const se_DeleteDevicePoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDevicePool");
   let body: any;
-  body = JSON.stringify(se_DeleteDevicePoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -554,7 +506,7 @@ export const se_DeleteInstanceProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteInstanceProfile");
   let body: any;
-  body = JSON.stringify(se_DeleteInstanceProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -567,7 +519,7 @@ export const se_DeleteNetworkProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteNetworkProfile");
   let body: any;
-  body = JSON.stringify(se_DeleteNetworkProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -580,7 +532,7 @@ export const se_DeleteProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProject");
   let body: any;
-  body = JSON.stringify(se_DeleteProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -593,7 +545,7 @@ export const se_DeleteRemoteAccessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRemoteAccessSession");
   let body: any;
-  body = JSON.stringify(se_DeleteRemoteAccessSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -606,7 +558,7 @@ export const se_DeleteRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRun");
   let body: any;
-  body = JSON.stringify(se_DeleteRunRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -619,7 +571,7 @@ export const se_DeleteTestGridProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTestGridProject");
   let body: any;
-  body = JSON.stringify(se_DeleteTestGridProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -632,7 +584,7 @@ export const se_DeleteUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUpload");
   let body: any;
-  body = JSON.stringify(se_DeleteUploadRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -645,7 +597,7 @@ export const se_DeleteVPCEConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteVPCEConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteVPCEConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -658,7 +610,7 @@ export const se_GetAccountSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAccountSettings");
   let body: any;
-  body = JSON.stringify(se_GetAccountSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -671,7 +623,7 @@ export const se_GetDeviceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDevice");
   let body: any;
-  body = JSON.stringify(se_GetDeviceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -684,7 +636,7 @@ export const se_GetDeviceInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDeviceInstance");
   let body: any;
-  body = JSON.stringify(se_GetDeviceInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -697,7 +649,7 @@ export const se_GetDevicePoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDevicePool");
   let body: any;
-  body = JSON.stringify(se_GetDevicePoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -723,7 +675,7 @@ export const se_GetInstanceProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetInstanceProfile");
   let body: any;
-  body = JSON.stringify(se_GetInstanceProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -733,7 +685,7 @@ export const se_GetInstanceProfileCommand = async (
 export const se_GetJobCommand = async (input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetJob");
   let body: any;
-  body = JSON.stringify(se_GetJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -746,7 +698,7 @@ export const se_GetNetworkProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetNetworkProfile");
   let body: any;
-  body = JSON.stringify(se_GetNetworkProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -759,7 +711,7 @@ export const se_GetOfferingStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetOfferingStatus");
   let body: any;
-  body = JSON.stringify(se_GetOfferingStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -772,7 +724,7 @@ export const se_GetProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetProject");
   let body: any;
-  body = JSON.stringify(se_GetProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -785,7 +737,7 @@ export const se_GetRemoteAccessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRemoteAccessSession");
   let body: any;
-  body = JSON.stringify(se_GetRemoteAccessSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -795,7 +747,7 @@ export const se_GetRemoteAccessSessionCommand = async (
 export const se_GetRunCommand = async (input: GetRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRun");
   let body: any;
-  body = JSON.stringify(se_GetRunRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -808,7 +760,7 @@ export const se_GetSuiteCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSuite");
   let body: any;
-  body = JSON.stringify(se_GetSuiteRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -821,7 +773,7 @@ export const se_GetTestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTest");
   let body: any;
-  body = JSON.stringify(se_GetTestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -834,7 +786,7 @@ export const se_GetTestGridProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTestGridProject");
   let body: any;
-  body = JSON.stringify(se_GetTestGridProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -847,7 +799,7 @@ export const se_GetTestGridSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTestGridSession");
   let body: any;
-  body = JSON.stringify(se_GetTestGridSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -860,7 +812,7 @@ export const se_GetUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUpload");
   let body: any;
-  body = JSON.stringify(se_GetUploadRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -873,7 +825,7 @@ export const se_GetVPCEConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetVPCEConfiguration");
   let body: any;
-  body = JSON.stringify(se_GetVPCEConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -886,7 +838,7 @@ export const se_InstallToRemoteAccessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("InstallToRemoteAccessSession");
   let body: any;
-  body = JSON.stringify(se_InstallToRemoteAccessSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -899,7 +851,7 @@ export const se_ListArtifactsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListArtifacts");
   let body: any;
-  body = JSON.stringify(se_ListArtifactsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -912,7 +864,7 @@ export const se_ListDeviceInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDeviceInstances");
   let body: any;
-  body = JSON.stringify(se_ListDeviceInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -925,7 +877,7 @@ export const se_ListDevicePoolsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDevicePools");
   let body: any;
-  body = JSON.stringify(se_ListDevicePoolsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -938,7 +890,7 @@ export const se_ListDevicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDevices");
   let body: any;
-  body = JSON.stringify(se_ListDevicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -951,7 +903,7 @@ export const se_ListInstanceProfilesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListInstanceProfiles");
   let body: any;
-  body = JSON.stringify(se_ListInstanceProfilesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -964,7 +916,7 @@ export const se_ListJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListJobs");
   let body: any;
-  body = JSON.stringify(se_ListJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -977,7 +929,7 @@ export const se_ListNetworkProfilesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListNetworkProfiles");
   let body: any;
-  body = JSON.stringify(se_ListNetworkProfilesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -990,7 +942,7 @@ export const se_ListOfferingPromotionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListOfferingPromotions");
   let body: any;
-  body = JSON.stringify(se_ListOfferingPromotionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1003,7 +955,7 @@ export const se_ListOfferingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListOfferings");
   let body: any;
-  body = JSON.stringify(se_ListOfferingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1016,7 +968,7 @@ export const se_ListOfferingTransactionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListOfferingTransactions");
   let body: any;
-  body = JSON.stringify(se_ListOfferingTransactionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1029,7 +981,7 @@ export const se_ListProjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProjects");
   let body: any;
-  body = JSON.stringify(se_ListProjectsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1042,7 +994,7 @@ export const se_ListRemoteAccessSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRemoteAccessSessions");
   let body: any;
-  body = JSON.stringify(se_ListRemoteAccessSessionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1055,7 +1007,7 @@ export const se_ListRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRuns");
   let body: any;
-  body = JSON.stringify(se_ListRunsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1068,7 +1020,7 @@ export const se_ListSamplesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSamples");
   let body: any;
-  body = JSON.stringify(se_ListSamplesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1081,7 +1033,7 @@ export const se_ListSuitesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSuites");
   let body: any;
-  body = JSON.stringify(se_ListSuitesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1094,7 +1046,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1107,7 +1059,7 @@ export const se_ListTestGridProjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTestGridProjects");
   let body: any;
-  body = JSON.stringify(se_ListTestGridProjectsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1120,7 +1072,7 @@ export const se_ListTestGridSessionActionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTestGridSessionActions");
   let body: any;
-  body = JSON.stringify(se_ListTestGridSessionActionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1133,7 +1085,7 @@ export const se_ListTestGridSessionArtifactsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTestGridSessionArtifacts");
   let body: any;
-  body = JSON.stringify(se_ListTestGridSessionArtifactsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1159,7 +1111,7 @@ export const se_ListTestsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTests");
   let body: any;
-  body = JSON.stringify(se_ListTestsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1172,7 +1124,7 @@ export const se_ListUniqueProblemsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUniqueProblems");
   let body: any;
-  body = JSON.stringify(se_ListUniqueProblemsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1185,7 +1137,7 @@ export const se_ListUploadsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUploads");
   let body: any;
-  body = JSON.stringify(se_ListUploadsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1198,7 +1150,7 @@ export const se_ListVPCEConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVPCEConfigurations");
   let body: any;
-  body = JSON.stringify(se_ListVPCEConfigurationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1211,7 +1163,7 @@ export const se_PurchaseOfferingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PurchaseOffering");
   let body: any;
-  body = JSON.stringify(se_PurchaseOfferingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1224,7 +1176,7 @@ export const se_RenewOfferingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RenewOffering");
   let body: any;
-  body = JSON.stringify(se_RenewOfferingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1250,7 +1202,7 @@ export const se_StopJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopJob");
   let body: any;
-  body = JSON.stringify(se_StopJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1263,7 +1215,7 @@ export const se_StopRemoteAccessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopRemoteAccessSession");
   let body: any;
-  body = JSON.stringify(se_StopRemoteAccessSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1276,7 +1228,7 @@ export const se_StopRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopRun");
   let body: any;
-  body = JSON.stringify(se_StopRunRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1289,7 +1241,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1302,7 +1254,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1315,7 +1267,7 @@ export const se_UpdateDeviceInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDeviceInstance");
   let body: any;
-  body = JSON.stringify(se_UpdateDeviceInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1328,7 +1280,7 @@ export const se_UpdateDevicePoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDevicePool");
   let body: any;
-  body = JSON.stringify(se_UpdateDevicePoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1341,7 +1293,7 @@ export const se_UpdateInstanceProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateInstanceProfile");
   let body: any;
-  body = JSON.stringify(se_UpdateInstanceProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1354,7 +1306,7 @@ export const se_UpdateNetworkProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateNetworkProfile");
   let body: any;
-  body = JSON.stringify(se_UpdateNetworkProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1367,7 +1319,7 @@ export const se_UpdateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateProject");
   let body: any;
-  body = JSON.stringify(se_UpdateProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1380,7 +1332,7 @@ export const se_UpdateTestGridProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTestGridProject");
   let body: any;
-  body = JSON.stringify(se_UpdateTestGridProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1393,7 +1345,7 @@ export const se_UpdateUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateUpload");
   let body: any;
-  body = JSON.stringify(se_UpdateUploadRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1406,7 +1358,7 @@ export const se_UpdateVPCEConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateVPCEConfiguration");
   let body: any;
-  body = JSON.stringify(se_UpdateVPCEConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1422,12 +1374,12 @@ export const de_CreateDevicePoolCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDevicePoolResult(data, context);
+  contents = _json(data);
   const response: CreateDevicePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1457,10 +1409,9 @@ const de_CreateDevicePoolCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1478,12 +1429,12 @@ export const de_CreateInstanceProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateInstanceProfileResult(data, context);
+  contents = _json(data);
   const response: CreateInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1513,10 +1464,9 @@ const de_CreateInstanceProfileCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1534,12 +1484,12 @@ export const de_CreateNetworkProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateNetworkProfileResult(data, context);
+  contents = _json(data);
   const response: CreateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1569,10 +1519,9 @@ const de_CreateNetworkProfileCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1595,7 +1544,7 @@ export const de_CreateProjectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1628,10 +1577,9 @@ const de_CreateProjectCommandError = async (
       throw await de_TagOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1654,7 +1602,7 @@ export const de_CreateRemoteAccessSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1684,10 +1632,9 @@ const de_CreateRemoteAccessSessionCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1710,7 +1657,7 @@ export const de_CreateTestGridProjectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1737,10 +1684,9 @@ const de_CreateTestGridProjectCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1763,7 +1709,7 @@ export const de_CreateTestGridUrlCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1790,10 +1736,9 @@ const de_CreateTestGridUrlCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1816,7 +1761,7 @@ export const de_CreateUploadCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1846,10 +1791,9 @@ const de_CreateUploadCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1867,12 +1811,12 @@ export const de_CreateVPCEConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateVPCEConfigurationResult(data, context);
+  contents = _json(data);
   const response: CreateVPCEConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1899,10 +1843,9 @@ const de_CreateVPCEConfigurationCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1920,12 +1863,12 @@ export const de_DeleteDevicePoolCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDevicePoolResult(data, context);
+  contents = _json(data);
   const response: DeleteDevicePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1955,10 +1898,9 @@ const de_DeleteDevicePoolCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1976,12 +1918,12 @@ export const de_DeleteInstanceProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteInstanceProfileResult(data, context);
+  contents = _json(data);
   const response: DeleteInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2011,10 +1953,9 @@ const de_DeleteInstanceProfileCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2032,12 +1973,12 @@ export const de_DeleteNetworkProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteNetworkProfileResult(data, context);
+  contents = _json(data);
   const response: DeleteNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2067,10 +2008,9 @@ const de_DeleteNetworkProfileCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2088,12 +2028,12 @@ export const de_DeleteProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProjectResult(data, context);
+  contents = _json(data);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2123,10 +2063,9 @@ const de_DeleteProjectCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2144,12 +2083,12 @@ export const de_DeleteRemoteAccessSessionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRemoteAccessSessionResult(data, context);
+  contents = _json(data);
   const response: DeleteRemoteAccessSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2179,10 +2118,9 @@ const de_DeleteRemoteAccessSessionCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2200,12 +2138,12 @@ export const de_DeleteRunCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRunResult(data, context);
+  contents = _json(data);
   const response: DeleteRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2235,10 +2173,9 @@ const de_DeleteRunCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2256,12 +2193,12 @@ export const de_DeleteTestGridProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTestGridProjectResult(data, context);
+  contents = _json(data);
   const response: DeleteTestGridProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2291,10 +2228,9 @@ const de_DeleteTestGridProjectCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2312,12 +2248,12 @@ export const de_DeleteUploadCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteUploadResult(data, context);
+  contents = _json(data);
   const response: DeleteUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2347,10 +2283,9 @@ const de_DeleteUploadCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2368,12 +2303,12 @@ export const de_DeleteVPCEConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteVPCEConfigurationResult(data, context);
+  contents = _json(data);
   const response: DeleteVPCEConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2403,10 +2338,9 @@ const de_DeleteVPCEConfigurationCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2429,7 +2363,7 @@ export const de_GetAccountSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2459,10 +2393,9 @@ const de_GetAccountSettingsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2485,7 +2418,7 @@ export const de_GetDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2515,10 +2448,9 @@ const de_GetDeviceCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2536,12 +2468,12 @@ export const de_GetDeviceInstanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDeviceInstanceResult(data, context);
+  contents = _json(data);
   const response: GetDeviceInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2571,10 +2503,9 @@ const de_GetDeviceInstanceCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2592,12 +2523,12 @@ export const de_GetDevicePoolCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDevicePoolResult(data, context);
+  contents = _json(data);
   const response: GetDevicePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2627,10 +2558,9 @@ const de_GetDevicePoolCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2653,7 +2583,7 @@ export const de_GetDevicePoolCompatibilityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2683,10 +2613,9 @@ const de_GetDevicePoolCompatibilityCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2704,12 +2633,12 @@ export const de_GetInstanceProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetInstanceProfileResult(data, context);
+  contents = _json(data);
   const response: GetInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2739,10 +2668,9 @@ const de_GetInstanceProfileCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2765,7 +2693,7 @@ export const de_GetJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2792,10 +2720,9 @@ const de_GetJobCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2813,12 +2740,12 @@ export const de_GetNetworkProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetNetworkProfileResult(data, context);
+  contents = _json(data);
   const response: GetNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2848,10 +2775,9 @@ const de_GetNetworkProfileCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2874,7 +2800,7 @@ export const de_GetOfferingStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2907,10 +2833,9 @@ const de_GetOfferingStatusCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2933,7 +2858,7 @@ export const de_GetProjectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2963,10 +2888,9 @@ const de_GetProjectCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2989,7 +2913,7 @@ export const de_GetRemoteAccessSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3019,10 +2943,9 @@ const de_GetRemoteAccessSessionCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3045,7 +2968,7 @@ export const de_GetRunCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3072,10 +2995,9 @@ const de_GetRunCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3098,7 +3020,7 @@ export const de_GetSuiteCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3128,10 +3050,9 @@ const de_GetSuiteCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3154,7 +3075,7 @@ export const de_GetTestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3184,10 +3105,9 @@ const de_GetTestCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3210,7 +3130,7 @@ export const de_GetTestGridProjectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3237,10 +3157,9 @@ const de_GetTestGridProjectCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3263,7 +3182,7 @@ export const de_GetTestGridSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3290,10 +3209,9 @@ const de_GetTestGridSessionCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3316,7 +3234,7 @@ export const de_GetUploadCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3346,10 +3264,9 @@ const de_GetUploadCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3367,12 +3284,12 @@ export const de_GetVPCEConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetVPCEConfigurationResult(data, context);
+  contents = _json(data);
   const response: GetVPCEConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3399,10 +3316,9 @@ const de_GetVPCEConfigurationCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3425,7 +3341,7 @@ export const de_InstallToRemoteAccessSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3455,10 +3371,9 @@ const de_InstallToRemoteAccessSessionCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3476,12 +3391,12 @@ export const de_ListArtifactsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListArtifactsResult(data, context);
+  contents = _json(data);
   const response: ListArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3511,10 +3426,9 @@ const de_ListArtifactsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3532,12 +3446,12 @@ export const de_ListDeviceInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDeviceInstancesResult(data, context);
+  contents = _json(data);
   const response: ListDeviceInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3567,10 +3481,9 @@ const de_ListDeviceInstancesCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3588,12 +3501,12 @@ export const de_ListDevicePoolsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDevicePoolsResult(data, context);
+  contents = _json(data);
   const response: ListDevicePoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3623,10 +3536,9 @@ const de_ListDevicePoolsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3649,7 +3561,7 @@ export const de_ListDevicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3679,10 +3591,9 @@ const de_ListDevicesCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3700,12 +3611,12 @@ export const de_ListInstanceProfilesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListInstanceProfilesResult(data, context);
+  contents = _json(data);
   const response: ListInstanceProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3735,10 +3646,9 @@ const de_ListInstanceProfilesCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3761,7 +3671,7 @@ export const de_ListJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3791,10 +3701,9 @@ const de_ListJobsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3812,12 +3721,12 @@ export const de_ListNetworkProfilesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListNetworkProfilesResult(data, context);
+  contents = _json(data);
   const response: ListNetworkProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3847,10 +3756,9 @@ const de_ListNetworkProfilesCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3868,12 +3776,12 @@ export const de_ListOfferingPromotionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListOfferingPromotionsResult(data, context);
+  contents = _json(data);
   const response: ListOfferingPromotionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3906,10 +3814,9 @@ const de_ListOfferingPromotionsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3932,7 +3839,7 @@ export const de_ListOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3965,10 +3872,9 @@ const de_ListOfferingsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3991,7 +3897,7 @@ export const de_ListOfferingTransactionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4024,10 +3930,9 @@ const de_ListOfferingTransactionsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4050,7 +3955,7 @@ export const de_ListProjectsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4080,10 +3985,9 @@ const de_ListProjectsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4106,7 +4010,7 @@ export const de_ListRemoteAccessSessionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4136,10 +4040,9 @@ const de_ListRemoteAccessSessionsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4162,7 +4065,7 @@ export const de_ListRunsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4192,10 +4095,9 @@ const de_ListRunsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4213,12 +4115,12 @@ export const de_ListSamplesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListSamplesResult(data, context);
+  contents = _json(data);
   const response: ListSamplesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4248,10 +4150,9 @@ const de_ListSamplesCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4274,7 +4175,7 @@ export const de_ListSuitesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4304,10 +4205,9 @@ const de_ListSuitesCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4325,12 +4225,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4357,10 +4257,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TagOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4383,7 +4282,7 @@ export const de_ListTestGridProjectsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4407,10 +4306,9 @@ const de_ListTestGridProjectsCommandError = async (
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4433,7 +4331,7 @@ export const de_ListTestGridSessionActionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4460,10 +4358,9 @@ const de_ListTestGridSessionActionsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4481,12 +4378,12 @@ export const de_ListTestGridSessionArtifactsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTestGridSessionArtifactsResult(data, context);
+  contents = _json(data);
   const response: ListTestGridSessionArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4513,10 +4410,9 @@ const de_ListTestGridSessionArtifactsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4539,7 +4435,7 @@ export const de_ListTestGridSessionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4566,10 +4462,9 @@ const de_ListTestGridSessionsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4592,7 +4487,7 @@ export const de_ListTestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4622,10 +4517,9 @@ const de_ListTestsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4648,7 +4542,7 @@ export const de_ListUniqueProblemsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4678,10 +4572,9 @@ const de_ListUniqueProblemsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4704,7 +4597,7 @@ export const de_ListUploadsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4734,10 +4627,9 @@ const de_ListUploadsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4755,12 +4647,12 @@ export const de_ListVPCEConfigurationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListVPCEConfigurationsResult(data, context);
+  contents = _json(data);
   const response: ListVPCEConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4784,10 +4676,9 @@ const de_ListVPCEConfigurationsCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4810,7 +4701,7 @@ export const de_PurchaseOfferingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4843,10 +4734,9 @@ const de_PurchaseOfferingCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4869,7 +4759,7 @@ export const de_RenewOfferingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4902,10 +4792,9 @@ const de_RenewOfferingCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4928,7 +4817,7 @@ export const de_ScheduleRunCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4961,10 +4850,9 @@ const de_ScheduleRunCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4987,7 +4875,7 @@ export const de_StopJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5017,10 +4905,9 @@ const de_StopJobCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5043,7 +4930,7 @@ export const de_StopRemoteAccessSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5073,10 +4960,9 @@ const de_StopRemoteAccessSessionCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5099,7 +4985,7 @@ export const de_StopRunCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5129,10 +5015,9 @@ const de_StopRunCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5150,12 +5035,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5188,10 +5073,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5209,12 +5093,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5241,10 +5125,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TagOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5262,12 +5145,12 @@ export const de_UpdateDeviceInstanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDeviceInstanceResult(data, context);
+  contents = _json(data);
   const response: UpdateDeviceInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5297,10 +5180,9 @@ const de_UpdateDeviceInstanceCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5318,12 +5200,12 @@ export const de_UpdateDevicePoolCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDevicePoolResult(data, context);
+  contents = _json(data);
   const response: UpdateDevicePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5353,10 +5235,9 @@ const de_UpdateDevicePoolCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5374,12 +5255,12 @@ export const de_UpdateInstanceProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateInstanceProfileResult(data, context);
+  contents = _json(data);
   const response: UpdateInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5409,10 +5290,9 @@ const de_UpdateInstanceProfileCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5430,12 +5310,12 @@ export const de_UpdateNetworkProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateNetworkProfileResult(data, context);
+  contents = _json(data);
   const response: UpdateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5465,10 +5345,9 @@ const de_UpdateNetworkProfileCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5491,7 +5370,7 @@ export const de_UpdateProjectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5521,10 +5400,9 @@ const de_UpdateProjectCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5547,7 +5425,7 @@ export const de_UpdateTestGridProjectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5577,10 +5455,9 @@ const de_UpdateTestGridProjectCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5603,7 +5480,7 @@ export const de_UpdateUploadCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5633,10 +5510,9 @@ const de_UpdateUploadCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5654,12 +5530,12 @@ export const de_UpdateVPCEConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateVPCEConfigurationResult(data, context);
+  contents = _json(data);
   const response: UpdateVPCEConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5689,10 +5565,9 @@ const de_UpdateVPCEConfigurationCommandError = async (
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5703,7 +5578,7 @@ const de_UpdateVPCEConfigurationCommandError = async (
  */
 const de_ArgumentExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ArgumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5719,7 +5594,7 @@ const de_CannotDeleteExceptionRes = async (
   context: __SerdeContext
 ): Promise<CannotDeleteException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CannotDeleteException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CannotDeleteException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5735,7 +5610,7 @@ const de_IdempotencyExceptionRes = async (
   context: __SerdeContext
 ): Promise<IdempotencyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IdempotencyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IdempotencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5751,7 +5626,7 @@ const de_InternalServiceExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5767,7 +5642,7 @@ const de_InvalidOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5783,7 +5658,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5799,7 +5674,7 @@ const de_NotEligibleExceptionRes = async (
   context: __SerdeContext
 ): Promise<NotEligibleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotEligibleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotEligibleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5812,7 +5687,7 @@ const de_NotEligibleExceptionRes = async (
  */
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5828,7 +5703,7 @@ const de_ServiceAccountExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceAccountException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceAccountException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5844,7 +5719,7 @@ const de_TagOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<TagOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5857,7 +5732,7 @@ const de_TagOperationExceptionRes = async (
  */
 const de_TagPolicyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5873,7 +5748,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5881,345 +5756,65 @@ const de_TooManyTagsExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AmazonResourceNames
- */
-const se_AmazonResourceNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AmazonResourceNames omitted.
 
-/**
- * serializeAws_json1_1AndroidPaths
- */
-const se_AndroidPaths = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AndroidPaths omitted.
 
-/**
- * serializeAws_json1_1CreateDevicePoolRequest
- */
-const se_CreateDevicePoolRequest = (input: CreateDevicePoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.maxDevices != null && { maxDevices: input.maxDevices }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.rules != null && { rules: se_Rules(input.rules, context) }),
-  };
-};
+// se_CreateDevicePoolRequest omitted.
 
-/**
- * serializeAws_json1_1CreateInstanceProfileRequest
- */
-const se_CreateInstanceProfileRequest = (input: CreateInstanceProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.excludeAppPackagesFromCleanup != null && {
-      excludeAppPackagesFromCleanup: se_PackageIds(input.excludeAppPackagesFromCleanup, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.packageCleanup != null && { packageCleanup: input.packageCleanup }),
-    ...(input.rebootAfterUse != null && { rebootAfterUse: input.rebootAfterUse }),
-  };
-};
+// se_CreateInstanceProfileRequest omitted.
 
-/**
- * serializeAws_json1_1CreateNetworkProfileRequest
- */
-const se_CreateNetworkProfileRequest = (input: CreateNetworkProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.downlinkBandwidthBits != null && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
-    ...(input.downlinkDelayMs != null && { downlinkDelayMs: input.downlinkDelayMs }),
-    ...(input.downlinkJitterMs != null && { downlinkJitterMs: input.downlinkJitterMs }),
-    ...(input.downlinkLossPercent != null && { downlinkLossPercent: input.downlinkLossPercent }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.type != null && { type: input.type }),
-    ...(input.uplinkBandwidthBits != null && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
-    ...(input.uplinkDelayMs != null && { uplinkDelayMs: input.uplinkDelayMs }),
-    ...(input.uplinkJitterMs != null && { uplinkJitterMs: input.uplinkJitterMs }),
-    ...(input.uplinkLossPercent != null && { uplinkLossPercent: input.uplinkLossPercent }),
-  };
-};
+// se_CreateNetworkProfileRequest omitted.
 
-/**
- * serializeAws_json1_1CreateProjectRequest
- */
-const se_CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultJobTimeoutMinutes != null && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.vpcConfig != null && { vpcConfig: se_VpcConfig(input.vpcConfig, context) }),
-  };
-};
+// se_CreateProjectRequest omitted.
 
-/**
- * serializeAws_json1_1CreateRemoteAccessSessionConfiguration
- */
-const se_CreateRemoteAccessSessionConfiguration = (
-  input: CreateRemoteAccessSessionConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.billingMethod != null && { billingMethod: input.billingMethod }),
-    ...(input.vpceConfigurationArns != null && {
-      vpceConfigurationArns: se_AmazonResourceNames(input.vpceConfigurationArns, context),
-    }),
-  };
-};
+// se_CreateRemoteAccessSessionConfiguration omitted.
 
-/**
- * serializeAws_json1_1CreateRemoteAccessSessionRequest
- */
-const se_CreateRemoteAccessSessionRequest = (input: CreateRemoteAccessSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.clientId != null && { clientId: input.clientId }),
-    ...(input.configuration != null && {
-      configuration: se_CreateRemoteAccessSessionConfiguration(input.configuration, context),
-    }),
-    ...(input.deviceArn != null && { deviceArn: input.deviceArn }),
-    ...(input.instanceArn != null && { instanceArn: input.instanceArn }),
-    ...(input.interactionMode != null && { interactionMode: input.interactionMode }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.remoteDebugEnabled != null && { remoteDebugEnabled: input.remoteDebugEnabled }),
-    ...(input.remoteRecordAppArn != null && { remoteRecordAppArn: input.remoteRecordAppArn }),
-    ...(input.remoteRecordEnabled != null && { remoteRecordEnabled: input.remoteRecordEnabled }),
-    ...(input.skipAppResign != null && { skipAppResign: input.skipAppResign }),
-    ...(input.sshPublicKey != null && { sshPublicKey: input.sshPublicKey }),
-  };
-};
+// se_CreateRemoteAccessSessionRequest omitted.
 
-/**
- * serializeAws_json1_1CreateTestGridProjectRequest
- */
-const se_CreateTestGridProjectRequest = (input: CreateTestGridProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.vpcConfig != null && { vpcConfig: se_TestGridVpcConfig(input.vpcConfig, context) }),
-  };
-};
+// se_CreateTestGridProjectRequest omitted.
 
-/**
- * serializeAws_json1_1CreateTestGridUrlRequest
- */
-const se_CreateTestGridUrlRequest = (input: CreateTestGridUrlRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.expiresInSeconds != null && { expiresInSeconds: input.expiresInSeconds }),
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-  };
-};
+// se_CreateTestGridUrlRequest omitted.
 
-/**
- * serializeAws_json1_1CreateUploadRequest
- */
-const se_CreateUploadRequest = (input: CreateUploadRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.contentType != null && { contentType: input.contentType }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_CreateUploadRequest omitted.
 
-/**
- * serializeAws_json1_1CreateVPCEConfigurationRequest
- */
-const se_CreateVPCEConfigurationRequest = (input: CreateVPCEConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.serviceDnsName != null && { serviceDnsName: input.serviceDnsName }),
-    ...(input.vpceConfigurationDescription != null && {
-      vpceConfigurationDescription: input.vpceConfigurationDescription,
-    }),
-    ...(input.vpceConfigurationName != null && { vpceConfigurationName: input.vpceConfigurationName }),
-    ...(input.vpceServiceName != null && { vpceServiceName: input.vpceServiceName }),
-  };
-};
+// se_CreateVPCEConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1CustomerArtifactPaths
- */
-const se_CustomerArtifactPaths = (input: CustomerArtifactPaths, context: __SerdeContext): any => {
-  return {
-    ...(input.androidPaths != null && { androidPaths: se_AndroidPaths(input.androidPaths, context) }),
-    ...(input.deviceHostPaths != null && { deviceHostPaths: se_DeviceHostPaths(input.deviceHostPaths, context) }),
-    ...(input.iosPaths != null && { iosPaths: se_IosPaths(input.iosPaths, context) }),
-  };
-};
+// se_CustomerArtifactPaths omitted.
 
-/**
- * serializeAws_json1_1DeleteDevicePoolRequest
- */
-const se_DeleteDevicePoolRequest = (input: DeleteDevicePoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteDevicePoolRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteInstanceProfileRequest
- */
-const se_DeleteInstanceProfileRequest = (input: DeleteInstanceProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteInstanceProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteNetworkProfileRequest
- */
-const se_DeleteNetworkProfileRequest = (input: DeleteNetworkProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteNetworkProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteProjectRequest
- */
-const se_DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteProjectRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRemoteAccessSessionRequest
- */
-const se_DeleteRemoteAccessSessionRequest = (input: DeleteRemoteAccessSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteRemoteAccessSessionRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRunRequest
- */
-const se_DeleteRunRequest = (input: DeleteRunRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteRunRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteTestGridProjectRequest
- */
-const se_DeleteTestGridProjectRequest = (input: DeleteTestGridProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-  };
-};
+// se_DeleteTestGridProjectRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteUploadRequest
- */
-const se_DeleteUploadRequest = (input: DeleteUploadRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteUploadRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteVPCEConfigurationRequest
- */
-const se_DeleteVPCEConfigurationRequest = (input: DeleteVPCEConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteVPCEConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1DeviceFilter
- */
-const se_DeviceFilter = (input: DeviceFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: se_DeviceFilterValues(input.values, context) }),
-  };
-};
+// se_DeviceFilter omitted.
 
-/**
- * serializeAws_json1_1DeviceFilters
- */
-const se_DeviceFilters = (input: DeviceFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DeviceFilter(entry, context);
-    });
-};
+// se_DeviceFilters omitted.
 
-/**
- * serializeAws_json1_1DeviceFilterValues
- */
-const se_DeviceFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DeviceFilterValues omitted.
 
-/**
- * serializeAws_json1_1DeviceHostPaths
- */
-const se_DeviceHostPaths = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DeviceHostPaths omitted.
 
-/**
- * serializeAws_json1_1DeviceSelectionConfiguration
- */
-const se_DeviceSelectionConfiguration = (input: DeviceSelectionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.filters != null && { filters: se_DeviceFilters(input.filters, context) }),
-    ...(input.maxDevices != null && { maxDevices: input.maxDevices }),
-  };
-};
+// se_DeviceSelectionConfiguration omitted.
 
-/**
- * serializeAws_json1_1ExecutionConfiguration
- */
-const se_ExecutionConfiguration = (input: ExecutionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.accountsCleanup != null && { accountsCleanup: input.accountsCleanup }),
-    ...(input.appPackagesCleanup != null && { appPackagesCleanup: input.appPackagesCleanup }),
-    ...(input.jobTimeoutMinutes != null && { jobTimeoutMinutes: input.jobTimeoutMinutes }),
-    ...(input.skipAppResign != null && { skipAppResign: input.skipAppResign }),
-    ...(input.videoCapture != null && { videoCapture: input.videoCapture }),
-  };
-};
+// se_ExecutionConfiguration omitted.
 
-/**
- * serializeAws_json1_1GetAccountSettingsRequest
- */
-const se_GetAccountSettingsRequest = (input: GetAccountSettingsRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_GetAccountSettingsRequest omitted.
 
-/**
- * serializeAws_json1_1GetDeviceInstanceRequest
- */
-const se_GetDeviceInstanceRequest = (input: GetDeviceInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetDeviceInstanceRequest omitted.
 
 /**
  * serializeAws_json1_1GetDevicePoolCompatibilityRequest
@@ -6228,1264 +5823,392 @@ const se_GetDevicePoolCompatibilityRequest = (
   input: GetDevicePoolCompatibilityRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.configuration != null && { configuration: se_ScheduleRunConfiguration(input.configuration, context) }),
-    ...(input.devicePoolArn != null && { devicePoolArn: input.devicePoolArn }),
-    ...(input.test != null && { test: se_ScheduleRunTest(input.test, context) }),
-    ...(input.testType != null && { testType: input.testType }),
-  };
+  return take(input, {
+    appArn: [],
+    configuration: (_) => se_ScheduleRunConfiguration(_, context),
+    devicePoolArn: [],
+    test: (_) => _json(_),
+    testType: [],
+  });
 };
 
-/**
- * serializeAws_json1_1GetDevicePoolRequest
- */
-const se_GetDevicePoolRequest = (input: GetDevicePoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetDevicePoolRequest omitted.
 
-/**
- * serializeAws_json1_1GetDeviceRequest
- */
-const se_GetDeviceRequest = (input: GetDeviceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetDeviceRequest omitted.
 
-/**
- * serializeAws_json1_1GetInstanceProfileRequest
- */
-const se_GetInstanceProfileRequest = (input: GetInstanceProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetInstanceProfileRequest omitted.
 
-/**
- * serializeAws_json1_1GetJobRequest
- */
-const se_GetJobRequest = (input: GetJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetJobRequest omitted.
 
-/**
- * serializeAws_json1_1GetNetworkProfileRequest
- */
-const se_GetNetworkProfileRequest = (input: GetNetworkProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetNetworkProfileRequest omitted.
 
-/**
- * serializeAws_json1_1GetOfferingStatusRequest
- */
-const se_GetOfferingStatusRequest = (input: GetOfferingStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_GetOfferingStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetProjectRequest
- */
-const se_GetProjectRequest = (input: GetProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetProjectRequest omitted.
 
-/**
- * serializeAws_json1_1GetRemoteAccessSessionRequest
- */
-const se_GetRemoteAccessSessionRequest = (input: GetRemoteAccessSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetRemoteAccessSessionRequest omitted.
 
-/**
- * serializeAws_json1_1GetRunRequest
- */
-const se_GetRunRequest = (input: GetRunRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetRunRequest omitted.
 
-/**
- * serializeAws_json1_1GetSuiteRequest
- */
-const se_GetSuiteRequest = (input: GetSuiteRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetSuiteRequest omitted.
 
-/**
- * serializeAws_json1_1GetTestGridProjectRequest
- */
-const se_GetTestGridProjectRequest = (input: GetTestGridProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-  };
-};
+// se_GetTestGridProjectRequest omitted.
 
-/**
- * serializeAws_json1_1GetTestGridSessionRequest
- */
-const se_GetTestGridSessionRequest = (input: GetTestGridSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.sessionArn != null && { sessionArn: input.sessionArn }),
-    ...(input.sessionId != null && { sessionId: input.sessionId }),
-  };
-};
+// se_GetTestGridSessionRequest omitted.
 
-/**
- * serializeAws_json1_1GetTestRequest
- */
-const se_GetTestRequest = (input: GetTestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetTestRequest omitted.
 
-/**
- * serializeAws_json1_1GetUploadRequest
- */
-const se_GetUploadRequest = (input: GetUploadRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetUploadRequest omitted.
 
-/**
- * serializeAws_json1_1GetVPCEConfigurationRequest
- */
-const se_GetVPCEConfigurationRequest = (input: GetVPCEConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_GetVPCEConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1InstallToRemoteAccessSessionRequest
- */
-const se_InstallToRemoteAccessSessionRequest = (
-  input: InstallToRemoteAccessSessionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.remoteAccessSessionArn != null && { remoteAccessSessionArn: input.remoteAccessSessionArn }),
-  };
-};
+// se_InstallToRemoteAccessSessionRequest omitted.
 
-/**
- * serializeAws_json1_1InstanceLabels
- */
-const se_InstanceLabels = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InstanceLabels omitted.
 
-/**
- * serializeAws_json1_1IosPaths
- */
-const se_IosPaths = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IosPaths omitted.
 
-/**
- * serializeAws_json1_1ListArtifactsRequest
- */
-const se_ListArtifactsRequest = (input: ListArtifactsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ListArtifactsRequest omitted.
 
-/**
- * serializeAws_json1_1ListDeviceInstancesRequest
- */
-const se_ListDeviceInstancesRequest = (input: ListDeviceInstancesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDeviceInstancesRequest omitted.
 
-/**
- * serializeAws_json1_1ListDevicePoolsRequest
- */
-const se_ListDevicePoolsRequest = (input: ListDevicePoolsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ListDevicePoolsRequest omitted.
 
-/**
- * serializeAws_json1_1ListDevicesRequest
- */
-const se_ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.filters != null && { filters: se_DeviceFilters(input.filters, context) }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDevicesRequest omitted.
 
-/**
- * serializeAws_json1_1ListInstanceProfilesRequest
- */
-const se_ListInstanceProfilesRequest = (input: ListInstanceProfilesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListInstanceProfilesRequest omitted.
 
-/**
- * serializeAws_json1_1ListJobsRequest
- */
-const se_ListJobsRequest = (input: ListJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListJobsRequest omitted.
 
-/**
- * serializeAws_json1_1ListNetworkProfilesRequest
- */
-const se_ListNetworkProfilesRequest = (input: ListNetworkProfilesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ListNetworkProfilesRequest omitted.
 
-/**
- * serializeAws_json1_1ListOfferingPromotionsRequest
- */
-const se_ListOfferingPromotionsRequest = (input: ListOfferingPromotionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListOfferingPromotionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListOfferingsRequest
- */
-const se_ListOfferingsRequest = (input: ListOfferingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListOfferingsRequest omitted.
 
-/**
- * serializeAws_json1_1ListOfferingTransactionsRequest
- */
-const se_ListOfferingTransactionsRequest = (input: ListOfferingTransactionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListOfferingTransactionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListProjectsRequest
- */
-const se_ListProjectsRequest = (input: ListProjectsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListProjectsRequest omitted.
 
-/**
- * serializeAws_json1_1ListRemoteAccessSessionsRequest
- */
-const se_ListRemoteAccessSessionsRequest = (input: ListRemoteAccessSessionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListRemoteAccessSessionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListRunsRequest
- */
-const se_ListRunsRequest = (input: ListRunsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListRunsRequest omitted.
 
-/**
- * serializeAws_json1_1ListSamplesRequest
- */
-const se_ListSamplesRequest = (input: ListSamplesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListSamplesRequest omitted.
 
-/**
- * serializeAws_json1_1ListSuitesRequest
- */
-const se_ListSuitesRequest = (input: ListSuitesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListSuitesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ListTestGridProjectsRequest
- */
-const se_ListTestGridProjectsRequest = (input: ListTestGridProjectsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResult != null && { maxResult: input.maxResult }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListTestGridProjectsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTestGridSessionActionsRequest
- */
-const se_ListTestGridSessionActionsRequest = (
-  input: ListTestGridSessionActionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResult != null && { maxResult: input.maxResult }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sessionArn != null && { sessionArn: input.sessionArn }),
-  };
-};
+// se_ListTestGridSessionActionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTestGridSessionArtifactsRequest
- */
-const se_ListTestGridSessionArtifactsRequest = (
-  input: ListTestGridSessionArtifactsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResult != null && { maxResult: input.maxResult }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sessionArn != null && { sessionArn: input.sessionArn }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ListTestGridSessionArtifactsRequest omitted.
 
 /**
  * serializeAws_json1_1ListTestGridSessionsRequest
  */
 const se_ListTestGridSessionsRequest = (input: ListTestGridSessionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.creationTimeAfter != null && { creationTimeAfter: Math.round(input.creationTimeAfter.getTime() / 1000) }),
-    ...(input.creationTimeBefore != null && {
-      creationTimeBefore: Math.round(input.creationTimeBefore.getTime() / 1000),
-    }),
-    ...(input.endTimeAfter != null && { endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000) }),
-    ...(input.endTimeBefore != null && { endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000) }),
-    ...(input.maxResult != null && { maxResult: input.maxResult }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.status != null && { status: input.status }),
-  };
+  return take(input, {
+    creationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    creationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    endTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    endTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    maxResult: [],
+    nextToken: [],
+    projectArn: [],
+    status: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListTestsRequest
- */
-const se_ListTestsRequest = (input: ListTestsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListTestsRequest omitted.
 
-/**
- * serializeAws_json1_1ListUniqueProblemsRequest
- */
-const se_ListUniqueProblemsRequest = (input: ListUniqueProblemsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListUniqueProblemsRequest omitted.
 
-/**
- * serializeAws_json1_1ListUploadsRequest
- */
-const se_ListUploadsRequest = (input: ListUploadsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ListUploadsRequest omitted.
 
-/**
- * serializeAws_json1_1ListVPCEConfigurationsRequest
- */
-const se_ListVPCEConfigurationsRequest = (input: ListVPCEConfigurationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListVPCEConfigurationsRequest omitted.
 
 /**
  * serializeAws_json1_1Location
  */
 const se_Location = (input: Location, context: __SerdeContext): any => {
-  return {
-    ...(input.latitude != null && { latitude: __serializeFloat(input.latitude) }),
-    ...(input.longitude != null && { longitude: __serializeFloat(input.longitude) }),
-  };
+  return take(input, {
+    latitude: (_) => __serializeFloat(_),
+    longitude: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_1PackageIds
- */
-const se_PackageIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PackageIds omitted.
 
-/**
- * serializeAws_json1_1PurchaseOfferingRequest
- */
-const se_PurchaseOfferingRequest = (input: PurchaseOfferingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.offeringId != null && { offeringId: input.offeringId }),
-    ...(input.offeringPromotionId != null && { offeringPromotionId: input.offeringPromotionId }),
-    ...(input.quantity != null && { quantity: input.quantity }),
-  };
-};
+// se_PurchaseOfferingRequest omitted.
 
-/**
- * serializeAws_json1_1Radios
- */
-const se_Radios = (input: Radios, context: __SerdeContext): any => {
-  return {
-    ...(input.bluetooth != null && { bluetooth: input.bluetooth }),
-    ...(input.gps != null && { gps: input.gps }),
-    ...(input.nfc != null && { nfc: input.nfc }),
-    ...(input.wifi != null && { wifi: input.wifi }),
-  };
-};
+// se_Radios omitted.
 
-/**
- * serializeAws_json1_1RenewOfferingRequest
- */
-const se_RenewOfferingRequest = (input: RenewOfferingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.offeringId != null && { offeringId: input.offeringId }),
-    ...(input.quantity != null && { quantity: input.quantity }),
-  };
-};
+// se_RenewOfferingRequest omitted.
 
-/**
- * serializeAws_json1_1Rule
- */
-const se_Rule = (input: Rule, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Rule omitted.
 
-/**
- * serializeAws_json1_1Rules
- */
-const se_Rules = (input: Rule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Rule(entry, context);
-    });
-};
+// se_Rules omitted.
 
 /**
  * serializeAws_json1_1ScheduleRunConfiguration
  */
 const se_ScheduleRunConfiguration = (input: ScheduleRunConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.auxiliaryApps != null && { auxiliaryApps: se_AmazonResourceNames(input.auxiliaryApps, context) }),
-    ...(input.billingMethod != null && { billingMethod: input.billingMethod }),
-    ...(input.customerArtifactPaths != null && {
-      customerArtifactPaths: se_CustomerArtifactPaths(input.customerArtifactPaths, context),
-    }),
-    ...(input.extraDataPackageArn != null && { extraDataPackageArn: input.extraDataPackageArn }),
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.location != null && { location: se_Location(input.location, context) }),
-    ...(input.networkProfileArn != null && { networkProfileArn: input.networkProfileArn }),
-    ...(input.radios != null && { radios: se_Radios(input.radios, context) }),
-    ...(input.vpceConfigurationArns != null && {
-      vpceConfigurationArns: se_AmazonResourceNames(input.vpceConfigurationArns, context),
-    }),
-  };
+  return take(input, {
+    auxiliaryApps: (_) => _json(_),
+    billingMethod: [],
+    customerArtifactPaths: (_) => _json(_),
+    extraDataPackageArn: [],
+    locale: [],
+    location: (_) => se_Location(_, context),
+    networkProfileArn: [],
+    radios: (_) => _json(_),
+    vpceConfigurationArns: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1ScheduleRunRequest
  */
 const se_ScheduleRunRequest = (input: ScheduleRunRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.configuration != null && { configuration: se_ScheduleRunConfiguration(input.configuration, context) }),
-    ...(input.devicePoolArn != null && { devicePoolArn: input.devicePoolArn }),
-    ...(input.deviceSelectionConfiguration != null && {
-      deviceSelectionConfiguration: se_DeviceSelectionConfiguration(input.deviceSelectionConfiguration, context),
-    }),
-    ...(input.executionConfiguration != null && {
-      executionConfiguration: se_ExecutionConfiguration(input.executionConfiguration, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.test != null && { test: se_ScheduleRunTest(input.test, context) }),
-  };
+  return take(input, {
+    appArn: [],
+    configuration: (_) => se_ScheduleRunConfiguration(_, context),
+    devicePoolArn: [],
+    deviceSelectionConfiguration: (_) => _json(_),
+    executionConfiguration: (_) => _json(_),
+    name: [],
+    projectArn: [],
+    test: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1ScheduleRunTest
- */
-const se_ScheduleRunTest = (input: ScheduleRunTest, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: input.filter }),
-    ...(input.parameters != null && { parameters: se_TestParameters(input.parameters, context) }),
-    ...(input.testPackageArn != null && { testPackageArn: input.testPackageArn }),
-    ...(input.testSpecArn != null && { testSpecArn: input.testSpecArn }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ScheduleRunTest omitted.
 
-/**
- * serializeAws_json1_1SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_json1_1StopJobRequest
- */
-const se_StopJobRequest = (input: StopJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_StopJobRequest omitted.
 
-/**
- * serializeAws_json1_1StopRemoteAccessSessionRequest
- */
-const se_StopRemoteAccessSessionRequest = (input: StopRemoteAccessSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_StopRemoteAccessSessionRequest omitted.
 
-/**
- * serializeAws_json1_1StopRunRequest
- */
-const se_StopRunRequest = (input: StopRunRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_StopRunRequest omitted.
 
-/**
- * serializeAws_json1_1SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIds omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1TestGridVpcConfig
- */
-const se_TestGridVpcConfig = (input: TestGridVpcConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.securityGroupIds != null && { securityGroupIds: se_SecurityGroupIds(input.securityGroupIds, context) }),
-    ...(input.subnetIds != null && { subnetIds: se_SubnetIds(input.subnetIds, context) }),
-    ...(input.vpcId != null && { vpcId: input.vpcId }),
-  };
-};
+// se_TestGridVpcConfig omitted.
 
-/**
- * serializeAws_json1_1TestParameters
- */
-const se_TestParameters = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TestParameters omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateDeviceInstanceRequest
- */
-const se_UpdateDeviceInstanceRequest = (input: UpdateDeviceInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.labels != null && { labels: se_InstanceLabels(input.labels, context) }),
-    ...(input.profileArn != null && { profileArn: input.profileArn }),
-  };
-};
+// se_UpdateDeviceInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateDevicePoolRequest
- */
-const se_UpdateDevicePoolRequest = (input: UpdateDevicePoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.clearMaxDevices != null && { clearMaxDevices: input.clearMaxDevices }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.maxDevices != null && { maxDevices: input.maxDevices }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.rules != null && { rules: se_Rules(input.rules, context) }),
-  };
-};
+// se_UpdateDevicePoolRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateInstanceProfileRequest
- */
-const se_UpdateInstanceProfileRequest = (input: UpdateInstanceProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.excludeAppPackagesFromCleanup != null && {
-      excludeAppPackagesFromCleanup: se_PackageIds(input.excludeAppPackagesFromCleanup, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.packageCleanup != null && { packageCleanup: input.packageCleanup }),
-    ...(input.rebootAfterUse != null && { rebootAfterUse: input.rebootAfterUse }),
-  };
-};
+// se_UpdateInstanceProfileRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateNetworkProfileRequest
- */
-const se_UpdateNetworkProfileRequest = (input: UpdateNetworkProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.downlinkBandwidthBits != null && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
-    ...(input.downlinkDelayMs != null && { downlinkDelayMs: input.downlinkDelayMs }),
-    ...(input.downlinkJitterMs != null && { downlinkJitterMs: input.downlinkJitterMs }),
-    ...(input.downlinkLossPercent != null && { downlinkLossPercent: input.downlinkLossPercent }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-    ...(input.uplinkBandwidthBits != null && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
-    ...(input.uplinkDelayMs != null && { uplinkDelayMs: input.uplinkDelayMs }),
-    ...(input.uplinkJitterMs != null && { uplinkJitterMs: input.uplinkJitterMs }),
-    ...(input.uplinkLossPercent != null && { uplinkLossPercent: input.uplinkLossPercent }),
-  };
-};
+// se_UpdateNetworkProfileRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateProjectRequest
- */
-const se_UpdateProjectRequest = (input: UpdateProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.defaultJobTimeoutMinutes != null && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.vpcConfig != null && { vpcConfig: se_VpcConfig(input.vpcConfig, context) }),
-  };
-};
+// se_UpdateProjectRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateTestGridProjectRequest
- */
-const se_UpdateTestGridProjectRequest = (input: UpdateTestGridProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.vpcConfig != null && { vpcConfig: se_TestGridVpcConfig(input.vpcConfig, context) }),
-  };
-};
+// se_UpdateTestGridProjectRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateUploadRequest
- */
-const se_UpdateUploadRequest = (input: UpdateUploadRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.contentType != null && { contentType: input.contentType }),
-    ...(input.editContent != null && { editContent: input.editContent }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UpdateUploadRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateVPCEConfigurationRequest
- */
-const se_UpdateVPCEConfigurationRequest = (input: UpdateVPCEConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.serviceDnsName != null && { serviceDnsName: input.serviceDnsName }),
-    ...(input.vpceConfigurationDescription != null && {
-      vpceConfigurationDescription: input.vpceConfigurationDescription,
-    }),
-    ...(input.vpceConfigurationName != null && { vpceConfigurationName: input.vpceConfigurationName }),
-    ...(input.vpceServiceName != null && { vpceServiceName: input.vpceServiceName }),
-  };
-};
+// se_UpdateVPCEConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1VpcConfig
- */
-const se_VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: se_VpcSecurityGroupIds(input.securityGroupIds, context),
-    }),
-    ...(input.subnetIds != null && { subnetIds: se_VpcSubnetIds(input.subnetIds, context) }),
-    ...(input.vpcId != null && { vpcId: input.vpcId }),
-  };
-};
+// se_VpcConfig omitted.
 
-/**
- * serializeAws_json1_1VpcSecurityGroupIds
- */
-const se_VpcSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VpcSecurityGroupIds omitted.
 
-/**
- * serializeAws_json1_1VpcSubnetIds
- */
-const se_VpcSubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VpcSubnetIds omitted.
 
 /**
  * deserializeAws_json1_1AccountSettings
  */
 const de_AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
-  return {
-    awsAccountNumber: __expectString(output.awsAccountNumber),
-    defaultJobTimeoutMinutes: __expectInt32(output.defaultJobTimeoutMinutes),
-    maxJobTimeoutMinutes: __expectInt32(output.maxJobTimeoutMinutes),
-    maxSlots: output.maxSlots != null ? de_MaxSlotMap(output.maxSlots, context) : undefined,
-    skipAppResign: __expectBoolean(output.skipAppResign),
-    trialMinutes: output.trialMinutes != null ? de_TrialMinutes(output.trialMinutes, context) : undefined,
-    unmeteredDevices:
-      output.unmeteredDevices != null ? de_PurchasedDevicesMap(output.unmeteredDevices, context) : undefined,
-    unmeteredRemoteAccessDevices:
-      output.unmeteredRemoteAccessDevices != null
-        ? de_PurchasedDevicesMap(output.unmeteredRemoteAccessDevices, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    awsAccountNumber: __expectString,
+    defaultJobTimeoutMinutes: __expectInt32,
+    maxJobTimeoutMinutes: __expectInt32,
+    maxSlots: _json,
+    skipAppResign: __expectBoolean,
+    trialMinutes: (_: any) => de_TrialMinutes(_, context),
+    unmeteredDevices: _json,
+    unmeteredRemoteAccessDevices: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AndroidPaths
- */
-const de_AndroidPaths = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AndroidPaths omitted.
 
-/**
- * deserializeAws_json1_1ArgumentException
- */
-const de_ArgumentException = (output: any, context: __SerdeContext): ArgumentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ArgumentException omitted.
 
-/**
- * deserializeAws_json1_1Artifact
- */
-const de_Artifact = (output: any, context: __SerdeContext): Artifact => {
-  return {
-    arn: __expectString(output.arn),
-    extension: __expectString(output.extension),
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-    url: __expectString(output.url),
-  } as any;
-};
+// de_Artifact omitted.
 
-/**
- * deserializeAws_json1_1Artifacts
- */
-const de_Artifacts = (output: any, context: __SerdeContext): Artifact[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Artifact(entry, context);
-    });
-  return retVal;
-};
+// de_Artifacts omitted.
 
-/**
- * deserializeAws_json1_1CannotDeleteException
- */
-const de_CannotDeleteException = (output: any, context: __SerdeContext): CannotDeleteException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CannotDeleteException omitted.
 
-/**
- * deserializeAws_json1_1Counters
- */
-const de_Counters = (output: any, context: __SerdeContext): Counters => {
-  return {
-    errored: __expectInt32(output.errored),
-    failed: __expectInt32(output.failed),
-    passed: __expectInt32(output.passed),
-    skipped: __expectInt32(output.skipped),
-    stopped: __expectInt32(output.stopped),
-    total: __expectInt32(output.total),
-    warned: __expectInt32(output.warned),
-  } as any;
-};
+// de_Counters omitted.
 
 /**
  * deserializeAws_json1_1CPU
  */
 const de_CPU = (output: any, context: __SerdeContext): CPU => {
-  return {
-    architecture: __expectString(output.architecture),
-    clock: __limitedParseDouble(output.clock),
-    frequency: __expectString(output.frequency),
-  } as any;
+  return take(output, {
+    architecture: __expectString,
+    clock: __limitedParseDouble,
+    frequency: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateDevicePoolResult
- */
-const de_CreateDevicePoolResult = (output: any, context: __SerdeContext): CreateDevicePoolResult => {
-  return {
-    devicePool: output.devicePool != null ? de_DevicePool(output.devicePool, context) : undefined,
-  } as any;
-};
+// de_CreateDevicePoolResult omitted.
 
-/**
- * deserializeAws_json1_1CreateInstanceProfileResult
- */
-const de_CreateInstanceProfileResult = (output: any, context: __SerdeContext): CreateInstanceProfileResult => {
-  return {
-    instanceProfile: output.instanceProfile != null ? de_InstanceProfile(output.instanceProfile, context) : undefined,
-  } as any;
-};
+// de_CreateInstanceProfileResult omitted.
 
-/**
- * deserializeAws_json1_1CreateNetworkProfileResult
- */
-const de_CreateNetworkProfileResult = (output: any, context: __SerdeContext): CreateNetworkProfileResult => {
-  return {
-    networkProfile: output.networkProfile != null ? de_NetworkProfile(output.networkProfile, context) : undefined,
-  } as any;
-};
+// de_CreateNetworkProfileResult omitted.
 
 /**
  * deserializeAws_json1_1CreateProjectResult
  */
 const de_CreateProjectResult = (output: any, context: __SerdeContext): CreateProjectResult => {
-  return {
-    project: output.project != null ? de_Project(output.project, context) : undefined,
-  } as any;
+  return take(output, {
+    project: (_: any) => de_Project(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateRemoteAccessSessionResult
  */
 const de_CreateRemoteAccessSessionResult = (output: any, context: __SerdeContext): CreateRemoteAccessSessionResult => {
-  return {
-    remoteAccessSession:
-      output.remoteAccessSession != null ? de_RemoteAccessSession(output.remoteAccessSession, context) : undefined,
-  } as any;
+  return take(output, {
+    remoteAccessSession: (_: any) => de_RemoteAccessSession(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateTestGridProjectResult
  */
 const de_CreateTestGridProjectResult = (output: any, context: __SerdeContext): CreateTestGridProjectResult => {
-  return {
-    testGridProject: output.testGridProject != null ? de_TestGridProject(output.testGridProject, context) : undefined,
-  } as any;
+  return take(output, {
+    testGridProject: (_: any) => de_TestGridProject(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateTestGridUrlResult
  */
 const de_CreateTestGridUrlResult = (output: any, context: __SerdeContext): CreateTestGridUrlResult => {
-  return {
-    expires:
-      output.expires != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expires))) : undefined,
-    url: __expectString(output.url),
-  } as any;
+  return take(output, {
+    expires: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    url: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateUploadResult
  */
 const de_CreateUploadResult = (output: any, context: __SerdeContext): CreateUploadResult => {
-  return {
-    upload: output.upload != null ? de_Upload(output.upload, context) : undefined,
-  } as any;
+  return take(output, {
+    upload: (_: any) => de_Upload(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateVPCEConfigurationResult
- */
-const de_CreateVPCEConfigurationResult = (output: any, context: __SerdeContext): CreateVPCEConfigurationResult => {
-  return {
-    vpceConfiguration:
-      output.vpceConfiguration != null ? de_VPCEConfiguration(output.vpceConfiguration, context) : undefined,
-  } as any;
-};
+// de_CreateVPCEConfigurationResult omitted.
 
-/**
- * deserializeAws_json1_1CustomerArtifactPaths
- */
-const de_CustomerArtifactPaths = (output: any, context: __SerdeContext): CustomerArtifactPaths => {
-  return {
-    androidPaths: output.androidPaths != null ? de_AndroidPaths(output.androidPaths, context) : undefined,
-    deviceHostPaths: output.deviceHostPaths != null ? de_DeviceHostPaths(output.deviceHostPaths, context) : undefined,
-    iosPaths: output.iosPaths != null ? de_IosPaths(output.iosPaths, context) : undefined,
-  } as any;
-};
+// de_CustomerArtifactPaths omitted.
 
-/**
- * deserializeAws_json1_1DeleteDevicePoolResult
- */
-const de_DeleteDevicePoolResult = (output: any, context: __SerdeContext): DeleteDevicePoolResult => {
-  return {} as any;
-};
+// de_DeleteDevicePoolResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteInstanceProfileResult
- */
-const de_DeleteInstanceProfileResult = (output: any, context: __SerdeContext): DeleteInstanceProfileResult => {
-  return {} as any;
-};
+// de_DeleteInstanceProfileResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteNetworkProfileResult
- */
-const de_DeleteNetworkProfileResult = (output: any, context: __SerdeContext): DeleteNetworkProfileResult => {
-  return {} as any;
-};
+// de_DeleteNetworkProfileResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteProjectResult
- */
-const de_DeleteProjectResult = (output: any, context: __SerdeContext): DeleteProjectResult => {
-  return {} as any;
-};
+// de_DeleteProjectResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteRemoteAccessSessionResult
- */
-const de_DeleteRemoteAccessSessionResult = (output: any, context: __SerdeContext): DeleteRemoteAccessSessionResult => {
-  return {} as any;
-};
+// de_DeleteRemoteAccessSessionResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteRunResult
- */
-const de_DeleteRunResult = (output: any, context: __SerdeContext): DeleteRunResult => {
-  return {} as any;
-};
+// de_DeleteRunResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteTestGridProjectResult
- */
-const de_DeleteTestGridProjectResult = (output: any, context: __SerdeContext): DeleteTestGridProjectResult => {
-  return {} as any;
-};
+// de_DeleteTestGridProjectResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteUploadResult
- */
-const de_DeleteUploadResult = (output: any, context: __SerdeContext): DeleteUploadResult => {
-  return {} as any;
-};
+// de_DeleteUploadResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteVPCEConfigurationResult
- */
-const de_DeleteVPCEConfigurationResult = (output: any, context: __SerdeContext): DeleteVPCEConfigurationResult => {
-  return {} as any;
-};
+// de_DeleteVPCEConfigurationResult omitted.
 
 /**
  * deserializeAws_json1_1Device
  */
 const de_Device = (output: any, context: __SerdeContext): Device => {
-  return {
-    arn: __expectString(output.arn),
-    availability: __expectString(output.availability),
-    carrier: __expectString(output.carrier),
-    cpu: output.cpu != null ? de_CPU(output.cpu, context) : undefined,
-    fleetName: __expectString(output.fleetName),
-    fleetType: __expectString(output.fleetType),
-    formFactor: __expectString(output.formFactor),
-    heapSize: __expectLong(output.heapSize),
-    image: __expectString(output.image),
-    instances: output.instances != null ? de_DeviceInstances(output.instances, context) : undefined,
-    manufacturer: __expectString(output.manufacturer),
-    memory: __expectLong(output.memory),
-    model: __expectString(output.model),
-    modelId: __expectString(output.modelId),
-    name: __expectString(output.name),
-    os: __expectString(output.os),
-    platform: __expectString(output.platform),
-    radio: __expectString(output.radio),
-    remoteAccessEnabled: __expectBoolean(output.remoteAccessEnabled),
-    remoteDebugEnabled: __expectBoolean(output.remoteDebugEnabled),
-    resolution: output.resolution != null ? de_Resolution(output.resolution, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    availability: __expectString,
+    carrier: __expectString,
+    cpu: (_: any) => de_CPU(_, context),
+    fleetName: __expectString,
+    fleetType: __expectString,
+    formFactor: __expectString,
+    heapSize: __expectLong,
+    image: __expectString,
+    instances: _json,
+    manufacturer: __expectString,
+    memory: __expectLong,
+    model: __expectString,
+    modelId: __expectString,
+    name: __expectString,
+    os: __expectString,
+    platform: __expectString,
+    radio: __expectString,
+    remoteAccessEnabled: __expectBoolean,
+    remoteDebugEnabled: __expectBoolean,
+    resolution: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeviceFilter
- */
-const de_DeviceFilter = (output: any, context: __SerdeContext): DeviceFilter => {
-  return {
-    attribute: __expectString(output.attribute),
-    operator: __expectString(output.operator),
-    values: output.values != null ? de_DeviceFilterValues(output.values, context) : undefined,
-  } as any;
-};
+// de_DeviceFilter omitted.
 
-/**
- * deserializeAws_json1_1DeviceFilters
- */
-const de_DeviceFilters = (output: any, context: __SerdeContext): DeviceFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DeviceFilter(entry, context);
-    });
-  return retVal;
-};
+// de_DeviceFilters omitted.
 
-/**
- * deserializeAws_json1_1DeviceFilterValues
- */
-const de_DeviceFilterValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DeviceFilterValues omitted.
 
-/**
- * deserializeAws_json1_1DeviceHostPaths
- */
-const de_DeviceHostPaths = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DeviceHostPaths omitted.
 
-/**
- * deserializeAws_json1_1DeviceInstance
- */
-const de_DeviceInstance = (output: any, context: __SerdeContext): DeviceInstance => {
-  return {
-    arn: __expectString(output.arn),
-    deviceArn: __expectString(output.deviceArn),
-    instanceProfile: output.instanceProfile != null ? de_InstanceProfile(output.instanceProfile, context) : undefined,
-    labels: output.labels != null ? de_InstanceLabels(output.labels, context) : undefined,
-    status: __expectString(output.status),
-    udid: __expectString(output.udid),
-  } as any;
-};
+// de_DeviceInstance omitted.
 
-/**
- * deserializeAws_json1_1DeviceInstances
- */
-const de_DeviceInstances = (output: any, context: __SerdeContext): DeviceInstance[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DeviceInstance(entry, context);
-    });
-  return retVal;
-};
+// de_DeviceInstances omitted.
 
 /**
  * deserializeAws_json1_1DeviceMinutes
  */
 const de_DeviceMinutes = (output: any, context: __SerdeContext): DeviceMinutes => {
-  return {
-    metered: __limitedParseDouble(output.metered),
-    total: __limitedParseDouble(output.total),
-    unmetered: __limitedParseDouble(output.unmetered),
-  } as any;
+  return take(output, {
+    metered: __limitedParseDouble,
+    total: __limitedParseDouble,
+    unmetered: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DevicePool
- */
-const de_DevicePool = (output: any, context: __SerdeContext): DevicePool => {
-  return {
-    arn: __expectString(output.arn),
-    description: __expectString(output.description),
-    maxDevices: __expectInt32(output.maxDevices),
-    name: __expectString(output.name),
-    rules: output.rules != null ? de_Rules(output.rules, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_DevicePool omitted.
 
 /**
  * deserializeAws_json1_1DevicePoolCompatibilityResult
  */
 const de_DevicePoolCompatibilityResult = (output: any, context: __SerdeContext): DevicePoolCompatibilityResult => {
-  return {
-    compatible: __expectBoolean(output.compatible),
-    device: output.device != null ? de_Device(output.device, context) : undefined,
-    incompatibilityMessages:
-      output.incompatibilityMessages != null
-        ? de_IncompatibilityMessages(output.incompatibilityMessages, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    compatible: __expectBoolean,
+    device: (_: any) => de_Device(_, context),
+    incompatibilityMessages: _json,
+  }) as any;
 };
 
 /**
@@ -7495,28 +6218,12 @@ const de_DevicePoolCompatibilityResults = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DevicePoolCompatibilityResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DevicePools
- */
-const de_DevicePools = (output: any, context: __SerdeContext): DevicePool[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DevicePool(entry, context);
-    });
-  return retVal;
-};
+// de_DevicePools omitted.
 
 /**
  * deserializeAws_json1_1Devices
@@ -7525,42 +6232,23 @@ const de_Devices = (output: any, context: __SerdeContext): Device[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Device(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DeviceSelectionResult
- */
-const de_DeviceSelectionResult = (output: any, context: __SerdeContext): DeviceSelectionResult => {
-  return {
-    filters: output.filters != null ? de_DeviceFilters(output.filters, context) : undefined,
-    matchedDevicesCount: __expectInt32(output.matchedDevicesCount),
-    maxDevices: __expectInt32(output.maxDevices),
-  } as any;
-};
+// de_DeviceSelectionResult omitted.
 
 /**
  * deserializeAws_json1_1GetAccountSettingsResult
  */
 const de_GetAccountSettingsResult = (output: any, context: __SerdeContext): GetAccountSettingsResult => {
-  return {
-    accountSettings: output.accountSettings != null ? de_AccountSettings(output.accountSettings, context) : undefined,
-  } as any;
+  return take(output, {
+    accountSettings: (_: any) => de_AccountSettings(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetDeviceInstanceResult
- */
-const de_GetDeviceInstanceResult = (output: any, context: __SerdeContext): GetDeviceInstanceResult => {
-  return {
-    deviceInstance: output.deviceInstance != null ? de_DeviceInstance(output.deviceInstance, context) : undefined,
-  } as any;
-};
+// de_GetDeviceInstanceResult omitted.
 
 /**
  * deserializeAws_json1_1GetDevicePoolCompatibilityResult
@@ -7569,190 +6257,126 @@ const de_GetDevicePoolCompatibilityResult = (
   output: any,
   context: __SerdeContext
 ): GetDevicePoolCompatibilityResult => {
-  return {
-    compatibleDevices:
-      output.compatibleDevices != null
-        ? de_DevicePoolCompatibilityResults(output.compatibleDevices, context)
-        : undefined,
-    incompatibleDevices:
-      output.incompatibleDevices != null
-        ? de_DevicePoolCompatibilityResults(output.incompatibleDevices, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    compatibleDevices: (_: any) => de_DevicePoolCompatibilityResults(_, context),
+    incompatibleDevices: (_: any) => de_DevicePoolCompatibilityResults(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetDevicePoolResult
- */
-const de_GetDevicePoolResult = (output: any, context: __SerdeContext): GetDevicePoolResult => {
-  return {
-    devicePool: output.devicePool != null ? de_DevicePool(output.devicePool, context) : undefined,
-  } as any;
-};
+// de_GetDevicePoolResult omitted.
 
 /**
  * deserializeAws_json1_1GetDeviceResult
  */
 const de_GetDeviceResult = (output: any, context: __SerdeContext): GetDeviceResult => {
-  return {
-    device: output.device != null ? de_Device(output.device, context) : undefined,
-  } as any;
+  return take(output, {
+    device: (_: any) => de_Device(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetInstanceProfileResult
- */
-const de_GetInstanceProfileResult = (output: any, context: __SerdeContext): GetInstanceProfileResult => {
-  return {
-    instanceProfile: output.instanceProfile != null ? de_InstanceProfile(output.instanceProfile, context) : undefined,
-  } as any;
-};
+// de_GetInstanceProfileResult omitted.
 
 /**
  * deserializeAws_json1_1GetJobResult
  */
 const de_GetJobResult = (output: any, context: __SerdeContext): GetJobResult => {
-  return {
-    job: output.job != null ? de_Job(output.job, context) : undefined,
-  } as any;
+  return take(output, {
+    job: (_: any) => de_Job(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetNetworkProfileResult
- */
-const de_GetNetworkProfileResult = (output: any, context: __SerdeContext): GetNetworkProfileResult => {
-  return {
-    networkProfile: output.networkProfile != null ? de_NetworkProfile(output.networkProfile, context) : undefined,
-  } as any;
-};
+// de_GetNetworkProfileResult omitted.
 
 /**
  * deserializeAws_json1_1GetOfferingStatusResult
  */
 const de_GetOfferingStatusResult = (output: any, context: __SerdeContext): GetOfferingStatusResult => {
-  return {
-    current: output.current != null ? de_OfferingStatusMap(output.current, context) : undefined,
-    nextPeriod: output.nextPeriod != null ? de_OfferingStatusMap(output.nextPeriod, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    current: (_: any) => de_OfferingStatusMap(_, context),
+    nextPeriod: (_: any) => de_OfferingStatusMap(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetProjectResult
  */
 const de_GetProjectResult = (output: any, context: __SerdeContext): GetProjectResult => {
-  return {
-    project: output.project != null ? de_Project(output.project, context) : undefined,
-  } as any;
+  return take(output, {
+    project: (_: any) => de_Project(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetRemoteAccessSessionResult
  */
 const de_GetRemoteAccessSessionResult = (output: any, context: __SerdeContext): GetRemoteAccessSessionResult => {
-  return {
-    remoteAccessSession:
-      output.remoteAccessSession != null ? de_RemoteAccessSession(output.remoteAccessSession, context) : undefined,
-  } as any;
+  return take(output, {
+    remoteAccessSession: (_: any) => de_RemoteAccessSession(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetRunResult
  */
 const de_GetRunResult = (output: any, context: __SerdeContext): GetRunResult => {
-  return {
-    run: output.run != null ? de_Run(output.run, context) : undefined,
-  } as any;
+  return take(output, {
+    run: (_: any) => de_Run(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetSuiteResult
  */
 const de_GetSuiteResult = (output: any, context: __SerdeContext): GetSuiteResult => {
-  return {
-    suite: output.suite != null ? de_Suite(output.suite, context) : undefined,
-  } as any;
+  return take(output, {
+    suite: (_: any) => de_Suite(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetTestGridProjectResult
  */
 const de_GetTestGridProjectResult = (output: any, context: __SerdeContext): GetTestGridProjectResult => {
-  return {
-    testGridProject: output.testGridProject != null ? de_TestGridProject(output.testGridProject, context) : undefined,
-  } as any;
+  return take(output, {
+    testGridProject: (_: any) => de_TestGridProject(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetTestGridSessionResult
  */
 const de_GetTestGridSessionResult = (output: any, context: __SerdeContext): GetTestGridSessionResult => {
-  return {
-    testGridSession: output.testGridSession != null ? de_TestGridSession(output.testGridSession, context) : undefined,
-  } as any;
+  return take(output, {
+    testGridSession: (_: any) => de_TestGridSession(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetTestResult
  */
 const de_GetTestResult = (output: any, context: __SerdeContext): GetTestResult => {
-  return {
-    test: output.test != null ? de_Test(output.test, context) : undefined,
-  } as any;
+  return take(output, {
+    test: (_: any) => de_Test(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetUploadResult
  */
 const de_GetUploadResult = (output: any, context: __SerdeContext): GetUploadResult => {
-  return {
-    upload: output.upload != null ? de_Upload(output.upload, context) : undefined,
-  } as any;
+  return take(output, {
+    upload: (_: any) => de_Upload(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetVPCEConfigurationResult
- */
-const de_GetVPCEConfigurationResult = (output: any, context: __SerdeContext): GetVPCEConfigurationResult => {
-  return {
-    vpceConfiguration:
-      output.vpceConfiguration != null ? de_VPCEConfiguration(output.vpceConfiguration, context) : undefined,
-  } as any;
-};
+// de_GetVPCEConfigurationResult omitted.
 
-/**
- * deserializeAws_json1_1IdempotencyException
- */
-const de_IdempotencyException = (output: any, context: __SerdeContext): IdempotencyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_IdempotencyException omitted.
 
-/**
- * deserializeAws_json1_1IncompatibilityMessage
- */
-const de_IncompatibilityMessage = (output: any, context: __SerdeContext): IncompatibilityMessage => {
-  return {
-    message: __expectString(output.message),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_IncompatibilityMessage omitted.
 
-/**
- * deserializeAws_json1_1IncompatibilityMessages
- */
-const de_IncompatibilityMessages = (output: any, context: __SerdeContext): IncompatibilityMessage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IncompatibilityMessage(entry, context);
-    });
-  return retVal;
-};
+// de_IncompatibilityMessages omitted.
 
 /**
  * deserializeAws_json1_1InstallToRemoteAccessSessionResult
@@ -7761,115 +6385,44 @@ const de_InstallToRemoteAccessSessionResult = (
   output: any,
   context: __SerdeContext
 ): InstallToRemoteAccessSessionResult => {
-  return {
-    appUpload: output.appUpload != null ? de_Upload(output.appUpload, context) : undefined,
-  } as any;
+  return take(output, {
+    appUpload: (_: any) => de_Upload(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InstanceLabels
- */
-const de_InstanceLabels = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_InstanceLabels omitted.
 
-/**
- * deserializeAws_json1_1InstanceProfile
- */
-const de_InstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
-  return {
-    arn: __expectString(output.arn),
-    description: __expectString(output.description),
-    excludeAppPackagesFromCleanup:
-      output.excludeAppPackagesFromCleanup != null
-        ? de_PackageIds(output.excludeAppPackagesFromCleanup, context)
-        : undefined,
-    name: __expectString(output.name),
-    packageCleanup: __expectBoolean(output.packageCleanup),
-    rebootAfterUse: __expectBoolean(output.rebootAfterUse),
-  } as any;
-};
+// de_InstanceProfile omitted.
 
-/**
- * deserializeAws_json1_1InstanceProfiles
- */
-const de_InstanceProfiles = (output: any, context: __SerdeContext): InstanceProfile[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InstanceProfile(entry, context);
-    });
-  return retVal;
-};
+// de_InstanceProfiles omitted.
 
-/**
- * deserializeAws_json1_1InternalServiceException
- */
-const de_InternalServiceException = (output: any, context: __SerdeContext): InternalServiceException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServiceException omitted.
 
-/**
- * deserializeAws_json1_1InvalidOperationException
- */
-const de_InvalidOperationException = (output: any, context: __SerdeContext): InvalidOperationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidOperationException omitted.
 
-/**
- * deserializeAws_json1_1IosPaths
- */
-const de_IosPaths = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IosPaths omitted.
 
 /**
  * deserializeAws_json1_1Job
  */
 const de_Job = (output: any, context: __SerdeContext): Job => {
-  return {
-    arn: __expectString(output.arn),
-    counters: output.counters != null ? de_Counters(output.counters, context) : undefined,
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    device: output.device != null ? de_Device(output.device, context) : undefined,
-    deviceMinutes: output.deviceMinutes != null ? de_DeviceMinutes(output.deviceMinutes, context) : undefined,
-    instanceArn: __expectString(output.instanceArn),
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-    result: __expectString(output.result),
-    started:
-      output.started != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
-    status: __expectString(output.status),
-    stopped:
-      output.stopped != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
-    type: __expectString(output.type),
-    videoCapture: __expectBoolean(output.videoCapture),
-    videoEndpoint: __expectString(output.videoEndpoint),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    counters: _json,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    device: (_: any) => de_Device(_, context),
+    deviceMinutes: (_: any) => de_DeviceMinutes(_, context),
+    instanceArn: __expectString,
+    message: __expectString,
+    name: __expectString,
+    result: __expectString,
+    started: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    stopped: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    type: __expectString,
+    videoCapture: __expectBoolean,
+    videoEndpoint: __expectString,
+  }) as any;
 };
 
 /**
@@ -7879,195 +6432,117 @@ const de_Jobs = (output: any, context: __SerdeContext): Job[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Job(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListArtifactsResult
- */
-const de_ListArtifactsResult = (output: any, context: __SerdeContext): ListArtifactsResult => {
-  return {
-    artifacts: output.artifacts != null ? de_Artifacts(output.artifacts, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListArtifactsResult omitted.
 
-/**
- * deserializeAws_json1_1ListDeviceInstancesResult
- */
-const de_ListDeviceInstancesResult = (output: any, context: __SerdeContext): ListDeviceInstancesResult => {
-  return {
-    deviceInstances: output.deviceInstances != null ? de_DeviceInstances(output.deviceInstances, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListDeviceInstancesResult omitted.
 
-/**
- * deserializeAws_json1_1ListDevicePoolsResult
- */
-const de_ListDevicePoolsResult = (output: any, context: __SerdeContext): ListDevicePoolsResult => {
-  return {
-    devicePools: output.devicePools != null ? de_DevicePools(output.devicePools, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListDevicePoolsResult omitted.
 
 /**
  * deserializeAws_json1_1ListDevicesResult
  */
 const de_ListDevicesResult = (output: any, context: __SerdeContext): ListDevicesResult => {
-  return {
-    devices: output.devices != null ? de_Devices(output.devices, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    devices: (_: any) => de_Devices(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListInstanceProfilesResult
- */
-const de_ListInstanceProfilesResult = (output: any, context: __SerdeContext): ListInstanceProfilesResult => {
-  return {
-    instanceProfiles:
-      output.instanceProfiles != null ? de_InstanceProfiles(output.instanceProfiles, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListInstanceProfilesResult omitted.
 
 /**
  * deserializeAws_json1_1ListJobsResult
  */
 const de_ListJobsResult = (output: any, context: __SerdeContext): ListJobsResult => {
-  return {
-    jobs: output.jobs != null ? de_Jobs(output.jobs, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    jobs: (_: any) => de_Jobs(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListNetworkProfilesResult
- */
-const de_ListNetworkProfilesResult = (output: any, context: __SerdeContext): ListNetworkProfilesResult => {
-  return {
-    networkProfiles: output.networkProfiles != null ? de_NetworkProfiles(output.networkProfiles, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListNetworkProfilesResult omitted.
 
-/**
- * deserializeAws_json1_1ListOfferingPromotionsResult
- */
-const de_ListOfferingPromotionsResult = (output: any, context: __SerdeContext): ListOfferingPromotionsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    offeringPromotions:
-      output.offeringPromotions != null ? de_OfferingPromotions(output.offeringPromotions, context) : undefined,
-  } as any;
-};
+// de_ListOfferingPromotionsResult omitted.
 
 /**
  * deserializeAws_json1_1ListOfferingsResult
  */
 const de_ListOfferingsResult = (output: any, context: __SerdeContext): ListOfferingsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    offerings: output.offerings != null ? de_Offerings(output.offerings, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    offerings: (_: any) => de_Offerings(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListOfferingTransactionsResult
  */
 const de_ListOfferingTransactionsResult = (output: any, context: __SerdeContext): ListOfferingTransactionsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    offeringTransactions:
-      output.offeringTransactions != null ? de_OfferingTransactions(output.offeringTransactions, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    offeringTransactions: (_: any) => de_OfferingTransactions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListProjectsResult
  */
 const de_ListProjectsResult = (output: any, context: __SerdeContext): ListProjectsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    projects: output.projects != null ? de_Projects(output.projects, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    projects: (_: any) => de_Projects(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListRemoteAccessSessionsResult
  */
 const de_ListRemoteAccessSessionsResult = (output: any, context: __SerdeContext): ListRemoteAccessSessionsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    remoteAccessSessions:
-      output.remoteAccessSessions != null ? de_RemoteAccessSessions(output.remoteAccessSessions, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    remoteAccessSessions: (_: any) => de_RemoteAccessSessions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListRunsResult
  */
 const de_ListRunsResult = (output: any, context: __SerdeContext): ListRunsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    runs: output.runs != null ? de_Runs(output.runs, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    runs: (_: any) => de_Runs(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListSamplesResult
- */
-const de_ListSamplesResult = (output: any, context: __SerdeContext): ListSamplesResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    samples: output.samples != null ? de_Samples(output.samples, context) : undefined,
-  } as any;
-};
+// de_ListSamplesResult omitted.
 
 /**
  * deserializeAws_json1_1ListSuitesResult
  */
 const de_ListSuitesResult = (output: any, context: __SerdeContext): ListSuitesResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    suites: output.suites != null ? de_Suites(output.suites, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    suites: (_: any) => de_Suites(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1ListTestGridProjectsResult
  */
 const de_ListTestGridProjectsResult = (output: any, context: __SerdeContext): ListTestGridProjectsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    testGridProjects:
-      output.testGridProjects != null ? de_TestGridProjects(output.testGridProjects, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    testGridProjects: (_: any) => de_TestGridProjects(_, context),
+  }) as any;
 };
 
 /**
@@ -8077,202 +6552,102 @@ const de_ListTestGridSessionActionsResult = (
   output: any,
   context: __SerdeContext
 ): ListTestGridSessionActionsResult => {
-  return {
-    actions: output.actions != null ? de_TestGridSessionActions(output.actions, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    actions: (_: any) => de_TestGridSessionActions(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTestGridSessionArtifactsResult
- */
-const de_ListTestGridSessionArtifactsResult = (
-  output: any,
-  context: __SerdeContext
-): ListTestGridSessionArtifactsResult => {
-  return {
-    artifacts: output.artifacts != null ? de_TestGridSessionArtifacts(output.artifacts, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListTestGridSessionArtifactsResult omitted.
 
 /**
  * deserializeAws_json1_1ListTestGridSessionsResult
  */
 const de_ListTestGridSessionsResult = (output: any, context: __SerdeContext): ListTestGridSessionsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    testGridSessions:
-      output.testGridSessions != null ? de_TestGridSessions(output.testGridSessions, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    testGridSessions: (_: any) => de_TestGridSessions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListTestsResult
  */
 const de_ListTestsResult = (output: any, context: __SerdeContext): ListTestsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tests: output.tests != null ? de_Tests(output.tests, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    tests: (_: any) => de_Tests(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListUniqueProblemsResult
  */
 const de_ListUniqueProblemsResult = (output: any, context: __SerdeContext): ListUniqueProblemsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    uniqueProblems:
-      output.uniqueProblems != null ? de_UniqueProblemsByExecutionResultMap(output.uniqueProblems, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    uniqueProblems: (_: any) => de_UniqueProblemsByExecutionResultMap(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListUploadsResult
  */
 const de_ListUploadsResult = (output: any, context: __SerdeContext): ListUploadsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    uploads: output.uploads != null ? de_Uploads(output.uploads, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    uploads: (_: any) => de_Uploads(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListVPCEConfigurationsResult
- */
-const de_ListVPCEConfigurationsResult = (output: any, context: __SerdeContext): ListVPCEConfigurationsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    vpceConfigurations:
-      output.vpceConfigurations != null ? de_VPCEConfigurations(output.vpceConfigurations, context) : undefined,
-  } as any;
-};
+// de_ListVPCEConfigurationsResult omitted.
 
 /**
  * deserializeAws_json1_1Location
  */
 const de_Location = (output: any, context: __SerdeContext): Location => {
-  return {
-    latitude: __limitedParseDouble(output.latitude),
-    longitude: __limitedParseDouble(output.longitude),
-  } as any;
+  return take(output, {
+    latitude: __limitedParseDouble,
+    longitude: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1MaxSlotMap
- */
-const de_MaxSlotMap = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_MaxSlotMap omitted.
 
 /**
  * deserializeAws_json1_1MonetaryAmount
  */
 const de_MonetaryAmount = (output: any, context: __SerdeContext): MonetaryAmount => {
-  return {
-    amount: __limitedParseDouble(output.amount),
-    currencyCode: __expectString(output.currencyCode),
-  } as any;
+  return take(output, {
+    amount: __limitedParseDouble,
+    currencyCode: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1NetworkProfile
- */
-const de_NetworkProfile = (output: any, context: __SerdeContext): NetworkProfile => {
-  return {
-    arn: __expectString(output.arn),
-    description: __expectString(output.description),
-    downlinkBandwidthBits: __expectLong(output.downlinkBandwidthBits),
-    downlinkDelayMs: __expectLong(output.downlinkDelayMs),
-    downlinkJitterMs: __expectLong(output.downlinkJitterMs),
-    downlinkLossPercent: __expectInt32(output.downlinkLossPercent),
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-    uplinkBandwidthBits: __expectLong(output.uplinkBandwidthBits),
-    uplinkDelayMs: __expectLong(output.uplinkDelayMs),
-    uplinkJitterMs: __expectLong(output.uplinkJitterMs),
-    uplinkLossPercent: __expectInt32(output.uplinkLossPercent),
-  } as any;
-};
+// de_NetworkProfile omitted.
 
-/**
- * deserializeAws_json1_1NetworkProfiles
- */
-const de_NetworkProfiles = (output: any, context: __SerdeContext): NetworkProfile[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NetworkProfile(entry, context);
-    });
-  return retVal;
-};
+// de_NetworkProfiles omitted.
 
-/**
- * deserializeAws_json1_1NotEligibleException
- */
-const de_NotEligibleException = (output: any, context: __SerdeContext): NotEligibleException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NotEligibleException omitted.
 
-/**
- * deserializeAws_json1_1NotFoundException
- */
-const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NotFoundException omitted.
 
 /**
  * deserializeAws_json1_1Offering
  */
 const de_Offering = (output: any, context: __SerdeContext): Offering => {
-  return {
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    platform: __expectString(output.platform),
-    recurringCharges:
-      output.recurringCharges != null ? de_RecurringCharges(output.recurringCharges, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    description: __expectString,
+    id: __expectString,
+    platform: __expectString,
+    recurringCharges: (_: any) => de_RecurringCharges(_, context),
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OfferingPromotion
- */
-const de_OfferingPromotion = (output: any, context: __SerdeContext): OfferingPromotion => {
-  return {
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_OfferingPromotion omitted.
 
-/**
- * deserializeAws_json1_1OfferingPromotions
- */
-const de_OfferingPromotions = (output: any, context: __SerdeContext): OfferingPromotion[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OfferingPromotion(entry, context);
-    });
-  return retVal;
-};
+// de_OfferingPromotions omitted.
 
 /**
  * deserializeAws_json1_1Offerings
@@ -8281,9 +6656,6 @@ const de_Offerings = (output: any, context: __SerdeContext): Offering[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Offering(entry, context);
     });
   return retVal;
@@ -8293,15 +6665,12 @@ const de_Offerings = (output: any, context: __SerdeContext): Offering[] => {
  * deserializeAws_json1_1OfferingStatus
  */
 const de_OfferingStatus = (output: any, context: __SerdeContext): OfferingStatus => {
-  return {
-    effectiveOn:
-      output.effectiveOn != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.effectiveOn)))
-        : undefined,
-    offering: output.offering != null ? de_Offering(output.offering, context) : undefined,
-    quantity: __expectInt32(output.quantity),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    effectiveOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    offering: (_: any) => de_Offering(_, context),
+    quantity: __expectInt32,
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -8321,14 +6690,13 @@ const de_OfferingStatusMap = (output: any, context: __SerdeContext): Record<stri
  * deserializeAws_json1_1OfferingTransaction
  */
 const de_OfferingTransaction = (output: any, context: __SerdeContext): OfferingTransaction => {
-  return {
-    cost: output.cost != null ? de_MonetaryAmount(output.cost, context) : undefined,
-    createdOn:
-      output.createdOn != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdOn))) : undefined,
-    offeringPromotionId: __expectString(output.offeringPromotionId),
-    offeringStatus: output.offeringStatus != null ? de_OfferingStatus(output.offeringStatus, context) : undefined,
-    transactionId: __expectString(output.transactionId),
-  } as any;
+  return take(output, {
+    cost: (_: any) => de_MonetaryAmount(_, context),
+    createdOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    offeringPromotionId: __expectString,
+    offeringStatus: (_: any) => de_OfferingStatus(_, context),
+    transactionId: __expectString,
+  }) as any;
 };
 
 /**
@@ -8338,53 +6706,29 @@ const de_OfferingTransactions = (output: any, context: __SerdeContext): Offering
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OfferingTransaction(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1PackageIds
- */
-const de_PackageIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PackageIds omitted.
 
 /**
  * deserializeAws_json1_1Problem
  */
 const de_Problem = (output: any, context: __SerdeContext): Problem => {
-  return {
-    device: output.device != null ? de_Device(output.device, context) : undefined,
-    job: output.job != null ? de_ProblemDetail(output.job, context) : undefined,
-    message: __expectString(output.message),
-    result: __expectString(output.result),
-    run: output.run != null ? de_ProblemDetail(output.run, context) : undefined,
-    suite: output.suite != null ? de_ProblemDetail(output.suite, context) : undefined,
-    test: output.test != null ? de_ProblemDetail(output.test, context) : undefined,
-  } as any;
+  return take(output, {
+    device: (_: any) => de_Device(_, context),
+    job: _json,
+    message: __expectString,
+    result: __expectString,
+    run: _json,
+    suite: _json,
+    test: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ProblemDetail
- */
-const de_ProblemDetail = (output: any, context: __SerdeContext): ProblemDetail => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ProblemDetail omitted.
 
 /**
  * deserializeAws_json1_1Problems
@@ -8393,9 +6737,6 @@ const de_Problems = (output: any, context: __SerdeContext): Problem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Problem(entry, context);
     });
   return retVal;
@@ -8405,14 +6746,13 @@ const de_Problems = (output: any, context: __SerdeContext): Problem[] => {
  * deserializeAws_json1_1Project
  */
 const de_Project = (output: any, context: __SerdeContext): Project => {
-  return {
-    arn: __expectString(output.arn),
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    defaultJobTimeoutMinutes: __expectInt32(output.defaultJobTimeoutMinutes),
-    name: __expectString(output.name),
-    vpcConfig: output.vpcConfig != null ? de_VpcConfig(output.vpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultJobTimeoutMinutes: __expectInt32,
+    name: __expectString,
+    vpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -8422,57 +6762,32 @@ const de_Projects = (output: any, context: __SerdeContext): Project[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Project(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1PurchasedDevicesMap
- */
-const de_PurchasedDevicesMap = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [DevicePlatform | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_PurchasedDevicesMap omitted.
 
 /**
  * deserializeAws_json1_1PurchaseOfferingResult
  */
 const de_PurchaseOfferingResult = (output: any, context: __SerdeContext): PurchaseOfferingResult => {
-  return {
-    offeringTransaction:
-      output.offeringTransaction != null ? de_OfferingTransaction(output.offeringTransaction, context) : undefined,
-  } as any;
+  return take(output, {
+    offeringTransaction: (_: any) => de_OfferingTransaction(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Radios
- */
-const de_Radios = (output: any, context: __SerdeContext): Radios => {
-  return {
-    bluetooth: __expectBoolean(output.bluetooth),
-    gps: __expectBoolean(output.gps),
-    nfc: __expectBoolean(output.nfc),
-    wifi: __expectBoolean(output.wifi),
-  } as any;
-};
+// de_Radios omitted.
 
 /**
  * deserializeAws_json1_1RecurringCharge
  */
 const de_RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
-  return {
-    cost: output.cost != null ? de_MonetaryAmount(output.cost, context) : undefined,
-    frequency: __expectString(output.frequency),
-  } as any;
+  return take(output, {
+    cost: (_: any) => de_MonetaryAmount(_, context),
+    frequency: __expectString,
+  }) as any;
 };
 
 /**
@@ -8482,9 +6797,6 @@ const de_RecurringCharges = (output: any, context: __SerdeContext): RecurringCha
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecurringCharge(entry, context);
     });
   return retVal;
@@ -8494,33 +6806,30 @@ const de_RecurringCharges = (output: any, context: __SerdeContext): RecurringCha
  * deserializeAws_json1_1RemoteAccessSession
  */
 const de_RemoteAccessSession = (output: any, context: __SerdeContext): RemoteAccessSession => {
-  return {
-    arn: __expectString(output.arn),
-    billingMethod: __expectString(output.billingMethod),
-    clientId: __expectString(output.clientId),
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    device: output.device != null ? de_Device(output.device, context) : undefined,
-    deviceMinutes: output.deviceMinutes != null ? de_DeviceMinutes(output.deviceMinutes, context) : undefined,
-    deviceUdid: __expectString(output.deviceUdid),
-    endpoint: __expectString(output.endpoint),
-    hostAddress: __expectString(output.hostAddress),
-    instanceArn: __expectString(output.instanceArn),
-    interactionMode: __expectString(output.interactionMode),
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-    remoteDebugEnabled: __expectBoolean(output.remoteDebugEnabled),
-    remoteRecordAppArn: __expectString(output.remoteRecordAppArn),
-    remoteRecordEnabled: __expectBoolean(output.remoteRecordEnabled),
-    result: __expectString(output.result),
-    skipAppResign: __expectBoolean(output.skipAppResign),
-    started:
-      output.started != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
-    status: __expectString(output.status),
-    stopped:
-      output.stopped != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
-    vpcConfig: output.vpcConfig != null ? de_VpcConfig(output.vpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    billingMethod: __expectString,
+    clientId: __expectString,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    device: (_: any) => de_Device(_, context),
+    deviceMinutes: (_: any) => de_DeviceMinutes(_, context),
+    deviceUdid: __expectString,
+    endpoint: __expectString,
+    hostAddress: __expectString,
+    instanceArn: __expectString,
+    interactionMode: __expectString,
+    message: __expectString,
+    name: __expectString,
+    remoteDebugEnabled: __expectBoolean,
+    remoteRecordAppArn: __expectString,
+    remoteRecordEnabled: __expectBoolean,
+    result: __expectString,
+    skipAppResign: __expectBoolean,
+    started: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    stopped: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -8530,9 +6839,6 @@ const de_RemoteAccessSessions = (output: any, context: __SerdeContext): RemoteAc
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RemoteAccessSession(entry, context);
     });
   return retVal;
@@ -8542,95 +6848,55 @@ const de_RemoteAccessSessions = (output: any, context: __SerdeContext): RemoteAc
  * deserializeAws_json1_1RenewOfferingResult
  */
 const de_RenewOfferingResult = (output: any, context: __SerdeContext): RenewOfferingResult => {
-  return {
-    offeringTransaction:
-      output.offeringTransaction != null ? de_OfferingTransaction(output.offeringTransaction, context) : undefined,
-  } as any;
+  return take(output, {
+    offeringTransaction: (_: any) => de_OfferingTransaction(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Resolution
- */
-const de_Resolution = (output: any, context: __SerdeContext): Resolution => {
-  return {
-    height: __expectInt32(output.height),
-    width: __expectInt32(output.width),
-  } as any;
-};
+// de_Resolution omitted.
 
-/**
- * deserializeAws_json1_1Rule
- */
-const de_Rule = (output: any, context: __SerdeContext): Rule => {
-  return {
-    attribute: __expectString(output.attribute),
-    operator: __expectString(output.operator),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Rule omitted.
 
-/**
- * deserializeAws_json1_1Rules
- */
-const de_Rules = (output: any, context: __SerdeContext): Rule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Rule(entry, context);
-    });
-  return retVal;
-};
+// de_Rules omitted.
 
 /**
  * deserializeAws_json1_1Run
  */
 const de_Run = (output: any, context: __SerdeContext): Run => {
-  return {
-    appUpload: __expectString(output.appUpload),
-    arn: __expectString(output.arn),
-    billingMethod: __expectString(output.billingMethod),
-    completedJobs: __expectInt32(output.completedJobs),
-    counters: output.counters != null ? de_Counters(output.counters, context) : undefined,
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    customerArtifactPaths:
-      output.customerArtifactPaths != null
-        ? de_CustomerArtifactPaths(output.customerArtifactPaths, context)
-        : undefined,
-    deviceMinutes: output.deviceMinutes != null ? de_DeviceMinutes(output.deviceMinutes, context) : undefined,
-    devicePoolArn: __expectString(output.devicePoolArn),
-    deviceSelectionResult:
-      output.deviceSelectionResult != null
-        ? de_DeviceSelectionResult(output.deviceSelectionResult, context)
-        : undefined,
-    eventCount: __expectInt32(output.eventCount),
-    jobTimeoutMinutes: __expectInt32(output.jobTimeoutMinutes),
-    locale: __expectString(output.locale),
-    location: output.location != null ? de_Location(output.location, context) : undefined,
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-    networkProfile: output.networkProfile != null ? de_NetworkProfile(output.networkProfile, context) : undefined,
-    parsingResultUrl: __expectString(output.parsingResultUrl),
-    platform: __expectString(output.platform),
-    radios: output.radios != null ? de_Radios(output.radios, context) : undefined,
-    result: __expectString(output.result),
-    resultCode: __expectString(output.resultCode),
-    seed: __expectInt32(output.seed),
-    skipAppResign: __expectBoolean(output.skipAppResign),
-    started:
-      output.started != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
-    status: __expectString(output.status),
-    stopped:
-      output.stopped != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
-    testSpecArn: __expectString(output.testSpecArn),
-    totalJobs: __expectInt32(output.totalJobs),
-    type: __expectString(output.type),
-    vpcConfig: output.vpcConfig != null ? de_VpcConfig(output.vpcConfig, context) : undefined,
-    webUrl: __expectString(output.webUrl),
-  } as any;
+  return take(output, {
+    appUpload: __expectString,
+    arn: __expectString,
+    billingMethod: __expectString,
+    completedJobs: __expectInt32,
+    counters: _json,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerArtifactPaths: _json,
+    deviceMinutes: (_: any) => de_DeviceMinutes(_, context),
+    devicePoolArn: __expectString,
+    deviceSelectionResult: _json,
+    eventCount: __expectInt32,
+    jobTimeoutMinutes: __expectInt32,
+    locale: __expectString,
+    location: (_: any) => de_Location(_, context),
+    message: __expectString,
+    name: __expectString,
+    networkProfile: _json,
+    parsingResultUrl: __expectString,
+    platform: __expectString,
+    radios: _json,
+    result: __expectString,
+    resultCode: __expectString,
+    seed: __expectInt32,
+    skipAppResign: __expectBoolean,
+    started: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    stopped: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    testSpecArn: __expectString,
+    totalJobs: __expectInt32,
+    type: __expectString,
+    vpcConfig: _json,
+    webUrl: __expectString,
+  }) as any;
 };
 
 /**
@@ -8640,136 +6906,74 @@ const de_Runs = (output: any, context: __SerdeContext): Run[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Run(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Sample
- */
-const de_Sample = (output: any, context: __SerdeContext): Sample => {
-  return {
-    arn: __expectString(output.arn),
-    type: __expectString(output.type),
-    url: __expectString(output.url),
-  } as any;
-};
+// de_Sample omitted.
 
-/**
- * deserializeAws_json1_1Samples
- */
-const de_Samples = (output: any, context: __SerdeContext): Sample[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Sample(entry, context);
-    });
-  return retVal;
-};
+// de_Samples omitted.
 
 /**
  * deserializeAws_json1_1ScheduleRunResult
  */
 const de_ScheduleRunResult = (output: any, context: __SerdeContext): ScheduleRunResult => {
-  return {
-    run: output.run != null ? de_Run(output.run, context) : undefined,
-  } as any;
+  return take(output, {
+    run: (_: any) => de_Run(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
-/**
- * deserializeAws_json1_1ServiceAccountException
- */
-const de_ServiceAccountException = (output: any, context: __SerdeContext): ServiceAccountException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServiceAccountException omitted.
 
 /**
  * deserializeAws_json1_1StopJobResult
  */
 const de_StopJobResult = (output: any, context: __SerdeContext): StopJobResult => {
-  return {
-    job: output.job != null ? de_Job(output.job, context) : undefined,
-  } as any;
+  return take(output, {
+    job: (_: any) => de_Job(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1StopRemoteAccessSessionResult
  */
 const de_StopRemoteAccessSessionResult = (output: any, context: __SerdeContext): StopRemoteAccessSessionResult => {
-  return {
-    remoteAccessSession:
-      output.remoteAccessSession != null ? de_RemoteAccessSession(output.remoteAccessSession, context) : undefined,
-  } as any;
+  return take(output, {
+    remoteAccessSession: (_: any) => de_RemoteAccessSession(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1StopRunResult
  */
 const de_StopRunResult = (output: any, context: __SerdeContext): StopRunResult => {
-  return {
-    run: output.run != null ? de_Run(output.run, context) : undefined,
-  } as any;
+  return take(output, {
+    run: (_: any) => de_Run(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
 /**
  * deserializeAws_json1_1Suite
  */
 const de_Suite = (output: any, context: __SerdeContext): Suite => {
-  return {
-    arn: __expectString(output.arn),
-    counters: output.counters != null ? de_Counters(output.counters, context) : undefined,
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    deviceMinutes: output.deviceMinutes != null ? de_DeviceMinutes(output.deviceMinutes, context) : undefined,
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-    result: __expectString(output.result),
-    started:
-      output.started != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
-    status: __expectString(output.status),
-    stopped:
-      output.stopped != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    counters: _json,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deviceMinutes: (_: any) => de_DeviceMinutes(_, context),
+    message: __expectString,
+    name: __expectString,
+    result: __expectString,
+    started: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    stopped: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -8779,100 +6983,51 @@ const de_Suites = (output: any, context: __SerdeContext): Suite[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Suite(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagOperationException
- */
-const de_TagOperationException = (output: any, context: __SerdeContext): TagOperationException => {
-  return {
-    message: __expectString(output.message),
-    resourceName: __expectString(output.resourceName),
-  } as any;
-};
+// de_TagOperationException omitted.
 
-/**
- * deserializeAws_json1_1TagPolicyException
- */
-const de_TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
-  return {
-    message: __expectString(output.message),
-    resourceName: __expectString(output.resourceName),
-  } as any;
-};
+// de_TagPolicyException omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1Test
  */
 const de_Test = (output: any, context: __SerdeContext): Test => {
-  return {
-    arn: __expectString(output.arn),
-    counters: output.counters != null ? de_Counters(output.counters, context) : undefined,
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    deviceMinutes: output.deviceMinutes != null ? de_DeviceMinutes(output.deviceMinutes, context) : undefined,
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-    result: __expectString(output.result),
-    started:
-      output.started != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
-    status: __expectString(output.status),
-    stopped:
-      output.stopped != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    counters: _json,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deviceMinutes: (_: any) => de_DeviceMinutes(_, context),
+    message: __expectString,
+    name: __expectString,
+    result: __expectString,
+    started: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    stopped: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1TestGridProject
  */
 const de_TestGridProject = (output: any, context: __SerdeContext): TestGridProject => {
-  return {
-    arn: __expectString(output.arn),
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    vpcConfig: output.vpcConfig != null ? de_TestGridVpcConfig(output.vpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    name: __expectString,
+    vpcConfig: _json,
+  }) as any;
 };
 
 /**
@@ -8882,9 +7037,6 @@ const de_TestGridProjects = (output: any, context: __SerdeContext): TestGridProj
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TestGridProject(entry, context);
     });
   return retVal;
@@ -8894,29 +7046,27 @@ const de_TestGridProjects = (output: any, context: __SerdeContext): TestGridProj
  * deserializeAws_json1_1TestGridSession
  */
 const de_TestGridSession = (output: any, context: __SerdeContext): TestGridSession => {
-  return {
-    arn: __expectString(output.arn),
-    billingMinutes: __limitedParseDouble(output.billingMinutes),
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    ended: output.ended != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ended))) : undefined,
-    seleniumProperties: __expectString(output.seleniumProperties),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    billingMinutes: __limitedParseDouble,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ended: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    seleniumProperties: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1TestGridSessionAction
  */
 const de_TestGridSessionAction = (output: any, context: __SerdeContext): TestGridSessionAction => {
-  return {
-    action: __expectString(output.action),
-    duration: __expectLong(output.duration),
-    requestMethod: __expectString(output.requestMethod),
-    started:
-      output.started != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
-    statusCode: __expectString(output.statusCode),
-  } as any;
+  return take(output, {
+    action: __expectString,
+    duration: __expectLong,
+    requestMethod: __expectString,
+    started: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    statusCode: __expectString,
+  }) as any;
 };
 
 /**
@@ -8926,39 +7076,14 @@ const de_TestGridSessionActions = (output: any, context: __SerdeContext): TestGr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TestGridSessionAction(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1TestGridSessionArtifact
- */
-const de_TestGridSessionArtifact = (output: any, context: __SerdeContext): TestGridSessionArtifact => {
-  return {
-    filename: __expectString(output.filename),
-    type: __expectString(output.type),
-    url: __expectString(output.url),
-  } as any;
-};
+// de_TestGridSessionArtifact omitted.
 
-/**
- * deserializeAws_json1_1TestGridSessionArtifacts
- */
-const de_TestGridSessionArtifacts = (output: any, context: __SerdeContext): TestGridSessionArtifact[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TestGridSessionArtifact(entry, context);
-    });
-  return retVal;
-};
+// de_TestGridSessionArtifacts omitted.
 
 /**
  * deserializeAws_json1_1TestGridSessions
@@ -8967,25 +7092,12 @@ const de_TestGridSessions = (output: any, context: __SerdeContext): TestGridSess
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TestGridSession(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1TestGridVpcConfig
- */
-const de_TestGridVpcConfig = (output: any, context: __SerdeContext): TestGridVpcConfig => {
-  return {
-    securityGroupIds:
-      output.securityGroupIds != null ? de_SecurityGroupIds(output.securityGroupIds, context) : undefined,
-    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
+// de_TestGridVpcConfig omitted.
 
 /**
  * deserializeAws_json1_1Tests
@@ -8994,42 +7106,31 @@ const de_Tests = (output: any, context: __SerdeContext): Test[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Test(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-    resourceName: __expectString(output.resourceName),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
 /**
  * deserializeAws_json1_1TrialMinutes
  */
 const de_TrialMinutes = (output: any, context: __SerdeContext): TrialMinutes => {
-  return {
-    remaining: __limitedParseDouble(output.remaining),
-    total: __limitedParseDouble(output.total),
-  } as any;
+  return take(output, {
+    remaining: __limitedParseDouble,
+    total: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UniqueProblem
  */
 const de_UniqueProblem = (output: any, context: __SerdeContext): UniqueProblem => {
-  return {
-    message: __expectString(output.message),
-    problems: output.problems != null ? de_Problems(output.problems, context) : undefined,
-  } as any;
+  return take(output, {
+    message: __expectString,
+    problems: (_: any) => de_Problems(_, context),
+  }) as any;
 };
 
 /**
@@ -9039,9 +7140,6 @@ const de_UniqueProblems = (output: any, context: __SerdeContext): UniqueProblem[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UniqueProblem(entry, context);
     });
   return retVal;
@@ -9066,103 +7164,61 @@ const de_UniqueProblemsByExecutionResultMap = (
   );
 };
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateDeviceInstanceResult
- */
-const de_UpdateDeviceInstanceResult = (output: any, context: __SerdeContext): UpdateDeviceInstanceResult => {
-  return {
-    deviceInstance: output.deviceInstance != null ? de_DeviceInstance(output.deviceInstance, context) : undefined,
-  } as any;
-};
+// de_UpdateDeviceInstanceResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateDevicePoolResult
- */
-const de_UpdateDevicePoolResult = (output: any, context: __SerdeContext): UpdateDevicePoolResult => {
-  return {
-    devicePool: output.devicePool != null ? de_DevicePool(output.devicePool, context) : undefined,
-  } as any;
-};
+// de_UpdateDevicePoolResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateInstanceProfileResult
- */
-const de_UpdateInstanceProfileResult = (output: any, context: __SerdeContext): UpdateInstanceProfileResult => {
-  return {
-    instanceProfile: output.instanceProfile != null ? de_InstanceProfile(output.instanceProfile, context) : undefined,
-  } as any;
-};
+// de_UpdateInstanceProfileResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateNetworkProfileResult
- */
-const de_UpdateNetworkProfileResult = (output: any, context: __SerdeContext): UpdateNetworkProfileResult => {
-  return {
-    networkProfile: output.networkProfile != null ? de_NetworkProfile(output.networkProfile, context) : undefined,
-  } as any;
-};
+// de_UpdateNetworkProfileResult omitted.
 
 /**
  * deserializeAws_json1_1UpdateProjectResult
  */
 const de_UpdateProjectResult = (output: any, context: __SerdeContext): UpdateProjectResult => {
-  return {
-    project: output.project != null ? de_Project(output.project, context) : undefined,
-  } as any;
+  return take(output, {
+    project: (_: any) => de_Project(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateTestGridProjectResult
  */
 const de_UpdateTestGridProjectResult = (output: any, context: __SerdeContext): UpdateTestGridProjectResult => {
-  return {
-    testGridProject: output.testGridProject != null ? de_TestGridProject(output.testGridProject, context) : undefined,
-  } as any;
+  return take(output, {
+    testGridProject: (_: any) => de_TestGridProject(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateUploadResult
  */
 const de_UpdateUploadResult = (output: any, context: __SerdeContext): UpdateUploadResult => {
-  return {
-    upload: output.upload != null ? de_Upload(output.upload, context) : undefined,
-  } as any;
+  return take(output, {
+    upload: (_: any) => de_Upload(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateVPCEConfigurationResult
- */
-const de_UpdateVPCEConfigurationResult = (output: any, context: __SerdeContext): UpdateVPCEConfigurationResult => {
-  return {
-    vpceConfiguration:
-      output.vpceConfiguration != null ? de_VPCEConfiguration(output.vpceConfiguration, context) : undefined,
-  } as any;
-};
+// de_UpdateVPCEConfigurationResult omitted.
 
 /**
  * deserializeAws_json1_1Upload
  */
 const de_Upload = (output: any, context: __SerdeContext): Upload => {
-  return {
-    arn: __expectString(output.arn),
-    category: __expectString(output.category),
-    contentType: __expectString(output.contentType),
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    message: __expectString(output.message),
-    metadata: __expectString(output.metadata),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-    url: __expectString(output.url),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    category: __expectString,
+    contentType: __expectString,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    message: __expectString,
+    metadata: __expectString,
+    name: __expectString,
+    status: __expectString,
+    type: __expectString,
+    url: __expectString,
+  }) as any;
 };
 
 /**
@@ -9172,83 +7228,20 @@ const de_Uploads = (output: any, context: __SerdeContext): Upload[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Upload(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1VpcConfig
- */
-const de_VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
-  return {
-    securityGroupIds:
-      output.securityGroupIds != null ? de_VpcSecurityGroupIds(output.securityGroupIds, context) : undefined,
-    subnetIds: output.subnetIds != null ? de_VpcSubnetIds(output.subnetIds, context) : undefined,
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
+// de_VpcConfig omitted.
 
-/**
- * deserializeAws_json1_1VPCEConfiguration
- */
-const de_VPCEConfiguration = (output: any, context: __SerdeContext): VPCEConfiguration => {
-  return {
-    arn: __expectString(output.arn),
-    serviceDnsName: __expectString(output.serviceDnsName),
-    vpceConfigurationDescription: __expectString(output.vpceConfigurationDescription),
-    vpceConfigurationName: __expectString(output.vpceConfigurationName),
-    vpceServiceName: __expectString(output.vpceServiceName),
-  } as any;
-};
+// de_VPCEConfiguration omitted.
 
-/**
- * deserializeAws_json1_1VPCEConfigurations
- */
-const de_VPCEConfigurations = (output: any, context: __SerdeContext): VPCEConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VPCEConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_VPCEConfigurations omitted.
 
-/**
- * deserializeAws_json1_1VpcSecurityGroupIds
- */
-const de_VpcSecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_VpcSecurityGroupIds omitted.
 
-/**
- * deserializeAws_json1_1VpcSubnetIds
- */
-const de_VpcSubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_VpcSubnetIds omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -9270,6 +7263,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

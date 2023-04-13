@@ -1121,7 +1121,7 @@ const se_SparseStringMap = (input: Record<string, string>, context: __SerdeConte
  */
 const de_ComplexError = (output: any, context: __SerdeContext): ComplexError => {
   return take(output, {
-    Nested: (_) => de_ComplexNestedErrorData(_, context),
+    Nested: (_: any) => de_ComplexNestedErrorData(_, context),
     TopLevel: __expectString,
   }) as any;
 };
@@ -1140,7 +1140,7 @@ const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): Comple
  */
 const de_DatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
   return take(output, {
-    datetime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    datetime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
 
@@ -1159,7 +1159,7 @@ const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
 const de_ErrorWithMembers = (output: any, context: __SerdeContext): ErrorWithMembers => {
   return take(output, {
     Code: __expectString,
-    ComplexData: (_) => de_KitchenSink(_, context),
+    ComplexData: (_: any) => de_KitchenSink(_, context),
     IntegerField: __expectInt32,
     ListField: _json,
     MapField: _json,
@@ -1177,8 +1177,8 @@ const de_ErrorWithMembers = (output: any, context: __SerdeContext): ErrorWithMem
  */
 const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): FractionalSecondsOutput => {
   return take(output, {
-    datetime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
-    httpdate: (_) => __expectNonNull(__parseRfc7231DateTime(_)),
+    datetime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    httpdate: (_: any) => __expectNonNull(__parseRfc7231DateTime(_)),
   }) as any;
 };
 
@@ -1198,10 +1198,10 @@ const de_KitchenSink = (output: any, context: __SerdeContext): KitchenSink => {
     Double: __limitedParseDouble,
     EmptyStruct: _json,
     Float: __limitedParseFloat32,
-    HttpdateTimestamp: (_) => __expectNonNull(__parseRfc7231DateTime(_)),
+    HttpdateTimestamp: (_: any) => __expectNonNull(__parseRfc7231DateTime(_)),
     Integer: __expectInt32,
-    Iso8601Timestamp: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
-    JsonValue: (_) => new __LazyJsonString(_),
+    Iso8601Timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    JsonValue: (_: any) => new __LazyJsonString(_),
     ListOfLists: _json,
     ListOfMapsOfStrings: _json,
     ListOfStrings: _json,
@@ -1211,14 +1211,14 @@ const de_KitchenSink = (output: any, context: __SerdeContext): KitchenSink => {
     MapOfMaps: _json,
     MapOfStrings: _json,
     MapOfStructs: _json,
-    RecursiveList: (_) => de_ListOfKitchenSinks(_, context),
-    RecursiveMap: (_) => de_MapOfKitchenSinks(_, context),
-    RecursiveStruct: (_) => de_KitchenSink(_, context),
+    RecursiveList: (_: any) => de_ListOfKitchenSinks(_, context),
+    RecursiveMap: (_: any) => de_MapOfKitchenSinks(_, context),
+    RecursiveStruct: (_: any) => de_KitchenSink(_, context),
     SimpleStruct: _json,
     String: __expectString,
-    StructWithJsonName: (_) => de_StructWithJsonName(_, context),
-    Timestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    UnixTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StructWithJsonName: (_: any) => de_StructWithJsonName(_, context),
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UnixTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
@@ -1312,8 +1312,8 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
  */
 const de_NullOperationInputOutput = (output: any, context: __SerdeContext): NullOperationInputOutput => {
   return take(output, {
-    sparseStringList: (_) => de_SparseStringList(_, context),
-    sparseStringMap: (_) => de_SparseStringMap(_, context),
+    sparseStringList: (_: any) => de_SparseStringList(_, context),
+    sparseStringMap: (_: any) => de_SparseStringMap(_, context),
     string: __expectString,
   }) as any;
 };
@@ -1328,7 +1328,7 @@ const de_PutAndGetInlineDocumentsInputOutput = (
   context: __SerdeContext
 ): PutAndGetInlineDocumentsInputOutput => {
   return take(output, {
-    inlineDocument: (_) => de_Document(_, context),
+    inlineDocument: (_: any) => de_Document(_, context),
   }) as any;
 };
 
@@ -1361,7 +1361,7 @@ const de_StructWithJsonName = (output: any, context: __SerdeContext): StructWith
  */
 const de_UnionInputOutput = (output: any, context: __SerdeContext): UnionInputOutput => {
   return take(output, {
-    contents: (_) => de_MyUnion(__expectUnion(_), context),
+    contents: (_: any) => de_MyUnion(__expectUnion(_), context),
   }) as any;
 };
 

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -8,10 +9,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -33,7 +35,6 @@ import {
   AccessDeniedException,
   ConflictException,
   InternalServerException,
-  ManagedResourceSummary,
   ResourceNotFoundException,
   ThrottlingException,
   ValidationException,
@@ -171,12 +172,14 @@ export const se_StartZonalShiftCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts";
   let body: any;
-  body = JSON.stringify({
-    ...(input.awayFrom != null && { awayFrom: input.awayFrom }),
-    ...(input.comment != null && { comment: input.comment }),
-    ...(input.expiresIn != null && { expiresIn: input.expiresIn }),
-    ...(input.resourceIdentifier != null && { resourceIdentifier: input.resourceIdentifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      awayFrom: [],
+      comment: [],
+      expiresIn: [],
+      resourceIdentifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -210,10 +213,12 @@ export const se_UpdateZonalShiftCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.comment != null && { comment: input.comment }),
-    ...(input.expiresIn != null && { expiresIn: input.expiresIn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      comment: [],
+      expiresIn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -239,27 +244,16 @@ export const de_CancelZonalShiftCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.awayFrom != null) {
-    contents.awayFrom = __expectString(data.awayFrom);
-  }
-  if (data.comment != null) {
-    contents.comment = __expectString(data.comment);
-  }
-  if (data.expiryTime != null) {
-    contents.expiryTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expiryTime)));
-  }
-  if (data.resourceIdentifier != null) {
-    contents.resourceIdentifier = __expectString(data.resourceIdentifier);
-  }
-  if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.zonalShiftId != null) {
-    contents.zonalShiftId = __expectString(data.zonalShiftId);
-  }
+  const doc = take(data, {
+    awayFrom: __expectString,
+    comment: __expectString,
+    expiryTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceIdentifier: __expectString,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    zonalShiftId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -296,10 +290,9 @@ const de_CancelZonalShiftCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -319,18 +312,13 @@ export const de_GetManagedResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appliedWeights != null) {
-    contents.appliedWeights = de_AppliedWeights(data.appliedWeights, context);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.zonalShifts != null) {
-    contents.zonalShifts = de_ZonalShiftsInResource(data.zonalShifts, context);
-  }
+  const doc = take(data, {
+    appliedWeights: (_) => de_AppliedWeights(_, context),
+    arn: __expectString,
+    name: __expectString,
+    zonalShifts: (_) => de_ZonalShiftsInResource(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -364,10 +352,9 @@ const de_GetManagedResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -387,12 +374,11 @@ export const de_ListManagedResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.items != null) {
-    contents.items = de_ManagedResourceSummaries(data.items, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -423,10 +409,9 @@ const de_ListManagedResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -446,12 +431,11 @@ export const de_ListZonalShiftsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.items != null) {
-    contents.items = de_ZonalShiftSummaries(data.items, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    items: (_) => de_ZonalShiftSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -482,10 +466,9 @@ const de_ListZonalShiftsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -505,27 +488,16 @@ export const de_StartZonalShiftCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.awayFrom != null) {
-    contents.awayFrom = __expectString(data.awayFrom);
-  }
-  if (data.comment != null) {
-    contents.comment = __expectString(data.comment);
-  }
-  if (data.expiryTime != null) {
-    contents.expiryTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expiryTime)));
-  }
-  if (data.resourceIdentifier != null) {
-    contents.resourceIdentifier = __expectString(data.resourceIdentifier);
-  }
-  if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.zonalShiftId != null) {
-    contents.zonalShiftId = __expectString(data.zonalShiftId);
-  }
+  const doc = take(data, {
+    awayFrom: __expectString,
+    comment: __expectString,
+    expiryTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceIdentifier: __expectString,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    zonalShiftId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -562,10 +534,9 @@ const de_StartZonalShiftCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -585,27 +556,16 @@ export const de_UpdateZonalShiftCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.awayFrom != null) {
-    contents.awayFrom = __expectString(data.awayFrom);
-  }
-  if (data.comment != null) {
-    contents.comment = __expectString(data.comment);
-  }
-  if (data.expiryTime != null) {
-    contents.expiryTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expiryTime)));
-  }
-  if (data.resourceIdentifier != null) {
-    contents.resourceIdentifier = __expectString(data.resourceIdentifier);
-  }
-  if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.zonalShiftId != null) {
-    contents.zonalShiftId = __expectString(data.zonalShiftId);
-  }
+  const doc = take(data, {
+    awayFrom: __expectString,
+    comment: __expectString,
+    expiryTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceIdentifier: __expectString,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    zonalShiftId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -642,16 +602,15 @@ const de_UpdateZonalShiftCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -661,9 +620,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -677,15 +637,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
-  if (data.zonalShiftId != null) {
-    contents.zonalShiftId = __expectString(data.zonalShiftId);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+    zonalShiftId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -702,9 +659,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -721,9 +679,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -737,9 +696,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -753,12 +713,11 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -779,63 +738,25 @@ const de_AppliedWeights = (output: any, context: __SerdeContext): Record<string,
   }, {});
 };
 
-/**
- * deserializeAws_restJson1AvailabilityZones
- */
-const de_AvailabilityZones = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AvailabilityZones omitted.
 
-/**
- * deserializeAws_restJson1ManagedResourceSummaries
- */
-const de_ManagedResourceSummaries = (output: any, context: __SerdeContext): ManagedResourceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ManagedResourceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ManagedResourceSummaries omitted.
 
-/**
- * deserializeAws_restJson1ManagedResourceSummary
- */
-const de_ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
-  return {
-    arn: __expectString(output.arn),
-    availabilityZones:
-      output.availabilityZones != null ? de_AvailabilityZones(output.availabilityZones, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ManagedResourceSummary omitted.
 
 /**
  * deserializeAws_restJson1ZonalShiftInResource
  */
 const de_ZonalShiftInResource = (output: any, context: __SerdeContext): ZonalShiftInResource => {
-  return {
-    appliedStatus: __expectString(output.appliedStatus),
-    awayFrom: __expectString(output.awayFrom),
-    comment: __expectString(output.comment),
-    expiryTime:
-      output.expiryTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiryTime))) : undefined,
-    resourceIdentifier: __expectString(output.resourceIdentifier),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    zonalShiftId: __expectString(output.zonalShiftId),
-  } as any;
+  return take(output, {
+    appliedStatus: __expectString,
+    awayFrom: __expectString,
+    comment: __expectString,
+    expiryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceIdentifier: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    zonalShiftId: __expectString,
+  }) as any;
 };
 
 /**
@@ -845,9 +766,6 @@ const de_ZonalShiftsInResource = (output: any, context: __SerdeContext): ZonalSh
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ZonalShiftInResource(entry, context);
     });
   return retVal;
@@ -860,9 +778,6 @@ const de_ZonalShiftSummaries = (output: any, context: __SerdeContext): ZonalShif
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ZonalShiftSummary(entry, context);
     });
   return retVal;
@@ -872,17 +787,15 @@ const de_ZonalShiftSummaries = (output: any, context: __SerdeContext): ZonalShif
  * deserializeAws_restJson1ZonalShiftSummary
  */
 const de_ZonalShiftSummary = (output: any, context: __SerdeContext): ZonalShiftSummary => {
-  return {
-    awayFrom: __expectString(output.awayFrom),
-    comment: __expectString(output.comment),
-    expiryTime:
-      output.expiryTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiryTime))) : undefined,
-    resourceIdentifier: __expectString(output.resourceIdentifier),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    status: __expectString(output.status),
-    zonalShiftId: __expectString(output.zonalShiftId),
-  } as any;
+  return take(output, {
+    awayFrom: __expectString,
+    comment: __expectString,
+    expiryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceIdentifier: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    zonalShiftId: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

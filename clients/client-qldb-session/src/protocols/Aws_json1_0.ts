@@ -1,10 +1,11 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectLong as __expectLong,
   expectString as __expectString,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -16,19 +17,16 @@ import {
 import { SendCommandCommandInput, SendCommandCommandOutput } from "../commands/SendCommandCommand";
 import {
   AbortTransactionRequest,
-  AbortTransactionResult,
   BadRequestException,
   CapacityExceededException,
   CommitTransactionRequest,
   CommitTransactionResult,
   EndSessionRequest,
-  EndSessionResult,
   ExecuteStatementRequest,
   ExecuteStatementResult,
   FetchPageRequest,
   FetchPageResult,
   InvalidSessionException,
-  IOUsage,
   LimitExceededException,
   OccConflictException,
   Page,
@@ -36,10 +34,7 @@ import {
   SendCommandRequest,
   SendCommandResult,
   StartSessionRequest,
-  StartSessionResult,
   StartTransactionRequest,
-  StartTransactionResult,
-  TimingInformation,
   ValueHolder,
 } from "../models/models_0";
 import { QLDBSessionServiceException as __BaseException } from "../models/QLDBSessionServiceException";
@@ -74,7 +69,7 @@ export const de_SendCommandCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -110,10 +105,9 @@ const de_SendCommandCommandError = async (
       throw await de_RateExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -124,7 +118,7 @@ const de_SendCommandCommandError = async (
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BadRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -140,7 +134,7 @@ const de_CapacityExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<CapacityExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CapacityExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CapacityExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -156,7 +150,7 @@ const de_InvalidSessionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidSessionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidSessionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSessionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -172,7 +166,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -188,7 +182,7 @@ const de_OccConflictExceptionRes = async (
   context: __SerdeContext
 ): Promise<OccConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OccConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OccConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -204,7 +198,7 @@ const de_RateExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<RateExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RateExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RateExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -212,90 +206,52 @@ const de_RateExceededExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0AbortTransactionRequest
- */
-const se_AbortTransactionRequest = (input: AbortTransactionRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_AbortTransactionRequest omitted.
 
 /**
  * serializeAws_json1_0CommitTransactionRequest
  */
 const se_CommitTransactionRequest = (input: CommitTransactionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CommitDigest != null && { CommitDigest: context.base64Encoder(input.CommitDigest) }),
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  };
+  return take(input, {
+    CommitDigest: (_) => context.base64Encoder(_),
+    TransactionId: [],
+  });
 };
 
-/**
- * serializeAws_json1_0EndSessionRequest
- */
-const se_EndSessionRequest = (input: EndSessionRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_EndSessionRequest omitted.
 
 /**
  * serializeAws_json1_0ExecuteStatementRequest
  */
 const se_ExecuteStatementRequest = (input: ExecuteStatementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Parameters != null && { Parameters: se_StatementParameters(input.Parameters, context) }),
-    ...(input.Statement != null && { Statement: input.Statement }),
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  };
+  return take(input, {
+    Parameters: (_) => se_StatementParameters(_, context),
+    Statement: [],
+    TransactionId: [],
+  });
 };
 
-/**
- * serializeAws_json1_0FetchPageRequest
- */
-const se_FetchPageRequest = (input: FetchPageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
-  };
-};
+// se_FetchPageRequest omitted.
 
 /**
  * serializeAws_json1_0SendCommandRequest
  */
 const se_SendCommandRequest = (input: SendCommandRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AbortTransaction != null && {
-      AbortTransaction: se_AbortTransactionRequest(input.AbortTransaction, context),
-    }),
-    ...(input.CommitTransaction != null && {
-      CommitTransaction: se_CommitTransactionRequest(input.CommitTransaction, context),
-    }),
-    ...(input.EndSession != null && { EndSession: se_EndSessionRequest(input.EndSession, context) }),
-    ...(input.ExecuteStatement != null && {
-      ExecuteStatement: se_ExecuteStatementRequest(input.ExecuteStatement, context),
-    }),
-    ...(input.FetchPage != null && { FetchPage: se_FetchPageRequest(input.FetchPage, context) }),
-    ...(input.SessionToken != null && { SessionToken: input.SessionToken }),
-    ...(input.StartSession != null && { StartSession: se_StartSessionRequest(input.StartSession, context) }),
-    ...(input.StartTransaction != null && {
-      StartTransaction: se_StartTransactionRequest(input.StartTransaction, context),
-    }),
-  };
+  return take(input, {
+    AbortTransaction: (_) => _json(_),
+    CommitTransaction: (_) => se_CommitTransactionRequest(_, context),
+    EndSession: (_) => _json(_),
+    ExecuteStatement: (_) => se_ExecuteStatementRequest(_, context),
+    FetchPage: (_) => _json(_),
+    SessionToken: [],
+    StartSession: (_) => _json(_),
+    StartTransaction: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_0StartSessionRequest
- */
-const se_StartSessionRequest = (input: StartSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LedgerName != null && { LedgerName: input.LedgerName }),
-  };
-};
+// se_StartSessionRequest omitted.
 
-/**
- * serializeAws_json1_0StartTransactionRequest
- */
-const se_StartTransactionRequest = (input: StartTransactionRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_StartTransactionRequest omitted.
 
 /**
  * serializeAws_json1_0StatementParameters
@@ -312,203 +268,103 @@ const se_StatementParameters = (input: ValueHolder[], context: __SerdeContext): 
  * serializeAws_json1_0ValueHolder
  */
 const se_ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
-  return {
-    ...(input.IonBinary != null && { IonBinary: context.base64Encoder(input.IonBinary) }),
-    ...(input.IonText != null && { IonText: input.IonText }),
-  };
+  return take(input, {
+    IonBinary: (_) => context.base64Encoder(_),
+    IonText: [],
+  });
 };
 
-/**
- * deserializeAws_json1_0AbortTransactionResult
- */
-const de_AbortTransactionResult = (output: any, context: __SerdeContext): AbortTransactionResult => {
-  return {
-    TimingInformation:
-      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
-  } as any;
-};
+// de_AbortTransactionResult omitted.
 
-/**
- * deserializeAws_json1_0BadRequestException
- */
-const de_BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_BadRequestException omitted.
 
-/**
- * deserializeAws_json1_0CapacityExceededException
- */
-const de_CapacityExceededException = (output: any, context: __SerdeContext): CapacityExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_CapacityExceededException omitted.
 
 /**
  * deserializeAws_json1_0CommitTransactionResult
  */
 const de_CommitTransactionResult = (output: any, context: __SerdeContext): CommitTransactionResult => {
-  return {
-    CommitDigest: output.CommitDigest != null ? context.base64Decoder(output.CommitDigest) : undefined,
-    ConsumedIOs: output.ConsumedIOs != null ? de_IOUsage(output.ConsumedIOs, context) : undefined,
-    TimingInformation:
-      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
-    TransactionId: __expectString(output.TransactionId),
-  } as any;
+  return take(output, {
+    CommitDigest: context.base64Decoder,
+    ConsumedIOs: _json,
+    TimingInformation: _json,
+    TransactionId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0EndSessionResult
- */
-const de_EndSessionResult = (output: any, context: __SerdeContext): EndSessionResult => {
-  return {
-    TimingInformation:
-      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
-  } as any;
-};
+// de_EndSessionResult omitted.
 
 /**
  * deserializeAws_json1_0ExecuteStatementResult
  */
 const de_ExecuteStatementResult = (output: any, context: __SerdeContext): ExecuteStatementResult => {
-  return {
-    ConsumedIOs: output.ConsumedIOs != null ? de_IOUsage(output.ConsumedIOs, context) : undefined,
-    FirstPage: output.FirstPage != null ? de_Page(output.FirstPage, context) : undefined,
-    TimingInformation:
-      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
-  } as any;
+  return take(output, {
+    ConsumedIOs: _json,
+    FirstPage: (_: any) => de_Page(_, context),
+    TimingInformation: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0FetchPageResult
  */
 const de_FetchPageResult = (output: any, context: __SerdeContext): FetchPageResult => {
-  return {
-    ConsumedIOs: output.ConsumedIOs != null ? de_IOUsage(output.ConsumedIOs, context) : undefined,
-    Page: output.Page != null ? de_Page(output.Page, context) : undefined,
-    TimingInformation:
-      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
-  } as any;
+  return take(output, {
+    ConsumedIOs: _json,
+    Page: (_: any) => de_Page(_, context),
+    TimingInformation: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0InvalidSessionException
- */
-const de_InvalidSessionException = (output: any, context: __SerdeContext): InvalidSessionException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidSessionException omitted.
 
-/**
- * deserializeAws_json1_0IOUsage
- */
-const de_IOUsage = (output: any, context: __SerdeContext): IOUsage => {
-  return {
-    ReadIOs: __expectLong(output.ReadIOs),
-    WriteIOs: __expectLong(output.WriteIOs),
-  } as any;
-};
+// de_IOUsage omitted.
 
-/**
- * deserializeAws_json1_0LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_0OccConflictException
- */
-const de_OccConflictException = (output: any, context: __SerdeContext): OccConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_OccConflictException omitted.
 
 /**
  * deserializeAws_json1_0Page
  */
 const de_Page = (output: any, context: __SerdeContext): Page => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    Values: output.Values != null ? de_ValueHolders(output.Values, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    Values: (_: any) => de_ValueHolders(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0RateExceededException
- */
-const de_RateExceededException = (output: any, context: __SerdeContext): RateExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RateExceededException omitted.
 
 /**
  * deserializeAws_json1_0SendCommandResult
  */
 const de_SendCommandResult = (output: any, context: __SerdeContext): SendCommandResult => {
-  return {
-    AbortTransaction:
-      output.AbortTransaction != null ? de_AbortTransactionResult(output.AbortTransaction, context) : undefined,
-    CommitTransaction:
-      output.CommitTransaction != null ? de_CommitTransactionResult(output.CommitTransaction, context) : undefined,
-    EndSession: output.EndSession != null ? de_EndSessionResult(output.EndSession, context) : undefined,
-    ExecuteStatement:
-      output.ExecuteStatement != null ? de_ExecuteStatementResult(output.ExecuteStatement, context) : undefined,
-    FetchPage: output.FetchPage != null ? de_FetchPageResult(output.FetchPage, context) : undefined,
-    StartSession: output.StartSession != null ? de_StartSessionResult(output.StartSession, context) : undefined,
-    StartTransaction:
-      output.StartTransaction != null ? de_StartTransactionResult(output.StartTransaction, context) : undefined,
-  } as any;
+  return take(output, {
+    AbortTransaction: _json,
+    CommitTransaction: (_: any) => de_CommitTransactionResult(_, context),
+    EndSession: _json,
+    ExecuteStatement: (_: any) => de_ExecuteStatementResult(_, context),
+    FetchPage: (_: any) => de_FetchPageResult(_, context),
+    StartSession: _json,
+    StartTransaction: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0StartSessionResult
- */
-const de_StartSessionResult = (output: any, context: __SerdeContext): StartSessionResult => {
-  return {
-    SessionToken: __expectString(output.SessionToken),
-    TimingInformation:
-      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
-  } as any;
-};
+// de_StartSessionResult omitted.
 
-/**
- * deserializeAws_json1_0StartTransactionResult
- */
-const de_StartTransactionResult = (output: any, context: __SerdeContext): StartTransactionResult => {
-  return {
-    TimingInformation:
-      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
-    TransactionId: __expectString(output.TransactionId),
-  } as any;
-};
+// de_StartTransactionResult omitted.
 
-/**
- * deserializeAws_json1_0TimingInformation
- */
-const de_TimingInformation = (output: any, context: __SerdeContext): TimingInformation => {
-  return {
-    ProcessingTimeMilliseconds: __expectLong(output.ProcessingTimeMilliseconds),
-  } as any;
-};
+// de_TimingInformation omitted.
 
 /**
  * deserializeAws_json1_0ValueHolder
  */
 const de_ValueHolder = (output: any, context: __SerdeContext): ValueHolder => {
-  return {
-    IonBinary: output.IonBinary != null ? context.base64Decoder(output.IonBinary) : undefined,
-    IonText: __expectString(output.IonText),
-  } as any;
+  return take(output, {
+    IonBinary: context.base64Decoder,
+    IonText: __expectString,
+  }) as any;
 };
 
 /**
@@ -518,9 +374,6 @@ const de_ValueHolders = (output: any, context: __SerdeContext): ValueHolder[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ValueHolder(entry, context);
     });
   return retVal;
@@ -546,6 +399,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

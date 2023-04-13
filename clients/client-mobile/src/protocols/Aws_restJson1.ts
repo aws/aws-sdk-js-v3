@@ -1,16 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -31,14 +33,10 @@ import { MobileServiceException as __BaseException } from "../models/MobileServi
 import {
   AccountActionRequiredException,
   BadRequestException,
-  BundleDetails,
   InternalFailureException,
   LimitExceededException,
   NotFoundException,
-  Platform,
   ProjectDetails,
-  ProjectSummary,
-  Resource,
   ServiceUnavailableException,
   TooManyRequestsException,
   UnauthorizedException,
@@ -300,9 +298,10 @@ export const de_CreateProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.details != null) {
-    contents.details = de_ProjectDetails(data.details, context);
-  }
+  const doc = take(data, {
+    details: (_) => de_ProjectDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -342,10 +341,9 @@ const de_CreateProjectCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -365,12 +363,11 @@ export const de_DeleteProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deletedResources != null) {
-    contents.deletedResources = de_Resources(data.deletedResources, context);
-  }
-  if (data.orphanedResources != null) {
-    contents.orphanedResources = de_Resources(data.orphanedResources, context);
-  }
+  const doc = take(data, {
+    deletedResources: _json,
+    orphanedResources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -404,10 +401,9 @@ const de_DeleteProjectCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -427,9 +423,10 @@ export const de_DescribeBundleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.details != null) {
-    contents.details = de_BundleDetails(data.details, context);
-  }
+  const doc = take(data, {
+    details: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -466,10 +463,9 @@ const de_DescribeBundleCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -489,9 +485,10 @@ export const de_DescribeProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.details != null) {
-    contents.details = de_ProjectDetails(data.details, context);
-  }
+  const doc = take(data, {
+    details: (_) => de_ProjectDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -528,10 +525,9 @@ const de_DescribeProjectCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -551,9 +547,10 @@ export const de_ExportBundleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.downloadUrl != null) {
-    contents.downloadUrl = __expectString(data.downloadUrl);
-  }
+  const doc = take(data, {
+    downloadUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -590,10 +587,9 @@ const de_ExportBundleCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -613,15 +609,12 @@ export const de_ExportProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.downloadUrl != null) {
-    contents.downloadUrl = __expectString(data.downloadUrl);
-  }
-  if (data.shareUrl != null) {
-    contents.shareUrl = __expectString(data.shareUrl);
-  }
-  if (data.snapshotId != null) {
-    contents.snapshotId = __expectString(data.snapshotId);
-  }
+  const doc = take(data, {
+    downloadUrl: __expectString,
+    shareUrl: __expectString,
+    snapshotId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -658,10 +651,9 @@ const de_ExportProjectCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -681,12 +673,11 @@ export const de_ListBundlesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bundleList != null) {
-    contents.bundleList = de_BundleList(data.bundleList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    bundleList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -720,10 +711,9 @@ const de_ListBundlesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -743,12 +733,11 @@ export const de_ListProjectsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.projects != null) {
-    contents.projects = de_ProjectSummaries(data.projects, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    projects: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -782,10 +771,9 @@ const de_ListProjectsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -805,9 +793,10 @@ export const de_UpdateProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.details != null) {
-    contents.details = de_ProjectDetails(data.details, context);
-  }
+  const doc = take(data, {
+    details: (_) => de_ProjectDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -850,16 +839,15 @@ const de_UpdateProjectCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccountActionRequiredExceptionRes
  */
@@ -869,9 +857,10 @@ const de_AccountActionRequiredExceptionRes = async (
 ): Promise<AccountActionRequiredException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccountActionRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -885,9 +874,10 @@ const de_AccountActionRequiredExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -904,9 +894,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -925,9 +916,10 @@ const de_LimitExceededExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -941,9 +933,10 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -962,9 +955,10 @@ const de_ServiceUnavailableExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -983,9 +977,10 @@ const de_TooManyRequestsExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1002,9 +997,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1012,138 +1008,37 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * deserializeAws_restJson1Attributes
- */
-const de_Attributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Attributes omitted.
 
-/**
- * deserializeAws_restJson1BundleDetails
- */
-const de_BundleDetails = (output: any, context: __SerdeContext): BundleDetails => {
-  return {
-    availablePlatforms:
-      output.availablePlatforms != null ? de_Platforms(output.availablePlatforms, context) : undefined,
-    bundleId: __expectString(output.bundleId),
-    description: __expectString(output.description),
-    iconUrl: __expectString(output.iconUrl),
-    title: __expectString(output.title),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_BundleDetails omitted.
 
-/**
- * deserializeAws_restJson1BundleList
- */
-const de_BundleList = (output: any, context: __SerdeContext): BundleDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BundleDetails(entry, context);
-    });
-  return retVal;
-};
+// de_BundleList omitted.
 
-/**
- * deserializeAws_restJson1Platforms
- */
-const de_Platforms = (output: any, context: __SerdeContext): (Platform | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Platforms omitted.
 
 /**
  * deserializeAws_restJson1ProjectDetails
  */
 const de_ProjectDetails = (output: any, context: __SerdeContext): ProjectDetails => {
-  return {
-    consoleUrl: __expectString(output.consoleUrl),
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    lastUpdatedDate:
-      output.lastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-    projectId: __expectString(output.projectId),
-    region: __expectString(output.region),
-    resources: output.resources != null ? de_Resources(output.resources, context) : undefined,
-    state: __expectString(output.state),
-  } as any;
+  return take(output, {
+    consoleUrl: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    projectId: __expectString,
+    region: __expectString,
+    resources: _json,
+    state: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ProjectSummaries
- */
-const de_ProjectSummaries = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProjectSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ProjectSummaries omitted.
 
-/**
- * deserializeAws_restJson1ProjectSummary
- */
-const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
-  return {
-    name: __expectString(output.name),
-    projectId: __expectString(output.projectId),
-  } as any;
-};
+// de_ProjectSummary omitted.
 
-/**
- * deserializeAws_restJson1Resource
- */
-const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    arn: __expectString(output.arn),
-    attributes: output.attributes != null ? de_Attributes(output.attributes, context) : undefined,
-    feature: __expectString(output.feature),
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_Resource omitted.
 
-/**
- * deserializeAws_restJson1Resources
- */
-const de_Resources = (output: any, context: __SerdeContext): Resource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Resource(entry, context);
-    });
-  return retVal;
-};
+// de_Resources omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

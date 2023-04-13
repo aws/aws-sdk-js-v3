@@ -1,12 +1,9 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
-  expectString as __expectString,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -33,35 +30,22 @@ import {
 import { TagResourcesCommandInput, TagResourcesCommandOutput } from "../commands/TagResourcesCommand";
 import { UntagResourcesCommandInput, UntagResourcesCommandOutput } from "../commands/UntagResourcesCommand";
 import {
-  ComplianceDetails,
   ConcurrentModificationException,
   ConstraintViolationException,
   DescribeReportCreationInput,
-  DescribeReportCreationOutput,
-  FailureInfo,
   GetComplianceSummaryInput,
-  GetComplianceSummaryOutput,
   GetResourcesInput,
-  GetResourcesOutput,
   GetTagKeysInput,
-  GetTagKeysOutput,
   GetTagValuesInput,
-  GetTagValuesOutput,
   GroupByAttribute,
   InternalServiceException,
   InvalidParameterException,
   PaginationTokenExpiredException,
-  ResourceTagMapping,
   StartReportCreationInput,
-  StartReportCreationOutput,
-  Summary,
-  Tag,
   TagFilter,
   TagResourcesInput,
-  TagResourcesOutput,
   ThrottledException,
   UntagResourcesInput,
-  UntagResourcesOutput,
 } from "../models/models_0";
 import { ResourceGroupsTaggingAPIServiceException as __BaseException } from "../models/ResourceGroupsTaggingAPIServiceException";
 
@@ -74,7 +58,7 @@ export const se_DescribeReportCreationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeReportCreation");
   let body: any;
-  body = JSON.stringify(se_DescribeReportCreationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -87,7 +71,7 @@ export const se_GetComplianceSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetComplianceSummary");
   let body: any;
-  body = JSON.stringify(se_GetComplianceSummaryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -100,7 +84,7 @@ export const se_GetResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetResources");
   let body: any;
-  body = JSON.stringify(se_GetResourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -113,7 +97,7 @@ export const se_GetTagKeysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTagKeys");
   let body: any;
-  body = JSON.stringify(se_GetTagKeysInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -126,7 +110,7 @@ export const se_GetTagValuesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTagValues");
   let body: any;
-  body = JSON.stringify(se_GetTagValuesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -139,7 +123,7 @@ export const se_StartReportCreationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartReportCreation");
   let body: any;
-  body = JSON.stringify(se_StartReportCreationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -152,7 +136,7 @@ export const se_TagResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResources");
   let body: any;
-  body = JSON.stringify(se_TagResourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -165,7 +149,7 @@ export const se_UntagResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResources");
   let body: any;
-  body = JSON.stringify(se_UntagResourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -181,12 +165,12 @@ export const de_DescribeReportCreationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeReportCreationOutput(data, context);
+  contents = _json(data);
   const response: DescribeReportCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -216,10 +200,9 @@ const de_DescribeReportCreationCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -237,12 +220,12 @@ export const de_GetComplianceSummaryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetComplianceSummaryOutput(data, context);
+  contents = _json(data);
   const response: GetComplianceSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -272,10 +255,9 @@ const de_GetComplianceSummaryCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -293,12 +275,12 @@ export const de_GetResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetResourcesOutput(data, context);
+  contents = _json(data);
   const response: GetResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -328,10 +310,9 @@ const de_GetResourcesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -349,12 +330,12 @@ export const de_GetTagKeysCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetTagKeysOutput(data, context);
+  contents = _json(data);
   const response: GetTagKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -384,10 +365,9 @@ const de_GetTagKeysCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -405,12 +385,12 @@ export const de_GetTagValuesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetTagValuesOutput(data, context);
+  contents = _json(data);
   const response: GetTagValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -440,10 +420,9 @@ const de_GetTagValuesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -461,12 +440,12 @@ export const de_StartReportCreationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartReportCreationOutput(data, context);
+  contents = _json(data);
   const response: StartReportCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -499,10 +478,9 @@ const de_StartReportCreationCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -520,12 +498,12 @@ export const de_TagResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourcesOutput(data, context);
+  contents = _json(data);
   const response: TagResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -552,10 +530,9 @@ const de_TagResourcesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -573,12 +550,12 @@ export const de_UntagResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourcesOutput(data, context);
+  contents = _json(data);
   const response: UntagResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -605,10 +582,9 @@ const de_UntagResourcesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -622,7 +598,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -638,7 +614,7 @@ const de_ConstraintViolationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConstraintViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConstraintViolationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -654,7 +630,7 @@ const de_InternalServiceExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -670,7 +646,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -686,7 +662,7 @@ const de_PaginationTokenExpiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<PaginationTokenExpiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PaginationTokenExpiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PaginationTokenExpiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -699,7 +675,7 @@ const de_PaginationTokenExpiredExceptionRes = async (
  */
 const de_ThrottledExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -707,515 +683,95 @@ const de_ThrottledExceptionRes = async (parsedOutput: any, context: __SerdeConte
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1DescribeReportCreationInput
- */
-const se_DescribeReportCreationInput = (input: DescribeReportCreationInput, context: __SerdeContext): any => {
-  return {};
-};
+// se_DescribeReportCreationInput omitted.
 
-/**
- * serializeAws_json1_1GetComplianceSummaryInput
- */
-const se_GetComplianceSummaryInput = (input: GetComplianceSummaryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.GroupBy != null && { GroupBy: se_GroupBy(input.GroupBy, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-    ...(input.RegionFilters != null && { RegionFilters: se_RegionFilterList(input.RegionFilters, context) }),
-    ...(input.ResourceTypeFilters != null && {
-      ResourceTypeFilters: se_ResourceTypeFilterList(input.ResourceTypeFilters, context),
-    }),
-    ...(input.TagKeyFilters != null && { TagKeyFilters: se_TagKeyFilterList(input.TagKeyFilters, context) }),
-    ...(input.TargetIdFilters != null && { TargetIdFilters: se_TargetIdFilterList(input.TargetIdFilters, context) }),
-  };
-};
+// se_GetComplianceSummaryInput omitted.
 
-/**
- * serializeAws_json1_1GetResourcesInput
- */
-const se_GetResourcesInput = (input: GetResourcesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ExcludeCompliantResources != null && { ExcludeCompliantResources: input.ExcludeCompliantResources }),
-    ...(input.IncludeComplianceDetails != null && { IncludeComplianceDetails: input.IncludeComplianceDetails }),
-    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-    ...(input.ResourceARNList != null && { ResourceARNList: se_ResourceARNListForGet(input.ResourceARNList, context) }),
-    ...(input.ResourceTypeFilters != null && {
-      ResourceTypeFilters: se_ResourceTypeFilterList(input.ResourceTypeFilters, context),
-    }),
-    ...(input.ResourcesPerPage != null && { ResourcesPerPage: input.ResourcesPerPage }),
-    ...(input.TagFilters != null && { TagFilters: se_TagFilterList(input.TagFilters, context) }),
-    ...(input.TagsPerPage != null && { TagsPerPage: input.TagsPerPage }),
-  };
-};
+// se_GetResourcesInput omitted.
 
-/**
- * serializeAws_json1_1GetTagKeysInput
- */
-const se_GetTagKeysInput = (input: GetTagKeysInput, context: __SerdeContext): any => {
-  return {
-    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-  };
-};
+// se_GetTagKeysInput omitted.
 
-/**
- * serializeAws_json1_1GetTagValuesInput
- */
-const se_GetTagValuesInput = (input: GetTagValuesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-  };
-};
+// se_GetTagValuesInput omitted.
 
-/**
- * serializeAws_json1_1GroupBy
- */
-const se_GroupBy = (input: (GroupByAttribute | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_GroupBy omitted.
 
-/**
- * serializeAws_json1_1RegionFilterList
- */
-const se_RegionFilterList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RegionFilterList omitted.
 
-/**
- * serializeAws_json1_1ResourceARNListForGet
- */
-const se_ResourceARNListForGet = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceARNListForGet omitted.
 
-/**
- * serializeAws_json1_1ResourceARNListForTagUntag
- */
-const se_ResourceARNListForTagUntag = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceARNListForTagUntag omitted.
 
-/**
- * serializeAws_json1_1ResourceTypeFilterList
- */
-const se_ResourceTypeFilterList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTypeFilterList omitted.
 
-/**
- * serializeAws_json1_1StartReportCreationInput
- */
-const se_StartReportCreationInput = (input: StartReportCreationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-  };
-};
+// se_StartReportCreationInput omitted.
 
-/**
- * serializeAws_json1_1TagFilter
- */
-const se_TagFilter = (input: TagFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Values != null && { Values: se_TagValueList(input.Values, context) }),
-  };
-};
+// se_TagFilter omitted.
 
-/**
- * serializeAws_json1_1TagFilterList
- */
-const se_TagFilterList = (input: TagFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TagFilter(entry, context);
-    });
-};
+// se_TagFilterList omitted.
 
-/**
- * serializeAws_json1_1TagKeyFilterList
- */
-const se_TagKeyFilterList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyFilterList omitted.
 
-/**
- * serializeAws_json1_1TagKeyListForUntag
- */
-const se_TagKeyListForUntag = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyListForUntag omitted.
 
-/**
- * serializeAws_json1_1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_json1_1TagResourcesInput
- */
-const se_TagResourcesInput = (input: TagResourcesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARNList != null && {
-      ResourceARNList: se_ResourceARNListForTagUntag(input.ResourceARNList, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  };
-};
+// se_TagResourcesInput omitted.
 
-/**
- * serializeAws_json1_1TagValueList
- */
-const se_TagValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagValueList omitted.
 
-/**
- * serializeAws_json1_1TargetIdFilterList
- */
-const se_TargetIdFilterList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TargetIdFilterList omitted.
 
-/**
- * serializeAws_json1_1UntagResourcesInput
- */
-const se_UntagResourcesInput = (input: UntagResourcesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARNList != null && {
-      ResourceARNList: se_ResourceARNListForTagUntag(input.ResourceARNList, context),
-    }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyListForUntag(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourcesInput omitted.
 
-/**
- * deserializeAws_json1_1ComplianceDetails
- */
-const de_ComplianceDetails = (output: any, context: __SerdeContext): ComplianceDetails => {
-  return {
-    ComplianceStatus: __expectBoolean(output.ComplianceStatus),
-    KeysWithNoncompliantValues:
-      output.KeysWithNoncompliantValues != null ? de_TagKeyList(output.KeysWithNoncompliantValues, context) : undefined,
-    NoncompliantKeys: output.NoncompliantKeys != null ? de_TagKeyList(output.NoncompliantKeys, context) : undefined,
-  } as any;
-};
+// de_ComplianceDetails omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_1ConstraintViolationException
- */
-const de_ConstraintViolationException = (output: any, context: __SerdeContext): ConstraintViolationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConstraintViolationException omitted.
 
-/**
- * deserializeAws_json1_1DescribeReportCreationOutput
- */
-const de_DescribeReportCreationOutput = (output: any, context: __SerdeContext): DescribeReportCreationOutput => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    S3Location: __expectString(output.S3Location),
-    StartDate: __expectString(output.StartDate),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DescribeReportCreationOutput omitted.
 
-/**
- * deserializeAws_json1_1FailedResourcesMap
- */
-const de_FailedResourcesMap = (output: any, context: __SerdeContext): Record<string, FailureInfo> => {
-  return Object.entries(output).reduce((acc: Record<string, FailureInfo>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_FailureInfo(value, context);
-    return acc;
-  }, {});
-};
+// de_FailedResourcesMap omitted.
 
-/**
- * deserializeAws_json1_1FailureInfo
- */
-const de_FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    StatusCode: __expectInt32(output.StatusCode),
-  } as any;
-};
+// de_FailureInfo omitted.
 
-/**
- * deserializeAws_json1_1GetComplianceSummaryOutput
- */
-const de_GetComplianceSummaryOutput = (output: any, context: __SerdeContext): GetComplianceSummaryOutput => {
-  return {
-    PaginationToken: __expectString(output.PaginationToken),
-    SummaryList: output.SummaryList != null ? de_SummaryList(output.SummaryList, context) : undefined,
-  } as any;
-};
+// de_GetComplianceSummaryOutput omitted.
 
-/**
- * deserializeAws_json1_1GetResourcesOutput
- */
-const de_GetResourcesOutput = (output: any, context: __SerdeContext): GetResourcesOutput => {
-  return {
-    PaginationToken: __expectString(output.PaginationToken),
-    ResourceTagMappingList:
-      output.ResourceTagMappingList != null
-        ? de_ResourceTagMappingList(output.ResourceTagMappingList, context)
-        : undefined,
-  } as any;
-};
+// de_GetResourcesOutput omitted.
 
-/**
- * deserializeAws_json1_1GetTagKeysOutput
- */
-const de_GetTagKeysOutput = (output: any, context: __SerdeContext): GetTagKeysOutput => {
-  return {
-    PaginationToken: __expectString(output.PaginationToken),
-    TagKeys: output.TagKeys != null ? de_TagKeyList(output.TagKeys, context) : undefined,
-  } as any;
-};
+// de_GetTagKeysOutput omitted.
 
-/**
- * deserializeAws_json1_1GetTagValuesOutput
- */
-const de_GetTagValuesOutput = (output: any, context: __SerdeContext): GetTagValuesOutput => {
-  return {
-    PaginationToken: __expectString(output.PaginationToken),
-    TagValues: output.TagValues != null ? de_TagValuesOutputList(output.TagValues, context) : undefined,
-  } as any;
-};
+// de_GetTagValuesOutput omitted.
 
-/**
- * deserializeAws_json1_1InternalServiceException
- */
-const de_InternalServiceException = (output: any, context: __SerdeContext): InternalServiceException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServiceException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1PaginationTokenExpiredException
- */
-const de_PaginationTokenExpiredException = (output: any, context: __SerdeContext): PaginationTokenExpiredException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PaginationTokenExpiredException omitted.
 
-/**
- * deserializeAws_json1_1ResourceTagMapping
- */
-const de_ResourceTagMapping = (output: any, context: __SerdeContext): ResourceTagMapping => {
-  return {
-    ComplianceDetails:
-      output.ComplianceDetails != null ? de_ComplianceDetails(output.ComplianceDetails, context) : undefined,
-    ResourceARN: __expectString(output.ResourceARN),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ResourceTagMapping omitted.
 
-/**
- * deserializeAws_json1_1ResourceTagMappingList
- */
-const de_ResourceTagMappingList = (output: any, context: __SerdeContext): ResourceTagMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceTagMapping(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceTagMappingList omitted.
 
-/**
- * deserializeAws_json1_1StartReportCreationOutput
- */
-const de_StartReportCreationOutput = (output: any, context: __SerdeContext): StartReportCreationOutput => {
-  return {} as any;
-};
+// de_StartReportCreationOutput omitted.
 
-/**
- * deserializeAws_json1_1Summary
- */
-const de_Summary = (output: any, context: __SerdeContext): Summary => {
-  return {
-    LastUpdated: __expectString(output.LastUpdated),
-    NonCompliantResources: __expectLong(output.NonCompliantResources),
-    Region: __expectString(output.Region),
-    ResourceType: __expectString(output.ResourceType),
-    TargetId: __expectString(output.TargetId),
-    TargetIdType: __expectString(output.TargetIdType),
-  } as any;
-};
+// de_Summary omitted.
 
-/**
- * deserializeAws_json1_1SummaryList
- */
-const de_SummaryList = (output: any, context: __SerdeContext): Summary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Summary(entry, context);
-    });
-  return retVal;
-};
+// de_SummaryList omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagKeyList
- */
-const de_TagKeyList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagKeyList omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourcesOutput
- */
-const de_TagResourcesOutput = (output: any, context: __SerdeContext): TagResourcesOutput => {
-  return {
-    FailedResourcesMap:
-      output.FailedResourcesMap != null ? de_FailedResourcesMap(output.FailedResourcesMap, context) : undefined,
-  } as any;
-};
+// de_TagResourcesOutput omitted.
 
-/**
- * deserializeAws_json1_1TagValuesOutputList
- */
-const de_TagValuesOutputList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagValuesOutputList omitted.
 
-/**
- * deserializeAws_json1_1ThrottledException
- */
-const de_ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottledException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourcesOutput
- */
-const de_UntagResourcesOutput = (output: any, context: __SerdeContext): UntagResourcesOutput => {
-  return {
-    FailedResourcesMap:
-      output.FailedResourcesMap != null ? de_FailedResourcesMap(output.FailedResourcesMap, context) : undefined,
-  } as any;
-};
+// de_UntagResourcesOutput omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1237,6 +793,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

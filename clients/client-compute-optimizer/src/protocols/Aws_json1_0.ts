@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,7 +11,8 @@ import {
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -107,15 +109,10 @@ import { ComputeOptimizerServiceException as __BaseException } from "../models/C
 import {
   AccessDeniedException,
   AccountEnrollmentStatus,
-  AutoScalingGroupConfiguration,
   AutoScalingGroupRecommendation,
   AutoScalingGroupRecommendationOption,
-  ContainerConfiguration,
-  ContainerRecommendation,
   CpuVendorArchitecture,
-  CurrentPerformanceRiskRatings,
   DeleteRecommendationPreferencesRequest,
-  DeleteRecommendationPreferencesResponse,
   DescribeRecommendationExportJobsRequest,
   DescribeRecommendationExportJobsResponse,
   EBSFilter,
@@ -124,11 +121,9 @@ import {
   ECSServiceProjectedUtilizationMetric,
   ECSServiceRecommendation,
   ECSServiceRecommendationFilter,
-  ECSServiceRecommendationFindingReasonCode,
   ECSServiceRecommendationOption,
   ECSServiceRecommendedOptionProjectedMetric,
   ECSServiceUtilizationMetric,
-  EffectiveRecommendationPreferences,
   EnrollmentFilter,
   EstimatedMonthlySavings,
   ExportableAutoScalingGroupField,
@@ -137,16 +132,10 @@ import {
   ExportableLambdaFunctionField,
   ExportableVolumeField,
   ExportAutoScalingGroupRecommendationsRequest,
-  ExportAutoScalingGroupRecommendationsResponse,
-  ExportDestination,
   ExportEBSVolumeRecommendationsRequest,
-  ExportEBSVolumeRecommendationsResponse,
   ExportEC2InstanceRecommendationsRequest,
-  ExportEC2InstanceRecommendationsResponse,
   ExportECSServiceRecommendationsRequest,
-  ExportECSServiceRecommendationsResponse,
   ExportLambdaFunctionRecommendationsRequest,
-  ExportLambdaFunctionRecommendationsResponse,
   ExternalMetricsPreference,
   Filter,
   GetAutoScalingGroupRecommendationsRequest,
@@ -162,21 +151,16 @@ import {
   GetECSServiceRecommendationsRequest,
   GetECSServiceRecommendationsResponse,
   GetEffectiveRecommendationPreferencesRequest,
-  GetEffectiveRecommendationPreferencesResponse,
   GetEnrollmentStatusesForOrganizationRequest,
   GetEnrollmentStatusesForOrganizationResponse,
   GetEnrollmentStatusRequest,
   GetEnrollmentStatusResponse,
   GetLambdaFunctionRecommendationsRequest,
   GetLambdaFunctionRecommendationsResponse,
-  GetRecommendationError,
   GetRecommendationPreferencesRequest,
-  GetRecommendationPreferencesResponse,
   GetRecommendationSummariesRequest,
   GetRecommendationSummariesResponse,
-  InferredWorkloadType,
   InstanceRecommendation,
-  InstanceRecommendationFindingReasonCode,
   InstanceRecommendationOption,
   InternalServerException,
   InvalidParameterValueException,
@@ -185,37 +169,27 @@ import {
   LambdaFunctionMemoryRecommendationOption,
   LambdaFunctionRecommendation,
   LambdaFunctionRecommendationFilter,
-  LambdaFunctionRecommendationFindingReasonCode,
   LambdaFunctionUtilizationMetric,
   LimitExceededException,
-  MemorySizeConfiguration,
   MissingAuthenticationToken,
   OptInRequiredException,
-  PlatformDifference,
   ProjectedMetric,
   PutRecommendationPreferencesRequest,
-  PutRecommendationPreferencesResponse,
   ReasonCodeSummary,
   RecommendationExportJob,
   RecommendationPreferenceName,
   RecommendationPreferences,
-  RecommendationPreferencesDetail,
-  RecommendationSource,
   RecommendationSummary,
   RecommendedOptionProjectedMetric,
   ResourceNotFoundException,
-  S3Destination,
   S3DestinationConfig,
   SavingsOpportunity,
   Scope,
-  ServiceConfiguration,
   ServiceUnavailableException,
   Summary,
   ThrottlingException,
   UpdateEnrollmentStatusRequest,
-  UpdateEnrollmentStatusResponse,
   UtilizationMetric,
-  VolumeConfiguration,
   VolumeRecommendation,
   VolumeRecommendationOption,
 } from "../models/models_0";
@@ -229,7 +203,7 @@ export const se_DeleteRecommendationPreferencesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRecommendationPreferences");
   let body: any;
-  body = JSON.stringify(se_DeleteRecommendationPreferencesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -242,7 +216,7 @@ export const se_DescribeRecommendationExportJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRecommendationExportJobs");
   let body: any;
-  body = JSON.stringify(se_DescribeRecommendationExportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -255,7 +229,7 @@ export const se_ExportAutoScalingGroupRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportAutoScalingGroupRecommendations");
   let body: any;
-  body = JSON.stringify(se_ExportAutoScalingGroupRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -268,7 +242,7 @@ export const se_ExportEBSVolumeRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportEBSVolumeRecommendations");
   let body: any;
-  body = JSON.stringify(se_ExportEBSVolumeRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -281,7 +255,7 @@ export const se_ExportEC2InstanceRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportEC2InstanceRecommendations");
   let body: any;
-  body = JSON.stringify(se_ExportEC2InstanceRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -294,7 +268,7 @@ export const se_ExportECSServiceRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportECSServiceRecommendations");
   let body: any;
-  body = JSON.stringify(se_ExportECSServiceRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -307,7 +281,7 @@ export const se_ExportLambdaFunctionRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportLambdaFunctionRecommendations");
   let body: any;
-  body = JSON.stringify(se_ExportLambdaFunctionRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -320,7 +294,7 @@ export const se_GetAutoScalingGroupRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAutoScalingGroupRecommendations");
   let body: any;
-  body = JSON.stringify(se_GetAutoScalingGroupRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -333,7 +307,7 @@ export const se_GetEBSVolumeRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEBSVolumeRecommendations");
   let body: any;
-  body = JSON.stringify(se_GetEBSVolumeRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -346,7 +320,7 @@ export const se_GetEC2InstanceRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEC2InstanceRecommendations");
   let body: any;
-  body = JSON.stringify(se_GetEC2InstanceRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -385,7 +359,7 @@ export const se_GetECSServiceRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetECSServiceRecommendations");
   let body: any;
-  body = JSON.stringify(se_GetECSServiceRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -398,7 +372,7 @@ export const se_GetEffectiveRecommendationPreferencesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEffectiveRecommendationPreferences");
   let body: any;
-  body = JSON.stringify(se_GetEffectiveRecommendationPreferencesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -411,7 +385,7 @@ export const se_GetEnrollmentStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEnrollmentStatus");
   let body: any;
-  body = JSON.stringify(se_GetEnrollmentStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -424,7 +398,7 @@ export const se_GetEnrollmentStatusesForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEnrollmentStatusesForOrganization");
   let body: any;
-  body = JSON.stringify(se_GetEnrollmentStatusesForOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -437,7 +411,7 @@ export const se_GetLambdaFunctionRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLambdaFunctionRecommendations");
   let body: any;
-  body = JSON.stringify(se_GetLambdaFunctionRecommendationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -450,7 +424,7 @@ export const se_GetRecommendationPreferencesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRecommendationPreferences");
   let body: any;
-  body = JSON.stringify(se_GetRecommendationPreferencesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -463,7 +437,7 @@ export const se_GetRecommendationSummariesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRecommendationSummaries");
   let body: any;
-  body = JSON.stringify(se_GetRecommendationSummariesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -476,7 +450,7 @@ export const se_PutRecommendationPreferencesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutRecommendationPreferences");
   let body: any;
-  body = JSON.stringify(se_PutRecommendationPreferencesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -489,7 +463,7 @@ export const se_UpdateEnrollmentStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEnrollmentStatus");
   let body: any;
-  body = JSON.stringify(se_UpdateEnrollmentStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -505,12 +479,12 @@ export const de_DeleteRecommendationPreferencesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRecommendationPreferencesResponse(data, context);
+  contents = _json(data);
   const response: DeleteRecommendationPreferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -552,10 +526,9 @@ const de_DeleteRecommendationPreferencesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -578,7 +551,7 @@ export const de_DescribeRecommendationExportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -620,10 +593,9 @@ const de_DescribeRecommendationExportJobsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -641,12 +613,12 @@ export const de_ExportAutoScalingGroupRecommendationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ExportAutoScalingGroupRecommendationsResponse(data, context);
+  contents = _json(data);
   const response: ExportAutoScalingGroupRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -688,10 +660,9 @@ const de_ExportAutoScalingGroupRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -709,12 +680,12 @@ export const de_ExportEBSVolumeRecommendationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ExportEBSVolumeRecommendationsResponse(data, context);
+  contents = _json(data);
   const response: ExportEBSVolumeRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -756,10 +727,9 @@ const de_ExportEBSVolumeRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -777,12 +747,12 @@ export const de_ExportEC2InstanceRecommendationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ExportEC2InstanceRecommendationsResponse(data, context);
+  contents = _json(data);
   const response: ExportEC2InstanceRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -824,10 +794,9 @@ const de_ExportEC2InstanceRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -845,12 +814,12 @@ export const de_ExportECSServiceRecommendationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ExportECSServiceRecommendationsResponse(data, context);
+  contents = _json(data);
   const response: ExportECSServiceRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -892,10 +861,9 @@ const de_ExportECSServiceRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -913,12 +881,12 @@ export const de_ExportLambdaFunctionRecommendationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ExportLambdaFunctionRecommendationsResponse(data, context);
+  contents = _json(data);
   const response: ExportLambdaFunctionRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -960,10 +928,9 @@ const de_ExportLambdaFunctionRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -986,7 +953,7 @@ export const de_GetAutoScalingGroupRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1028,10 +995,9 @@ const de_GetAutoScalingGroupRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1054,7 +1020,7 @@ export const de_GetEBSVolumeRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1096,10 +1062,9 @@ const de_GetEBSVolumeRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1122,7 +1087,7 @@ export const de_GetEC2InstanceRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1164,10 +1129,9 @@ const de_GetEC2InstanceRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1190,7 +1154,7 @@ export const de_GetEC2RecommendationProjectedMetricsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1232,10 +1196,9 @@ const de_GetEC2RecommendationProjectedMetricsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1258,7 +1221,7 @@ export const de_GetECSServiceRecommendationProjectedMetricsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1300,10 +1263,9 @@ const de_GetECSServiceRecommendationProjectedMetricsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1326,7 +1288,7 @@ export const de_GetECSServiceRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1368,10 +1330,9 @@ const de_GetECSServiceRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1389,12 +1350,12 @@ export const de_GetEffectiveRecommendationPreferencesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetEffectiveRecommendationPreferencesResponse(data, context);
+  contents = _json(data);
   const response: GetEffectiveRecommendationPreferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1436,10 +1397,9 @@ const de_GetEffectiveRecommendationPreferencesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1462,7 +1422,7 @@ export const de_GetEnrollmentStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1498,10 +1458,9 @@ const de_GetEnrollmentStatusCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1524,7 +1483,7 @@ export const de_GetEnrollmentStatusesForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1560,10 +1519,9 @@ const de_GetEnrollmentStatusesForOrganizationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1586,7 +1544,7 @@ export const de_GetLambdaFunctionRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1628,10 +1586,9 @@ const de_GetLambdaFunctionRecommendationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1649,12 +1606,12 @@ export const de_GetRecommendationPreferencesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRecommendationPreferencesResponse(data, context);
+  contents = _json(data);
   const response: GetRecommendationPreferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1696,10 +1653,9 @@ const de_GetRecommendationPreferencesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1722,7 +1678,7 @@ export const de_GetRecommendationSummariesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1761,10 +1717,9 @@ const de_GetRecommendationSummariesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1782,12 +1737,12 @@ export const de_PutRecommendationPreferencesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRecommendationPreferencesResponse(data, context);
+  contents = _json(data);
   const response: PutRecommendationPreferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1829,10 +1784,9 @@ const de_PutRecommendationPreferencesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1850,12 +1804,12 @@ export const de_UpdateEnrollmentStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateEnrollmentStatusResponse(data, context);
+  contents = _json(data);
   const response: UpdateEnrollmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1891,10 +1845,9 @@ const de_UpdateEnrollmentStatusCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1908,7 +1861,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1924,7 +1877,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1940,7 +1893,7 @@ const de_InvalidParameterValueExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterValueException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1956,7 +1909,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1972,7 +1925,7 @@ const de_MissingAuthenticationTokenRes = async (
   context: __SerdeContext
 ): Promise<MissingAuthenticationToken> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MissingAuthenticationToken(body, context);
+  const deserialized: any = _json(body);
   const exception = new MissingAuthenticationToken({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1988,7 +1941,7 @@ const de_OptInRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<OptInRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OptInRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OptInRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2004,7 +1957,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2020,7 +1973,7 @@ const de_ServiceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2033,7 +1986,7 @@ const de_ServiceUnavailableExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2041,408 +1994,63 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0AccountIds
- */
-const se_AccountIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AccountIds omitted.
 
-/**
- * serializeAws_json1_0AutoScalingGroupArns
- */
-const se_AutoScalingGroupArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AutoScalingGroupArns omitted.
 
-/**
- * serializeAws_json1_0CpuVendorArchitectures
- */
-const se_CpuVendorArchitectures = (input: (CpuVendorArchitecture | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CpuVendorArchitectures omitted.
 
-/**
- * serializeAws_json1_0DeleteRecommendationPreferencesRequest
- */
-const se_DeleteRecommendationPreferencesRequest = (
-  input: DeleteRecommendationPreferencesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.recommendationPreferenceNames != null && {
-      recommendationPreferenceNames: se_RecommendationPreferenceNames(input.recommendationPreferenceNames, context),
-    }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-    ...(input.scope != null && { scope: se_Scope(input.scope, context) }),
-  };
-};
+// se_DeleteRecommendationPreferencesRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeRecommendationExportJobsRequest
- */
-const se_DescribeRecommendationExportJobsRequest = (
-  input: DescribeRecommendationExportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.filters != null && { filters: se_JobFilters(input.filters, context) }),
-    ...(input.jobIds != null && { jobIds: se_JobIds(input.jobIds, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_DescribeRecommendationExportJobsRequest omitted.
 
-/**
- * serializeAws_json1_0EBSFilter
- */
-const se_EBSFilter = (input: EBSFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValues(input.values, context) }),
-  };
-};
+// se_EBSFilter omitted.
 
-/**
- * serializeAws_json1_0EBSFilters
- */
-const se_EBSFilters = (input: EBSFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EBSFilter(entry, context);
-    });
-};
+// se_EBSFilters omitted.
 
-/**
- * serializeAws_json1_0ECSServiceRecommendationFilter
- */
-const se_ECSServiceRecommendationFilter = (input: ECSServiceRecommendationFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValues(input.values, context) }),
-  };
-};
+// se_ECSServiceRecommendationFilter omitted.
 
-/**
- * serializeAws_json1_0ECSServiceRecommendationFilters
- */
-const se_ECSServiceRecommendationFilters = (input: ECSServiceRecommendationFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ECSServiceRecommendationFilter(entry, context);
-    });
-};
+// se_ECSServiceRecommendationFilters omitted.
 
-/**
- * serializeAws_json1_0EnrollmentFilter
- */
-const se_EnrollmentFilter = (input: EnrollmentFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValues(input.values, context) }),
-  };
-};
+// se_EnrollmentFilter omitted.
 
-/**
- * serializeAws_json1_0EnrollmentFilters
- */
-const se_EnrollmentFilters = (input: EnrollmentFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EnrollmentFilter(entry, context);
-    });
-};
+// se_EnrollmentFilters omitted.
 
-/**
- * serializeAws_json1_0ExportableAutoScalingGroupFields
- */
-const se_ExportableAutoScalingGroupFields = (
-  input: (ExportableAutoScalingGroupField | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExportableAutoScalingGroupFields omitted.
 
-/**
- * serializeAws_json1_0ExportableECSServiceFields
- */
-const se_ExportableECSServiceFields = (input: (ExportableECSServiceField | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExportableECSServiceFields omitted.
 
-/**
- * serializeAws_json1_0ExportableInstanceFields
- */
-const se_ExportableInstanceFields = (input: (ExportableInstanceField | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExportableInstanceFields omitted.
 
-/**
- * serializeAws_json1_0ExportableLambdaFunctionFields
- */
-const se_ExportableLambdaFunctionFields = (
-  input: (ExportableLambdaFunctionField | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExportableLambdaFunctionFields omitted.
 
-/**
- * serializeAws_json1_0ExportableVolumeFields
- */
-const se_ExportableVolumeFields = (input: (ExportableVolumeField | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExportableVolumeFields omitted.
 
-/**
- * serializeAws_json1_0ExportAutoScalingGroupRecommendationsRequest
- */
-const se_ExportAutoScalingGroupRecommendationsRequest = (
-  input: ExportAutoScalingGroupRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.fieldsToExport != null && {
-      fieldsToExport: se_ExportableAutoScalingGroupFields(input.fieldsToExport, context),
-    }),
-    ...(input.fileFormat != null && { fileFormat: input.fileFormat }),
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.includeMemberAccounts != null && { includeMemberAccounts: input.includeMemberAccounts }),
-    ...(input.recommendationPreferences != null && {
-      recommendationPreferences: se_RecommendationPreferences(input.recommendationPreferences, context),
-    }),
-    ...(input.s3DestinationConfig != null && {
-      s3DestinationConfig: se_S3DestinationConfig(input.s3DestinationConfig, context),
-    }),
-  };
-};
+// se_ExportAutoScalingGroupRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0ExportEBSVolumeRecommendationsRequest
- */
-const se_ExportEBSVolumeRecommendationsRequest = (
-  input: ExportEBSVolumeRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.fieldsToExport != null && { fieldsToExport: se_ExportableVolumeFields(input.fieldsToExport, context) }),
-    ...(input.fileFormat != null && { fileFormat: input.fileFormat }),
-    ...(input.filters != null && { filters: se_EBSFilters(input.filters, context) }),
-    ...(input.includeMemberAccounts != null && { includeMemberAccounts: input.includeMemberAccounts }),
-    ...(input.s3DestinationConfig != null && {
-      s3DestinationConfig: se_S3DestinationConfig(input.s3DestinationConfig, context),
-    }),
-  };
-};
+// se_ExportEBSVolumeRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0ExportEC2InstanceRecommendationsRequest
- */
-const se_ExportEC2InstanceRecommendationsRequest = (
-  input: ExportEC2InstanceRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.fieldsToExport != null && { fieldsToExport: se_ExportableInstanceFields(input.fieldsToExport, context) }),
-    ...(input.fileFormat != null && { fileFormat: input.fileFormat }),
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.includeMemberAccounts != null && { includeMemberAccounts: input.includeMemberAccounts }),
-    ...(input.recommendationPreferences != null && {
-      recommendationPreferences: se_RecommendationPreferences(input.recommendationPreferences, context),
-    }),
-    ...(input.s3DestinationConfig != null && {
-      s3DestinationConfig: se_S3DestinationConfig(input.s3DestinationConfig, context),
-    }),
-  };
-};
+// se_ExportEC2InstanceRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0ExportECSServiceRecommendationsRequest
- */
-const se_ExportECSServiceRecommendationsRequest = (
-  input: ExportECSServiceRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.fieldsToExport != null && {
-      fieldsToExport: se_ExportableECSServiceFields(input.fieldsToExport, context),
-    }),
-    ...(input.fileFormat != null && { fileFormat: input.fileFormat }),
-    ...(input.filters != null && { filters: se_ECSServiceRecommendationFilters(input.filters, context) }),
-    ...(input.includeMemberAccounts != null && { includeMemberAccounts: input.includeMemberAccounts }),
-    ...(input.s3DestinationConfig != null && {
-      s3DestinationConfig: se_S3DestinationConfig(input.s3DestinationConfig, context),
-    }),
-  };
-};
+// se_ExportECSServiceRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0ExportLambdaFunctionRecommendationsRequest
- */
-const se_ExportLambdaFunctionRecommendationsRequest = (
-  input: ExportLambdaFunctionRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.fieldsToExport != null && {
-      fieldsToExport: se_ExportableLambdaFunctionFields(input.fieldsToExport, context),
-    }),
-    ...(input.fileFormat != null && { fileFormat: input.fileFormat }),
-    ...(input.filters != null && { filters: se_LambdaFunctionRecommendationFilters(input.filters, context) }),
-    ...(input.includeMemberAccounts != null && { includeMemberAccounts: input.includeMemberAccounts }),
-    ...(input.s3DestinationConfig != null && {
-      s3DestinationConfig: se_S3DestinationConfig(input.s3DestinationConfig, context),
-    }),
-  };
-};
+// se_ExportLambdaFunctionRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0ExternalMetricsPreference
- */
-const se_ExternalMetricsPreference = (input: ExternalMetricsPreference, context: __SerdeContext): any => {
-  return {
-    ...(input.source != null && { source: input.source }),
-  };
-};
+// se_ExternalMetricsPreference omitted.
 
-/**
- * serializeAws_json1_0Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValues(input.values, context) }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_json1_0Filters
- */
-const se_Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_Filters omitted.
 
-/**
- * serializeAws_json1_0FilterValues
- */
-const se_FilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilterValues omitted.
 
-/**
- * serializeAws_json1_0FunctionArns
- */
-const se_FunctionArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FunctionArns omitted.
 
-/**
- * serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest
- */
-const se_GetAutoScalingGroupRecommendationsRequest = (
-  input: GetAutoScalingGroupRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.autoScalingGroupArns != null && {
-      autoScalingGroupArns: se_AutoScalingGroupArns(input.autoScalingGroupArns, context),
-    }),
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.recommendationPreferences != null && {
-      recommendationPreferences: se_RecommendationPreferences(input.recommendationPreferences, context),
-    }),
-  };
-};
+// se_GetAutoScalingGroupRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0GetEBSVolumeRecommendationsRequest
- */
-const se_GetEBSVolumeRecommendationsRequest = (
-  input: GetEBSVolumeRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.filters != null && { filters: se_EBSFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.volumeArns != null && { volumeArns: se_VolumeArns(input.volumeArns, context) }),
-  };
-};
+// se_GetEBSVolumeRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0GetEC2InstanceRecommendationsRequest
- */
-const se_GetEC2InstanceRecommendationsRequest = (
-  input: GetEC2InstanceRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.filters != null && { filters: se_Filters(input.filters, context) }),
-    ...(input.instanceArns != null && { instanceArns: se_InstanceArns(input.instanceArns, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.recommendationPreferences != null && {
-      recommendationPreferences: se_RecommendationPreferences(input.recommendationPreferences, context),
-    }),
-  };
-};
+// se_GetEC2InstanceRecommendationsRequest omitted.
 
 /**
  * serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest
@@ -2451,16 +2059,14 @@ const se_GetEC2RecommendationProjectedMetricsRequest = (
   input: GetEC2RecommendationProjectedMetricsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.instanceArn != null && { instanceArn: input.instanceArn }),
-    ...(input.period != null && { period: input.period }),
-    ...(input.recommendationPreferences != null && {
-      recommendationPreferences: se_RecommendationPreferences(input.recommendationPreferences, context),
-    }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.stat != null && { stat: input.stat }),
-  };
+  return take(input, {
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    instanceArn: [],
+    period: [],
+    recommendationPreferences: (_) => _json(_),
+    startTime: (_) => Math.round(_.getTime() / 1000),
+    stat: [],
+  });
 };
 
 /**
@@ -2470,298 +2076,69 @@ const se_GetECSServiceRecommendationProjectedMetricsRequest = (
   input: GetECSServiceRecommendationProjectedMetricsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.period != null && { period: input.period }),
-    ...(input.serviceArn != null && { serviceArn: input.serviceArn }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.stat != null && { stat: input.stat }),
-  };
+  return take(input, {
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    period: [],
+    serviceArn: [],
+    startTime: (_) => Math.round(_.getTime() / 1000),
+    stat: [],
+  });
 };
 
-/**
- * serializeAws_json1_0GetECSServiceRecommendationsRequest
- */
-const se_GetECSServiceRecommendationsRequest = (
-  input: GetECSServiceRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.filters != null && { filters: se_ECSServiceRecommendationFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.serviceArns != null && { serviceArns: se_ServiceArns(input.serviceArns, context) }),
-  };
-};
+// se_GetECSServiceRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0GetEffectiveRecommendationPreferencesRequest
- */
-const se_GetEffectiveRecommendationPreferencesRequest = (
-  input: GetEffectiveRecommendationPreferencesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_GetEffectiveRecommendationPreferencesRequest omitted.
 
-/**
- * serializeAws_json1_0GetEnrollmentStatusesForOrganizationRequest
- */
-const se_GetEnrollmentStatusesForOrganizationRequest = (
-  input: GetEnrollmentStatusesForOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.filters != null && { filters: se_EnrollmentFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_GetEnrollmentStatusesForOrganizationRequest omitted.
 
-/**
- * serializeAws_json1_0GetEnrollmentStatusRequest
- */
-const se_GetEnrollmentStatusRequest = (input: GetEnrollmentStatusRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_GetEnrollmentStatusRequest omitted.
 
-/**
- * serializeAws_json1_0GetLambdaFunctionRecommendationsRequest
- */
-const se_GetLambdaFunctionRecommendationsRequest = (
-  input: GetLambdaFunctionRecommendationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.filters != null && { filters: se_LambdaFunctionRecommendationFilters(input.filters, context) }),
-    ...(input.functionArns != null && { functionArns: se_FunctionArns(input.functionArns, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_GetLambdaFunctionRecommendationsRequest omitted.
 
-/**
- * serializeAws_json1_0GetRecommendationPreferencesRequest
- */
-const se_GetRecommendationPreferencesRequest = (
-  input: GetRecommendationPreferencesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-    ...(input.scope != null && { scope: se_Scope(input.scope, context) }),
-  };
-};
+// se_GetRecommendationPreferencesRequest omitted.
 
-/**
- * serializeAws_json1_0GetRecommendationSummariesRequest
- */
-const se_GetRecommendationSummariesRequest = (
-  input: GetRecommendationSummariesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.accountIds != null && { accountIds: se_AccountIds(input.accountIds, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_GetRecommendationSummariesRequest omitted.
 
-/**
- * serializeAws_json1_0InstanceArns
- */
-const se_InstanceArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InstanceArns omitted.
 
-/**
- * serializeAws_json1_0JobFilter
- */
-const se_JobFilter = (input: JobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValues(input.values, context) }),
-  };
-};
+// se_JobFilter omitted.
 
-/**
- * serializeAws_json1_0JobFilters
- */
-const se_JobFilters = (input: JobFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_JobFilter(entry, context);
-    });
-};
+// se_JobFilters omitted.
 
-/**
- * serializeAws_json1_0JobIds
- */
-const se_JobIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_JobIds omitted.
 
-/**
- * serializeAws_json1_0LambdaFunctionRecommendationFilter
- */
-const se_LambdaFunctionRecommendationFilter = (
-  input: LambdaFunctionRecommendationFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValues(input.values, context) }),
-  };
-};
+// se_LambdaFunctionRecommendationFilter omitted.
 
-/**
- * serializeAws_json1_0LambdaFunctionRecommendationFilters
- */
-const se_LambdaFunctionRecommendationFilters = (
-  input: LambdaFunctionRecommendationFilter[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LambdaFunctionRecommendationFilter(entry, context);
-    });
-};
+// se_LambdaFunctionRecommendationFilters omitted.
 
-/**
- * serializeAws_json1_0PutRecommendationPreferencesRequest
- */
-const se_PutRecommendationPreferencesRequest = (
-  input: PutRecommendationPreferencesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.enhancedInfrastructureMetrics != null && {
-      enhancedInfrastructureMetrics: input.enhancedInfrastructureMetrics,
-    }),
-    ...(input.externalMetricsPreference != null && {
-      externalMetricsPreference: se_ExternalMetricsPreference(input.externalMetricsPreference, context),
-    }),
-    ...(input.inferredWorkloadTypes != null && { inferredWorkloadTypes: input.inferredWorkloadTypes }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-    ...(input.scope != null && { scope: se_Scope(input.scope, context) }),
-  };
-};
+// se_PutRecommendationPreferencesRequest omitted.
 
-/**
- * serializeAws_json1_0RecommendationPreferenceNames
- */
-const se_RecommendationPreferenceNames = (
-  input: (RecommendationPreferenceName | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RecommendationPreferenceNames omitted.
 
-/**
- * serializeAws_json1_0RecommendationPreferences
- */
-const se_RecommendationPreferences = (input: RecommendationPreferences, context: __SerdeContext): any => {
-  return {
-    ...(input.cpuVendorArchitectures != null && {
-      cpuVendorArchitectures: se_CpuVendorArchitectures(input.cpuVendorArchitectures, context),
-    }),
-  };
-};
+// se_RecommendationPreferences omitted.
 
-/**
- * serializeAws_json1_0S3DestinationConfig
- */
-const se_S3DestinationConfig = (input: S3DestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.keyPrefix != null && { keyPrefix: input.keyPrefix }),
-  };
-};
+// se_S3DestinationConfig omitted.
 
-/**
- * serializeAws_json1_0Scope
- */
-const se_Scope = (input: Scope, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Scope omitted.
 
-/**
- * serializeAws_json1_0ServiceArns
- */
-const se_ServiceArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ServiceArns omitted.
 
-/**
- * serializeAws_json1_0UpdateEnrollmentStatusRequest
- */
-const se_UpdateEnrollmentStatusRequest = (input: UpdateEnrollmentStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.includeMemberAccounts != null && { includeMemberAccounts: input.includeMemberAccounts }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_UpdateEnrollmentStatusRequest omitted.
 
-/**
- * serializeAws_json1_0VolumeArns
- */
-const se_VolumeArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VolumeArns omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
 /**
  * deserializeAws_json1_0AccountEnrollmentStatus
  */
 const de_AccountEnrollmentStatus = (output: any, context: __SerdeContext): AccountEnrollmentStatus => {
-  return {
-    accountId: __expectString(output.accountId),
-    lastUpdatedTimestamp:
-      output.lastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTimestamp)))
-        : undefined,
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    lastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusReason: __expectString,
+  }) as any;
 };
 
 /**
@@ -2771,60 +2148,31 @@ const de_AccountEnrollmentStatuses = (output: any, context: __SerdeContext): Acc
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AccountEnrollmentStatus(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0AutoScalingGroupConfiguration
- */
-const de_AutoScalingGroupConfiguration = (output: any, context: __SerdeContext): AutoScalingGroupConfiguration => {
-  return {
-    desiredCapacity: __expectInt32(output.desiredCapacity),
-    instanceType: __expectString(output.instanceType),
-    maxSize: __expectInt32(output.maxSize),
-    minSize: __expectInt32(output.minSize),
-  } as any;
-};
+// de_AutoScalingGroupConfiguration omitted.
 
 /**
  * deserializeAws_json1_0AutoScalingGroupRecommendation
  */
 const de_AutoScalingGroupRecommendation = (output: any, context: __SerdeContext): AutoScalingGroupRecommendation => {
-  return {
-    accountId: __expectString(output.accountId),
-    autoScalingGroupArn: __expectString(output.autoScalingGroupArn),
-    autoScalingGroupName: __expectString(output.autoScalingGroupName),
-    currentConfiguration:
-      output.currentConfiguration != null
-        ? de_AutoScalingGroupConfiguration(output.currentConfiguration, context)
-        : undefined,
-    currentPerformanceRisk: __expectString(output.currentPerformanceRisk),
-    effectiveRecommendationPreferences:
-      output.effectiveRecommendationPreferences != null
-        ? de_EffectiveRecommendationPreferences(output.effectiveRecommendationPreferences, context)
-        : undefined,
-    finding: __expectString(output.finding),
-    inferredWorkloadTypes:
-      output.inferredWorkloadTypes != null
-        ? de_InferredWorkloadTypes(output.inferredWorkloadTypes, context)
-        : undefined,
-    lastRefreshTimestamp:
-      output.lastRefreshTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
-        : undefined,
-    lookBackPeriodInDays: __limitedParseDouble(output.lookBackPeriodInDays),
-    recommendationOptions:
-      output.recommendationOptions != null
-        ? de_AutoScalingGroupRecommendationOptions(output.recommendationOptions, context)
-        : undefined,
-    utilizationMetrics:
-      output.utilizationMetrics != null ? de_UtilizationMetrics(output.utilizationMetrics, context) : undefined,
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    autoScalingGroupArn: __expectString,
+    autoScalingGroupName: __expectString,
+    currentConfiguration: _json,
+    currentPerformanceRisk: __expectString,
+    effectiveRecommendationPreferences: _json,
+    finding: __expectString,
+    inferredWorkloadTypes: _json,
+    lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lookBackPeriodInDays: __limitedParseDouble,
+    recommendationOptions: (_: any) => de_AutoScalingGroupRecommendationOptions(_, context),
+    utilizationMetrics: (_: any) => de_UtilizationMetrics(_, context),
+  }) as any;
 };
 
 /**
@@ -2834,19 +2182,14 @@ const de_AutoScalingGroupRecommendationOption = (
   output: any,
   context: __SerdeContext
 ): AutoScalingGroupRecommendationOption => {
-  return {
-    configuration:
-      output.configuration != null ? de_AutoScalingGroupConfiguration(output.configuration, context) : undefined,
-    migrationEffort: __expectString(output.migrationEffort),
-    performanceRisk: __limitedParseDouble(output.performanceRisk),
-    projectedUtilizationMetrics:
-      output.projectedUtilizationMetrics != null
-        ? de_ProjectedUtilizationMetrics(output.projectedUtilizationMetrics, context)
-        : undefined,
-    rank: __expectInt32(output.rank),
-    savingsOpportunity:
-      output.savingsOpportunity != null ? de_SavingsOpportunity(output.savingsOpportunity, context) : undefined,
-  } as any;
+  return take(output, {
+    configuration: _json,
+    migrationEffort: __expectString,
+    performanceRisk: __limitedParseDouble,
+    projectedUtilizationMetrics: (_: any) => de_ProjectedUtilizationMetrics(_, context),
+    rank: __expectInt32,
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+  }) as any;
 };
 
 /**
@@ -2859,9 +2202,6 @@ const de_AutoScalingGroupRecommendationOptions = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AutoScalingGroupRecommendationOption(entry, context);
     });
   return retVal;
@@ -2874,108 +2214,24 @@ const de_AutoScalingGroupRecommendations = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AutoScalingGroupRecommendation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ContainerConfiguration
- */
-const de_ContainerConfiguration = (output: any, context: __SerdeContext): ContainerConfiguration => {
-  return {
-    containerName: __expectString(output.containerName),
-    cpu: __expectInt32(output.cpu),
-    memorySizeConfiguration:
-      output.memorySizeConfiguration != null
-        ? de_MemorySizeConfiguration(output.memorySizeConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_ContainerConfiguration omitted.
 
-/**
- * deserializeAws_json1_0ContainerConfigurations
- */
-const de_ContainerConfigurations = (output: any, context: __SerdeContext): ContainerConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ContainerConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_ContainerConfigurations omitted.
 
-/**
- * deserializeAws_json1_0ContainerRecommendation
- */
-const de_ContainerRecommendation = (output: any, context: __SerdeContext): ContainerRecommendation => {
-  return {
-    containerName: __expectString(output.containerName),
-    cpu: __expectInt32(output.cpu),
-    memorySizeConfiguration:
-      output.memorySizeConfiguration != null
-        ? de_MemorySizeConfiguration(output.memorySizeConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_ContainerRecommendation omitted.
 
-/**
- * deserializeAws_json1_0ContainerRecommendations
- */
-const de_ContainerRecommendations = (output: any, context: __SerdeContext): ContainerRecommendation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ContainerRecommendation(entry, context);
-    });
-  return retVal;
-};
+// de_ContainerRecommendations omitted.
 
-/**
- * deserializeAws_json1_0CpuVendorArchitectures
- */
-const de_CpuVendorArchitectures = (output: any, context: __SerdeContext): (CpuVendorArchitecture | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CpuVendorArchitectures omitted.
 
-/**
- * deserializeAws_json1_0CurrentPerformanceRiskRatings
- */
-const de_CurrentPerformanceRiskRatings = (output: any, context: __SerdeContext): CurrentPerformanceRiskRatings => {
-  return {
-    high: __expectLong(output.high),
-    low: __expectLong(output.low),
-    medium: __expectLong(output.medium),
-    veryLow: __expectLong(output.veryLow),
-  } as any;
-};
+// de_CurrentPerformanceRiskRatings omitted.
 
-/**
- * deserializeAws_json1_0DeleteRecommendationPreferencesResponse
- */
-const de_DeleteRecommendationPreferencesResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRecommendationPreferencesResponse => {
-  return {} as any;
-};
+// de_DeleteRecommendationPreferencesResponse omitted.
 
 /**
  * deserializeAws_json1_0DescribeRecommendationExportJobsResponse
@@ -2984,24 +2240,21 @@ const de_DescribeRecommendationExportJobsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRecommendationExportJobsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    recommendationExportJobs:
-      output.recommendationExportJobs != null
-        ? de_RecommendationExportJobs(output.recommendationExportJobs, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    recommendationExportJobs: (_: any) => de_RecommendationExportJobs(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0EBSUtilizationMetric
  */
 const de_EBSUtilizationMetric = (output: any, context: __SerdeContext): EBSUtilizationMetric => {
-  return {
-    name: __expectString(output.name),
-    statistic: __expectString(output.statistic),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    name: __expectString,
+    statistic: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -3011,9 +2264,6 @@ const de_EBSUtilizationMetrics = (output: any, context: __SerdeContext): EBSUtil
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EBSUtilizationMetric(entry, context);
     });
   return retVal;
@@ -3023,12 +2273,12 @@ const de_EBSUtilizationMetrics = (output: any, context: __SerdeContext): EBSUtil
  * deserializeAws_json1_0ECSServiceProjectedMetric
  */
 const de_ECSServiceProjectedMetric = (output: any, context: __SerdeContext): ECSServiceProjectedMetric => {
-  return {
-    lowerBoundValues: output.lowerBoundValues != null ? de_MetricValues(output.lowerBoundValues, context) : undefined,
-    name: __expectString(output.name),
-    timestamps: output.timestamps != null ? de_Timestamps(output.timestamps, context) : undefined,
-    upperBoundValues: output.upperBoundValues != null ? de_MetricValues(output.upperBoundValues, context) : undefined,
-  } as any;
+  return take(output, {
+    lowerBoundValues: (_: any) => de_MetricValues(_, context),
+    name: __expectString,
+    timestamps: (_: any) => de_Timestamps(_, context),
+    upperBoundValues: (_: any) => de_MetricValues(_, context),
+  }) as any;
 };
 
 /**
@@ -3038,9 +2288,6 @@ const de_ECSServiceProjectedMetrics = (output: any, context: __SerdeContext): EC
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ECSServiceProjectedMetric(entry, context);
     });
   return retVal;
@@ -3053,12 +2300,12 @@ const de_ECSServiceProjectedUtilizationMetric = (
   output: any,
   context: __SerdeContext
 ): ECSServiceProjectedUtilizationMetric => {
-  return {
-    lowerBoundValue: __limitedParseDouble(output.lowerBoundValue),
-    name: __expectString(output.name),
-    statistic: __expectString(output.statistic),
-    upperBoundValue: __limitedParseDouble(output.upperBoundValue),
-  } as any;
+  return take(output, {
+    lowerBoundValue: __limitedParseDouble,
+    name: __expectString,
+    statistic: __expectString,
+    upperBoundValue: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -3071,9 +2318,6 @@ const de_ECSServiceProjectedUtilizationMetrics = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ECSServiceProjectedUtilizationMetric(entry, context);
     });
   return retVal;
@@ -3083,72 +2327,34 @@ const de_ECSServiceProjectedUtilizationMetrics = (
  * deserializeAws_json1_0ECSServiceRecommendation
  */
 const de_ECSServiceRecommendation = (output: any, context: __SerdeContext): ECSServiceRecommendation => {
-  return {
-    accountId: __expectString(output.accountId),
-    currentPerformanceRisk: __expectString(output.currentPerformanceRisk),
-    currentServiceConfiguration:
-      output.currentServiceConfiguration != null
-        ? de_ServiceConfiguration(output.currentServiceConfiguration, context)
-        : undefined,
-    finding: __expectString(output.finding),
-    findingReasonCodes:
-      output.findingReasonCodes != null
-        ? de_ECSServiceRecommendationFindingReasonCodes(output.findingReasonCodes, context)
-        : undefined,
-    lastRefreshTimestamp:
-      output.lastRefreshTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
-        : undefined,
-    launchType: __expectString(output.launchType),
-    lookbackPeriodInDays: __limitedParseDouble(output.lookbackPeriodInDays),
-    serviceArn: __expectString(output.serviceArn),
-    serviceRecommendationOptions:
-      output.serviceRecommendationOptions != null
-        ? de_ECSServiceRecommendationOptions(output.serviceRecommendationOptions, context)
-        : undefined,
-    utilizationMetrics:
-      output.utilizationMetrics != null
-        ? de_ECSServiceUtilizationMetrics(output.utilizationMetrics, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    currentPerformanceRisk: __expectString,
+    currentServiceConfiguration: _json,
+    finding: __expectString,
+    findingReasonCodes: _json,
+    lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    launchType: __expectString,
+    lookbackPeriodInDays: __limitedParseDouble,
+    serviceArn: __expectString,
+    serviceRecommendationOptions: (_: any) => de_ECSServiceRecommendationOptions(_, context),
+    utilizationMetrics: (_: any) => de_ECSServiceUtilizationMetrics(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ECSServiceRecommendationFindingReasonCodes
- */
-const de_ECSServiceRecommendationFindingReasonCodes = (
-  output: any,
-  context: __SerdeContext
-): (ECSServiceRecommendationFindingReasonCode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ECSServiceRecommendationFindingReasonCodes omitted.
 
 /**
  * deserializeAws_json1_0ECSServiceRecommendationOption
  */
 const de_ECSServiceRecommendationOption = (output: any, context: __SerdeContext): ECSServiceRecommendationOption => {
-  return {
-    containerRecommendations:
-      output.containerRecommendations != null
-        ? de_ContainerRecommendations(output.containerRecommendations, context)
-        : undefined,
-    cpu: __expectInt32(output.cpu),
-    memory: __expectInt32(output.memory),
-    projectedUtilizationMetrics:
-      output.projectedUtilizationMetrics != null
-        ? de_ECSServiceProjectedUtilizationMetrics(output.projectedUtilizationMetrics, context)
-        : undefined,
-    savingsOpportunity:
-      output.savingsOpportunity != null ? de_SavingsOpportunity(output.savingsOpportunity, context) : undefined,
-  } as any;
+  return take(output, {
+    containerRecommendations: _json,
+    cpu: __expectInt32,
+    memory: __expectInt32,
+    projectedUtilizationMetrics: (_: any) => de_ECSServiceProjectedUtilizationMetrics(_, context),
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+  }) as any;
 };
 
 /**
@@ -3158,9 +2364,6 @@ const de_ECSServiceRecommendationOptions = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ECSServiceRecommendationOption(entry, context);
     });
   return retVal;
@@ -3173,9 +2376,6 @@ const de_ECSServiceRecommendations = (output: any, context: __SerdeContext): ECS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ECSServiceRecommendation(entry, context);
     });
   return retVal;
@@ -3188,12 +2388,11 @@ const de_ECSServiceRecommendedOptionProjectedMetric = (
   output: any,
   context: __SerdeContext
 ): ECSServiceRecommendedOptionProjectedMetric => {
-  return {
-    projectedMetrics:
-      output.projectedMetrics != null ? de_ECSServiceProjectedMetrics(output.projectedMetrics, context) : undefined,
-    recommendedCpuUnits: __expectInt32(output.recommendedCpuUnits),
-    recommendedMemorySize: __expectInt32(output.recommendedMemorySize),
-  } as any;
+  return take(output, {
+    projectedMetrics: (_: any) => de_ECSServiceProjectedMetrics(_, context),
+    recommendedCpuUnits: __expectInt32,
+    recommendedMemorySize: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -3206,9 +2405,6 @@ const de_ECSServiceRecommendedOptionProjectedMetrics = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ECSServiceRecommendedOptionProjectedMetric(entry, context);
     });
   return retVal;
@@ -3218,11 +2414,11 @@ const de_ECSServiceRecommendedOptionProjectedMetrics = (
  * deserializeAws_json1_0ECSServiceUtilizationMetric
  */
 const de_ECSServiceUtilizationMetric = (output: any, context: __SerdeContext): ECSServiceUtilizationMetric => {
-  return {
-    name: __expectString(output.name),
-    statistic: __expectString(output.statistic),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    name: __expectString,
+    statistic: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -3232,127 +2428,36 @@ const de_ECSServiceUtilizationMetrics = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ECSServiceUtilizationMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0EffectiveRecommendationPreferences
- */
-const de_EffectiveRecommendationPreferences = (
-  output: any,
-  context: __SerdeContext
-): EffectiveRecommendationPreferences => {
-  return {
-    cpuVendorArchitectures:
-      output.cpuVendorArchitectures != null
-        ? de_CpuVendorArchitectures(output.cpuVendorArchitectures, context)
-        : undefined,
-    enhancedInfrastructureMetrics: __expectString(output.enhancedInfrastructureMetrics),
-    externalMetricsPreference:
-      output.externalMetricsPreference != null
-        ? de_ExternalMetricsPreference(output.externalMetricsPreference, context)
-        : undefined,
-    inferredWorkloadTypes: __expectString(output.inferredWorkloadTypes),
-  } as any;
-};
+// de_EffectiveRecommendationPreferences omitted.
 
 /**
  * deserializeAws_json1_0EstimatedMonthlySavings
  */
 const de_EstimatedMonthlySavings = (output: any, context: __SerdeContext): EstimatedMonthlySavings => {
-  return {
-    currency: __expectString(output.currency),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    currency: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ExportAutoScalingGroupRecommendationsResponse
- */
-const de_ExportAutoScalingGroupRecommendationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ExportAutoScalingGroupRecommendationsResponse => {
-  return {
-    jobId: __expectString(output.jobId),
-    s3Destination: output.s3Destination != null ? de_S3Destination(output.s3Destination, context) : undefined,
-  } as any;
-};
+// de_ExportAutoScalingGroupRecommendationsResponse omitted.
 
-/**
- * deserializeAws_json1_0ExportDestination
- */
-const de_ExportDestination = (output: any, context: __SerdeContext): ExportDestination => {
-  return {
-    s3: output.s3 != null ? de_S3Destination(output.s3, context) : undefined,
-  } as any;
-};
+// de_ExportDestination omitted.
 
-/**
- * deserializeAws_json1_0ExportEBSVolumeRecommendationsResponse
- */
-const de_ExportEBSVolumeRecommendationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ExportEBSVolumeRecommendationsResponse => {
-  return {
-    jobId: __expectString(output.jobId),
-    s3Destination: output.s3Destination != null ? de_S3Destination(output.s3Destination, context) : undefined,
-  } as any;
-};
+// de_ExportEBSVolumeRecommendationsResponse omitted.
 
-/**
- * deserializeAws_json1_0ExportEC2InstanceRecommendationsResponse
- */
-const de_ExportEC2InstanceRecommendationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ExportEC2InstanceRecommendationsResponse => {
-  return {
-    jobId: __expectString(output.jobId),
-    s3Destination: output.s3Destination != null ? de_S3Destination(output.s3Destination, context) : undefined,
-  } as any;
-};
+// de_ExportEC2InstanceRecommendationsResponse omitted.
 
-/**
- * deserializeAws_json1_0ExportECSServiceRecommendationsResponse
- */
-const de_ExportECSServiceRecommendationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ExportECSServiceRecommendationsResponse => {
-  return {
-    jobId: __expectString(output.jobId),
-    s3Destination: output.s3Destination != null ? de_S3Destination(output.s3Destination, context) : undefined,
-  } as any;
-};
+// de_ExportECSServiceRecommendationsResponse omitted.
 
-/**
- * deserializeAws_json1_0ExportLambdaFunctionRecommendationsResponse
- */
-const de_ExportLambdaFunctionRecommendationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ExportLambdaFunctionRecommendationsResponse => {
-  return {
-    jobId: __expectString(output.jobId),
-    s3Destination: output.s3Destination != null ? de_S3Destination(output.s3Destination, context) : undefined,
-  } as any;
-};
+// de_ExportLambdaFunctionRecommendationsResponse omitted.
 
-/**
- * deserializeAws_json1_0ExternalMetricsPreference
- */
-const de_ExternalMetricsPreference = (output: any, context: __SerdeContext): ExternalMetricsPreference => {
-  return {
-    source: __expectString(output.source),
-  } as any;
-};
+// de_ExternalMetricsPreference omitted.
 
 /**
  * deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse
@@ -3361,14 +2466,11 @@ const de_GetAutoScalingGroupRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): GetAutoScalingGroupRecommendationsResponse => {
-  return {
-    autoScalingGroupRecommendations:
-      output.autoScalingGroupRecommendations != null
-        ? de_AutoScalingGroupRecommendations(output.autoScalingGroupRecommendations, context)
-        : undefined,
-    errors: output.errors != null ? de_GetRecommendationErrors(output.errors, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    autoScalingGroupRecommendations: (_: any) => de_AutoScalingGroupRecommendations(_, context),
+    errors: _json,
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -3378,14 +2480,11 @@ const de_GetEBSVolumeRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): GetEBSVolumeRecommendationsResponse => {
-  return {
-    errors: output.errors != null ? de_GetRecommendationErrors(output.errors, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-    volumeRecommendations:
-      output.volumeRecommendations != null
-        ? de_VolumeRecommendations(output.volumeRecommendations, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    errors: _json,
+    nextToken: __expectString,
+    volumeRecommendations: (_: any) => de_VolumeRecommendations(_, context),
+  }) as any;
 };
 
 /**
@@ -3395,14 +2494,11 @@ const de_GetEC2InstanceRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): GetEC2InstanceRecommendationsResponse => {
-  return {
-    errors: output.errors != null ? de_GetRecommendationErrors(output.errors, context) : undefined,
-    instanceRecommendations:
-      output.instanceRecommendations != null
-        ? de_InstanceRecommendations(output.instanceRecommendations, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    errors: _json,
+    instanceRecommendations: (_: any) => de_InstanceRecommendations(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -3412,12 +2508,9 @@ const de_GetEC2RecommendationProjectedMetricsResponse = (
   output: any,
   context: __SerdeContext
 ): GetEC2RecommendationProjectedMetricsResponse => {
-  return {
-    recommendedOptionProjectedMetrics:
-      output.recommendedOptionProjectedMetrics != null
-        ? de_RecommendedOptionProjectedMetrics(output.recommendedOptionProjectedMetrics, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    recommendedOptionProjectedMetrics: (_: any) => de_RecommendedOptionProjectedMetrics(_, context),
+  }) as any;
 };
 
 /**
@@ -3427,12 +2520,9 @@ const de_GetECSServiceRecommendationProjectedMetricsResponse = (
   output: any,
   context: __SerdeContext
 ): GetECSServiceRecommendationProjectedMetricsResponse => {
-  return {
-    recommendedOptionProjectedMetrics:
-      output.recommendedOptionProjectedMetrics != null
-        ? de_ECSServiceRecommendedOptionProjectedMetrics(output.recommendedOptionProjectedMetrics, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    recommendedOptionProjectedMetrics: (_: any) => de_ECSServiceRecommendedOptionProjectedMetrics(_, context),
+  }) as any;
 };
 
 /**
@@ -3442,31 +2532,14 @@ const de_GetECSServiceRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): GetECSServiceRecommendationsResponse => {
-  return {
-    ecsServiceRecommendations:
-      output.ecsServiceRecommendations != null
-        ? de_ECSServiceRecommendations(output.ecsServiceRecommendations, context)
-        : undefined,
-    errors: output.errors != null ? de_GetRecommendationErrors(output.errors, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    ecsServiceRecommendations: (_: any) => de_ECSServiceRecommendations(_, context),
+    errors: _json,
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetEffectiveRecommendationPreferencesResponse
- */
-const de_GetEffectiveRecommendationPreferencesResponse = (
-  output: any,
-  context: __SerdeContext
-): GetEffectiveRecommendationPreferencesResponse => {
-  return {
-    enhancedInfrastructureMetrics: __expectString(output.enhancedInfrastructureMetrics),
-    externalMetricsPreference:
-      output.externalMetricsPreference != null
-        ? de_ExternalMetricsPreference(output.externalMetricsPreference, context)
-        : undefined,
-  } as any;
-};
+// de_GetEffectiveRecommendationPreferencesResponse omitted.
 
 /**
  * deserializeAws_json1_0GetEnrollmentStatusesForOrganizationResponse
@@ -3475,29 +2548,23 @@ const de_GetEnrollmentStatusesForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): GetEnrollmentStatusesForOrganizationResponse => {
-  return {
-    accountEnrollmentStatuses:
-      output.accountEnrollmentStatuses != null
-        ? de_AccountEnrollmentStatuses(output.accountEnrollmentStatuses, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    accountEnrollmentStatuses: (_: any) => de_AccountEnrollmentStatuses(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetEnrollmentStatusResponse
  */
 const de_GetEnrollmentStatusResponse = (output: any, context: __SerdeContext): GetEnrollmentStatusResponse => {
-  return {
-    lastUpdatedTimestamp:
-      output.lastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTimestamp)))
-        : undefined,
-    memberAccountsEnrolled: __expectBoolean(output.memberAccountsEnrolled),
-    numberOfMemberAccountsOptedIn: __expectInt32(output.numberOfMemberAccountsOptedIn),
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-  } as any;
+  return take(output, {
+    lastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    memberAccountsEnrolled: __expectBoolean,
+    numberOfMemberAccountsOptedIn: __expectInt32,
+    status: __expectString,
+    statusReason: __expectString,
+  }) as any;
 };
 
 /**
@@ -3507,56 +2574,17 @@ const de_GetLambdaFunctionRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): GetLambdaFunctionRecommendationsResponse => {
-  return {
-    lambdaFunctionRecommendations:
-      output.lambdaFunctionRecommendations != null
-        ? de_LambdaFunctionRecommendations(output.lambdaFunctionRecommendations, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    lambdaFunctionRecommendations: (_: any) => de_LambdaFunctionRecommendations(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetRecommendationError
- */
-const de_GetRecommendationError = (output: any, context: __SerdeContext): GetRecommendationError => {
-  return {
-    code: __expectString(output.code),
-    identifier: __expectString(output.identifier),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_GetRecommendationError omitted.
 
-/**
- * deserializeAws_json1_0GetRecommendationErrors
- */
-const de_GetRecommendationErrors = (output: any, context: __SerdeContext): GetRecommendationError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GetRecommendationError(entry, context);
-    });
-  return retVal;
-};
+// de_GetRecommendationErrors omitted.
 
-/**
- * deserializeAws_json1_0GetRecommendationPreferencesResponse
- */
-const de_GetRecommendationPreferencesResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRecommendationPreferencesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    recommendationPreferencesDetails:
-      output.recommendationPreferencesDetails != null
-        ? de_RecommendationPreferencesDetails(output.recommendationPreferencesDetails, context)
-        : undefined,
-  } as any;
-};
+// de_GetRecommendationPreferencesResponse omitted.
 
 /**
  * deserializeAws_json1_0GetRecommendationSummariesResponse
@@ -3565,108 +2593,52 @@ const de_GetRecommendationSummariesResponse = (
   output: any,
   context: __SerdeContext
 ): GetRecommendationSummariesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    recommendationSummaries:
-      output.recommendationSummaries != null
-        ? de_RecommendationSummaries(output.recommendationSummaries, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    recommendationSummaries: (_: any) => de_RecommendationSummaries(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0InferredWorkloadTypes
- */
-const de_InferredWorkloadTypes = (output: any, context: __SerdeContext): (InferredWorkloadType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_InferredWorkloadTypes omitted.
 
 /**
  * deserializeAws_json1_0InstanceRecommendation
  */
 const de_InstanceRecommendation = (output: any, context: __SerdeContext): InstanceRecommendation => {
-  return {
-    accountId: __expectString(output.accountId),
-    currentInstanceType: __expectString(output.currentInstanceType),
-    currentPerformanceRisk: __expectString(output.currentPerformanceRisk),
-    effectiveRecommendationPreferences:
-      output.effectiveRecommendationPreferences != null
-        ? de_EffectiveRecommendationPreferences(output.effectiveRecommendationPreferences, context)
-        : undefined,
-    finding: __expectString(output.finding),
-    findingReasonCodes:
-      output.findingReasonCodes != null
-        ? de_InstanceRecommendationFindingReasonCodes(output.findingReasonCodes, context)
-        : undefined,
-    inferredWorkloadTypes:
-      output.inferredWorkloadTypes != null
-        ? de_InferredWorkloadTypes(output.inferredWorkloadTypes, context)
-        : undefined,
-    instanceArn: __expectString(output.instanceArn),
-    instanceName: __expectString(output.instanceName),
-    instanceState: __expectString(output.instanceState),
-    lastRefreshTimestamp:
-      output.lastRefreshTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
-        : undefined,
-    lookBackPeriodInDays: __limitedParseDouble(output.lookBackPeriodInDays),
-    recommendationOptions:
-      output.recommendationOptions != null
-        ? de_RecommendationOptions(output.recommendationOptions, context)
-        : undefined,
-    recommendationSources:
-      output.recommendationSources != null
-        ? de_RecommendationSources(output.recommendationSources, context)
-        : undefined,
-    utilizationMetrics:
-      output.utilizationMetrics != null ? de_UtilizationMetrics(output.utilizationMetrics, context) : undefined,
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    currentInstanceType: __expectString,
+    currentPerformanceRisk: __expectString,
+    effectiveRecommendationPreferences: _json,
+    finding: __expectString,
+    findingReasonCodes: _json,
+    inferredWorkloadTypes: _json,
+    instanceArn: __expectString,
+    instanceName: __expectString,
+    instanceState: __expectString,
+    lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lookBackPeriodInDays: __limitedParseDouble,
+    recommendationOptions: (_: any) => de_RecommendationOptions(_, context),
+    recommendationSources: _json,
+    utilizationMetrics: (_: any) => de_UtilizationMetrics(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0InstanceRecommendationFindingReasonCodes
- */
-const de_InstanceRecommendationFindingReasonCodes = (
-  output: any,
-  context: __SerdeContext
-): (InstanceRecommendationFindingReasonCode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_InstanceRecommendationFindingReasonCodes omitted.
 
 /**
  * deserializeAws_json1_0InstanceRecommendationOption
  */
 const de_InstanceRecommendationOption = (output: any, context: __SerdeContext): InstanceRecommendationOption => {
-  return {
-    instanceType: __expectString(output.instanceType),
-    migrationEffort: __expectString(output.migrationEffort),
-    performanceRisk: __limitedParseDouble(output.performanceRisk),
-    platformDifferences:
-      output.platformDifferences != null ? de_PlatformDifferences(output.platformDifferences, context) : undefined,
-    projectedUtilizationMetrics:
-      output.projectedUtilizationMetrics != null
-        ? de_ProjectedUtilizationMetrics(output.projectedUtilizationMetrics, context)
-        : undefined,
-    rank: __expectInt32(output.rank),
-    savingsOpportunity:
-      output.savingsOpportunity != null ? de_SavingsOpportunity(output.savingsOpportunity, context) : undefined,
-  } as any;
+  return take(output, {
+    instanceType: __expectString,
+    migrationEffort: __expectString,
+    performanceRisk: __limitedParseDouble,
+    platformDifferences: _json,
+    projectedUtilizationMetrics: (_: any) => de_ProjectedUtilizationMetrics(_, context),
+    rank: __expectInt32,
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+  }) as any;
 };
 
 /**
@@ -3676,31 +2648,14 @@ const de_InstanceRecommendations = (output: any, context: __SerdeContext): Insta
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_InstanceRecommendation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0InvalidParameterValueException
- */
-const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidParameterValueException omitted.
 
 /**
  * deserializeAws_json1_0LambdaFunctionMemoryProjectedMetric
@@ -3709,11 +2664,11 @@ const de_LambdaFunctionMemoryProjectedMetric = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionMemoryProjectedMetric => {
-  return {
-    name: __expectString(output.name),
-    statistic: __expectString(output.statistic),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    name: __expectString,
+    statistic: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -3726,9 +2681,6 @@ const de_LambdaFunctionMemoryProjectedMetrics = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LambdaFunctionMemoryProjectedMetric(entry, context);
     });
   return retVal;
@@ -3741,16 +2693,12 @@ const de_LambdaFunctionMemoryRecommendationOption = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionMemoryRecommendationOption => {
-  return {
-    memorySize: __expectInt32(output.memorySize),
-    projectedUtilizationMetrics:
-      output.projectedUtilizationMetrics != null
-        ? de_LambdaFunctionMemoryProjectedMetrics(output.projectedUtilizationMetrics, context)
-        : undefined,
-    rank: __expectInt32(output.rank),
-    savingsOpportunity:
-      output.savingsOpportunity != null ? de_SavingsOpportunity(output.savingsOpportunity, context) : undefined,
-  } as any;
+  return take(output, {
+    memorySize: __expectInt32,
+    projectedUtilizationMetrics: (_: any) => de_LambdaFunctionMemoryProjectedMetrics(_, context),
+    rank: __expectInt32,
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+  }) as any;
 };
 
 /**
@@ -3763,9 +2711,6 @@ const de_LambdaFunctionMemoryRecommendationOptions = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LambdaFunctionMemoryRecommendationOption(entry, context);
     });
   return retVal;
@@ -3775,51 +2720,23 @@ const de_LambdaFunctionMemoryRecommendationOptions = (
  * deserializeAws_json1_0LambdaFunctionRecommendation
  */
 const de_LambdaFunctionRecommendation = (output: any, context: __SerdeContext): LambdaFunctionRecommendation => {
-  return {
-    accountId: __expectString(output.accountId),
-    currentMemorySize: __expectInt32(output.currentMemorySize),
-    currentPerformanceRisk: __expectString(output.currentPerformanceRisk),
-    finding: __expectString(output.finding),
-    findingReasonCodes:
-      output.findingReasonCodes != null
-        ? de_LambdaFunctionRecommendationFindingReasonCodes(output.findingReasonCodes, context)
-        : undefined,
-    functionArn: __expectString(output.functionArn),
-    functionVersion: __expectString(output.functionVersion),
-    lastRefreshTimestamp:
-      output.lastRefreshTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
-        : undefined,
-    lookbackPeriodInDays: __limitedParseDouble(output.lookbackPeriodInDays),
-    memorySizeRecommendationOptions:
-      output.memorySizeRecommendationOptions != null
-        ? de_LambdaFunctionMemoryRecommendationOptions(output.memorySizeRecommendationOptions, context)
-        : undefined,
-    numberOfInvocations: __expectLong(output.numberOfInvocations),
-    utilizationMetrics:
-      output.utilizationMetrics != null
-        ? de_LambdaFunctionUtilizationMetrics(output.utilizationMetrics, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    currentMemorySize: __expectInt32,
+    currentPerformanceRisk: __expectString,
+    finding: __expectString,
+    findingReasonCodes: _json,
+    functionArn: __expectString,
+    functionVersion: __expectString,
+    lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lookbackPeriodInDays: __limitedParseDouble,
+    memorySizeRecommendationOptions: (_: any) => de_LambdaFunctionMemoryRecommendationOptions(_, context),
+    numberOfInvocations: __expectLong,
+    utilizationMetrics: (_: any) => de_LambdaFunctionUtilizationMetrics(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0LambdaFunctionRecommendationFindingReasonCodes
- */
-const de_LambdaFunctionRecommendationFindingReasonCodes = (
-  output: any,
-  context: __SerdeContext
-): (LambdaFunctionRecommendationFindingReasonCode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LambdaFunctionRecommendationFindingReasonCodes omitted.
 
 /**
  * deserializeAws_json1_0LambdaFunctionRecommendations
@@ -3828,9 +2745,6 @@ const de_LambdaFunctionRecommendations = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LambdaFunctionRecommendation(entry, context);
     });
   return retVal;
@@ -3840,11 +2754,11 @@ const de_LambdaFunctionRecommendations = (output: any, context: __SerdeContext):
  * deserializeAws_json1_0LambdaFunctionUtilizationMetric
  */
 const de_LambdaFunctionUtilizationMetric = (output: any, context: __SerdeContext): LambdaFunctionUtilizationMetric => {
-  return {
-    name: __expectString(output.name),
-    statistic: __expectString(output.statistic),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    name: __expectString,
+    statistic: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -3857,32 +2771,14 @@ const de_LambdaFunctionUtilizationMetrics = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LambdaFunctionUtilizationMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_0MemorySizeConfiguration
- */
-const de_MemorySizeConfiguration = (output: any, context: __SerdeContext): MemorySizeConfiguration => {
-  return {
-    memory: __expectInt32(output.memory),
-    memoryReservation: __expectInt32(output.memoryReservation),
-  } as any;
-};
+// de_MemorySizeConfiguration omitted.
 
 /**
  * deserializeAws_json1_0MetricValues
@@ -3891,56 +2787,26 @@ const de_MetricValues = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0MissingAuthenticationToken
- */
-const de_MissingAuthenticationToken = (output: any, context: __SerdeContext): MissingAuthenticationToken => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MissingAuthenticationToken omitted.
 
-/**
- * deserializeAws_json1_0OptInRequiredException
- */
-const de_OptInRequiredException = (output: any, context: __SerdeContext): OptInRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OptInRequiredException omitted.
 
-/**
- * deserializeAws_json1_0PlatformDifferences
- */
-const de_PlatformDifferences = (output: any, context: __SerdeContext): (PlatformDifference | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PlatformDifferences omitted.
 
 /**
  * deserializeAws_json1_0ProjectedMetric
  */
 const de_ProjectedMetric = (output: any, context: __SerdeContext): ProjectedMetric => {
-  return {
-    name: __expectString(output.name),
-    timestamps: output.timestamps != null ? de_Timestamps(output.timestamps, context) : undefined,
-    values: output.values != null ? de_MetricValues(output.values, context) : undefined,
-  } as any;
+  return take(output, {
+    name: __expectString,
+    timestamps: (_: any) => de_Timestamps(_, context),
+    values: (_: any) => de_MetricValues(_, context),
+  }) as any;
 };
 
 /**
@@ -3950,9 +2816,6 @@ const de_ProjectedMetrics = (output: any, context: __SerdeContext): ProjectedMet
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProjectedMetric(entry, context);
     });
   return retVal;
@@ -3965,23 +2828,12 @@ const de_ProjectedUtilizationMetrics = (output: any, context: __SerdeContext): U
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UtilizationMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0PutRecommendationPreferencesResponse
- */
-const de_PutRecommendationPreferencesResponse = (
-  output: any,
-  context: __SerdeContext
-): PutRecommendationPreferencesResponse => {
-  return {} as any;
-};
+// de_PutRecommendationPreferencesResponse omitted.
 
 /**
  * deserializeAws_json1_0ReasonCodeSummaries
@@ -3990,9 +2842,6 @@ const de_ReasonCodeSummaries = (output: any, context: __SerdeContext): ReasonCod
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReasonCodeSummary(entry, context);
     });
   return retVal;
@@ -4002,31 +2851,25 @@ const de_ReasonCodeSummaries = (output: any, context: __SerdeContext): ReasonCod
  * deserializeAws_json1_0ReasonCodeSummary
  */
 const de_ReasonCodeSummary = (output: any, context: __SerdeContext): ReasonCodeSummary => {
-  return {
-    name: __expectString(output.name),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    name: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0RecommendationExportJob
  */
 const de_RecommendationExportJob = (output: any, context: __SerdeContext): RecommendationExportJob => {
-  return {
-    creationTimestamp:
-      output.creationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTimestamp)))
-        : undefined,
-    destination: output.destination != null ? de_ExportDestination(output.destination, context) : undefined,
-    failureReason: __expectString(output.failureReason),
-    jobId: __expectString(output.jobId),
-    lastUpdatedTimestamp:
-      output.lastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTimestamp)))
-        : undefined,
-    resourceType: __expectString(output.resourceType),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    creationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    destination: _json,
+    failureReason: __expectString,
+    jobId: __expectString,
+    lastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceType: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4036,9 +2879,6 @@ const de_RecommendationExportJobs = (output: any, context: __SerdeContext): Reco
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecommendationExportJob(entry, context);
     });
   return retVal;
@@ -4051,72 +2891,18 @@ const de_RecommendationOptions = (output: any, context: __SerdeContext): Instanc
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_InstanceRecommendationOption(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0RecommendationPreferencesDetail
- */
-const de_RecommendationPreferencesDetail = (output: any, context: __SerdeContext): RecommendationPreferencesDetail => {
-  return {
-    enhancedInfrastructureMetrics: __expectString(output.enhancedInfrastructureMetrics),
-    externalMetricsPreference:
-      output.externalMetricsPreference != null
-        ? de_ExternalMetricsPreference(output.externalMetricsPreference, context)
-        : undefined,
-    inferredWorkloadTypes: __expectString(output.inferredWorkloadTypes),
-    resourceType: __expectString(output.resourceType),
-    scope: output.scope != null ? de_Scope(output.scope, context) : undefined,
-  } as any;
-};
+// de_RecommendationPreferencesDetail omitted.
 
-/**
- * deserializeAws_json1_0RecommendationPreferencesDetails
- */
-const de_RecommendationPreferencesDetails = (
-  output: any,
-  context: __SerdeContext
-): RecommendationPreferencesDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationPreferencesDetail(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationPreferencesDetails omitted.
 
-/**
- * deserializeAws_json1_0RecommendationSource
- */
-const de_RecommendationSource = (output: any, context: __SerdeContext): RecommendationSource => {
-  return {
-    recommendationSourceArn: __expectString(output.recommendationSourceArn),
-    recommendationSourceType: __expectString(output.recommendationSourceType),
-  } as any;
-};
+// de_RecommendationSource omitted.
 
-/**
- * deserializeAws_json1_0RecommendationSources
- */
-const de_RecommendationSources = (output: any, context: __SerdeContext): RecommendationSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationSource(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationSources omitted.
 
 /**
  * deserializeAws_json1_0RecommendationSummaries
@@ -4125,9 +2911,6 @@ const de_RecommendationSummaries = (output: any, context: __SerdeContext): Recom
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecommendationSummary(entry, context);
     });
   return retVal;
@@ -4137,17 +2920,13 @@ const de_RecommendationSummaries = (output: any, context: __SerdeContext): Recom
  * deserializeAws_json1_0RecommendationSummary
  */
 const de_RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
-  return {
-    accountId: __expectString(output.accountId),
-    currentPerformanceRiskRatings:
-      output.currentPerformanceRiskRatings != null
-        ? de_CurrentPerformanceRiskRatings(output.currentPerformanceRiskRatings, context)
-        : undefined,
-    recommendationResourceType: __expectString(output.recommendationResourceType),
-    savingsOpportunity:
-      output.savingsOpportunity != null ? de_SavingsOpportunity(output.savingsOpportunity, context) : undefined,
-    summaries: output.summaries != null ? de_Summaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    currentPerformanceRiskRatings: _json,
+    recommendationResourceType: __expectString,
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+    summaries: (_: any) => de_Summaries(_, context),
+  }) as any;
 };
 
 /**
@@ -4157,12 +2936,11 @@ const de_RecommendedOptionProjectedMetric = (
   output: any,
   context: __SerdeContext
 ): RecommendedOptionProjectedMetric => {
-  return {
-    projectedMetrics:
-      output.projectedMetrics != null ? de_ProjectedMetrics(output.projectedMetrics, context) : undefined,
-    rank: __expectInt32(output.rank),
-    recommendedInstanceType: __expectString(output.recommendedInstanceType),
-  } as any;
+  return take(output, {
+    projectedMetrics: (_: any) => de_ProjectedMetrics(_, context),
+    rank: __expectInt32,
+    recommendedInstanceType: __expectString,
+  }) as any;
 };
 
 /**
@@ -4175,81 +2953,30 @@ const de_RecommendedOptionProjectedMetrics = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecommendedOptionProjectedMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0S3Destination
- */
-const de_S3Destination = (output: any, context: __SerdeContext): S3Destination => {
-  return {
-    bucket: __expectString(output.bucket),
-    key: __expectString(output.key),
-    metadataKey: __expectString(output.metadataKey),
-  } as any;
-};
+// de_S3Destination omitted.
 
 /**
  * deserializeAws_json1_0SavingsOpportunity
  */
 const de_SavingsOpportunity = (output: any, context: __SerdeContext): SavingsOpportunity => {
-  return {
-    estimatedMonthlySavings:
-      output.estimatedMonthlySavings != null
-        ? de_EstimatedMonthlySavings(output.estimatedMonthlySavings, context)
-        : undefined,
-    savingsOpportunityPercentage: __limitedParseDouble(output.savingsOpportunityPercentage),
-  } as any;
+  return take(output, {
+    estimatedMonthlySavings: (_: any) => de_EstimatedMonthlySavings(_, context),
+    savingsOpportunityPercentage: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0Scope
- */
-const de_Scope = (output: any, context: __SerdeContext): Scope => {
-  return {
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Scope omitted.
 
-/**
- * deserializeAws_json1_0ServiceConfiguration
- */
-const de_ServiceConfiguration = (output: any, context: __SerdeContext): ServiceConfiguration => {
-  return {
-    autoScalingConfiguration: __expectString(output.autoScalingConfiguration),
-    containerConfigurations:
-      output.containerConfigurations != null
-        ? de_ContainerConfigurations(output.containerConfigurations, context)
-        : undefined,
-    cpu: __expectInt32(output.cpu),
-    memory: __expectInt32(output.memory),
-    taskDefinitionArn: __expectString(output.taskDefinitionArn),
-  } as any;
-};
+// de_ServiceConfiguration omitted.
 
-/**
- * deserializeAws_json1_0ServiceUnavailableException
- */
-const de_ServiceUnavailableException = (output: any, context: __SerdeContext): ServiceUnavailableException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServiceUnavailableException omitted.
 
 /**
  * deserializeAws_json1_0Summaries
@@ -4258,9 +2985,6 @@ const de_Summaries = (output: any, context: __SerdeContext): Summary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Summary(entry, context);
     });
   return retVal;
@@ -4270,22 +2994,14 @@ const de_Summaries = (output: any, context: __SerdeContext): Summary[] => {
  * deserializeAws_json1_0Summary
  */
 const de_Summary = (output: any, context: __SerdeContext): Summary => {
-  return {
-    name: __expectString(output.name),
-    reasonCodeSummaries:
-      output.reasonCodeSummaries != null ? de_ReasonCodeSummaries(output.reasonCodeSummaries, context) : undefined,
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    name: __expectString,
+    reasonCodeSummaries: (_: any) => de_ReasonCodeSummaries(_, context),
+    value: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
 /**
  * deserializeAws_json1_0Timestamps
@@ -4294,33 +3010,22 @@ const de_Timestamps = (output: any, context: __SerdeContext): Date[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0UpdateEnrollmentStatusResponse
- */
-const de_UpdateEnrollmentStatusResponse = (output: any, context: __SerdeContext): UpdateEnrollmentStatusResponse => {
-  return {
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-  } as any;
-};
+// de_UpdateEnrollmentStatusResponse omitted.
 
 /**
  * deserializeAws_json1_0UtilizationMetric
  */
 const de_UtilizationMetric = (output: any, context: __SerdeContext): UtilizationMetric => {
-  return {
-    name: __expectString(output.name),
-    statistic: __expectString(output.statistic),
-    value: __limitedParseDouble(output.value),
-  } as any;
+  return take(output, {
+    name: __expectString,
+    statistic: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -4330,65 +3035,40 @@ const de_UtilizationMetrics = (output: any, context: __SerdeContext): Utilizatio
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UtilizationMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0VolumeConfiguration
- */
-const de_VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
-  return {
-    rootVolume: __expectBoolean(output.rootVolume),
-    volumeBaselineIOPS: __expectInt32(output.volumeBaselineIOPS),
-    volumeBaselineThroughput: __expectInt32(output.volumeBaselineThroughput),
-    volumeBurstIOPS: __expectInt32(output.volumeBurstIOPS),
-    volumeBurstThroughput: __expectInt32(output.volumeBurstThroughput),
-    volumeSize: __expectInt32(output.volumeSize),
-    volumeType: __expectString(output.volumeType),
-  } as any;
-};
+// de_VolumeConfiguration omitted.
 
 /**
  * deserializeAws_json1_0VolumeRecommendation
  */
 const de_VolumeRecommendation = (output: any, context: __SerdeContext): VolumeRecommendation => {
-  return {
-    accountId: __expectString(output.accountId),
-    currentConfiguration:
-      output.currentConfiguration != null ? de_VolumeConfiguration(output.currentConfiguration, context) : undefined,
-    currentPerformanceRisk: __expectString(output.currentPerformanceRisk),
-    finding: __expectString(output.finding),
-    lastRefreshTimestamp:
-      output.lastRefreshTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
-        : undefined,
-    lookBackPeriodInDays: __limitedParseDouble(output.lookBackPeriodInDays),
-    utilizationMetrics:
-      output.utilizationMetrics != null ? de_EBSUtilizationMetrics(output.utilizationMetrics, context) : undefined,
-    volumeArn: __expectString(output.volumeArn),
-    volumeRecommendationOptions:
-      output.volumeRecommendationOptions != null
-        ? de_VolumeRecommendationOptions(output.volumeRecommendationOptions, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    currentConfiguration: _json,
+    currentPerformanceRisk: __expectString,
+    finding: __expectString,
+    lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lookBackPeriodInDays: __limitedParseDouble,
+    utilizationMetrics: (_: any) => de_EBSUtilizationMetrics(_, context),
+    volumeArn: __expectString,
+    volumeRecommendationOptions: (_: any) => de_VolumeRecommendationOptions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0VolumeRecommendationOption
  */
 const de_VolumeRecommendationOption = (output: any, context: __SerdeContext): VolumeRecommendationOption => {
-  return {
-    configuration: output.configuration != null ? de_VolumeConfiguration(output.configuration, context) : undefined,
-    performanceRisk: __limitedParseDouble(output.performanceRisk),
-    rank: __expectInt32(output.rank),
-    savingsOpportunity:
-      output.savingsOpportunity != null ? de_SavingsOpportunity(output.savingsOpportunity, context) : undefined,
-  } as any;
+  return take(output, {
+    configuration: _json,
+    performanceRisk: __limitedParseDouble,
+    rank: __expectInt32,
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+  }) as any;
 };
 
 /**
@@ -4398,9 +3078,6 @@ const de_VolumeRecommendationOptions = (output: any, context: __SerdeContext): V
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VolumeRecommendationOption(entry, context);
     });
   return retVal;
@@ -4413,9 +3090,6 @@ const de_VolumeRecommendations = (output: any, context: __SerdeContext): VolumeR
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VolumeRecommendation(entry, context);
     });
   return retVal;
@@ -4441,6 +3115,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

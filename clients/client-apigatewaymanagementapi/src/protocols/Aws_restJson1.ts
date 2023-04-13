@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -167,10 +169,9 @@ const de_DeleteConnectionCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -190,15 +191,12 @@ export const de_GetConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.connectedAt != null) {
-    contents.ConnectedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.connectedAt));
-  }
-  if (data.identity != null) {
-    contents.Identity = de_Identity(data.identity, context);
-  }
-  if (data.lastActiveAt != null) {
-    contents.LastActiveAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastActiveAt));
-  }
+  const doc = take(data, {
+    ConnectedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `connectedAt`],
+    Identity: [, (_) => de_Identity(_, context), `identity`],
+    LastActiveAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastActiveAt`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -226,10 +224,9 @@ const de_GetConnectionCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -279,22 +276,23 @@ const de_PostToConnectionCommandError = async (
       throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ForbiddenExceptionRes
  */
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -308,6 +306,8 @@ const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeConte
 const de_GoneExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<GoneException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new GoneException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -324,6 +324,8 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -340,9 +342,10 @@ const de_PayloadTooLargeExceptionRes = async (
 ): Promise<PayloadTooLargeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new PayloadTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -354,10 +357,10 @@ const de_PayloadTooLargeExceptionRes = async (
  * deserializeAws_restJson1Identity
  */
 const de_Identity = (output: any, context: __SerdeContext): Identity => {
-  return {
-    SourceIp: __expectString(output.sourceIp),
-    UserAgent: __expectString(output.userAgent),
-  } as any;
+  return take(output, {
+    SourceIp: [, __expectString, `sourceIp`],
+    UserAgent: [, __expectString, `userAgent`],
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

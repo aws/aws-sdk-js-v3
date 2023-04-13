@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -46,21 +47,13 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import {
   CurrencyCode,
   InternalServerException,
-  ParentSavingsPlanOffering,
   ResourceNotFoundException,
-  SavingsPlan,
   SavingsPlanFilter,
-  SavingsPlanOffering,
   SavingsPlanOfferingFilterElement,
-  SavingsPlanOfferingProperty,
-  SavingsPlanOfferingRate,
   SavingsPlanOfferingRateFilterElement,
-  SavingsPlanOfferingRateProperty,
   SavingsPlanPaymentOption,
   SavingsPlanProductType,
-  SavingsPlanRate,
   SavingsPlanRateFilter,
-  SavingsPlanRateProperty,
   SavingsPlanRateServiceCode,
   SavingsPlanState,
   SavingsPlanType,
@@ -82,14 +75,16 @@ export const se_CreateSavingsPlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateSavingsPlan";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.commitment != null && { commitment: input.commitment }),
-    ...(input.purchaseTime != null && { purchaseTime: Math.round(input.purchaseTime.getTime() / 1000) }),
-    ...(input.savingsPlanOfferingId != null && { savingsPlanOfferingId: input.savingsPlanOfferingId }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.upfrontPaymentAmount != null && { upfrontPaymentAmount: input.upfrontPaymentAmount }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      commitment: [],
+      purchaseTime: (_) => Math.round(_.getTime() / 1000),
+      savingsPlanOfferingId: [],
+      tags: (_) => _json(_),
+      upfrontPaymentAmount: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -115,9 +110,11 @@ export const se_DeleteQueuedSavingsPlanCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteQueuedSavingsPlan";
   let body: any;
-  body = JSON.stringify({
-    ...(input.savingsPlanId != null && { savingsPlanId: input.savingsPlanId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      savingsPlanId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -143,12 +140,14 @@ export const se_DescribeSavingsPlanRatesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeSavingsPlanRates";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_SavingsPlanRateFilterList(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.savingsPlanId != null && { savingsPlanId: input.savingsPlanId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      savingsPlanId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -173,14 +172,16 @@ export const se_DescribeSavingsPlansCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeSavingsPlans";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_SavingsPlanFilterList(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.savingsPlanArns != null && { savingsPlanArns: se_SavingsPlanArnList(input.savingsPlanArns, context) }),
-    ...(input.savingsPlanIds != null && { savingsPlanIds: se_SavingsPlanIdList(input.savingsPlanIds, context) }),
-    ...(input.states != null && { states: se_SavingsPlanStateList(input.states, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      savingsPlanArns: (_) => _json(_),
+      savingsPlanIds: (_) => _json(_),
+      states: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -206,24 +207,20 @@ export const se_DescribeSavingsPlansOfferingRatesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeSavingsPlansOfferingRates";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_SavingsPlanOfferingRateFiltersList(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.operations != null && { operations: se_SavingsPlanRateOperationList(input.operations, context) }),
-    ...(input.products != null && { products: se_SavingsPlanProductTypeList(input.products, context) }),
-    ...(input.savingsPlanOfferingIds != null && {
-      savingsPlanOfferingIds: se_UUIDs(input.savingsPlanOfferingIds, context),
-    }),
-    ...(input.savingsPlanPaymentOptions != null && {
-      savingsPlanPaymentOptions: se_SavingsPlanPaymentOptionList(input.savingsPlanPaymentOptions, context),
-    }),
-    ...(input.savingsPlanTypes != null && {
-      savingsPlanTypes: se_SavingsPlanTypeList(input.savingsPlanTypes, context),
-    }),
-    ...(input.serviceCodes != null && { serviceCodes: se_SavingsPlanRateServiceCodeList(input.serviceCodes, context) }),
-    ...(input.usageTypes != null && { usageTypes: se_SavingsPlanRateUsageTypeList(input.usageTypes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      operations: (_) => _json(_),
+      products: (_) => _json(_),
+      savingsPlanOfferingIds: (_) => _json(_),
+      savingsPlanPaymentOptions: (_) => _json(_),
+      savingsPlanTypes: (_) => _json(_),
+      serviceCodes: (_) => _json(_),
+      usageTypes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -249,23 +246,23 @@ export const se_DescribeSavingsPlansOfferingsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeSavingsPlansOfferings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.currencies != null && { currencies: se_CurrencyList(input.currencies, context) }),
-    ...(input.descriptions != null && { descriptions: se_SavingsPlanDescriptionsList(input.descriptions, context) }),
-    ...(input.durations != null && { durations: se_DurationsList(input.durations, context) }),
-    ...(input.filters != null && { filters: se_SavingsPlanOfferingFiltersList(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.offeringIds != null && { offeringIds: se_UUIDs(input.offeringIds, context) }),
-    ...(input.operations != null && { operations: se_SavingsPlanOperationList(input.operations, context) }),
-    ...(input.paymentOptions != null && {
-      paymentOptions: se_SavingsPlanPaymentOptionList(input.paymentOptions, context),
-    }),
-    ...(input.planTypes != null && { planTypes: se_SavingsPlanTypeList(input.planTypes, context) }),
-    ...(input.productType != null && { productType: input.productType }),
-    ...(input.serviceCodes != null && { serviceCodes: se_SavingsPlanServiceCodeList(input.serviceCodes, context) }),
-    ...(input.usageTypes != null && { usageTypes: se_SavingsPlanUsageTypeList(input.usageTypes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      currencies: (_) => _json(_),
+      descriptions: (_) => _json(_),
+      durations: (_) => _json(_),
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      offeringIds: (_) => _json(_),
+      operations: (_) => _json(_),
+      paymentOptions: (_) => _json(_),
+      planTypes: (_) => _json(_),
+      productType: [],
+      serviceCodes: (_) => _json(_),
+      usageTypes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -290,9 +287,11 @@ export const se_ListTagsForResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -317,10 +316,12 @@ export const se_TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -345,10 +346,12 @@ export const se_UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+      tagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -374,9 +377,10 @@ export const de_CreateSavingsPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.savingsPlanId != null) {
-    contents.savingsPlanId = __expectString(data.savingsPlanId);
-  }
+  const doc = take(data, {
+    savingsPlanId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -407,10 +411,9 @@ const de_CreateSavingsPlanCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -460,10 +463,9 @@ const de_DeleteQueuedSavingsPlanCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -483,15 +485,12 @@ export const de_DescribeSavingsPlanRatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.savingsPlanId != null) {
-    contents.savingsPlanId = __expectString(data.savingsPlanId);
-  }
-  if (data.searchResults != null) {
-    contents.searchResults = de_SavingsPlanRateList(data.searchResults, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    savingsPlanId: __expectString,
+    searchResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -516,10 +515,9 @@ const de_DescribeSavingsPlanRatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -539,12 +537,11 @@ export const de_DescribeSavingsPlansCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.savingsPlans != null) {
-    contents.savingsPlans = de_SavingsPlanList(data.savingsPlans, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    savingsPlans: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -569,10 +566,9 @@ const de_DescribeSavingsPlansCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -592,12 +588,11 @@ export const de_DescribeSavingsPlansOfferingRatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.searchResults != null) {
-    contents.searchResults = de_SavingsPlanOfferingRatesList(data.searchResults, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    searchResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -622,10 +617,9 @@ const de_DescribeSavingsPlansOfferingRatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -645,12 +639,11 @@ export const de_DescribeSavingsPlansOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.searchResults != null) {
-    contents.searchResults = de_SavingsPlanOfferingsList(data.searchResults, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    searchResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -675,10 +668,9 @@ const de_DescribeSavingsPlansOfferingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -698,9 +690,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -728,10 +721,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -781,10 +773,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -831,16 +822,15 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InternalServerExceptionRes
  */
@@ -850,9 +840,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -869,9 +860,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -888,9 +880,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -904,9 +897,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -914,584 +908,95 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1CurrencyList
- */
-const se_CurrencyList = (input: (CurrencyCode | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CurrencyList omitted.
 
-/**
- * serializeAws_restJson1DurationsList
- */
-const se_DurationsList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DurationsList omitted.
 
-/**
- * serializeAws_restJson1FilterValuesList
- */
-const se_FilterValuesList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilterValuesList omitted.
 
-/**
- * serializeAws_restJson1ListOfStrings
- */
-const se_ListOfStrings = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfStrings omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanArnList
- */
-const se_SavingsPlanArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanArnList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanDescriptionsList
- */
-const se_SavingsPlanDescriptionsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanDescriptionsList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanFilter
- */
-const se_SavingsPlanFilter = (input: SavingsPlanFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_ListOfStrings(input.values, context) }),
-  };
-};
+// se_SavingsPlanFilter omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanFilterList
- */
-const se_SavingsPlanFilterList = (input: SavingsPlanFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SavingsPlanFilter(entry, context);
-    });
-};
+// se_SavingsPlanFilterList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanIdList
- */
-const se_SavingsPlanIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanIdList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanOfferingFilterElement
- */
-const se_SavingsPlanOfferingFilterElement = (input: SavingsPlanOfferingFilterElement, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValuesList(input.values, context) }),
-  };
-};
+// se_SavingsPlanOfferingFilterElement omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanOfferingFiltersList
- */
-const se_SavingsPlanOfferingFiltersList = (input: SavingsPlanOfferingFilterElement[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SavingsPlanOfferingFilterElement(entry, context);
-    });
-};
+// se_SavingsPlanOfferingFiltersList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanOfferingRateFilterElement
- */
-const se_SavingsPlanOfferingRateFilterElement = (
-  input: SavingsPlanOfferingRateFilterElement,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_FilterValuesList(input.values, context) }),
-  };
-};
+// se_SavingsPlanOfferingRateFilterElement omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanOfferingRateFiltersList
- */
-const se_SavingsPlanOfferingRateFiltersList = (
-  input: SavingsPlanOfferingRateFilterElement[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SavingsPlanOfferingRateFilterElement(entry, context);
-    });
-};
+// se_SavingsPlanOfferingRateFiltersList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanOperationList
- */
-const se_SavingsPlanOperationList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanOperationList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanPaymentOptionList
- */
-const se_SavingsPlanPaymentOptionList = (
-  input: (SavingsPlanPaymentOption | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanPaymentOptionList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanProductTypeList
- */
-const se_SavingsPlanProductTypeList = (input: (SavingsPlanProductType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanProductTypeList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanRateFilter
- */
-const se_SavingsPlanRateFilter = (input: SavingsPlanRateFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: se_ListOfStrings(input.values, context) }),
-  };
-};
+// se_SavingsPlanRateFilter omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanRateFilterList
- */
-const se_SavingsPlanRateFilterList = (input: SavingsPlanRateFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SavingsPlanRateFilter(entry, context);
-    });
-};
+// se_SavingsPlanRateFilterList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanRateOperationList
- */
-const se_SavingsPlanRateOperationList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanRateOperationList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanRateServiceCodeList
- */
-const se_SavingsPlanRateServiceCodeList = (
-  input: (SavingsPlanRateServiceCode | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanRateServiceCodeList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanRateUsageTypeList
- */
-const se_SavingsPlanRateUsageTypeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanRateUsageTypeList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanServiceCodeList
- */
-const se_SavingsPlanServiceCodeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanServiceCodeList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanStateList
- */
-const se_SavingsPlanStateList = (input: (SavingsPlanState | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanStateList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanTypeList
- */
-const se_SavingsPlanTypeList = (input: (SavingsPlanType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanTypeList omitted.
 
-/**
- * serializeAws_restJson1SavingsPlanUsageTypeList
- */
-const se_SavingsPlanUsageTypeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlanUsageTypeList omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1UUIDs
- */
-const se_UUIDs = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UUIDs omitted.
 
-/**
- * deserializeAws_restJson1ParentSavingsPlanOffering
- */
-const de_ParentSavingsPlanOffering = (output: any, context: __SerdeContext): ParentSavingsPlanOffering => {
-  return {
-    currency: __expectString(output.currency),
-    durationSeconds: __expectLong(output.durationSeconds),
-    offeringId: __expectString(output.offeringId),
-    paymentOption: __expectString(output.paymentOption),
-    planDescription: __expectString(output.planDescription),
-    planType: __expectString(output.planType),
-  } as any;
-};
+// de_ParentSavingsPlanOffering omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlan
- */
-const de_SavingsPlan = (output: any, context: __SerdeContext): SavingsPlan => {
-  return {
-    commitment: __expectString(output.commitment),
-    currency: __expectString(output.currency),
-    description: __expectString(output.description),
-    ec2InstanceFamily: __expectString(output.ec2InstanceFamily),
-    end: __expectString(output.end),
-    offeringId: __expectString(output.offeringId),
-    paymentOption: __expectString(output.paymentOption),
-    productTypes: output.productTypes != null ? de_SavingsPlanProductTypeList(output.productTypes, context) : undefined,
-    recurringPaymentAmount: __expectString(output.recurringPaymentAmount),
-    region: __expectString(output.region),
-    savingsPlanArn: __expectString(output.savingsPlanArn),
-    savingsPlanId: __expectString(output.savingsPlanId),
-    savingsPlanType: __expectString(output.savingsPlanType),
-    start: __expectString(output.start),
-    state: __expectString(output.state),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    termDurationInSeconds: __expectLong(output.termDurationInSeconds),
-    upfrontPaymentAmount: __expectString(output.upfrontPaymentAmount),
-  } as any;
-};
+// de_SavingsPlan omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanList
- */
-const de_SavingsPlanList = (output: any, context: __SerdeContext): SavingsPlan[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlan(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlanList omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanOffering
- */
-const de_SavingsPlanOffering = (output: any, context: __SerdeContext): SavingsPlanOffering => {
-  return {
-    currency: __expectString(output.currency),
-    description: __expectString(output.description),
-    durationSeconds: __expectLong(output.durationSeconds),
-    offeringId: __expectString(output.offeringId),
-    operation: __expectString(output.operation),
-    paymentOption: __expectString(output.paymentOption),
-    planType: __expectString(output.planType),
-    productTypes: output.productTypes != null ? de_SavingsPlanProductTypeList(output.productTypes, context) : undefined,
-    properties: output.properties != null ? de_SavingsPlanOfferingPropertyList(output.properties, context) : undefined,
-    serviceCode: __expectString(output.serviceCode),
-    usageType: __expectString(output.usageType),
-  } as any;
-};
+// de_SavingsPlanOffering omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanOfferingProperty
- */
-const de_SavingsPlanOfferingProperty = (output: any, context: __SerdeContext): SavingsPlanOfferingProperty => {
-  return {
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_SavingsPlanOfferingProperty omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanOfferingPropertyList
- */
-const de_SavingsPlanOfferingPropertyList = (output: any, context: __SerdeContext): SavingsPlanOfferingProperty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlanOfferingProperty(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlanOfferingPropertyList omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanOfferingRate
- */
-const de_SavingsPlanOfferingRate = (output: any, context: __SerdeContext): SavingsPlanOfferingRate => {
-  return {
-    operation: __expectString(output.operation),
-    productType: __expectString(output.productType),
-    properties:
-      output.properties != null ? de_SavingsPlanOfferingRatePropertyList(output.properties, context) : undefined,
-    rate: __expectString(output.rate),
-    savingsPlanOffering:
-      output.savingsPlanOffering != null
-        ? de_ParentSavingsPlanOffering(output.savingsPlanOffering, context)
-        : undefined,
-    serviceCode: __expectString(output.serviceCode),
-    unit: __expectString(output.unit),
-    usageType: __expectString(output.usageType),
-  } as any;
-};
+// de_SavingsPlanOfferingRate omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanOfferingRateProperty
- */
-const de_SavingsPlanOfferingRateProperty = (output: any, context: __SerdeContext): SavingsPlanOfferingRateProperty => {
-  return {
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_SavingsPlanOfferingRateProperty omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanOfferingRatePropertyList
- */
-const de_SavingsPlanOfferingRatePropertyList = (
-  output: any,
-  context: __SerdeContext
-): SavingsPlanOfferingRateProperty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlanOfferingRateProperty(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlanOfferingRatePropertyList omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanOfferingRatesList
- */
-const de_SavingsPlanOfferingRatesList = (output: any, context: __SerdeContext): SavingsPlanOfferingRate[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlanOfferingRate(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlanOfferingRatesList omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanOfferingsList
- */
-const de_SavingsPlanOfferingsList = (output: any, context: __SerdeContext): SavingsPlanOffering[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlanOffering(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlanOfferingsList omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanProductTypeList
- */
-const de_SavingsPlanProductTypeList = (output: any, context: __SerdeContext): (SavingsPlanProductType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SavingsPlanProductTypeList omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanRate
- */
-const de_SavingsPlanRate = (output: any, context: __SerdeContext): SavingsPlanRate => {
-  return {
-    currency: __expectString(output.currency),
-    operation: __expectString(output.operation),
-    productType: __expectString(output.productType),
-    properties: output.properties != null ? de_SavingsPlanRatePropertyList(output.properties, context) : undefined,
-    rate: __expectString(output.rate),
-    serviceCode: __expectString(output.serviceCode),
-    unit: __expectString(output.unit),
-    usageType: __expectString(output.usageType),
-  } as any;
-};
+// de_SavingsPlanRate omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanRateList
- */
-const de_SavingsPlanRateList = (output: any, context: __SerdeContext): SavingsPlanRate[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlanRate(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlanRateList omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanRateProperty
- */
-const de_SavingsPlanRateProperty = (output: any, context: __SerdeContext): SavingsPlanRateProperty => {
-  return {
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_SavingsPlanRateProperty omitted.
 
-/**
- * deserializeAws_restJson1SavingsPlanRatePropertyList
- */
-const de_SavingsPlanRatePropertyList = (output: any, context: __SerdeContext): SavingsPlanRateProperty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlanRateProperty(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlanRatePropertyList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

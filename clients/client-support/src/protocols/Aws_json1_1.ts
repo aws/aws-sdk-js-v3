@@ -1,12 +1,13 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectLong as __expectLong,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -58,36 +59,24 @@ import {
 import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "../commands/ResolveCaseCommand";
 import {
   AddAttachmentsToSetRequest,
-  AddAttachmentsToSetResponse,
   AddCommunicationToCaseRequest,
-  AddCommunicationToCaseResponse,
   Attachment,
-  AttachmentDetails,
   AttachmentIdNotFound,
   AttachmentLimitExceeded,
   AttachmentSetExpired,
   AttachmentSetIdNotFound,
   AttachmentSetSizeLimitExceeded,
   CaseCreationLimitExceeded,
-  CaseDetails,
   CaseIdNotFound,
-  Category,
-  Communication,
   CreateCaseRequest,
-  CreateCaseResponse,
   DescribeAttachmentLimitExceeded,
   DescribeAttachmentRequest,
   DescribeAttachmentResponse,
   DescribeCasesRequest,
-  DescribeCasesResponse,
   DescribeCommunicationsRequest,
-  DescribeCommunicationsResponse,
   DescribeServicesRequest,
-  DescribeServicesResponse,
   DescribeSeverityLevelsRequest,
-  DescribeSeverityLevelsResponse,
   DescribeTrustedAdvisorCheckRefreshStatusesRequest,
-  DescribeTrustedAdvisorCheckRefreshStatusesResponse,
   DescribeTrustedAdvisorCheckResultRequest,
   DescribeTrustedAdvisorCheckResultResponse,
   DescribeTrustedAdvisorChecksRequest,
@@ -95,21 +84,14 @@ import {
   DescribeTrustedAdvisorCheckSummariesRequest,
   DescribeTrustedAdvisorCheckSummariesResponse,
   InternalServerError,
-  RecentCaseCommunications,
   RefreshTrustedAdvisorCheckRequest,
-  RefreshTrustedAdvisorCheckResponse,
   ResolveCaseRequest,
-  ResolveCaseResponse,
-  Service,
-  SeverityLevel,
   TrustedAdvisorCategorySpecificSummary,
   TrustedAdvisorCheckDescription,
-  TrustedAdvisorCheckRefreshStatus,
   TrustedAdvisorCheckResult,
   TrustedAdvisorCheckSummary,
   TrustedAdvisorCostOptimizingSummary,
   TrustedAdvisorResourceDetail,
-  TrustedAdvisorResourcesSummary,
 } from "../models/models_0";
 import { SupportServiceException as __BaseException } from "../models/SupportServiceException";
 
@@ -135,7 +117,7 @@ export const se_AddCommunicationToCaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddCommunicationToCase");
   let body: any;
-  body = JSON.stringify(se_AddCommunicationToCaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -148,7 +130,7 @@ export const se_CreateCaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateCase");
   let body: any;
-  body = JSON.stringify(se_CreateCaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -161,7 +143,7 @@ export const se_DescribeAttachmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAttachment");
   let body: any;
-  body = JSON.stringify(se_DescribeAttachmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -174,7 +156,7 @@ export const se_DescribeCasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCases");
   let body: any;
-  body = JSON.stringify(se_DescribeCasesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -187,7 +169,7 @@ export const se_DescribeCommunicationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCommunications");
   let body: any;
-  body = JSON.stringify(se_DescribeCommunicationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -200,7 +182,7 @@ export const se_DescribeServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeServices");
   let body: any;
-  body = JSON.stringify(se_DescribeServicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -213,7 +195,7 @@ export const se_DescribeSeverityLevelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSeverityLevels");
   let body: any;
-  body = JSON.stringify(se_DescribeSeverityLevelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -239,7 +221,7 @@ export const se_DescribeTrustedAdvisorCheckResultCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorCheckResult");
   let body: any;
-  body = JSON.stringify(se_DescribeTrustedAdvisorCheckResultRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -252,7 +234,7 @@ export const se_DescribeTrustedAdvisorChecksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorChecks");
   let body: any;
-  body = JSON.stringify(se_DescribeTrustedAdvisorChecksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -278,7 +260,7 @@ export const se_RefreshTrustedAdvisorCheckCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RefreshTrustedAdvisorCheck");
   let body: any;
-  body = JSON.stringify(se_RefreshTrustedAdvisorCheckRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -291,7 +273,7 @@ export const se_ResolveCaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResolveCase");
   let body: any;
-  body = JSON.stringify(se_ResolveCaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -307,12 +289,12 @@ export const de_AddAttachmentsToSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddAttachmentsToSetResponse(data, context);
+  contents = _json(data);
   const response: AddAttachmentsToSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -345,10 +327,9 @@ const de_AddAttachmentsToSetCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -366,12 +347,12 @@ export const de_AddCommunicationToCaseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddCommunicationToCaseResponse(data, context);
+  contents = _json(data);
   const response: AddCommunicationToCaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -401,10 +382,9 @@ const de_AddCommunicationToCaseCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -422,12 +402,12 @@ export const de_CreateCaseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateCaseResponse(data, context);
+  contents = _json(data);
   const response: CreateCaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -457,10 +437,9 @@ const de_CreateCaseCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -483,7 +462,7 @@ export const de_DescribeAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -510,10 +489,9 @@ const de_DescribeAttachmentCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -531,12 +509,12 @@ export const de_DescribeCasesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeCasesResponse(data, context);
+  contents = _json(data);
   const response: DescribeCasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -560,10 +538,9 @@ const de_DescribeCasesCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -581,12 +558,12 @@ export const de_DescribeCommunicationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeCommunicationsResponse(data, context);
+  contents = _json(data);
   const response: DescribeCommunicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -610,10 +587,9 @@ const de_DescribeCommunicationsCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -631,12 +607,12 @@ export const de_DescribeServicesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeServicesResponse(data, context);
+  contents = _json(data);
   const response: DescribeServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -657,10 +633,9 @@ const de_DescribeServicesCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -678,12 +653,12 @@ export const de_DescribeSeverityLevelsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeSeverityLevelsResponse(data, context);
+  contents = _json(data);
   const response: DescribeSeverityLevelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -704,10 +679,9 @@ const de_DescribeSeverityLevelsCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -725,12 +699,12 @@ export const de_DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeTrustedAdvisorCheckRefreshStatusesResponse(data, context);
+  contents = _json(data);
   const response: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -751,10 +725,9 @@ const de_DescribeTrustedAdvisorCheckRefreshStatusesCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -777,7 +750,7 @@ export const de_DescribeTrustedAdvisorCheckResultCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -798,10 +771,9 @@ const de_DescribeTrustedAdvisorCheckResultCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -824,7 +796,7 @@ export const de_DescribeTrustedAdvisorChecksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -845,10 +817,9 @@ const de_DescribeTrustedAdvisorChecksCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -871,7 +842,7 @@ export const de_DescribeTrustedAdvisorCheckSummariesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -892,10 +863,9 @@ const de_DescribeTrustedAdvisorCheckSummariesCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -913,12 +883,12 @@ export const de_RefreshTrustedAdvisorCheckCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RefreshTrustedAdvisorCheckResponse(data, context);
+  contents = _json(data);
   const response: RefreshTrustedAdvisorCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -939,10 +909,9 @@ const de_RefreshTrustedAdvisorCheckCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -960,12 +929,12 @@ export const de_ResolveCaseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ResolveCaseResponse(data, context);
+  contents = _json(data);
   const response: ResolveCaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -989,10 +958,9 @@ const de_ResolveCaseCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1006,7 +974,7 @@ const de_AttachmentIdNotFoundRes = async (
   context: __SerdeContext
 ): Promise<AttachmentIdNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AttachmentIdNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentIdNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1022,7 +990,7 @@ const de_AttachmentLimitExceededRes = async (
   context: __SerdeContext
 ): Promise<AttachmentLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AttachmentLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1038,7 +1006,7 @@ const de_AttachmentSetExpiredRes = async (
   context: __SerdeContext
 ): Promise<AttachmentSetExpired> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AttachmentSetExpired(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentSetExpired({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1054,7 +1022,7 @@ const de_AttachmentSetIdNotFoundRes = async (
   context: __SerdeContext
 ): Promise<AttachmentSetIdNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AttachmentSetIdNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentSetIdNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1070,7 +1038,7 @@ const de_AttachmentSetSizeLimitExceededRes = async (
   context: __SerdeContext
 ): Promise<AttachmentSetSizeLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AttachmentSetSizeLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentSetSizeLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1086,7 +1054,7 @@ const de_CaseCreationLimitExceededRes = async (
   context: __SerdeContext
 ): Promise<CaseCreationLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CaseCreationLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new CaseCreationLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1099,7 +1067,7 @@ const de_CaseCreationLimitExceededRes = async (
  */
 const de_CaseIdNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<CaseIdNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CaseIdNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new CaseIdNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1115,7 +1083,7 @@ const de_DescribeAttachmentLimitExceededRes = async (
   context: __SerdeContext
 ): Promise<DescribeAttachmentLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DescribeAttachmentLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new DescribeAttachmentLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1128,7 +1096,7 @@ const de_DescribeAttachmentLimitExceededRes = async (
  */
 const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1140,32 +1108,22 @@ const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_json1_1AddAttachmentsToSetRequest
  */
 const se_AddAttachmentsToSetRequest = (input: AddAttachmentsToSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.attachmentSetId != null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.attachments != null && { attachments: se_Attachments(input.attachments, context) }),
-  };
+  return take(input, {
+    attachmentSetId: [],
+    attachments: (_) => se_Attachments(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1AddCommunicationToCaseRequest
- */
-const se_AddCommunicationToCaseRequest = (input: AddCommunicationToCaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.attachmentSetId != null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.caseId != null && { caseId: input.caseId }),
-    ...(input.ccEmailAddresses != null && { ccEmailAddresses: se_CcEmailAddressList(input.ccEmailAddresses, context) }),
-    ...(input.communicationBody != null && { communicationBody: input.communicationBody }),
-  };
-};
+// se_AddCommunicationToCaseRequest omitted.
 
 /**
  * serializeAws_json1_1Attachment
  */
 const se_Attachment = (input: Attachment, context: __SerdeContext): any => {
-  return {
-    ...(input.data != null && { data: context.base64Encoder(input.data) }),
-    ...(input.fileName != null && { fileName: input.fileName }),
-  };
+  return take(input, {
+    data: (_) => context.base64Encoder(_),
+    fileName: [],
+  });
 };
 
 /**
@@ -1179,102 +1137,21 @@ const se_Attachments = (input: Attachment[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_json1_1CaseIdList
- */
-const se_CaseIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CaseIdList omitted.
 
-/**
- * serializeAws_json1_1CcEmailAddressList
- */
-const se_CcEmailAddressList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CcEmailAddressList omitted.
 
-/**
- * serializeAws_json1_1CreateCaseRequest
- */
-const se_CreateCaseRequest = (input: CreateCaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.attachmentSetId != null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.categoryCode != null && { categoryCode: input.categoryCode }),
-    ...(input.ccEmailAddresses != null && { ccEmailAddresses: se_CcEmailAddressList(input.ccEmailAddresses, context) }),
-    ...(input.communicationBody != null && { communicationBody: input.communicationBody }),
-    ...(input.issueType != null && { issueType: input.issueType }),
-    ...(input.language != null && { language: input.language }),
-    ...(input.serviceCode != null && { serviceCode: input.serviceCode }),
-    ...(input.severityCode != null && { severityCode: input.severityCode }),
-    ...(input.subject != null && { subject: input.subject }),
-  };
-};
+// se_CreateCaseRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAttachmentRequest
- */
-const se_DescribeAttachmentRequest = (input: DescribeAttachmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.attachmentId != null && { attachmentId: input.attachmentId }),
-  };
-};
+// se_DescribeAttachmentRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCasesRequest
- */
-const se_DescribeCasesRequest = (input: DescribeCasesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.afterTime != null && { afterTime: input.afterTime }),
-    ...(input.beforeTime != null && { beforeTime: input.beforeTime }),
-    ...(input.caseIdList != null && { caseIdList: se_CaseIdList(input.caseIdList, context) }),
-    ...(input.displayId != null && { displayId: input.displayId }),
-    ...(input.includeCommunications != null && { includeCommunications: input.includeCommunications }),
-    ...(input.includeResolvedCases != null && { includeResolvedCases: input.includeResolvedCases }),
-    ...(input.language != null && { language: input.language }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_DescribeCasesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCommunicationsRequest
- */
-const se_DescribeCommunicationsRequest = (input: DescribeCommunicationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.afterTime != null && { afterTime: input.afterTime }),
-    ...(input.beforeTime != null && { beforeTime: input.beforeTime }),
-    ...(input.caseId != null && { caseId: input.caseId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_DescribeCommunicationsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeServicesRequest
- */
-const se_DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.language != null && { language: input.language }),
-    ...(input.serviceCodeList != null && { serviceCodeList: se_ServiceCodeList(input.serviceCodeList, context) }),
-  };
-};
+// se_DescribeServicesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeSeverityLevelsRequest
- */
-const se_DescribeSeverityLevelsRequest = (input: DescribeSeverityLevelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.language != null && { language: input.language }),
-  };
-};
+// se_DescribeSeverityLevelsRequest omitted.
 
 /**
  * serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest
@@ -1283,35 +1160,14 @@ const se_DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
   input: DescribeTrustedAdvisorCheckRefreshStatusesRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.checkIds != null && { checkIds: se_StringList(input.checkIds, context) }),
-  };
+  return take(input, {
+    checkIds: (_) => se_StringList(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest
- */
-const se_DescribeTrustedAdvisorCheckResultRequest = (
-  input: DescribeTrustedAdvisorCheckResultRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.checkId != null && { checkId: input.checkId }),
-    ...(input.language != null && { language: input.language }),
-  };
-};
+// se_DescribeTrustedAdvisorCheckResultRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeTrustedAdvisorChecksRequest
- */
-const se_DescribeTrustedAdvisorChecksRequest = (
-  input: DescribeTrustedAdvisorChecksRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.language != null && { language: input.language }),
-  };
-};
+// se_DescribeTrustedAdvisorChecksRequest omitted.
 
 /**
  * serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest
@@ -1320,355 +1176,92 @@ const se_DescribeTrustedAdvisorCheckSummariesRequest = (
   input: DescribeTrustedAdvisorCheckSummariesRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.checkIds != null && { checkIds: se_StringList(input.checkIds, context) }),
-  };
+  return take(input, {
+    checkIds: (_) => se_StringList(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1RefreshTrustedAdvisorCheckRequest
- */
-const se_RefreshTrustedAdvisorCheckRequest = (
-  input: RefreshTrustedAdvisorCheckRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.checkId != null && { checkId: input.checkId }),
-  };
-};
+// se_RefreshTrustedAdvisorCheckRequest omitted.
 
-/**
- * serializeAws_json1_1ResolveCaseRequest
- */
-const se_ResolveCaseRequest = (input: ResolveCaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.caseId != null && { caseId: input.caseId }),
-  };
-};
+// se_ResolveCaseRequest omitted.
 
-/**
- * serializeAws_json1_1ServiceCodeList
- */
-const se_ServiceCodeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ServiceCodeList omitted.
 
 /**
  * serializeAws_json1_1StringList
  */
 const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    if (entry === null) {
-      return null as any;
-    }
-    return entry;
-  });
+  return input;
 };
 
-/**
- * deserializeAws_json1_1AddAttachmentsToSetResponse
- */
-const de_AddAttachmentsToSetResponse = (output: any, context: __SerdeContext): AddAttachmentsToSetResponse => {
-  return {
-    attachmentSetId: __expectString(output.attachmentSetId),
-    expiryTime: __expectString(output.expiryTime),
-  } as any;
-};
+// de_AddAttachmentsToSetResponse omitted.
 
-/**
- * deserializeAws_json1_1AddCommunicationToCaseResponse
- */
-const de_AddCommunicationToCaseResponse = (output: any, context: __SerdeContext): AddCommunicationToCaseResponse => {
-  return {
-    result: __expectBoolean(output.result),
-  } as any;
-};
+// de_AddCommunicationToCaseResponse omitted.
 
 /**
  * deserializeAws_json1_1Attachment
  */
 const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
-  return {
-    data: output.data != null ? context.base64Decoder(output.data) : undefined,
-    fileName: __expectString(output.fileName),
-  } as any;
+  return take(output, {
+    data: context.base64Decoder,
+    fileName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AttachmentDetails
- */
-const de_AttachmentDetails = (output: any, context: __SerdeContext): AttachmentDetails => {
-  return {
-    attachmentId: __expectString(output.attachmentId),
-    fileName: __expectString(output.fileName),
-  } as any;
-};
+// de_AttachmentDetails omitted.
 
-/**
- * deserializeAws_json1_1AttachmentIdNotFound
- */
-const de_AttachmentIdNotFound = (output: any, context: __SerdeContext): AttachmentIdNotFound => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AttachmentIdNotFound omitted.
 
-/**
- * deserializeAws_json1_1AttachmentLimitExceeded
- */
-const de_AttachmentLimitExceeded = (output: any, context: __SerdeContext): AttachmentLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AttachmentLimitExceeded omitted.
 
-/**
- * deserializeAws_json1_1AttachmentSet
- */
-const de_AttachmentSet = (output: any, context: __SerdeContext): AttachmentDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AttachmentDetails(entry, context);
-    });
-  return retVal;
-};
+// de_AttachmentSet omitted.
 
-/**
- * deserializeAws_json1_1AttachmentSetExpired
- */
-const de_AttachmentSetExpired = (output: any, context: __SerdeContext): AttachmentSetExpired => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AttachmentSetExpired omitted.
 
-/**
- * deserializeAws_json1_1AttachmentSetIdNotFound
- */
-const de_AttachmentSetIdNotFound = (output: any, context: __SerdeContext): AttachmentSetIdNotFound => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AttachmentSetIdNotFound omitted.
 
-/**
- * deserializeAws_json1_1AttachmentSetSizeLimitExceeded
- */
-const de_AttachmentSetSizeLimitExceeded = (output: any, context: __SerdeContext): AttachmentSetSizeLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AttachmentSetSizeLimitExceeded omitted.
 
-/**
- * deserializeAws_json1_1CaseCreationLimitExceeded
- */
-const de_CaseCreationLimitExceeded = (output: any, context: __SerdeContext): CaseCreationLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CaseCreationLimitExceeded omitted.
 
-/**
- * deserializeAws_json1_1CaseDetails
- */
-const de_CaseDetails = (output: any, context: __SerdeContext): CaseDetails => {
-  return {
-    caseId: __expectString(output.caseId),
-    categoryCode: __expectString(output.categoryCode),
-    ccEmailAddresses:
-      output.ccEmailAddresses != null ? de_CcEmailAddressList(output.ccEmailAddresses, context) : undefined,
-    displayId: __expectString(output.displayId),
-    language: __expectString(output.language),
-    recentCommunications:
-      output.recentCommunications != null
-        ? de_RecentCaseCommunications(output.recentCommunications, context)
-        : undefined,
-    serviceCode: __expectString(output.serviceCode),
-    severityCode: __expectString(output.severityCode),
-    status: __expectString(output.status),
-    subject: __expectString(output.subject),
-    submittedBy: __expectString(output.submittedBy),
-    timeCreated: __expectString(output.timeCreated),
-  } as any;
-};
+// de_CaseDetails omitted.
 
-/**
- * deserializeAws_json1_1CaseIdNotFound
- */
-const de_CaseIdNotFound = (output: any, context: __SerdeContext): CaseIdNotFound => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CaseIdNotFound omitted.
 
-/**
- * deserializeAws_json1_1CaseList
- */
-const de_CaseList = (output: any, context: __SerdeContext): CaseDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CaseDetails(entry, context);
-    });
-  return retVal;
-};
+// de_CaseList omitted.
 
-/**
- * deserializeAws_json1_1Category
- */
-const de_Category = (output: any, context: __SerdeContext): Category => {
-  return {
-    code: __expectString(output.code),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_Category omitted.
 
-/**
- * deserializeAws_json1_1CategoryList
- */
-const de_CategoryList = (output: any, context: __SerdeContext): Category[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Category(entry, context);
-    });
-  return retVal;
-};
+// de_CategoryList omitted.
 
-/**
- * deserializeAws_json1_1CcEmailAddressList
- */
-const de_CcEmailAddressList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CcEmailAddressList omitted.
 
-/**
- * deserializeAws_json1_1Communication
- */
-const de_Communication = (output: any, context: __SerdeContext): Communication => {
-  return {
-    attachmentSet: output.attachmentSet != null ? de_AttachmentSet(output.attachmentSet, context) : undefined,
-    body: __expectString(output.body),
-    caseId: __expectString(output.caseId),
-    submittedBy: __expectString(output.submittedBy),
-    timeCreated: __expectString(output.timeCreated),
-  } as any;
-};
+// de_Communication omitted.
 
-/**
- * deserializeAws_json1_1CommunicationList
- */
-const de_CommunicationList = (output: any, context: __SerdeContext): Communication[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Communication(entry, context);
-    });
-  return retVal;
-};
+// de_CommunicationList omitted.
 
-/**
- * deserializeAws_json1_1CreateCaseResponse
- */
-const de_CreateCaseResponse = (output: any, context: __SerdeContext): CreateCaseResponse => {
-  return {
-    caseId: __expectString(output.caseId),
-  } as any;
-};
+// de_CreateCaseResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeAttachmentLimitExceeded
- */
-const de_DescribeAttachmentLimitExceeded = (output: any, context: __SerdeContext): DescribeAttachmentLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DescribeAttachmentLimitExceeded omitted.
 
 /**
  * deserializeAws_json1_1DescribeAttachmentResponse
  */
 const de_DescribeAttachmentResponse = (output: any, context: __SerdeContext): DescribeAttachmentResponse => {
-  return {
-    attachment: output.attachment != null ? de_Attachment(output.attachment, context) : undefined,
-  } as any;
+  return take(output, {
+    attachment: (_: any) => de_Attachment(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeCasesResponse
- */
-const de_DescribeCasesResponse = (output: any, context: __SerdeContext): DescribeCasesResponse => {
-  return {
-    cases: output.cases != null ? de_CaseList(output.cases, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeCasesResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeCommunicationsResponse
- */
-const de_DescribeCommunicationsResponse = (output: any, context: __SerdeContext): DescribeCommunicationsResponse => {
-  return {
-    communications: output.communications != null ? de_CommunicationList(output.communications, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeCommunicationsResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeServicesResponse
- */
-const de_DescribeServicesResponse = (output: any, context: __SerdeContext): DescribeServicesResponse => {
-  return {
-    services: output.services != null ? de_ServiceList(output.services, context) : undefined,
-  } as any;
-};
+// de_DescribeServicesResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeSeverityLevelsResponse
- */
-const de_DescribeSeverityLevelsResponse = (output: any, context: __SerdeContext): DescribeSeverityLevelsResponse => {
-  return {
-    severityLevels: output.severityLevels != null ? de_SeverityLevelsList(output.severityLevels, context) : undefined,
-  } as any;
-};
+// de_DescribeSeverityLevelsResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesResponse
- */
-const de_DescribeTrustedAdvisorCheckRefreshStatusesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeTrustedAdvisorCheckRefreshStatusesResponse => {
-  return {
-    statuses: output.statuses != null ? de_TrustedAdvisorCheckRefreshStatusList(output.statuses, context) : undefined,
-  } as any;
-};
+// de_DescribeTrustedAdvisorCheckRefreshStatusesResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeTrustedAdvisorCheckResultResponse
@@ -1677,9 +1270,9 @@ const de_DescribeTrustedAdvisorCheckResultResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTrustedAdvisorCheckResultResponse => {
-  return {
-    result: output.result != null ? de_TrustedAdvisorCheckResult(output.result, context) : undefined,
-  } as any;
+  return take(output, {
+    result: (_: any) => de_TrustedAdvisorCheckResult(_, context),
+  }) as any;
 };
 
 /**
@@ -1689,9 +1282,9 @@ const de_DescribeTrustedAdvisorChecksResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTrustedAdvisorChecksResponse => {
-  return {
-    checks: output.checks != null ? de_TrustedAdvisorCheckList(output.checks, context) : undefined,
-  } as any;
+  return take(output, {
+    checks: (_: any) => de_TrustedAdvisorCheckList(_, context),
+  }) as any;
 };
 
 /**
@@ -1701,102 +1294,26 @@ const de_DescribeTrustedAdvisorCheckSummariesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTrustedAdvisorCheckSummariesResponse => {
-  return {
-    summaries: output.summaries != null ? de_TrustedAdvisorCheckSummaryList(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    summaries: (_: any) => de_TrustedAdvisorCheckSummaryList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InternalServerError
- */
-const de_InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServerError omitted.
 
-/**
- * deserializeAws_json1_1RecentCaseCommunications
- */
-const de_RecentCaseCommunications = (output: any, context: __SerdeContext): RecentCaseCommunications => {
-  return {
-    communications: output.communications != null ? de_CommunicationList(output.communications, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_RecentCaseCommunications omitted.
 
-/**
- * deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse
- */
-const de_RefreshTrustedAdvisorCheckResponse = (
-  output: any,
-  context: __SerdeContext
-): RefreshTrustedAdvisorCheckResponse => {
-  return {
-    status: output.status != null ? de_TrustedAdvisorCheckRefreshStatus(output.status, context) : undefined,
-  } as any;
-};
+// de_RefreshTrustedAdvisorCheckResponse omitted.
 
-/**
- * deserializeAws_json1_1ResolveCaseResponse
- */
-const de_ResolveCaseResponse = (output: any, context: __SerdeContext): ResolveCaseResponse => {
-  return {
-    finalCaseStatus: __expectString(output.finalCaseStatus),
-    initialCaseStatus: __expectString(output.initialCaseStatus),
-  } as any;
-};
+// de_ResolveCaseResponse omitted.
 
-/**
- * deserializeAws_json1_1Service
- */
-const de_Service = (output: any, context: __SerdeContext): Service => {
-  return {
-    categories: output.categories != null ? de_CategoryList(output.categories, context) : undefined,
-    code: __expectString(output.code),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_Service omitted.
 
-/**
- * deserializeAws_json1_1ServiceList
- */
-const de_ServiceList = (output: any, context: __SerdeContext): Service[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Service(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceList omitted.
 
-/**
- * deserializeAws_json1_1SeverityLevel
- */
-const de_SeverityLevel = (output: any, context: __SerdeContext): SeverityLevel => {
-  return {
-    code: __expectString(output.code),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_SeverityLevel omitted.
 
-/**
- * deserializeAws_json1_1SeverityLevelsList
- */
-const de_SeverityLevelsList = (output: any, context: __SerdeContext): SeverityLevel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SeverityLevel(entry, context);
-    });
-  return retVal;
-};
+// de_SeverityLevelsList omitted.
 
 /**
  * deserializeAws_json1_1StringList
@@ -1818,25 +1335,22 @@ const de_TrustedAdvisorCategorySpecificSummary = (
   output: any,
   context: __SerdeContext
 ): TrustedAdvisorCategorySpecificSummary => {
-  return {
-    costOptimizing:
-      output.costOptimizing != null
-        ? de_TrustedAdvisorCostOptimizingSummary(output.costOptimizing, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    costOptimizing: (_: any) => de_TrustedAdvisorCostOptimizingSummary(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1TrustedAdvisorCheckDescription
  */
 const de_TrustedAdvisorCheckDescription = (output: any, context: __SerdeContext): TrustedAdvisorCheckDescription => {
-  return {
-    category: __expectString(output.category),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    metadata: output.metadata != null ? de_StringList(output.metadata, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    category: __expectString,
+    description: __expectString,
+    id: __expectString,
+    metadata: (_: any) => de_StringList(_, context),
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -1846,83 +1360,41 @@ const de_TrustedAdvisorCheckList = (output: any, context: __SerdeContext): Trust
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TrustedAdvisorCheckDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus
- */
-const de_TrustedAdvisorCheckRefreshStatus = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckRefreshStatus => {
-  return {
-    checkId: __expectString(output.checkId),
-    millisUntilNextRefreshable: __expectLong(output.millisUntilNextRefreshable),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_TrustedAdvisorCheckRefreshStatus omitted.
 
-/**
- * deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList
- */
-const de_TrustedAdvisorCheckRefreshStatusList = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckRefreshStatus[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TrustedAdvisorCheckRefreshStatus(entry, context);
-    });
-  return retVal;
-};
+// de_TrustedAdvisorCheckRefreshStatusList omitted.
 
 /**
  * deserializeAws_json1_1TrustedAdvisorCheckResult
  */
 const de_TrustedAdvisorCheckResult = (output: any, context: __SerdeContext): TrustedAdvisorCheckResult => {
-  return {
-    categorySpecificSummary:
-      output.categorySpecificSummary != null
-        ? de_TrustedAdvisorCategorySpecificSummary(output.categorySpecificSummary, context)
-        : undefined,
-    checkId: __expectString(output.checkId),
-    flaggedResources:
-      output.flaggedResources != null
-        ? de_TrustedAdvisorResourceDetailList(output.flaggedResources, context)
-        : undefined,
-    resourcesSummary:
-      output.resourcesSummary != null ? de_TrustedAdvisorResourcesSummary(output.resourcesSummary, context) : undefined,
-    status: __expectString(output.status),
-    timestamp: __expectString(output.timestamp),
-  } as any;
+  return take(output, {
+    categorySpecificSummary: (_: any) => de_TrustedAdvisorCategorySpecificSummary(_, context),
+    checkId: __expectString,
+    flaggedResources: (_: any) => de_TrustedAdvisorResourceDetailList(_, context),
+    resourcesSummary: _json,
+    status: __expectString,
+    timestamp: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1TrustedAdvisorCheckSummary
  */
 const de_TrustedAdvisorCheckSummary = (output: any, context: __SerdeContext): TrustedAdvisorCheckSummary => {
-  return {
-    categorySpecificSummary:
-      output.categorySpecificSummary != null
-        ? de_TrustedAdvisorCategorySpecificSummary(output.categorySpecificSummary, context)
-        : undefined,
-    checkId: __expectString(output.checkId),
-    hasFlaggedResources: __expectBoolean(output.hasFlaggedResources),
-    resourcesSummary:
-      output.resourcesSummary != null ? de_TrustedAdvisorResourcesSummary(output.resourcesSummary, context) : undefined,
-    status: __expectString(output.status),
-    timestamp: __expectString(output.timestamp),
-  } as any;
+  return take(output, {
+    categorySpecificSummary: (_: any) => de_TrustedAdvisorCategorySpecificSummary(_, context),
+    checkId: __expectString,
+    hasFlaggedResources: __expectBoolean,
+    resourcesSummary: _json,
+    status: __expectString,
+    timestamp: __expectString,
+  }) as any;
 };
 
 /**
@@ -1932,9 +1404,6 @@ const de_TrustedAdvisorCheckSummaryList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TrustedAdvisorCheckSummary(entry, context);
     });
   return retVal;
@@ -1947,23 +1416,23 @@ const de_TrustedAdvisorCostOptimizingSummary = (
   output: any,
   context: __SerdeContext
 ): TrustedAdvisorCostOptimizingSummary => {
-  return {
-    estimatedMonthlySavings: __limitedParseDouble(output.estimatedMonthlySavings),
-    estimatedPercentMonthlySavings: __limitedParseDouble(output.estimatedPercentMonthlySavings),
-  } as any;
+  return take(output, {
+    estimatedMonthlySavings: __limitedParseDouble,
+    estimatedPercentMonthlySavings: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1TrustedAdvisorResourceDetail
  */
 const de_TrustedAdvisorResourceDetail = (output: any, context: __SerdeContext): TrustedAdvisorResourceDetail => {
-  return {
-    isSuppressed: __expectBoolean(output.isSuppressed),
-    metadata: output.metadata != null ? de_StringList(output.metadata, context) : undefined,
-    region: __expectString(output.region),
-    resourceId: __expectString(output.resourceId),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    isSuppressed: __expectBoolean,
+    metadata: (_: any) => de_StringList(_, context),
+    region: __expectString,
+    resourceId: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -1973,25 +1442,12 @@ const de_TrustedAdvisorResourceDetailList = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TrustedAdvisorResourceDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1TrustedAdvisorResourcesSummary
- */
-const de_TrustedAdvisorResourcesSummary = (output: any, context: __SerdeContext): TrustedAdvisorResourcesSummary => {
-  return {
-    resourcesFlagged: __expectLong(output.resourcesFlagged),
-    resourcesIgnored: __expectLong(output.resourcesIgnored),
-    resourcesProcessed: __expectLong(output.resourcesProcessed),
-    resourcesSuppressed: __expectLong(output.resourcesSuppressed),
-  } as any;
-};
+// de_TrustedAdvisorResourcesSummary omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2013,6 +1469,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

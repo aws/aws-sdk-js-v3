@@ -14,14 +14,14 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
-  map as __map,
+  map,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4015,10 +4015,9 @@ const de_AbortMultipartUploadCommandError = async (
       throw await de_NoSuchUploadRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4087,10 +4086,9 @@ const de_CompleteMultipartUploadCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4144,10 +4142,9 @@ const de_CopyObjectCommandError = async (
       throw await de_ObjectNotInActiveTierErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4192,10 +4189,9 @@ const de_CreateBucketCommandError = async (
       throw await de_BucketAlreadyOwnedByYouRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4256,10 +4252,9 @@ const de_CreateMultipartUploadCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4294,10 +4289,9 @@ const de_DeleteBucketCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4332,10 +4326,9 @@ const de_DeleteBucketAnalyticsConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4370,10 +4363,9 @@ const de_DeleteBucketCorsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4408,10 +4400,9 @@ const de_DeleteBucketEncryptionCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4446,10 +4437,9 @@ const de_DeleteBucketIntelligentTieringConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4484,10 +4474,9 @@ const de_DeleteBucketInventoryConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4522,10 +4511,9 @@ const de_DeleteBucketLifecycleCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4560,10 +4548,9 @@ const de_DeleteBucketMetricsConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4598,10 +4585,9 @@ const de_DeleteBucketOwnershipControlsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4636,10 +4622,9 @@ const de_DeleteBucketPolicyCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4674,10 +4659,9 @@ const de_DeleteBucketReplicationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4712,10 +4696,9 @@ const de_DeleteBucketTaggingCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4750,10 +4733,9 @@ const de_DeleteBucketWebsiteCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4794,10 +4776,9 @@ const de_DeleteObjectCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4843,10 +4824,9 @@ const de_DeleteObjectsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4882,10 +4862,9 @@ const de_DeleteObjectTaggingCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4920,10 +4899,9 @@ const de_DeletePublicAccessBlockCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4961,10 +4939,9 @@ const de_GetBucketAccelerateConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5007,10 +4984,9 @@ const de_GetBucketAclCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5046,10 +5022,9 @@ const de_GetBucketAnalyticsConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5089,10 +5064,9 @@ const de_GetBucketCorsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5128,10 +5102,9 @@ const de_GetBucketEncryptionCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5167,10 +5140,9 @@ const de_GetBucketIntelligentTieringConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5206,10 +5178,9 @@ const de_GetBucketInventoryConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5249,10 +5220,9 @@ const de_GetBucketLifecycleConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5290,10 +5260,9 @@ const de_GetBucketLocationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5331,10 +5300,9 @@ const de_GetBucketLoggingCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5370,10 +5338,9 @@ const de_GetBucketMetricsConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5435,10 +5402,9 @@ const de_GetBucketNotificationConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5474,10 +5440,9 @@ const de_GetBucketOwnershipControlsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5513,10 +5478,9 @@ const de_GetBucketPolicyCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5552,10 +5516,9 @@ const de_GetBucketPolicyStatusCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5591,10 +5554,9 @@ const de_GetBucketReplicationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5632,10 +5594,9 @@ const de_GetBucketRequestPaymentCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5675,10 +5636,9 @@ const de_GetBucketTaggingCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5719,10 +5679,9 @@ const de_GetBucketVersioningCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5771,10 +5730,9 @@ const de_GetBucketWebsiteCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -5889,10 +5847,9 @@ const de_GetObjectCommandError = async (
       throw await de_NoSuchKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5942,10 +5899,9 @@ const de_GetObjectAclCommandError = async (
       throw await de_NoSuchKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6011,10 +5967,9 @@ const de_GetObjectAttributesCommandError = async (
       throw await de_NoSuchKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6051,10 +6006,9 @@ const de_GetObjectLegalHoldCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6090,10 +6044,9 @@ const de_GetObjectLockConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6129,10 +6082,9 @@ const de_GetObjectRetentionCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6173,10 +6125,9 @@ const de_GetObjectTaggingCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6214,10 +6165,9 @@ const de_GetObjectTorrentCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6253,10 +6203,9 @@ const de_GetPublicAccessBlockCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6296,10 +6245,9 @@ const de_HeadBucketCommandError = async (
       throw await de_NotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6406,10 +6354,9 @@ const de_HeadObjectCommandError = async (
       throw await de_NotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6462,10 +6409,9 @@ const de_ListBucketAnalyticsConfigurationsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6517,10 +6463,9 @@ const de_ListBucketIntelligentTieringConfigurationsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6572,10 +6517,9 @@ const de_ListBucketInventoryConfigurationsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6627,10 +6571,9 @@ const de_ListBucketMetricsConfigurationsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6673,10 +6616,9 @@ const de_ListBucketsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6751,10 +6693,9 @@ const de_ListMultipartUploadsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6828,10 +6769,9 @@ const de_ListObjectsCommandError = async (
       throw await de_NoSuchBucketRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6912,10 +6852,9 @@ const de_ListObjectsV2CommandError = async (
       throw await de_NoSuchBucketRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6996,10 +6935,9 @@ const de_ListObjectVersionsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7078,10 +7016,9 @@ const de_ListPartsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7116,10 +7053,9 @@ const de_PutBucketAccelerateConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7154,10 +7090,9 @@ const de_PutBucketAclCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7192,10 +7127,9 @@ const de_PutBucketAnalyticsConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7230,10 +7164,9 @@ const de_PutBucketCorsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7268,10 +7201,9 @@ const de_PutBucketEncryptionCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7306,10 +7238,9 @@ const de_PutBucketIntelligentTieringConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7344,10 +7275,9 @@ const de_PutBucketInventoryConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7382,10 +7312,9 @@ const de_PutBucketLifecycleConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7420,10 +7349,9 @@ const de_PutBucketLoggingCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7458,10 +7386,9 @@ const de_PutBucketMetricsConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7496,10 +7423,9 @@ const de_PutBucketNotificationConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7534,10 +7460,9 @@ const de_PutBucketOwnershipControlsCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7572,10 +7497,9 @@ const de_PutBucketPolicyCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7610,10 +7534,9 @@ const de_PutBucketReplicationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7648,10 +7571,9 @@ const de_PutBucketRequestPaymentCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7686,10 +7608,9 @@ const de_PutBucketTaggingCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7724,10 +7645,9 @@ const de_PutBucketVersioningCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7762,10 +7682,9 @@ const de_PutBucketWebsiteCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7817,10 +7736,9 @@ const de_PutObjectCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7861,10 +7779,9 @@ const de_PutObjectAclCommandError = async (
       throw await de_NoSuchKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7901,10 +7818,9 @@ const de_PutObjectLegalHoldCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7940,10 +7856,9 @@ const de_PutObjectLockConfigurationCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7979,10 +7894,9 @@ const de_PutObjectRetentionCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -8018,10 +7932,9 @@ const de_PutObjectTaggingCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -8056,10 +7969,9 @@ const de_PutPublicAccessBlockCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -8101,10 +8013,9 @@ const de_RestoreObjectCommandError = async (
       throw await de_ObjectAlreadyInActiveTierErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8141,10 +8052,9 @@ const de_SelectObjectContentCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -8193,10 +8103,9 @@ const de_UploadPartCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -8242,10 +8151,9 @@ const de_UploadPartCopyCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -8280,15 +8188,14 @@ const de_WriteGetObjectResponseCommandError = async (
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restXmlBucketAlreadyExistsRes
  */

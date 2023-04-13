@@ -8,14 +8,14 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
-  map as __map,
+  map,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4033,10 +4033,9 @@ const de_AssociateAliasCommandError = async (
       throw await de_TooManyDistributionCNAMEsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4266,10 +4265,9 @@ const de_CopyDistributionCommandError = async (
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4334,10 +4332,9 @@ const de_CreateCachePolicyCommandError = async (
       throw await de_TooManyQueryStringsInCachePolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4393,10 +4390,9 @@ const de_CreateCloudFrontOriginAccessIdentityCommandError = async (
       throw await de_TooManyCloudFrontOriginAccessIdentitiesRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4455,10 +4451,9 @@ const de_CreateContinuousDeploymentPolicyCommandError = async (
       throw await de_TooManyContinuousDeploymentPoliciesRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4694,10 +4689,9 @@ const de_CreateDistributionCommandError = async (
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4930,10 +4924,9 @@ const de_CreateDistributionWithTagsCommandError = async (
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4998,10 +4991,9 @@ const de_CreateFieldLevelEncryptionConfigCommandError = async (
       throw await de_TooManyFieldLevelEncryptionQueryArgProfilesRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5066,10 +5058,9 @@ const de_CreateFieldLevelEncryptionProfileCommandError = async (
       throw await de_TooManyFieldLevelEncryptionProfilesRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5125,10 +5116,9 @@ const de_CreateFunctionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5189,10 +5179,9 @@ const de_CreateInvalidationCommandError = async (
       throw await de_TooManyInvalidationsInProgressRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5245,10 +5234,9 @@ const de_CreateKeyGroupCommandError = async (
       throw await de_TooManyPublicKeysInKeyGroupRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5299,10 +5287,9 @@ const de_CreateMonitoringSubscriptionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5352,10 +5339,9 @@ const de_CreateOriginAccessControlCommandError = async (
       throw await de_TooManyOriginAccessControlsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5420,10 +5406,9 @@ const de_CreateOriginRequestPolicyCommandError = async (
       throw await de_TooManyQueryStringsInOriginRequestPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5473,10 +5458,9 @@ const de_CreatePublicKeyCommandError = async (
       throw await de_TooManyPublicKeysRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5529,10 +5513,9 @@ const de_CreateRealtimeLogConfigCommandError = async (
       throw await de_TooManyRealtimeLogConfigsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5597,10 +5580,9 @@ const de_CreateResponseHeadersPolicyCommandError = async (
       throw await de_TooManyResponseHeadersPoliciesRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5680,10 +5662,9 @@ const de_CreateStreamingDistributionCommandError = async (
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5766,10 +5747,9 @@ const de_CreateStreamingDistributionWithTagsCommandError = async (
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5825,10 +5805,9 @@ const de_DeleteCachePolicyCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5881,10 +5860,9 @@ const de_DeleteCloudFrontOriginAccessIdentityCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5940,10 +5918,9 @@ const de_DeleteContinuousDeploymentPolicyCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5996,10 +5973,9 @@ const de_DeleteDistributionCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6052,10 +6028,9 @@ const de_DeleteFieldLevelEncryptionConfigCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6108,10 +6083,9 @@ const de_DeleteFieldLevelEncryptionProfileCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6164,10 +6138,9 @@ const de_DeleteFunctionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6217,10 +6190,9 @@ const de_DeleteKeyGroupCommandError = async (
       throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6270,10 +6242,9 @@ const de_DeleteMonitoringSubscriptionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6326,10 +6297,9 @@ const de_DeleteOriginAccessControlCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6385,10 +6355,9 @@ const de_DeleteOriginRequestPolicyCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6441,10 +6410,9 @@ const de_DeletePublicKeyCommandError = async (
       throw await de_PublicKeyInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6494,10 +6462,9 @@ const de_DeleteRealtimeLogConfigCommandError = async (
       throw await de_RealtimeLogConfigInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6553,10 +6520,9 @@ const de_DeleteResponseHeadersPolicyCommandError = async (
       throw await de_ResponseHeadersPolicyInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6609,10 +6575,9 @@ const de_DeleteStreamingDistributionCommandError = async (
       throw await de_StreamingDistributionNotDisabledRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6658,10 +6623,9 @@ const de_DescribeFunctionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6707,10 +6671,9 @@ const de_GetCachePolicyCommandError = async (
       throw await de_NoSuchCachePolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6756,10 +6719,9 @@ const de_GetCachePolicyConfigCommandError = async (
       throw await de_NoSuchCachePolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6805,10 +6767,9 @@ const de_GetCloudFrontOriginAccessIdentityCommandError = async (
       throw await de_NoSuchCloudFrontOriginAccessIdentityRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6854,10 +6815,9 @@ const de_GetCloudFrontOriginAccessIdentityConfigCommandError = async (
       throw await de_NoSuchCloudFrontOriginAccessIdentityRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6903,10 +6863,9 @@ const de_GetContinuousDeploymentPolicyCommandError = async (
       throw await de_NoSuchContinuousDeploymentPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6952,10 +6911,9 @@ const de_GetContinuousDeploymentPolicyConfigCommandError = async (
       throw await de_NoSuchContinuousDeploymentPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7001,10 +6959,9 @@ const de_GetDistributionCommandError = async (
       throw await de_NoSuchDistributionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7050,10 +7007,9 @@ const de_GetDistributionConfigCommandError = async (
       throw await de_NoSuchDistributionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7099,10 +7055,9 @@ const de_GetFieldLevelEncryptionCommandError = async (
       throw await de_NoSuchFieldLevelEncryptionConfigRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7148,10 +7103,9 @@ const de_GetFieldLevelEncryptionConfigCommandError = async (
       throw await de_NoSuchFieldLevelEncryptionConfigRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7197,10 +7151,9 @@ const de_GetFieldLevelEncryptionProfileCommandError = async (
       throw await de_NoSuchFieldLevelEncryptionProfileRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7246,10 +7199,9 @@ const de_GetFieldLevelEncryptionProfileConfigCommandError = async (
       throw await de_NoSuchFieldLevelEncryptionProfileRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7296,10 +7248,9 @@ const de_GetFunctionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7347,10 +7298,9 @@ const de_GetInvalidationCommandError = async (
       throw await de_NoSuchInvalidationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7393,10 +7343,9 @@ const de_GetKeyGroupCommandError = async (
       throw await de_NoSuchResourceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7439,10 +7388,9 @@ const de_GetKeyGroupConfigCommandError = async (
       throw await de_NoSuchResourceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7493,10 +7441,9 @@ const de_GetMonitoringSubscriptionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7542,10 +7489,9 @@ const de_GetOriginAccessControlCommandError = async (
       throw await de_NoSuchOriginAccessControlRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7591,10 +7537,9 @@ const de_GetOriginAccessControlConfigCommandError = async (
       throw await de_NoSuchOriginAccessControlRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7640,10 +7585,9 @@ const de_GetOriginRequestPolicyCommandError = async (
       throw await de_NoSuchOriginRequestPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7689,10 +7633,9 @@ const de_GetOriginRequestPolicyConfigCommandError = async (
       throw await de_NoSuchOriginRequestPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7738,10 +7681,9 @@ const de_GetPublicKeyCommandError = async (
       throw await de_NoSuchPublicKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7787,10 +7729,9 @@ const de_GetPublicKeyConfigCommandError = async (
       throw await de_NoSuchPublicKeyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7840,10 +7781,9 @@ const de_GetRealtimeLogConfigCommandError = async (
       throw await de_NoSuchRealtimeLogConfigRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7889,10 +7829,9 @@ const de_GetResponseHeadersPolicyCommandError = async (
       throw await de_NoSuchResponseHeadersPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7938,10 +7877,9 @@ const de_GetResponseHeadersPolicyConfigCommandError = async (
       throw await de_NoSuchResponseHeadersPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7987,10 +7925,9 @@ const de_GetStreamingDistributionCommandError = async (
       throw await de_NoSuchStreamingDistributionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8036,10 +7973,9 @@ const de_GetStreamingDistributionConfigCommandError = async (
       throw await de_NoSuchStreamingDistributionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8087,10 +8023,9 @@ const de_ListCachePoliciesCommandError = async (
       throw await de_NoSuchCachePolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8132,10 +8067,9 @@ const de_ListCloudFrontOriginAccessIdentitiesCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8180,10 +8114,9 @@ const de_ListConflictingAliasesCommandError = async (
       throw await de_NoSuchDistributionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8231,10 +8164,9 @@ const de_ListContinuousDeploymentPoliciesCommandError = async (
       throw await de_NoSuchContinuousDeploymentPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8276,10 +8208,9 @@ const de_ListDistributionsCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8327,10 +8258,9 @@ const de_ListDistributionsByCachePolicyIdCommandError = async (
       throw await de_NoSuchCachePolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8375,10 +8305,9 @@ const de_ListDistributionsByKeyGroupCommandError = async (
       throw await de_NoSuchResourceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8426,10 +8355,9 @@ const de_ListDistributionsByOriginRequestPolicyIdCommandError = async (
       throw await de_NoSuchOriginRequestPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8471,10 +8399,9 @@ const de_ListDistributionsByRealtimeLogConfigCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8522,10 +8449,9 @@ const de_ListDistributionsByResponseHeadersPolicyIdCommandError = async (
       throw await de_NoSuchResponseHeadersPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8570,10 +8496,9 @@ const de_ListDistributionsByWebACLIdCommandError = async (
       throw await de_InvalidWebACLIdRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8615,10 +8540,9 @@ const de_ListFieldLevelEncryptionConfigsCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8660,10 +8584,9 @@ const de_ListFieldLevelEncryptionProfilesCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8708,10 +8631,9 @@ const de_ListFunctionsCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8759,10 +8681,9 @@ const de_ListInvalidationsCommandError = async (
       throw await de_NoSuchDistributionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8804,10 +8725,9 @@ const de_ListKeyGroupsCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8849,10 +8769,9 @@ const de_ListOriginAccessControlsCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8900,10 +8819,9 @@ const de_ListOriginRequestPoliciesCommandError = async (
       throw await de_NoSuchOriginRequestPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8945,10 +8863,9 @@ const de_ListPublicKeysCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8996,10 +8913,9 @@ const de_ListRealtimeLogConfigsCommandError = async (
       throw await de_NoSuchRealtimeLogConfigRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9047,10 +8963,9 @@ const de_ListResponseHeadersPoliciesCommandError = async (
       throw await de_NoSuchResponseHeadersPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9092,10 +9007,9 @@ const de_ListStreamingDistributionsCommandError = async (
       throw await de_InvalidArgumentRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9146,10 +9060,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NoSuchResourceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9203,10 +9116,9 @@ const de_PublishFunctionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9256,10 +9168,9 @@ const de_TagResourceCommandError = async (
       throw await de_NoSuchResourceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9313,10 +9224,9 @@ const de_TestFunctionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9366,10 +9276,9 @@ const de_UntagResourceCommandError = async (
       throw await de_NoSuchResourceRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9442,10 +9351,9 @@ const de_UpdateCachePolicyCommandError = async (
       throw await de_TooManyQueryStringsInCachePolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9509,10 +9417,9 @@ const de_UpdateCloudFrontOriginAccessIdentityCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9573,10 +9480,9 @@ const de_UpdateContinuousDeploymentPolicyCommandError = async (
       throw await de_StagingDistributionInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9811,10 +9717,9 @@ const de_UpdateDistributionCommandError = async (
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10034,10 +9939,9 @@ const de_UpdateDistributionWithStagingConfigCommandError = async (
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10110,10 +10014,9 @@ const de_UpdateFieldLevelEncryptionConfigCommandError = async (
       throw await de_TooManyFieldLevelEncryptionQueryArgProfilesRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10189,10 +10092,9 @@ const de_UpdateFieldLevelEncryptionProfileCommandError = async (
       throw await de_TooManyFieldLevelEncryptionFieldPatternsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10250,10 +10152,9 @@ const de_UpdateFunctionCommandError = async (
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10311,10 +10212,9 @@ const de_UpdateKeyGroupCommandError = async (
       throw await de_TooManyPublicKeysInKeyGroupRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10375,10 +10275,9 @@ const de_UpdateOriginAccessControlCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10451,10 +10350,9 @@ const de_UpdateOriginRequestPolicyCommandError = async (
       throw await de_TooManyQueryStringsInOriginRequestPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10515,10 +10413,9 @@ const de_UpdatePublicKeyCommandError = async (
       throw await de_PreconditionFailedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10568,10 +10465,9 @@ const de_UpdateRealtimeLogConfigCommandError = async (
       throw await de_NoSuchRealtimeLogConfigRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10644,10 +10540,9 @@ const de_UpdateResponseHeadersPolicyCommandError = async (
       throw await de_TooManyRemoveHeadersInResponseHeadersPolicyRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10729,16 +10624,15 @@ const de_UpdateStreamingDistributionCommandError = async (
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restXmlAccessDeniedRes
  */

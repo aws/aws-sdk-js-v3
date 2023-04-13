@@ -1,12 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -155,75 +157,52 @@ import {
   AccessControlAttribute,
   AccessControlAttributeValue,
   AccessDeniedException,
-  AccountAssignment,
   AccountAssignmentOperationStatus,
   AccountAssignmentOperationStatusMetadata,
   AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
-  AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
-  AttachedManagedPolicy,
   AttachManagedPolicyToPermissionSetRequest,
-  AttachManagedPolicyToPermissionSetResponse,
   ConflictException,
   CreateAccountAssignmentRequest,
   CreateAccountAssignmentResponse,
   CreateInstanceAccessControlAttributeConfigurationRequest,
-  CreateInstanceAccessControlAttributeConfigurationResponse,
   CreatePermissionSetRequest,
   CreatePermissionSetResponse,
   CustomerManagedPolicyReference,
   DeleteAccountAssignmentRequest,
   DeleteAccountAssignmentResponse,
   DeleteInlinePolicyFromPermissionSetRequest,
-  DeleteInlinePolicyFromPermissionSetResponse,
   DeleteInstanceAccessControlAttributeConfigurationRequest,
-  DeleteInstanceAccessControlAttributeConfigurationResponse,
   DeletePermissionsBoundaryFromPermissionSetRequest,
-  DeletePermissionsBoundaryFromPermissionSetResponse,
   DeletePermissionSetRequest,
-  DeletePermissionSetResponse,
   DescribeAccountAssignmentCreationStatusRequest,
   DescribeAccountAssignmentCreationStatusResponse,
   DescribeAccountAssignmentDeletionStatusRequest,
   DescribeAccountAssignmentDeletionStatusResponse,
   DescribeInstanceAccessControlAttributeConfigurationRequest,
-  DescribeInstanceAccessControlAttributeConfigurationResponse,
   DescribePermissionSetProvisioningStatusRequest,
   DescribePermissionSetProvisioningStatusResponse,
   DescribePermissionSetRequest,
   DescribePermissionSetResponse,
   DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
-  DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
   DetachManagedPolicyFromPermissionSetRequest,
-  DetachManagedPolicyFromPermissionSetResponse,
   GetInlinePolicyForPermissionSetRequest,
-  GetInlinePolicyForPermissionSetResponse,
   GetPermissionsBoundaryForPermissionSetRequest,
-  GetPermissionsBoundaryForPermissionSetResponse,
   InstanceAccessControlAttributeConfiguration,
-  InstanceMetadata,
   InternalServerException,
   ListAccountAssignmentCreationStatusRequest,
   ListAccountAssignmentCreationStatusResponse,
   ListAccountAssignmentDeletionStatusRequest,
   ListAccountAssignmentDeletionStatusResponse,
   ListAccountAssignmentsRequest,
-  ListAccountAssignmentsResponse,
   ListAccountsForProvisionedPermissionSetRequest,
-  ListAccountsForProvisionedPermissionSetResponse,
   ListCustomerManagedPolicyReferencesInPermissionSetRequest,
-  ListCustomerManagedPolicyReferencesInPermissionSetResponse,
   ListInstancesRequest,
-  ListInstancesResponse,
   ListManagedPoliciesInPermissionSetRequest,
-  ListManagedPoliciesInPermissionSetResponse,
   ListPermissionSetProvisioningStatusRequest,
   ListPermissionSetProvisioningStatusResponse,
   ListPermissionSetsProvisionedToAccountRequest,
-  ListPermissionSetsProvisionedToAccountResponse,
   ListPermissionSetsRequest,
-  ListPermissionSetsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   OperationStatusFilter,
   PermissionsBoundary,
   PermissionSet,
@@ -232,21 +211,15 @@ import {
   ProvisionPermissionSetRequest,
   ProvisionPermissionSetResponse,
   PutInlinePolicyToPermissionSetRequest,
-  PutInlinePolicyToPermissionSetResponse,
   PutPermissionsBoundaryToPermissionSetRequest,
-  PutPermissionsBoundaryToPermissionSetResponse,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   ThrottlingException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateInstanceAccessControlAttributeConfigurationRequest,
-  UpdateInstanceAccessControlAttributeConfigurationResponse,
   UpdatePermissionSetRequest,
-  UpdatePermissionSetResponse,
   ValidationException,
 } from "../models/models_0";
 import { SSOAdminServiceException as __BaseException } from "../models/SSOAdminServiceException";
@@ -260,7 +233,7 @@ export const se_AttachCustomerManagedPolicyReferenceToPermissionSetCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AttachCustomerManagedPolicyReferenceToPermissionSet");
   let body: any;
-  body = JSON.stringify(se_AttachCustomerManagedPolicyReferenceToPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -273,7 +246,7 @@ export const se_AttachManagedPolicyToPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AttachManagedPolicyToPermissionSet");
   let body: any;
-  body = JSON.stringify(se_AttachManagedPolicyToPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -286,7 +259,7 @@ export const se_CreateAccountAssignmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAccountAssignment");
   let body: any;
-  body = JSON.stringify(se_CreateAccountAssignmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -299,7 +272,7 @@ export const se_CreateInstanceAccessControlAttributeConfigurationCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateInstanceAccessControlAttributeConfiguration");
   let body: any;
-  body = JSON.stringify(se_CreateInstanceAccessControlAttributeConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -312,7 +285,7 @@ export const se_CreatePermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePermissionSet");
   let body: any;
-  body = JSON.stringify(se_CreatePermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -325,7 +298,7 @@ export const se_DeleteAccountAssignmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAccountAssignment");
   let body: any;
-  body = JSON.stringify(se_DeleteAccountAssignmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -338,7 +311,7 @@ export const se_DeleteInlinePolicyFromPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteInlinePolicyFromPermissionSet");
   let body: any;
-  body = JSON.stringify(se_DeleteInlinePolicyFromPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -351,7 +324,7 @@ export const se_DeleteInstanceAccessControlAttributeConfigurationCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteInstanceAccessControlAttributeConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteInstanceAccessControlAttributeConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -364,7 +337,7 @@ export const se_DeletePermissionsBoundaryFromPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePermissionsBoundaryFromPermissionSet");
   let body: any;
-  body = JSON.stringify(se_DeletePermissionsBoundaryFromPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -377,7 +350,7 @@ export const se_DeletePermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePermissionSet");
   let body: any;
-  body = JSON.stringify(se_DeletePermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -390,7 +363,7 @@ export const se_DescribeAccountAssignmentCreationStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccountAssignmentCreationStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeAccountAssignmentCreationStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -403,7 +376,7 @@ export const se_DescribeAccountAssignmentDeletionStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccountAssignmentDeletionStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeAccountAssignmentDeletionStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -416,7 +389,7 @@ export const se_DescribeInstanceAccessControlAttributeConfigurationCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeInstanceAccessControlAttributeConfiguration");
   let body: any;
-  body = JSON.stringify(se_DescribeInstanceAccessControlAttributeConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -429,7 +402,7 @@ export const se_DescribePermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePermissionSet");
   let body: any;
-  body = JSON.stringify(se_DescribePermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -442,7 +415,7 @@ export const se_DescribePermissionSetProvisioningStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePermissionSetProvisioningStatus");
   let body: any;
-  body = JSON.stringify(se_DescribePermissionSetProvisioningStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -455,7 +428,7 @@ export const se_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetachCustomerManagedPolicyReferenceFromPermissionSet");
   let body: any;
-  body = JSON.stringify(se_DetachCustomerManagedPolicyReferenceFromPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -468,7 +441,7 @@ export const se_DetachManagedPolicyFromPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetachManagedPolicyFromPermissionSet");
   let body: any;
-  body = JSON.stringify(se_DetachManagedPolicyFromPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -481,7 +454,7 @@ export const se_GetInlinePolicyForPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetInlinePolicyForPermissionSet");
   let body: any;
-  body = JSON.stringify(se_GetInlinePolicyForPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -494,7 +467,7 @@ export const se_GetPermissionsBoundaryForPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPermissionsBoundaryForPermissionSet");
   let body: any;
-  body = JSON.stringify(se_GetPermissionsBoundaryForPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -507,7 +480,7 @@ export const se_ListAccountAssignmentCreationStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccountAssignmentCreationStatus");
   let body: any;
-  body = JSON.stringify(se_ListAccountAssignmentCreationStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -520,7 +493,7 @@ export const se_ListAccountAssignmentDeletionStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccountAssignmentDeletionStatus");
   let body: any;
-  body = JSON.stringify(se_ListAccountAssignmentDeletionStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -533,7 +506,7 @@ export const se_ListAccountAssignmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccountAssignments");
   let body: any;
-  body = JSON.stringify(se_ListAccountAssignmentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -546,7 +519,7 @@ export const se_ListAccountsForProvisionedPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccountsForProvisionedPermissionSet");
   let body: any;
-  body = JSON.stringify(se_ListAccountsForProvisionedPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -559,7 +532,7 @@ export const se_ListCustomerManagedPolicyReferencesInPermissionSetCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCustomerManagedPolicyReferencesInPermissionSet");
   let body: any;
-  body = JSON.stringify(se_ListCustomerManagedPolicyReferencesInPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -572,7 +545,7 @@ export const se_ListInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListInstances");
   let body: any;
-  body = JSON.stringify(se_ListInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -585,7 +558,7 @@ export const se_ListManagedPoliciesInPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListManagedPoliciesInPermissionSet");
   let body: any;
-  body = JSON.stringify(se_ListManagedPoliciesInPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -598,7 +571,7 @@ export const se_ListPermissionSetProvisioningStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPermissionSetProvisioningStatus");
   let body: any;
-  body = JSON.stringify(se_ListPermissionSetProvisioningStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -611,7 +584,7 @@ export const se_ListPermissionSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPermissionSets");
   let body: any;
-  body = JSON.stringify(se_ListPermissionSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -624,7 +597,7 @@ export const se_ListPermissionSetsProvisionedToAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPermissionSetsProvisionedToAccount");
   let body: any;
-  body = JSON.stringify(se_ListPermissionSetsProvisionedToAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -637,7 +610,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -650,7 +623,7 @@ export const se_ProvisionPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ProvisionPermissionSet");
   let body: any;
-  body = JSON.stringify(se_ProvisionPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -663,7 +636,7 @@ export const se_PutInlinePolicyToPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutInlinePolicyToPermissionSet");
   let body: any;
-  body = JSON.stringify(se_PutInlinePolicyToPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -676,7 +649,7 @@ export const se_PutPermissionsBoundaryToPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutPermissionsBoundaryToPermissionSet");
   let body: any;
-  body = JSON.stringify(se_PutPermissionsBoundaryToPermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -689,7 +662,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -702,7 +675,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -715,7 +688,7 @@ export const se_UpdateInstanceAccessControlAttributeConfigurationCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateInstanceAccessControlAttributeConfiguration");
   let body: any;
-  body = JSON.stringify(se_UpdateInstanceAccessControlAttributeConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -728,7 +701,7 @@ export const se_UpdatePermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePermissionSet");
   let body: any;
-  body = JSON.stringify(se_UpdatePermissionSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -744,12 +717,12 @@ export const de_AttachCustomerManagedPolicyReferenceToPermissionSetCommand = asy
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AttachCustomerManagedPolicyReferenceToPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -788,10 +761,9 @@ const de_AttachCustomerManagedPolicyReferenceToPermissionSetCommandError = async
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -809,12 +781,12 @@ export const de_AttachManagedPolicyToPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AttachManagedPolicyToPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: AttachManagedPolicyToPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -853,10 +825,9 @@ const de_AttachManagedPolicyToPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -879,7 +850,7 @@ export const de_CreateAccountAssignmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -918,10 +889,9 @@ const de_CreateAccountAssignmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -939,12 +909,12 @@ export const de_CreateInstanceAccessControlAttributeConfigurationCommand = async
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateInstanceAccessControlAttributeConfigurationResponse(data, context);
+  contents = _json(data);
   const response: CreateInstanceAccessControlAttributeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -980,10 +950,9 @@ const de_CreateInstanceAccessControlAttributeConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1006,7 +975,7 @@ export const de_CreatePermissionSetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1045,10 +1014,9 @@ const de_CreatePermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1071,7 +1039,7 @@ export const de_DeleteAccountAssignmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1107,10 +1075,9 @@ const de_DeleteAccountAssignmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1128,12 +1095,12 @@ export const de_DeleteInlinePolicyFromPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteInlinePolicyFromPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteInlinePolicyFromPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1169,10 +1136,9 @@ const de_DeleteInlinePolicyFromPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1190,12 +1156,12 @@ export const de_DeleteInstanceAccessControlAttributeConfigurationCommand = async
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteInstanceAccessControlAttributeConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DeleteInstanceAccessControlAttributeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1231,10 +1197,9 @@ const de_DeleteInstanceAccessControlAttributeConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1252,12 +1217,12 @@ export const de_DeletePermissionsBoundaryFromPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeletePermissionsBoundaryFromPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: DeletePermissionsBoundaryFromPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1290,10 +1255,9 @@ const de_DeletePermissionsBoundaryFromPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1311,12 +1275,12 @@ export const de_DeletePermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeletePermissionSetResponse(data, context);
+  contents = _json(data);
   const response: DeletePermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1352,10 +1316,9 @@ const de_DeletePermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1378,7 +1341,7 @@ export const de_DescribeAccountAssignmentCreationStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1411,10 +1374,9 @@ const de_DescribeAccountAssignmentCreationStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1437,7 +1399,7 @@ export const de_DescribeAccountAssignmentDeletionStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1470,10 +1432,9 @@ const de_DescribeAccountAssignmentDeletionStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1491,12 +1452,12 @@ export const de_DescribeInstanceAccessControlAttributeConfigurationCommand = asy
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeInstanceAccessControlAttributeConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DescribeInstanceAccessControlAttributeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1529,10 +1490,9 @@ const de_DescribeInstanceAccessControlAttributeConfigurationCommandError = async
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1555,7 +1515,7 @@ export const de_DescribePermissionSetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1588,10 +1548,9 @@ const de_DescribePermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1614,7 +1573,7 @@ export const de_DescribePermissionSetProvisioningStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1647,10 +1606,9 @@ const de_DescribePermissionSetProvisioningStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1668,12 +1626,12 @@ export const de_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand = a
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DetachCustomerManagedPolicyReferenceFromPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1709,10 +1667,9 @@ const de_DetachCustomerManagedPolicyReferenceFromPermissionSetCommandError = asy
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1730,12 +1687,12 @@ export const de_DetachManagedPolicyFromPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DetachManagedPolicyFromPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: DetachManagedPolicyFromPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1771,10 +1728,9 @@ const de_DetachManagedPolicyFromPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1792,12 +1748,12 @@ export const de_GetInlinePolicyForPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetInlinePolicyForPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: GetInlinePolicyForPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1830,10 +1786,9 @@ const de_GetInlinePolicyForPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1851,12 +1806,12 @@ export const de_GetPermissionsBoundaryForPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetPermissionsBoundaryForPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: GetPermissionsBoundaryForPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1889,10 +1844,9 @@ const de_GetPermissionsBoundaryForPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1915,7 +1869,7 @@ export const de_ListAccountAssignmentCreationStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1948,10 +1902,9 @@ const de_ListAccountAssignmentCreationStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1974,7 +1927,7 @@ export const de_ListAccountAssignmentDeletionStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2007,10 +1960,9 @@ const de_ListAccountAssignmentDeletionStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2028,12 +1980,12 @@ export const de_ListAccountAssignmentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAccountAssignmentsResponse(data, context);
+  contents = _json(data);
   const response: ListAccountAssignmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2066,10 +2018,9 @@ const de_ListAccountAssignmentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2087,12 +2038,12 @@ export const de_ListAccountsForProvisionedPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAccountsForProvisionedPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: ListAccountsForProvisionedPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2125,10 +2076,9 @@ const de_ListAccountsForProvisionedPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2146,12 +2096,12 @@ export const de_ListCustomerManagedPolicyReferencesInPermissionSetCommand = asyn
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCustomerManagedPolicyReferencesInPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2184,10 +2134,9 @@ const de_ListCustomerManagedPolicyReferencesInPermissionSetCommandError = async 
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2205,12 +2154,12 @@ export const de_ListInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListInstancesResponse(data, context);
+  contents = _json(data);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2240,10 +2189,9 @@ const de_ListInstancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2261,12 +2209,12 @@ export const de_ListManagedPoliciesInPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListManagedPoliciesInPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: ListManagedPoliciesInPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2299,10 +2247,9 @@ const de_ListManagedPoliciesInPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2325,7 +2272,7 @@ export const de_ListPermissionSetProvisioningStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2358,10 +2305,9 @@ const de_ListPermissionSetProvisioningStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2379,12 +2325,12 @@ export const de_ListPermissionSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPermissionSetsResponse(data, context);
+  contents = _json(data);
   const response: ListPermissionSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2417,10 +2363,9 @@ const de_ListPermissionSetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2438,12 +2383,12 @@ export const de_ListPermissionSetsProvisionedToAccountCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPermissionSetsProvisionedToAccountResponse(data, context);
+  contents = _json(data);
   const response: ListPermissionSetsProvisionedToAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2476,10 +2421,9 @@ const de_ListPermissionSetsProvisionedToAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2497,12 +2441,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2535,10 +2479,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2561,7 +2504,7 @@ export const de_ProvisionPermissionSetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2597,10 +2540,9 @@ const de_ProvisionPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2618,12 +2560,12 @@ export const de_PutInlinePolicyToPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutInlinePolicyToPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: PutInlinePolicyToPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2662,10 +2604,9 @@ const de_PutInlinePolicyToPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2683,12 +2624,12 @@ export const de_PutPermissionsBoundaryToPermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutPermissionsBoundaryToPermissionSetResponse(data, context);
+  contents = _json(data);
   const response: PutPermissionsBoundaryToPermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2724,10 +2665,9 @@ const de_PutPermissionsBoundaryToPermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2745,12 +2685,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2789,10 +2729,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2810,12 +2749,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2851,10 +2790,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2872,12 +2810,12 @@ export const de_UpdateInstanceAccessControlAttributeConfigurationCommand = async
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateInstanceAccessControlAttributeConfigurationResponse(data, context);
+  contents = _json(data);
   const response: UpdateInstanceAccessControlAttributeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2913,10 +2851,9 @@ const de_UpdateInstanceAccessControlAttributeConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2934,12 +2871,12 @@ export const de_UpdatePermissionSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdatePermissionSetResponse(data, context);
+  contents = _json(data);
   const response: UpdatePermissionSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2975,10 +2912,9 @@ const de_UpdatePermissionSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2992,7 +2928,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3005,7 +2941,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3021,7 +2957,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3037,7 +2973,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3053,7 +2989,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3066,7 +3002,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3079,7 +3015,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3087,716 +3023,115 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AccessControlAttribute
- */
-const se_AccessControlAttribute = (input: AccessControlAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: se_AccessControlAttributeValue(input.Value, context) }),
-  };
-};
+// se_AccessControlAttribute omitted.
 
-/**
- * serializeAws_json1_1AccessControlAttributeList
- */
-const se_AccessControlAttributeList = (input: AccessControlAttribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AccessControlAttribute(entry, context);
-    });
-};
+// se_AccessControlAttributeList omitted.
 
-/**
- * serializeAws_json1_1AccessControlAttributeValue
- */
-const se_AccessControlAttributeValue = (input: AccessControlAttributeValue, context: __SerdeContext): any => {
-  return {
-    ...(input.Source != null && { Source: se_AccessControlAttributeValueSourceList(input.Source, context) }),
-  };
-};
+// se_AccessControlAttributeValue omitted.
 
-/**
- * serializeAws_json1_1AccessControlAttributeValueSourceList
- */
-const se_AccessControlAttributeValueSourceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AccessControlAttributeValueSourceList omitted.
 
-/**
- * serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetRequest
- */
-const se_AttachCustomerManagedPolicyReferenceToPermissionSetRequest = (
-  input: AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CustomerManagedPolicyReference != null && {
-      CustomerManagedPolicyReference: se_CustomerManagedPolicyReference(input.CustomerManagedPolicyReference, context),
-    }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_AttachCustomerManagedPolicyReferenceToPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1AttachManagedPolicyToPermissionSetRequest
- */
-const se_AttachManagedPolicyToPermissionSetRequest = (
-  input: AttachManagedPolicyToPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.ManagedPolicyArn != null && { ManagedPolicyArn: input.ManagedPolicyArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_AttachManagedPolicyToPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateAccountAssignmentRequest
- */
-const se_CreateAccountAssignmentRequest = (input: CreateAccountAssignmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.PrincipalId != null && { PrincipalId: input.PrincipalId }),
-    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
-    ...(input.TargetId != null && { TargetId: input.TargetId }),
-    ...(input.TargetType != null && { TargetType: input.TargetType }),
-  };
-};
+// se_CreateAccountAssignmentRequest omitted.
 
-/**
- * serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationRequest
- */
-const se_CreateInstanceAccessControlAttributeConfigurationRequest = (
-  input: CreateInstanceAccessControlAttributeConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceAccessControlAttributeConfiguration != null && {
-      InstanceAccessControlAttributeConfiguration: se_InstanceAccessControlAttributeConfiguration(
-        input.InstanceAccessControlAttributeConfiguration,
-        context
-      ),
-    }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-  };
-};
+// se_CreateInstanceAccessControlAttributeConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1CreatePermissionSetRequest
- */
-const se_CreatePermissionSetRequest = (input: CreatePermissionSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RelayState != null && { RelayState: input.RelayState }),
-    ...(input.SessionDuration != null && { SessionDuration: input.SessionDuration }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreatePermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1CustomerManagedPolicyReference
- */
-const se_CustomerManagedPolicyReference = (input: CustomerManagedPolicyReference, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Path != null && { Path: input.Path }),
-  };
-};
+// se_CustomerManagedPolicyReference omitted.
 
-/**
- * serializeAws_json1_1DeleteAccountAssignmentRequest
- */
-const se_DeleteAccountAssignmentRequest = (input: DeleteAccountAssignmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.PrincipalId != null && { PrincipalId: input.PrincipalId }),
-    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
-    ...(input.TargetId != null && { TargetId: input.TargetId }),
-    ...(input.TargetType != null && { TargetType: input.TargetType }),
-  };
-};
+// se_DeleteAccountAssignmentRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteInlinePolicyFromPermissionSetRequest
- */
-const se_DeleteInlinePolicyFromPermissionSetRequest = (
-  input: DeleteInlinePolicyFromPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_DeleteInlinePolicyFromPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationRequest
- */
-const se_DeleteInstanceAccessControlAttributeConfigurationRequest = (
-  input: DeleteInstanceAccessControlAttributeConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-  };
-};
+// se_DeleteInstanceAccessControlAttributeConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetRequest
- */
-const se_DeletePermissionsBoundaryFromPermissionSetRequest = (
-  input: DeletePermissionsBoundaryFromPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_DeletePermissionsBoundaryFromPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeletePermissionSetRequest
- */
-const se_DeletePermissionSetRequest = (input: DeletePermissionSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_DeletePermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAccountAssignmentCreationStatusRequest
- */
-const se_DescribeAccountAssignmentCreationStatusRequest = (
-  input: DescribeAccountAssignmentCreationStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountAssignmentCreationRequestId != null && {
-      AccountAssignmentCreationRequestId: input.AccountAssignmentCreationRequestId,
-    }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-  };
-};
+// se_DescribeAccountAssignmentCreationStatusRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAccountAssignmentDeletionStatusRequest
- */
-const se_DescribeAccountAssignmentDeletionStatusRequest = (
-  input: DescribeAccountAssignmentDeletionStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountAssignmentDeletionRequestId != null && {
-      AccountAssignmentDeletionRequestId: input.AccountAssignmentDeletionRequestId,
-    }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-  };
-};
+// se_DescribeAccountAssignmentDeletionStatusRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationRequest
- */
-const se_DescribeInstanceAccessControlAttributeConfigurationRequest = (
-  input: DescribeInstanceAccessControlAttributeConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-  };
-};
+// se_DescribeInstanceAccessControlAttributeConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePermissionSetProvisioningStatusRequest
- */
-const se_DescribePermissionSetProvisioningStatusRequest = (
-  input: DescribePermissionSetProvisioningStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.ProvisionPermissionSetRequestId != null && {
-      ProvisionPermissionSetRequestId: input.ProvisionPermissionSetRequestId,
-    }),
-  };
-};
+// se_DescribePermissionSetProvisioningStatusRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePermissionSetRequest
- */
-const se_DescribePermissionSetRequest = (input: DescribePermissionSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_DescribePermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetRequest
- */
-const se_DetachCustomerManagedPolicyReferenceFromPermissionSetRequest = (
-  input: DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CustomerManagedPolicyReference != null && {
-      CustomerManagedPolicyReference: se_CustomerManagedPolicyReference(input.CustomerManagedPolicyReference, context),
-    }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_DetachCustomerManagedPolicyReferenceFromPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1DetachManagedPolicyFromPermissionSetRequest
- */
-const se_DetachManagedPolicyFromPermissionSetRequest = (
-  input: DetachManagedPolicyFromPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.ManagedPolicyArn != null && { ManagedPolicyArn: input.ManagedPolicyArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_DetachManagedPolicyFromPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetInlinePolicyForPermissionSetRequest
- */
-const se_GetInlinePolicyForPermissionSetRequest = (
-  input: GetInlinePolicyForPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_GetInlinePolicyForPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetPermissionsBoundaryForPermissionSetRequest
- */
-const se_GetPermissionsBoundaryForPermissionSetRequest = (
-  input: GetPermissionsBoundaryForPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_GetPermissionsBoundaryForPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1InstanceAccessControlAttributeConfiguration
- */
-const se_InstanceAccessControlAttributeConfiguration = (
-  input: InstanceAccessControlAttributeConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccessControlAttributes != null && {
-      AccessControlAttributes: se_AccessControlAttributeList(input.AccessControlAttributes, context),
-    }),
-  };
-};
+// se_InstanceAccessControlAttributeConfiguration omitted.
 
-/**
- * serializeAws_json1_1ListAccountAssignmentCreationStatusRequest
- */
-const se_ListAccountAssignmentCreationStatusRequest = (
-  input: ListAccountAssignmentCreationStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListAccountAssignmentCreationStatusRequest omitted.
 
-/**
- * serializeAws_json1_1ListAccountAssignmentDeletionStatusRequest
- */
-const se_ListAccountAssignmentDeletionStatusRequest = (
-  input: ListAccountAssignmentDeletionStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListAccountAssignmentDeletionStatusRequest omitted.
 
-/**
- * serializeAws_json1_1ListAccountAssignmentsRequest
- */
-const se_ListAccountAssignmentsRequest = (input: ListAccountAssignmentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_ListAccountAssignmentsRequest omitted.
 
-/**
- * serializeAws_json1_1ListAccountsForProvisionedPermissionSetRequest
- */
-const se_ListAccountsForProvisionedPermissionSetRequest = (
-  input: ListAccountsForProvisionedPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.ProvisioningStatus != null && { ProvisioningStatus: input.ProvisioningStatus }),
-  };
-};
+// se_ListAccountsForProvisionedPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetRequest
- */
-const se_ListCustomerManagedPolicyReferencesInPermissionSetRequest = (
-  input: ListCustomerManagedPolicyReferencesInPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_ListCustomerManagedPolicyReferencesInPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1ListInstancesRequest
- */
-const se_ListInstancesRequest = (input: ListInstancesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListInstancesRequest omitted.
 
-/**
- * serializeAws_json1_1ListManagedPoliciesInPermissionSetRequest
- */
-const se_ListManagedPoliciesInPermissionSetRequest = (
-  input: ListManagedPoliciesInPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_ListManagedPoliciesInPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1ListPermissionSetProvisioningStatusRequest
- */
-const se_ListPermissionSetProvisioningStatusRequest = (
-  input: ListPermissionSetProvisioningStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListPermissionSetProvisioningStatusRequest omitted.
 
-/**
- * serializeAws_json1_1ListPermissionSetsProvisionedToAccountRequest
- */
-const se_ListPermissionSetsProvisionedToAccountRequest = (
-  input: ListPermissionSetsProvisionedToAccountRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ProvisioningStatus != null && { ProvisioningStatus: input.ProvisioningStatus }),
-  };
-};
+// se_ListPermissionSetsProvisionedToAccountRequest omitted.
 
-/**
- * serializeAws_json1_1ListPermissionSetsRequest
- */
-const se_ListPermissionSetsRequest = (input: ListPermissionSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListPermissionSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1OperationStatusFilter
- */
-const se_OperationStatusFilter = (input: OperationStatusFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_OperationStatusFilter omitted.
 
-/**
- * serializeAws_json1_1PermissionsBoundary
- */
-const se_PermissionsBoundary = (input: PermissionsBoundary, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomerManagedPolicyReference != null && {
-      CustomerManagedPolicyReference: se_CustomerManagedPolicyReference(input.CustomerManagedPolicyReference, context),
-    }),
-    ...(input.ManagedPolicyArn != null && { ManagedPolicyArn: input.ManagedPolicyArn }),
-  };
-};
+// se_PermissionsBoundary omitted.
 
-/**
- * serializeAws_json1_1ProvisionPermissionSetRequest
- */
-const se_ProvisionPermissionSetRequest = (input: ProvisionPermissionSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.TargetId != null && { TargetId: input.TargetId }),
-    ...(input.TargetType != null && { TargetType: input.TargetType }),
-  };
-};
+// se_ProvisionPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1PutInlinePolicyToPermissionSetRequest
- */
-const se_PutInlinePolicyToPermissionSetRequest = (
-  input: PutInlinePolicyToPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InlinePolicy != null && { InlinePolicy: input.InlinePolicy }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-  };
-};
+// se_PutInlinePolicyToPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1PutPermissionsBoundaryToPermissionSetRequest
- */
-const se_PutPermissionsBoundaryToPermissionSetRequest = (
-  input: PutPermissionsBoundaryToPermissionSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.PermissionsBoundary != null && {
-      PermissionsBoundary: se_PermissionsBoundary(input.PermissionsBoundary, context),
-    }),
-  };
-};
+// se_PutPermissionsBoundaryToPermissionSetRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationRequest
- */
-const se_UpdateInstanceAccessControlAttributeConfigurationRequest = (
-  input: UpdateInstanceAccessControlAttributeConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceAccessControlAttributeConfiguration != null && {
-      InstanceAccessControlAttributeConfiguration: se_InstanceAccessControlAttributeConfiguration(
-        input.InstanceAccessControlAttributeConfiguration,
-        context
-      ),
-    }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-  };
-};
+// se_UpdateInstanceAccessControlAttributeConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1UpdatePermissionSetRequest
- */
-const se_UpdatePermissionSetRequest = (input: UpdatePermissionSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.RelayState != null && { RelayState: input.RelayState }),
-    ...(input.SessionDuration != null && { SessionDuration: input.SessionDuration }),
-  };
-};
+// se_UpdatePermissionSetRequest omitted.
 
-/**
- * deserializeAws_json1_1AccessControlAttribute
- */
-const de_AccessControlAttribute = (output: any, context: __SerdeContext): AccessControlAttribute => {
-  return {
-    Key: __expectString(output.Key),
-    Value: output.Value != null ? de_AccessControlAttributeValue(output.Value, context) : undefined,
-  } as any;
-};
+// de_AccessControlAttribute omitted.
 
-/**
- * deserializeAws_json1_1AccessControlAttributeList
- */
-const de_AccessControlAttributeList = (output: any, context: __SerdeContext): AccessControlAttribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccessControlAttribute(entry, context);
-    });
-  return retVal;
-};
+// de_AccessControlAttributeList omitted.
 
-/**
- * deserializeAws_json1_1AccessControlAttributeValue
- */
-const de_AccessControlAttributeValue = (output: any, context: __SerdeContext): AccessControlAttributeValue => {
-  return {
-    Source: output.Source != null ? de_AccessControlAttributeValueSourceList(output.Source, context) : undefined,
-  } as any;
-};
+// de_AccessControlAttributeValue omitted.
 
-/**
- * deserializeAws_json1_1AccessControlAttributeValueSourceList
- */
-const de_AccessControlAttributeValueSourceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AccessControlAttributeValueSourceList omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AccountAssignment
- */
-const de_AccountAssignment = (output: any, context: __SerdeContext): AccountAssignment => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    PermissionSetArn: __expectString(output.PermissionSetArn),
-    PrincipalId: __expectString(output.PrincipalId),
-    PrincipalType: __expectString(output.PrincipalType),
-  } as any;
-};
+// de_AccountAssignment omitted.
 
-/**
- * deserializeAws_json1_1AccountAssignmentList
- */
-const de_AccountAssignmentList = (output: any, context: __SerdeContext): AccountAssignment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccountAssignment(entry, context);
-    });
-  return retVal;
-};
+// de_AccountAssignmentList omitted.
 
 /**
  * deserializeAws_json1_1AccountAssignmentOperationStatus
@@ -3805,20 +3140,17 @@ const de_AccountAssignmentOperationStatus = (
   output: any,
   context: __SerdeContext
 ): AccountAssignmentOperationStatus => {
-  return {
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    PermissionSetArn: __expectString(output.PermissionSetArn),
-    PrincipalId: __expectString(output.PrincipalId),
-    PrincipalType: __expectString(output.PrincipalType),
-    RequestId: __expectString(output.RequestId),
-    Status: __expectString(output.Status),
-    TargetId: __expectString(output.TargetId),
-    TargetType: __expectString(output.TargetType),
-  } as any;
+  return take(output, {
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    PermissionSetArn: __expectString,
+    PrincipalId: __expectString,
+    PrincipalType: __expectString,
+    RequestId: __expectString,
+    Status: __expectString,
+    TargetId: __expectString,
+    TargetType: __expectString,
+  }) as any;
 };
 
 /**
@@ -3831,9 +3163,6 @@ const de_AccountAssignmentOperationStatusList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AccountAssignmentOperationStatusMetadata(entry, context);
     });
   return retVal;
@@ -3846,192 +3175,65 @@ const de_AccountAssignmentOperationStatusMetadata = (
   output: any,
   context: __SerdeContext
 ): AccountAssignmentOperationStatusMetadata => {
-  return {
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    RequestId: __expectString(output.RequestId),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequestId: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AccountList
- */
-const de_AccountList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AccountList omitted.
 
-/**
- * deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetResponse
- */
-const de_AttachCustomerManagedPolicyReferenceToPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): AttachCustomerManagedPolicyReferenceToPermissionSetResponse => {
-  return {} as any;
-};
+// de_AttachCustomerManagedPolicyReferenceToPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1AttachedManagedPolicy
- */
-const de_AttachedManagedPolicy = (output: any, context: __SerdeContext): AttachedManagedPolicy => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_AttachedManagedPolicy omitted.
 
-/**
- * deserializeAws_json1_1AttachedManagedPolicyList
- */
-const de_AttachedManagedPolicyList = (output: any, context: __SerdeContext): AttachedManagedPolicy[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AttachedManagedPolicy(entry, context);
-    });
-  return retVal;
-};
+// de_AttachedManagedPolicyList omitted.
 
-/**
- * deserializeAws_json1_1AttachManagedPolicyToPermissionSetResponse
- */
-const de_AttachManagedPolicyToPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): AttachManagedPolicyToPermissionSetResponse => {
-  return {} as any;
-};
+// de_AttachManagedPolicyToPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_1CreateAccountAssignmentResponse
  */
 const de_CreateAccountAssignmentResponse = (output: any, context: __SerdeContext): CreateAccountAssignmentResponse => {
-  return {
-    AccountAssignmentCreationStatus:
-      output.AccountAssignmentCreationStatus != null
-        ? de_AccountAssignmentOperationStatus(output.AccountAssignmentCreationStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountAssignmentCreationStatus: (_: any) => de_AccountAssignmentOperationStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationResponse
- */
-const de_CreateInstanceAccessControlAttributeConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateInstanceAccessControlAttributeConfigurationResponse => {
-  return {} as any;
-};
+// de_CreateInstanceAccessControlAttributeConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1CreatePermissionSetResponse
  */
 const de_CreatePermissionSetResponse = (output: any, context: __SerdeContext): CreatePermissionSetResponse => {
-  return {
-    PermissionSet: output.PermissionSet != null ? de_PermissionSet(output.PermissionSet, context) : undefined,
-  } as any;
+  return take(output, {
+    PermissionSet: (_: any) => de_PermissionSet(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CustomerManagedPolicyReference
- */
-const de_CustomerManagedPolicyReference = (output: any, context: __SerdeContext): CustomerManagedPolicyReference => {
-  return {
-    Name: __expectString(output.Name),
-    Path: __expectString(output.Path),
-  } as any;
-};
+// de_CustomerManagedPolicyReference omitted.
 
-/**
- * deserializeAws_json1_1CustomerManagedPolicyReferenceList
- */
-const de_CustomerManagedPolicyReferenceList = (
-  output: any,
-  context: __SerdeContext
-): CustomerManagedPolicyReference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CustomerManagedPolicyReference(entry, context);
-    });
-  return retVal;
-};
+// de_CustomerManagedPolicyReferenceList omitted.
 
 /**
  * deserializeAws_json1_1DeleteAccountAssignmentResponse
  */
 const de_DeleteAccountAssignmentResponse = (output: any, context: __SerdeContext): DeleteAccountAssignmentResponse => {
-  return {
-    AccountAssignmentDeletionStatus:
-      output.AccountAssignmentDeletionStatus != null
-        ? de_AccountAssignmentOperationStatus(output.AccountAssignmentDeletionStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountAssignmentDeletionStatus: (_: any) => de_AccountAssignmentOperationStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteInlinePolicyFromPermissionSetResponse
- */
-const de_DeleteInlinePolicyFromPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteInlinePolicyFromPermissionSetResponse => {
-  return {} as any;
-};
+// de_DeleteInlinePolicyFromPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationResponse
- */
-const de_DeleteInstanceAccessControlAttributeConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteInstanceAccessControlAttributeConfigurationResponse => {
-  return {} as any;
-};
+// de_DeleteInstanceAccessControlAttributeConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetResponse
- */
-const de_DeletePermissionsBoundaryFromPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): DeletePermissionsBoundaryFromPermissionSetResponse => {
-  return {} as any;
-};
+// de_DeletePermissionsBoundaryFromPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeletePermissionSetResponse
- */
-const de_DeletePermissionSetResponse = (output: any, context: __SerdeContext): DeletePermissionSetResponse => {
-  return {} as any;
-};
+// de_DeletePermissionSetResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeAccountAssignmentCreationStatusResponse
@@ -4040,12 +3242,9 @@ const de_DescribeAccountAssignmentCreationStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountAssignmentCreationStatusResponse => {
-  return {
-    AccountAssignmentCreationStatus:
-      output.AccountAssignmentCreationStatus != null
-        ? de_AccountAssignmentOperationStatus(output.AccountAssignmentCreationStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountAssignmentCreationStatus: (_: any) => de_AccountAssignmentOperationStatus(_, context),
+  }) as any;
 };
 
 /**
@@ -4055,30 +3254,12 @@ const de_DescribeAccountAssignmentDeletionStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountAssignmentDeletionStatusResponse => {
-  return {
-    AccountAssignmentDeletionStatus:
-      output.AccountAssignmentDeletionStatus != null
-        ? de_AccountAssignmentOperationStatus(output.AccountAssignmentDeletionStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountAssignmentDeletionStatus: (_: any) => de_AccountAssignmentOperationStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationResponse
- */
-const de_DescribeInstanceAccessControlAttributeConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeInstanceAccessControlAttributeConfigurationResponse => {
-  return {
-    InstanceAccessControlAttributeConfiguration:
-      output.InstanceAccessControlAttributeConfiguration != null
-        ? de_InstanceAccessControlAttributeConfiguration(output.InstanceAccessControlAttributeConfiguration, context)
-        : undefined,
-    Status: __expectString(output.Status),
-    StatusReason: __expectString(output.StatusReason),
-  } as any;
-};
+// de_DescribeInstanceAccessControlAttributeConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribePermissionSetProvisioningStatusResponse
@@ -4087,116 +3268,35 @@ const de_DescribePermissionSetProvisioningStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribePermissionSetProvisioningStatusResponse => {
-  return {
-    PermissionSetProvisioningStatus:
-      output.PermissionSetProvisioningStatus != null
-        ? de_PermissionSetProvisioningStatus(output.PermissionSetProvisioningStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    PermissionSetProvisioningStatus: (_: any) => de_PermissionSetProvisioningStatus(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribePermissionSetResponse
  */
 const de_DescribePermissionSetResponse = (output: any, context: __SerdeContext): DescribePermissionSetResponse => {
-  return {
-    PermissionSet: output.PermissionSet != null ? de_PermissionSet(output.PermissionSet, context) : undefined,
-  } as any;
+  return take(output, {
+    PermissionSet: (_: any) => de_PermissionSet(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetResponse
- */
-const de_DetachCustomerManagedPolicyReferenceFromPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): DetachCustomerManagedPolicyReferenceFromPermissionSetResponse => {
-  return {} as any;
-};
+// de_DetachCustomerManagedPolicyReferenceFromPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DetachManagedPolicyFromPermissionSetResponse
- */
-const de_DetachManagedPolicyFromPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): DetachManagedPolicyFromPermissionSetResponse => {
-  return {} as any;
-};
+// de_DetachManagedPolicyFromPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GetInlinePolicyForPermissionSetResponse
- */
-const de_GetInlinePolicyForPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): GetInlinePolicyForPermissionSetResponse => {
-  return {
-    InlinePolicy: __expectString(output.InlinePolicy),
-  } as any;
-};
+// de_GetInlinePolicyForPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetResponse
- */
-const de_GetPermissionsBoundaryForPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): GetPermissionsBoundaryForPermissionSetResponse => {
-  return {
-    PermissionsBoundary:
-      output.PermissionsBoundary != null ? de_PermissionsBoundary(output.PermissionsBoundary, context) : undefined,
-  } as any;
-};
+// de_GetPermissionsBoundaryForPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1InstanceAccessControlAttributeConfiguration
- */
-const de_InstanceAccessControlAttributeConfiguration = (
-  output: any,
-  context: __SerdeContext
-): InstanceAccessControlAttributeConfiguration => {
-  return {
-    AccessControlAttributes:
-      output.AccessControlAttributes != null
-        ? de_AccessControlAttributeList(output.AccessControlAttributes, context)
-        : undefined,
-  } as any;
-};
+// de_InstanceAccessControlAttributeConfiguration omitted.
 
-/**
- * deserializeAws_json1_1InstanceList
- */
-const de_InstanceList = (output: any, context: __SerdeContext): InstanceMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InstanceMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_InstanceList omitted.
 
-/**
- * deserializeAws_json1_1InstanceMetadata
- */
-const de_InstanceMetadata = (output: any, context: __SerdeContext): InstanceMetadata => {
-  return {
-    IdentityStoreId: __expectString(output.IdentityStoreId),
-    InstanceArn: __expectString(output.InstanceArn),
-  } as any;
-};
+// de_InstanceMetadata omitted.
 
-/**
- * deserializeAws_json1_1InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
 /**
  * deserializeAws_json1_1ListAccountAssignmentCreationStatusResponse
@@ -4205,13 +3305,10 @@ const de_ListAccountAssignmentCreationStatusResponse = (
   output: any,
   context: __SerdeContext
 ): ListAccountAssignmentCreationStatusResponse => {
-  return {
-    AccountAssignmentsCreationStatus:
-      output.AccountAssignmentsCreationStatus != null
-        ? de_AccountAssignmentOperationStatusList(output.AccountAssignmentsCreationStatus, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AccountAssignmentsCreationStatus: (_: any) => de_AccountAssignmentOperationStatusList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -4221,80 +3318,21 @@ const de_ListAccountAssignmentDeletionStatusResponse = (
   output: any,
   context: __SerdeContext
 ): ListAccountAssignmentDeletionStatusResponse => {
-  return {
-    AccountAssignmentsDeletionStatus:
-      output.AccountAssignmentsDeletionStatus != null
-        ? de_AccountAssignmentOperationStatusList(output.AccountAssignmentsDeletionStatus, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AccountAssignmentsDeletionStatus: (_: any) => de_AccountAssignmentOperationStatusList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListAccountAssignmentsResponse
- */
-const de_ListAccountAssignmentsResponse = (output: any, context: __SerdeContext): ListAccountAssignmentsResponse => {
-  return {
-    AccountAssignments:
-      output.AccountAssignments != null ? de_AccountAssignmentList(output.AccountAssignments, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListAccountAssignmentsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListAccountsForProvisionedPermissionSetResponse
- */
-const de_ListAccountsForProvisionedPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAccountsForProvisionedPermissionSetResponse => {
-  return {
-    AccountIds: output.AccountIds != null ? de_AccountList(output.AccountIds, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListAccountsForProvisionedPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetResponse
- */
-const de_ListCustomerManagedPolicyReferencesInPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCustomerManagedPolicyReferencesInPermissionSetResponse => {
-  return {
-    CustomerManagedPolicyReferences:
-      output.CustomerManagedPolicyReferences != null
-        ? de_CustomerManagedPolicyReferenceList(output.CustomerManagedPolicyReferences, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListCustomerManagedPolicyReferencesInPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1ListInstancesResponse
- */
-const de_ListInstancesResponse = (output: any, context: __SerdeContext): ListInstancesResponse => {
-  return {
-    Instances: output.Instances != null ? de_InstanceList(output.Instances, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListInstancesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListManagedPoliciesInPermissionSetResponse
- */
-const de_ListManagedPoliciesInPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): ListManagedPoliciesInPermissionSetResponse => {
-  return {
-    AttachedManagedPolicies:
-      output.AttachedManagedPolicies != null
-        ? de_AttachedManagedPolicyList(output.AttachedManagedPolicies, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListManagedPoliciesInPermissionSetResponse omitted.
 
 /**
  * deserializeAws_json1_1ListPermissionSetProvisioningStatusResponse
@@ -4303,108 +3341,48 @@ const de_ListPermissionSetProvisioningStatusResponse = (
   output: any,
   context: __SerdeContext
 ): ListPermissionSetProvisioningStatusResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PermissionSetsProvisioningStatus:
-      output.PermissionSetsProvisioningStatus != null
-        ? de_PermissionSetProvisioningStatusList(output.PermissionSetsProvisioningStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    PermissionSetsProvisioningStatus: (_: any) => de_PermissionSetProvisioningStatusList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListPermissionSetsProvisionedToAccountResponse
- */
-const de_ListPermissionSetsProvisionedToAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): ListPermissionSetsProvisionedToAccountResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PermissionSets: output.PermissionSets != null ? de_PermissionSetList(output.PermissionSets, context) : undefined,
-  } as any;
-};
+// de_ListPermissionSetsProvisionedToAccountResponse omitted.
 
-/**
- * deserializeAws_json1_1ListPermissionSetsResponse
- */
-const de_ListPermissionSetsResponse = (output: any, context: __SerdeContext): ListPermissionSetsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PermissionSets: output.PermissionSets != null ? de_PermissionSetList(output.PermissionSets, context) : undefined,
-  } as any;
-};
+// de_ListPermissionSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1PermissionsBoundary
- */
-const de_PermissionsBoundary = (output: any, context: __SerdeContext): PermissionsBoundary => {
-  return {
-    CustomerManagedPolicyReference:
-      output.CustomerManagedPolicyReference != null
-        ? de_CustomerManagedPolicyReference(output.CustomerManagedPolicyReference, context)
-        : undefined,
-    ManagedPolicyArn: __expectString(output.ManagedPolicyArn),
-  } as any;
-};
+// de_PermissionsBoundary omitted.
 
 /**
  * deserializeAws_json1_1PermissionSet
  */
 const de_PermissionSet = (output: any, context: __SerdeContext): PermissionSet => {
-  return {
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    PermissionSetArn: __expectString(output.PermissionSetArn),
-    RelayState: __expectString(output.RelayState),
-    SessionDuration: __expectString(output.SessionDuration),
-  } as any;
+  return take(output, {
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Name: __expectString,
+    PermissionSetArn: __expectString,
+    RelayState: __expectString,
+    SessionDuration: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PermissionSetList
- */
-const de_PermissionSetList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PermissionSetList omitted.
 
 /**
  * deserializeAws_json1_1PermissionSetProvisioningStatus
  */
 const de_PermissionSetProvisioningStatus = (output: any, context: __SerdeContext): PermissionSetProvisioningStatus => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    PermissionSetArn: __expectString(output.PermissionSetArn),
-    RequestId: __expectString(output.RequestId),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    PermissionSetArn: __expectString,
+    RequestId: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4417,9 +3395,6 @@ const de_PermissionSetProvisioningStatusList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PermissionSetProvisioningStatusMetadata(entry, context);
     });
   return retVal;
@@ -4432,139 +3407,45 @@ const de_PermissionSetProvisioningStatusMetadata = (
   output: any,
   context: __SerdeContext
 ): PermissionSetProvisioningStatusMetadata => {
-  return {
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    RequestId: __expectString(output.RequestId),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequestId: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ProvisionPermissionSetResponse
  */
 const de_ProvisionPermissionSetResponse = (output: any, context: __SerdeContext): ProvisionPermissionSetResponse => {
-  return {
-    PermissionSetProvisioningStatus:
-      output.PermissionSetProvisioningStatus != null
-        ? de_PermissionSetProvisioningStatus(output.PermissionSetProvisioningStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    PermissionSetProvisioningStatus: (_: any) => de_PermissionSetProvisioningStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PutInlinePolicyToPermissionSetResponse
- */
-const de_PutInlinePolicyToPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): PutInlinePolicyToPermissionSetResponse => {
-  return {} as any;
-};
+// de_PutInlinePolicyToPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1PutPermissionsBoundaryToPermissionSetResponse
- */
-const de_PutPermissionsBoundaryToPermissionSetResponse = (
-  output: any,
-  context: __SerdeContext
-): PutPermissionsBoundaryToPermissionSetResponse => {
-  return {} as any;
-};
+// de_PutPermissionsBoundaryToPermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationResponse
- */
-const de_UpdateInstanceAccessControlAttributeConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateInstanceAccessControlAttributeConfigurationResponse => {
-  return {} as any;
-};
+// de_UpdateInstanceAccessControlAttributeConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdatePermissionSetResponse
- */
-const de_UpdatePermissionSetResponse = (output: any, context: __SerdeContext): UpdatePermissionSetResponse => {
-  return {} as any;
-};
+// de_UpdatePermissionSetResponse omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -4586,6 +3467,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

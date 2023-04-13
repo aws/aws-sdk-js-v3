@@ -1,18 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -80,18 +81,18 @@ export const se_CreateProfileCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles";
   let body: any;
-  body = JSON.stringify({
-    ...(input.durationSeconds != null && { durationSeconds: input.durationSeconds }),
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.managedPolicyArns != null && {
-      managedPolicyArns: se_ManagedPolicyList(input.managedPolicyArns, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.requireInstanceProperties != null && { requireInstanceProperties: input.requireInstanceProperties }),
-    ...(input.roleArns != null && { roleArns: se_RoleArnList(input.roleArns, context) }),
-    ...(input.sessionPolicy != null && { sessionPolicy: input.sessionPolicy }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      durationSeconds: [],
+      enabled: [],
+      managedPolicyArns: (_) => _json(_),
+      name: [],
+      requireInstanceProperties: [],
+      roleArns: (_) => _json(_),
+      sessionPolicy: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -116,12 +117,14 @@ export const se_CreateTrustAnchorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchors";
   let body: any;
-  body = JSON.stringify({
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.source != null && { source: se_Source(input.source, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      enabled: [],
+      name: [],
+      source: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -476,13 +479,15 @@ export const se_ImportCrlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crls";
   let body: any;
-  body = JSON.stringify({
-    ...(input.crlData != null && { crlData: context.base64Encoder(input.crlData) }),
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.trustAnchorArn != null && { trustAnchorArn: input.trustAnchorArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      crlData: (_) => context.base64Encoder(_),
+      enabled: [],
+      name: [],
+      tags: (_) => _json(_),
+      trustAnchorArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -641,10 +646,12 @@ export const se_TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -669,10 +676,12 @@ export const se_UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+      tagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -698,10 +707,12 @@ export const se_UpdateCrlCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crl/{crlId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "crlId", () => input.crlId!, "{crlId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.crlData != null && { crlData: context.base64Encoder(input.crlData) }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      crlData: (_) => context.base64Encoder(_),
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -727,15 +738,15 @@ export const se_UpdateProfileCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profile/{profileId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "profileId", () => input.profileId!, "{profileId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.durationSeconds != null && { durationSeconds: input.durationSeconds }),
-    ...(input.managedPolicyArns != null && {
-      managedPolicyArns: se_ManagedPolicyList(input.managedPolicyArns, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.roleArns != null && { roleArns: se_RoleArnList(input.roleArns, context) }),
-    ...(input.sessionPolicy != null && { sessionPolicy: input.sessionPolicy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      durationSeconds: [],
+      managedPolicyArns: (_) => _json(_),
+      name: [],
+      roleArns: (_) => _json(_),
+      sessionPolicy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -769,10 +780,12 @@ export const se_UpdateTrustAnchorCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.name != null && { name: input.name }),
-    ...(input.source != null && { source: se_Source(input.source, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+      source: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -798,9 +811,10 @@ export const de_CreateProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.profile != null) {
-    contents.profile = de_ProfileDetail(data.profile, context);
-  }
+  const doc = take(data, {
+    profile: (_) => de_ProfileDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -825,10 +839,9 @@ const de_CreateProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -848,9 +861,10 @@ export const de_CreateTrustAnchorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustAnchor != null) {
-    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
-  }
+  const doc = take(data, {
+    trustAnchor: (_) => de_TrustAnchorDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -875,10 +889,9 @@ const de_CreateTrustAnchorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -898,9 +911,10 @@ export const de_DeleteCrlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crl != null) {
-    contents.crl = de_CrlDetail(data.crl, context);
-  }
+  const doc = take(data, {
+    crl: (_) => de_CrlDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -925,10 +939,9 @@ const de_DeleteCrlCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -948,9 +961,10 @@ export const de_DeleteProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.profile != null) {
-    contents.profile = de_ProfileDetail(data.profile, context);
-  }
+  const doc = take(data, {
+    profile: (_) => de_ProfileDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -975,10 +989,9 @@ const de_DeleteProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -998,9 +1011,10 @@ export const de_DeleteTrustAnchorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustAnchor != null) {
-    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
-  }
+  const doc = take(data, {
+    trustAnchor: (_) => de_TrustAnchorDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1025,10 +1039,9 @@ const de_DeleteTrustAnchorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1048,9 +1061,10 @@ export const de_DisableCrlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crl != null) {
-    contents.crl = de_CrlDetail(data.crl, context);
-  }
+  const doc = take(data, {
+    crl: (_) => de_CrlDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1075,10 +1089,9 @@ const de_DisableCrlCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1098,9 +1111,10 @@ export const de_DisableProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.profile != null) {
-    contents.profile = de_ProfileDetail(data.profile, context);
-  }
+  const doc = take(data, {
+    profile: (_) => de_ProfileDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1125,10 +1139,9 @@ const de_DisableProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1148,9 +1161,10 @@ export const de_DisableTrustAnchorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustAnchor != null) {
-    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
-  }
+  const doc = take(data, {
+    trustAnchor: (_) => de_TrustAnchorDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1175,10 +1189,9 @@ const de_DisableTrustAnchorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1198,9 +1211,10 @@ export const de_EnableCrlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crl != null) {
-    contents.crl = de_CrlDetail(data.crl, context);
-  }
+  const doc = take(data, {
+    crl: (_) => de_CrlDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1225,10 +1239,9 @@ const de_EnableCrlCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1248,9 +1261,10 @@ export const de_EnableProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.profile != null) {
-    contents.profile = de_ProfileDetail(data.profile, context);
-  }
+  const doc = take(data, {
+    profile: (_) => de_ProfileDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1275,10 +1289,9 @@ const de_EnableProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1298,9 +1311,10 @@ export const de_EnableTrustAnchorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustAnchor != null) {
-    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
-  }
+  const doc = take(data, {
+    trustAnchor: (_) => de_TrustAnchorDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1325,10 +1339,9 @@ const de_EnableTrustAnchorCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1348,9 +1361,10 @@ export const de_GetCrlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crl != null) {
-    contents.crl = de_CrlDetail(data.crl, context);
-  }
+  const doc = take(data, {
+    crl: (_) => de_CrlDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1369,10 +1383,9 @@ const de_GetCrlCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1392,9 +1405,10 @@ export const de_GetProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.profile != null) {
-    contents.profile = de_ProfileDetail(data.profile, context);
-  }
+  const doc = take(data, {
+    profile: (_) => de_ProfileDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1419,10 +1433,9 @@ const de_GetProfileCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1442,9 +1455,10 @@ export const de_GetSubjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.subject != null) {
-    contents.subject = de_SubjectDetail(data.subject, context);
-  }
+  const doc = take(data, {
+    subject: (_) => de_SubjectDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1469,10 +1483,9 @@ const de_GetSubjectCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1492,9 +1505,10 @@ export const de_GetTrustAnchorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustAnchor != null) {
-    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
-  }
+  const doc = take(data, {
+    trustAnchor: (_) => de_TrustAnchorDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1522,10 +1536,9 @@ const de_GetTrustAnchorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1545,9 +1558,10 @@ export const de_ImportCrlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crl != null) {
-    contents.crl = de_CrlDetail(data.crl, context);
-  }
+  const doc = take(data, {
+    crl: (_) => de_CrlDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1572,10 +1586,9 @@ const de_ImportCrlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1595,12 +1608,11 @@ export const de_ListCrlsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crls != null) {
-    contents.crls = de_CrlDetails(data.crls, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    crls: (_) => de_CrlDetails(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1625,10 +1637,9 @@ const de_ListCrlsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1648,12 +1659,11 @@ export const de_ListProfilesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.profiles != null) {
-    contents.profiles = de_ProfileDetails(data.profiles, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    profiles: (_) => de_ProfileDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1678,10 +1688,9 @@ const de_ListProfilesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1701,12 +1710,11 @@ export const de_ListSubjectsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.subjects != null) {
-    contents.subjects = de_SubjectSummaries(data.subjects, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    subjects: (_) => de_SubjectSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1731,10 +1739,9 @@ const de_ListSubjectsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1754,9 +1761,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagList(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1784,10 +1792,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1807,12 +1814,11 @@ export const de_ListTrustAnchorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.trustAnchors != null) {
-    contents.trustAnchors = de_TrustAnchorDetails(data.trustAnchors, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    trustAnchors: (_) => de_TrustAnchorDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1837,10 +1843,9 @@ const de_ListTrustAnchorsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1890,10 +1895,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1940,10 +1944,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1963,9 +1966,10 @@ export const de_UpdateCrlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.crl != null) {
-    contents.crl = de_CrlDetail(data.crl, context);
-  }
+  const doc = take(data, {
+    crl: (_) => de_CrlDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1993,10 +1997,9 @@ const de_UpdateCrlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2016,9 +2019,10 @@ export const de_UpdateProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.profile != null) {
-    contents.profile = de_ProfileDetail(data.profile, context);
-  }
+  const doc = take(data, {
+    profile: (_) => de_ProfileDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2046,10 +2050,9 @@ const de_UpdateProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2069,9 +2072,10 @@ export const de_UpdateTrustAnchorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustAnchor != null) {
-    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
-  }
+  const doc = take(data, {
+    trustAnchor: (_) => de_TrustAnchorDetail(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2099,16 +2103,15 @@ const de_UpdateTrustAnchorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2118,9 +2121,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2137,9 +2141,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2156,9 +2161,10 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2172,9 +2178,10 @@ const de_TooManyTagsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2182,80 +2189,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ManagedPolicyList
- */
-const se_ManagedPolicyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ManagedPolicyList omitted.
 
-/**
- * serializeAws_restJson1RoleArnList
- */
-const se_RoleArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RoleArnList omitted.
 
-/**
- * serializeAws_restJson1Source
- */
-const se_Source = (input: Source, context: __SerdeContext): any => {
-  return {
-    ...(input.sourceData != null && { sourceData: se_SourceData(input.sourceData, context) }),
-    ...(input.sourceType != null && { sourceType: input.sourceType }),
-  };
-};
+// se_Source omitted.
 
-/**
- * serializeAws_restJson1SourceData
- */
-const se_SourceData = (input: SourceData, context: __SerdeContext): any => {
-  return SourceData.visit(input, {
-    acmPcaArn: (value) => ({ acmPcaArn: value }),
-    x509CertificateData: (value) => ({ x509CertificateData: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_SourceData omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
 /**
  * deserializeAws_restJson1CredentialSummaries
@@ -2264,9 +2210,6 @@ const de_CredentialSummaries = (output: any, context: __SerdeContext): Credentia
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CredentialSummary(entry, context);
     });
   return retVal;
@@ -2276,32 +2219,30 @@ const de_CredentialSummaries = (output: any, context: __SerdeContext): Credentia
  * deserializeAws_restJson1CredentialSummary
  */
 const de_CredentialSummary = (output: any, context: __SerdeContext): CredentialSummary => {
-  return {
-    enabled: __expectBoolean(output.enabled),
-    failed: __expectBoolean(output.failed),
-    issuer: __expectString(output.issuer),
-    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.seenAt)) : undefined,
-    serialNumber: __expectString(output.serialNumber),
-    x509CertificateData: __expectString(output.x509CertificateData),
-  } as any;
+  return take(output, {
+    enabled: __expectBoolean,
+    failed: __expectBoolean,
+    issuer: __expectString,
+    seenAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    serialNumber: __expectString,
+    x509CertificateData: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CrlDetail
  */
 const de_CrlDetail = (output: any, context: __SerdeContext): CrlDetail => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    crlArn: __expectString(output.crlArn),
-    crlData: output.crlData != null ? context.base64Decoder(output.crlData) : undefined,
-    crlId: __expectString(output.crlId),
-    enabled: __expectBoolean(output.enabled),
-    name: __expectString(output.name),
-    trustAnchorArn: __expectString(output.trustAnchorArn),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    crlArn: __expectString,
+    crlData: context.base64Decoder,
+    crlId: __expectString,
+    enabled: __expectBoolean,
+    name: __expectString,
+    trustAnchorArn: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -2311,9 +2252,6 @@ const de_CrlDetails = (output: any, context: __SerdeContext): CrlDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CrlDetail(entry, context);
     });
   return retVal;
@@ -2326,9 +2264,6 @@ const de_InstanceProperties = (output: any, context: __SerdeContext): InstancePr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_InstanceProperty(entry, context);
     });
   return retVal;
@@ -2338,62 +2273,35 @@ const de_InstanceProperties = (output: any, context: __SerdeContext): InstancePr
  * deserializeAws_restJson1InstanceProperty
  */
 const de_InstanceProperty = (output: any, context: __SerdeContext): InstanceProperty => {
-  return {
-    failed: __expectBoolean(output.failed),
-    properties: output.properties != null ? de_InstancePropertyMap(output.properties, context) : undefined,
-    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.seenAt)) : undefined,
-  } as any;
+  return take(output, {
+    failed: __expectBoolean,
+    properties: _json,
+    seenAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1InstancePropertyMap
- */
-const de_InstancePropertyMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_InstancePropertyMap omitted.
 
-/**
- * deserializeAws_restJson1ManagedPolicyList
- */
-const de_ManagedPolicyList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ManagedPolicyList omitted.
 
 /**
  * deserializeAws_restJson1ProfileDetail
  */
 const de_ProfileDetail = (output: any, context: __SerdeContext): ProfileDetail => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    createdBy: __expectString(output.createdBy),
-    durationSeconds: __expectInt32(output.durationSeconds),
-    enabled: __expectBoolean(output.enabled),
-    managedPolicyArns:
-      output.managedPolicyArns != null ? de_ManagedPolicyList(output.managedPolicyArns, context) : undefined,
-    name: __expectString(output.name),
-    profileArn: __expectString(output.profileArn),
-    profileId: __expectString(output.profileId),
-    requireInstanceProperties: __expectBoolean(output.requireInstanceProperties),
-    roleArns: output.roleArns != null ? de_RoleArnList(output.roleArns, context) : undefined,
-    sessionPolicy: __expectString(output.sessionPolicy),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    durationSeconds: __expectInt32,
+    enabled: __expectBoolean,
+    managedPolicyArns: _json,
+    name: __expectString,
+    profileArn: __expectString,
+    profileId: __expectString,
+    requireInstanceProperties: __expectBoolean,
+    roleArns: _json,
+    sessionPolicy: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -2403,71 +2311,32 @@ const de_ProfileDetails = (output: any, context: __SerdeContext): ProfileDetail[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProfileDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1RoleArnList
- */
-const de_RoleArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RoleArnList omitted.
 
-/**
- * deserializeAws_restJson1Source
- */
-const de_Source = (output: any, context: __SerdeContext): Source => {
-  return {
-    sourceData: output.sourceData != null ? de_SourceData(__expectUnion(output.sourceData), context) : undefined,
-    sourceType: __expectString(output.sourceType),
-  } as any;
-};
+// de_Source omitted.
 
-/**
- * deserializeAws_restJson1SourceData
- */
-const de_SourceData = (output: any, context: __SerdeContext): SourceData => {
-  if (__expectString(output.acmPcaArn) !== undefined) {
-    return { acmPcaArn: __expectString(output.acmPcaArn) as any };
-  }
-  if (__expectString(output.x509CertificateData) !== undefined) {
-    return { x509CertificateData: __expectString(output.x509CertificateData) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_SourceData omitted.
 
 /**
  * deserializeAws_restJson1SubjectDetail
  */
 const de_SubjectDetail = (output: any, context: __SerdeContext): SubjectDetail => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    credentials: output.credentials != null ? de_CredentialSummaries(output.credentials, context) : undefined,
-    enabled: __expectBoolean(output.enabled),
-    instanceProperties:
-      output.instanceProperties != null ? de_InstanceProperties(output.instanceProperties, context) : undefined,
-    lastSeenAt:
-      output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastSeenAt)) : undefined,
-    subjectArn: __expectString(output.subjectArn),
-    subjectId: __expectString(output.subjectId),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-    x509Subject: __expectString(output.x509Subject),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    credentials: (_: any) => de_CredentialSummaries(_, context),
+    enabled: __expectBoolean,
+    instanceProperties: (_: any) => de_InstanceProperties(_, context),
+    lastSeenAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    subjectArn: __expectString,
+    subjectId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    x509Subject: __expectString,
+  }) as any;
 };
 
 /**
@@ -2477,9 +2346,6 @@ const de_SubjectSummaries = (output: any, context: __SerdeContext): SubjectSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SubjectSummary(entry, context);
     });
   return retVal;
@@ -2489,60 +2355,34 @@ const de_SubjectSummaries = (output: any, context: __SerdeContext): SubjectSumma
  * deserializeAws_restJson1SubjectSummary
  */
 const de_SubjectSummary = (output: any, context: __SerdeContext): SubjectSummary => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    enabled: __expectBoolean(output.enabled),
-    lastSeenAt:
-      output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastSeenAt)) : undefined,
-    subjectArn: __expectString(output.subjectArn),
-    subjectId: __expectString(output.subjectId),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-    x509Subject: __expectString(output.x509Subject),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    enabled: __expectBoolean,
+    lastSeenAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    subjectArn: __expectString,
+    subjectId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    x509Subject: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 /**
  * deserializeAws_restJson1TrustAnchorDetail
  */
 const de_TrustAnchorDetail = (output: any, context: __SerdeContext): TrustAnchorDetail => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    enabled: __expectBoolean(output.enabled),
-    name: __expectString(output.name),
-    source: output.source != null ? de_Source(output.source, context) : undefined,
-    trustAnchorArn: __expectString(output.trustAnchorArn),
-    trustAnchorId: __expectString(output.trustAnchorId),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    enabled: __expectBoolean,
+    name: __expectString,
+    source: _json,
+    trustAnchorArn: __expectString,
+    trustAnchorId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -2552,9 +2392,6 @@ const de_TrustAnchorDetails = (output: any, context: __SerdeContext): TrustAncho
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TrustAnchorDetail(entry, context);
     });
   return retVal;

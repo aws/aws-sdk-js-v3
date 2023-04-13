@@ -178,6 +178,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Prepare the document contents structure.
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+        writer.addImport("take", null, "@aws-sdk/smithy-client");
         writer.openBlock("return take(output, {", "}) as any;", () -> {
             // Set all the members to undefined to meet type constraints.
             members.forEach((memberName, memberShape) -> {
@@ -191,26 +192,26 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 if (hasJsonName) {
                     if (usesExpect(target)) {
                         if (UnaryFunctionCall.check(value)) {
-                            writer.write("$L: [,$L,`$L`],", memberName, UnaryFunctionCall.toRef(value), wireName);
+                            writer.write("'$L': [,$L,`$L`],", memberName, UnaryFunctionCall.toRef(value), wireName);
                         } else {
-                            writer.write("$L: [,$L,`$L`],", memberName, "_ => " + value, wireName);
+                            writer.write("'$L': [,$L,`$L`],", memberName, "_ => " + value, wireName);
                         }
                     } else {
                         String valueExpression = target.accept(getMemberVisitor(memberShape, propertyAccess));
 
                         if (valueExpression.equals(propertyAccess)) {
-                            writer.write("$L: [,,`$L`],", memberName, wireName);
+                            writer.write("'$L': [,,`$L`],", memberName, wireName);
                         } else {
                             String functionExpression = value;
                             boolean isUnaryCall = UnaryFunctionCall.check(functionExpression);
                             if (isUnaryCall) {
-                                writer.write("$L: [,$L,`$L`],",
+                                writer.write("'$L': [,$L,`$L`],",
                                     memberName,
                                     UnaryFunctionCall.toRef(functionExpression),
                                     wireName
                                 );
                             } else {
-                                writer.write("$L: _ => [,$L,`$L`],",
+                                writer.write("'$L': _ => [,$L,`$L`],",
                                     memberName,
                                     functionExpression,
                                     wireName
@@ -221,25 +222,25 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 } else {
                     if (usesExpect(target)) {
                         if (UnaryFunctionCall.check(value)) {
-                            writer.write("$L: $L,", memberName, UnaryFunctionCall.toRef(value));
+                            writer.write("'$L': $L,", memberName, UnaryFunctionCall.toRef(value));
                         } else {
-                            writer.write("$L: $L,", memberName, "_ => " + value);
+                            writer.write("'$L': $L,", memberName, "_ => " + value);
                         }
                     } else {
                         String valueExpression = target.accept(getMemberVisitor(memberShape, propertyAccess));
 
                         if (valueExpression.equals(propertyAccess)) {
-                            writer.write("$1L: [],", memberName);
+                            writer.write("'$1L': [],", memberName);
                         } else {
                             String functionExpression = value;
                             boolean isUnaryCall = UnaryFunctionCall.check(functionExpression);
                             if (isUnaryCall) {
-                                writer.write("$1L: $2L,",
+                                writer.write("'$1L': $2L,",
                                     memberName,
                                     UnaryFunctionCall.toRef(functionExpression)
                                 );
                             } else {
-                                writer.write("$1L: _ => $2L,",
+                                writer.write("'$1L': (_: any) => $2L,",
                                     memberName,
                                     functionExpression
                                 );

@@ -1,16 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -68,20 +68,13 @@ import {
 import { UpdateSafetyRuleCommandInput, UpdateSafetyRuleCommandOutput } from "../commands/UpdateSafetyRuleCommand";
 import {
   AccessDeniedException,
-  AssertionRule,
   AssertionRuleUpdate,
-  Cluster,
-  ClusterEndpoint,
   ConflictException,
-  ControlPanel,
-  GatingRule,
   GatingRuleUpdate,
   InternalServerException,
   NewAssertionRule,
   NewGatingRule,
   ResourceNotFoundException,
-  RoutingControl,
-  Rule,
   RuleConfig,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -102,11 +95,13 @@ export const se_CreateClusterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
-    ...(input.Tags != null && { Tags: se___mapOf__stringMin0Max256PatternS(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClusterName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -131,12 +126,14 @@ export const se_CreateControlPanelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controlpanel";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterArn != null && { ClusterArn: input.ClusterArn }),
-    ...(input.ControlPanelName != null && { ControlPanelName: input.ControlPanelName }),
-    ...(input.Tags != null && { Tags: se___mapOf__stringMin0Max256PatternS(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClusterArn: [],
+      ControlPanelName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -161,12 +158,14 @@ export const se_CreateRoutingControlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routingcontrol";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterArn != null && { ClusterArn: input.ClusterArn }),
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.RoutingControlName != null && { RoutingControlName: input.RoutingControlName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClusterArn: [],
+      ControlPanelArn: [],
+      RoutingControlName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -191,12 +190,14 @@ export const se_CreateSafetyRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/safetyrule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AssertionRule != null && { AssertionRule: se_NewAssertionRule(input.AssertionRule, context) }),
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.GatingRule != null && { GatingRule: se_NewGatingRule(input.GatingRule, context) }),
-    ...(input.Tags != null && { Tags: se___mapOf__stringMin0Max256PatternS(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AssertionRule: (_) => _json(_),
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      GatingRule: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -643,9 +644,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se___mapOf__stringMin0Max256PatternS(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -700,10 +703,12 @@ export const se_UpdateControlPanelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controlpanel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.ControlPanelName != null && { ControlPanelName: input.ControlPanelName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ControlPanelArn: [],
+      ControlPanelName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -728,10 +733,12 @@ export const se_UpdateRoutingControlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routingcontrol";
   let body: any;
-  body = JSON.stringify({
-    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
-    ...(input.RoutingControlName != null && { RoutingControlName: input.RoutingControlName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      RoutingControlArn: [],
+      RoutingControlName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -756,12 +763,12 @@ export const se_UpdateSafetyRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/safetyrule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AssertionRuleUpdate != null && {
-      AssertionRuleUpdate: se_AssertionRuleUpdate(input.AssertionRuleUpdate, context),
-    }),
-    ...(input.GatingRuleUpdate != null && { GatingRuleUpdate: se_GatingRuleUpdate(input.GatingRuleUpdate, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AssertionRuleUpdate: (_) => _json(_),
+      GatingRuleUpdate: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -787,9 +794,10 @@ export const de_CreateClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Cluster != null) {
-    contents.Cluster = de_Cluster(data.Cluster, context);
-  }
+  const doc = take(data, {
+    Cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -829,10 +837,9 @@ const de_CreateClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -852,9 +859,10 @@ export const de_CreateControlPanelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ControlPanel != null) {
-    contents.ControlPanel = de_ControlPanel(data.ControlPanel, context);
-  }
+  const doc = take(data, {
+    ControlPanel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -894,10 +902,9 @@ const de_CreateControlPanelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -917,9 +924,10 @@ export const de_CreateRoutingControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RoutingControl != null) {
-    contents.RoutingControl = de_RoutingControl(data.RoutingControl, context);
-  }
+  const doc = take(data, {
+    RoutingControl: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -959,10 +967,9 @@ const de_CreateRoutingControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -982,12 +989,11 @@ export const de_CreateSafetyRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssertionRule != null) {
-    contents.AssertionRule = de_AssertionRule(data.AssertionRule, context);
-  }
-  if (data.GatingRule != null) {
-    contents.GatingRule = de_GatingRule(data.GatingRule, context);
-  }
+  const doc = take(data, {
+    AssertionRule: _json,
+    GatingRule: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1012,10 +1018,9 @@ const de_CreateSafetyRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1071,10 +1076,9 @@ const de_DeleteClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1130,10 +1134,9 @@ const de_DeleteControlPanelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1189,10 +1192,9 @@ const de_DeleteRoutingControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1239,10 +1241,9 @@ const de_DeleteSafetyRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1262,9 +1263,10 @@ export const de_DescribeClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Cluster != null) {
-    contents.Cluster = de_Cluster(data.Cluster, context);
-  }
+  const doc = take(data, {
+    Cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1301,10 +1303,9 @@ const de_DescribeClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1324,9 +1325,10 @@ export const de_DescribeControlPanelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ControlPanel != null) {
-    contents.ControlPanel = de_ControlPanel(data.ControlPanel, context);
-  }
+  const doc = take(data, {
+    ControlPanel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1363,10 +1365,9 @@ const de_DescribeControlPanelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1386,9 +1387,10 @@ export const de_DescribeRoutingControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RoutingControl != null) {
-    contents.RoutingControl = de_RoutingControl(data.RoutingControl, context);
-  }
+  const doc = take(data, {
+    RoutingControl: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1425,10 +1427,9 @@ const de_DescribeRoutingControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1448,12 +1449,11 @@ export const de_DescribeSafetyRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssertionRule != null) {
-    contents.AssertionRule = de_AssertionRule(data.AssertionRule, context);
-  }
-  if (data.GatingRule != null) {
-    contents.GatingRule = de_GatingRule(data.GatingRule, context);
-  }
+  const doc = take(data, {
+    AssertionRule: _json,
+    GatingRule: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1478,10 +1478,9 @@ const de_DescribeSafetyRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1501,12 +1500,11 @@ export const de_ListAssociatedRoute53HealthChecksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HealthCheckIds != null) {
-    contents.HealthCheckIds = de___listOf__stringMax36PatternS(data.HealthCheckIds, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    HealthCheckIds: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1534,10 +1532,9 @@ const de_ListAssociatedRoute53HealthChecksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1557,12 +1554,11 @@ export const de_ListClustersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Clusters != null) {
-    contents.Clusters = de___listOfCluster(data.Clusters, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Clusters: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1596,10 +1592,9 @@ const de_ListClustersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1619,12 +1614,11 @@ export const de_ListControlPanelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ControlPanels != null) {
-    contents.ControlPanels = de___listOfControlPanel(data.ControlPanels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ControlPanels: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1658,10 +1652,9 @@ const de_ListControlPanelsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1681,12 +1674,11 @@ export const de_ListRoutingControlsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RoutingControls != null) {
-    contents.RoutingControls = de___listOfRoutingControl(data.RoutingControls, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RoutingControls: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1720,10 +1712,9 @@ const de_ListRoutingControlsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1743,12 +1734,11 @@ export const de_ListSafetyRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SafetyRules != null) {
-    contents.SafetyRules = de___listOfRule(data.SafetyRules, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SafetyRules: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1782,10 +1772,9 @@ const de_ListSafetyRulesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1805,9 +1794,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de___mapOf__stringMin0Max256PatternS(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1835,10 +1825,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1885,10 +1874,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1935,10 +1923,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1958,9 +1945,10 @@ export const de_UpdateControlPanelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ControlPanel != null) {
-    contents.ControlPanel = de_ControlPanel(data.ControlPanel, context);
-  }
+  const doc = take(data, {
+    ControlPanel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1997,10 +1985,9 @@ const de_UpdateControlPanelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2020,9 +2007,10 @@ export const de_UpdateRoutingControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RoutingControl != null) {
-    contents.RoutingControl = de_RoutingControl(data.RoutingControl, context);
-  }
+  const doc = take(data, {
+    RoutingControl: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2059,10 +2047,9 @@ const de_UpdateRoutingControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2082,12 +2069,11 @@ export const de_UpdateSafetyRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssertionRule != null) {
-    contents.AssertionRule = de_AssertionRule(data.AssertionRule, context);
-  }
-  if (data.GatingRule != null) {
-    contents.GatingRule = de_GatingRule(data.GatingRule, context);
-  }
+  const doc = take(data, {
+    AssertionRule: _json,
+    GatingRule: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2115,16 +2101,15 @@ const de_UpdateSafetyRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2134,9 +2119,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2150,9 +2136,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2169,9 +2156,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2188,9 +2176,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2207,9 +2196,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2223,9 +2213,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2239,9 +2230,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2249,323 +2241,51 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09
- */
-const se___listOf__stringMin1Max256PatternAZaZ09 = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__stringMin1Max256PatternAZaZ09 omitted.
 
-/**
- * serializeAws_restJson1__mapOf__stringMin0Max256PatternS
- */
-const se___mapOf__stringMin0Max256PatternS = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__stringMin0Max256PatternS omitted.
 
-/**
- * serializeAws_restJson1AssertionRuleUpdate
- */
-const se_AssertionRuleUpdate = (input: AssertionRuleUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SafetyRuleArn != null && { SafetyRuleArn: input.SafetyRuleArn }),
-    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
-  };
-};
+// se_AssertionRuleUpdate omitted.
 
-/**
- * serializeAws_restJson1GatingRuleUpdate
- */
-const se_GatingRuleUpdate = (input: GatingRuleUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SafetyRuleArn != null && { SafetyRuleArn: input.SafetyRuleArn }),
-    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
-  };
-};
+// se_GatingRuleUpdate omitted.
 
-/**
- * serializeAws_restJson1NewAssertionRule
- */
-const se_NewAssertionRule = (input: NewAssertionRule, context: __SerdeContext): any => {
-  return {
-    ...(input.AssertedControls != null && {
-      AssertedControls: se___listOf__stringMin1Max256PatternAZaZ09(input.AssertedControls, context),
-    }),
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RuleConfig != null && { RuleConfig: se_RuleConfig(input.RuleConfig, context) }),
-    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
-  };
-};
+// se_NewAssertionRule omitted.
 
-/**
- * serializeAws_restJson1NewGatingRule
- */
-const se_NewGatingRule = (input: NewGatingRule, context: __SerdeContext): any => {
-  return {
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.GatingControls != null && {
-      GatingControls: se___listOf__stringMin1Max256PatternAZaZ09(input.GatingControls, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RuleConfig != null && { RuleConfig: se_RuleConfig(input.RuleConfig, context) }),
-    ...(input.TargetControls != null && {
-      TargetControls: se___listOf__stringMin1Max256PatternAZaZ09(input.TargetControls, context),
-    }),
-    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
-  };
-};
+// se_NewGatingRule omitted.
 
-/**
- * serializeAws_restJson1RuleConfig
- */
-const se_RuleConfig = (input: RuleConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Inverted != null && { Inverted: input.Inverted }),
-    ...(input.Threshold != null && { Threshold: input.Threshold }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_RuleConfig omitted.
 
-/**
- * deserializeAws_restJson1__listOf__stringMax36PatternS
- */
-const de___listOf__stringMax36PatternS = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__stringMax36PatternS omitted.
 
-/**
- * deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09
- */
-const de___listOf__stringMin1Max256PatternAZaZ09 = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__stringMin1Max256PatternAZaZ09 omitted.
 
-/**
- * deserializeAws_restJson1__listOfCluster
- */
-const de___listOfCluster = (output: any, context: __SerdeContext): Cluster[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Cluster(entry, context);
-    });
-  return retVal;
-};
+// de___listOfCluster omitted.
 
-/**
- * deserializeAws_restJson1__listOfClusterEndpoint
- */
-const de___listOfClusterEndpoint = (output: any, context: __SerdeContext): ClusterEndpoint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ClusterEndpoint(entry, context);
-    });
-  return retVal;
-};
+// de___listOfClusterEndpoint omitted.
 
-/**
- * deserializeAws_restJson1__listOfControlPanel
- */
-const de___listOfControlPanel = (output: any, context: __SerdeContext): ControlPanel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ControlPanel(entry, context);
-    });
-  return retVal;
-};
+// de___listOfControlPanel omitted.
 
-/**
- * deserializeAws_restJson1__listOfRoutingControl
- */
-const de___listOfRoutingControl = (output: any, context: __SerdeContext): RoutingControl[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RoutingControl(entry, context);
-    });
-  return retVal;
-};
+// de___listOfRoutingControl omitted.
 
-/**
- * deserializeAws_restJson1__listOfRule
- */
-const de___listOfRule = (output: any, context: __SerdeContext): Rule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Rule(entry, context);
-    });
-  return retVal;
-};
+// de___listOfRule omitted.
 
-/**
- * deserializeAws_restJson1__mapOf__stringMin0Max256PatternS
- */
-const de___mapOf__stringMin0Max256PatternS = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de___mapOf__stringMin0Max256PatternS omitted.
 
-/**
- * deserializeAws_restJson1AssertionRule
- */
-const de_AssertionRule = (output: any, context: __SerdeContext): AssertionRule => {
-  return {
-    AssertedControls:
-      output.AssertedControls != null
-        ? de___listOf__stringMin1Max256PatternAZaZ09(output.AssertedControls, context)
-        : undefined,
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    Name: __expectString(output.Name),
-    RuleConfig: output.RuleConfig != null ? de_RuleConfig(output.RuleConfig, context) : undefined,
-    SafetyRuleArn: __expectString(output.SafetyRuleArn),
-    Status: __expectString(output.Status),
-    WaitPeriodMs: __expectInt32(output.WaitPeriodMs),
-  } as any;
-};
+// de_AssertionRule omitted.
 
-/**
- * deserializeAws_restJson1Cluster
- */
-const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
-  return {
-    ClusterArn: __expectString(output.ClusterArn),
-    ClusterEndpoints:
-      output.ClusterEndpoints != null ? de___listOfClusterEndpoint(output.ClusterEndpoints, context) : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_Cluster omitted.
 
-/**
- * deserializeAws_restJson1ClusterEndpoint
- */
-const de_ClusterEndpoint = (output: any, context: __SerdeContext): ClusterEndpoint => {
-  return {
-    Endpoint: __expectString(output.Endpoint),
-    Region: __expectString(output.Region),
-  } as any;
-};
+// de_ClusterEndpoint omitted.
 
-/**
- * deserializeAws_restJson1ControlPanel
- */
-const de_ControlPanel = (output: any, context: __SerdeContext): ControlPanel => {
-  return {
-    ClusterArn: __expectString(output.ClusterArn),
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    DefaultControlPanel: __expectBoolean(output.DefaultControlPanel),
-    Name: __expectString(output.Name),
-    RoutingControlCount: __expectInt32(output.RoutingControlCount),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_ControlPanel omitted.
 
-/**
- * deserializeAws_restJson1GatingRule
- */
-const de_GatingRule = (output: any, context: __SerdeContext): GatingRule => {
-  return {
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    GatingControls:
-      output.GatingControls != null
-        ? de___listOf__stringMin1Max256PatternAZaZ09(output.GatingControls, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    RuleConfig: output.RuleConfig != null ? de_RuleConfig(output.RuleConfig, context) : undefined,
-    SafetyRuleArn: __expectString(output.SafetyRuleArn),
-    Status: __expectString(output.Status),
-    TargetControls:
-      output.TargetControls != null
-        ? de___listOf__stringMin1Max256PatternAZaZ09(output.TargetControls, context)
-        : undefined,
-    WaitPeriodMs: __expectInt32(output.WaitPeriodMs),
-  } as any;
-};
+// de_GatingRule omitted.
 
-/**
- * deserializeAws_restJson1RoutingControl
- */
-const de_RoutingControl = (output: any, context: __SerdeContext): RoutingControl => {
-  return {
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    Name: __expectString(output.Name),
-    RoutingControlArn: __expectString(output.RoutingControlArn),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_RoutingControl omitted.
 
-/**
- * deserializeAws_restJson1Rule
- */
-const de_Rule = (output: any, context: __SerdeContext): Rule => {
-  return {
-    ASSERTION: output.ASSERTION != null ? de_AssertionRule(output.ASSERTION, context) : undefined,
-    GATING: output.GATING != null ? de_GatingRule(output.GATING, context) : undefined,
-  } as any;
-};
+// de_Rule omitted.
 
-/**
- * deserializeAws_restJson1RuleConfig
- */
-const de_RuleConfig = (output: any, context: __SerdeContext): RuleConfig => {
-  return {
-    Inverted: __expectBoolean(output.Inverted),
-    Threshold: __expectInt32(output.Threshold),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_RuleConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

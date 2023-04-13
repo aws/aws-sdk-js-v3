@@ -147,7 +147,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     private void serializeDocumentBody(GenerationContext context, List<HttpBinding> documentBindings) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
-
+        writer.addImport("take", null, "@aws-sdk/smithy-client");
         writer.openBlock("body = JSON.stringify(take(input, {", "}));", () -> {
             for (HttpBinding binding : documentBindings) {
                 MemberShape memberShape = binding.getMember();
@@ -169,13 +169,13 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.write("'$L': [,_ => _ ?? generateIdempotencyToken(),$L],",
+                        writer.write("'$L': [,_ => _ ?? generateIdempotencyToken(),`$L`],",
                             wireName, memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
-                            writer.write("$S: [,,`$L`],", wireName, memberName);
+                            writer.write("'$L': [,,`$L`],", wireName, memberName);
                         } else {
-                            writer.write("$1S: [, $2L, `$3L`],", wireName, valueProvider, memberName);
+                            writer.write("'$1L': [, $2L, `$3L`],", wireName, valueProvider, memberName);
                         }
                     }
                 } else {
@@ -183,9 +183,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                       writer.write("'$L': _ => _ ?? generateIdempotencyToken(),", wireName);
                   } else {
                       if (valueProvider.equals("_ => _")) {
-                          writer.write("$1S: [],", wireName);
+                          writer.write("'$1L': [],", wireName);
                       } else {
-                          writer.write("$1S: $2L,", wireName, valueProvider);
+                          writer.write("'$1L': $2L,", wireName, valueProvider);
                       }
                   }
                 }
@@ -319,16 +319,16 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                 boolean isUnaryCall = UnaryFunctionCall.check(valueExpression);
                 if (hasJsonName) {
                     if (isUnaryCall) {
-                        writer.write("$L: [, $L, `$L`],",
+                        writer.write("'$L': [, $L, `$L`],",
                             memberName, UnaryFunctionCall.toRef(valueExpression), wireName);
                     } else {
-                        writer.write("$L: [, _ => $L, `$L`],", memberName, valueExpression, wireName);
+                        writer.write("'$L': [, _ => $L, `$L`],", memberName, valueExpression, wireName);
                     }
                 } else {
                     if (isUnaryCall) {
-                        writer.write("$L: $L,", wireName, UnaryFunctionCall.toRef(valueExpression));
+                        writer.write("'$L': $L,", wireName, UnaryFunctionCall.toRef(valueExpression));
                     } else {
-                        writer.write("$L: _ => $L,", wireName, valueExpression);
+                        writer.write("'$L': _ => $L,", wireName, valueExpression);
                     }
                 }
             }

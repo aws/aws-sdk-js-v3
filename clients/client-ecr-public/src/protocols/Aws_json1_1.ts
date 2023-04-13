@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -83,15 +84,11 @@ import { ECRPUBLICServiceException as __BaseException } from "../models/ECRPUBLI
 import {
   AuthorizationData,
   BatchCheckLayerAvailabilityRequest,
-  BatchCheckLayerAvailabilityResponse,
   BatchDeleteImageRequest,
-  BatchDeleteImageResponse,
   CompleteLayerUploadRequest,
-  CompleteLayerUploadResponse,
   CreateRepositoryRequest,
   CreateRepositoryResponse,
   DeleteRepositoryPolicyRequest,
-  DeleteRepositoryPolicyResponse,
   DeleteRepositoryRequest,
   DeleteRepositoryResponse,
   DescribeImagesRequest,
@@ -99,56 +96,39 @@ import {
   DescribeImageTagsRequest,
   DescribeImageTagsResponse,
   DescribeRegistriesRequest,
-  DescribeRegistriesResponse,
   DescribeRepositoriesRequest,
   DescribeRepositoriesResponse,
   EmptyUploadException,
   GetAuthorizationTokenRequest,
   GetAuthorizationTokenResponse,
   GetRegistryCatalogDataRequest,
-  GetRegistryCatalogDataResponse,
   GetRepositoryCatalogDataRequest,
-  GetRepositoryCatalogDataResponse,
   GetRepositoryPolicyRequest,
-  GetRepositoryPolicyResponse,
-  Image,
   ImageAlreadyExistsException,
   ImageDetail,
   ImageDigestDoesNotMatchException,
-  ImageFailure,
   ImageIdentifier,
   ImageNotFoundException,
   ImageTagAlreadyExistsException,
   ImageTagDetail,
   InitiateLayerUploadRequest,
-  InitiateLayerUploadResponse,
   InvalidLayerException,
   InvalidLayerPartException,
   InvalidParameterException,
   InvalidTagParameterException,
-  Layer,
   LayerAlreadyExistsException,
-  LayerFailure,
   LayerPartTooSmallException,
   LayersNotFoundException,
   LimitExceededException,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   PutImageRequest,
-  PutImageResponse,
   PutRegistryCatalogDataRequest,
-  PutRegistryCatalogDataResponse,
   PutRepositoryCatalogDataRequest,
-  PutRepositoryCatalogDataResponse,
   ReferencedImageDetail,
   ReferencedImagesNotFoundException,
-  Registry,
-  RegistryAlias,
-  RegistryCatalogData,
   RegistryNotFoundException,
   Repository,
   RepositoryAlreadyExistsException,
-  RepositoryCatalogData,
   RepositoryCatalogDataInput,
   RepositoryCatalogDataNotFoundException,
   RepositoryNotEmptyException,
@@ -156,16 +136,12 @@ import {
   RepositoryPolicyNotFoundException,
   ServerException,
   SetRepositoryPolicyRequest,
-  SetRepositoryPolicyResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TooManyTagsException,
   UnsupportedCommandException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UploadLayerPartRequest,
-  UploadLayerPartResponse,
   UploadNotFoundException,
 } from "../models/models_0";
 
@@ -178,7 +154,7 @@ export const se_BatchCheckLayerAvailabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchCheckLayerAvailability");
   let body: any;
-  body = JSON.stringify(se_BatchCheckLayerAvailabilityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -191,7 +167,7 @@ export const se_BatchDeleteImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDeleteImage");
   let body: any;
-  body = JSON.stringify(se_BatchDeleteImageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -204,7 +180,7 @@ export const se_CompleteLayerUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CompleteLayerUpload");
   let body: any;
-  body = JSON.stringify(se_CompleteLayerUploadRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -230,7 +206,7 @@ export const se_DeleteRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRepository");
   let body: any;
-  body = JSON.stringify(se_DeleteRepositoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -243,7 +219,7 @@ export const se_DeleteRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRepositoryPolicy");
   let body: any;
-  body = JSON.stringify(se_DeleteRepositoryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -256,7 +232,7 @@ export const se_DescribeImagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeImages");
   let body: any;
-  body = JSON.stringify(se_DescribeImagesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -269,7 +245,7 @@ export const se_DescribeImageTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeImageTags");
   let body: any;
-  body = JSON.stringify(se_DescribeImageTagsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -282,7 +258,7 @@ export const se_DescribeRegistriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRegistries");
   let body: any;
-  body = JSON.stringify(se_DescribeRegistriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -295,7 +271,7 @@ export const se_DescribeRepositoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRepositories");
   let body: any;
-  body = JSON.stringify(se_DescribeRepositoriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -308,7 +284,7 @@ export const se_GetAuthorizationTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAuthorizationToken");
   let body: any;
-  body = JSON.stringify(se_GetAuthorizationTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -321,7 +297,7 @@ export const se_GetRegistryCatalogDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRegistryCatalogData");
   let body: any;
-  body = JSON.stringify(se_GetRegistryCatalogDataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -334,7 +310,7 @@ export const se_GetRepositoryCatalogDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRepositoryCatalogData");
   let body: any;
-  body = JSON.stringify(se_GetRepositoryCatalogDataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -347,7 +323,7 @@ export const se_GetRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRepositoryPolicy");
   let body: any;
-  body = JSON.stringify(se_GetRepositoryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -360,7 +336,7 @@ export const se_InitiateLayerUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("InitiateLayerUpload");
   let body: any;
-  body = JSON.stringify(se_InitiateLayerUploadRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -373,7 +349,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -386,7 +362,7 @@ export const se_PutImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutImage");
   let body: any;
-  body = JSON.stringify(se_PutImageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -399,7 +375,7 @@ export const se_PutRegistryCatalogDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutRegistryCatalogData");
   let body: any;
-  body = JSON.stringify(se_PutRegistryCatalogDataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -425,7 +401,7 @@ export const se_SetRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetRepositoryPolicy");
   let body: any;
-  body = JSON.stringify(se_SetRepositoryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -438,7 +414,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -451,7 +427,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -480,12 +456,12 @@ export const de_BatchCheckLayerAvailabilityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchCheckLayerAvailabilityResponse(data, context);
+  contents = _json(data);
   const response: BatchCheckLayerAvailabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -518,10 +494,9 @@ const de_BatchCheckLayerAvailabilityCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -539,12 +514,12 @@ export const de_BatchDeleteImageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchDeleteImageResponse(data, context);
+  contents = _json(data);
   const response: BatchDeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -574,10 +549,9 @@ const de_BatchDeleteImageCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -595,12 +569,12 @@ export const de_CompleteLayerUploadCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CompleteLayerUploadResponse(data, context);
+  contents = _json(data);
   const response: CompleteLayerUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -648,10 +622,9 @@ const de_CompleteLayerUploadCommandError = async (
       throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -674,7 +647,7 @@ export const de_CreateRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -713,10 +686,9 @@ const de_CreateRepositoryCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -739,7 +711,7 @@ export const de_DeleteRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -772,10 +744,9 @@ const de_DeleteRepositoryCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -793,12 +764,12 @@ export const de_DeleteRepositoryPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRepositoryPolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteRepositoryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -831,10 +802,9 @@ const de_DeleteRepositoryPolicyCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -857,7 +827,7 @@ export const de_DescribeImagesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -890,10 +860,9 @@ const de_DescribeImagesCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -916,7 +885,7 @@ export const de_DescribeImageTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -946,10 +915,9 @@ const de_DescribeImageTagsCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -967,12 +935,12 @@ export const de_DescribeRegistriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeRegistriesResponse(data, context);
+  contents = _json(data);
   const response: DescribeRegistriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -999,10 +967,9 @@ const de_DescribeRegistriesCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1025,7 +992,7 @@ export const de_DescribeRepositoriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1055,10 +1022,9 @@ const de_DescribeRepositoriesCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1081,7 +1047,7 @@ export const de_GetAuthorizationTokenCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1108,10 +1074,9 @@ const de_GetAuthorizationTokenCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1129,12 +1094,12 @@ export const de_GetRegistryCatalogDataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRegistryCatalogDataResponse(data, context);
+  contents = _json(data);
   const response: GetRegistryCatalogDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1158,10 +1123,9 @@ const de_GetRegistryCatalogDataCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1179,12 +1143,12 @@ export const de_GetRepositoryCatalogDataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRepositoryCatalogDataResponse(data, context);
+  contents = _json(data);
   const response: GetRepositoryCatalogDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1217,10 +1181,9 @@ const de_GetRepositoryCatalogDataCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1238,12 +1201,12 @@ export const de_GetRepositoryPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRepositoryPolicyResponse(data, context);
+  contents = _json(data);
   const response: GetRepositoryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1276,10 +1239,9 @@ const de_GetRepositoryPolicyCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1297,12 +1259,12 @@ export const de_InitiateLayerUploadCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_InitiateLayerUploadResponse(data, context);
+  contents = _json(data);
   const response: InitiateLayerUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1335,10 +1297,9 @@ const de_InitiateLayerUploadCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1356,12 +1317,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1391,10 +1352,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1412,12 +1372,12 @@ export const de_PutImageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutImageResponse(data, context);
+  contents = _json(data);
   const response: PutImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1468,10 +1428,9 @@ const de_PutImageCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1489,12 +1448,12 @@ export const de_PutRegistryCatalogDataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRegistryCatalogDataResponse(data, context);
+  contents = _json(data);
   const response: PutRegistryCatalogDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1521,10 +1480,9 @@ const de_PutRegistryCatalogDataCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1542,12 +1500,12 @@ export const de_PutRepositoryCatalogDataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRepositoryCatalogDataResponse(data, context);
+  contents = _json(data);
   const response: PutRepositoryCatalogDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1577,10 +1535,9 @@ const de_PutRepositoryCatalogDataCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1598,12 +1555,12 @@ export const de_SetRepositoryPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetRepositoryPolicyResponse(data, context);
+  contents = _json(data);
   const response: SetRepositoryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1633,10 +1590,9 @@ const de_SetRepositoryPolicyCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1654,12 +1610,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1695,10 +1651,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1716,12 +1671,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1757,10 +1712,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1778,12 +1732,12 @@ export const de_UploadLayerPartCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UploadLayerPartResponse(data, context);
+  contents = _json(data);
   const response: UploadLayerPartCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1825,10 +1779,9 @@ const de_UploadLayerPartCommandError = async (
       throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1842,7 +1795,7 @@ const de_EmptyUploadExceptionRes = async (
   context: __SerdeContext
 ): Promise<EmptyUploadException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EmptyUploadException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EmptyUploadException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1858,7 +1811,7 @@ const de_ImageAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ImageAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ImageAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1874,7 +1827,7 @@ const de_ImageDigestDoesNotMatchExceptionRes = async (
   context: __SerdeContext
 ): Promise<ImageDigestDoesNotMatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ImageDigestDoesNotMatchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageDigestDoesNotMatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1890,7 +1843,7 @@ const de_ImageNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ImageNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ImageNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1906,7 +1859,7 @@ const de_ImageTagAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ImageTagAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ImageTagAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageTagAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1922,7 +1875,7 @@ const de_InvalidLayerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidLayerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidLayerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidLayerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1938,7 +1891,7 @@ const de_InvalidLayerPartExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidLayerPartException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidLayerPartException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidLayerPartException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1954,7 +1907,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1970,7 +1923,7 @@ const de_InvalidTagParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTagParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTagParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1986,7 +1939,7 @@ const de_LayerAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<LayerAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LayerAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LayerAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2002,7 +1955,7 @@ const de_LayerPartTooSmallExceptionRes = async (
   context: __SerdeContext
 ): Promise<LayerPartTooSmallException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LayerPartTooSmallException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LayerPartTooSmallException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2018,7 +1971,7 @@ const de_LayersNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<LayersNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LayersNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LayersNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2034,7 +1987,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2050,7 +2003,7 @@ const de_ReferencedImagesNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReferencedImagesNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReferencedImagesNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReferencedImagesNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2066,7 +2019,7 @@ const de_RegistryNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<RegistryNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RegistryNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RegistryNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2082,7 +2035,7 @@ const de_RepositoryAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2098,7 +2051,7 @@ const de_RepositoryCatalogDataNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryCatalogDataNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryCatalogDataNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryCatalogDataNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2114,7 +2067,7 @@ const de_RepositoryNotEmptyExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryNotEmptyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryNotEmptyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2130,7 +2083,7 @@ const de_RepositoryNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2146,7 +2099,7 @@ const de_RepositoryPolicyNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryPolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryPolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryPolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2159,7 +2112,7 @@ const de_RepositoryPolicyNotFoundExceptionRes = async (
  */
 const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2175,7 +2128,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2191,7 +2144,7 @@ const de_UnsupportedCommandExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedCommandException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedCommandException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedCommandException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2207,7 +2160,7 @@ const de_UploadNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<UploadNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UploadNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UploadNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2215,604 +2168,222 @@ const de_UploadNotFoundExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1ArchitectureList
- */
-const se_ArchitectureList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ArchitectureList omitted.
 
-/**
- * serializeAws_json1_1BatchCheckLayerAvailabilityRequest
- */
-const se_BatchCheckLayerAvailabilityRequest = (
-  input: BatchCheckLayerAvailabilityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.layerDigests != null && {
-      layerDigests: se_BatchedOperationLayerDigestList(input.layerDigests, context),
-    }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_BatchCheckLayerAvailabilityRequest omitted.
 
-/**
- * serializeAws_json1_1BatchDeleteImageRequest
- */
-const se_BatchDeleteImageRequest = (input: BatchDeleteImageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.imageIds != null && { imageIds: se_ImageIdentifierList(input.imageIds, context) }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_BatchDeleteImageRequest omitted.
 
-/**
- * serializeAws_json1_1BatchedOperationLayerDigestList
- */
-const se_BatchedOperationLayerDigestList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BatchedOperationLayerDigestList omitted.
 
-/**
- * serializeAws_json1_1CompleteLayerUploadRequest
- */
-const se_CompleteLayerUploadRequest = (input: CompleteLayerUploadRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.layerDigests != null && { layerDigests: se_LayerDigestList(input.layerDigests, context) }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  };
-};
+// se_CompleteLayerUploadRequest omitted.
 
 /**
  * serializeAws_json1_1CreateRepositoryRequest
  */
 const se_CreateRepositoryRequest = (input: CreateRepositoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.catalogData != null && { catalogData: se_RepositoryCatalogDataInput(input.catalogData, context) }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
+  return take(input, {
+    catalogData: (_) => se_RepositoryCatalogDataInput(_, context),
+    repositoryName: [],
+    tags: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1DeleteRepositoryPolicyRequest
- */
-const se_DeleteRepositoryPolicyRequest = (input: DeleteRepositoryPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DeleteRepositoryPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRepositoryRequest
- */
-const se_DeleteRepositoryRequest = (input: DeleteRepositoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.force != null && { force: input.force }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DeleteRepositoryRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeImagesRequest
- */
-const se_DescribeImagesRequest = (input: DescribeImagesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.imageIds != null && { imageIds: se_ImageIdentifierList(input.imageIds, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DescribeImagesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeImageTagsRequest
- */
-const se_DescribeImageTagsRequest = (input: DescribeImageTagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DescribeImageTagsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeRegistriesRequest
- */
-const se_DescribeRegistriesRequest = (input: DescribeRegistriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_DescribeRegistriesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeRepositoriesRequest
- */
-const se_DescribeRepositoriesRequest = (input: DescribeRepositoriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryNames != null && { repositoryNames: se_RepositoryNameList(input.repositoryNames, context) }),
-  };
-};
+// se_DescribeRepositoriesRequest omitted.
 
-/**
- * serializeAws_json1_1GetAuthorizationTokenRequest
- */
-const se_GetAuthorizationTokenRequest = (input: GetAuthorizationTokenRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_GetAuthorizationTokenRequest omitted.
 
-/**
- * serializeAws_json1_1GetRegistryCatalogDataRequest
- */
-const se_GetRegistryCatalogDataRequest = (input: GetRegistryCatalogDataRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_GetRegistryCatalogDataRequest omitted.
 
-/**
- * serializeAws_json1_1GetRepositoryCatalogDataRequest
- */
-const se_GetRepositoryCatalogDataRequest = (input: GetRepositoryCatalogDataRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetRepositoryCatalogDataRequest omitted.
 
-/**
- * serializeAws_json1_1GetRepositoryPolicyRequest
- */
-const se_GetRepositoryPolicyRequest = (input: GetRepositoryPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetRepositoryPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1ImageIdentifier
- */
-const se_ImageIdentifier = (input: ImageIdentifier, context: __SerdeContext): any => {
-  return {
-    ...(input.imageDigest != null && { imageDigest: input.imageDigest }),
-    ...(input.imageTag != null && { imageTag: input.imageTag }),
-  };
-};
+// se_ImageIdentifier omitted.
 
-/**
- * serializeAws_json1_1ImageIdentifierList
- */
-const se_ImageIdentifierList = (input: ImageIdentifier[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ImageIdentifier(entry, context);
-    });
-};
+// se_ImageIdentifierList omitted.
 
-/**
- * serializeAws_json1_1InitiateLayerUploadRequest
- */
-const se_InitiateLayerUploadRequest = (input: InitiateLayerUploadRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_InitiateLayerUploadRequest omitted.
 
-/**
- * serializeAws_json1_1LayerDigestList
- */
-const se_LayerDigestList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LayerDigestList omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1OperatingSystemList
- */
-const se_OperatingSystemList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OperatingSystemList omitted.
 
-/**
- * serializeAws_json1_1PutImageRequest
- */
-const se_PutImageRequest = (input: PutImageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.imageDigest != null && { imageDigest: input.imageDigest }),
-    ...(input.imageManifest != null && { imageManifest: input.imageManifest }),
-    ...(input.imageManifestMediaType != null && { imageManifestMediaType: input.imageManifestMediaType }),
-    ...(input.imageTag != null && { imageTag: input.imageTag }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_PutImageRequest omitted.
 
-/**
- * serializeAws_json1_1PutRegistryCatalogDataRequest
- */
-const se_PutRegistryCatalogDataRequest = (input: PutRegistryCatalogDataRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.displayName != null && { displayName: input.displayName }),
-  };
-};
+// se_PutRegistryCatalogDataRequest omitted.
 
 /**
  * serializeAws_json1_1PutRepositoryCatalogDataRequest
  */
 const se_PutRepositoryCatalogDataRequest = (input: PutRepositoryCatalogDataRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.catalogData != null && { catalogData: se_RepositoryCatalogDataInput(input.catalogData, context) }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
+  return take(input, {
+    catalogData: (_) => se_RepositoryCatalogDataInput(_, context),
+    registryId: [],
+    repositoryName: [],
+  });
 };
 
 /**
  * serializeAws_json1_1RepositoryCatalogDataInput
  */
 const se_RepositoryCatalogDataInput = (input: RepositoryCatalogDataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.aboutText != null && { aboutText: input.aboutText }),
-    ...(input.architectures != null && { architectures: se_ArchitectureList(input.architectures, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.logoImageBlob != null && { logoImageBlob: context.base64Encoder(input.logoImageBlob) }),
-    ...(input.operatingSystems != null && {
-      operatingSystems: se_OperatingSystemList(input.operatingSystems, context),
-    }),
-    ...(input.usageText != null && { usageText: input.usageText }),
-  };
+  return take(input, {
+    aboutText: [],
+    architectures: (_) => _json(_),
+    description: [],
+    logoImageBlob: (_) => context.base64Encoder(_),
+    operatingSystems: (_) => _json(_),
+    usageText: [],
+  });
 };
 
-/**
- * serializeAws_json1_1RepositoryNameList
- */
-const se_RepositoryNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RepositoryNameList omitted.
 
-/**
- * serializeAws_json1_1SetRepositoryPolicyRequest
- */
-const se_SetRepositoryPolicyRequest = (input: SetRepositoryPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.force != null && { force: input.force }),
-    ...(input.policyText != null && { policyText: input.policyText }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_SetRepositoryPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1UploadLayerPartRequest
  */
 const se_UploadLayerPartRequest = (input: UploadLayerPartRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.layerPartBlob != null && { layerPartBlob: context.base64Encoder(input.layerPartBlob) }),
-    ...(input.partFirstByte != null && { partFirstByte: input.partFirstByte }),
-    ...(input.partLastByte != null && { partLastByte: input.partLastByte }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  };
+  return take(input, {
+    layerPartBlob: (_) => context.base64Encoder(_),
+    partFirstByte: [],
+    partLastByte: [],
+    registryId: [],
+    repositoryName: [],
+    uploadId: [],
+  });
 };
 
-/**
- * deserializeAws_json1_1ArchitectureList
- */
-const de_ArchitectureList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ArchitectureList omitted.
 
 /**
  * deserializeAws_json1_1AuthorizationData
  */
 const de_AuthorizationData = (output: any, context: __SerdeContext): AuthorizationData => {
-  return {
-    authorizationToken: __expectString(output.authorizationToken),
-    expiresAt:
-      output.expiresAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiresAt))) : undefined,
-  } as any;
+  return take(output, {
+    authorizationToken: __expectString,
+    expiresAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1BatchCheckLayerAvailabilityResponse
- */
-const de_BatchCheckLayerAvailabilityResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchCheckLayerAvailabilityResponse => {
-  return {
-    failures: output.failures != null ? de_LayerFailureList(output.failures, context) : undefined,
-    layers: output.layers != null ? de_LayerList(output.layers, context) : undefined,
-  } as any;
-};
+// de_BatchCheckLayerAvailabilityResponse omitted.
 
-/**
- * deserializeAws_json1_1BatchDeleteImageResponse
- */
-const de_BatchDeleteImageResponse = (output: any, context: __SerdeContext): BatchDeleteImageResponse => {
-  return {
-    failures: output.failures != null ? de_ImageFailureList(output.failures, context) : undefined,
-    imageIds: output.imageIds != null ? de_ImageIdentifierList(output.imageIds, context) : undefined,
-  } as any;
-};
+// de_BatchDeleteImageResponse omitted.
 
-/**
- * deserializeAws_json1_1CompleteLayerUploadResponse
- */
-const de_CompleteLayerUploadResponse = (output: any, context: __SerdeContext): CompleteLayerUploadResponse => {
-  return {
-    layerDigest: __expectString(output.layerDigest),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
+// de_CompleteLayerUploadResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateRepositoryResponse
  */
 const de_CreateRepositoryResponse = (output: any, context: __SerdeContext): CreateRepositoryResponse => {
-  return {
-    catalogData: output.catalogData != null ? de_RepositoryCatalogData(output.catalogData, context) : undefined,
-    repository: output.repository != null ? de_Repository(output.repository, context) : undefined,
-  } as any;
+  return take(output, {
+    catalogData: _json,
+    repository: (_: any) => de_Repository(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteRepositoryPolicyResponse
- */
-const de_DeleteRepositoryPolicyResponse = (output: any, context: __SerdeContext): DeleteRepositoryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_DeleteRepositoryPolicyResponse omitted.
 
 /**
  * deserializeAws_json1_1DeleteRepositoryResponse
  */
 const de_DeleteRepositoryResponse = (output: any, context: __SerdeContext): DeleteRepositoryResponse => {
-  return {
-    repository: output.repository != null ? de_Repository(output.repository, context) : undefined,
-  } as any;
+  return take(output, {
+    repository: (_: any) => de_Repository(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeImagesResponse
  */
 const de_DescribeImagesResponse = (output: any, context: __SerdeContext): DescribeImagesResponse => {
-  return {
-    imageDetails: output.imageDetails != null ? de_ImageDetailList(output.imageDetails, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    imageDetails: (_: any) => de_ImageDetailList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeImageTagsResponse
  */
 const de_DescribeImageTagsResponse = (output: any, context: __SerdeContext): DescribeImageTagsResponse => {
-  return {
-    imageTagDetails:
-      output.imageTagDetails != null ? de_ImageTagDetailList(output.imageTagDetails, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    imageTagDetails: (_: any) => de_ImageTagDetailList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeRegistriesResponse
- */
-const de_DescribeRegistriesResponse = (output: any, context: __SerdeContext): DescribeRegistriesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    registries: output.registries != null ? de_RegistryList(output.registries, context) : undefined,
-  } as any;
-};
+// de_DescribeRegistriesResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeRepositoriesResponse
  */
 const de_DescribeRepositoriesResponse = (output: any, context: __SerdeContext): DescribeRepositoriesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    repositories: output.repositories != null ? de_RepositoryList(output.repositories, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    repositories: (_: any) => de_RepositoryList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EmptyUploadException
- */
-const de_EmptyUploadException = (output: any, context: __SerdeContext): EmptyUploadException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_EmptyUploadException omitted.
 
 /**
  * deserializeAws_json1_1GetAuthorizationTokenResponse
  */
 const de_GetAuthorizationTokenResponse = (output: any, context: __SerdeContext): GetAuthorizationTokenResponse => {
-  return {
-    authorizationData:
-      output.authorizationData != null ? de_AuthorizationData(output.authorizationData, context) : undefined,
-  } as any;
+  return take(output, {
+    authorizationData: (_: any) => de_AuthorizationData(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetRegistryCatalogDataResponse
- */
-const de_GetRegistryCatalogDataResponse = (output: any, context: __SerdeContext): GetRegistryCatalogDataResponse => {
-  return {
-    registryCatalogData:
-      output.registryCatalogData != null ? de_RegistryCatalogData(output.registryCatalogData, context) : undefined,
-  } as any;
-};
+// de_GetRegistryCatalogDataResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRepositoryCatalogDataResponse
- */
-const de_GetRepositoryCatalogDataResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRepositoryCatalogDataResponse => {
-  return {
-    catalogData: output.catalogData != null ? de_RepositoryCatalogData(output.catalogData, context) : undefined,
-  } as any;
-};
+// de_GetRepositoryCatalogDataResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRepositoryPolicyResponse
- */
-const de_GetRepositoryPolicyResponse = (output: any, context: __SerdeContext): GetRepositoryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_GetRepositoryPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1Image
- */
-const de_Image = (output: any, context: __SerdeContext): Image => {
-  return {
-    imageId: output.imageId != null ? de_ImageIdentifier(output.imageId, context) : undefined,
-    imageManifest: __expectString(output.imageManifest),
-    imageManifestMediaType: __expectString(output.imageManifestMediaType),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_Image omitted.
 
-/**
- * deserializeAws_json1_1ImageAlreadyExistsException
- */
-const de_ImageAlreadyExistsException = (output: any, context: __SerdeContext): ImageAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ImageAlreadyExistsException omitted.
 
 /**
  * deserializeAws_json1_1ImageDetail
  */
 const de_ImageDetail = (output: any, context: __SerdeContext): ImageDetail => {
-  return {
-    artifactMediaType: __expectString(output.artifactMediaType),
-    imageDigest: __expectString(output.imageDigest),
-    imageManifestMediaType: __expectString(output.imageManifestMediaType),
-    imagePushedAt:
-      output.imagePushedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imagePushedAt)))
-        : undefined,
-    imageSizeInBytes: __expectLong(output.imageSizeInBytes),
-    imageTags: output.imageTags != null ? de_ImageTagList(output.imageTags, context) : undefined,
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
+  return take(output, {
+    artifactMediaType: __expectString,
+    imageDigest: __expectString,
+    imageManifestMediaType: __expectString,
+    imagePushedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageSizeInBytes: __expectLong,
+    imageTags: _json,
+    registryId: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
 /**
@@ -2822,105 +2393,34 @@ const de_ImageDetailList = (output: any, context: __SerdeContext): ImageDetail[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ImageDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ImageDigestDoesNotMatchException
- */
-const de_ImageDigestDoesNotMatchException = (
-  output: any,
-  context: __SerdeContext
-): ImageDigestDoesNotMatchException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ImageDigestDoesNotMatchException omitted.
 
-/**
- * deserializeAws_json1_1ImageFailure
- */
-const de_ImageFailure = (output: any, context: __SerdeContext): ImageFailure => {
-  return {
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    imageId: output.imageId != null ? de_ImageIdentifier(output.imageId, context) : undefined,
-  } as any;
-};
+// de_ImageFailure omitted.
 
-/**
- * deserializeAws_json1_1ImageFailureList
- */
-const de_ImageFailureList = (output: any, context: __SerdeContext): ImageFailure[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ImageFailure(entry, context);
-    });
-  return retVal;
-};
+// de_ImageFailureList omitted.
 
-/**
- * deserializeAws_json1_1ImageIdentifier
- */
-const de_ImageIdentifier = (output: any, context: __SerdeContext): ImageIdentifier => {
-  return {
-    imageDigest: __expectString(output.imageDigest),
-    imageTag: __expectString(output.imageTag),
-  } as any;
-};
+// de_ImageIdentifier omitted.
 
-/**
- * deserializeAws_json1_1ImageIdentifierList
- */
-const de_ImageIdentifierList = (output: any, context: __SerdeContext): ImageIdentifier[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ImageIdentifier(entry, context);
-    });
-  return retVal;
-};
+// de_ImageIdentifierList omitted.
 
-/**
- * deserializeAws_json1_1ImageNotFoundException
- */
-const de_ImageNotFoundException = (output: any, context: __SerdeContext): ImageNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ImageNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ImageTagAlreadyExistsException
- */
-const de_ImageTagAlreadyExistsException = (output: any, context: __SerdeContext): ImageTagAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ImageTagAlreadyExistsException omitted.
 
 /**
  * deserializeAws_json1_1ImageTagDetail
  */
 const de_ImageTagDetail = (output: any, context: __SerdeContext): ImageTagDetail => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    imageDetail: output.imageDetail != null ? de_ReferencedImageDetail(output.imageDetail, context) : undefined,
-    imageTag: __expectString(output.imageTag),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageDetail: (_: any) => de_ReferencedImageDetail(_, context),
+    imageTag: __expectString,
+  }) as any;
 };
 
 /**
@@ -2930,377 +2430,94 @@ const de_ImageTagDetailList = (output: any, context: __SerdeContext): ImageTagDe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ImageTagDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ImageTagList
- */
-const de_ImageTagList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ImageTagList omitted.
 
-/**
- * deserializeAws_json1_1InitiateLayerUploadResponse
- */
-const de_InitiateLayerUploadResponse = (output: any, context: __SerdeContext): InitiateLayerUploadResponse => {
-  return {
-    partSize: __expectLong(output.partSize),
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
+// de_InitiateLayerUploadResponse omitted.
 
-/**
- * deserializeAws_json1_1InvalidLayerException
- */
-const de_InvalidLayerException = (output: any, context: __SerdeContext): InvalidLayerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidLayerException omitted.
 
-/**
- * deserializeAws_json1_1InvalidLayerPartException
- */
-const de_InvalidLayerPartException = (output: any, context: __SerdeContext): InvalidLayerPartException => {
-  return {
-    lastValidByteReceived: __expectLong(output.lastValidByteReceived),
-    message: __expectString(output.message),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
+// de_InvalidLayerPartException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTagParameterException
- */
-const de_InvalidTagParameterException = (output: any, context: __SerdeContext): InvalidTagParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTagParameterException omitted.
 
-/**
- * deserializeAws_json1_1Layer
- */
-const de_Layer = (output: any, context: __SerdeContext): Layer => {
-  return {
-    layerAvailability: __expectString(output.layerAvailability),
-    layerDigest: __expectString(output.layerDigest),
-    layerSize: __expectLong(output.layerSize),
-    mediaType: __expectString(output.mediaType),
-  } as any;
-};
+// de_Layer omitted.
 
-/**
- * deserializeAws_json1_1LayerAlreadyExistsException
- */
-const de_LayerAlreadyExistsException = (output: any, context: __SerdeContext): LayerAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LayerAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1LayerFailure
- */
-const de_LayerFailure = (output: any, context: __SerdeContext): LayerFailure => {
-  return {
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    layerDigest: __expectString(output.layerDigest),
-  } as any;
-};
+// de_LayerFailure omitted.
 
-/**
- * deserializeAws_json1_1LayerFailureList
- */
-const de_LayerFailureList = (output: any, context: __SerdeContext): LayerFailure[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LayerFailure(entry, context);
-    });
-  return retVal;
-};
+// de_LayerFailureList omitted.
 
-/**
- * deserializeAws_json1_1LayerList
- */
-const de_LayerList = (output: any, context: __SerdeContext): Layer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Layer(entry, context);
-    });
-  return retVal;
-};
+// de_LayerList omitted.
 
-/**
- * deserializeAws_json1_1LayerPartTooSmallException
- */
-const de_LayerPartTooSmallException = (output: any, context: __SerdeContext): LayerPartTooSmallException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LayerPartTooSmallException omitted.
 
-/**
- * deserializeAws_json1_1LayersNotFoundException
- */
-const de_LayersNotFoundException = (output: any, context: __SerdeContext): LayersNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LayersNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1OperatingSystemList
- */
-const de_OperatingSystemList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_OperatingSystemList omitted.
 
-/**
- * deserializeAws_json1_1PutImageResponse
- */
-const de_PutImageResponse = (output: any, context: __SerdeContext): PutImageResponse => {
-  return {
-    image: output.image != null ? de_Image(output.image, context) : undefined,
-  } as any;
-};
+// de_PutImageResponse omitted.
 
-/**
- * deserializeAws_json1_1PutRegistryCatalogDataResponse
- */
-const de_PutRegistryCatalogDataResponse = (output: any, context: __SerdeContext): PutRegistryCatalogDataResponse => {
-  return {
-    registryCatalogData:
-      output.registryCatalogData != null ? de_RegistryCatalogData(output.registryCatalogData, context) : undefined,
-  } as any;
-};
+// de_PutRegistryCatalogDataResponse omitted.
 
-/**
- * deserializeAws_json1_1PutRepositoryCatalogDataResponse
- */
-const de_PutRepositoryCatalogDataResponse = (
-  output: any,
-  context: __SerdeContext
-): PutRepositoryCatalogDataResponse => {
-  return {
-    catalogData: output.catalogData != null ? de_RepositoryCatalogData(output.catalogData, context) : undefined,
-  } as any;
-};
+// de_PutRepositoryCatalogDataResponse omitted.
 
 /**
  * deserializeAws_json1_1ReferencedImageDetail
  */
 const de_ReferencedImageDetail = (output: any, context: __SerdeContext): ReferencedImageDetail => {
-  return {
-    artifactMediaType: __expectString(output.artifactMediaType),
-    imageDigest: __expectString(output.imageDigest),
-    imageManifestMediaType: __expectString(output.imageManifestMediaType),
-    imagePushedAt:
-      output.imagePushedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imagePushedAt)))
-        : undefined,
-    imageSizeInBytes: __expectLong(output.imageSizeInBytes),
-  } as any;
+  return take(output, {
+    artifactMediaType: __expectString,
+    imageDigest: __expectString,
+    imageManifestMediaType: __expectString,
+    imagePushedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageSizeInBytes: __expectLong,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ReferencedImagesNotFoundException
- */
-const de_ReferencedImagesNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ReferencedImagesNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReferencedImagesNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1Registry
- */
-const de_Registry = (output: any, context: __SerdeContext): Registry => {
-  return {
-    aliases: output.aliases != null ? de_RegistryAliasList(output.aliases, context) : undefined,
-    registryArn: __expectString(output.registryArn),
-    registryId: __expectString(output.registryId),
-    registryUri: __expectString(output.registryUri),
-    verified: __expectBoolean(output.verified),
-  } as any;
-};
+// de_Registry omitted.
 
-/**
- * deserializeAws_json1_1RegistryAlias
- */
-const de_RegistryAlias = (output: any, context: __SerdeContext): RegistryAlias => {
-  return {
-    defaultRegistryAlias: __expectBoolean(output.defaultRegistryAlias),
-    name: __expectString(output.name),
-    primaryRegistryAlias: __expectBoolean(output.primaryRegistryAlias),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_RegistryAlias omitted.
 
-/**
- * deserializeAws_json1_1RegistryAliasList
- */
-const de_RegistryAliasList = (output: any, context: __SerdeContext): RegistryAlias[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RegistryAlias(entry, context);
-    });
-  return retVal;
-};
+// de_RegistryAliasList omitted.
 
-/**
- * deserializeAws_json1_1RegistryCatalogData
- */
-const de_RegistryCatalogData = (output: any, context: __SerdeContext): RegistryCatalogData => {
-  return {
-    displayName: __expectString(output.displayName),
-  } as any;
-};
+// de_RegistryCatalogData omitted.
 
-/**
- * deserializeAws_json1_1RegistryList
- */
-const de_RegistryList = (output: any, context: __SerdeContext): Registry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Registry(entry, context);
-    });
-  return retVal;
-};
+// de_RegistryList omitted.
 
-/**
- * deserializeAws_json1_1RegistryNotFoundException
- */
-const de_RegistryNotFoundException = (output: any, context: __SerdeContext): RegistryNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RegistryNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1Repository
  */
 const de_Repository = (output: any, context: __SerdeContext): Repository => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    registryId: __expectString(output.registryId),
-    repositoryArn: __expectString(output.repositoryArn),
-    repositoryName: __expectString(output.repositoryName),
-    repositoryUri: __expectString(output.repositoryUri),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    registryId: __expectString,
+    repositoryArn: __expectString,
+    repositoryName: __expectString,
+    repositoryUri: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RepositoryAlreadyExistsException
- */
-const de_RepositoryAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryCatalogData
- */
-const de_RepositoryCatalogData = (output: any, context: __SerdeContext): RepositoryCatalogData => {
-  return {
-    aboutText: __expectString(output.aboutText),
-    architectures: output.architectures != null ? de_ArchitectureList(output.architectures, context) : undefined,
-    description: __expectString(output.description),
-    logoUrl: __expectString(output.logoUrl),
-    marketplaceCertified: __expectBoolean(output.marketplaceCertified),
-    operatingSystems:
-      output.operatingSystems != null ? de_OperatingSystemList(output.operatingSystems, context) : undefined,
-    usageText: __expectString(output.usageText),
-  } as any;
-};
+// de_RepositoryCatalogData omitted.
 
-/**
- * deserializeAws_json1_1RepositoryCatalogDataNotFoundException
- */
-const de_RepositoryCatalogDataNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryCatalogDataNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryCatalogDataNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1RepositoryList
@@ -3309,141 +2526,36 @@ const de_RepositoryList = (output: any, context: __SerdeContext): Repository[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Repository(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1RepositoryNotEmptyException
- */
-const de_RepositoryNotEmptyException = (output: any, context: __SerdeContext): RepositoryNotEmptyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryNotEmptyException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryNotFoundException
- */
-const de_RepositoryNotFoundException = (output: any, context: __SerdeContext): RepositoryNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryPolicyNotFoundException
- */
-const de_RepositoryPolicyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryPolicyNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryPolicyNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ServerException
- */
-const de_ServerException = (output: any, context: __SerdeContext): ServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServerException omitted.
 
-/**
- * deserializeAws_json1_1SetRepositoryPolicyResponse
- */
-const de_SetRepositoryPolicyResponse = (output: any, context: __SerdeContext): SetRepositoryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_SetRepositoryPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedCommandException
- */
-const de_UnsupportedCommandException = (output: any, context: __SerdeContext): UnsupportedCommandException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedCommandException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UploadLayerPartResponse
- */
-const de_UploadLayerPartResponse = (output: any, context: __SerdeContext): UploadLayerPartResponse => {
-  return {
-    lastByteReceived: __expectLong(output.lastByteReceived),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
+// de_UploadLayerPartResponse omitted.
 
-/**
- * deserializeAws_json1_1UploadNotFoundException
- */
-const de_UploadNotFoundException = (output: any, context: __SerdeContext): UploadNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UploadNotFoundException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3465,6 +2577,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

@@ -1,12 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -47,7 +49,6 @@ import {
   DeleteResourceOutput,
   GeneralServiceException,
   GetResourceInput,
-  GetResourceOutput,
   GetResourceRequestStatusInput,
   GetResourceRequestStatusOutput,
   HandlerFailureException,
@@ -57,7 +58,6 @@ import {
   ListResourceRequestsInput,
   ListResourceRequestsOutput,
   ListResourcesInput,
-  ListResourcesOutput,
   NetworkFailureException,
   NotStabilizedException,
   NotUpdatableException,
@@ -67,7 +67,6 @@ import {
   ProgressEvent,
   RequestTokenNotFoundException,
   ResourceConflictException,
-  ResourceDescription,
   ResourceNotFoundException,
   ResourceRequestStatusFilter,
   ServiceInternalErrorException,
@@ -88,7 +87,7 @@ export const se_CancelResourceRequestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelResourceRequest");
   let body: any;
-  body = JSON.stringify(se_CancelResourceRequestInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -127,7 +126,7 @@ export const se_GetResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetResource");
   let body: any;
-  body = JSON.stringify(se_GetResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -140,7 +139,7 @@ export const se_GetResourceRequestStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetResourceRequestStatus");
   let body: any;
-  body = JSON.stringify(se_GetResourceRequestStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -153,7 +152,7 @@ export const se_ListResourceRequestsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListResourceRequests");
   let body: any;
-  body = JSON.stringify(se_ListResourceRequestsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -166,7 +165,7 @@ export const se_ListResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListResources");
   let body: any;
-  body = JSON.stringify(se_ListResourcesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -200,7 +199,7 @@ export const de_CancelResourceRequestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -224,10 +223,9 @@ const de_CancelResourceRequestCommandError = async (
       throw await de_RequestTokenNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -250,7 +248,7 @@ export const de_CreateResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -325,10 +323,9 @@ const de_CreateResourceCommandError = async (
       throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -351,7 +348,7 @@ export const de_DeleteResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -426,10 +423,9 @@ const de_DeleteResourceCommandError = async (
       throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -447,12 +443,12 @@ export const de_GetResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetResourceOutput(data, context);
+  contents = _json(data);
   const response: GetResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -521,10 +517,9 @@ const de_GetResourceCommandError = async (
       throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -547,7 +542,7 @@ export const de_GetResourceRequestStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -568,10 +563,9 @@ const de_GetResourceRequestStatusCommandError = async (
       throw await de_RequestTokenNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -594,7 +588,7 @@ export const de_ListResourceRequestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -610,10 +604,9 @@ const de_ListResourceRequestsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -630,12 +623,12 @@ export const de_ListResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListResourcesOutput(data, context);
+  contents = _json(data);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -704,10 +697,9 @@ const de_ListResourcesCommandError = async (
       throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -730,7 +722,7 @@ export const de_UpdateResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -805,10 +797,9 @@ const de_UpdateResourceCommandError = async (
       throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -822,7 +813,7 @@ const de_AlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -838,7 +829,7 @@ const de_ClientTokenConflictExceptionRes = async (
   context: __SerdeContext
 ): Promise<ClientTokenConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ClientTokenConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ClientTokenConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -854,7 +845,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -870,7 +861,7 @@ const de_ConcurrentOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -886,7 +877,7 @@ const de_GeneralServiceExceptionRes = async (
   context: __SerdeContext
 ): Promise<GeneralServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_GeneralServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new GeneralServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -902,7 +893,7 @@ const de_HandlerFailureExceptionRes = async (
   context: __SerdeContext
 ): Promise<HandlerFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_HandlerFailureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new HandlerFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -918,7 +909,7 @@ const de_HandlerInternalFailureExceptionRes = async (
   context: __SerdeContext
 ): Promise<HandlerInternalFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_HandlerInternalFailureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new HandlerInternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -934,7 +925,7 @@ const de_InvalidCredentialsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidCredentialsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidCredentialsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidCredentialsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -950,7 +941,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -966,7 +957,7 @@ const de_NetworkFailureExceptionRes = async (
   context: __SerdeContext
 ): Promise<NetworkFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NetworkFailureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NetworkFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -982,7 +973,7 @@ const de_NotStabilizedExceptionRes = async (
   context: __SerdeContext
 ): Promise<NotStabilizedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotStabilizedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotStabilizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -998,7 +989,7 @@ const de_NotUpdatableExceptionRes = async (
   context: __SerdeContext
 ): Promise<NotUpdatableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotUpdatableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotUpdatableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1014,7 +1005,7 @@ const de_PrivateTypeExceptionRes = async (
   context: __SerdeContext
 ): Promise<PrivateTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PrivateTypeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PrivateTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1030,7 +1021,7 @@ const de_RequestTokenNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<RequestTokenNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RequestTokenNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestTokenNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1046,7 +1037,7 @@ const de_ResourceConflictExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1062,7 +1053,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1078,7 +1069,7 @@ const de_ServiceInternalErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceInternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceInternalErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceInternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1094,7 +1085,7 @@ const de_ServiceLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1107,7 +1098,7 @@ const de_ServiceLimitExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1123,7 +1114,7 @@ const de_TypeNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<TypeNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TypeNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TypeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1139,7 +1130,7 @@ const de_UnsupportedActionExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedActionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedActionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedActionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1147,397 +1138,165 @@ const de_UnsupportedActionExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0CancelResourceRequestInput
- */
-const se_CancelResourceRequestInput = (input: CancelResourceRequestInput, context: __SerdeContext): any => {
-  return {
-    ...(input.RequestToken != null && { RequestToken: input.RequestToken }),
-  };
-};
+// se_CancelResourceRequestInput omitted.
 
 /**
  * serializeAws_json1_0CreateResourceInput
  */
 const se_CreateResourceInput = (input: CreateResourceInput, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DesiredState: [],
+    RoleArn: [],
+    TypeName: [],
+    TypeVersionId: [],
+  });
 };
 
 /**
  * serializeAws_json1_0DeleteResourceInput
  */
 const se_DeleteResourceInput = (input: DeleteResourceInput, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    Identifier: [],
+    RoleArn: [],
+    TypeName: [],
+    TypeVersionId: [],
+  });
 };
 
-/**
- * serializeAws_json1_0GetResourceInput
- */
-const se_GetResourceInput = (input: GetResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
-  };
-};
+// se_GetResourceInput omitted.
 
-/**
- * serializeAws_json1_0GetResourceRequestStatusInput
- */
-const se_GetResourceRequestStatusInput = (input: GetResourceRequestStatusInput, context: __SerdeContext): any => {
-  return {
-    ...(input.RequestToken != null && { RequestToken: input.RequestToken }),
-  };
-};
+// se_GetResourceRequestStatusInput omitted.
 
-/**
- * serializeAws_json1_0ListResourceRequestsInput
- */
-const se_ListResourceRequestsInput = (input: ListResourceRequestsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceRequestStatusFilter != null && {
-      ResourceRequestStatusFilter: se_ResourceRequestStatusFilter(input.ResourceRequestStatusFilter, context),
-    }),
-  };
-};
+// se_ListResourceRequestsInput omitted.
 
-/**
- * serializeAws_json1_0ListResourcesInput
- */
-const se_ListResourcesInput = (input: ListResourcesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceModel != null && { ResourceModel: input.ResourceModel }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
-  };
-};
+// se_ListResourcesInput omitted.
 
-/**
- * serializeAws_json1_0Operations
- */
-const se_Operations = (input: (Operation | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Operations omitted.
 
-/**
- * serializeAws_json1_0OperationStatuses
- */
-const se_OperationStatuses = (input: (OperationStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OperationStatuses omitted.
 
-/**
- * serializeAws_json1_0ResourceRequestStatusFilter
- */
-const se_ResourceRequestStatusFilter = (input: ResourceRequestStatusFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.OperationStatuses != null && {
-      OperationStatuses: se_OperationStatuses(input.OperationStatuses, context),
-    }),
-    ...(input.Operations != null && { Operations: se_Operations(input.Operations, context) }),
-  };
-};
+// se_ResourceRequestStatusFilter omitted.
 
 /**
  * serializeAws_json1_0UpdateResourceInput
  */
 const se_UpdateResourceInput = (input: UpdateResourceInput, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.PatchDocument != null && { PatchDocument: input.PatchDocument }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    Identifier: [],
+    PatchDocument: [],
+    RoleArn: [],
+    TypeName: [],
+    TypeVersionId: [],
+  });
 };
 
-/**
- * deserializeAws_json1_0AlreadyExistsException
- */
-const de_AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AlreadyExistsException omitted.
 
 /**
  * deserializeAws_json1_0CancelResourceRequestOutput
  */
 const de_CancelResourceRequestOutput = (output: any, context: __SerdeContext): CancelResourceRequestOutput => {
-  return {
-    ProgressEvent: output.ProgressEvent != null ? de_ProgressEvent(output.ProgressEvent, context) : undefined,
-  } as any;
+  return take(output, {
+    ProgressEvent: (_: any) => de_ProgressEvent(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ClientTokenConflictException
- */
-const de_ClientTokenConflictException = (output: any, context: __SerdeContext): ClientTokenConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ClientTokenConflictException omitted.
 
-/**
- * deserializeAws_json1_0ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_0ConcurrentOperationException
- */
-const de_ConcurrentOperationException = (output: any, context: __SerdeContext): ConcurrentOperationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConcurrentOperationException omitted.
 
 /**
  * deserializeAws_json1_0CreateResourceOutput
  */
 const de_CreateResourceOutput = (output: any, context: __SerdeContext): CreateResourceOutput => {
-  return {
-    ProgressEvent: output.ProgressEvent != null ? de_ProgressEvent(output.ProgressEvent, context) : undefined,
-  } as any;
+  return take(output, {
+    ProgressEvent: (_: any) => de_ProgressEvent(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DeleteResourceOutput
  */
 const de_DeleteResourceOutput = (output: any, context: __SerdeContext): DeleteResourceOutput => {
-  return {
-    ProgressEvent: output.ProgressEvent != null ? de_ProgressEvent(output.ProgressEvent, context) : undefined,
-  } as any;
+  return take(output, {
+    ProgressEvent: (_: any) => de_ProgressEvent(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GeneralServiceException
- */
-const de_GeneralServiceException = (output: any, context: __SerdeContext): GeneralServiceException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_GeneralServiceException omitted.
 
-/**
- * deserializeAws_json1_0GetResourceOutput
- */
-const de_GetResourceOutput = (output: any, context: __SerdeContext): GetResourceOutput => {
-  return {
-    ResourceDescription:
-      output.ResourceDescription != null ? de_ResourceDescription(output.ResourceDescription, context) : undefined,
-    TypeName: __expectString(output.TypeName),
-  } as any;
-};
+// de_GetResourceOutput omitted.
 
 /**
  * deserializeAws_json1_0GetResourceRequestStatusOutput
  */
 const de_GetResourceRequestStatusOutput = (output: any, context: __SerdeContext): GetResourceRequestStatusOutput => {
-  return {
-    ProgressEvent: output.ProgressEvent != null ? de_ProgressEvent(output.ProgressEvent, context) : undefined,
-  } as any;
+  return take(output, {
+    ProgressEvent: (_: any) => de_ProgressEvent(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0HandlerFailureException
- */
-const de_HandlerFailureException = (output: any, context: __SerdeContext): HandlerFailureException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_HandlerFailureException omitted.
 
-/**
- * deserializeAws_json1_0HandlerInternalFailureException
- */
-const de_HandlerInternalFailureException = (output: any, context: __SerdeContext): HandlerInternalFailureException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_HandlerInternalFailureException omitted.
 
-/**
- * deserializeAws_json1_0InvalidCredentialsException
- */
-const de_InvalidCredentialsException = (output: any, context: __SerdeContext): InvalidCredentialsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidCredentialsException omitted.
 
-/**
- * deserializeAws_json1_0InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
 /**
  * deserializeAws_json1_0ListResourceRequestsOutput
  */
 const de_ListResourceRequestsOutput = (output: any, context: __SerdeContext): ListResourceRequestsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ResourceRequestStatusSummaries:
-      output.ResourceRequestStatusSummaries != null
-        ? de_ResourceRequestStatusSummaries(output.ResourceRequestStatusSummaries, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ResourceRequestStatusSummaries: (_: any) => de_ResourceRequestStatusSummaries(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListResourcesOutput
- */
-const de_ListResourcesOutput = (output: any, context: __SerdeContext): ListResourcesOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ResourceDescriptions:
-      output.ResourceDescriptions != null ? de_ResourceDescriptions(output.ResourceDescriptions, context) : undefined,
-    TypeName: __expectString(output.TypeName),
-  } as any;
-};
+// de_ListResourcesOutput omitted.
 
-/**
- * deserializeAws_json1_0NetworkFailureException
- */
-const de_NetworkFailureException = (output: any, context: __SerdeContext): NetworkFailureException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NetworkFailureException omitted.
 
-/**
- * deserializeAws_json1_0NotStabilizedException
- */
-const de_NotStabilizedException = (output: any, context: __SerdeContext): NotStabilizedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NotStabilizedException omitted.
 
-/**
- * deserializeAws_json1_0NotUpdatableException
- */
-const de_NotUpdatableException = (output: any, context: __SerdeContext): NotUpdatableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NotUpdatableException omitted.
 
-/**
- * deserializeAws_json1_0PrivateTypeException
- */
-const de_PrivateTypeException = (output: any, context: __SerdeContext): PrivateTypeException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PrivateTypeException omitted.
 
 /**
  * deserializeAws_json1_0ProgressEvent
  */
 const de_ProgressEvent = (output: any, context: __SerdeContext): ProgressEvent => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    EventTime:
-      output.EventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime))) : undefined,
-    Identifier: __expectString(output.Identifier),
-    Operation: __expectString(output.Operation),
-    OperationStatus: __expectString(output.OperationStatus),
-    RequestToken: __expectString(output.RequestToken),
-    ResourceModel: __expectString(output.ResourceModel),
-    RetryAfter:
-      output.RetryAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RetryAfter))) : undefined,
-    StatusMessage: __expectString(output.StatusMessage),
-    TypeName: __expectString(output.TypeName),
-  } as any;
+  return take(output, {
+    ErrorCode: __expectString,
+    EventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Identifier: __expectString,
+    Operation: __expectString,
+    OperationStatus: __expectString,
+    RequestToken: __expectString,
+    ResourceModel: __expectString,
+    RetryAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StatusMessage: __expectString,
+    TypeName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0RequestTokenNotFoundException
- */
-const de_RequestTokenNotFoundException = (output: any, context: __SerdeContext): RequestTokenNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RequestTokenNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0ResourceConflictException
- */
-const de_ResourceConflictException = (output: any, context: __SerdeContext): ResourceConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceConflictException omitted.
 
-/**
- * deserializeAws_json1_0ResourceDescription
- */
-const de_ResourceDescription = (output: any, context: __SerdeContext): ResourceDescription => {
-  return {
-    Identifier: __expectString(output.Identifier),
-    Properties: __expectString(output.Properties),
-  } as any;
-};
+// de_ResourceDescription omitted.
 
-/**
- * deserializeAws_json1_0ResourceDescriptions
- */
-const de_ResourceDescriptions = (output: any, context: __SerdeContext): ResourceDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceDescription(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceDescriptions omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_0ResourceRequestStatusSummaries
@@ -1546,66 +1305,28 @@ const de_ResourceRequestStatusSummaries = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProgressEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ServiceInternalErrorException
- */
-const de_ServiceInternalErrorException = (output: any, context: __SerdeContext): ServiceInternalErrorException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceInternalErrorException omitted.
 
-/**
- * deserializeAws_json1_0ServiceLimitExceededException
- */
-const de_ServiceLimitExceededException = (output: any, context: __SerdeContext): ServiceLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0TypeNotFoundException
- */
-const de_TypeNotFoundException = (output: any, context: __SerdeContext): TypeNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TypeNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0UnsupportedActionException
- */
-const de_UnsupportedActionException = (output: any, context: __SerdeContext): UnsupportedActionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnsupportedActionException omitted.
 
 /**
  * deserializeAws_json1_0UpdateResourceOutput
  */
 const de_UpdateResourceOutput = (output: any, context: __SerdeContext): UpdateResourceOutput => {
-  return {
-    ProgressEvent: output.ProgressEvent != null ? de_ProgressEvent(output.ProgressEvent, context) : undefined,
-  } as any;
+  return take(output, {
+    ProgressEvent: (_: any) => de_ProgressEvent(_, context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1628,6 +1349,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

@@ -1,11 +1,13 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectString as __expectString,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -69,9 +71,11 @@ export const se_PutRawMessageContentCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/messages/{messageId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "messageId", () => input.messageId!, "{messageId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.content != null && { content: se_RawMessageContent(input.content, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      content: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -120,10 +124,9 @@ const de_GetRawMessageContentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -173,16 +176,15 @@ const de_PutRawMessageContentCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InvalidContentLocationRes
  */
@@ -192,9 +194,10 @@ const de_InvalidContentLocationRes = async (
 ): Promise<InvalidContentLocation> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidContentLocation({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -208,9 +211,10 @@ const de_InvalidContentLocationRes = async (
 const de_MessageFrozenRes = async (parsedOutput: any, context: __SerdeContext): Promise<MessageFrozen> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MessageFrozen({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -224,9 +228,10 @@ const de_MessageFrozenRes = async (parsedOutput: any, context: __SerdeContext): 
 const de_MessageRejectedRes = async (parsedOutput: any, context: __SerdeContext): Promise<MessageRejected> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MessageRejected({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -243,9 +248,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -253,25 +259,9 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1RawMessageContent
- */
-const se_RawMessageContent = (input: RawMessageContent, context: __SerdeContext): any => {
-  return {
-    ...(input.s3Reference != null && { s3Reference: se_S3Reference(input.s3Reference, context) }),
-  };
-};
+// se_RawMessageContent omitted.
 
-/**
- * serializeAws_restJson1S3Reference
- */
-const se_S3Reference = (input: S3Reference, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.key != null && { key: input.key }),
-    ...(input.objectVersion != null && { objectVersion: input.objectVersion }),
-  };
-};
+// se_S3Reference omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

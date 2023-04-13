@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,10 +9,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -76,7 +78,6 @@ import {
   ConfigurationRevision,
   Configurations,
   ConflictException,
-  DeploymentMode,
   EncryptionOptions,
   EngineVersion,
   ForbiddenException,
@@ -109,33 +110,29 @@ export const se_CreateBrokerCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/brokers";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuthenticationStrategy != null && { authenticationStrategy: input.AuthenticationStrategy }),
-    ...(input.AutoMinorVersionUpgrade != null && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
-    ...(input.BrokerName != null && { brokerName: input.BrokerName }),
-    ...(input.Configuration != null && { configuration: se_ConfigurationId(input.Configuration, context) }),
-    creatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.DeploymentMode != null && { deploymentMode: input.DeploymentMode }),
-    ...(input.EncryptionOptions != null && {
-      encryptionOptions: se_EncryptionOptions(input.EncryptionOptions, context),
-    }),
-    ...(input.EngineType != null && { engineType: input.EngineType }),
-    ...(input.EngineVersion != null && { engineVersion: input.EngineVersion }),
-    ...(input.HostInstanceType != null && { hostInstanceType: input.HostInstanceType }),
-    ...(input.LdapServerMetadata != null && {
-      ldapServerMetadata: se_LdapServerMetadataInput(input.LdapServerMetadata, context),
-    }),
-    ...(input.Logs != null && { logs: se_Logs(input.Logs, context) }),
-    ...(input.MaintenanceWindowStartTime != null && {
-      maintenanceWindowStartTime: se_WeeklyStartTime(input.MaintenanceWindowStartTime, context),
-    }),
-    ...(input.PubliclyAccessible != null && { publiclyAccessible: input.PubliclyAccessible }),
-    ...(input.SecurityGroups != null && { securityGroups: se___listOf__string(input.SecurityGroups, context) }),
-    ...(input.StorageType != null && { storageType: input.StorageType }),
-    ...(input.SubnetIds != null && { subnetIds: se___listOf__string(input.SubnetIds, context) }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-    ...(input.Users != null && { users: se___listOfUser(input.Users, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authenticationStrategy: [, , `AuthenticationStrategy`],
+      autoMinorVersionUpgrade: [, , `AutoMinorVersionUpgrade`],
+      brokerName: [, , `BrokerName`],
+      configuration: [, (_) => se_ConfigurationId(_, context), `Configuration`],
+      creatorRequestId: [, (_) => _ ?? generateIdempotencyToken(), `CreatorRequestId`],
+      deploymentMode: [, , `DeploymentMode`],
+      encryptionOptions: [, (_) => se_EncryptionOptions(_, context), `EncryptionOptions`],
+      engineType: [, , `EngineType`],
+      engineVersion: [, , `EngineVersion`],
+      hostInstanceType: [, , `HostInstanceType`],
+      ldapServerMetadata: [, (_) => se_LdapServerMetadataInput(_, context), `LdapServerMetadata`],
+      logs: [, (_) => se_Logs(_, context), `Logs`],
+      maintenanceWindowStartTime: [, (_) => se_WeeklyStartTime(_, context), `MaintenanceWindowStartTime`],
+      publiclyAccessible: [, , `PubliclyAccessible`],
+      securityGroups: [, (_) => _json(_), `SecurityGroups`],
+      storageType: [, , `StorageType`],
+      subnetIds: [, (_) => _json(_), `SubnetIds`],
+      tags: [, (_) => _json(_), `Tags`],
+      users: [, (_) => se___listOfUser(_, context), `Users`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -160,13 +157,15 @@ export const se_CreateConfigurationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuthenticationStrategy != null && { authenticationStrategy: input.AuthenticationStrategy }),
-    ...(input.EngineType != null && { engineType: input.EngineType }),
-    ...(input.EngineVersion != null && { engineVersion: input.EngineVersion }),
-    ...(input.Name != null && { name: input.Name }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authenticationStrategy: [, , `AuthenticationStrategy`],
+      engineType: [, , `EngineType`],
+      engineVersion: [, , `EngineVersion`],
+      name: [, , `Name`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -192,9 +191,11 @@ export const se_CreateTagsCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -222,11 +223,13 @@ export const se_CreateUserCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "BrokerId", () => input.BrokerId!, "{BrokerId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Username", () => input.Username!, "{Username}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConsoleAccess != null && { consoleAccess: input.ConsoleAccess }),
-    ...(input.Groups != null && { groups: se___listOf__string(input.Groups, context) }),
-    ...(input.Password != null && { password: input.Password }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      consoleAccess: [, , `ConsoleAccess`],
+      groups: [, (_) => _json(_), `Groups`],
+      password: [, , `Password`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -676,21 +679,19 @@ export const se_UpdateBrokerCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/brokers/{BrokerId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "BrokerId", () => input.BrokerId!, "{BrokerId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuthenticationStrategy != null && { authenticationStrategy: input.AuthenticationStrategy }),
-    ...(input.AutoMinorVersionUpgrade != null && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
-    ...(input.Configuration != null && { configuration: se_ConfigurationId(input.Configuration, context) }),
-    ...(input.EngineVersion != null && { engineVersion: input.EngineVersion }),
-    ...(input.HostInstanceType != null && { hostInstanceType: input.HostInstanceType }),
-    ...(input.LdapServerMetadata != null && {
-      ldapServerMetadata: se_LdapServerMetadataInput(input.LdapServerMetadata, context),
-    }),
-    ...(input.Logs != null && { logs: se_Logs(input.Logs, context) }),
-    ...(input.MaintenanceWindowStartTime != null && {
-      maintenanceWindowStartTime: se_WeeklyStartTime(input.MaintenanceWindowStartTime, context),
-    }),
-    ...(input.SecurityGroups != null && { securityGroups: se___listOf__string(input.SecurityGroups, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authenticationStrategy: [, , `AuthenticationStrategy`],
+      autoMinorVersionUpgrade: [, , `AutoMinorVersionUpgrade`],
+      configuration: [, (_) => se_ConfigurationId(_, context), `Configuration`],
+      engineVersion: [, , `EngineVersion`],
+      hostInstanceType: [, , `HostInstanceType`],
+      ldapServerMetadata: [, (_) => se_LdapServerMetadataInput(_, context), `LdapServerMetadata`],
+      logs: [, (_) => se_Logs(_, context), `Logs`],
+      maintenanceWindowStartTime: [, (_) => se_WeeklyStartTime(_, context), `MaintenanceWindowStartTime`],
+      securityGroups: [, (_) => _json(_), `SecurityGroups`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -724,10 +725,12 @@ export const se_UpdateConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Data != null && { data: input.Data }),
-    ...(input.Description != null && { description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      data: [, , `Data`],
+      description: [, , `Description`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -755,11 +758,13 @@ export const se_UpdateUserCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "BrokerId", () => input.BrokerId!, "{BrokerId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Username", () => input.Username!, "{Username}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConsoleAccess != null && { consoleAccess: input.ConsoleAccess }),
-    ...(input.Groups != null && { groups: se___listOf__string(input.Groups, context) }),
-    ...(input.Password != null && { password: input.Password }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      consoleAccess: [, , `ConsoleAccess`],
+      groups: [, (_) => _json(_), `Groups`],
+      password: [, , `Password`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -785,12 +790,11 @@ export const de_CreateBrokerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.brokerArn != null) {
-    contents.BrokerArn = __expectString(data.brokerArn);
-  }
-  if (data.brokerId != null) {
-    contents.BrokerId = __expectString(data.brokerId);
-  }
+  const doc = take(data, {
+    BrokerArn: [, __expectString, `brokerArn`],
+    BrokerId: [, __expectString, `brokerId`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -824,10 +828,9 @@ const de_CreateBrokerCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -847,24 +850,15 @@ export const de_CreateConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.authenticationStrategy != null) {
-    contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
-  }
-  if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.latestRevision != null) {
-    contents.LatestRevision = de_ConfigurationRevision(data.latestRevision, context);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    AuthenticationStrategy: [, __expectString, `authenticationStrategy`],
+    Created: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Id: [, __expectString, `id`],
+    LatestRevision: [, (_) => de_ConfigurationRevision(_, context), `latestRevision`],
+    Name: [, __expectString, `name`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -895,10 +889,9 @@ const de_CreateConfigurationCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -948,10 +941,9 @@ const de_CreateTagsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1004,10 +996,9 @@ const de_CreateUserCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1027,9 +1018,10 @@ export const de_DeleteBrokerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.brokerId != null) {
-    contents.BrokerId = __expectString(data.brokerId);
-  }
+  const doc = take(data, {
+    BrokerId: [, __expectString, `brokerId`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1060,10 +1052,9 @@ const de_DeleteBrokerCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1113,10 +1104,9 @@ const de_DeleteTagsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1166,10 +1156,9 @@ const de_DeleteUserCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1189,93 +1178,38 @@ export const de_DescribeBrokerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.actionsRequired != null) {
-    contents.ActionsRequired = de___listOfActionRequired(data.actionsRequired, context);
-  }
-  if (data.authenticationStrategy != null) {
-    contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
-  }
-  if (data.autoMinorVersionUpgrade != null) {
-    contents.AutoMinorVersionUpgrade = __expectBoolean(data.autoMinorVersionUpgrade);
-  }
-  if (data.brokerArn != null) {
-    contents.BrokerArn = __expectString(data.brokerArn);
-  }
-  if (data.brokerId != null) {
-    contents.BrokerId = __expectString(data.brokerId);
-  }
-  if (data.brokerInstances != null) {
-    contents.BrokerInstances = de___listOfBrokerInstance(data.brokerInstances, context);
-  }
-  if (data.brokerName != null) {
-    contents.BrokerName = __expectString(data.brokerName);
-  }
-  if (data.brokerState != null) {
-    contents.BrokerState = __expectString(data.brokerState);
-  }
-  if (data.configurations != null) {
-    contents.Configurations = de_Configurations(data.configurations, context);
-  }
-  if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
-  }
-  if (data.deploymentMode != null) {
-    contents.DeploymentMode = __expectString(data.deploymentMode);
-  }
-  if (data.encryptionOptions != null) {
-    contents.EncryptionOptions = de_EncryptionOptions(data.encryptionOptions, context);
-  }
-  if (data.engineType != null) {
-    contents.EngineType = __expectString(data.engineType);
-  }
-  if (data.engineVersion != null) {
-    contents.EngineVersion = __expectString(data.engineVersion);
-  }
-  if (data.hostInstanceType != null) {
-    contents.HostInstanceType = __expectString(data.hostInstanceType);
-  }
-  if (data.ldapServerMetadata != null) {
-    contents.LdapServerMetadata = de_LdapServerMetadataOutput(data.ldapServerMetadata, context);
-  }
-  if (data.logs != null) {
-    contents.Logs = de_LogsSummary(data.logs, context);
-  }
-  if (data.maintenanceWindowStartTime != null) {
-    contents.MaintenanceWindowStartTime = de_WeeklyStartTime(data.maintenanceWindowStartTime, context);
-  }
-  if (data.pendingAuthenticationStrategy != null) {
-    contents.PendingAuthenticationStrategy = __expectString(data.pendingAuthenticationStrategy);
-  }
-  if (data.pendingEngineVersion != null) {
-    contents.PendingEngineVersion = __expectString(data.pendingEngineVersion);
-  }
-  if (data.pendingHostInstanceType != null) {
-    contents.PendingHostInstanceType = __expectString(data.pendingHostInstanceType);
-  }
-  if (data.pendingLdapServerMetadata != null) {
-    contents.PendingLdapServerMetadata = de_LdapServerMetadataOutput(data.pendingLdapServerMetadata, context);
-  }
-  if (data.pendingSecurityGroups != null) {
-    contents.PendingSecurityGroups = de___listOf__string(data.pendingSecurityGroups, context);
-  }
-  if (data.publiclyAccessible != null) {
-    contents.PubliclyAccessible = __expectBoolean(data.publiclyAccessible);
-  }
-  if (data.securityGroups != null) {
-    contents.SecurityGroups = de___listOf__string(data.securityGroups, context);
-  }
-  if (data.storageType != null) {
-    contents.StorageType = __expectString(data.storageType);
-  }
-  if (data.subnetIds != null) {
-    contents.SubnetIds = de___listOf__string(data.subnetIds, context);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.users != null) {
-    contents.Users = de___listOfUserSummary(data.users, context);
-  }
+  const doc = take(data, {
+    ActionsRequired: [, (_) => de___listOfActionRequired(_, context), `actionsRequired`],
+    AuthenticationStrategy: [, __expectString, `authenticationStrategy`],
+    AutoMinorVersionUpgrade: [, __expectBoolean, `autoMinorVersionUpgrade`],
+    BrokerArn: [, __expectString, `brokerArn`],
+    BrokerId: [, __expectString, `brokerId`],
+    BrokerInstances: [, (_) => de___listOfBrokerInstance(_, context), `brokerInstances`],
+    BrokerName: [, __expectString, `brokerName`],
+    BrokerState: [, __expectString, `brokerState`],
+    Configurations: [, (_) => de_Configurations(_, context), `configurations`],
+    Created: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    DeploymentMode: [, __expectString, `deploymentMode`],
+    EncryptionOptions: [, (_) => de_EncryptionOptions(_, context), `encryptionOptions`],
+    EngineType: [, __expectString, `engineType`],
+    EngineVersion: [, __expectString, `engineVersion`],
+    HostInstanceType: [, __expectString, `hostInstanceType`],
+    LdapServerMetadata: [, (_) => de_LdapServerMetadataOutput(_, context), `ldapServerMetadata`],
+    Logs: [, (_) => de_LogsSummary(_, context), `logs`],
+    MaintenanceWindowStartTime: [, (_) => de_WeeklyStartTime(_, context), `maintenanceWindowStartTime`],
+    PendingAuthenticationStrategy: [, __expectString, `pendingAuthenticationStrategy`],
+    PendingEngineVersion: [, __expectString, `pendingEngineVersion`],
+    PendingHostInstanceType: [, __expectString, `pendingHostInstanceType`],
+    PendingLdapServerMetadata: [, (_) => de_LdapServerMetadataOutput(_, context), `pendingLdapServerMetadata`],
+    PendingSecurityGroups: [, _json, `pendingSecurityGroups`],
+    PubliclyAccessible: [, __expectBoolean, `publiclyAccessible`],
+    SecurityGroups: [, _json, `securityGroups`],
+    StorageType: [, __expectString, `storageType`],
+    SubnetIds: [, _json, `subnetIds`],
+    Tags: [, _json, `tags`],
+    Users: [, (_) => de___listOfUserSummary(_, context), `users`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1306,10 +1240,9 @@ const de_DescribeBrokerCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1329,15 +1262,12 @@ export const de_DescribeBrokerEngineTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.brokerEngineTypes != null) {
-    contents.BrokerEngineTypes = de___listOfBrokerEngineType(data.brokerEngineTypes, context);
-  }
-  if (data.maxResults != null) {
-    contents.MaxResults = __expectInt32(data.maxResults);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    BrokerEngineTypes: [, (_) => de___listOfBrokerEngineType(_, context), `brokerEngineTypes`],
+    MaxResults: [, __expectInt32, `maxResults`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1365,10 +1295,9 @@ const de_DescribeBrokerEngineTypesCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1388,15 +1317,12 @@ export const de_DescribeBrokerInstanceOptionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.brokerInstanceOptions != null) {
-    contents.BrokerInstanceOptions = de___listOfBrokerInstanceOption(data.brokerInstanceOptions, context);
-  }
-  if (data.maxResults != null) {
-    contents.MaxResults = __expectInt32(data.maxResults);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    BrokerInstanceOptions: [, (_) => de___listOfBrokerInstanceOption(_, context), `brokerInstanceOptions`],
+    MaxResults: [, __expectInt32, `maxResults`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1424,10 +1350,9 @@ const de_DescribeBrokerInstanceOptionsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1447,36 +1372,19 @@ export const de_DescribeConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.authenticationStrategy != null) {
-    contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
-  }
-  if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
-  }
-  if (data.description != null) {
-    contents.Description = __expectString(data.description);
-  }
-  if (data.engineType != null) {
-    contents.EngineType = __expectString(data.engineType);
-  }
-  if (data.engineVersion != null) {
-    contents.EngineVersion = __expectString(data.engineVersion);
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.latestRevision != null) {
-    contents.LatestRevision = de_ConfigurationRevision(data.latestRevision, context);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    AuthenticationStrategy: [, __expectString, `authenticationStrategy`],
+    Created: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Description: [, __expectString, `description`],
+    EngineType: [, __expectString, `engineType`],
+    EngineVersion: [, __expectString, `engineVersion`],
+    Id: [, __expectString, `id`],
+    LatestRevision: [, (_) => de_ConfigurationRevision(_, context), `latestRevision`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1507,10 +1415,9 @@ const de_DescribeConfigurationCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1530,18 +1437,13 @@ export const de_DescribeConfigurationRevisionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurationId != null) {
-    contents.ConfigurationId = __expectString(data.configurationId);
-  }
-  if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
-  }
-  if (data.data != null) {
-    contents.Data = __expectString(data.data);
-  }
-  if (data.description != null) {
-    contents.Description = __expectString(data.description);
-  }
+  const doc = take(data, {
+    ConfigurationId: [, __expectString, `configurationId`],
+    Created: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Data: [, __expectString, `data`],
+    Description: [, __expectString, `description`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1572,10 +1474,9 @@ const de_DescribeConfigurationRevisionCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1595,21 +1496,14 @@ export const de_DescribeUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.brokerId != null) {
-    contents.BrokerId = __expectString(data.brokerId);
-  }
-  if (data.consoleAccess != null) {
-    contents.ConsoleAccess = __expectBoolean(data.consoleAccess);
-  }
-  if (data.groups != null) {
-    contents.Groups = de___listOf__string(data.groups, context);
-  }
-  if (data.pending != null) {
-    contents.Pending = de_UserPendingChanges(data.pending, context);
-  }
-  if (data.username != null) {
-    contents.Username = __expectString(data.username);
-  }
+  const doc = take(data, {
+    BrokerId: [, __expectString, `brokerId`],
+    ConsoleAccess: [, __expectBoolean, `consoleAccess`],
+    Groups: [, _json, `groups`],
+    Pending: [, (_) => de_UserPendingChanges(_, context), `pending`],
+    Username: [, __expectString, `username`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1640,10 +1534,9 @@ const de_DescribeUserCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1663,12 +1556,11 @@ export const de_ListBrokersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.brokerSummaries != null) {
-    contents.BrokerSummaries = de___listOfBrokerSummary(data.brokerSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    BrokerSummaries: [, (_) => de___listOfBrokerSummary(_, context), `brokerSummaries`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1696,10 +1588,9 @@ const de_ListBrokersCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1719,18 +1610,13 @@ export const de_ListConfigurationRevisionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurationId != null) {
-    contents.ConfigurationId = __expectString(data.configurationId);
-  }
-  if (data.maxResults != null) {
-    contents.MaxResults = __expectInt32(data.maxResults);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.revisions != null) {
-    contents.Revisions = de___listOfConfigurationRevision(data.revisions, context);
-  }
+  const doc = take(data, {
+    ConfigurationId: [, __expectString, `configurationId`],
+    MaxResults: [, __expectInt32, `maxResults`],
+    NextToken: [, __expectString, `nextToken`],
+    Revisions: [, (_) => de___listOfConfigurationRevision(_, context), `revisions`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1761,10 +1647,9 @@ const de_ListConfigurationRevisionsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1784,15 +1669,12 @@ export const de_ListConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurations != null) {
-    contents.Configurations = de___listOfConfiguration(data.configurations, context);
-  }
-  if (data.maxResults != null) {
-    contents.MaxResults = __expectInt32(data.maxResults);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Configurations: [, (_) => de___listOfConfiguration(_, context), `configurations`],
+    MaxResults: [, __expectInt32, `maxResults`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1820,10 +1702,9 @@ const de_ListConfigurationsCommandError = async (
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1843,9 +1724,10 @@ export const de_ListTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1876,10 +1758,9 @@ const de_ListTagsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1899,18 +1780,13 @@ export const de_ListUsersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.brokerId != null) {
-    contents.BrokerId = __expectString(data.brokerId);
-  }
-  if (data.maxResults != null) {
-    contents.MaxResults = __expectInt32(data.maxResults);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
-  if (data.users != null) {
-    contents.Users = de___listOfUserSummary(data.users, context);
-  }
+  const doc = take(data, {
+    BrokerId: [, __expectString, `brokerId`],
+    MaxResults: [, __expectInt32, `maxResults`],
+    NextToken: [, __expectString, `nextToken`],
+    Users: [, (_) => de___listOfUserSummary(_, context), `users`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1941,10 +1817,9 @@ const de_ListUsersCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1994,10 +1869,9 @@ const de_RebootBrokerCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2017,36 +1891,19 @@ export const de_UpdateBrokerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authenticationStrategy != null) {
-    contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
-  }
-  if (data.autoMinorVersionUpgrade != null) {
-    contents.AutoMinorVersionUpgrade = __expectBoolean(data.autoMinorVersionUpgrade);
-  }
-  if (data.brokerId != null) {
-    contents.BrokerId = __expectString(data.brokerId);
-  }
-  if (data.configuration != null) {
-    contents.Configuration = de_ConfigurationId(data.configuration, context);
-  }
-  if (data.engineVersion != null) {
-    contents.EngineVersion = __expectString(data.engineVersion);
-  }
-  if (data.hostInstanceType != null) {
-    contents.HostInstanceType = __expectString(data.hostInstanceType);
-  }
-  if (data.ldapServerMetadata != null) {
-    contents.LdapServerMetadata = de_LdapServerMetadataOutput(data.ldapServerMetadata, context);
-  }
-  if (data.logs != null) {
-    contents.Logs = de_Logs(data.logs, context);
-  }
-  if (data.maintenanceWindowStartTime != null) {
-    contents.MaintenanceWindowStartTime = de_WeeklyStartTime(data.maintenanceWindowStartTime, context);
-  }
-  if (data.securityGroups != null) {
-    contents.SecurityGroups = de___listOf__string(data.securityGroups, context);
-  }
+  const doc = take(data, {
+    AuthenticationStrategy: [, __expectString, `authenticationStrategy`],
+    AutoMinorVersionUpgrade: [, __expectBoolean, `autoMinorVersionUpgrade`],
+    BrokerId: [, __expectString, `brokerId`],
+    Configuration: [, (_) => de_ConfigurationId(_, context), `configuration`],
+    EngineVersion: [, __expectString, `engineVersion`],
+    HostInstanceType: [, __expectString, `hostInstanceType`],
+    LdapServerMetadata: [, (_) => de_LdapServerMetadataOutput(_, context), `ldapServerMetadata`],
+    Logs: [, (_) => de_Logs(_, context), `logs`],
+    MaintenanceWindowStartTime: [, (_) => de_WeeklyStartTime(_, context), `maintenanceWindowStartTime`],
+    SecurityGroups: [, _json, `securityGroups`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2080,10 +1937,9 @@ const de_UpdateBrokerCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2103,24 +1959,15 @@ export const de_UpdateConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.Arn = __expectString(data.arn);
-  }
-  if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
-  }
-  if (data.id != null) {
-    contents.Id = __expectString(data.id);
-  }
-  if (data.latestRevision != null) {
-    contents.LatestRevision = de_ConfigurationRevision(data.latestRevision, context);
-  }
-  if (data.name != null) {
-    contents.Name = __expectString(data.name);
-  }
-  if (data.warnings != null) {
-    contents.Warnings = de___listOfSanitizationWarning(data.warnings, context);
-  }
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    Created: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Id: [, __expectString, `id`],
+    LatestRevision: [, (_) => de_ConfigurationRevision(_, context), `latestRevision`],
+    Name: [, __expectString, `name`],
+    Warnings: [, (_) => de___listOfSanitizationWarning(_, context), `warnings`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2154,10 +2001,9 @@ const de_UpdateConfigurationCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2210,28 +2056,26 @@ const de_UpdateUserCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorAttribute != null) {
-    contents.ErrorAttribute = __expectString(data.errorAttribute);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorAttribute: [, __expectString, `errorAttribute`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2245,12 +2089,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorAttribute != null) {
-    contents.ErrorAttribute = __expectString(data.errorAttribute);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorAttribute: [, __expectString, `errorAttribute`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2264,12 +2107,11 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorAttribute != null) {
-    contents.ErrorAttribute = __expectString(data.errorAttribute);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorAttribute: [, __expectString, `errorAttribute`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2286,12 +2128,11 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorAttribute != null) {
-    contents.ErrorAttribute = __expectString(data.errorAttribute);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorAttribute: [, __expectString, `errorAttribute`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2305,12 +2146,11 @@ const de_InternalServerErrorExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorAttribute != null) {
-    contents.ErrorAttribute = __expectString(data.errorAttribute);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorAttribute: [, __expectString, `errorAttribute`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2327,12 +2167,11 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.errorAttribute != null) {
-    contents.ErrorAttribute = __expectString(data.errorAttribute);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ErrorAttribute: [, __expectString, `errorAttribute`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2340,16 +2179,7 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOf__string
- */
-const se___listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__string omitted.
 
 /**
  * serializeAws_restJson1__listOfUser
@@ -2362,105 +2192,81 @@ const se___listOfUser = (input: User[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1__mapOf__string
- */
-const se___mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__string omitted.
 
 /**
  * serializeAws_restJson1ConfigurationId
  */
 const se_ConfigurationId = (input: ConfigurationId, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { id: input.Id }),
-    ...(input.Revision != null && { revision: input.Revision }),
-  };
+  return take(input, {
+    id: [, , `Id`],
+    revision: [, , `Revision`],
+  });
 };
 
 /**
  * serializeAws_restJson1EncryptionOptions
  */
 const se_EncryptionOptions = (input: EncryptionOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { kmsKeyId: input.KmsKeyId }),
-    ...(input.UseAwsOwnedKey != null && { useAwsOwnedKey: input.UseAwsOwnedKey }),
-  };
+  return take(input, {
+    kmsKeyId: [, , `KmsKeyId`],
+    useAwsOwnedKey: [, , `UseAwsOwnedKey`],
+  });
 };
 
 /**
  * serializeAws_restJson1LdapServerMetadataInput
  */
 const se_LdapServerMetadataInput = (input: LdapServerMetadataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Hosts != null && { hosts: se___listOf__string(input.Hosts, context) }),
-    ...(input.RoleBase != null && { roleBase: input.RoleBase }),
-    ...(input.RoleName != null && { roleName: input.RoleName }),
-    ...(input.RoleSearchMatching != null && { roleSearchMatching: input.RoleSearchMatching }),
-    ...(input.RoleSearchSubtree != null && { roleSearchSubtree: input.RoleSearchSubtree }),
-    ...(input.ServiceAccountPassword != null && { serviceAccountPassword: input.ServiceAccountPassword }),
-    ...(input.ServiceAccountUsername != null && { serviceAccountUsername: input.ServiceAccountUsername }),
-    ...(input.UserBase != null && { userBase: input.UserBase }),
-    ...(input.UserRoleName != null && { userRoleName: input.UserRoleName }),
-    ...(input.UserSearchMatching != null && { userSearchMatching: input.UserSearchMatching }),
-    ...(input.UserSearchSubtree != null && { userSearchSubtree: input.UserSearchSubtree }),
-  };
+  return take(input, {
+    hosts: [, (_) => _json(_), `Hosts`],
+    roleBase: [, , `RoleBase`],
+    roleName: [, , `RoleName`],
+    roleSearchMatching: [, , `RoleSearchMatching`],
+    roleSearchSubtree: [, , `RoleSearchSubtree`],
+    serviceAccountPassword: [, , `ServiceAccountPassword`],
+    serviceAccountUsername: [, , `ServiceAccountUsername`],
+    userBase: [, , `UserBase`],
+    userRoleName: [, , `UserRoleName`],
+    userSearchMatching: [, , `UserSearchMatching`],
+    userSearchSubtree: [, , `UserSearchSubtree`],
+  });
 };
 
 /**
  * serializeAws_restJson1Logs
  */
 const se_Logs = (input: Logs, context: __SerdeContext): any => {
-  return {
-    ...(input.Audit != null && { audit: input.Audit }),
-    ...(input.General != null && { general: input.General }),
-  };
+  return take(input, {
+    audit: [, , `Audit`],
+    general: [, , `General`],
+  });
 };
 
 /**
  * serializeAws_restJson1User
  */
 const se_User = (input: User, context: __SerdeContext): any => {
-  return {
-    ...(input.ConsoleAccess != null && { consoleAccess: input.ConsoleAccess }),
-    ...(input.Groups != null && { groups: se___listOf__string(input.Groups, context) }),
-    ...(input.Password != null && { password: input.Password }),
-    ...(input.Username != null && { username: input.Username }),
-  };
+  return take(input, {
+    consoleAccess: [, , `ConsoleAccess`],
+    groups: [, (_) => _json(_), `Groups`],
+    password: [, , `Password`],
+    username: [, , `Username`],
+  });
 };
 
 /**
  * serializeAws_restJson1WeeklyStartTime
  */
 const se_WeeklyStartTime = (input: WeeklyStartTime, context: __SerdeContext): any => {
-  return {
-    ...(input.DayOfWeek != null && { dayOfWeek: input.DayOfWeek }),
-    ...(input.TimeOfDay != null && { timeOfDay: input.TimeOfDay }),
-    ...(input.TimeZone != null && { timeZone: input.TimeZone }),
-  };
+  return take(input, {
+    dayOfWeek: [, , `DayOfWeek`],
+    timeOfDay: [, , `TimeOfDay`],
+    timeZone: [, , `TimeZone`],
+  });
 };
 
-/**
- * deserializeAws_restJson1__listOf__string
- */
-const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__string omitted.
 
 /**
  * deserializeAws_restJson1__listOfActionRequired
@@ -2469,9 +2275,6 @@ const de___listOfActionRequired = (output: any, context: __SerdeContext): Action
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ActionRequired(entry, context);
     });
   return retVal;
@@ -2484,9 +2287,6 @@ const de___listOfAvailabilityZone = (output: any, context: __SerdeContext): Avai
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AvailabilityZone(entry, context);
     });
   return retVal;
@@ -2499,9 +2299,6 @@ const de___listOfBrokerEngineType = (output: any, context: __SerdeContext): Brok
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BrokerEngineType(entry, context);
     });
   return retVal;
@@ -2514,9 +2311,6 @@ const de___listOfBrokerInstance = (output: any, context: __SerdeContext): Broker
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BrokerInstance(entry, context);
     });
   return retVal;
@@ -2529,9 +2323,6 @@ const de___listOfBrokerInstanceOption = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BrokerInstanceOption(entry, context);
     });
   return retVal;
@@ -2544,9 +2335,6 @@ const de___listOfBrokerSummary = (output: any, context: __SerdeContext): BrokerS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BrokerSummary(entry, context);
     });
   return retVal;
@@ -2559,9 +2347,6 @@ const de___listOfConfiguration = (output: any, context: __SerdeContext): Configu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Configuration(entry, context);
     });
   return retVal;
@@ -2574,9 +2359,6 @@ const de___listOfConfigurationId = (output: any, context: __SerdeContext): Confi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigurationId(entry, context);
     });
   return retVal;
@@ -2589,28 +2371,12 @@ const de___listOfConfigurationRevision = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigurationRevision(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__listOfDeploymentMode
- */
-const de___listOfDeploymentMode = (output: any, context: __SerdeContext): (DeploymentMode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOfDeploymentMode omitted.
 
 /**
  * deserializeAws_restJson1__listOfEngineVersion
@@ -2619,9 +2385,6 @@ const de___listOfEngineVersion = (output: any, context: __SerdeContext): EngineV
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EngineVersion(entry, context);
     });
   return retVal;
@@ -2634,9 +2397,6 @@ const de___listOfSanitizationWarning = (output: any, context: __SerdeContext): S
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SanitizationWarning(entry, context);
     });
   return retVal;
@@ -2649,265 +2409,244 @@ const de___listOfUserSummary = (output: any, context: __SerdeContext): UserSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UserSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__mapOf__string
- */
-const de___mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de___mapOf__string omitted.
 
 /**
  * deserializeAws_restJson1ActionRequired
  */
 const de_ActionRequired = (output: any, context: __SerdeContext): ActionRequired => {
-  return {
-    ActionRequiredCode: __expectString(output.actionRequiredCode),
-    ActionRequiredInfo: __expectString(output.actionRequiredInfo),
-  } as any;
+  return take(output, {
+    ActionRequiredCode: [, __expectString, `actionRequiredCode`],
+    ActionRequiredInfo: [, __expectString, `actionRequiredInfo`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AvailabilityZone
  */
 const de_AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
-  return {
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BrokerEngineType
  */
 const de_BrokerEngineType = (output: any, context: __SerdeContext): BrokerEngineType => {
-  return {
-    EngineType: __expectString(output.engineType),
-    EngineVersions:
-      output.engineVersions != null ? de___listOfEngineVersion(output.engineVersions, context) : undefined,
-  } as any;
+  return take(output, {
+    EngineType: [, __expectString, `engineType`],
+    EngineVersions: (_) => [, de___listOfEngineVersion(_, context), `engineVersions`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BrokerInstance
  */
 const de_BrokerInstance = (output: any, context: __SerdeContext): BrokerInstance => {
-  return {
-    ConsoleURL: __expectString(output.consoleURL),
-    Endpoints: output.endpoints != null ? de___listOf__string(output.endpoints, context) : undefined,
-    IpAddress: __expectString(output.ipAddress),
-  } as any;
+  return take(output, {
+    ConsoleURL: [, __expectString, `consoleURL`],
+    Endpoints: [, _json, `endpoints`],
+    IpAddress: [, __expectString, `ipAddress`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BrokerInstanceOption
  */
 const de_BrokerInstanceOption = (output: any, context: __SerdeContext): BrokerInstanceOption => {
-  return {
-    AvailabilityZones:
-      output.availabilityZones != null ? de___listOfAvailabilityZone(output.availabilityZones, context) : undefined,
-    EngineType: __expectString(output.engineType),
-    HostInstanceType: __expectString(output.hostInstanceType),
-    StorageType: __expectString(output.storageType),
-    SupportedDeploymentModes:
-      output.supportedDeploymentModes != null
-        ? de___listOfDeploymentMode(output.supportedDeploymentModes, context)
-        : undefined,
-    SupportedEngineVersions:
-      output.supportedEngineVersions != null ? de___listOf__string(output.supportedEngineVersions, context) : undefined,
-  } as any;
+  return take(output, {
+    AvailabilityZones: (_) => [, de___listOfAvailabilityZone(_, context), `availabilityZones`],
+    EngineType: [, __expectString, `engineType`],
+    HostInstanceType: [, __expectString, `hostInstanceType`],
+    StorageType: [, __expectString, `storageType`],
+    SupportedDeploymentModes: [, _json, `supportedDeploymentModes`],
+    SupportedEngineVersions: [, _json, `supportedEngineVersions`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BrokerSummary
  */
 const de_BrokerSummary = (output: any, context: __SerdeContext): BrokerSummary => {
-  return {
-    BrokerArn: __expectString(output.brokerArn),
-    BrokerId: __expectString(output.brokerId),
-    BrokerName: __expectString(output.brokerName),
-    BrokerState: __expectString(output.brokerState),
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
-    DeploymentMode: __expectString(output.deploymentMode),
-    EngineType: __expectString(output.engineType),
-    HostInstanceType: __expectString(output.hostInstanceType),
-  } as any;
+  return take(output, {
+    BrokerArn: [, __expectString, `brokerArn`],
+    BrokerId: [, __expectString, `brokerId`],
+    BrokerName: [, __expectString, `brokerName`],
+    BrokerState: [, __expectString, `brokerState`],
+    Created: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    DeploymentMode: [, __expectString, `deploymentMode`],
+    EngineType: [, __expectString, `engineType`],
+    HostInstanceType: [, __expectString, `hostInstanceType`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Configuration
  */
 const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
-  return {
-    Arn: __expectString(output.arn),
-    AuthenticationStrategy: __expectString(output.authenticationStrategy),
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
-    Description: __expectString(output.description),
-    EngineType: __expectString(output.engineType),
-    EngineVersion: __expectString(output.engineVersion),
-    Id: __expectString(output.id),
-    LatestRevision:
-      output.latestRevision != null ? de_ConfigurationRevision(output.latestRevision, context) : undefined,
-    Name: __expectString(output.name),
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    AuthenticationStrategy: [, __expectString, `authenticationStrategy`],
+    Created: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Description: [, __expectString, `description`],
+    EngineType: [, __expectString, `engineType`],
+    EngineVersion: [, __expectString, `engineVersion`],
+    Id: [, __expectString, `id`],
+    LatestRevision: (_) => [, de_ConfigurationRevision(_, context), `latestRevision`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ConfigurationId
  */
 const de_ConfigurationId = (output: any, context: __SerdeContext): ConfigurationId => {
-  return {
-    Id: __expectString(output.id),
-    Revision: __expectInt32(output.revision),
-  } as any;
+  return take(output, {
+    Id: [, __expectString, `id`],
+    Revision: [, __expectInt32, `revision`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ConfigurationRevision
  */
 const de_ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
-  return {
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
-    Description: __expectString(output.description),
-    Revision: __expectInt32(output.revision),
-  } as any;
+  return take(output, {
+    Created: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Description: [, __expectString, `description`],
+    Revision: [, __expectInt32, `revision`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Configurations
  */
 const de_Configurations = (output: any, context: __SerdeContext): Configurations => {
-  return {
-    Current: output.current != null ? de_ConfigurationId(output.current, context) : undefined,
-    History: output.history != null ? de___listOfConfigurationId(output.history, context) : undefined,
-    Pending: output.pending != null ? de_ConfigurationId(output.pending, context) : undefined,
-  } as any;
+  return take(output, {
+    Current: (_) => [, de_ConfigurationId(_, context), `current`],
+    History: (_) => [, de___listOfConfigurationId(_, context), `history`],
+    Pending: (_) => [, de_ConfigurationId(_, context), `pending`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EncryptionOptions
  */
 const de_EncryptionOptions = (output: any, context: __SerdeContext): EncryptionOptions => {
-  return {
-    KmsKeyId: __expectString(output.kmsKeyId),
-    UseAwsOwnedKey: __expectBoolean(output.useAwsOwnedKey),
-  } as any;
+  return take(output, {
+    KmsKeyId: [, __expectString, `kmsKeyId`],
+    UseAwsOwnedKey: [, __expectBoolean, `useAwsOwnedKey`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EngineVersion
  */
 const de_EngineVersion = (output: any, context: __SerdeContext): EngineVersion => {
-  return {
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LdapServerMetadataOutput
  */
 const de_LdapServerMetadataOutput = (output: any, context: __SerdeContext): LdapServerMetadataOutput => {
-  return {
-    Hosts: output.hosts != null ? de___listOf__string(output.hosts, context) : undefined,
-    RoleBase: __expectString(output.roleBase),
-    RoleName: __expectString(output.roleName),
-    RoleSearchMatching: __expectString(output.roleSearchMatching),
-    RoleSearchSubtree: __expectBoolean(output.roleSearchSubtree),
-    ServiceAccountUsername: __expectString(output.serviceAccountUsername),
-    UserBase: __expectString(output.userBase),
-    UserRoleName: __expectString(output.userRoleName),
-    UserSearchMatching: __expectString(output.userSearchMatching),
-    UserSearchSubtree: __expectBoolean(output.userSearchSubtree),
-  } as any;
+  return take(output, {
+    Hosts: [, _json, `hosts`],
+    RoleBase: [, __expectString, `roleBase`],
+    RoleName: [, __expectString, `roleName`],
+    RoleSearchMatching: [, __expectString, `roleSearchMatching`],
+    RoleSearchSubtree: [, __expectBoolean, `roleSearchSubtree`],
+    ServiceAccountUsername: [, __expectString, `serviceAccountUsername`],
+    UserBase: [, __expectString, `userBase`],
+    UserRoleName: [, __expectString, `userRoleName`],
+    UserSearchMatching: [, __expectString, `userSearchMatching`],
+    UserSearchSubtree: [, __expectBoolean, `userSearchSubtree`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Logs
  */
 const de_Logs = (output: any, context: __SerdeContext): Logs => {
-  return {
-    Audit: __expectBoolean(output.audit),
-    General: __expectBoolean(output.general),
-  } as any;
+  return take(output, {
+    Audit: [, __expectBoolean, `audit`],
+    General: [, __expectBoolean, `general`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LogsSummary
  */
 const de_LogsSummary = (output: any, context: __SerdeContext): LogsSummary => {
-  return {
-    Audit: __expectBoolean(output.audit),
-    AuditLogGroup: __expectString(output.auditLogGroup),
-    General: __expectBoolean(output.general),
-    GeneralLogGroup: __expectString(output.generalLogGroup),
-    Pending: output.pending != null ? de_PendingLogs(output.pending, context) : undefined,
-  } as any;
+  return take(output, {
+    Audit: [, __expectBoolean, `audit`],
+    AuditLogGroup: [, __expectString, `auditLogGroup`],
+    General: [, __expectBoolean, `general`],
+    GeneralLogGroup: [, __expectString, `generalLogGroup`],
+    Pending: (_) => [, de_PendingLogs(_, context), `pending`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PendingLogs
  */
 const de_PendingLogs = (output: any, context: __SerdeContext): PendingLogs => {
-  return {
-    Audit: __expectBoolean(output.audit),
-    General: __expectBoolean(output.general),
-  } as any;
+  return take(output, {
+    Audit: [, __expectBoolean, `audit`],
+    General: [, __expectBoolean, `general`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SanitizationWarning
  */
 const de_SanitizationWarning = (output: any, context: __SerdeContext): SanitizationWarning => {
-  return {
-    AttributeName: __expectString(output.attributeName),
-    ElementName: __expectString(output.elementName),
-    Reason: __expectString(output.reason),
-  } as any;
+  return take(output, {
+    AttributeName: [, __expectString, `attributeName`],
+    ElementName: [, __expectString, `elementName`],
+    Reason: [, __expectString, `reason`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1UserPendingChanges
  */
 const de_UserPendingChanges = (output: any, context: __SerdeContext): UserPendingChanges => {
-  return {
-    ConsoleAccess: __expectBoolean(output.consoleAccess),
-    Groups: output.groups != null ? de___listOf__string(output.groups, context) : undefined,
-    PendingChange: __expectString(output.pendingChange),
-  } as any;
+  return take(output, {
+    ConsoleAccess: [, __expectBoolean, `consoleAccess`],
+    Groups: [, _json, `groups`],
+    PendingChange: [, __expectString, `pendingChange`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1UserSummary
  */
 const de_UserSummary = (output: any, context: __SerdeContext): UserSummary => {
-  return {
-    PendingChange: __expectString(output.pendingChange),
-    Username: __expectString(output.username),
-  } as any;
+  return take(output, {
+    PendingChange: [, __expectString, `pendingChange`],
+    Username: [, __expectString, `username`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1WeeklyStartTime
  */
 const de_WeeklyStartTime = (output: any, context: __SerdeContext): WeeklyStartTime => {
-  return {
-    DayOfWeek: __expectString(output.dayOfWeek),
-    TimeOfDay: __expectString(output.timeOfDay),
-    TimeZone: __expectString(output.timeZone),
-  } as any;
+  return take(output, {
+    DayOfWeek: [, __expectString, `dayOfWeek`],
+    TimeOfDay: [, __expectString, `timeOfDay`],
+    TimeZone: [, __expectString, `timeZone`],
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

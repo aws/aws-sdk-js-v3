@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -169,9 +171,6 @@ import { UpdateStackCommandInput, UpdateStackCommandOutput } from "../commands/U
 import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "../commands/UpdateUserProfileCommand";
 import { UpdateVolumeCommandInput, UpdateVolumeCommandOutput } from "../commands/UpdateVolumeCommand";
 import {
-  AgentVersion,
-  App,
-  AppAttributesKeys,
   AssignInstanceRequest,
   AssignVolumeRequest,
   AssociateElasticIpRequest,
@@ -180,29 +179,20 @@ import {
   BlockDeviceMapping,
   ChefConfiguration,
   CloneStackRequest,
-  CloneStackResult,
   CloudWatchLogsConfiguration,
   CloudWatchLogsLogStream,
-  Command,
   CreateAppRequest,
-  CreateAppResult,
   CreateDeploymentRequest,
-  CreateDeploymentResult,
   CreateInstanceRequest,
-  CreateInstanceResult,
   CreateLayerRequest,
-  CreateLayerResult,
   CreateStackRequest,
-  CreateStackResult,
   CreateUserProfileRequest,
-  CreateUserProfileResult,
   DataSource,
   DeleteAppRequest,
   DeleteInstanceRequest,
   DeleteLayerRequest,
   DeleteStackRequest,
   DeleteUserProfileRequest,
-  Deployment,
   DeploymentCommand,
   DeregisterEcsClusterRequest,
   DeregisterElasticIpRequest,
@@ -210,104 +200,56 @@ import {
   DeregisterRdsDbInstanceRequest,
   DeregisterVolumeRequest,
   DescribeAgentVersionsRequest,
-  DescribeAgentVersionsResult,
   DescribeAppsRequest,
-  DescribeAppsResult,
   DescribeCommandsRequest,
-  DescribeCommandsResult,
   DescribeDeploymentsRequest,
-  DescribeDeploymentsResult,
   DescribeEcsClustersRequest,
-  DescribeEcsClustersResult,
   DescribeElasticIpsRequest,
-  DescribeElasticIpsResult,
   DescribeElasticLoadBalancersRequest,
-  DescribeElasticLoadBalancersResult,
   DescribeInstancesRequest,
-  DescribeInstancesResult,
   DescribeLayersRequest,
-  DescribeLayersResult,
   DescribeLoadBasedAutoScalingRequest,
   DescribeLoadBasedAutoScalingResult,
-  DescribeMyUserProfileResult,
-  DescribeOperatingSystemsResponse,
   DescribePermissionsRequest,
-  DescribePermissionsResult,
   DescribeRaidArraysRequest,
-  DescribeRaidArraysResult,
   DescribeRdsDbInstancesRequest,
-  DescribeRdsDbInstancesResult,
   DescribeServiceErrorsRequest,
-  DescribeServiceErrorsResult,
   DescribeStackProvisioningParametersRequest,
-  DescribeStackProvisioningParametersResult,
   DescribeStacksRequest,
-  DescribeStacksResult,
   DescribeStackSummaryRequest,
-  DescribeStackSummaryResult,
   DescribeTimeBasedAutoScalingRequest,
-  DescribeTimeBasedAutoScalingResult,
   DescribeUserProfilesRequest,
-  DescribeUserProfilesResult,
   DescribeVolumesRequest,
-  DescribeVolumesResult,
   DetachElasticLoadBalancerRequest,
   DisassociateElasticIpRequest,
   EbsBlockDevice,
-  EcsCluster,
-  ElasticIp,
-  ElasticLoadBalancer,
   EnvironmentVariable,
   GetHostnameSuggestionRequest,
-  GetHostnameSuggestionResult,
   GrantAccessRequest,
-  GrantAccessResult,
-  Instance,
   InstanceIdentity,
-  InstancesCount,
-  Layer,
-  LayerAttributesKeys,
   LifecycleEventConfiguration,
   ListTagsRequest,
-  ListTagsResult,
   LoadBasedAutoScalingConfiguration,
-  OperatingSystem,
-  OperatingSystemConfigurationManager,
-  Permission,
-  RaidArray,
-  RdsDbInstance,
   RebootInstanceRequest,
   Recipes,
   RegisterEcsClusterRequest,
-  RegisterEcsClusterResult,
   RegisterElasticIpRequest,
-  RegisterElasticIpResult,
   RegisterInstanceRequest,
-  RegisterInstanceResult,
   RegisterRdsDbInstanceRequest,
   RegisterVolumeRequest,
-  RegisterVolumeResult,
-  ReportedOs,
   ResourceNotFoundException,
-  SelfUserProfile,
-  ServiceError,
   SetLoadBasedAutoScalingRequest,
   SetPermissionRequest,
   SetTimeBasedAutoScalingRequest,
   ShutdownEventConfiguration,
   Source,
   SslConfiguration,
-  Stack,
-  StackAttributesKeys,
   StackConfigurationManager,
-  StackSummary,
   StartInstanceRequest,
   StartStackRequest,
   StopInstanceRequest,
   StopStackRequest,
   TagResourceRequest,
-  TemporaryCredential,
-  TimeBasedAutoScalingConfiguration,
   UnassignInstanceRequest,
   UnassignVolumeRequest,
   UntagResourceRequest,
@@ -320,9 +262,7 @@ import {
   UpdateStackRequest,
   UpdateUserProfileRequest,
   UpdateVolumeRequest,
-  UserProfile,
   ValidationException,
-  Volume,
   VolumeConfiguration,
   WeeklyAutoScalingSchedule,
 } from "../models/models_0";
@@ -337,7 +277,7 @@ export const se_AssignInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssignInstance");
   let body: any;
-  body = JSON.stringify(se_AssignInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -350,7 +290,7 @@ export const se_AssignVolumeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssignVolume");
   let body: any;
-  body = JSON.stringify(se_AssignVolumeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -363,7 +303,7 @@ export const se_AssociateElasticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateElasticIp");
   let body: any;
-  body = JSON.stringify(se_AssociateElasticIpRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -376,7 +316,7 @@ export const se_AttachElasticLoadBalancerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AttachElasticLoadBalancer");
   let body: any;
-  body = JSON.stringify(se_AttachElasticLoadBalancerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -389,7 +329,7 @@ export const se_CloneStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CloneStack");
   let body: any;
-  body = JSON.stringify(se_CloneStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -402,7 +342,7 @@ export const se_CreateAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateApp");
   let body: any;
-  body = JSON.stringify(se_CreateAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -415,7 +355,7 @@ export const se_CreateDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDeployment");
   let body: any;
-  body = JSON.stringify(se_CreateDeploymentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -428,7 +368,7 @@ export const se_CreateInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateInstance");
   let body: any;
-  body = JSON.stringify(se_CreateInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -441,7 +381,7 @@ export const se_CreateLayerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLayer");
   let body: any;
-  body = JSON.stringify(se_CreateLayerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -454,7 +394,7 @@ export const se_CreateStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateStack");
   let body: any;
-  body = JSON.stringify(se_CreateStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -467,7 +407,7 @@ export const se_CreateUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUserProfile");
   let body: any;
-  body = JSON.stringify(se_CreateUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -480,7 +420,7 @@ export const se_DeleteAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteApp");
   let body: any;
-  body = JSON.stringify(se_DeleteAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -493,7 +433,7 @@ export const se_DeleteInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteInstance");
   let body: any;
-  body = JSON.stringify(se_DeleteInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -506,7 +446,7 @@ export const se_DeleteLayerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLayer");
   let body: any;
-  body = JSON.stringify(se_DeleteLayerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -519,7 +459,7 @@ export const se_DeleteStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteStack");
   let body: any;
-  body = JSON.stringify(se_DeleteStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -532,7 +472,7 @@ export const se_DeleteUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUserProfile");
   let body: any;
-  body = JSON.stringify(se_DeleteUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -545,7 +485,7 @@ export const se_DeregisterEcsClusterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterEcsCluster");
   let body: any;
-  body = JSON.stringify(se_DeregisterEcsClusterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -558,7 +498,7 @@ export const se_DeregisterElasticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterElasticIp");
   let body: any;
-  body = JSON.stringify(se_DeregisterElasticIpRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -571,7 +511,7 @@ export const se_DeregisterInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterInstance");
   let body: any;
-  body = JSON.stringify(se_DeregisterInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -584,7 +524,7 @@ export const se_DeregisterRdsDbInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterRdsDbInstance");
   let body: any;
-  body = JSON.stringify(se_DeregisterRdsDbInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -597,7 +537,7 @@ export const se_DeregisterVolumeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterVolume");
   let body: any;
-  body = JSON.stringify(se_DeregisterVolumeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -610,7 +550,7 @@ export const se_DescribeAgentVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAgentVersions");
   let body: any;
-  body = JSON.stringify(se_DescribeAgentVersionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -623,7 +563,7 @@ export const se_DescribeAppsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeApps");
   let body: any;
-  body = JSON.stringify(se_DescribeAppsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -636,7 +576,7 @@ export const se_DescribeCommandsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCommands");
   let body: any;
-  body = JSON.stringify(se_DescribeCommandsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -649,7 +589,7 @@ export const se_DescribeDeploymentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDeployments");
   let body: any;
-  body = JSON.stringify(se_DescribeDeploymentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -662,7 +602,7 @@ export const se_DescribeEcsClustersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEcsClusters");
   let body: any;
-  body = JSON.stringify(se_DescribeEcsClustersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -675,7 +615,7 @@ export const se_DescribeElasticIpsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeElasticIps");
   let body: any;
-  body = JSON.stringify(se_DescribeElasticIpsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -688,7 +628,7 @@ export const se_DescribeElasticLoadBalancersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeElasticLoadBalancers");
   let body: any;
-  body = JSON.stringify(se_DescribeElasticLoadBalancersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -701,7 +641,7 @@ export const se_DescribeInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeInstances");
   let body: any;
-  body = JSON.stringify(se_DescribeInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -714,7 +654,7 @@ export const se_DescribeLayersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLayers");
   let body: any;
-  body = JSON.stringify(se_DescribeLayersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -727,7 +667,7 @@ export const se_DescribeLoadBasedAutoScalingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLoadBasedAutoScaling");
   let body: any;
-  body = JSON.stringify(se_DescribeLoadBasedAutoScalingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -764,7 +704,7 @@ export const se_DescribePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePermissions");
   let body: any;
-  body = JSON.stringify(se_DescribePermissionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -777,7 +717,7 @@ export const se_DescribeRaidArraysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRaidArrays");
   let body: any;
-  body = JSON.stringify(se_DescribeRaidArraysRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -790,7 +730,7 @@ export const se_DescribeRdsDbInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRdsDbInstances");
   let body: any;
-  body = JSON.stringify(se_DescribeRdsDbInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -803,7 +743,7 @@ export const se_DescribeServiceErrorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeServiceErrors");
   let body: any;
-  body = JSON.stringify(se_DescribeServiceErrorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -816,7 +756,7 @@ export const se_DescribeStackProvisioningParametersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStackProvisioningParameters");
   let body: any;
-  body = JSON.stringify(se_DescribeStackProvisioningParametersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -829,7 +769,7 @@ export const se_DescribeStacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStacks");
   let body: any;
-  body = JSON.stringify(se_DescribeStacksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -842,7 +782,7 @@ export const se_DescribeStackSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStackSummary");
   let body: any;
-  body = JSON.stringify(se_DescribeStackSummaryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -855,7 +795,7 @@ export const se_DescribeTimeBasedAutoScalingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTimeBasedAutoScaling");
   let body: any;
-  body = JSON.stringify(se_DescribeTimeBasedAutoScalingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -868,7 +808,7 @@ export const se_DescribeUserProfilesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeUserProfiles");
   let body: any;
-  body = JSON.stringify(se_DescribeUserProfilesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -881,7 +821,7 @@ export const se_DescribeVolumesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeVolumes");
   let body: any;
-  body = JSON.stringify(se_DescribeVolumesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -894,7 +834,7 @@ export const se_DetachElasticLoadBalancerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetachElasticLoadBalancer");
   let body: any;
-  body = JSON.stringify(se_DetachElasticLoadBalancerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -907,7 +847,7 @@ export const se_DisassociateElasticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateElasticIp");
   let body: any;
-  body = JSON.stringify(se_DisassociateElasticIpRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -920,7 +860,7 @@ export const se_GetHostnameSuggestionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetHostnameSuggestion");
   let body: any;
-  body = JSON.stringify(se_GetHostnameSuggestionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -933,7 +873,7 @@ export const se_GrantAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GrantAccess");
   let body: any;
-  body = JSON.stringify(se_GrantAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -946,7 +886,7 @@ export const se_ListTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTags");
   let body: any;
-  body = JSON.stringify(se_ListTagsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -959,7 +899,7 @@ export const se_RebootInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RebootInstance");
   let body: any;
-  body = JSON.stringify(se_RebootInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -972,7 +912,7 @@ export const se_RegisterEcsClusterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterEcsCluster");
   let body: any;
-  body = JSON.stringify(se_RegisterEcsClusterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -985,7 +925,7 @@ export const se_RegisterElasticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterElasticIp");
   let body: any;
-  body = JSON.stringify(se_RegisterElasticIpRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -998,7 +938,7 @@ export const se_RegisterInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterInstance");
   let body: any;
-  body = JSON.stringify(se_RegisterInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1011,7 +951,7 @@ export const se_RegisterRdsDbInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterRdsDbInstance");
   let body: any;
-  body = JSON.stringify(se_RegisterRdsDbInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1024,7 +964,7 @@ export const se_RegisterVolumeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterVolume");
   let body: any;
-  body = JSON.stringify(se_RegisterVolumeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1050,7 +990,7 @@ export const se_SetPermissionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetPermission");
   let body: any;
-  body = JSON.stringify(se_SetPermissionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1063,7 +1003,7 @@ export const se_SetTimeBasedAutoScalingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetTimeBasedAutoScaling");
   let body: any;
-  body = JSON.stringify(se_SetTimeBasedAutoScalingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1076,7 +1016,7 @@ export const se_StartInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartInstance");
   let body: any;
-  body = JSON.stringify(se_StartInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1089,7 +1029,7 @@ export const se_StartStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartStack");
   let body: any;
-  body = JSON.stringify(se_StartStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1102,7 +1042,7 @@ export const se_StopInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopInstance");
   let body: any;
-  body = JSON.stringify(se_StopInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1115,7 +1055,7 @@ export const se_StopStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopStack");
   let body: any;
-  body = JSON.stringify(se_StopStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1128,7 +1068,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1141,7 +1081,7 @@ export const se_UnassignInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UnassignInstance");
   let body: any;
-  body = JSON.stringify(se_UnassignInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1154,7 +1094,7 @@ export const se_UnassignVolumeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UnassignVolume");
   let body: any;
-  body = JSON.stringify(se_UnassignVolumeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1167,7 +1107,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1180,7 +1120,7 @@ export const se_UpdateAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateApp");
   let body: any;
-  body = JSON.stringify(se_UpdateAppRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1193,7 +1133,7 @@ export const se_UpdateElasticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateElasticIp");
   let body: any;
-  body = JSON.stringify(se_UpdateElasticIpRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1206,7 +1146,7 @@ export const se_UpdateInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateInstance");
   let body: any;
-  body = JSON.stringify(se_UpdateInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1219,7 +1159,7 @@ export const se_UpdateLayerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateLayer");
   let body: any;
-  body = JSON.stringify(se_UpdateLayerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1232,7 +1172,7 @@ export const se_UpdateMyUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateMyUserProfile");
   let body: any;
-  body = JSON.stringify(se_UpdateMyUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1245,7 +1185,7 @@ export const se_UpdateRdsDbInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRdsDbInstance");
   let body: any;
-  body = JSON.stringify(se_UpdateRdsDbInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1258,7 +1198,7 @@ export const se_UpdateStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateStack");
   let body: any;
-  body = JSON.stringify(se_UpdateStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1271,7 +1211,7 @@ export const se_UpdateUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateUserProfile");
   let body: any;
-  body = JSON.stringify(se_UpdateUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1284,7 +1224,7 @@ export const se_UpdateVolumeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateVolume");
   let body: any;
-  body = JSON.stringify(se_UpdateVolumeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1302,7 +1242,7 @@ export const de_AssignInstanceCommand = async (
   const response: AssignInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1326,10 +1266,9 @@ const de_AssignInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1349,7 +1288,7 @@ export const de_AssignVolumeCommand = async (
   const response: AssignVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1373,10 +1312,9 @@ const de_AssignVolumeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1396,7 +1334,7 @@ export const de_AssociateElasticIpCommand = async (
   const response: AssociateElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1420,10 +1358,9 @@ const de_AssociateElasticIpCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1443,7 +1380,7 @@ export const de_AttachElasticLoadBalancerCommand = async (
   const response: AttachElasticLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1467,10 +1404,9 @@ const de_AttachElasticLoadBalancerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1488,12 +1424,12 @@ export const de_CloneStackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CloneStackResult(data, context);
+  contents = _json(data);
   const response: CloneStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1517,10 +1453,9 @@ const de_CloneStackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1538,12 +1473,12 @@ export const de_CreateAppCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAppResult(data, context);
+  contents = _json(data);
   const response: CreateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1567,10 +1502,9 @@ const de_CreateAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1588,12 +1522,12 @@ export const de_CreateDeploymentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDeploymentResult(data, context);
+  contents = _json(data);
   const response: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1617,10 +1551,9 @@ const de_CreateDeploymentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1638,12 +1571,12 @@ export const de_CreateInstanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateInstanceResult(data, context);
+  contents = _json(data);
   const response: CreateInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1667,10 +1600,9 @@ const de_CreateInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1688,12 +1620,12 @@ export const de_CreateLayerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLayerResult(data, context);
+  contents = _json(data);
   const response: CreateLayerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1717,10 +1649,9 @@ const de_CreateLayerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1738,12 +1669,12 @@ export const de_CreateStackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateStackResult(data, context);
+  contents = _json(data);
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1764,10 +1695,9 @@ const de_CreateStackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1785,12 +1715,12 @@ export const de_CreateUserProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateUserProfileResult(data, context);
+  contents = _json(data);
   const response: CreateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1811,10 +1741,9 @@ const de_CreateUserProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1834,7 +1763,7 @@ export const de_DeleteAppCommand = async (
   const response: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1858,10 +1787,9 @@ const de_DeleteAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1881,7 +1809,7 @@ export const de_DeleteInstanceCommand = async (
   const response: DeleteInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1905,10 +1833,9 @@ const de_DeleteInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1928,7 +1855,7 @@ export const de_DeleteLayerCommand = async (
   const response: DeleteLayerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1952,10 +1879,9 @@ const de_DeleteLayerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1975,7 +1901,7 @@ export const de_DeleteStackCommand = async (
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1999,10 +1925,9 @@ const de_DeleteStackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2022,7 +1947,7 @@ export const de_DeleteUserProfileCommand = async (
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2046,10 +1971,9 @@ const de_DeleteUserProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2069,7 +1993,7 @@ export const de_DeregisterEcsClusterCommand = async (
   const response: DeregisterEcsClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2093,10 +2017,9 @@ const de_DeregisterEcsClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2116,7 +2039,7 @@ export const de_DeregisterElasticIpCommand = async (
   const response: DeregisterElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2140,10 +2063,9 @@ const de_DeregisterElasticIpCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2163,7 +2085,7 @@ export const de_DeregisterInstanceCommand = async (
   const response: DeregisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2187,10 +2109,9 @@ const de_DeregisterInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2210,7 +2131,7 @@ export const de_DeregisterRdsDbInstanceCommand = async (
   const response: DeregisterRdsDbInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2234,10 +2155,9 @@ const de_DeregisterRdsDbInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2257,7 +2177,7 @@ export const de_DeregisterVolumeCommand = async (
   const response: DeregisterVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2281,10 +2201,9 @@ const de_DeregisterVolumeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2302,12 +2221,12 @@ export const de_DescribeAgentVersionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAgentVersionsResult(data, context);
+  contents = _json(data);
   const response: DescribeAgentVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2331,10 +2250,9 @@ const de_DescribeAgentVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2352,12 +2270,12 @@ export const de_DescribeAppsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAppsResult(data, context);
+  contents = _json(data);
   const response: DescribeAppsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2381,10 +2299,9 @@ const de_DescribeAppsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2402,12 +2319,12 @@ export const de_DescribeCommandsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeCommandsResult(data, context);
+  contents = _json(data);
   const response: DescribeCommandsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2431,10 +2348,9 @@ const de_DescribeCommandsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2452,12 +2368,12 @@ export const de_DescribeDeploymentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeDeploymentsResult(data, context);
+  contents = _json(data);
   const response: DescribeDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2481,10 +2397,9 @@ const de_DescribeDeploymentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2502,12 +2417,12 @@ export const de_DescribeEcsClustersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeEcsClustersResult(data, context);
+  contents = _json(data);
   const response: DescribeEcsClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2531,10 +2446,9 @@ const de_DescribeEcsClustersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2552,12 +2466,12 @@ export const de_DescribeElasticIpsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeElasticIpsResult(data, context);
+  contents = _json(data);
   const response: DescribeElasticIpsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2581,10 +2495,9 @@ const de_DescribeElasticIpsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2602,12 +2515,12 @@ export const de_DescribeElasticLoadBalancersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeElasticLoadBalancersResult(data, context);
+  contents = _json(data);
   const response: DescribeElasticLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2631,10 +2544,9 @@ const de_DescribeElasticLoadBalancersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2652,12 +2564,12 @@ export const de_DescribeInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeInstancesResult(data, context);
+  contents = _json(data);
   const response: DescribeInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2681,10 +2593,9 @@ const de_DescribeInstancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2702,12 +2613,12 @@ export const de_DescribeLayersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeLayersResult(data, context);
+  contents = _json(data);
   const response: DescribeLayersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2731,10 +2642,9 @@ const de_DescribeLayersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2757,7 +2667,7 @@ export const de_DescribeLoadBasedAutoScalingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2781,10 +2691,9 @@ const de_DescribeLoadBasedAutoScalingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2802,12 +2711,12 @@ export const de_DescribeMyUserProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeMyUserProfileResult(data, context);
+  contents = _json(data);
   const response: DescribeMyUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2823,10 +2732,9 @@ const de_DescribeMyUserProfileCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2843,12 +2751,12 @@ export const de_DescribeOperatingSystemsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeOperatingSystemsResponse(data, context);
+  contents = _json(data);
   const response: DescribeOperatingSystemsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2864,10 +2772,9 @@ const de_DescribeOperatingSystemsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2884,12 +2791,12 @@ export const de_DescribePermissionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribePermissionsResult(data, context);
+  contents = _json(data);
   const response: DescribePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2913,10 +2820,9 @@ const de_DescribePermissionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2934,12 +2840,12 @@ export const de_DescribeRaidArraysCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeRaidArraysResult(data, context);
+  contents = _json(data);
   const response: DescribeRaidArraysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2963,10 +2869,9 @@ const de_DescribeRaidArraysCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2984,12 +2889,12 @@ export const de_DescribeRdsDbInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeRdsDbInstancesResult(data, context);
+  contents = _json(data);
   const response: DescribeRdsDbInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3013,10 +2918,9 @@ const de_DescribeRdsDbInstancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3034,12 +2938,12 @@ export const de_DescribeServiceErrorsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeServiceErrorsResult(data, context);
+  contents = _json(data);
   const response: DescribeServiceErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3063,10 +2967,9 @@ const de_DescribeServiceErrorsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3084,12 +2987,12 @@ export const de_DescribeStackProvisioningParametersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeStackProvisioningParametersResult(data, context);
+  contents = _json(data);
   const response: DescribeStackProvisioningParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3113,10 +3016,9 @@ const de_DescribeStackProvisioningParametersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3134,12 +3036,12 @@ export const de_DescribeStacksCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeStacksResult(data, context);
+  contents = _json(data);
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3163,10 +3065,9 @@ const de_DescribeStacksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3184,12 +3085,12 @@ export const de_DescribeStackSummaryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeStackSummaryResult(data, context);
+  contents = _json(data);
   const response: DescribeStackSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3213,10 +3114,9 @@ const de_DescribeStackSummaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3234,12 +3134,12 @@ export const de_DescribeTimeBasedAutoScalingCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeTimeBasedAutoScalingResult(data, context);
+  contents = _json(data);
   const response: DescribeTimeBasedAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3263,10 +3163,9 @@ const de_DescribeTimeBasedAutoScalingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3284,12 +3183,12 @@ export const de_DescribeUserProfilesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeUserProfilesResult(data, context);
+  contents = _json(data);
   const response: DescribeUserProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3313,10 +3212,9 @@ const de_DescribeUserProfilesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3334,12 +3232,12 @@ export const de_DescribeVolumesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeVolumesResult(data, context);
+  contents = _json(data);
   const response: DescribeVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3363,10 +3261,9 @@ const de_DescribeVolumesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3386,7 +3283,7 @@ export const de_DetachElasticLoadBalancerCommand = async (
   const response: DetachElasticLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3407,10 +3304,9 @@ const de_DetachElasticLoadBalancerCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3430,7 +3326,7 @@ export const de_DisassociateElasticIpCommand = async (
   const response: DisassociateElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3454,10 +3350,9 @@ const de_DisassociateElasticIpCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3475,12 +3370,12 @@ export const de_GetHostnameSuggestionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetHostnameSuggestionResult(data, context);
+  contents = _json(data);
   const response: GetHostnameSuggestionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3504,10 +3399,9 @@ const de_GetHostnameSuggestionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3525,12 +3419,12 @@ export const de_GrantAccessCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GrantAccessResult(data, context);
+  contents = _json(data);
   const response: GrantAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3554,10 +3448,9 @@ const de_GrantAccessCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3575,12 +3468,12 @@ export const de_ListTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsResult(data, context);
+  contents = _json(data);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3604,10 +3497,9 @@ const de_ListTagsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3627,7 +3519,7 @@ export const de_RebootInstanceCommand = async (
   const response: RebootInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3651,10 +3543,9 @@ const de_RebootInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3672,12 +3563,12 @@ export const de_RegisterEcsClusterCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RegisterEcsClusterResult(data, context);
+  contents = _json(data);
   const response: RegisterEcsClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3701,10 +3592,9 @@ const de_RegisterEcsClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3722,12 +3612,12 @@ export const de_RegisterElasticIpCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RegisterElasticIpResult(data, context);
+  contents = _json(data);
   const response: RegisterElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3751,10 +3641,9 @@ const de_RegisterElasticIpCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3772,12 +3661,12 @@ export const de_RegisterInstanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RegisterInstanceResult(data, context);
+  contents = _json(data);
   const response: RegisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3801,10 +3690,9 @@ const de_RegisterInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3824,7 +3712,7 @@ export const de_RegisterRdsDbInstanceCommand = async (
   const response: RegisterRdsDbInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3848,10 +3736,9 @@ const de_RegisterRdsDbInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3869,12 +3756,12 @@ export const de_RegisterVolumeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RegisterVolumeResult(data, context);
+  contents = _json(data);
   const response: RegisterVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3898,10 +3785,9 @@ const de_RegisterVolumeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3921,7 +3807,7 @@ export const de_SetLoadBasedAutoScalingCommand = async (
   const response: SetLoadBasedAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3945,10 +3831,9 @@ const de_SetLoadBasedAutoScalingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3968,7 +3853,7 @@ export const de_SetPermissionCommand = async (
   const response: SetPermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3992,10 +3877,9 @@ const de_SetPermissionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4015,7 +3899,7 @@ export const de_SetTimeBasedAutoScalingCommand = async (
   const response: SetTimeBasedAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4039,10 +3923,9 @@ const de_SetTimeBasedAutoScalingCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4062,7 +3945,7 @@ export const de_StartInstanceCommand = async (
   const response: StartInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4086,10 +3969,9 @@ const de_StartInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4109,7 +3991,7 @@ export const de_StartStackCommand = async (
   const response: StartStackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4133,10 +4015,9 @@ const de_StartStackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4156,7 +4037,7 @@ export const de_StopInstanceCommand = async (
   const response: StopInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4180,10 +4061,9 @@ const de_StopInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4203,7 +4083,7 @@ export const de_StopStackCommand = async (
   const response: StopStackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4227,10 +4107,9 @@ const de_StopStackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4250,7 +4129,7 @@ export const de_TagResourceCommand = async (
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4274,10 +4153,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4297,7 +4175,7 @@ export const de_UnassignInstanceCommand = async (
   const response: UnassignInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4321,10 +4199,9 @@ const de_UnassignInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4344,7 +4221,7 @@ export const de_UnassignVolumeCommand = async (
   const response: UnassignVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4368,10 +4245,9 @@ const de_UnassignVolumeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4391,7 +4267,7 @@ export const de_UntagResourceCommand = async (
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4415,10 +4291,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4438,7 +4313,7 @@ export const de_UpdateAppCommand = async (
   const response: UpdateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4462,10 +4337,9 @@ const de_UpdateAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4485,7 +4359,7 @@ export const de_UpdateElasticIpCommand = async (
   const response: UpdateElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4509,10 +4383,9 @@ const de_UpdateElasticIpCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4532,7 +4405,7 @@ export const de_UpdateInstanceCommand = async (
   const response: UpdateInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4556,10 +4429,9 @@ const de_UpdateInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4579,7 +4451,7 @@ export const de_UpdateLayerCommand = async (
   const response: UpdateLayerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4603,10 +4475,9 @@ const de_UpdateLayerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4626,7 +4497,7 @@ export const de_UpdateMyUserProfileCommand = async (
   const response: UpdateMyUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4647,10 +4518,9 @@ const de_UpdateMyUserProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4670,7 +4540,7 @@ export const de_UpdateRdsDbInstanceCommand = async (
   const response: UpdateRdsDbInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4694,10 +4564,9 @@ const de_UpdateRdsDbInstanceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4717,7 +4586,7 @@ export const de_UpdateStackCommand = async (
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4741,10 +4610,9 @@ const de_UpdateStackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4764,7 +4632,7 @@ export const de_UpdateUserProfileCommand = async (
   const response: UpdateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4788,10 +4656,9 @@ const de_UpdateUserProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4811,7 +4678,7 @@ export const de_UpdateVolumeCommand = async (
   const response: UpdateVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4835,10 +4702,9 @@ const de_UpdateVolumeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4852,7 +4718,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4865,7 +4731,7 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4873,1749 +4739,321 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AppAttributes
- */
-const se_AppAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [AppAttributesKeys | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_AppAttributes omitted.
 
-/**
- * serializeAws_json1_1AssignInstanceRequest
- */
-const se_AssignInstanceRequest = (input: AssignInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.LayerIds != null && { LayerIds: se_Strings(input.LayerIds, context) }),
-  };
-};
+// se_AssignInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1AssignVolumeRequest
- */
-const se_AssignVolumeRequest = (input: AssignVolumeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
-  };
-};
+// se_AssignVolumeRequest omitted.
 
-/**
- * serializeAws_json1_1AssociateElasticIpRequest
- */
-const se_AssociateElasticIpRequest = (input: AssociateElasticIpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ElasticIp != null && { ElasticIp: input.ElasticIp }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_AssociateElasticIpRequest omitted.
 
-/**
- * serializeAws_json1_1AttachElasticLoadBalancerRequest
- */
-const se_AttachElasticLoadBalancerRequest = (input: AttachElasticLoadBalancerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ElasticLoadBalancerName != null && { ElasticLoadBalancerName: input.ElasticLoadBalancerName }),
-    ...(input.LayerId != null && { LayerId: input.LayerId }),
-  };
-};
+// se_AttachElasticLoadBalancerRequest omitted.
 
 /**
  * serializeAws_json1_1AutoScalingThresholds
  */
 const se_AutoScalingThresholds = (input: AutoScalingThresholds, context: __SerdeContext): any => {
-  return {
-    ...(input.Alarms != null && { Alarms: se_Strings(input.Alarms, context) }),
-    ...(input.CpuThreshold != null && { CpuThreshold: __serializeFloat(input.CpuThreshold) }),
-    ...(input.IgnoreMetricsTime != null && { IgnoreMetricsTime: input.IgnoreMetricsTime }),
-    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
-    ...(input.LoadThreshold != null && { LoadThreshold: __serializeFloat(input.LoadThreshold) }),
-    ...(input.MemoryThreshold != null && { MemoryThreshold: __serializeFloat(input.MemoryThreshold) }),
-    ...(input.ThresholdsWaitTime != null && { ThresholdsWaitTime: input.ThresholdsWaitTime }),
-  };
+  return take(input, {
+    Alarms: (_) => _json(_),
+    CpuThreshold: (_) => __serializeFloat(_),
+    IgnoreMetricsTime: [],
+    InstanceCount: [],
+    LoadThreshold: (_) => __serializeFloat(_),
+    MemoryThreshold: (_) => __serializeFloat(_),
+    ThresholdsWaitTime: [],
+  });
 };
 
-/**
- * serializeAws_json1_1BlockDeviceMapping
- */
-const se_BlockDeviceMapping = (input: BlockDeviceMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-    ...(input.Ebs != null && { Ebs: se_EbsBlockDevice(input.Ebs, context) }),
-    ...(input.NoDevice != null && { NoDevice: input.NoDevice }),
-    ...(input.VirtualName != null && { VirtualName: input.VirtualName }),
-  };
-};
+// se_BlockDeviceMapping omitted.
 
-/**
- * serializeAws_json1_1BlockDeviceMappings
- */
-const se_BlockDeviceMappings = (input: BlockDeviceMapping[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_BlockDeviceMapping(entry, context);
-    });
-};
+// se_BlockDeviceMappings omitted.
 
-/**
- * serializeAws_json1_1ChefConfiguration
- */
-const se_ChefConfiguration = (input: ChefConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.BerkshelfVersion != null && { BerkshelfVersion: input.BerkshelfVersion }),
-    ...(input.ManageBerkshelf != null && { ManageBerkshelf: input.ManageBerkshelf }),
-  };
-};
+// se_ChefConfiguration omitted.
 
-/**
- * serializeAws_json1_1CloneStackRequest
- */
-const se_CloneStackRequest = (input: CloneStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
-    ...(input.Attributes != null && { Attributes: se_StackAttributes(input.Attributes, context) }),
-    ...(input.ChefConfiguration != null && {
-      ChefConfiguration: se_ChefConfiguration(input.ChefConfiguration, context),
-    }),
-    ...(input.CloneAppIds != null && { CloneAppIds: se_Strings(input.CloneAppIds, context) }),
-    ...(input.ClonePermissions != null && { ClonePermissions: input.ClonePermissions }),
-    ...(input.ConfigurationManager != null && {
-      ConfigurationManager: se_StackConfigurationManager(input.ConfigurationManager, context),
-    }),
-    ...(input.CustomCookbooksSource != null && {
-      CustomCookbooksSource: se_Source(input.CustomCookbooksSource, context),
-    }),
-    ...(input.CustomJson != null && { CustomJson: input.CustomJson }),
-    ...(input.DefaultAvailabilityZone != null && { DefaultAvailabilityZone: input.DefaultAvailabilityZone }),
-    ...(input.DefaultInstanceProfileArn != null && { DefaultInstanceProfileArn: input.DefaultInstanceProfileArn }),
-    ...(input.DefaultOs != null && { DefaultOs: input.DefaultOs }),
-    ...(input.DefaultRootDeviceType != null && { DefaultRootDeviceType: input.DefaultRootDeviceType }),
-    ...(input.DefaultSshKeyName != null && { DefaultSshKeyName: input.DefaultSshKeyName }),
-    ...(input.DefaultSubnetId != null && { DefaultSubnetId: input.DefaultSubnetId }),
-    ...(input.HostnameTheme != null && { HostnameTheme: input.HostnameTheme }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.ServiceRoleArn != null && { ServiceRoleArn: input.ServiceRoleArn }),
-    ...(input.SourceStackId != null && { SourceStackId: input.SourceStackId }),
-    ...(input.UseCustomCookbooks != null && { UseCustomCookbooks: input.UseCustomCookbooks }),
-    ...(input.UseOpsworksSecurityGroups != null && { UseOpsworksSecurityGroups: input.UseOpsworksSecurityGroups }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  };
-};
+// se_CloneStackRequest omitted.
 
-/**
- * serializeAws_json1_1CloudWatchLogsConfiguration
- */
-const se_CloudWatchLogsConfiguration = (input: CloudWatchLogsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.LogStreams != null && { LogStreams: se_CloudWatchLogsLogStreams(input.LogStreams, context) }),
-  };
-};
+// se_CloudWatchLogsConfiguration omitted.
 
-/**
- * serializeAws_json1_1CloudWatchLogsLogStream
- */
-const se_CloudWatchLogsLogStream = (input: CloudWatchLogsLogStream, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchCount != null && { BatchCount: input.BatchCount }),
-    ...(input.BatchSize != null && { BatchSize: input.BatchSize }),
-    ...(input.BufferDuration != null && { BufferDuration: input.BufferDuration }),
-    ...(input.DatetimeFormat != null && { DatetimeFormat: input.DatetimeFormat }),
-    ...(input.Encoding != null && { Encoding: input.Encoding }),
-    ...(input.File != null && { File: input.File }),
-    ...(input.FileFingerprintLines != null && { FileFingerprintLines: input.FileFingerprintLines }),
-    ...(input.InitialPosition != null && { InitialPosition: input.InitialPosition }),
-    ...(input.LogGroupName != null && { LogGroupName: input.LogGroupName }),
-    ...(input.MultiLineStartPattern != null && { MultiLineStartPattern: input.MultiLineStartPattern }),
-    ...(input.TimeZone != null && { TimeZone: input.TimeZone }),
-  };
-};
+// se_CloudWatchLogsLogStream omitted.
 
-/**
- * serializeAws_json1_1CloudWatchLogsLogStreams
- */
-const se_CloudWatchLogsLogStreams = (input: CloudWatchLogsLogStream[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CloudWatchLogsLogStream(entry, context);
-    });
-};
+// se_CloudWatchLogsLogStreams omitted.
 
-/**
- * serializeAws_json1_1CreateAppRequest
- */
-const se_CreateAppRequest = (input: CreateAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AppSource != null && { AppSource: se_Source(input.AppSource, context) }),
-    ...(input.Attributes != null && { Attributes: se_AppAttributes(input.Attributes, context) }),
-    ...(input.DataSources != null && { DataSources: se_DataSources(input.DataSources, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Domains != null && { Domains: se_Strings(input.Domains, context) }),
-    ...(input.EnableSsl != null && { EnableSsl: input.EnableSsl }),
-    ...(input.Environment != null && { Environment: se_EnvironmentVariables(input.Environment, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Shortname != null && { Shortname: input.Shortname }),
-    ...(input.SslConfiguration != null && { SslConfiguration: se_SslConfiguration(input.SslConfiguration, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_CreateAppRequest omitted.
 
-/**
- * serializeAws_json1_1CreateDeploymentRequest
- */
-const se_CreateDeploymentRequest = (input: CreateDeploymentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AppId != null && { AppId: input.AppId }),
-    ...(input.Command != null && { Command: se_DeploymentCommand(input.Command, context) }),
-    ...(input.Comment != null && { Comment: input.Comment }),
-    ...(input.CustomJson != null && { CustomJson: input.CustomJson }),
-    ...(input.InstanceIds != null && { InstanceIds: se_Strings(input.InstanceIds, context) }),
-    ...(input.LayerIds != null && { LayerIds: se_Strings(input.LayerIds, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_CreateDeploymentRequest omitted.
 
-/**
- * serializeAws_json1_1CreateInstanceRequest
- */
-const se_CreateInstanceRequest = (input: CreateInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
-    ...(input.AmiId != null && { AmiId: input.AmiId }),
-    ...(input.Architecture != null && { Architecture: input.Architecture }),
-    ...(input.AutoScalingType != null && { AutoScalingType: input.AutoScalingType }),
-    ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.BlockDeviceMappings != null && {
-      BlockDeviceMappings: se_BlockDeviceMappings(input.BlockDeviceMappings, context),
-    }),
-    ...(input.EbsOptimized != null && { EbsOptimized: input.EbsOptimized }),
-    ...(input.Hostname != null && { Hostname: input.Hostname }),
-    ...(input.InstallUpdatesOnBoot != null && { InstallUpdatesOnBoot: input.InstallUpdatesOnBoot }),
-    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
-    ...(input.LayerIds != null && { LayerIds: se_Strings(input.LayerIds, context) }),
-    ...(input.Os != null && { Os: input.Os }),
-    ...(input.RootDeviceType != null && { RootDeviceType: input.RootDeviceType }),
-    ...(input.SshKeyName != null && { SshKeyName: input.SshKeyName }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
-    ...(input.Tenancy != null && { Tenancy: input.Tenancy }),
-    ...(input.VirtualizationType != null && { VirtualizationType: input.VirtualizationType }),
-  };
-};
+// se_CreateInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1CreateLayerRequest
- */
-const se_CreateLayerRequest = (input: CreateLayerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_LayerAttributes(input.Attributes, context) }),
-    ...(input.AutoAssignElasticIps != null && { AutoAssignElasticIps: input.AutoAssignElasticIps }),
-    ...(input.AutoAssignPublicIps != null && { AutoAssignPublicIps: input.AutoAssignPublicIps }),
-    ...(input.CloudWatchLogsConfiguration != null && {
-      CloudWatchLogsConfiguration: se_CloudWatchLogsConfiguration(input.CloudWatchLogsConfiguration, context),
-    }),
-    ...(input.CustomInstanceProfileArn != null && { CustomInstanceProfileArn: input.CustomInstanceProfileArn }),
-    ...(input.CustomJson != null && { CustomJson: input.CustomJson }),
-    ...(input.CustomRecipes != null && { CustomRecipes: se_Recipes(input.CustomRecipes, context) }),
-    ...(input.CustomSecurityGroupIds != null && {
-      CustomSecurityGroupIds: se_Strings(input.CustomSecurityGroupIds, context),
-    }),
-    ...(input.EnableAutoHealing != null && { EnableAutoHealing: input.EnableAutoHealing }),
-    ...(input.InstallUpdatesOnBoot != null && { InstallUpdatesOnBoot: input.InstallUpdatesOnBoot }),
-    ...(input.LifecycleEventConfiguration != null && {
-      LifecycleEventConfiguration: se_LifecycleEventConfiguration(input.LifecycleEventConfiguration, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Packages != null && { Packages: se_Strings(input.Packages, context) }),
-    ...(input.Shortname != null && { Shortname: input.Shortname }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.UseEbsOptimizedInstances != null && { UseEbsOptimizedInstances: input.UseEbsOptimizedInstances }),
-    ...(input.VolumeConfigurations != null && {
-      VolumeConfigurations: se_VolumeConfigurations(input.VolumeConfigurations, context),
-    }),
-  };
-};
+// se_CreateLayerRequest omitted.
 
-/**
- * serializeAws_json1_1CreateStackRequest
- */
-const se_CreateStackRequest = (input: CreateStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
-    ...(input.Attributes != null && { Attributes: se_StackAttributes(input.Attributes, context) }),
-    ...(input.ChefConfiguration != null && {
-      ChefConfiguration: se_ChefConfiguration(input.ChefConfiguration, context),
-    }),
-    ...(input.ConfigurationManager != null && {
-      ConfigurationManager: se_StackConfigurationManager(input.ConfigurationManager, context),
-    }),
-    ...(input.CustomCookbooksSource != null && {
-      CustomCookbooksSource: se_Source(input.CustomCookbooksSource, context),
-    }),
-    ...(input.CustomJson != null && { CustomJson: input.CustomJson }),
-    ...(input.DefaultAvailabilityZone != null && { DefaultAvailabilityZone: input.DefaultAvailabilityZone }),
-    ...(input.DefaultInstanceProfileArn != null && { DefaultInstanceProfileArn: input.DefaultInstanceProfileArn }),
-    ...(input.DefaultOs != null && { DefaultOs: input.DefaultOs }),
-    ...(input.DefaultRootDeviceType != null && { DefaultRootDeviceType: input.DefaultRootDeviceType }),
-    ...(input.DefaultSshKeyName != null && { DefaultSshKeyName: input.DefaultSshKeyName }),
-    ...(input.DefaultSubnetId != null && { DefaultSubnetId: input.DefaultSubnetId }),
-    ...(input.HostnameTheme != null && { HostnameTheme: input.HostnameTheme }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.ServiceRoleArn != null && { ServiceRoleArn: input.ServiceRoleArn }),
-    ...(input.UseCustomCookbooks != null && { UseCustomCookbooks: input.UseCustomCookbooks }),
-    ...(input.UseOpsworksSecurityGroups != null && { UseOpsworksSecurityGroups: input.UseOpsworksSecurityGroups }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  };
-};
+// se_CreateStackRequest omitted.
 
-/**
- * serializeAws_json1_1CreateUserProfileRequest
- */
-const se_CreateUserProfileRequest = (input: CreateUserProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowSelfManagement != null && { AllowSelfManagement: input.AllowSelfManagement }),
-    ...(input.IamUserArn != null && { IamUserArn: input.IamUserArn }),
-    ...(input.SshPublicKey != null && { SshPublicKey: input.SshPublicKey }),
-    ...(input.SshUsername != null && { SshUsername: input.SshUsername }),
-  };
-};
+// se_CreateUserProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DailyAutoScalingSchedule
- */
-const se_DailyAutoScalingSchedule = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_DailyAutoScalingSchedule omitted.
 
-/**
- * serializeAws_json1_1DataSource
- */
-const se_DataSource = (input: DataSource, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DataSource omitted.
 
-/**
- * serializeAws_json1_1DataSources
- */
-const se_DataSources = (input: DataSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DataSource(entry, context);
-    });
-};
+// se_DataSources omitted.
 
-/**
- * serializeAws_json1_1DeleteAppRequest
- */
-const se_DeleteAppRequest = (input: DeleteAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AppId != null && { AppId: input.AppId }),
-  };
-};
+// se_DeleteAppRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteInstanceRequest
- */
-const se_DeleteInstanceRequest = (input: DeleteInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeleteElasticIp != null && { DeleteElasticIp: input.DeleteElasticIp }),
-    ...(input.DeleteVolumes != null && { DeleteVolumes: input.DeleteVolumes }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_DeleteInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteLayerRequest
- */
-const se_DeleteLayerRequest = (input: DeleteLayerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LayerId != null && { LayerId: input.LayerId }),
-  };
-};
+// se_DeleteLayerRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteStackRequest
- */
-const se_DeleteStackRequest = (input: DeleteStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DeleteStackRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteUserProfileRequest
- */
-const se_DeleteUserProfileRequest = (input: DeleteUserProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IamUserArn != null && { IamUserArn: input.IamUserArn }),
-  };
-};
+// se_DeleteUserProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DeploymentCommand
- */
-const se_DeploymentCommand = (input: DeploymentCommand, context: __SerdeContext): any => {
-  return {
-    ...(input.Args != null && { Args: se_DeploymentCommandArgs(input.Args, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeploymentCommand omitted.
 
-/**
- * serializeAws_json1_1DeploymentCommandArgs
- */
-const se_DeploymentCommandArgs = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_Strings(value, context);
-    return acc;
-  }, {});
-};
+// se_DeploymentCommandArgs omitted.
 
-/**
- * serializeAws_json1_1DeregisterEcsClusterRequest
- */
-const se_DeregisterEcsClusterRequest = (input: DeregisterEcsClusterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EcsClusterArn != null && { EcsClusterArn: input.EcsClusterArn }),
-  };
-};
+// se_DeregisterEcsClusterRequest omitted.
 
-/**
- * serializeAws_json1_1DeregisterElasticIpRequest
- */
-const se_DeregisterElasticIpRequest = (input: DeregisterElasticIpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ElasticIp != null && { ElasticIp: input.ElasticIp }),
-  };
-};
+// se_DeregisterElasticIpRequest omitted.
 
-/**
- * serializeAws_json1_1DeregisterInstanceRequest
- */
-const se_DeregisterInstanceRequest = (input: DeregisterInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_DeregisterInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1DeregisterRdsDbInstanceRequest
- */
-const se_DeregisterRdsDbInstanceRequest = (input: DeregisterRdsDbInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RdsDbInstanceArn != null && { RdsDbInstanceArn: input.RdsDbInstanceArn }),
-  };
-};
+// se_DeregisterRdsDbInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1DeregisterVolumeRequest
- */
-const se_DeregisterVolumeRequest = (input: DeregisterVolumeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
-  };
-};
+// se_DeregisterVolumeRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAgentVersionsRequest
- */
-const se_DescribeAgentVersionsRequest = (input: DescribeAgentVersionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationManager != null && {
-      ConfigurationManager: se_StackConfigurationManager(input.ConfigurationManager, context),
-    }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeAgentVersionsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAppsRequest
- */
-const se_DescribeAppsRequest = (input: DescribeAppsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AppIds != null && { AppIds: se_Strings(input.AppIds, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeAppsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCommandsRequest
- */
-const se_DescribeCommandsRequest = (input: DescribeCommandsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CommandIds != null && { CommandIds: se_Strings(input.CommandIds, context) }),
-    ...(input.DeploymentId != null && { DeploymentId: input.DeploymentId }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_DescribeCommandsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDeploymentsRequest
- */
-const se_DescribeDeploymentsRequest = (input: DescribeDeploymentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AppId != null && { AppId: input.AppId }),
-    ...(input.DeploymentIds != null && { DeploymentIds: se_Strings(input.DeploymentIds, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeDeploymentsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEcsClustersRequest
- */
-const se_DescribeEcsClustersRequest = (input: DescribeEcsClustersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EcsClusterArns != null && { EcsClusterArns: se_Strings(input.EcsClusterArns, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeEcsClustersRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeElasticIpsRequest
- */
-const se_DescribeElasticIpsRequest = (input: DescribeElasticIpsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.Ips != null && { Ips: se_Strings(input.Ips, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeElasticIpsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeElasticLoadBalancersRequest
- */
-const se_DescribeElasticLoadBalancersRequest = (
-  input: DescribeElasticLoadBalancersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LayerIds != null && { LayerIds: se_Strings(input.LayerIds, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeElasticLoadBalancersRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeInstancesRequest
- */
-const se_DescribeInstancesRequest = (input: DescribeInstancesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceIds != null && { InstanceIds: se_Strings(input.InstanceIds, context) }),
-    ...(input.LayerId != null && { LayerId: input.LayerId }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeInstancesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeLayersRequest
- */
-const se_DescribeLayersRequest = (input: DescribeLayersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LayerIds != null && { LayerIds: se_Strings(input.LayerIds, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeLayersRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeLoadBasedAutoScalingRequest
- */
-const se_DescribeLoadBasedAutoScalingRequest = (
-  input: DescribeLoadBasedAutoScalingRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LayerIds != null && { LayerIds: se_Strings(input.LayerIds, context) }),
-  };
-};
+// se_DescribeLoadBasedAutoScalingRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePermissionsRequest
- */
-const se_DescribePermissionsRequest = (input: DescribePermissionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IamUserArn != null && { IamUserArn: input.IamUserArn }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribePermissionsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeRaidArraysRequest
- */
-const se_DescribeRaidArraysRequest = (input: DescribeRaidArraysRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.RaidArrayIds != null && { RaidArrayIds: se_Strings(input.RaidArrayIds, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeRaidArraysRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeRdsDbInstancesRequest
- */
-const se_DescribeRdsDbInstancesRequest = (input: DescribeRdsDbInstancesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RdsDbInstanceArns != null && { RdsDbInstanceArns: se_Strings(input.RdsDbInstanceArns, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeRdsDbInstancesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeServiceErrorsRequest
- */
-const se_DescribeServiceErrorsRequest = (input: DescribeServiceErrorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceErrorIds != null && { ServiceErrorIds: se_Strings(input.ServiceErrorIds, context) }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeServiceErrorsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeStackProvisioningParametersRequest
- */
-const se_DescribeStackProvisioningParametersRequest = (
-  input: DescribeStackProvisioningParametersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeStackProvisioningParametersRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeStacksRequest
- */
-const se_DescribeStacksRequest = (input: DescribeStacksRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.StackIds != null && { StackIds: se_Strings(input.StackIds, context) }),
-  };
-};
+// se_DescribeStacksRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeStackSummaryRequest
- */
-const se_DescribeStackSummaryRequest = (input: DescribeStackSummaryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_DescribeStackSummaryRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeTimeBasedAutoScalingRequest
- */
-const se_DescribeTimeBasedAutoScalingRequest = (
-  input: DescribeTimeBasedAutoScalingRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceIds != null && { InstanceIds: se_Strings(input.InstanceIds, context) }),
-  };
-};
+// se_DescribeTimeBasedAutoScalingRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeUserProfilesRequest
- */
-const se_DescribeUserProfilesRequest = (input: DescribeUserProfilesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IamUserArns != null && { IamUserArns: se_Strings(input.IamUserArns, context) }),
-  };
-};
+// se_DescribeUserProfilesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeVolumesRequest
- */
-const se_DescribeVolumesRequest = (input: DescribeVolumesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.RaidArrayId != null && { RaidArrayId: input.RaidArrayId }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-    ...(input.VolumeIds != null && { VolumeIds: se_Strings(input.VolumeIds, context) }),
-  };
-};
+// se_DescribeVolumesRequest omitted.
 
-/**
- * serializeAws_json1_1DetachElasticLoadBalancerRequest
- */
-const se_DetachElasticLoadBalancerRequest = (input: DetachElasticLoadBalancerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ElasticLoadBalancerName != null && { ElasticLoadBalancerName: input.ElasticLoadBalancerName }),
-    ...(input.LayerId != null && { LayerId: input.LayerId }),
-  };
-};
+// se_DetachElasticLoadBalancerRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateElasticIpRequest
- */
-const se_DisassociateElasticIpRequest = (input: DisassociateElasticIpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ElasticIp != null && { ElasticIp: input.ElasticIp }),
-  };
-};
+// se_DisassociateElasticIpRequest omitted.
 
-/**
- * serializeAws_json1_1EbsBlockDevice
- */
-const se_EbsBlockDevice = (input: EbsBlockDevice, context: __SerdeContext): any => {
-  return {
-    ...(input.DeleteOnTermination != null && { DeleteOnTermination: input.DeleteOnTermination }),
-    ...(input.Iops != null && { Iops: input.Iops }),
-    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
-    ...(input.VolumeSize != null && { VolumeSize: input.VolumeSize }),
-    ...(input.VolumeType != null && { VolumeType: input.VolumeType }),
-  };
-};
+// se_EbsBlockDevice omitted.
 
-/**
- * serializeAws_json1_1EnvironmentVariable
- */
-const se_EnvironmentVariable = (input: EnvironmentVariable, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Secure != null && { Secure: input.Secure }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_EnvironmentVariable omitted.
 
-/**
- * serializeAws_json1_1EnvironmentVariables
- */
-const se_EnvironmentVariables = (input: EnvironmentVariable[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EnvironmentVariable(entry, context);
-    });
-};
+// se_EnvironmentVariables omitted.
 
-/**
- * serializeAws_json1_1GetHostnameSuggestionRequest
- */
-const se_GetHostnameSuggestionRequest = (input: GetHostnameSuggestionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LayerId != null && { LayerId: input.LayerId }),
-  };
-};
+// se_GetHostnameSuggestionRequest omitted.
 
-/**
- * serializeAws_json1_1GrantAccessRequest
- */
-const se_GrantAccessRequest = (input: GrantAccessRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ValidForInMinutes != null && { ValidForInMinutes: input.ValidForInMinutes }),
-  };
-};
+// se_GrantAccessRequest omitted.
 
-/**
- * serializeAws_json1_1InstanceIdentity
- */
-const se_InstanceIdentity = (input: InstanceIdentity, context: __SerdeContext): any => {
-  return {
-    ...(input.Document != null && { Document: input.Document }),
-    ...(input.Signature != null && { Signature: input.Signature }),
-  };
-};
+// se_InstanceIdentity omitted.
 
-/**
- * serializeAws_json1_1LayerAttributes
- */
-const se_LayerAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [LayerAttributesKeys | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_LayerAttributes omitted.
 
-/**
- * serializeAws_json1_1LifecycleEventConfiguration
- */
-const se_LifecycleEventConfiguration = (input: LifecycleEventConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Shutdown != null && { Shutdown: se_ShutdownEventConfiguration(input.Shutdown, context) }),
-  };
-};
+// se_LifecycleEventConfiguration omitted.
 
-/**
- * serializeAws_json1_1ListTagsRequest
- */
-const se_ListTagsRequest = (input: ListTagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsRequest omitted.
 
-/**
- * serializeAws_json1_1RebootInstanceRequest
- */
-const se_RebootInstanceRequest = (input: RebootInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_RebootInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1Recipes
- */
-const se_Recipes = (input: Recipes, context: __SerdeContext): any => {
-  return {
-    ...(input.Configure != null && { Configure: se_Strings(input.Configure, context) }),
-    ...(input.Deploy != null && { Deploy: se_Strings(input.Deploy, context) }),
-    ...(input.Setup != null && { Setup: se_Strings(input.Setup, context) }),
-    ...(input.Shutdown != null && { Shutdown: se_Strings(input.Shutdown, context) }),
-    ...(input.Undeploy != null && { Undeploy: se_Strings(input.Undeploy, context) }),
-  };
-};
+// se_Recipes omitted.
 
-/**
- * serializeAws_json1_1RegisterEcsClusterRequest
- */
-const se_RegisterEcsClusterRequest = (input: RegisterEcsClusterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EcsClusterArn != null && { EcsClusterArn: input.EcsClusterArn }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_RegisterEcsClusterRequest omitted.
 
-/**
- * serializeAws_json1_1RegisterElasticIpRequest
- */
-const se_RegisterElasticIpRequest = (input: RegisterElasticIpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ElasticIp != null && { ElasticIp: input.ElasticIp }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_RegisterElasticIpRequest omitted.
 
-/**
- * serializeAws_json1_1RegisterInstanceRequest
- */
-const se_RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Hostname != null && { Hostname: input.Hostname }),
-    ...(input.InstanceIdentity != null && { InstanceIdentity: se_InstanceIdentity(input.InstanceIdentity, context) }),
-    ...(input.PrivateIp != null && { PrivateIp: input.PrivateIp }),
-    ...(input.PublicIp != null && { PublicIp: input.PublicIp }),
-    ...(input.RsaPublicKey != null && { RsaPublicKey: input.RsaPublicKey }),
-    ...(input.RsaPublicKeyFingerprint != null && { RsaPublicKeyFingerprint: input.RsaPublicKeyFingerprint }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_RegisterInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1RegisterRdsDbInstanceRequest
- */
-const se_RegisterRdsDbInstanceRequest = (input: RegisterRdsDbInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DbPassword != null && { DbPassword: input.DbPassword }),
-    ...(input.DbUser != null && { DbUser: input.DbUser }),
-    ...(input.RdsDbInstanceArn != null && { RdsDbInstanceArn: input.RdsDbInstanceArn }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_RegisterRdsDbInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1RegisterVolumeRequest
- */
-const se_RegisterVolumeRequest = (input: RegisterVolumeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Ec2VolumeId != null && { Ec2VolumeId: input.Ec2VolumeId }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_RegisterVolumeRequest omitted.
 
 /**
  * serializeAws_json1_1SetLoadBasedAutoScalingRequest
  */
 const se_SetLoadBasedAutoScalingRequest = (input: SetLoadBasedAutoScalingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DownScaling != null && { DownScaling: se_AutoScalingThresholds(input.DownScaling, context) }),
-    ...(input.Enable != null && { Enable: input.Enable }),
-    ...(input.LayerId != null && { LayerId: input.LayerId }),
-    ...(input.UpScaling != null && { UpScaling: se_AutoScalingThresholds(input.UpScaling, context) }),
-  };
+  return take(input, {
+    DownScaling: (_) => se_AutoScalingThresholds(_, context),
+    Enable: [],
+    LayerId: [],
+    UpScaling: (_) => se_AutoScalingThresholds(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1SetPermissionRequest
- */
-const se_SetPermissionRequest = (input: SetPermissionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowSsh != null && { AllowSsh: input.AllowSsh }),
-    ...(input.AllowSudo != null && { AllowSudo: input.AllowSudo }),
-    ...(input.IamUserArn != null && { IamUserArn: input.IamUserArn }),
-    ...(input.Level != null && { Level: input.Level }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_SetPermissionRequest omitted.
 
-/**
- * serializeAws_json1_1SetTimeBasedAutoScalingRequest
- */
-const se_SetTimeBasedAutoScalingRequest = (input: SetTimeBasedAutoScalingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoScalingSchedule != null && {
-      AutoScalingSchedule: se_WeeklyAutoScalingSchedule(input.AutoScalingSchedule, context),
-    }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_SetTimeBasedAutoScalingRequest omitted.
 
-/**
- * serializeAws_json1_1ShutdownEventConfiguration
- */
-const se_ShutdownEventConfiguration = (input: ShutdownEventConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DelayUntilElbConnectionsDrained != null && {
-      DelayUntilElbConnectionsDrained: input.DelayUntilElbConnectionsDrained,
-    }),
-    ...(input.ExecutionTimeout != null && { ExecutionTimeout: input.ExecutionTimeout }),
-  };
-};
+// se_ShutdownEventConfiguration omitted.
 
-/**
- * serializeAws_json1_1Source
- */
-const se_Source = (input: Source, context: __SerdeContext): any => {
-  return {
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.Revision != null && { Revision: input.Revision }),
-    ...(input.SshKey != null && { SshKey: input.SshKey }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Url != null && { Url: input.Url }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_Source omitted.
 
-/**
- * serializeAws_json1_1SslConfiguration
- */
-const se_SslConfiguration = (input: SslConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.Chain != null && { Chain: input.Chain }),
-    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
-  };
-};
+// se_SslConfiguration omitted.
 
-/**
- * serializeAws_json1_1StackAttributes
- */
-const se_StackAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [StackAttributesKeys | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_StackAttributes omitted.
 
-/**
- * serializeAws_json1_1StackConfigurationManager
- */
-const se_StackConfigurationManager = (input: StackConfigurationManager, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
+// se_StackConfigurationManager omitted.
 
-/**
- * serializeAws_json1_1StartInstanceRequest
- */
-const se_StartInstanceRequest = (input: StartInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_StartInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1StartStackRequest
- */
-const se_StartStackRequest = (input: StartStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_StartStackRequest omitted.
 
-/**
- * serializeAws_json1_1StopInstanceRequest
- */
-const se_StopInstanceRequest = (input: StopInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Force != null && { Force: input.Force }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_StopInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1StopStackRequest
- */
-const se_StopStackRequest = (input: StopStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.StackId != null && { StackId: input.StackId }),
-  };
-};
+// se_StopStackRequest omitted.
 
-/**
- * serializeAws_json1_1Strings
- */
-const se_Strings = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Strings omitted.
 
-/**
- * serializeAws_json1_1TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_1UnassignInstanceRequest
- */
-const se_UnassignInstanceRequest = (input: UnassignInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-  };
-};
+// se_UnassignInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1UnassignVolumeRequest
- */
-const se_UnassignVolumeRequest = (input: UnassignVolumeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
-  };
-};
+// se_UnassignVolumeRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAppRequest
- */
-const se_UpdateAppRequest = (input: UpdateAppRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AppId != null && { AppId: input.AppId }),
-    ...(input.AppSource != null && { AppSource: se_Source(input.AppSource, context) }),
-    ...(input.Attributes != null && { Attributes: se_AppAttributes(input.Attributes, context) }),
-    ...(input.DataSources != null && { DataSources: se_DataSources(input.DataSources, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Domains != null && { Domains: se_Strings(input.Domains, context) }),
-    ...(input.EnableSsl != null && { EnableSsl: input.EnableSsl }),
-    ...(input.Environment != null && { Environment: se_EnvironmentVariables(input.Environment, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SslConfiguration != null && { SslConfiguration: se_SslConfiguration(input.SslConfiguration, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_UpdateAppRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateElasticIpRequest
- */
-const se_UpdateElasticIpRequest = (input: UpdateElasticIpRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ElasticIp != null && { ElasticIp: input.ElasticIp }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_UpdateElasticIpRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateInstanceRequest
- */
-const se_UpdateInstanceRequest = (input: UpdateInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
-    ...(input.AmiId != null && { AmiId: input.AmiId }),
-    ...(input.Architecture != null && { Architecture: input.Architecture }),
-    ...(input.AutoScalingType != null && { AutoScalingType: input.AutoScalingType }),
-    ...(input.EbsOptimized != null && { EbsOptimized: input.EbsOptimized }),
-    ...(input.Hostname != null && { Hostname: input.Hostname }),
-    ...(input.InstallUpdatesOnBoot != null && { InstallUpdatesOnBoot: input.InstallUpdatesOnBoot }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
-    ...(input.LayerIds != null && { LayerIds: se_Strings(input.LayerIds, context) }),
-    ...(input.Os != null && { Os: input.Os }),
-    ...(input.SshKeyName != null && { SshKeyName: input.SshKeyName }),
-  };
-};
+// se_UpdateInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateLayerRequest
- */
-const se_UpdateLayerRequest = (input: UpdateLayerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_LayerAttributes(input.Attributes, context) }),
-    ...(input.AutoAssignElasticIps != null && { AutoAssignElasticIps: input.AutoAssignElasticIps }),
-    ...(input.AutoAssignPublicIps != null && { AutoAssignPublicIps: input.AutoAssignPublicIps }),
-    ...(input.CloudWatchLogsConfiguration != null && {
-      CloudWatchLogsConfiguration: se_CloudWatchLogsConfiguration(input.CloudWatchLogsConfiguration, context),
-    }),
-    ...(input.CustomInstanceProfileArn != null && { CustomInstanceProfileArn: input.CustomInstanceProfileArn }),
-    ...(input.CustomJson != null && { CustomJson: input.CustomJson }),
-    ...(input.CustomRecipes != null && { CustomRecipes: se_Recipes(input.CustomRecipes, context) }),
-    ...(input.CustomSecurityGroupIds != null && {
-      CustomSecurityGroupIds: se_Strings(input.CustomSecurityGroupIds, context),
-    }),
-    ...(input.EnableAutoHealing != null && { EnableAutoHealing: input.EnableAutoHealing }),
-    ...(input.InstallUpdatesOnBoot != null && { InstallUpdatesOnBoot: input.InstallUpdatesOnBoot }),
-    ...(input.LayerId != null && { LayerId: input.LayerId }),
-    ...(input.LifecycleEventConfiguration != null && {
-      LifecycleEventConfiguration: se_LifecycleEventConfiguration(input.LifecycleEventConfiguration, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Packages != null && { Packages: se_Strings(input.Packages, context) }),
-    ...(input.Shortname != null && { Shortname: input.Shortname }),
-    ...(input.UseEbsOptimizedInstances != null && { UseEbsOptimizedInstances: input.UseEbsOptimizedInstances }),
-    ...(input.VolumeConfigurations != null && {
-      VolumeConfigurations: se_VolumeConfigurations(input.VolumeConfigurations, context),
-    }),
-  };
-};
+// se_UpdateLayerRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateMyUserProfileRequest
- */
-const se_UpdateMyUserProfileRequest = (input: UpdateMyUserProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SshPublicKey != null && { SshPublicKey: input.SshPublicKey }),
-  };
-};
+// se_UpdateMyUserProfileRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateRdsDbInstanceRequest
- */
-const se_UpdateRdsDbInstanceRequest = (input: UpdateRdsDbInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DbPassword != null && { DbPassword: input.DbPassword }),
-    ...(input.DbUser != null && { DbUser: input.DbUser }),
-    ...(input.RdsDbInstanceArn != null && { RdsDbInstanceArn: input.RdsDbInstanceArn }),
-  };
-};
+// se_UpdateRdsDbInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateStackRequest
- */
-const se_UpdateStackRequest = (input: UpdateStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
-    ...(input.Attributes != null && { Attributes: se_StackAttributes(input.Attributes, context) }),
-    ...(input.ChefConfiguration != null && {
-      ChefConfiguration: se_ChefConfiguration(input.ChefConfiguration, context),
-    }),
-    ...(input.ConfigurationManager != null && {
-      ConfigurationManager: se_StackConfigurationManager(input.ConfigurationManager, context),
-    }),
-    ...(input.CustomCookbooksSource != null && {
-      CustomCookbooksSource: se_Source(input.CustomCookbooksSource, context),
-    }),
-    ...(input.CustomJson != null && { CustomJson: input.CustomJson }),
-    ...(input.DefaultAvailabilityZone != null && { DefaultAvailabilityZone: input.DefaultAvailabilityZone }),
-    ...(input.DefaultInstanceProfileArn != null && { DefaultInstanceProfileArn: input.DefaultInstanceProfileArn }),
-    ...(input.DefaultOs != null && { DefaultOs: input.DefaultOs }),
-    ...(input.DefaultRootDeviceType != null && { DefaultRootDeviceType: input.DefaultRootDeviceType }),
-    ...(input.DefaultSshKeyName != null && { DefaultSshKeyName: input.DefaultSshKeyName }),
-    ...(input.DefaultSubnetId != null && { DefaultSubnetId: input.DefaultSubnetId }),
-    ...(input.HostnameTheme != null && { HostnameTheme: input.HostnameTheme }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ServiceRoleArn != null && { ServiceRoleArn: input.ServiceRoleArn }),
-    ...(input.StackId != null && { StackId: input.StackId }),
-    ...(input.UseCustomCookbooks != null && { UseCustomCookbooks: input.UseCustomCookbooks }),
-    ...(input.UseOpsworksSecurityGroups != null && { UseOpsworksSecurityGroups: input.UseOpsworksSecurityGroups }),
-  };
-};
+// se_UpdateStackRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateUserProfileRequest
- */
-const se_UpdateUserProfileRequest = (input: UpdateUserProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowSelfManagement != null && { AllowSelfManagement: input.AllowSelfManagement }),
-    ...(input.IamUserArn != null && { IamUserArn: input.IamUserArn }),
-    ...(input.SshPublicKey != null && { SshPublicKey: input.SshPublicKey }),
-    ...(input.SshUsername != null && { SshUsername: input.SshUsername }),
-  };
-};
+// se_UpdateUserProfileRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateVolumeRequest
- */
-const se_UpdateVolumeRequest = (input: UpdateVolumeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MountPoint != null && { MountPoint: input.MountPoint }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
-  };
-};
+// se_UpdateVolumeRequest omitted.
 
-/**
- * serializeAws_json1_1VolumeConfiguration
- */
-const se_VolumeConfiguration = (input: VolumeConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Encrypted != null && { Encrypted: input.Encrypted }),
-    ...(input.Iops != null && { Iops: input.Iops }),
-    ...(input.MountPoint != null && { MountPoint: input.MountPoint }),
-    ...(input.NumberOfDisks != null && { NumberOfDisks: input.NumberOfDisks }),
-    ...(input.RaidLevel != null && { RaidLevel: input.RaidLevel }),
-    ...(input.Size != null && { Size: input.Size }),
-    ...(input.VolumeType != null && { VolumeType: input.VolumeType }),
-  };
-};
+// se_VolumeConfiguration omitted.
 
-/**
- * serializeAws_json1_1VolumeConfigurations
- */
-const se_VolumeConfigurations = (input: VolumeConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_VolumeConfiguration(entry, context);
-    });
-};
+// se_VolumeConfigurations omitted.
 
-/**
- * serializeAws_json1_1WeeklyAutoScalingSchedule
- */
-const se_WeeklyAutoScalingSchedule = (input: WeeklyAutoScalingSchedule, context: __SerdeContext): any => {
-  return {
-    ...(input.Friday != null && { Friday: se_DailyAutoScalingSchedule(input.Friday, context) }),
-    ...(input.Monday != null && { Monday: se_DailyAutoScalingSchedule(input.Monday, context) }),
-    ...(input.Saturday != null && { Saturday: se_DailyAutoScalingSchedule(input.Saturday, context) }),
-    ...(input.Sunday != null && { Sunday: se_DailyAutoScalingSchedule(input.Sunday, context) }),
-    ...(input.Thursday != null && { Thursday: se_DailyAutoScalingSchedule(input.Thursday, context) }),
-    ...(input.Tuesday != null && { Tuesday: se_DailyAutoScalingSchedule(input.Tuesday, context) }),
-    ...(input.Wednesday != null && { Wednesday: se_DailyAutoScalingSchedule(input.Wednesday, context) }),
-  };
-};
+// se_WeeklyAutoScalingSchedule omitted.
 
-/**
- * deserializeAws_json1_1AgentVersion
- */
-const de_AgentVersion = (output: any, context: __SerdeContext): AgentVersion => {
-  return {
-    ConfigurationManager:
-      output.ConfigurationManager != null
-        ? de_StackConfigurationManager(output.ConfigurationManager, context)
-        : undefined,
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_AgentVersion omitted.
 
-/**
- * deserializeAws_json1_1AgentVersions
- */
-const de_AgentVersions = (output: any, context: __SerdeContext): AgentVersion[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AgentVersion(entry, context);
-    });
-  return retVal;
-};
+// de_AgentVersions omitted.
 
-/**
- * deserializeAws_json1_1App
- */
-const de_App = (output: any, context: __SerdeContext): App => {
-  return {
-    AppId: __expectString(output.AppId),
-    AppSource: output.AppSource != null ? de_Source(output.AppSource, context) : undefined,
-    Attributes: output.Attributes != null ? de_AppAttributes(output.Attributes, context) : undefined,
-    CreatedAt: __expectString(output.CreatedAt),
-    DataSources: output.DataSources != null ? de_DataSources(output.DataSources, context) : undefined,
-    Description: __expectString(output.Description),
-    Domains: output.Domains != null ? de_Strings(output.Domains, context) : undefined,
-    EnableSsl: __expectBoolean(output.EnableSsl),
-    Environment: output.Environment != null ? de_EnvironmentVariables(output.Environment, context) : undefined,
-    Name: __expectString(output.Name),
-    Shortname: __expectString(output.Shortname),
-    SslConfiguration:
-      output.SslConfiguration != null ? de_SslConfiguration(output.SslConfiguration, context) : undefined,
-    StackId: __expectString(output.StackId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_App omitted.
 
-/**
- * deserializeAws_json1_1AppAttributes
- */
-const de_AppAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [AppAttributesKeys | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_AppAttributes omitted.
 
-/**
- * deserializeAws_json1_1Apps
- */
-const de_Apps = (output: any, context: __SerdeContext): App[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_App(entry, context);
-    });
-  return retVal;
-};
+// de_Apps omitted.
 
 /**
  * deserializeAws_json1_1AutoScalingThresholds
  */
 const de_AutoScalingThresholds = (output: any, context: __SerdeContext): AutoScalingThresholds => {
-  return {
-    Alarms: output.Alarms != null ? de_Strings(output.Alarms, context) : undefined,
-    CpuThreshold: __limitedParseDouble(output.CpuThreshold),
-    IgnoreMetricsTime: __expectInt32(output.IgnoreMetricsTime),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    LoadThreshold: __limitedParseDouble(output.LoadThreshold),
-    MemoryThreshold: __limitedParseDouble(output.MemoryThreshold),
-    ThresholdsWaitTime: __expectInt32(output.ThresholdsWaitTime),
-  } as any;
+  return take(output, {
+    Alarms: _json,
+    CpuThreshold: __limitedParseDouble,
+    IgnoreMetricsTime: __expectInt32,
+    InstanceCount: __expectInt32,
+    LoadThreshold: __limitedParseDouble,
+    MemoryThreshold: __limitedParseDouble,
+    ThresholdsWaitTime: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1BlockDeviceMapping
- */
-const de_BlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
-  return {
-    DeviceName: __expectString(output.DeviceName),
-    Ebs: output.Ebs != null ? de_EbsBlockDevice(output.Ebs, context) : undefined,
-    NoDevice: __expectString(output.NoDevice),
-    VirtualName: __expectString(output.VirtualName),
-  } as any;
-};
+// de_BlockDeviceMapping omitted.
 
-/**
- * deserializeAws_json1_1BlockDeviceMappings
- */
-const de_BlockDeviceMappings = (output: any, context: __SerdeContext): BlockDeviceMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BlockDeviceMapping(entry, context);
-    });
-  return retVal;
-};
+// de_BlockDeviceMappings omitted.
 
-/**
- * deserializeAws_json1_1ChefConfiguration
- */
-const de_ChefConfiguration = (output: any, context: __SerdeContext): ChefConfiguration => {
-  return {
-    BerkshelfVersion: __expectString(output.BerkshelfVersion),
-    ManageBerkshelf: __expectBoolean(output.ManageBerkshelf),
-  } as any;
-};
+// de_ChefConfiguration omitted.
 
-/**
- * deserializeAws_json1_1CloneStackResult
- */
-const de_CloneStackResult = (output: any, context: __SerdeContext): CloneStackResult => {
-  return {
-    StackId: __expectString(output.StackId),
-  } as any;
-};
+// de_CloneStackResult omitted.
 
-/**
- * deserializeAws_json1_1CloudWatchLogsConfiguration
- */
-const de_CloudWatchLogsConfiguration = (output: any, context: __SerdeContext): CloudWatchLogsConfiguration => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    LogStreams: output.LogStreams != null ? de_CloudWatchLogsLogStreams(output.LogStreams, context) : undefined,
-  } as any;
-};
+// de_CloudWatchLogsConfiguration omitted.
 
-/**
- * deserializeAws_json1_1CloudWatchLogsLogStream
- */
-const de_CloudWatchLogsLogStream = (output: any, context: __SerdeContext): CloudWatchLogsLogStream => {
-  return {
-    BatchCount: __expectInt32(output.BatchCount),
-    BatchSize: __expectInt32(output.BatchSize),
-    BufferDuration: __expectInt32(output.BufferDuration),
-    DatetimeFormat: __expectString(output.DatetimeFormat),
-    Encoding: __expectString(output.Encoding),
-    File: __expectString(output.File),
-    FileFingerprintLines: __expectString(output.FileFingerprintLines),
-    InitialPosition: __expectString(output.InitialPosition),
-    LogGroupName: __expectString(output.LogGroupName),
-    MultiLineStartPattern: __expectString(output.MultiLineStartPattern),
-    TimeZone: __expectString(output.TimeZone),
-  } as any;
-};
+// de_CloudWatchLogsLogStream omitted.
 
-/**
- * deserializeAws_json1_1CloudWatchLogsLogStreams
- */
-const de_CloudWatchLogsLogStreams = (output: any, context: __SerdeContext): CloudWatchLogsLogStream[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CloudWatchLogsLogStream(entry, context);
-    });
-  return retVal;
-};
+// de_CloudWatchLogsLogStreams omitted.
 
-/**
- * deserializeAws_json1_1Command
- */
-const de_Command = (output: any, context: __SerdeContext): Command => {
-  return {
-    AcknowledgedAt: __expectString(output.AcknowledgedAt),
-    CommandId: __expectString(output.CommandId),
-    CompletedAt: __expectString(output.CompletedAt),
-    CreatedAt: __expectString(output.CreatedAt),
-    DeploymentId: __expectString(output.DeploymentId),
-    ExitCode: __expectInt32(output.ExitCode),
-    InstanceId: __expectString(output.InstanceId),
-    LogUrl: __expectString(output.LogUrl),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Command omitted.
 
-/**
- * deserializeAws_json1_1Commands
- */
-const de_Commands = (output: any, context: __SerdeContext): Command[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Command(entry, context);
-    });
-  return retVal;
-};
+// de_Commands omitted.
 
-/**
- * deserializeAws_json1_1CreateAppResult
- */
-const de_CreateAppResult = (output: any, context: __SerdeContext): CreateAppResult => {
-  return {
-    AppId: __expectString(output.AppId),
-  } as any;
-};
+// de_CreateAppResult omitted.
 
-/**
- * deserializeAws_json1_1CreateDeploymentResult
- */
-const de_CreateDeploymentResult = (output: any, context: __SerdeContext): CreateDeploymentResult => {
-  return {
-    DeploymentId: __expectString(output.DeploymentId),
-  } as any;
-};
+// de_CreateDeploymentResult omitted.
 
-/**
- * deserializeAws_json1_1CreateInstanceResult
- */
-const de_CreateInstanceResult = (output: any, context: __SerdeContext): CreateInstanceResult => {
-  return {
-    InstanceId: __expectString(output.InstanceId),
-  } as any;
-};
+// de_CreateInstanceResult omitted.
 
-/**
- * deserializeAws_json1_1CreateLayerResult
- */
-const de_CreateLayerResult = (output: any, context: __SerdeContext): CreateLayerResult => {
-  return {
-    LayerId: __expectString(output.LayerId),
-  } as any;
-};
+// de_CreateLayerResult omitted.
 
-/**
- * deserializeAws_json1_1CreateStackResult
- */
-const de_CreateStackResult = (output: any, context: __SerdeContext): CreateStackResult => {
-  return {
-    StackId: __expectString(output.StackId),
-  } as any;
-};
+// de_CreateStackResult omitted.
 
-/**
- * deserializeAws_json1_1CreateUserProfileResult
- */
-const de_CreateUserProfileResult = (output: any, context: __SerdeContext): CreateUserProfileResult => {
-  return {
-    IamUserArn: __expectString(output.IamUserArn),
-  } as any;
-};
+// de_CreateUserProfileResult omitted.
 
-/**
- * deserializeAws_json1_1DailyAutoScalingSchedule
- */
-const de_DailyAutoScalingSchedule = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_DailyAutoScalingSchedule omitted.
 
-/**
- * deserializeAws_json1_1DataSource
- */
-const de_DataSource = (output: any, context: __SerdeContext): DataSource => {
-  return {
-    Arn: __expectString(output.Arn),
-    DatabaseName: __expectString(output.DatabaseName),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_DataSource omitted.
 
-/**
- * deserializeAws_json1_1DataSources
- */
-const de_DataSources = (output: any, context: __SerdeContext): DataSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataSource(entry, context);
-    });
-  return retVal;
-};
+// de_DataSources omitted.
 
-/**
- * deserializeAws_json1_1Deployment
- */
-const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
-  return {
-    AppId: __expectString(output.AppId),
-    Command: output.Command != null ? de_DeploymentCommand(output.Command, context) : undefined,
-    Comment: __expectString(output.Comment),
-    CompletedAt: __expectString(output.CompletedAt),
-    CreatedAt: __expectString(output.CreatedAt),
-    CustomJson: __expectString(output.CustomJson),
-    DeploymentId: __expectString(output.DeploymentId),
-    Duration: __expectInt32(output.Duration),
-    IamUserArn: __expectString(output.IamUserArn),
-    InstanceIds: output.InstanceIds != null ? de_Strings(output.InstanceIds, context) : undefined,
-    StackId: __expectString(output.StackId),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_Deployment omitted.
 
-/**
- * deserializeAws_json1_1DeploymentCommand
- */
-const de_DeploymentCommand = (output: any, context: __SerdeContext): DeploymentCommand => {
-  return {
-    Args: output.Args != null ? de_DeploymentCommandArgs(output.Args, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_DeploymentCommand omitted.
 
-/**
- * deserializeAws_json1_1DeploymentCommandArgs
- */
-const de_DeploymentCommandArgs = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_Strings(value, context);
-    return acc;
-  }, {});
-};
+// de_DeploymentCommandArgs omitted.
 
-/**
- * deserializeAws_json1_1Deployments
- */
-const de_Deployments = (output: any, context: __SerdeContext): Deployment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Deployment(entry, context);
-    });
-  return retVal;
-};
+// de_Deployments omitted.
 
-/**
- * deserializeAws_json1_1DescribeAgentVersionsResult
- */
-const de_DescribeAgentVersionsResult = (output: any, context: __SerdeContext): DescribeAgentVersionsResult => {
-  return {
-    AgentVersions: output.AgentVersions != null ? de_AgentVersions(output.AgentVersions, context) : undefined,
-  } as any;
-};
+// de_DescribeAgentVersionsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeAppsResult
- */
-const de_DescribeAppsResult = (output: any, context: __SerdeContext): DescribeAppsResult => {
-  return {
-    Apps: output.Apps != null ? de_Apps(output.Apps, context) : undefined,
-  } as any;
-};
+// de_DescribeAppsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeCommandsResult
- */
-const de_DescribeCommandsResult = (output: any, context: __SerdeContext): DescribeCommandsResult => {
-  return {
-    Commands: output.Commands != null ? de_Commands(output.Commands, context) : undefined,
-  } as any;
-};
+// de_DescribeCommandsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeDeploymentsResult
- */
-const de_DescribeDeploymentsResult = (output: any, context: __SerdeContext): DescribeDeploymentsResult => {
-  return {
-    Deployments: output.Deployments != null ? de_Deployments(output.Deployments, context) : undefined,
-  } as any;
-};
+// de_DescribeDeploymentsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeEcsClustersResult
- */
-const de_DescribeEcsClustersResult = (output: any, context: __SerdeContext): DescribeEcsClustersResult => {
-  return {
-    EcsClusters: output.EcsClusters != null ? de_EcsClusters(output.EcsClusters, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeEcsClustersResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeElasticIpsResult
- */
-const de_DescribeElasticIpsResult = (output: any, context: __SerdeContext): DescribeElasticIpsResult => {
-  return {
-    ElasticIps: output.ElasticIps != null ? de_ElasticIps(output.ElasticIps, context) : undefined,
-  } as any;
-};
+// de_DescribeElasticIpsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeElasticLoadBalancersResult
- */
-const de_DescribeElasticLoadBalancersResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeElasticLoadBalancersResult => {
-  return {
-    ElasticLoadBalancers:
-      output.ElasticLoadBalancers != null ? de_ElasticLoadBalancers(output.ElasticLoadBalancers, context) : undefined,
-  } as any;
-};
+// de_DescribeElasticLoadBalancersResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeInstancesResult
- */
-const de_DescribeInstancesResult = (output: any, context: __SerdeContext): DescribeInstancesResult => {
-  return {
-    Instances: output.Instances != null ? de_Instances(output.Instances, context) : undefined,
-  } as any;
-};
+// de_DescribeInstancesResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeLayersResult
- */
-const de_DescribeLayersResult = (output: any, context: __SerdeContext): DescribeLayersResult => {
-  return {
-    Layers: output.Layers != null ? de_Layers(output.Layers, context) : undefined,
-  } as any;
-};
+// de_DescribeLayersResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeLoadBasedAutoScalingResult
@@ -6624,464 +5062,72 @@ const de_DescribeLoadBasedAutoScalingResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBasedAutoScalingResult => {
-  return {
-    LoadBasedAutoScalingConfigurations:
-      output.LoadBasedAutoScalingConfigurations != null
-        ? de_LoadBasedAutoScalingConfigurations(output.LoadBasedAutoScalingConfigurations, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    LoadBasedAutoScalingConfigurations: (_: any) => de_LoadBasedAutoScalingConfigurations(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeMyUserProfileResult
- */
-const de_DescribeMyUserProfileResult = (output: any, context: __SerdeContext): DescribeMyUserProfileResult => {
-  return {
-    UserProfile: output.UserProfile != null ? de_SelfUserProfile(output.UserProfile, context) : undefined,
-  } as any;
-};
+// de_DescribeMyUserProfileResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeOperatingSystemsResponse
- */
-const de_DescribeOperatingSystemsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeOperatingSystemsResponse => {
-  return {
-    OperatingSystems:
-      output.OperatingSystems != null ? de_OperatingSystems(output.OperatingSystems, context) : undefined,
-  } as any;
-};
+// de_DescribeOperatingSystemsResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribePermissionsResult
- */
-const de_DescribePermissionsResult = (output: any, context: __SerdeContext): DescribePermissionsResult => {
-  return {
-    Permissions: output.Permissions != null ? de_Permissions(output.Permissions, context) : undefined,
-  } as any;
-};
+// de_DescribePermissionsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeRaidArraysResult
- */
-const de_DescribeRaidArraysResult = (output: any, context: __SerdeContext): DescribeRaidArraysResult => {
-  return {
-    RaidArrays: output.RaidArrays != null ? de_RaidArrays(output.RaidArrays, context) : undefined,
-  } as any;
-};
+// de_DescribeRaidArraysResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeRdsDbInstancesResult
- */
-const de_DescribeRdsDbInstancesResult = (output: any, context: __SerdeContext): DescribeRdsDbInstancesResult => {
-  return {
-    RdsDbInstances: output.RdsDbInstances != null ? de_RdsDbInstances(output.RdsDbInstances, context) : undefined,
-  } as any;
-};
+// de_DescribeRdsDbInstancesResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeServiceErrorsResult
- */
-const de_DescribeServiceErrorsResult = (output: any, context: __SerdeContext): DescribeServiceErrorsResult => {
-  return {
-    ServiceErrors: output.ServiceErrors != null ? de_ServiceErrors(output.ServiceErrors, context) : undefined,
-  } as any;
-};
+// de_DescribeServiceErrorsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeStackProvisioningParametersResult
- */
-const de_DescribeStackProvisioningParametersResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeStackProvisioningParametersResult => {
-  return {
-    AgentInstallerUrl: __expectString(output.AgentInstallerUrl),
-    Parameters: output.Parameters != null ? de_Parameters(output.Parameters, context) : undefined,
-  } as any;
-};
+// de_DescribeStackProvisioningParametersResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeStacksResult
- */
-const de_DescribeStacksResult = (output: any, context: __SerdeContext): DescribeStacksResult => {
-  return {
-    Stacks: output.Stacks != null ? de_Stacks(output.Stacks, context) : undefined,
-  } as any;
-};
+// de_DescribeStacksResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeStackSummaryResult
- */
-const de_DescribeStackSummaryResult = (output: any, context: __SerdeContext): DescribeStackSummaryResult => {
-  return {
-    StackSummary: output.StackSummary != null ? de_StackSummary(output.StackSummary, context) : undefined,
-  } as any;
-};
+// de_DescribeStackSummaryResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeTimeBasedAutoScalingResult
- */
-const de_DescribeTimeBasedAutoScalingResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeTimeBasedAutoScalingResult => {
-  return {
-    TimeBasedAutoScalingConfigurations:
-      output.TimeBasedAutoScalingConfigurations != null
-        ? de_TimeBasedAutoScalingConfigurations(output.TimeBasedAutoScalingConfigurations, context)
-        : undefined,
-  } as any;
-};
+// de_DescribeTimeBasedAutoScalingResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeUserProfilesResult
- */
-const de_DescribeUserProfilesResult = (output: any, context: __SerdeContext): DescribeUserProfilesResult => {
-  return {
-    UserProfiles: output.UserProfiles != null ? de_UserProfiles(output.UserProfiles, context) : undefined,
-  } as any;
-};
+// de_DescribeUserProfilesResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeVolumesResult
- */
-const de_DescribeVolumesResult = (output: any, context: __SerdeContext): DescribeVolumesResult => {
-  return {
-    Volumes: output.Volumes != null ? de_Volumes(output.Volumes, context) : undefined,
-  } as any;
-};
+// de_DescribeVolumesResult omitted.
 
-/**
- * deserializeAws_json1_1EbsBlockDevice
- */
-const de_EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
-  return {
-    DeleteOnTermination: __expectBoolean(output.DeleteOnTermination),
-    Iops: __expectInt32(output.Iops),
-    SnapshotId: __expectString(output.SnapshotId),
-    VolumeSize: __expectInt32(output.VolumeSize),
-    VolumeType: __expectString(output.VolumeType),
-  } as any;
-};
+// de_EbsBlockDevice omitted.
 
-/**
- * deserializeAws_json1_1EcsCluster
- */
-const de_EcsCluster = (output: any, context: __SerdeContext): EcsCluster => {
-  return {
-    EcsClusterArn: __expectString(output.EcsClusterArn),
-    EcsClusterName: __expectString(output.EcsClusterName),
-    RegisteredAt: __expectString(output.RegisteredAt),
-    StackId: __expectString(output.StackId),
-  } as any;
-};
+// de_EcsCluster omitted.
 
-/**
- * deserializeAws_json1_1EcsClusters
- */
-const de_EcsClusters = (output: any, context: __SerdeContext): EcsCluster[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EcsCluster(entry, context);
-    });
-  return retVal;
-};
+// de_EcsClusters omitted.
 
-/**
- * deserializeAws_json1_1ElasticIp
- */
-const de_ElasticIp = (output: any, context: __SerdeContext): ElasticIp => {
-  return {
-    Domain: __expectString(output.Domain),
-    InstanceId: __expectString(output.InstanceId),
-    Ip: __expectString(output.Ip),
-    Name: __expectString(output.Name),
-    Region: __expectString(output.Region),
-  } as any;
-};
+// de_ElasticIp omitted.
 
-/**
- * deserializeAws_json1_1ElasticIps
- */
-const de_ElasticIps = (output: any, context: __SerdeContext): ElasticIp[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ElasticIp(entry, context);
-    });
-  return retVal;
-};
+// de_ElasticIps omitted.
 
-/**
- * deserializeAws_json1_1ElasticLoadBalancer
- */
-const de_ElasticLoadBalancer = (output: any, context: __SerdeContext): ElasticLoadBalancer => {
-  return {
-    AvailabilityZones: output.AvailabilityZones != null ? de_Strings(output.AvailabilityZones, context) : undefined,
-    DnsName: __expectString(output.DnsName),
-    Ec2InstanceIds: output.Ec2InstanceIds != null ? de_Strings(output.Ec2InstanceIds, context) : undefined,
-    ElasticLoadBalancerName: __expectString(output.ElasticLoadBalancerName),
-    LayerId: __expectString(output.LayerId),
-    Region: __expectString(output.Region),
-    StackId: __expectString(output.StackId),
-    SubnetIds: output.SubnetIds != null ? de_Strings(output.SubnetIds, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_ElasticLoadBalancer omitted.
 
-/**
- * deserializeAws_json1_1ElasticLoadBalancers
- */
-const de_ElasticLoadBalancers = (output: any, context: __SerdeContext): ElasticLoadBalancer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ElasticLoadBalancer(entry, context);
-    });
-  return retVal;
-};
+// de_ElasticLoadBalancers omitted.
 
-/**
- * deserializeAws_json1_1EnvironmentVariable
- */
-const de_EnvironmentVariable = (output: any, context: __SerdeContext): EnvironmentVariable => {
-  return {
-    Key: __expectString(output.Key),
-    Secure: __expectBoolean(output.Secure),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_EnvironmentVariable omitted.
 
-/**
- * deserializeAws_json1_1EnvironmentVariables
- */
-const de_EnvironmentVariables = (output: any, context: __SerdeContext): EnvironmentVariable[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EnvironmentVariable(entry, context);
-    });
-  return retVal;
-};
+// de_EnvironmentVariables omitted.
 
-/**
- * deserializeAws_json1_1GetHostnameSuggestionResult
- */
-const de_GetHostnameSuggestionResult = (output: any, context: __SerdeContext): GetHostnameSuggestionResult => {
-  return {
-    Hostname: __expectString(output.Hostname),
-    LayerId: __expectString(output.LayerId),
-  } as any;
-};
+// de_GetHostnameSuggestionResult omitted.
 
-/**
- * deserializeAws_json1_1GrantAccessResult
- */
-const de_GrantAccessResult = (output: any, context: __SerdeContext): GrantAccessResult => {
-  return {
-    TemporaryCredential:
-      output.TemporaryCredential != null ? de_TemporaryCredential(output.TemporaryCredential, context) : undefined,
-  } as any;
-};
+// de_GrantAccessResult omitted.
 
-/**
- * deserializeAws_json1_1Instance
- */
-const de_Instance = (output: any, context: __SerdeContext): Instance => {
-  return {
-    AgentVersion: __expectString(output.AgentVersion),
-    AmiId: __expectString(output.AmiId),
-    Architecture: __expectString(output.Architecture),
-    Arn: __expectString(output.Arn),
-    AutoScalingType: __expectString(output.AutoScalingType),
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    BlockDeviceMappings:
-      output.BlockDeviceMappings != null ? de_BlockDeviceMappings(output.BlockDeviceMappings, context) : undefined,
-    CreatedAt: __expectString(output.CreatedAt),
-    EbsOptimized: __expectBoolean(output.EbsOptimized),
-    Ec2InstanceId: __expectString(output.Ec2InstanceId),
-    EcsClusterArn: __expectString(output.EcsClusterArn),
-    EcsContainerInstanceArn: __expectString(output.EcsContainerInstanceArn),
-    ElasticIp: __expectString(output.ElasticIp),
-    Hostname: __expectString(output.Hostname),
-    InfrastructureClass: __expectString(output.InfrastructureClass),
-    InstallUpdatesOnBoot: __expectBoolean(output.InstallUpdatesOnBoot),
-    InstanceId: __expectString(output.InstanceId),
-    InstanceProfileArn: __expectString(output.InstanceProfileArn),
-    InstanceType: __expectString(output.InstanceType),
-    LastServiceErrorId: __expectString(output.LastServiceErrorId),
-    LayerIds: output.LayerIds != null ? de_Strings(output.LayerIds, context) : undefined,
-    Os: __expectString(output.Os),
-    Platform: __expectString(output.Platform),
-    PrivateDns: __expectString(output.PrivateDns),
-    PrivateIp: __expectString(output.PrivateIp),
-    PublicDns: __expectString(output.PublicDns),
-    PublicIp: __expectString(output.PublicIp),
-    RegisteredBy: __expectString(output.RegisteredBy),
-    ReportedAgentVersion: __expectString(output.ReportedAgentVersion),
-    ReportedOs: output.ReportedOs != null ? de_ReportedOs(output.ReportedOs, context) : undefined,
-    RootDeviceType: __expectString(output.RootDeviceType),
-    RootDeviceVolumeId: __expectString(output.RootDeviceVolumeId),
-    SecurityGroupIds: output.SecurityGroupIds != null ? de_Strings(output.SecurityGroupIds, context) : undefined,
-    SshHostDsaKeyFingerprint: __expectString(output.SshHostDsaKeyFingerprint),
-    SshHostRsaKeyFingerprint: __expectString(output.SshHostRsaKeyFingerprint),
-    SshKeyName: __expectString(output.SshKeyName),
-    StackId: __expectString(output.StackId),
-    Status: __expectString(output.Status),
-    SubnetId: __expectString(output.SubnetId),
-    Tenancy: __expectString(output.Tenancy),
-    VirtualizationType: __expectString(output.VirtualizationType),
-  } as any;
-};
+// de_Instance omitted.
 
-/**
- * deserializeAws_json1_1Instances
- */
-const de_Instances = (output: any, context: __SerdeContext): Instance[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Instance(entry, context);
-    });
-  return retVal;
-};
+// de_Instances omitted.
 
-/**
- * deserializeAws_json1_1InstancesCount
- */
-const de_InstancesCount = (output: any, context: __SerdeContext): InstancesCount => {
-  return {
-    Assigning: __expectInt32(output.Assigning),
-    Booting: __expectInt32(output.Booting),
-    ConnectionLost: __expectInt32(output.ConnectionLost),
-    Deregistering: __expectInt32(output.Deregistering),
-    Online: __expectInt32(output.Online),
-    Pending: __expectInt32(output.Pending),
-    Rebooting: __expectInt32(output.Rebooting),
-    Registered: __expectInt32(output.Registered),
-    Registering: __expectInt32(output.Registering),
-    Requested: __expectInt32(output.Requested),
-    RunningSetup: __expectInt32(output.RunningSetup),
-    SetupFailed: __expectInt32(output.SetupFailed),
-    ShuttingDown: __expectInt32(output.ShuttingDown),
-    StartFailed: __expectInt32(output.StartFailed),
-    StopFailed: __expectInt32(output.StopFailed),
-    Stopped: __expectInt32(output.Stopped),
-    Stopping: __expectInt32(output.Stopping),
-    Terminated: __expectInt32(output.Terminated),
-    Terminating: __expectInt32(output.Terminating),
-    Unassigning: __expectInt32(output.Unassigning),
-  } as any;
-};
+// de_InstancesCount omitted.
 
-/**
- * deserializeAws_json1_1Layer
- */
-const de_Layer = (output: any, context: __SerdeContext): Layer => {
-  return {
-    Arn: __expectString(output.Arn),
-    Attributes: output.Attributes != null ? de_LayerAttributes(output.Attributes, context) : undefined,
-    AutoAssignElasticIps: __expectBoolean(output.AutoAssignElasticIps),
-    AutoAssignPublicIps: __expectBoolean(output.AutoAssignPublicIps),
-    CloudWatchLogsConfiguration:
-      output.CloudWatchLogsConfiguration != null
-        ? de_CloudWatchLogsConfiguration(output.CloudWatchLogsConfiguration, context)
-        : undefined,
-    CreatedAt: __expectString(output.CreatedAt),
-    CustomInstanceProfileArn: __expectString(output.CustomInstanceProfileArn),
-    CustomJson: __expectString(output.CustomJson),
-    CustomRecipes: output.CustomRecipes != null ? de_Recipes(output.CustomRecipes, context) : undefined,
-    CustomSecurityGroupIds:
-      output.CustomSecurityGroupIds != null ? de_Strings(output.CustomSecurityGroupIds, context) : undefined,
-    DefaultRecipes: output.DefaultRecipes != null ? de_Recipes(output.DefaultRecipes, context) : undefined,
-    DefaultSecurityGroupNames:
-      output.DefaultSecurityGroupNames != null ? de_Strings(output.DefaultSecurityGroupNames, context) : undefined,
-    EnableAutoHealing: __expectBoolean(output.EnableAutoHealing),
-    InstallUpdatesOnBoot: __expectBoolean(output.InstallUpdatesOnBoot),
-    LayerId: __expectString(output.LayerId),
-    LifecycleEventConfiguration:
-      output.LifecycleEventConfiguration != null
-        ? de_LifecycleEventConfiguration(output.LifecycleEventConfiguration, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    Packages: output.Packages != null ? de_Strings(output.Packages, context) : undefined,
-    Shortname: __expectString(output.Shortname),
-    StackId: __expectString(output.StackId),
-    Type: __expectString(output.Type),
-    UseEbsOptimizedInstances: __expectBoolean(output.UseEbsOptimizedInstances),
-    VolumeConfigurations:
-      output.VolumeConfigurations != null ? de_VolumeConfigurations(output.VolumeConfigurations, context) : undefined,
-  } as any;
-};
+// de_Layer omitted.
 
-/**
- * deserializeAws_json1_1LayerAttributes
- */
-const de_LayerAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [LayerAttributesKeys | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_LayerAttributes omitted.
 
-/**
- * deserializeAws_json1_1Layers
- */
-const de_Layers = (output: any, context: __SerdeContext): Layer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Layer(entry, context);
-    });
-  return retVal;
-};
+// de_Layers omitted.
 
-/**
- * deserializeAws_json1_1LifecycleEventConfiguration
- */
-const de_LifecycleEventConfiguration = (output: any, context: __SerdeContext): LifecycleEventConfiguration => {
-  return {
-    Shutdown: output.Shutdown != null ? de_ShutdownEventConfiguration(output.Shutdown, context) : undefined,
-  } as any;
-};
+// de_LifecycleEventConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ListTagsResult
- */
-const de_ListTagsResult = (output: any, context: __SerdeContext): ListTagsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsResult omitted.
 
 /**
  * deserializeAws_json1_1LoadBasedAutoScalingConfiguration
@@ -7090,12 +5136,12 @@ const de_LoadBasedAutoScalingConfiguration = (
   output: any,
   context: __SerdeContext
 ): LoadBasedAutoScalingConfiguration => {
-  return {
-    DownScaling: output.DownScaling != null ? de_AutoScalingThresholds(output.DownScaling, context) : undefined,
-    Enable: __expectBoolean(output.Enable),
-    LayerId: __expectString(output.LayerId),
-    UpScaling: output.UpScaling != null ? de_AutoScalingThresholds(output.UpScaling, context) : undefined,
-  } as any;
+  return take(output, {
+    DownScaling: (_: any) => de_AutoScalingThresholds(_, context),
+    Enable: __expectBoolean,
+    LayerId: __expectString,
+    UpScaling: (_: any) => de_AutoScalingThresholds(_, context),
+  }) as any;
 };
 
 /**
@@ -7108,614 +5154,94 @@ const de_LoadBasedAutoScalingConfigurations = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LoadBasedAutoScalingConfiguration(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1OperatingSystem
- */
-const de_OperatingSystem = (output: any, context: __SerdeContext): OperatingSystem => {
-  return {
-    ConfigurationManagers:
-      output.ConfigurationManagers != null
-        ? de_OperatingSystemConfigurationManagers(output.ConfigurationManagers, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    ReportedName: __expectString(output.ReportedName),
-    ReportedVersion: __expectString(output.ReportedVersion),
-    Supported: __expectBoolean(output.Supported),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_OperatingSystem omitted.
 
-/**
- * deserializeAws_json1_1OperatingSystemConfigurationManager
- */
-const de_OperatingSystemConfigurationManager = (
-  output: any,
-  context: __SerdeContext
-): OperatingSystemConfigurationManager => {
-  return {
-    Name: __expectString(output.Name),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_OperatingSystemConfigurationManager omitted.
 
-/**
- * deserializeAws_json1_1OperatingSystemConfigurationManagers
- */
-const de_OperatingSystemConfigurationManagers = (
-  output: any,
-  context: __SerdeContext
-): OperatingSystemConfigurationManager[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OperatingSystemConfigurationManager(entry, context);
-    });
-  return retVal;
-};
+// de_OperatingSystemConfigurationManagers omitted.
 
-/**
- * deserializeAws_json1_1OperatingSystems
- */
-const de_OperatingSystems = (output: any, context: __SerdeContext): OperatingSystem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OperatingSystem(entry, context);
-    });
-  return retVal;
-};
+// de_OperatingSystems omitted.
 
-/**
- * deserializeAws_json1_1Parameters
- */
-const de_Parameters = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Parameters omitted.
 
-/**
- * deserializeAws_json1_1Permission
- */
-const de_Permission = (output: any, context: __SerdeContext): Permission => {
-  return {
-    AllowSsh: __expectBoolean(output.AllowSsh),
-    AllowSudo: __expectBoolean(output.AllowSudo),
-    IamUserArn: __expectString(output.IamUserArn),
-    Level: __expectString(output.Level),
-    StackId: __expectString(output.StackId),
-  } as any;
-};
+// de_Permission omitted.
 
-/**
- * deserializeAws_json1_1Permissions
- */
-const de_Permissions = (output: any, context: __SerdeContext): Permission[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Permission(entry, context);
-    });
-  return retVal;
-};
+// de_Permissions omitted.
 
-/**
- * deserializeAws_json1_1RaidArray
- */
-const de_RaidArray = (output: any, context: __SerdeContext): RaidArray => {
-  return {
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    CreatedAt: __expectString(output.CreatedAt),
-    Device: __expectString(output.Device),
-    InstanceId: __expectString(output.InstanceId),
-    Iops: __expectInt32(output.Iops),
-    MountPoint: __expectString(output.MountPoint),
-    Name: __expectString(output.Name),
-    NumberOfDisks: __expectInt32(output.NumberOfDisks),
-    RaidArrayId: __expectString(output.RaidArrayId),
-    RaidLevel: __expectInt32(output.RaidLevel),
-    Size: __expectInt32(output.Size),
-    StackId: __expectString(output.StackId),
-    VolumeType: __expectString(output.VolumeType),
-  } as any;
-};
+// de_RaidArray omitted.
 
-/**
- * deserializeAws_json1_1RaidArrays
- */
-const de_RaidArrays = (output: any, context: __SerdeContext): RaidArray[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RaidArray(entry, context);
-    });
-  return retVal;
-};
+// de_RaidArrays omitted.
 
-/**
- * deserializeAws_json1_1RdsDbInstance
- */
-const de_RdsDbInstance = (output: any, context: __SerdeContext): RdsDbInstance => {
-  return {
-    Address: __expectString(output.Address),
-    DbInstanceIdentifier: __expectString(output.DbInstanceIdentifier),
-    DbPassword: __expectString(output.DbPassword),
-    DbUser: __expectString(output.DbUser),
-    Engine: __expectString(output.Engine),
-    MissingOnRds: __expectBoolean(output.MissingOnRds),
-    RdsDbInstanceArn: __expectString(output.RdsDbInstanceArn),
-    Region: __expectString(output.Region),
-    StackId: __expectString(output.StackId),
-  } as any;
-};
+// de_RdsDbInstance omitted.
 
-/**
- * deserializeAws_json1_1RdsDbInstances
- */
-const de_RdsDbInstances = (output: any, context: __SerdeContext): RdsDbInstance[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RdsDbInstance(entry, context);
-    });
-  return retVal;
-};
+// de_RdsDbInstances omitted.
 
-/**
- * deserializeAws_json1_1Recipes
- */
-const de_Recipes = (output: any, context: __SerdeContext): Recipes => {
-  return {
-    Configure: output.Configure != null ? de_Strings(output.Configure, context) : undefined,
-    Deploy: output.Deploy != null ? de_Strings(output.Deploy, context) : undefined,
-    Setup: output.Setup != null ? de_Strings(output.Setup, context) : undefined,
-    Shutdown: output.Shutdown != null ? de_Strings(output.Shutdown, context) : undefined,
-    Undeploy: output.Undeploy != null ? de_Strings(output.Undeploy, context) : undefined,
-  } as any;
-};
+// de_Recipes omitted.
 
-/**
- * deserializeAws_json1_1RegisterEcsClusterResult
- */
-const de_RegisterEcsClusterResult = (output: any, context: __SerdeContext): RegisterEcsClusterResult => {
-  return {
-    EcsClusterArn: __expectString(output.EcsClusterArn),
-  } as any;
-};
+// de_RegisterEcsClusterResult omitted.
 
-/**
- * deserializeAws_json1_1RegisterElasticIpResult
- */
-const de_RegisterElasticIpResult = (output: any, context: __SerdeContext): RegisterElasticIpResult => {
-  return {
-    ElasticIp: __expectString(output.ElasticIp),
-  } as any;
-};
+// de_RegisterElasticIpResult omitted.
 
-/**
- * deserializeAws_json1_1RegisterInstanceResult
- */
-const de_RegisterInstanceResult = (output: any, context: __SerdeContext): RegisterInstanceResult => {
-  return {
-    InstanceId: __expectString(output.InstanceId),
-  } as any;
-};
+// de_RegisterInstanceResult omitted.
 
-/**
- * deserializeAws_json1_1RegisterVolumeResult
- */
-const de_RegisterVolumeResult = (output: any, context: __SerdeContext): RegisterVolumeResult => {
-  return {
-    VolumeId: __expectString(output.VolumeId),
-  } as any;
-};
+// de_RegisterVolumeResult omitted.
 
-/**
- * deserializeAws_json1_1ReportedOs
- */
-const de_ReportedOs = (output: any, context: __SerdeContext): ReportedOs => {
-  return {
-    Family: __expectString(output.Family),
-    Name: __expectString(output.Name),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_ReportedOs omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1SelfUserProfile
- */
-const de_SelfUserProfile = (output: any, context: __SerdeContext): SelfUserProfile => {
-  return {
-    IamUserArn: __expectString(output.IamUserArn),
-    Name: __expectString(output.Name),
-    SshPublicKey: __expectString(output.SshPublicKey),
-    SshUsername: __expectString(output.SshUsername),
-  } as any;
-};
+// de_SelfUserProfile omitted.
 
-/**
- * deserializeAws_json1_1ServiceError
- */
-const de_ServiceError = (output: any, context: __SerdeContext): ServiceError => {
-  return {
-    CreatedAt: __expectString(output.CreatedAt),
-    InstanceId: __expectString(output.InstanceId),
-    Message: __expectString(output.Message),
-    ServiceErrorId: __expectString(output.ServiceErrorId),
-    StackId: __expectString(output.StackId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ServiceError omitted.
 
-/**
- * deserializeAws_json1_1ServiceErrors
- */
-const de_ServiceErrors = (output: any, context: __SerdeContext): ServiceError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServiceError(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceErrors omitted.
 
-/**
- * deserializeAws_json1_1ShutdownEventConfiguration
- */
-const de_ShutdownEventConfiguration = (output: any, context: __SerdeContext): ShutdownEventConfiguration => {
-  return {
-    DelayUntilElbConnectionsDrained: __expectBoolean(output.DelayUntilElbConnectionsDrained),
-    ExecutionTimeout: __expectInt32(output.ExecutionTimeout),
-  } as any;
-};
+// de_ShutdownEventConfiguration omitted.
 
-/**
- * deserializeAws_json1_1Source
- */
-const de_Source = (output: any, context: __SerdeContext): Source => {
-  return {
-    Password: __expectString(output.Password),
-    Revision: __expectString(output.Revision),
-    SshKey: __expectString(output.SshKey),
-    Type: __expectString(output.Type),
-    Url: __expectString(output.Url),
-    Username: __expectString(output.Username),
-  } as any;
-};
+// de_Source omitted.
 
-/**
- * deserializeAws_json1_1SslConfiguration
- */
-const de_SslConfiguration = (output: any, context: __SerdeContext): SslConfiguration => {
-  return {
-    Certificate: __expectString(output.Certificate),
-    Chain: __expectString(output.Chain),
-    PrivateKey: __expectString(output.PrivateKey),
-  } as any;
-};
+// de_SslConfiguration omitted.
 
-/**
- * deserializeAws_json1_1Stack
- */
-const de_Stack = (output: any, context: __SerdeContext): Stack => {
-  return {
-    AgentVersion: __expectString(output.AgentVersion),
-    Arn: __expectString(output.Arn),
-    Attributes: output.Attributes != null ? de_StackAttributes(output.Attributes, context) : undefined,
-    ChefConfiguration:
-      output.ChefConfiguration != null ? de_ChefConfiguration(output.ChefConfiguration, context) : undefined,
-    ConfigurationManager:
-      output.ConfigurationManager != null
-        ? de_StackConfigurationManager(output.ConfigurationManager, context)
-        : undefined,
-    CreatedAt: __expectString(output.CreatedAt),
-    CustomCookbooksSource:
-      output.CustomCookbooksSource != null ? de_Source(output.CustomCookbooksSource, context) : undefined,
-    CustomJson: __expectString(output.CustomJson),
-    DefaultAvailabilityZone: __expectString(output.DefaultAvailabilityZone),
-    DefaultInstanceProfileArn: __expectString(output.DefaultInstanceProfileArn),
-    DefaultOs: __expectString(output.DefaultOs),
-    DefaultRootDeviceType: __expectString(output.DefaultRootDeviceType),
-    DefaultSshKeyName: __expectString(output.DefaultSshKeyName),
-    DefaultSubnetId: __expectString(output.DefaultSubnetId),
-    HostnameTheme: __expectString(output.HostnameTheme),
-    Name: __expectString(output.Name),
-    Region: __expectString(output.Region),
-    ServiceRoleArn: __expectString(output.ServiceRoleArn),
-    StackId: __expectString(output.StackId),
-    UseCustomCookbooks: __expectBoolean(output.UseCustomCookbooks),
-    UseOpsworksSecurityGroups: __expectBoolean(output.UseOpsworksSecurityGroups),
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_Stack omitted.
 
-/**
- * deserializeAws_json1_1StackAttributes
- */
-const de_StackAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [StackAttributesKeys | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_StackAttributes omitted.
 
-/**
- * deserializeAws_json1_1StackConfigurationManager
- */
-const de_StackConfigurationManager = (output: any, context: __SerdeContext): StackConfigurationManager => {
-  return {
-    Name: __expectString(output.Name),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_StackConfigurationManager omitted.
 
-/**
- * deserializeAws_json1_1Stacks
- */
-const de_Stacks = (output: any, context: __SerdeContext): Stack[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Stack(entry, context);
-    });
-  return retVal;
-};
+// de_Stacks omitted.
 
-/**
- * deserializeAws_json1_1StackSummary
- */
-const de_StackSummary = (output: any, context: __SerdeContext): StackSummary => {
-  return {
-    AppsCount: __expectInt32(output.AppsCount),
-    Arn: __expectString(output.Arn),
-    InstancesCount: output.InstancesCount != null ? de_InstancesCount(output.InstancesCount, context) : undefined,
-    LayersCount: __expectInt32(output.LayersCount),
-    Name: __expectString(output.Name),
-    StackId: __expectString(output.StackId),
-  } as any;
-};
+// de_StackSummary omitted.
 
-/**
- * deserializeAws_json1_1Strings
- */
-const de_Strings = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Strings omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_1TemporaryCredential
- */
-const de_TemporaryCredential = (output: any, context: __SerdeContext): TemporaryCredential => {
-  return {
-    InstanceId: __expectString(output.InstanceId),
-    Password: __expectString(output.Password),
-    Username: __expectString(output.Username),
-    ValidForInMinutes: __expectInt32(output.ValidForInMinutes),
-  } as any;
-};
+// de_TemporaryCredential omitted.
 
-/**
- * deserializeAws_json1_1TimeBasedAutoScalingConfiguration
- */
-const de_TimeBasedAutoScalingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): TimeBasedAutoScalingConfiguration => {
-  return {
-    AutoScalingSchedule:
-      output.AutoScalingSchedule != null
-        ? de_WeeklyAutoScalingSchedule(output.AutoScalingSchedule, context)
-        : undefined,
-    InstanceId: __expectString(output.InstanceId),
-  } as any;
-};
+// de_TimeBasedAutoScalingConfiguration omitted.
 
-/**
- * deserializeAws_json1_1TimeBasedAutoScalingConfigurations
- */
-const de_TimeBasedAutoScalingConfigurations = (
-  output: any,
-  context: __SerdeContext
-): TimeBasedAutoScalingConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TimeBasedAutoScalingConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_TimeBasedAutoScalingConfigurations omitted.
 
-/**
- * deserializeAws_json1_1UserProfile
- */
-const de_UserProfile = (output: any, context: __SerdeContext): UserProfile => {
-  return {
-    AllowSelfManagement: __expectBoolean(output.AllowSelfManagement),
-    IamUserArn: __expectString(output.IamUserArn),
-    Name: __expectString(output.Name),
-    SshPublicKey: __expectString(output.SshPublicKey),
-    SshUsername: __expectString(output.SshUsername),
-  } as any;
-};
+// de_UserProfile omitted.
 
-/**
- * deserializeAws_json1_1UserProfiles
- */
-const de_UserProfiles = (output: any, context: __SerdeContext): UserProfile[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UserProfile(entry, context);
-    });
-  return retVal;
-};
+// de_UserProfiles omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_1Volume
- */
-const de_Volume = (output: any, context: __SerdeContext): Volume => {
-  return {
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    Device: __expectString(output.Device),
-    Ec2VolumeId: __expectString(output.Ec2VolumeId),
-    Encrypted: __expectBoolean(output.Encrypted),
-    InstanceId: __expectString(output.InstanceId),
-    Iops: __expectInt32(output.Iops),
-    MountPoint: __expectString(output.MountPoint),
-    Name: __expectString(output.Name),
-    RaidArrayId: __expectString(output.RaidArrayId),
-    Region: __expectString(output.Region),
-    Size: __expectInt32(output.Size),
-    Status: __expectString(output.Status),
-    VolumeId: __expectString(output.VolumeId),
-    VolumeType: __expectString(output.VolumeType),
-  } as any;
-};
+// de_Volume omitted.
 
-/**
- * deserializeAws_json1_1VolumeConfiguration
- */
-const de_VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
-  return {
-    Encrypted: __expectBoolean(output.Encrypted),
-    Iops: __expectInt32(output.Iops),
-    MountPoint: __expectString(output.MountPoint),
-    NumberOfDisks: __expectInt32(output.NumberOfDisks),
-    RaidLevel: __expectInt32(output.RaidLevel),
-    Size: __expectInt32(output.Size),
-    VolumeType: __expectString(output.VolumeType),
-  } as any;
-};
+// de_VolumeConfiguration omitted.
 
-/**
- * deserializeAws_json1_1VolumeConfigurations
- */
-const de_VolumeConfigurations = (output: any, context: __SerdeContext): VolumeConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VolumeConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_VolumeConfigurations omitted.
 
-/**
- * deserializeAws_json1_1Volumes
- */
-const de_Volumes = (output: any, context: __SerdeContext): Volume[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Volume(entry, context);
-    });
-  return retVal;
-};
+// de_Volumes omitted.
 
-/**
- * deserializeAws_json1_1WeeklyAutoScalingSchedule
- */
-const de_WeeklyAutoScalingSchedule = (output: any, context: __SerdeContext): WeeklyAutoScalingSchedule => {
-  return {
-    Friday: output.Friday != null ? de_DailyAutoScalingSchedule(output.Friday, context) : undefined,
-    Monday: output.Monday != null ? de_DailyAutoScalingSchedule(output.Monday, context) : undefined,
-    Saturday: output.Saturday != null ? de_DailyAutoScalingSchedule(output.Saturday, context) : undefined,
-    Sunday: output.Sunday != null ? de_DailyAutoScalingSchedule(output.Sunday, context) : undefined,
-    Thursday: output.Thursday != null ? de_DailyAutoScalingSchedule(output.Thursday, context) : undefined,
-    Tuesday: output.Tuesday != null ? de_DailyAutoScalingSchedule(output.Tuesday, context) : undefined,
-    Wednesday: output.Wednesday != null ? de_DailyAutoScalingSchedule(output.Wednesday, context) : undefined,
-  } as any;
-};
+// de_WeeklyAutoScalingSchedule omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -7737,6 +5263,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

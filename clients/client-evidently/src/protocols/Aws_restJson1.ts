@@ -5,6 +5,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -17,11 +18,12 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -85,12 +87,10 @@ import {
 import { EvidentlyServiceException as __BaseException } from "../models/EvidentlyServiceException";
 import {
   AccessDeniedException,
-  CloudWatchLogsDestination,
   CloudWatchLogsDestinationConfig,
   ConflictException,
   EvaluationRequest,
   EvaluationResult,
-  EvaluationRule,
   Event,
   Experiment,
   ExperimentExecution,
@@ -104,7 +104,6 @@ import {
   InternalServerException,
   Launch,
   LaunchExecution,
-  LaunchGroup,
   LaunchGroupConfig,
   MetricDefinition,
   MetricDefinitionConfig,
@@ -113,17 +112,11 @@ import {
   MetricMonitor,
   MetricMonitorConfig,
   OnlineAbConfig,
-  OnlineAbDefinition,
   Project,
-  ProjectAppConfigResource,
   ProjectAppConfigResourceConfig,
-  ProjectDataDelivery,
   ProjectDataDeliveryConfig,
   ProjectSummary,
-  PutProjectEventsResultEntry,
-  RefResource,
   ResourceNotFoundException,
-  S3Destination,
   S3DestinationConfig,
   ScheduledSplit,
   ScheduledSplitConfig,
@@ -134,10 +127,8 @@ import {
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   ThrottlingException,
-  Treatment,
   TreatmentConfig,
   ValidationException,
-  ValidationExceptionField,
   VariableValue,
   Variation,
   VariationConfig,
@@ -158,9 +149,11 @@ export const se_BatchEvaluateFeatureCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/evaluations";
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.requests != null && { requests: se_EvaluationRequestsList(input.requests, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      requests: (_) => se_EvaluationRequestsList(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "dataplane." + resolvedHostname;
@@ -194,17 +187,19 @@ export const se_CreateExperimentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/experiments";
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.metricGoals != null && { metricGoals: se_MetricGoalConfigList(input.metricGoals, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.onlineAbConfig != null && { onlineAbConfig: se_OnlineAbConfig(input.onlineAbConfig, context) }),
-    ...(input.randomizationSalt != null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.samplingRate != null && { samplingRate: input.samplingRate }),
-    ...(input.segment != null && { segment: input.segment }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.treatments != null && { treatments: se_TreatmentConfigList(input.treatments, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      metricGoals: (_) => se_MetricGoalConfigList(_, context),
+      name: [],
+      onlineAbConfig: (_) => _json(_),
+      randomizationSalt: [],
+      samplingRate: [],
+      segment: [],
+      tags: (_) => _json(_),
+      treatments: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -231,15 +226,17 @@ export const se_CreateFeatureCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features";
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.defaultVariation != null && { defaultVariation: input.defaultVariation }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.entityOverrides != null && { entityOverrides: se_EntityOverrideMap(input.entityOverrides, context) }),
-    ...(input.evaluationStrategy != null && { evaluationStrategy: input.evaluationStrategy }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.variations != null && { variations: se_VariationConfigsList(input.variations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      defaultVariation: [],
+      description: [],
+      entityOverrides: (_) => _json(_),
+      evaluationStrategy: [],
+      name: [],
+      tags: (_) => _json(_),
+      variations: (_) => se_VariationConfigsList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -266,17 +263,17 @@ export const se_CreateLaunchCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches";
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.groups != null && { groups: se_LaunchGroupConfigList(input.groups, context) }),
-    ...(input.metricMonitors != null && { metricMonitors: se_MetricMonitorConfigList(input.metricMonitors, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.randomizationSalt != null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.scheduledSplitsConfig != null && {
-      scheduledSplitsConfig: se_ScheduledSplitsLaunchConfig(input.scheduledSplitsConfig, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      groups: (_) => _json(_),
+      metricMonitors: (_) => se_MetricMonitorConfigList(_, context),
+      name: [],
+      randomizationSalt: [],
+      scheduledSplitsConfig: (_) => se_ScheduledSplitsLaunchConfig(_, context),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -301,15 +298,15 @@ export const se_CreateProjectCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appConfigResource != null && {
-      appConfigResource: se_ProjectAppConfigResourceConfig(input.appConfigResource, context),
-    }),
-    ...(input.dataDelivery != null && { dataDelivery: se_ProjectDataDeliveryConfig(input.dataDelivery, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appConfigResource: (_) => _json(_),
+      dataDelivery: (_) => _json(_),
+      description: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -334,12 +331,14 @@ export const se_CreateSegmentCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.pattern != null && { pattern: __LazyJsonString.fromObject(input.pattern) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      pattern: (_) => __LazyJsonString.fromObject(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -489,10 +488,12 @@ export const se_EvaluateFeatureCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.entityId != null && { entityId: input.entityId }),
-    ...(input.evaluationContext != null && { evaluationContext: __LazyJsonString.fromObject(input.evaluationContext) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      entityId: [],
+      evaluationContext: (_) => __LazyJsonString.fromObject(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "dataplane." + resolvedHostname;
@@ -554,16 +555,18 @@ export const se_GetExperimentResultsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.baseStat != null && { baseStat: input.baseStat }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.metricNames != null && { metricNames: se_MetricNameList(input.metricNames, context) }),
-    ...(input.period != null && { period: input.period }),
-    ...(input.reportNames != null && { reportNames: se_ExperimentReportNameList(input.reportNames, context) }),
-    ...(input.resultStats != null && { resultStats: se_ExperimentResultRequestTypeList(input.resultStats, context) }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.treatmentNames != null && { treatmentNames: se_TreatmentNameList(input.treatmentNames, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      baseStat: [],
+      endTime: (_) => Math.round(_.getTime() / 1000),
+      metricNames: (_) => _json(_),
+      period: [],
+      reportNames: (_) => _json(_),
+      resultStats: (_) => _json(_),
+      startTime: (_) => Math.round(_.getTime() / 1000),
+      treatmentNames: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -882,9 +885,11 @@ export const se_PutProjectEventsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events/projects/{project}";
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.events != null && { events: se_EventList(input.events, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      events: (_) => se_EventList(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "dataplane." + resolvedHostname;
@@ -920,11 +925,11 @@ export const se_StartExperimentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.analysisCompleteTime != null && {
-      analysisCompleteTime: Math.round(input.analysisCompleteTime.getTime() / 1000),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      analysisCompleteTime: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -979,10 +984,12 @@ export const se_StopExperimentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.desiredState != null && { desiredState: input.desiredState }),
-    ...(input.reason != null && { reason: input.reason }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      desiredState: [],
+      reason: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1011,10 +1018,12 @@ export const se_StopLaunchCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.desiredState != null && { desiredState: input.desiredState }),
-    ...(input.reason != null && { reason: input.reason }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      desiredState: [],
+      reason: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1040,9 +1049,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1067,10 +1078,12 @@ export const se_TestSegmentPatternCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/test-segment-pattern";
   let body: any;
-  body = JSON.stringify({
-    ...(input.pattern != null && { pattern: __LazyJsonString.fromObject(input.pattern) }),
-    ...(input.payload != null && { payload: __LazyJsonString.fromObject(input.payload) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      pattern: (_) => __LazyJsonString.fromObject(_),
+      payload: (_) => __LazyJsonString.fromObject(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1129,16 +1142,18 @@ export const se_UpdateExperimentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.metricGoals != null && { metricGoals: se_MetricGoalConfigList(input.metricGoals, context) }),
-    ...(input.onlineAbConfig != null && { onlineAbConfig: se_OnlineAbConfig(input.onlineAbConfig, context) }),
-    ...(input.randomizationSalt != null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.removeSegment != null && { removeSegment: input.removeSegment }),
-    ...(input.samplingRate != null && { samplingRate: input.samplingRate }),
-    ...(input.segment != null && { segment: input.segment }),
-    ...(input.treatments != null && { treatments: se_TreatmentConfigList(input.treatments, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      metricGoals: (_) => se_MetricGoalConfigList(_, context),
+      onlineAbConfig: (_) => _json(_),
+      randomizationSalt: [],
+      removeSegment: [],
+      samplingRate: [],
+      segment: [],
+      treatments: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1166,16 +1181,16 @@ export const se_UpdateFeatureCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.addOrUpdateVariations != null && {
-      addOrUpdateVariations: se_VariationConfigsList(input.addOrUpdateVariations, context),
-    }),
-    ...(input.defaultVariation != null && { defaultVariation: input.defaultVariation }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.entityOverrides != null && { entityOverrides: se_EntityOverrideMap(input.entityOverrides, context) }),
-    ...(input.evaluationStrategy != null && { evaluationStrategy: input.evaluationStrategy }),
-    ...(input.removeVariations != null && { removeVariations: se_VariationNameList(input.removeVariations, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      addOrUpdateVariations: (_) => se_VariationConfigsList(_, context),
+      defaultVariation: [],
+      description: [],
+      entityOverrides: (_) => _json(_),
+      evaluationStrategy: [],
+      removeVariations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1203,15 +1218,15 @@ export const se_UpdateLaunchCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.groups != null && { groups: se_LaunchGroupConfigList(input.groups, context) }),
-    ...(input.metricMonitors != null && { metricMonitors: se_MetricMonitorConfigList(input.metricMonitors, context) }),
-    ...(input.randomizationSalt != null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.scheduledSplitsConfig != null && {
-      scheduledSplitsConfig: se_ScheduledSplitsLaunchConfig(input.scheduledSplitsConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      groups: (_) => _json(_),
+      metricMonitors: (_) => se_MetricMonitorConfigList(_, context),
+      randomizationSalt: [],
+      scheduledSplitsConfig: (_) => se_ScheduledSplitsLaunchConfig(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1237,12 +1252,12 @@ export const se_UpdateProjectCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}";
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.appConfigResource != null && {
-      appConfigResource: se_ProjectAppConfigResourceConfig(input.appConfigResource, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appConfigResource: (_) => _json(_),
+      description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1269,12 +1284,12 @@ export const se_UpdateProjectDataDeliveryCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/data-delivery";
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.cloudWatchLogs != null && {
-      cloudWatchLogs: se_CloudWatchLogsDestinationConfig(input.cloudWatchLogs, context),
-    }),
-    ...(input.s3Destination != null && { s3Destination: se_S3DestinationConfig(input.s3Destination, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cloudWatchLogs: (_) => _json(_),
+      s3Destination: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1300,9 +1315,10 @@ export const de_BatchEvaluateFeatureCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.results != null) {
-    contents.results = de_EvaluationResultsList(data.results, context);
-  }
+  const doc = take(data, {
+    results: (_) => de_EvaluationResultsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1333,10 +1349,9 @@ const de_BatchEvaluateFeatureCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1356,9 +1371,10 @@ export const de_CreateExperimentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.experiment != null) {
-    contents.experiment = de_Experiment(data.experiment, context);
-  }
+  const doc = take(data, {
+    experiment: (_) => de_Experiment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1392,10 +1408,9 @@ const de_CreateExperimentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1415,9 +1430,10 @@ export const de_CreateFeatureCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.feature != null) {
-    contents.feature = de_Feature(data.feature, context);
-  }
+  const doc = take(data, {
+    feature: (_) => de_Feature(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1451,10 +1467,9 @@ const de_CreateFeatureCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1474,9 +1489,10 @@ export const de_CreateLaunchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launch != null) {
-    contents.launch = de_Launch(data.launch, context);
-  }
+  const doc = take(data, {
+    launch: (_) => de_Launch(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1510,10 +1526,9 @@ const de_CreateLaunchCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1533,9 +1548,10 @@ export const de_CreateProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project != null) {
-    contents.project = de_Project(data.project, context);
-  }
+  const doc = take(data, {
+    project: (_) => de_Project(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1566,10 +1582,9 @@ const de_CreateProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1589,9 +1604,10 @@ export const de_CreateSegmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.segment != null) {
-    contents.segment = de_Segment(data.segment, context);
-  }
+  const doc = take(data, {
+    segment: (_) => de_Segment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1622,10 +1638,9 @@ const de_CreateSegmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1681,10 +1696,9 @@ const de_DeleteExperimentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1737,10 +1751,9 @@ const de_DeleteFeatureCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1793,10 +1806,9 @@ const de_DeleteLaunchCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1849,10 +1861,9 @@ const de_DeleteProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1905,10 +1916,9 @@ const de_DeleteSegmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1928,18 +1938,13 @@ export const de_EvaluateFeatureCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.details != null) {
-    contents.details = new __LazyJsonString(data.details);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
-  if (data.value != null) {
-    contents.value = de_VariableValue(__expectUnion(data.value), context);
-  }
-  if (data.variation != null) {
-    contents.variation = __expectString(data.variation);
-  }
+  const doc = take(data, {
+    details: (_) => new __LazyJsonString(_),
+    reason: __expectString,
+    value: (_) => de_VariableValue(__expectUnion(_), context),
+    variation: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1970,10 +1975,9 @@ const de_EvaluateFeatureCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1993,9 +1997,10 @@ export const de_GetExperimentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.experiment != null) {
-    contents.experiment = de_Experiment(data.experiment, context);
-  }
+  const doc = take(data, {
+    experiment: (_) => de_Experiment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2026,10 +2031,9 @@ const de_GetExperimentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2049,18 +2053,13 @@ export const de_GetExperimentResultsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.details != null) {
-    contents.details = __expectString(data.details);
-  }
-  if (data.reports != null) {
-    contents.reports = de_ExperimentReportList(data.reports, context);
-  }
-  if (data.resultsData != null) {
-    contents.resultsData = de_ExperimentResultsDataList(data.resultsData, context);
-  }
-  if (data.timestamps != null) {
-    contents.timestamps = de_TimestampList(data.timestamps, context);
-  }
+  const doc = take(data, {
+    details: __expectString,
+    reports: (_) => de_ExperimentReportList(_, context),
+    resultsData: (_) => de_ExperimentResultsDataList(_, context),
+    timestamps: (_) => de_TimestampList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2094,10 +2093,9 @@ const de_GetExperimentResultsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2117,9 +2115,10 @@ export const de_GetFeatureCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.feature != null) {
-    contents.feature = de_Feature(data.feature, context);
-  }
+  const doc = take(data, {
+    feature: (_) => de_Feature(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2150,10 +2149,9 @@ const de_GetFeatureCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2173,9 +2171,10 @@ export const de_GetLaunchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launch != null) {
-    contents.launch = de_Launch(data.launch, context);
-  }
+  const doc = take(data, {
+    launch: (_) => de_Launch(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2206,10 +2205,9 @@ const de_GetLaunchCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2229,9 +2227,10 @@ export const de_GetProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project != null) {
-    contents.project = de_Project(data.project, context);
-  }
+  const doc = take(data, {
+    project: (_) => de_Project(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2262,10 +2261,9 @@ const de_GetProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2285,9 +2283,10 @@ export const de_GetSegmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.segment != null) {
-    contents.segment = de_Segment(data.segment, context);
-  }
+  const doc = take(data, {
+    segment: (_) => de_Segment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2318,10 +2317,9 @@ const de_GetSegmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2341,12 +2339,11 @@ export const de_ListExperimentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.experiments != null) {
-    contents.experiments = de_ExperimentList(data.experiments, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    experiments: (_) => de_ExperimentList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2374,10 +2371,9 @@ const de_ListExperimentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2397,12 +2393,11 @@ export const de_ListFeaturesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.features != null) {
-    contents.features = de_FeatureSummariesList(data.features, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    features: (_) => de_FeatureSummariesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2433,10 +2428,9 @@ const de_ListFeaturesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2456,12 +2450,11 @@ export const de_ListLaunchesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launches != null) {
-    contents.launches = de_LaunchesList(data.launches, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    launches: (_) => de_LaunchesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2489,10 +2482,9 @@ const de_ListLaunchesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2512,12 +2504,11 @@ export const de_ListProjectsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.projects != null) {
-    contents.projects = de_ProjectSummariesList(data.projects, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    projects: (_) => de_ProjectSummariesList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2545,10 +2536,9 @@ const de_ListProjectsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2568,12 +2558,11 @@ export const de_ListSegmentReferencesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.referencedBy != null) {
-    contents.referencedBy = de_RefResourceList(data.referencedBy, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    referencedBy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2604,10 +2593,9 @@ const de_ListSegmentReferencesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2627,12 +2615,11 @@ export const de_ListSegmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.segments != null) {
-    contents.segments = de_SegmentList(data.segments, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    segments: (_) => de_SegmentList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2660,10 +2647,9 @@ const de_ListSegmentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2683,9 +2669,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2713,10 +2700,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2736,12 +2722,11 @@ export const de_PutProjectEventsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.eventResults != null) {
-    contents.eventResults = de_PutProjectEventsResultEntryList(data.eventResults, context);
-  }
-  if (data.failedEventCount != null) {
-    contents.failedEventCount = __expectInt32(data.failedEventCount);
-  }
+  const doc = take(data, {
+    eventResults: _json,
+    failedEventCount: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2772,10 +2757,9 @@ const de_PutProjectEventsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2795,9 +2779,10 @@ export const de_StartExperimentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.startedTime != null) {
-    contents.startedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startedTime)));
-  }
+  const doc = take(data, {
+    startedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2834,10 +2819,9 @@ const de_StartExperimentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2857,9 +2841,10 @@ export const de_StartLaunchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launch != null) {
-    contents.launch = de_Launch(data.launch, context);
-  }
+  const doc = take(data, {
+    launch: (_) => de_Launch(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2896,10 +2881,9 @@ const de_StartLaunchCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2919,9 +2903,10 @@ export const de_StopExperimentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endedTime != null) {
-    contents.endedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endedTime)));
-  }
+  const doc = take(data, {
+    endedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2958,10 +2943,9 @@ const de_StopExperimentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2981,9 +2965,10 @@ export const de_StopLaunchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endedTime != null) {
-    contents.endedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endedTime)));
-  }
+  const doc = take(data, {
+    endedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3014,10 +2999,9 @@ const de_StopLaunchCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3064,10 +3048,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3087,9 +3070,10 @@ export const de_TestSegmentPatternCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.match != null) {
-    contents.match = __expectBoolean(data.match);
-  }
+  const doc = take(data, {
+    match: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3117,10 +3101,9 @@ const de_TestSegmentPatternCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3167,10 +3150,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3190,9 +3172,10 @@ export const de_UpdateExperimentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.experiment != null) {
-    contents.experiment = de_Experiment(data.experiment, context);
-  }
+  const doc = take(data, {
+    experiment: (_) => de_Experiment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3223,10 +3206,9 @@ const de_UpdateExperimentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3246,9 +3228,10 @@ export const de_UpdateFeatureCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.feature != null) {
-    contents.feature = de_Feature(data.feature, context);
-  }
+  const doc = take(data, {
+    feature: (_) => de_Feature(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3282,10 +3265,9 @@ const de_UpdateFeatureCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3305,9 +3287,10 @@ export const de_UpdateLaunchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launch != null) {
-    contents.launch = de_Launch(data.launch, context);
-  }
+  const doc = take(data, {
+    launch: (_) => de_Launch(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3338,10 +3321,9 @@ const de_UpdateLaunchCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3361,9 +3343,10 @@ export const de_UpdateProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project != null) {
-    contents.project = de_Project(data.project, context);
-  }
+  const doc = take(data, {
+    project: (_) => de_Project(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3397,10 +3380,9 @@ const de_UpdateProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3420,9 +3402,10 @@ export const de_UpdateProjectDataDeliveryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project != null) {
-    contents.project = de_Project(data.project, context);
-  }
+  const doc = take(data, {
+    project: (_) => de_Project(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3456,16 +3439,15 @@ const de_UpdateProjectDataDeliveryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3475,9 +3457,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3491,15 +3474,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3516,9 +3496,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3535,15 +3516,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3560,21 +3538,14 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3591,9 +3562,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3607,15 +3579,12 @@ const de_ServiceUnavailableExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3629,15 +3598,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3645,37 +3611,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1CloudWatchLogsDestinationConfig
- */
-const se_CloudWatchLogsDestinationConfig = (input: CloudWatchLogsDestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.logGroup != null && { logGroup: input.logGroup }),
-  };
-};
+// se_CloudWatchLogsDestinationConfig omitted.
 
-/**
- * serializeAws_restJson1EntityOverrideMap
- */
-const se_EntityOverrideMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_EntityOverrideMap omitted.
 
 /**
  * serializeAws_restJson1EvaluationRequest
  */
 const se_EvaluationRequest = (input: EvaluationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.entityId != null && { entityId: input.entityId }),
-    ...(input.evaluationContext != null && { evaluationContext: __LazyJsonString.fromObject(input.evaluationContext) }),
-    ...(input.feature != null && { feature: input.feature }),
-  };
+  return take(input, {
+    entityId: [],
+    evaluationContext: (_) => __LazyJsonString.fromObject(_),
+    feature: [],
+  });
 };
 
 /**
@@ -3693,11 +3641,11 @@ const se_EvaluationRequestsList = (input: EvaluationRequest[], context: __SerdeC
  * serializeAws_restJson1Event
  */
 const se_Event = (input: Event, context: __SerdeContext): any => {
-  return {
-    ...(input.data != null && { data: __LazyJsonString.fromObject(input.data) }),
-    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    data: (_) => __LazyJsonString.fromObject(_),
+    timestamp: (_) => Math.round(_.getTime() / 1000),
+    type: [],
+  });
 };
 
 /**
@@ -3711,90 +3659,37 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_restJson1ExperimentReportNameList
- */
-const se_ExperimentReportNameList = (input: (ExperimentReportName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExperimentReportNameList omitted.
 
-/**
- * serializeAws_restJson1ExperimentResultRequestTypeList
- */
-const se_ExperimentResultRequestTypeList = (
-  input: (ExperimentResultRequestType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExperimentResultRequestTypeList omitted.
 
-/**
- * serializeAws_restJson1GroupToWeightMap
- */
-const se_GroupToWeightMap = (input: Record<string, number>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_GroupToWeightMap omitted.
 
-/**
- * serializeAws_restJson1LaunchGroupConfig
- */
-const se_LaunchGroupConfig = (input: LaunchGroupConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.feature != null && { feature: input.feature }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.variation != null && { variation: input.variation }),
-  };
-};
+// se_LaunchGroupConfig omitted.
 
-/**
- * serializeAws_restJson1LaunchGroupConfigList
- */
-const se_LaunchGroupConfigList = (input: LaunchGroupConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LaunchGroupConfig(entry, context);
-    });
-};
+// se_LaunchGroupConfigList omitted.
 
 /**
  * serializeAws_restJson1MetricDefinitionConfig
  */
 const se_MetricDefinitionConfig = (input: MetricDefinitionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.entityIdKey != null && { entityIdKey: input.entityIdKey }),
-    ...(input.eventPattern != null && { eventPattern: __LazyJsonString.fromObject(input.eventPattern) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.unitLabel != null && { unitLabel: input.unitLabel }),
-    ...(input.valueKey != null && { valueKey: input.valueKey }),
-  };
+  return take(input, {
+    entityIdKey: [],
+    eventPattern: (_) => __LazyJsonString.fromObject(_),
+    name: [],
+    unitLabel: [],
+    valueKey: [],
+  });
 };
 
 /**
  * serializeAws_restJson1MetricGoalConfig
  */
 const se_MetricGoalConfig = (input: MetricGoalConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.desiredChange != null && { desiredChange: input.desiredChange }),
-    ...(input.metricDefinition != null && {
-      metricDefinition: se_MetricDefinitionConfig(input.metricDefinition, context),
-    }),
-  };
+  return take(input, {
+    desiredChange: [],
+    metricDefinition: (_) => se_MetricDefinitionConfig(_, context),
+  });
 };
 
 /**
@@ -3812,11 +3707,9 @@ const se_MetricGoalConfigList = (input: MetricGoalConfig[], context: __SerdeCont
  * serializeAws_restJson1MetricMonitorConfig
  */
 const se_MetricMonitorConfig = (input: MetricMonitorConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.metricDefinition != null && {
-      metricDefinition: se_MetricDefinitionConfig(input.metricDefinition, context),
-    }),
-  };
+  return take(input, {
+    metricDefinition: (_) => se_MetricDefinitionConfig(_, context),
+  });
 };
 
 /**
@@ -3830,72 +3723,25 @@ const se_MetricMonitorConfigList = (input: MetricMonitorConfig[], context: __Ser
     });
 };
 
-/**
- * serializeAws_restJson1MetricNameList
- */
-const se_MetricNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MetricNameList omitted.
 
-/**
- * serializeAws_restJson1OnlineAbConfig
- */
-const se_OnlineAbConfig = (input: OnlineAbConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.controlTreatmentName != null && { controlTreatmentName: input.controlTreatmentName }),
-    ...(input.treatmentWeights != null && {
-      treatmentWeights: se_TreatmentToWeightMap(input.treatmentWeights, context),
-    }),
-  };
-};
+// se_OnlineAbConfig omitted.
 
-/**
- * serializeAws_restJson1ProjectAppConfigResourceConfig
- */
-const se_ProjectAppConfigResourceConfig = (input: ProjectAppConfigResourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.applicationId != null && { applicationId: input.applicationId }),
-    ...(input.environmentId != null && { environmentId: input.environmentId }),
-  };
-};
+// se_ProjectAppConfigResourceConfig omitted.
 
-/**
- * serializeAws_restJson1ProjectDataDeliveryConfig
- */
-const se_ProjectDataDeliveryConfig = (input: ProjectDataDeliveryConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.cloudWatchLogs != null && {
-      cloudWatchLogs: se_CloudWatchLogsDestinationConfig(input.cloudWatchLogs, context),
-    }),
-    ...(input.s3Destination != null && { s3Destination: se_S3DestinationConfig(input.s3Destination, context) }),
-  };
-};
+// se_ProjectDataDeliveryConfig omitted.
 
-/**
- * serializeAws_restJson1S3DestinationConfig
- */
-const se_S3DestinationConfig = (input: S3DestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-  };
-};
+// se_S3DestinationConfig omitted.
 
 /**
  * serializeAws_restJson1ScheduledSplitConfig
  */
 const se_ScheduledSplitConfig = (input: ScheduledSplitConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.groupWeights != null && { groupWeights: se_GroupToWeightMap(input.groupWeights, context) }),
-    ...(input.segmentOverrides != null && {
-      segmentOverrides: se_SegmentOverridesList(input.segmentOverrides, context),
-    }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    groupWeights: (_) => _json(_),
+    segmentOverrides: (_) => _json(_),
+    startTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -3913,92 +3759,24 @@ const se_ScheduledSplitConfigList = (input: ScheduledSplitConfig[], context: __S
  * serializeAws_restJson1ScheduledSplitsLaunchConfig
  */
 const se_ScheduledSplitsLaunchConfig = (input: ScheduledSplitsLaunchConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.steps != null && { steps: se_ScheduledSplitConfigList(input.steps, context) }),
-  };
+  return take(input, {
+    steps: (_) => se_ScheduledSplitConfigList(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1SegmentOverride
- */
-const se_SegmentOverride = (input: SegmentOverride, context: __SerdeContext): any => {
-  return {
-    ...(input.evaluationOrder != null && { evaluationOrder: input.evaluationOrder }),
-    ...(input.segment != null && { segment: input.segment }),
-    ...(input.weights != null && { weights: se_GroupToWeightMap(input.weights, context) }),
-  };
-};
+// se_SegmentOverride omitted.
 
-/**
- * serializeAws_restJson1SegmentOverridesList
- */
-const se_SegmentOverridesList = (input: SegmentOverride[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SegmentOverride(entry, context);
-    });
-};
+// se_SegmentOverridesList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1TreatmentConfig
- */
-const se_TreatmentConfig = (input: TreatmentConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.feature != null && { feature: input.feature }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.variation != null && { variation: input.variation }),
-  };
-};
+// se_TreatmentConfig omitted.
 
-/**
- * serializeAws_restJson1TreatmentConfigList
- */
-const se_TreatmentConfigList = (input: TreatmentConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TreatmentConfig(entry, context);
-    });
-};
+// se_TreatmentConfigList omitted.
 
-/**
- * serializeAws_restJson1TreatmentNameList
- */
-const se_TreatmentNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TreatmentNameList omitted.
 
-/**
- * serializeAws_restJson1TreatmentToWeightMap
- */
-const se_TreatmentToWeightMap = (input: Record<string, number>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TreatmentToWeightMap omitted.
 
 /**
  * serializeAws_restJson1VariableValue
@@ -4017,10 +3795,10 @@ const se_VariableValue = (input: VariableValue, context: __SerdeContext): any =>
  * serializeAws_restJson1VariationConfig
  */
 const se_VariationConfig = (input: VariationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: se_VariableValue(input.value, context) }),
-  };
+  return take(input, {
+    name: [],
+    value: (_) => se_VariableValue(_, context),
+  });
 };
 
 /**
@@ -4034,25 +3812,9 @@ const se_VariationConfigsList = (input: VariationConfig[], context: __SerdeConte
     });
 };
 
-/**
- * serializeAws_restJson1VariationNameList
- */
-const se_VariationNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VariationNameList omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchLogsDestination
- */
-const de_CloudWatchLogsDestination = (output: any, context: __SerdeContext): CloudWatchLogsDestination => {
-  return {
-    logGroup: __expectString(output.logGroup),
-  } as any;
-};
+// de_CloudWatchLogsDestination omitted.
 
 /**
  * deserializeAws_restJson1DoubleValueList
@@ -4061,40 +3823,26 @@ const de_DoubleValueList = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EntityOverrideMap
- */
-const de_EntityOverrideMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_EntityOverrideMap omitted.
 
 /**
  * deserializeAws_restJson1EvaluationResult
  */
 const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
-  return {
-    details: output.details != null ? new __LazyJsonString(output.details) : undefined,
-    entityId: __expectString(output.entityId),
-    feature: __expectString(output.feature),
-    project: __expectString(output.project),
-    reason: __expectString(output.reason),
-    value: output.value != null ? de_VariableValue(__expectUnion(output.value), context) : undefined,
-    variation: __expectString(output.variation),
-  } as any;
+  return take(output, {
+    details: (_: any) => new __LazyJsonString(_),
+    entityId: __expectString,
+    feature: __expectString,
+    project: __expectString,
+    reason: __expectString,
+    value: (_: any) => de_VariableValue(__expectUnion(_), context),
+    variation: __expectString,
+  }) as any;
 };
 
 /**
@@ -4104,84 +3852,49 @@ const de_EvaluationResultsList = (output: any, context: __SerdeContext): Evaluat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EvaluationResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EvaluationRule
- */
-const de_EvaluationRule = (output: any, context: __SerdeContext): EvaluationRule => {
-  return {
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_EvaluationRule omitted.
 
-/**
- * deserializeAws_restJson1EvaluationRulesList
- */
-const de_EvaluationRulesList = (output: any, context: __SerdeContext): EvaluationRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EvaluationRule(entry, context);
-    });
-  return retVal;
-};
+// de_EvaluationRulesList omitted.
 
 /**
  * deserializeAws_restJson1Experiment
  */
 const de_Experiment = (output: any, context: __SerdeContext): Experiment => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    execution: output.execution != null ? de_ExperimentExecution(output.execution, context) : undefined,
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    metricGoals: output.metricGoals != null ? de_MetricGoalsList(output.metricGoals, context) : undefined,
-    name: __expectString(output.name),
-    onlineAbDefinition:
-      output.onlineAbDefinition != null ? de_OnlineAbDefinition(output.onlineAbDefinition, context) : undefined,
-    project: __expectString(output.project),
-    randomizationSalt: __expectString(output.randomizationSalt),
-    samplingRate: __expectLong(output.samplingRate),
-    schedule: output.schedule != null ? de_ExperimentSchedule(output.schedule, context) : undefined,
-    segment: __expectString(output.segment),
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    treatments: output.treatments != null ? de_TreatmentList(output.treatments, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    execution: (_: any) => de_ExperimentExecution(_, context),
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metricGoals: (_: any) => de_MetricGoalsList(_, context),
+    name: __expectString,
+    onlineAbDefinition: _json,
+    project: __expectString,
+    randomizationSalt: __expectString,
+    samplingRate: __expectLong,
+    schedule: (_: any) => de_ExperimentSchedule(_, context),
+    segment: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    tags: _json,
+    treatments: _json,
+    type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ExperimentExecution
  */
 const de_ExperimentExecution = (output: any, context: __SerdeContext): ExperimentExecution => {
-  return {
-    endedTime:
-      output.endedTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endedTime))) : undefined,
-    startedTime:
-      output.startedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    endedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    startedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4191,9 +3904,6 @@ const de_ExperimentList = (output: any, context: __SerdeContext): Experiment[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Experiment(entry, context);
     });
   return retVal;
@@ -4203,12 +3913,12 @@ const de_ExperimentList = (output: any, context: __SerdeContext): Experiment[] =
  * deserializeAws_restJson1ExperimentReport
  */
 const de_ExperimentReport = (output: any, context: __SerdeContext): ExperimentReport => {
-  return {
-    content: output.content != null ? new __LazyJsonString(output.content) : undefined,
-    metricName: __expectString(output.metricName),
-    reportName: __expectString(output.reportName),
-    treatmentName: __expectString(output.treatmentName),
-  } as any;
+  return take(output, {
+    content: (_: any) => new __LazyJsonString(_),
+    metricName: __expectString,
+    reportName: __expectString,
+    treatmentName: __expectString,
+  }) as any;
 };
 
 /**
@@ -4218,9 +3928,6 @@ const de_ExperimentReportList = (output: any, context: __SerdeContext): Experime
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ExperimentReport(entry, context);
     });
   return retVal;
@@ -4230,12 +3937,12 @@ const de_ExperimentReportList = (output: any, context: __SerdeContext): Experime
  * deserializeAws_restJson1ExperimentResultsData
  */
 const de_ExperimentResultsData = (output: any, context: __SerdeContext): ExperimentResultsData => {
-  return {
-    metricName: __expectString(output.metricName),
-    resultStat: __expectString(output.resultStat),
-    treatmentName: __expectString(output.treatmentName),
-    values: output.values != null ? de_DoubleValueList(output.values, context) : undefined,
-  } as any;
+  return take(output, {
+    metricName: __expectString,
+    resultStat: __expectString,
+    treatmentName: __expectString,
+    values: (_: any) => de_DoubleValueList(_, context),
+  }) as any;
 };
 
 /**
@@ -4245,9 +3952,6 @@ const de_ExperimentResultsDataList = (output: any, context: __SerdeContext): Exp
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ExperimentResultsData(entry, context);
     });
   return retVal;
@@ -4257,41 +3961,31 @@ const de_ExperimentResultsDataList = (output: any, context: __SerdeContext): Exp
  * deserializeAws_restJson1ExperimentSchedule
  */
 const de_ExperimentSchedule = (output: any, context: __SerdeContext): ExperimentSchedule => {
-  return {
-    analysisCompleteTime:
-      output.analysisCompleteTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.analysisCompleteTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    analysisCompleteTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Feature
  */
 const de_Feature = (output: any, context: __SerdeContext): Feature => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    defaultVariation: __expectString(output.defaultVariation),
-    description: __expectString(output.description),
-    entityOverrides: output.entityOverrides != null ? de_EntityOverrideMap(output.entityOverrides, context) : undefined,
-    evaluationRules:
-      output.evaluationRules != null ? de_EvaluationRulesList(output.evaluationRules, context) : undefined,
-    evaluationStrategy: __expectString(output.evaluationStrategy),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    name: __expectString(output.name),
-    project: __expectString(output.project),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    valueType: __expectString(output.valueType),
-    variations: output.variations != null ? de_VariationsList(output.variations, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultVariation: __expectString,
+    description: __expectString,
+    entityOverrides: _json,
+    evaluationRules: _json,
+    evaluationStrategy: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    project: __expectString,
+    status: __expectString,
+    tags: _json,
+    valueType: __expectString,
+    variations: (_: any) => de_VariationsList(_, context),
+  }) as any;
 };
 
 /**
@@ -4301,9 +3995,6 @@ const de_FeatureSummariesList = (output: any, context: __SerdeContext): FeatureS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FeatureSummary(entry, context);
     });
   return retVal;
@@ -4313,83 +4004,45 @@ const de_FeatureSummariesList = (output: any, context: __SerdeContext): FeatureS
  * deserializeAws_restJson1FeatureSummary
  */
 const de_FeatureSummary = (output: any, context: __SerdeContext): FeatureSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    defaultVariation: __expectString(output.defaultVariation),
-    evaluationRules:
-      output.evaluationRules != null ? de_EvaluationRulesList(output.evaluationRules, context) : undefined,
-    evaluationStrategy: __expectString(output.evaluationStrategy),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    name: __expectString(output.name),
-    project: __expectString(output.project),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultVariation: __expectString,
+    evaluationRules: _json,
+    evaluationStrategy: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    project: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FeatureToVariationMap
- */
-const de_FeatureToVariationMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_FeatureToVariationMap omitted.
 
-/**
- * deserializeAws_restJson1GroupToWeightMap
- */
-const de_GroupToWeightMap = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectLong(value) as any;
-    return acc;
-  }, {});
-};
+// de_GroupToWeightMap omitted.
 
 /**
  * deserializeAws_restJson1Launch
  */
 const de_Launch = (output: any, context: __SerdeContext): Launch => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    execution: output.execution != null ? de_LaunchExecution(output.execution, context) : undefined,
-    groups: output.groups != null ? de_LaunchGroupList(output.groups, context) : undefined,
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    metricMonitors: output.metricMonitors != null ? de_MetricMonitorList(output.metricMonitors, context) : undefined,
-    name: __expectString(output.name),
-    project: __expectString(output.project),
-    randomizationSalt: __expectString(output.randomizationSalt),
-    scheduledSplitsDefinition:
-      output.scheduledSplitsDefinition != null
-        ? de_ScheduledSplitsLaunchDefinition(output.scheduledSplitsDefinition, context)
-        : undefined,
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    execution: (_: any) => de_LaunchExecution(_, context),
+    groups: _json,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metricMonitors: (_: any) => de_MetricMonitorList(_, context),
+    name: __expectString,
+    project: __expectString,
+    randomizationSalt: __expectString,
+    scheduledSplitsDefinition: (_: any) => de_ScheduledSplitsLaunchDefinition(_, context),
+    status: __expectString,
+    statusReason: __expectString,
+    tags: _json,
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -4399,9 +4052,6 @@ const de_LaunchesList = (output: any, context: __SerdeContext): Launch[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Launch(entry, context);
     });
   return retVal;
@@ -4411,65 +4061,37 @@ const de_LaunchesList = (output: any, context: __SerdeContext): Launch[] => {
  * deserializeAws_restJson1LaunchExecution
  */
 const de_LaunchExecution = (output: any, context: __SerdeContext): LaunchExecution => {
-  return {
-    endedTime:
-      output.endedTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endedTime))) : undefined,
-    startedTime:
-      output.startedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    endedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    startedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LaunchGroup
- */
-const de_LaunchGroup = (output: any, context: __SerdeContext): LaunchGroup => {
-  return {
-    description: __expectString(output.description),
-    featureVariations:
-      output.featureVariations != null ? de_FeatureToVariationMap(output.featureVariations, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_LaunchGroup omitted.
 
-/**
- * deserializeAws_restJson1LaunchGroupList
- */
-const de_LaunchGroupList = (output: any, context: __SerdeContext): LaunchGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LaunchGroup(entry, context);
-    });
-  return retVal;
-};
+// de_LaunchGroupList omitted.
 
 /**
  * deserializeAws_restJson1MetricDefinition
  */
 const de_MetricDefinition = (output: any, context: __SerdeContext): MetricDefinition => {
-  return {
-    entityIdKey: __expectString(output.entityIdKey),
-    eventPattern: output.eventPattern != null ? new __LazyJsonString(output.eventPattern) : undefined,
-    name: __expectString(output.name),
-    unitLabel: __expectString(output.unitLabel),
-    valueKey: __expectString(output.valueKey),
-  } as any;
+  return take(output, {
+    entityIdKey: __expectString,
+    eventPattern: (_: any) => new __LazyJsonString(_),
+    name: __expectString,
+    unitLabel: __expectString,
+    valueKey: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MetricGoal
  */
 const de_MetricGoal = (output: any, context: __SerdeContext): MetricGoal => {
-  return {
-    desiredChange: __expectString(output.desiredChange),
-    metricDefinition:
-      output.metricDefinition != null ? de_MetricDefinition(output.metricDefinition, context) : undefined,
-  } as any;
+  return take(output, {
+    desiredChange: __expectString,
+    metricDefinition: (_: any) => de_MetricDefinition(_, context),
+  }) as any;
 };
 
 /**
@@ -4479,9 +4101,6 @@ const de_MetricGoalsList = (output: any, context: __SerdeContext): MetricGoal[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MetricGoal(entry, context);
     });
   return retVal;
@@ -4491,10 +4110,9 @@ const de_MetricGoalsList = (output: any, context: __SerdeContext): MetricGoal[] 
  * deserializeAws_restJson1MetricMonitor
  */
 const de_MetricMonitor = (output: any, context: __SerdeContext): MetricMonitor => {
-  return {
-    metricDefinition:
-      output.metricDefinition != null ? de_MetricDefinition(output.metricDefinition, context) : undefined,
-  } as any;
+  return take(output, {
+    metricDefinition: (_: any) => de_MetricDefinition(_, context),
+  }) as any;
 };
 
 /**
@@ -4504,75 +4122,38 @@ const de_MetricMonitorList = (output: any, context: __SerdeContext): MetricMonit
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MetricMonitor(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1OnlineAbDefinition
- */
-const de_OnlineAbDefinition = (output: any, context: __SerdeContext): OnlineAbDefinition => {
-  return {
-    controlTreatmentName: __expectString(output.controlTreatmentName),
-    treatmentWeights:
-      output.treatmentWeights != null ? de_TreatmentToWeightMap(output.treatmentWeights, context) : undefined,
-  } as any;
-};
+// de_OnlineAbDefinition omitted.
 
 /**
  * deserializeAws_restJson1Project
  */
 const de_Project = (output: any, context: __SerdeContext): Project => {
-  return {
-    activeExperimentCount: __expectLong(output.activeExperimentCount),
-    activeLaunchCount: __expectLong(output.activeLaunchCount),
-    appConfigResource:
-      output.appConfigResource != null ? de_ProjectAppConfigResource(output.appConfigResource, context) : undefined,
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    dataDelivery: output.dataDelivery != null ? de_ProjectDataDelivery(output.dataDelivery, context) : undefined,
-    description: __expectString(output.description),
-    experimentCount: __expectLong(output.experimentCount),
-    featureCount: __expectLong(output.featureCount),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    launchCount: __expectLong(output.launchCount),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    activeExperimentCount: __expectLong,
+    activeLaunchCount: __expectLong,
+    appConfigResource: _json,
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataDelivery: _json,
+    description: __expectString,
+    experimentCount: __expectLong,
+    featureCount: __expectLong,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    launchCount: __expectLong,
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ProjectAppConfigResource
- */
-const de_ProjectAppConfigResource = (output: any, context: __SerdeContext): ProjectAppConfigResource => {
-  return {
-    applicationId: __expectString(output.applicationId),
-    configurationProfileId: __expectString(output.configurationProfileId),
-    environmentId: __expectString(output.environmentId),
-  } as any;
-};
+// de_ProjectAppConfigResource omitted.
 
-/**
- * deserializeAws_restJson1ProjectDataDelivery
- */
-const de_ProjectDataDelivery = (output: any, context: __SerdeContext): ProjectDataDelivery => {
-  return {
-    cloudWatchLogs:
-      output.cloudWatchLogs != null ? de_CloudWatchLogsDestination(output.cloudWatchLogs, context) : undefined,
-    s3Destination: output.s3Destination != null ? de_S3Destination(output.s3Destination, context) : undefined,
-  } as any;
-};
+// de_ProjectDataDelivery omitted.
 
 /**
  * deserializeAws_restJson1ProjectSummariesList
@@ -4581,9 +4162,6 @@ const de_ProjectSummariesList = (output: any, context: __SerdeContext): ProjectS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProjectSummary(entry, context);
     });
   return retVal;
@@ -4593,114 +4171,50 @@ const de_ProjectSummariesList = (output: any, context: __SerdeContext): ProjectS
  * deserializeAws_restJson1ProjectSummary
  */
 const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
-  return {
-    activeExperimentCount: __expectLong(output.activeExperimentCount),
-    activeLaunchCount: __expectLong(output.activeLaunchCount),
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    experimentCount: __expectLong(output.experimentCount),
-    featureCount: __expectLong(output.featureCount),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    launchCount: __expectLong(output.launchCount),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    activeExperimentCount: __expectLong,
+    activeLaunchCount: __expectLong,
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    experimentCount: __expectLong,
+    featureCount: __expectLong,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    launchCount: __expectLong,
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1PutProjectEventsResultEntry
- */
-const de_PutProjectEventsResultEntry = (output: any, context: __SerdeContext): PutProjectEventsResultEntry => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    eventId: __expectString(output.eventId),
-  } as any;
-};
+// de_PutProjectEventsResultEntry omitted.
 
-/**
- * deserializeAws_restJson1PutProjectEventsResultEntryList
- */
-const de_PutProjectEventsResultEntryList = (output: any, context: __SerdeContext): PutProjectEventsResultEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PutProjectEventsResultEntry(entry, context);
-    });
-  return retVal;
-};
+// de_PutProjectEventsResultEntryList omitted.
 
-/**
- * deserializeAws_restJson1RefResource
- */
-const de_RefResource = (output: any, context: __SerdeContext): RefResource => {
-  return {
-    arn: __expectString(output.arn),
-    endTime: __expectString(output.endTime),
-    lastUpdatedOn: __expectString(output.lastUpdatedOn),
-    name: __expectString(output.name),
-    startTime: __expectString(output.startTime),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_RefResource omitted.
 
-/**
- * deserializeAws_restJson1RefResourceList
- */
-const de_RefResourceList = (output: any, context: __SerdeContext): RefResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RefResource(entry, context);
-    });
-  return retVal;
-};
+// de_RefResourceList omitted.
 
-/**
- * deserializeAws_restJson1S3Destination
- */
-const de_S3Destination = (output: any, context: __SerdeContext): S3Destination => {
-  return {
-    bucket: __expectString(output.bucket),
-    prefix: __expectString(output.prefix),
-  } as any;
-};
+// de_S3Destination omitted.
 
 /**
  * deserializeAws_restJson1ScheduledSplit
  */
 const de_ScheduledSplit = (output: any, context: __SerdeContext): ScheduledSplit => {
-  return {
-    groupWeights: output.groupWeights != null ? de_GroupToWeightMap(output.groupWeights, context) : undefined,
-    segmentOverrides:
-      output.segmentOverrides != null ? de_SegmentOverridesList(output.segmentOverrides, context) : undefined,
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-  } as any;
+  return take(output, {
+    groupWeights: _json,
+    segmentOverrides: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ScheduledSplitsLaunchDefinition
  */
 const de_ScheduledSplitsLaunchDefinition = (output: any, context: __SerdeContext): ScheduledSplitsLaunchDefinition => {
-  return {
-    steps: output.steps != null ? de_ScheduledStepList(output.steps, context) : undefined,
-  } as any;
+  return take(output, {
+    steps: (_: any) => de_ScheduledStepList(_, context),
+  }) as any;
 };
 
 /**
@@ -4710,9 +4224,6 @@ const de_ScheduledStepList = (output: any, context: __SerdeContext): ScheduledSp
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ScheduledSplit(entry, context);
     });
   return retVal;
@@ -4722,23 +4233,17 @@ const de_ScheduledStepList = (output: any, context: __SerdeContext): ScheduledSp
  * deserializeAws_restJson1Segment
  */
 const de_Segment = (output: any, context: __SerdeContext): Segment => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    experimentCount: __expectLong(output.experimentCount),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    launchCount: __expectLong(output.launchCount),
-    name: __expectString(output.name),
-    pattern: output.pattern != null ? new __LazyJsonString(output.pattern) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    experimentCount: __expectLong,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    launchCount: __expectLong,
+    name: __expectString,
+    pattern: (_: any) => new __LazyJsonString(_),
+    tags: _json,
+  }) as any;
 };
 
 /**
@@ -4748,52 +4253,16 @@ const de_SegmentList = (output: any, context: __SerdeContext): Segment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Segment(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SegmentOverride
- */
-const de_SegmentOverride = (output: any, context: __SerdeContext): SegmentOverride => {
-  return {
-    evaluationOrder: __expectLong(output.evaluationOrder),
-    segment: __expectString(output.segment),
-    weights: output.weights != null ? de_GroupToWeightMap(output.weights, context) : undefined,
-  } as any;
-};
+// de_SegmentOverride omitted.
 
-/**
- * deserializeAws_restJson1SegmentOverridesList
- */
-const de_SegmentOverridesList = (output: any, context: __SerdeContext): SegmentOverride[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SegmentOverride(entry, context);
-    });
-  return retVal;
-};
+// de_SegmentOverridesList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1TimestampList
@@ -4802,78 +4271,20 @@ const de_TimestampList = (output: any, context: __SerdeContext): Date[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Treatment
- */
-const de_Treatment = (output: any, context: __SerdeContext): Treatment => {
-  return {
-    description: __expectString(output.description),
-    featureVariations:
-      output.featureVariations != null ? de_FeatureToVariationMap(output.featureVariations, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_Treatment omitted.
 
-/**
- * deserializeAws_restJson1TreatmentList
- */
-const de_TreatmentList = (output: any, context: __SerdeContext): Treatment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Treatment(entry, context);
-    });
-  return retVal;
-};
+// de_TreatmentList omitted.
 
-/**
- * deserializeAws_restJson1TreatmentToWeightMap
- */
-const de_TreatmentToWeightMap = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectLong(value) as any;
-    return acc;
-  }, {});
-};
+// de_TreatmentToWeightMap omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 /**
  * deserializeAws_restJson1VariableValue
@@ -4898,10 +4309,10 @@ const de_VariableValue = (output: any, context: __SerdeContext): VariableValue =
  * deserializeAws_restJson1Variation
  */
 const de_Variation = (output: any, context: __SerdeContext): Variation => {
-  return {
-    name: __expectString(output.name),
-    value: output.value != null ? de_VariableValue(__expectUnion(output.value), context) : undefined,
-  } as any;
+  return take(output, {
+    name: __expectString,
+    value: (_: any) => de_VariableValue(__expectUnion(_), context),
+  }) as any;
 };
 
 /**
@@ -4911,9 +4322,6 @@ const de_VariationsList = (output: any, context: __SerdeContext): Variation[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Variation(entry, context);
     });
   return retVal;

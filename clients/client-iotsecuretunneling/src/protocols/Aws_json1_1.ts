@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -33,29 +34,23 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { IoTSecureTunnelingServiceException as __BaseException } from "../models/IoTSecureTunnelingServiceException";
 import {
   CloseTunnelRequest,
-  CloseTunnelResponse,
   ConnectionState,
   DescribeTunnelRequest,
   DescribeTunnelResponse,
   DestinationConfig,
   LimitExceededException,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTunnelsRequest,
   ListTunnelsResponse,
   OpenTunnelRequest,
-  OpenTunnelResponse,
   ResourceNotFoundException,
   RotateTunnelAccessTokenRequest,
-  RotateTunnelAccessTokenResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TimeoutConfig,
   Tunnel,
   TunnelSummary,
   UntagResourceRequest,
-  UntagResourceResponse,
 } from "../models/models_0";
 
 /**
@@ -67,7 +62,7 @@ export const se_CloseTunnelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CloseTunnel");
   let body: any;
-  body = JSON.stringify(se_CloseTunnelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -80,7 +75,7 @@ export const se_DescribeTunnelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTunnel");
   let body: any;
-  body = JSON.stringify(se_DescribeTunnelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -93,7 +88,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -106,7 +101,7 @@ export const se_ListTunnelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTunnels");
   let body: any;
-  body = JSON.stringify(se_ListTunnelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -119,7 +114,7 @@ export const se_OpenTunnelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("OpenTunnel");
   let body: any;
-  body = JSON.stringify(se_OpenTunnelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -132,7 +127,7 @@ export const se_RotateTunnelAccessTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RotateTunnelAccessToken");
   let body: any;
-  body = JSON.stringify(se_RotateTunnelAccessTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -145,7 +140,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -158,7 +153,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -174,12 +169,12 @@ export const de_CloseTunnelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CloseTunnelResponse(data, context);
+  contents = _json(data);
   const response: CloseTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -200,10 +195,9 @@ const de_CloseTunnelCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -226,7 +220,7 @@ export const de_DescribeTunnelCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -247,10 +241,9 @@ const de_DescribeTunnelCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -268,12 +261,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -294,10 +287,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -320,7 +312,7 @@ export const de_ListTunnelsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -336,10 +328,9 @@ const de_ListTunnelsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -356,12 +347,12 @@ export const de_OpenTunnelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_OpenTunnelResponse(data, context);
+  contents = _json(data);
   const response: OpenTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -382,10 +373,9 @@ const de_OpenTunnelCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -403,12 +393,12 @@ export const de_RotateTunnelAccessTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RotateTunnelAccessTokenResponse(data, context);
+  contents = _json(data);
   const response: RotateTunnelAccessTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -429,10 +419,9 @@ const de_RotateTunnelAccessTokenCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -450,12 +439,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -476,10 +465,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -497,12 +485,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -523,10 +511,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -540,7 +527,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -556,7 +543,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -564,353 +551,118 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1CloseTunnelRequest
- */
-const se_CloseTunnelRequest = (input: CloseTunnelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.delete != null && { delete: input.delete }),
-    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
-  };
-};
+// se_CloseTunnelRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeTunnelRequest
- */
-const se_DescribeTunnelRequest = (input: DescribeTunnelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
-  };
-};
+// se_DescribeTunnelRequest omitted.
 
-/**
- * serializeAws_json1_1DestinationConfig
- */
-const se_DestinationConfig = (input: DestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.services != null && { services: se_ServiceList(input.services, context) }),
-    ...(input.thingName != null && { thingName: input.thingName }),
-  };
-};
+// se_DestinationConfig omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ListTunnelsRequest
- */
-const se_ListTunnelsRequest = (input: ListTunnelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.thingName != null && { thingName: input.thingName }),
-  };
-};
+// se_ListTunnelsRequest omitted.
 
-/**
- * serializeAws_json1_1OpenTunnelRequest
- */
-const se_OpenTunnelRequest = (input: OpenTunnelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.destinationConfig != null && {
-      destinationConfig: se_DestinationConfig(input.destinationConfig, context),
-    }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.timeoutConfig != null && { timeoutConfig: se_TimeoutConfig(input.timeoutConfig, context) }),
-  };
-};
+// se_OpenTunnelRequest omitted.
 
-/**
- * serializeAws_json1_1RotateTunnelAccessTokenRequest
- */
-const se_RotateTunnelAccessTokenRequest = (input: RotateTunnelAccessTokenRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.clientMode != null && { clientMode: input.clientMode }),
-    ...(input.destinationConfig != null && {
-      destinationConfig: se_DestinationConfig(input.destinationConfig, context),
-    }),
-    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
-  };
-};
+// se_RotateTunnelAccessTokenRequest omitted.
 
-/**
- * serializeAws_json1_1ServiceList
- */
-const se_ServiceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ServiceList omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1TimeoutConfig
- */
-const se_TimeoutConfig = (input: TimeoutConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.maxLifetimeTimeoutMinutes != null && { maxLifetimeTimeoutMinutes: input.maxLifetimeTimeoutMinutes }),
-  };
-};
+// se_TimeoutConfig omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * deserializeAws_json1_1CloseTunnelResponse
- */
-const de_CloseTunnelResponse = (output: any, context: __SerdeContext): CloseTunnelResponse => {
-  return {} as any;
-};
+// de_CloseTunnelResponse omitted.
 
 /**
  * deserializeAws_json1_1ConnectionState
  */
 const de_ConnectionState = (output: any, context: __SerdeContext): ConnectionState => {
-  return {
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeTunnelResponse
  */
 const de_DescribeTunnelResponse = (output: any, context: __SerdeContext): DescribeTunnelResponse => {
-  return {
-    tunnel: output.tunnel != null ? de_Tunnel(output.tunnel, context) : undefined,
-  } as any;
+  return take(output, {
+    tunnel: (_: any) => de_Tunnel(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DestinationConfig
- */
-const de_DestinationConfig = (output: any, context: __SerdeContext): DestinationConfig => {
-  return {
-    services: output.services != null ? de_ServiceList(output.services, context) : undefined,
-    thingName: __expectString(output.thingName),
-  } as any;
-};
+// de_DestinationConfig omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1ListTunnelsResponse
  */
 const de_ListTunnelsResponse = (output: any, context: __SerdeContext): ListTunnelsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tunnelSummaries: output.tunnelSummaries != null ? de_TunnelSummaryList(output.tunnelSummaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    tunnelSummaries: (_: any) => de_TunnelSummaryList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OpenTunnelResponse
- */
-const de_OpenTunnelResponse = (output: any, context: __SerdeContext): OpenTunnelResponse => {
-  return {
-    destinationAccessToken: __expectString(output.destinationAccessToken),
-    sourceAccessToken: __expectString(output.sourceAccessToken),
-    tunnelArn: __expectString(output.tunnelArn),
-    tunnelId: __expectString(output.tunnelId),
-  } as any;
-};
+// de_OpenTunnelResponse omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1RotateTunnelAccessTokenResponse
- */
-const de_RotateTunnelAccessTokenResponse = (output: any, context: __SerdeContext): RotateTunnelAccessTokenResponse => {
-  return {
-    destinationAccessToken: __expectString(output.destinationAccessToken),
-    sourceAccessToken: __expectString(output.sourceAccessToken),
-    tunnelArn: __expectString(output.tunnelArn),
-  } as any;
-};
+// de_RotateTunnelAccessTokenResponse omitted.
 
-/**
- * deserializeAws_json1_1ServiceList
- */
-const de_ServiceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ServiceList omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TimeoutConfig
- */
-const de_TimeoutConfig = (output: any, context: __SerdeContext): TimeoutConfig => {
-  return {
-    maxLifetimeTimeoutMinutes: __expectInt32(output.maxLifetimeTimeoutMinutes),
-  } as any;
-};
+// de_TimeoutConfig omitted.
 
 /**
  * deserializeAws_json1_1Tunnel
  */
 const de_Tunnel = (output: any, context: __SerdeContext): Tunnel => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    destinationConfig:
-      output.destinationConfig != null ? de_DestinationConfig(output.destinationConfig, context) : undefined,
-    destinationConnectionState:
-      output.destinationConnectionState != null
-        ? de_ConnectionState(output.destinationConnectionState, context)
-        : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    sourceConnectionState:
-      output.sourceConnectionState != null ? de_ConnectionState(output.sourceConnectionState, context) : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-    timeoutConfig: output.timeoutConfig != null ? de_TimeoutConfig(output.timeoutConfig, context) : undefined,
-    tunnelArn: __expectString(output.tunnelArn),
-    tunnelId: __expectString(output.tunnelId),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    destinationConfig: _json,
+    destinationConnectionState: (_: any) => de_ConnectionState(_, context),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sourceConnectionState: (_: any) => de_ConnectionState(_, context),
+    status: __expectString,
+    tags: _json,
+    timeoutConfig: _json,
+    tunnelArn: __expectString,
+    tunnelId: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1TunnelSummary
  */
 const de_TunnelSummary = (output: any, context: __SerdeContext): TunnelSummary => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    status: __expectString(output.status),
-    tunnelArn: __expectString(output.tunnelArn),
-    tunnelId: __expectString(output.tunnelId),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    tunnelArn: __expectString,
+    tunnelId: __expectString,
+  }) as any;
 };
 
 /**
@@ -920,20 +672,12 @@ const de_TunnelSummaryList = (output: any, context: __SerdeContext): TunnelSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TunnelSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -955,6 +699,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

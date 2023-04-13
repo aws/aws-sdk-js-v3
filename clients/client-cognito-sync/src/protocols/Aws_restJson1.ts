@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,10 +11,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -472,10 +474,12 @@ export const se_RegisterDeviceCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Platform != null && { Platform: input.Platform }),
-    ...(input.Token != null && { Token: input.Token }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Platform: [],
+      Token: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -509,9 +513,11 @@ export const se_SetCognitoEventsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Events != null && { Events: se_Events(input.Events, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Events: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -546,10 +552,12 @@ export const se_SetIdentityPoolConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CognitoStreams != null && { CognitoStreams: se_CognitoStreams(input.CognitoStreams, context) }),
-    ...(input.PushSync != null && { PushSync: se_PushSync(input.PushSync, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CognitoStreams: (_) => _json(_),
+      PushSync: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -657,11 +665,13 @@ export const se_UpdateRecordsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "DatasetName", () => input.DatasetName!, "{DatasetName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
-    ...(input.RecordPatches != null && { RecordPatches: se_RecordPatchList(input.RecordPatches, context) }),
-    ...(input.SyncSessionToken != null && { SyncSessionToken: input.SyncSessionToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeviceId: [],
+      RecordPatches: (_) => se_RecordPatchList(_, context),
+      SyncSessionToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -687,9 +697,10 @@ export const de_BulkPublishCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityPoolId != null) {
-    contents.IdentityPoolId = __expectString(data.IdentityPoolId);
-  }
+  const doc = take(data, {
+    IdentityPoolId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -726,10 +737,9 @@ const de_BulkPublishCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -749,9 +759,10 @@ export const de_DeleteDatasetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Dataset != null) {
-    contents.Dataset = de_Dataset(data.Dataset, context);
-  }
+  const doc = take(data, {
+    Dataset: (_) => de_Dataset(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -788,10 +799,9 @@ const de_DeleteDatasetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -811,9 +821,10 @@ export const de_DescribeDatasetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Dataset != null) {
-    contents.Dataset = de_Dataset(data.Dataset, context);
-  }
+  const doc = take(data, {
+    Dataset: (_) => de_Dataset(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -847,10 +858,9 @@ const de_DescribeDatasetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -870,9 +880,10 @@ export const de_DescribeIdentityPoolUsageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityPoolUsage != null) {
-    contents.IdentityPoolUsage = de_IdentityPoolUsage(data.IdentityPoolUsage, context);
-  }
+  const doc = take(data, {
+    IdentityPoolUsage: (_) => de_IdentityPoolUsage(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -906,10 +917,9 @@ const de_DescribeIdentityPoolUsageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -929,9 +939,10 @@ export const de_DescribeIdentityUsageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityUsage != null) {
-    contents.IdentityUsage = de_IdentityUsage(data.IdentityUsage, context);
-  }
+  const doc = take(data, {
+    IdentityUsage: (_) => de_IdentityUsage(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -965,10 +976,9 @@ const de_DescribeIdentityUsageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -988,23 +998,14 @@ export const de_GetBulkPublishDetailsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BulkPublishCompleteTime != null) {
-    contents.BulkPublishCompleteTime = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.BulkPublishCompleteTime))
-    );
-  }
-  if (data.BulkPublishStartTime != null) {
-    contents.BulkPublishStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.BulkPublishStartTime)));
-  }
-  if (data.BulkPublishStatus != null) {
-    contents.BulkPublishStatus = __expectString(data.BulkPublishStatus);
-  }
-  if (data.FailureMessage != null) {
-    contents.FailureMessage = __expectString(data.FailureMessage);
-  }
-  if (data.IdentityPoolId != null) {
-    contents.IdentityPoolId = __expectString(data.IdentityPoolId);
-  }
+  const doc = take(data, {
+    BulkPublishCompleteTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    BulkPublishStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    BulkPublishStatus: __expectString,
+    FailureMessage: __expectString,
+    IdentityPoolId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1035,10 +1036,9 @@ const de_GetBulkPublishDetailsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1058,9 +1058,10 @@ export const de_GetCognitoEventsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Events != null) {
-    contents.Events = de_Events(data.Events, context);
-  }
+  const doc = take(data, {
+    Events: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1094,10 +1095,9 @@ const de_GetCognitoEventsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1117,15 +1117,12 @@ export const de_GetIdentityPoolConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CognitoStreams != null) {
-    contents.CognitoStreams = de_CognitoStreams(data.CognitoStreams, context);
-  }
-  if (data.IdentityPoolId != null) {
-    contents.IdentityPoolId = __expectString(data.IdentityPoolId);
-  }
-  if (data.PushSync != null) {
-    contents.PushSync = de_PushSync(data.PushSync, context);
-  }
+  const doc = take(data, {
+    CognitoStreams: _json,
+    IdentityPoolId: __expectString,
+    PushSync: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1159,10 +1156,9 @@ const de_GetIdentityPoolConfigurationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1182,15 +1178,12 @@ export const de_ListDatasetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Count != null) {
-    contents.Count = __expectInt32(data.Count);
-  }
-  if (data.Datasets != null) {
-    contents.Datasets = de_DatasetList(data.Datasets, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Count: __expectInt32,
+    Datasets: (_) => de_DatasetList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1221,10 +1214,9 @@ const de_ListDatasetsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1244,18 +1236,13 @@ export const de_ListIdentityPoolUsageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Count != null) {
-    contents.Count = __expectInt32(data.Count);
-  }
-  if (data.IdentityPoolUsages != null) {
-    contents.IdentityPoolUsages = de_IdentityPoolUsageList(data.IdentityPoolUsages, context);
-  }
-  if (data.MaxResults != null) {
-    contents.MaxResults = __expectInt32(data.MaxResults);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Count: __expectInt32,
+    IdentityPoolUsages: (_) => de_IdentityPoolUsageList(_, context),
+    MaxResults: __expectInt32,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1286,10 +1273,9 @@ const de_ListIdentityPoolUsageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1309,33 +1295,18 @@ export const de_ListRecordsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Count != null) {
-    contents.Count = __expectInt32(data.Count);
-  }
-  if (data.DatasetDeletedAfterRequestedSyncCount != null) {
-    contents.DatasetDeletedAfterRequestedSyncCount = __expectBoolean(data.DatasetDeletedAfterRequestedSyncCount);
-  }
-  if (data.DatasetExists != null) {
-    contents.DatasetExists = __expectBoolean(data.DatasetExists);
-  }
-  if (data.DatasetSyncCount != null) {
-    contents.DatasetSyncCount = __expectLong(data.DatasetSyncCount);
-  }
-  if (data.LastModifiedBy != null) {
-    contents.LastModifiedBy = __expectString(data.LastModifiedBy);
-  }
-  if (data.MergedDatasetNames != null) {
-    contents.MergedDatasetNames = de_MergedDatasetNameList(data.MergedDatasetNames, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Records != null) {
-    contents.Records = de_RecordList(data.Records, context);
-  }
-  if (data.SyncSessionToken != null) {
-    contents.SyncSessionToken = __expectString(data.SyncSessionToken);
-  }
+  const doc = take(data, {
+    Count: __expectInt32,
+    DatasetDeletedAfterRequestedSyncCount: __expectBoolean,
+    DatasetExists: __expectBoolean,
+    DatasetSyncCount: __expectLong,
+    LastModifiedBy: __expectString,
+    MergedDatasetNames: _json,
+    NextToken: __expectString,
+    Records: (_) => de_RecordList(_, context),
+    SyncSessionToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1366,10 +1337,9 @@ const de_ListRecordsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1389,9 +1359,10 @@ export const de_RegisterDeviceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeviceId != null) {
-    contents.DeviceId = __expectString(data.DeviceId);
-  }
+  const doc = take(data, {
+    DeviceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1428,10 +1399,9 @@ const de_RegisterDeviceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1484,10 +1454,9 @@ const de_SetCognitoEventsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1507,15 +1476,12 @@ export const de_SetIdentityPoolConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CognitoStreams != null) {
-    contents.CognitoStreams = de_CognitoStreams(data.CognitoStreams, context);
-  }
-  if (data.IdentityPoolId != null) {
-    contents.IdentityPoolId = __expectString(data.IdentityPoolId);
-  }
-  if (data.PushSync != null) {
-    contents.PushSync = de_PushSync(data.PushSync, context);
-  }
+  const doc = take(data, {
+    CognitoStreams: _json,
+    IdentityPoolId: __expectString,
+    PushSync: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1552,10 +1518,9 @@ const de_SetIdentityPoolConfigurationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1611,10 +1576,9 @@ const de_SubscribeToDatasetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1670,10 +1634,9 @@ const de_UnsubscribeFromDatasetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1693,9 +1656,10 @@ export const de_UpdateRecordsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Records != null) {
-    contents.Records = de_RecordList(data.Records, context);
-  }
+  const doc = take(data, {
+    Records: (_) => de_RecordList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1741,16 +1705,15 @@ const de_UpdateRecordsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AlreadyStreamedExceptionRes
  */
@@ -1760,9 +1723,10 @@ const de_AlreadyStreamedExceptionRes = async (
 ): Promise<AlreadyStreamedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AlreadyStreamedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1779,9 +1743,10 @@ const de_ConcurrentModificationExceptionRes = async (
 ): Promise<ConcurrentModificationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1798,9 +1763,10 @@ const de_DuplicateRequestExceptionRes = async (
 ): Promise<DuplicateRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DuplicateRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1817,9 +1783,10 @@ const de_InternalErrorExceptionRes = async (
 ): Promise<InternalErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1836,9 +1803,10 @@ const de_InvalidConfigurationExceptionRes = async (
 ): Promise<InvalidConfigurationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1855,9 +1823,10 @@ const de_InvalidLambdaFunctionOutputExceptionRes = async (
 ): Promise<InvalidLambdaFunctionOutputException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidLambdaFunctionOutputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1874,9 +1843,10 @@ const de_InvalidParameterExceptionRes = async (
 ): Promise<InvalidParameterException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1893,9 +1863,10 @@ const de_LambdaThrottledExceptionRes = async (
 ): Promise<LambdaThrottledException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LambdaThrottledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1912,9 +1883,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1931,9 +1903,10 @@ const de_NotAuthorizedExceptionRes = async (
 ): Promise<NotAuthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1950,9 +1923,10 @@ const de_ResourceConflictExceptionRes = async (
 ): Promise<ResourceConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1969,9 +1943,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1988,9 +1963,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1998,64 +1974,25 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ApplicationArnList
- */
-const se_ApplicationArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ApplicationArnList omitted.
 
-/**
- * serializeAws_restJson1CognitoStreams
- */
-const se_CognitoStreams = (input: CognitoStreams, context: __SerdeContext): any => {
-  return {
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.StreamingStatus != null && { StreamingStatus: input.StreamingStatus }),
-  };
-};
+// se_CognitoStreams omitted.
 
-/**
- * serializeAws_restJson1Events
- */
-const se_Events = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Events omitted.
 
-/**
- * serializeAws_restJson1PushSync
- */
-const se_PushSync = (input: PushSync, context: __SerdeContext): any => {
-  return {
-    ...(input.ApplicationArns != null && { ApplicationArns: se_ApplicationArnList(input.ApplicationArns, context) }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
+// se_PushSync omitted.
 
 /**
  * serializeAws_restJson1RecordPatch
  */
 const se_RecordPatch = (input: RecordPatch, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceLastModifiedDate != null && {
-      DeviceLastModifiedDate: Math.round(input.DeviceLastModifiedDate.getTime() / 1000),
-    }),
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Op != null && { Op: input.Op }),
-    ...(input.SyncCount != null && { SyncCount: input.SyncCount }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
+  return take(input, {
+    DeviceLastModifiedDate: (_) => Math.round(_.getTime() / 1000),
+    Key: [],
+    Op: [],
+    SyncCount: [],
+    Value: [],
+  });
 };
 
 /**
@@ -2069,51 +2006,23 @@ const se_RecordPatchList = (input: RecordPatch[], context: __SerdeContext): any 
     });
 };
 
-/**
- * deserializeAws_restJson1ApplicationArnList
- */
-const de_ApplicationArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ApplicationArnList omitted.
 
-/**
- * deserializeAws_restJson1CognitoStreams
- */
-const de_CognitoStreams = (output: any, context: __SerdeContext): CognitoStreams => {
-  return {
-    RoleArn: __expectString(output.RoleArn),
-    StreamName: __expectString(output.StreamName),
-    StreamingStatus: __expectString(output.StreamingStatus),
-  } as any;
-};
+// de_CognitoStreams omitted.
 
 /**
  * deserializeAws_restJson1Dataset
  */
 const de_Dataset = (output: any, context: __SerdeContext): Dataset => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    DataStorage: __expectLong(output.DataStorage),
-    DatasetName: __expectString(output.DatasetName),
-    IdentityId: __expectString(output.IdentityId),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    NumRecords: __expectLong(output.NumRecords),
-  } as any;
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataStorage: __expectLong,
+    DatasetName: __expectString,
+    IdentityId: __expectString,
+    LastModifiedBy: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NumRecords: __expectLong,
+  }) as any;
 };
 
 /**
@@ -2123,40 +2032,23 @@ const de_DatasetList = (output: any, context: __SerdeContext): Dataset[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Dataset(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Events
- */
-const de_Events = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Events omitted.
 
 /**
  * deserializeAws_restJson1IdentityPoolUsage
  */
 const de_IdentityPoolUsage = (output: any, context: __SerdeContext): IdentityPoolUsage => {
-  return {
-    DataStorage: __expectLong(output.DataStorage),
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    SyncSessionsCount: __expectLong(output.SyncSessionsCount),
-  } as any;
+  return take(output, {
+    DataStorage: __expectLong,
+    IdentityPoolId: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SyncSessionsCount: __expectLong,
+  }) as any;
 };
 
 /**
@@ -2166,9 +2058,6 @@ const de_IdentityPoolUsageList = (output: any, context: __SerdeContext): Identit
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_IdentityPoolUsage(entry, context);
     });
   return retVal;
@@ -2178,62 +2067,31 @@ const de_IdentityPoolUsageList = (output: any, context: __SerdeContext): Identit
  * deserializeAws_restJson1IdentityUsage
  */
 const de_IdentityUsage = (output: any, context: __SerdeContext): IdentityUsage => {
-  return {
-    DataStorage: __expectLong(output.DataStorage),
-    DatasetCount: __expectInt32(output.DatasetCount),
-    IdentityId: __expectString(output.IdentityId),
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    DataStorage: __expectLong,
+    DatasetCount: __expectInt32,
+    IdentityId: __expectString,
+    IdentityPoolId: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1MergedDatasetNameList
- */
-const de_MergedDatasetNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MergedDatasetNameList omitted.
 
-/**
- * deserializeAws_restJson1PushSync
- */
-const de_PushSync = (output: any, context: __SerdeContext): PushSync => {
-  return {
-    ApplicationArns:
-      output.ApplicationArns != null ? de_ApplicationArnList(output.ApplicationArns, context) : undefined,
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_PushSync omitted.
 
 /**
  * deserializeAws_restJson1_Record
  */
 const de__Record = (output: any, context: __SerdeContext): _Record => {
-  return {
-    DeviceLastModifiedDate:
-      output.DeviceLastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceLastModifiedDate)))
-        : undefined,
-    Key: __expectString(output.Key),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    SyncCount: __expectLong(output.SyncCount),
-    Value: __expectString(output.Value),
-  } as any;
+  return take(output, {
+    DeviceLastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Key: __expectString,
+    LastModifiedBy: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SyncCount: __expectLong,
+    Value: __expectString,
+  }) as any;
 };
 
 /**
@@ -2243,9 +2101,6 @@ const de_RecordList = (output: any, context: __SerdeContext): _Record[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de__Record(entry, context);
     });
   return retVal;

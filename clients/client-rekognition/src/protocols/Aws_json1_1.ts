@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -12,7 +13,8 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -175,10 +177,8 @@ import {
 } from "../commands/UpdateStreamProcessorCommand";
 import {
   AccessDeniedException,
-  AgeRange,
   Asset,
   Attribute,
-  AudioMetadata,
   AuditImage,
   Beard,
   BlackFrame,
@@ -196,43 +196,26 @@ import {
   ContentClassifier,
   ContentModerationDetection,
   CopyProjectVersionRequest,
-  CopyProjectVersionResponse,
   CoversBodyPart,
   CreateCollectionRequest,
-  CreateCollectionResponse,
   CreateDatasetRequest,
-  CreateDatasetResponse,
   CreateFaceLivenessSessionRequest,
   CreateFaceLivenessSessionRequestSettings,
-  CreateFaceLivenessSessionResponse,
   CreateProjectRequest,
-  CreateProjectResponse,
   CreateProjectVersionRequest,
-  CreateProjectVersionResponse,
   CreateStreamProcessorRequest,
-  CreateStreamProcessorResponse,
   CustomLabel,
   DatasetChanges,
   DatasetDescription,
-  DatasetLabelDescription,
-  DatasetLabelStats,
   DatasetMetadata,
   DatasetSource,
-  DatasetStats,
   DeleteCollectionRequest,
-  DeleteCollectionResponse,
   DeleteDatasetRequest,
-  DeleteDatasetResponse,
   DeleteFacesRequest,
-  DeleteFacesResponse,
   DeleteProjectPolicyRequest,
-  DeleteProjectPolicyResponse,
   DeleteProjectRequest,
-  DeleteProjectResponse,
   DeleteProjectVersionRequest,
-  DeleteProjectVersionResponse,
   DeleteStreamProcessorRequest,
-  DeleteStreamProcessorResponse,
   DescribeCollectionRequest,
   DescribeCollectionResponse,
   DescribeDatasetRequest,
@@ -266,7 +249,6 @@ import {
   DetectTextResponse,
   DistributeDataset,
   DistributeDatasetEntriesRequest,
-  DistributeDatasetEntriesResponse,
   DominantColor,
   Emotion,
   EquipmentDetection,
@@ -283,7 +265,6 @@ import {
   GeneralLabelsSettings,
   Geometry,
   GetCelebrityInfoRequest,
-  GetCelebrityInfoResponse,
   GetCelebrityRecognitionRequest,
   GetCelebrityRecognitionResponse,
   GetContentModerationRequest,
@@ -323,29 +304,21 @@ import {
   KinesisDataStream,
   KinesisVideoStream,
   KinesisVideoStreamStartSelector,
-  KnownGender,
   Label,
-  LabelAlias,
-  LabelCategory,
   LabelDetection,
   LabelDetectionFeatureName,
   LabelDetectionSettings,
   Landmark,
   LimitExceededException,
   ListCollectionsRequest,
-  ListCollectionsResponse,
   ListDatasetEntriesRequest,
-  ListDatasetEntriesResponse,
   ListDatasetLabelsRequest,
-  ListDatasetLabelsResponse,
   ListFacesRequest,
   ListFacesResponse,
   ListProjectPoliciesRequest,
   ListProjectPoliciesResponse,
   ListStreamProcessorsRequest,
-  ListStreamProcessorsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   LivenessOutputConfig,
   MalformedPolicyDocumentException,
   ModerationLabel,
@@ -353,7 +326,6 @@ import {
   Mustache,
   NotificationChannel,
   OutputConfig,
-  Parent,
   PersonDetail,
   PersonDetection,
   PersonMatch,
@@ -365,12 +337,9 @@ import {
   ProtectiveEquipmentBodyPart,
   ProtectiveEquipmentPerson,
   ProtectiveEquipmentSummarizationAttributes,
-  ProtectiveEquipmentSummary,
   ProtectiveEquipmentType,
   ProvisionedThroughputExceededException,
   PutProjectPolicyRequest,
-  PutProjectPolicyResponse,
-  Reason,
   RecognizeCelebritiesRequest,
   RecognizeCelebritiesResponse,
   RegionOfInterest,
@@ -386,75 +355,50 @@ import {
   SearchFacesResponse,
   SegmentDetection,
   SegmentType,
-  SegmentTypeInfo,
   ServiceQuotaExceededException,
   SessionNotFoundException,
   ShotSegment,
   Smile,
   StartCelebrityRecognitionRequest,
-  StartCelebrityRecognitionResponse,
   StartContentModerationRequest,
-  StartContentModerationResponse,
   StartFaceDetectionRequest,
-  StartFaceDetectionResponse,
   StartFaceSearchRequest,
-  StartFaceSearchResponse,
   StartLabelDetectionRequest,
-  StartLabelDetectionResponse,
   StartPersonTrackingRequest,
-  StartPersonTrackingResponse,
   StartProjectVersionRequest,
-  StartProjectVersionResponse,
   StartSegmentDetectionFilters,
   StartSegmentDetectionRequest,
-  StartSegmentDetectionResponse,
   StartShotDetectionFilter,
   StartStreamProcessorRequest,
-  StartStreamProcessorResponse,
   StartTechnicalCueDetectionFilter,
   StartTextDetectionFilters,
   StartTextDetectionRequest,
-  StartTextDetectionResponse,
   StopProjectVersionRequest,
-  StopProjectVersionResponse,
   StopStreamProcessorRequest,
-  StopStreamProcessorResponse,
   StreamProcessingStartSelector,
   StreamProcessingStopSelector,
-  StreamProcessor,
   StreamProcessorDataSharingPreference,
   StreamProcessorInput,
   StreamProcessorNotificationChannel,
   StreamProcessorOutput,
   StreamProcessorParameterToDelete,
   StreamProcessorSettings,
-  Summary,
   Sunglasses,
   TagResourceRequest,
-  TagResourceResponse,
   TechnicalCueSegment,
   TestingData,
-  TestingDataResult,
   TextDetection,
   TextDetectionResult,
   ThrottlingException,
   TrainingData,
-  TrainingDataResult,
   UnindexedFace,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateDatasetEntriesRequest,
-  UpdateDatasetEntriesResponse,
-  ValidationData,
   Video,
   VideoMetadata,
   VideoTooLargeException,
 } from "../models/models_0";
-import {
-  StreamProcessorSettingsForUpdate,
-  UpdateStreamProcessorRequest,
-  UpdateStreamProcessorResponse,
-} from "../models/models_1";
+import { StreamProcessorSettingsForUpdate, UpdateStreamProcessorRequest } from "../models/models_1";
 import { RekognitionServiceException as __BaseException } from "../models/RekognitionServiceException";
 
 /**
@@ -479,7 +423,7 @@ export const se_CopyProjectVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CopyProjectVersion");
   let body: any;
-  body = JSON.stringify(se_CopyProjectVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -492,7 +436,7 @@ export const se_CreateCollectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateCollection");
   let body: any;
-  body = JSON.stringify(se_CreateCollectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -505,7 +449,7 @@ export const se_CreateDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDataset");
   let body: any;
-  body = JSON.stringify(se_CreateDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -518,7 +462,7 @@ export const se_CreateFaceLivenessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateFaceLivenessSession");
   let body: any;
-  body = JSON.stringify(se_CreateFaceLivenessSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -531,7 +475,7 @@ export const se_CreateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateProject");
   let body: any;
-  body = JSON.stringify(se_CreateProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -544,7 +488,7 @@ export const se_CreateProjectVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateProjectVersion");
   let body: any;
-  body = JSON.stringify(se_CreateProjectVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -570,7 +514,7 @@ export const se_DeleteCollectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCollection");
   let body: any;
-  body = JSON.stringify(se_DeleteCollectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -583,7 +527,7 @@ export const se_DeleteDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDataset");
   let body: any;
-  body = JSON.stringify(se_DeleteDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -596,7 +540,7 @@ export const se_DeleteFacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFaces");
   let body: any;
-  body = JSON.stringify(se_DeleteFacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -609,7 +553,7 @@ export const se_DeleteProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProject");
   let body: any;
-  body = JSON.stringify(se_DeleteProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -622,7 +566,7 @@ export const se_DeleteProjectPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProjectPolicy");
   let body: any;
-  body = JSON.stringify(se_DeleteProjectPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -635,7 +579,7 @@ export const se_DeleteProjectVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProjectVersion");
   let body: any;
-  body = JSON.stringify(se_DeleteProjectVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -648,7 +592,7 @@ export const se_DeleteStreamProcessorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteStreamProcessor");
   let body: any;
-  body = JSON.stringify(se_DeleteStreamProcessorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -661,7 +605,7 @@ export const se_DescribeCollectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCollection");
   let body: any;
-  body = JSON.stringify(se_DescribeCollectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -674,7 +618,7 @@ export const se_DescribeDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDataset");
   let body: any;
-  body = JSON.stringify(se_DescribeDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -687,7 +631,7 @@ export const se_DescribeProjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProjects");
   let body: any;
-  body = JSON.stringify(se_DescribeProjectsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -700,7 +644,7 @@ export const se_DescribeProjectVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProjectVersions");
   let body: any;
-  body = JSON.stringify(se_DescribeProjectVersionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -713,7 +657,7 @@ export const se_DescribeStreamProcessorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStreamProcessor");
   let body: any;
-  body = JSON.stringify(se_DescribeStreamProcessorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -804,7 +748,7 @@ export const se_DistributeDatasetEntriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DistributeDatasetEntries");
   let body: any;
-  body = JSON.stringify(se_DistributeDatasetEntriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -817,7 +761,7 @@ export const se_GetCelebrityInfoCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCelebrityInfo");
   let body: any;
-  body = JSON.stringify(se_GetCelebrityInfoRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -830,7 +774,7 @@ export const se_GetCelebrityRecognitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCelebrityRecognition");
   let body: any;
-  body = JSON.stringify(se_GetCelebrityRecognitionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -843,7 +787,7 @@ export const se_GetContentModerationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetContentModeration");
   let body: any;
-  body = JSON.stringify(se_GetContentModerationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -856,7 +800,7 @@ export const se_GetFaceDetectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFaceDetection");
   let body: any;
-  body = JSON.stringify(se_GetFaceDetectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -869,7 +813,7 @@ export const se_GetFaceLivenessSessionResultsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFaceLivenessSessionResults");
   let body: any;
-  body = JSON.stringify(se_GetFaceLivenessSessionResultsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -882,7 +826,7 @@ export const se_GetFaceSearchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFaceSearch");
   let body: any;
-  body = JSON.stringify(se_GetFaceSearchRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -895,7 +839,7 @@ export const se_GetLabelDetectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLabelDetection");
   let body: any;
-  body = JSON.stringify(se_GetLabelDetectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -908,7 +852,7 @@ export const se_GetPersonTrackingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPersonTracking");
   let body: any;
-  body = JSON.stringify(se_GetPersonTrackingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -921,7 +865,7 @@ export const se_GetSegmentDetectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSegmentDetection");
   let body: any;
-  body = JSON.stringify(se_GetSegmentDetectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -934,7 +878,7 @@ export const se_GetTextDetectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTextDetection");
   let body: any;
-  body = JSON.stringify(se_GetTextDetectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -960,7 +904,7 @@ export const se_ListCollectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCollections");
   let body: any;
-  body = JSON.stringify(se_ListCollectionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -973,7 +917,7 @@ export const se_ListDatasetEntriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDatasetEntries");
   let body: any;
-  body = JSON.stringify(se_ListDatasetEntriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -986,7 +930,7 @@ export const se_ListDatasetLabelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDatasetLabels");
   let body: any;
-  body = JSON.stringify(se_ListDatasetLabelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -999,7 +943,7 @@ export const se_ListFacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFaces");
   let body: any;
-  body = JSON.stringify(se_ListFacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1012,7 +956,7 @@ export const se_ListProjectPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProjectPolicies");
   let body: any;
-  body = JSON.stringify(se_ListProjectPoliciesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1025,7 +969,7 @@ export const se_ListStreamProcessorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListStreamProcessors");
   let body: any;
-  body = JSON.stringify(se_ListStreamProcessorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1038,7 +982,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1051,7 +995,7 @@ export const se_PutProjectPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutProjectPolicy");
   let body: any;
-  body = JSON.stringify(se_PutProjectPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1103,7 +1047,7 @@ export const se_StartCelebrityRecognitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartCelebrityRecognition");
   let body: any;
-  body = JSON.stringify(se_StartCelebrityRecognitionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1129,7 +1073,7 @@ export const se_StartFaceDetectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartFaceDetection");
   let body: any;
-  body = JSON.stringify(se_StartFaceDetectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1168,7 +1112,7 @@ export const se_StartPersonTrackingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartPersonTracking");
   let body: any;
-  body = JSON.stringify(se_StartPersonTrackingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1181,7 +1125,7 @@ export const se_StartProjectVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartProjectVersion");
   let body: any;
-  body = JSON.stringify(se_StartProjectVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1207,7 +1151,7 @@ export const se_StartStreamProcessorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartStreamProcessor");
   let body: any;
-  body = JSON.stringify(se_StartStreamProcessorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1233,7 +1177,7 @@ export const se_StopProjectVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopProjectVersion");
   let body: any;
-  body = JSON.stringify(se_StopProjectVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1246,7 +1190,7 @@ export const se_StopStreamProcessorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopStreamProcessor");
   let body: any;
-  body = JSON.stringify(se_StopStreamProcessorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1259,7 +1203,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1272,7 +1216,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1319,7 +1263,7 @@ export const de_CompareFacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1361,10 +1305,9 @@ const de_CompareFacesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1382,12 +1325,12 @@ export const de_CopyProjectVersionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CopyProjectVersionResponse(data, context);
+  contents = _json(data);
   const response: CopyProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1432,10 +1375,9 @@ const de_CopyProjectVersionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1453,12 +1395,12 @@ export const de_CreateCollectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateCollectionResponse(data, context);
+  contents = _json(data);
   const response: CreateCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1497,10 +1439,9 @@ const de_CreateCollectionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1518,12 +1459,12 @@ export const de_CreateDatasetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDatasetResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1568,10 +1509,9 @@ const de_CreateDatasetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1589,12 +1529,12 @@ export const de_CreateFaceLivenessSessionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateFaceLivenessSessionResponse(data, context);
+  contents = _json(data);
   const response: CreateFaceLivenessSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1627,10 +1567,9 @@ const de_CreateFaceLivenessSessionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1648,12 +1587,12 @@ export const de_CreateProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateProjectResponse(data, context);
+  contents = _json(data);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1692,10 +1631,9 @@ const de_CreateProjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1713,12 +1651,12 @@ export const de_CreateProjectVersionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateProjectVersionResponse(data, context);
+  contents = _json(data);
   const response: CreateProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1763,10 +1701,9 @@ const de_CreateProjectVersionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1784,12 +1721,12 @@ export const de_CreateStreamProcessorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateStreamProcessorResponse(data, context);
+  contents = _json(data);
   const response: CreateStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1831,10 +1768,9 @@ const de_CreateStreamProcessorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1852,12 +1788,12 @@ export const de_DeleteCollectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteCollectionResponse(data, context);
+  contents = _json(data);
   const response: DeleteCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1893,10 +1829,9 @@ const de_DeleteCollectionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1914,12 +1849,12 @@ export const de_DeleteDatasetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDatasetResponse(data, context);
+  contents = _json(data);
   const response: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1961,10 +1896,9 @@ const de_DeleteDatasetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1982,12 +1916,12 @@ export const de_DeleteFacesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteFacesResponse(data, context);
+  contents = _json(data);
   const response: DeleteFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2023,10 +1957,9 @@ const de_DeleteFacesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2044,12 +1977,12 @@ export const de_DeleteProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProjectResponse(data, context);
+  contents = _json(data);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2088,10 +2021,9 @@ const de_DeleteProjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2109,12 +2041,12 @@ export const de_DeleteProjectPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProjectPolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteProjectPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2153,10 +2085,9 @@ const de_DeleteProjectPolicyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2174,12 +2105,12 @@ export const de_DeleteProjectVersionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProjectVersionResponse(data, context);
+  contents = _json(data);
   const response: DeleteProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2218,10 +2149,9 @@ const de_DeleteProjectVersionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2239,12 +2169,12 @@ export const de_DeleteStreamProcessorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteStreamProcessorResponse(data, context);
+  contents = _json(data);
   const response: DeleteStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2283,10 +2213,9 @@ const de_DeleteStreamProcessorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2309,7 +2238,7 @@ export const de_DescribeCollectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2345,10 +2274,9 @@ const de_DescribeCollectionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2371,7 +2299,7 @@ export const de_DescribeDatasetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2407,10 +2335,9 @@ const de_DescribeDatasetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2433,7 +2360,7 @@ export const de_DescribeProjectsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2469,10 +2396,9 @@ const de_DescribeProjectsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2495,7 +2421,7 @@ export const de_DescribeProjectVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2534,10 +2460,9 @@ const de_DescribeProjectVersionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2560,7 +2485,7 @@ export const de_DescribeStreamProcessorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2596,10 +2521,9 @@ const de_DescribeStreamProcessorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2622,7 +2546,7 @@ export const de_DetectCustomLabelsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2673,10 +2597,9 @@ const de_DetectCustomLabelsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2699,7 +2622,7 @@ export const de_DetectFacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2741,10 +2664,9 @@ const de_DetectFacesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2767,7 +2689,7 @@ export const de_DetectLabelsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2809,10 +2731,9 @@ const de_DetectLabelsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2835,7 +2756,7 @@ export const de_DetectModerationLabelsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2880,10 +2801,9 @@ const de_DetectModerationLabelsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2906,7 +2826,7 @@ export const de_DetectProtectiveEquipmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2948,10 +2868,9 @@ const de_DetectProtectiveEquipmentCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2974,7 +2893,7 @@ export const de_DetectTextCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3016,10 +2935,9 @@ const de_DetectTextCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3037,12 +2955,12 @@ export const de_DistributeDatasetEntriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DistributeDatasetEntriesResponse(data, context);
+  contents = _json(data);
   const response: DistributeDatasetEntriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3081,10 +2999,9 @@ const de_DistributeDatasetEntriesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3102,12 +3019,12 @@ export const de_GetCelebrityInfoCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCelebrityInfoResponse(data, context);
+  contents = _json(data);
   const response: GetCelebrityInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3143,10 +3060,9 @@ const de_GetCelebrityInfoCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3169,7 +3085,7 @@ export const de_GetCelebrityRecognitionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3208,10 +3124,9 @@ const de_GetCelebrityRecognitionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3234,7 +3149,7 @@ export const de_GetContentModerationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3273,10 +3188,9 @@ const de_GetContentModerationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3299,7 +3213,7 @@ export const de_GetFaceDetectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3338,10 +3252,9 @@ const de_GetFaceDetectionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3364,7 +3277,7 @@ export const de_GetFaceLivenessSessionResultsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3400,10 +3313,9 @@ const de_GetFaceLivenessSessionResultsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3426,7 +3338,7 @@ export const de_GetFaceSearchCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3465,10 +3377,9 @@ const de_GetFaceSearchCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3491,7 +3402,7 @@ export const de_GetLabelDetectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3530,10 +3441,9 @@ const de_GetLabelDetectionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3556,7 +3466,7 @@ export const de_GetPersonTrackingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3595,10 +3505,9 @@ const de_GetPersonTrackingCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3621,7 +3530,7 @@ export const de_GetSegmentDetectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3660,10 +3569,9 @@ const de_GetSegmentDetectionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3686,7 +3594,7 @@ export const de_GetTextDetectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3725,10 +3633,9 @@ const de_GetTextDetectionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3751,7 +3658,7 @@ export const de_IndexFacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3799,10 +3706,9 @@ const de_IndexFacesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3820,12 +3726,12 @@ export const de_ListCollectionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCollectionsResponse(data, context);
+  contents = _json(data);
   const response: ListCollectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3864,10 +3770,9 @@ const de_ListCollectionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3885,12 +3790,12 @@ export const de_ListDatasetEntriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDatasetEntriesResponse(data, context);
+  contents = _json(data);
   const response: ListDatasetEntriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3935,10 +3840,9 @@ const de_ListDatasetEntriesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3956,12 +3860,12 @@ export const de_ListDatasetLabelsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDatasetLabelsResponse(data, context);
+  contents = _json(data);
   const response: ListDatasetLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4006,10 +3910,9 @@ const de_ListDatasetLabelsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4032,7 +3935,7 @@ export const de_ListFacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4071,10 +3974,9 @@ const de_ListFacesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4097,7 +3999,7 @@ export const de_ListProjectPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4136,10 +4038,9 @@ const de_ListProjectPoliciesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4157,12 +4058,12 @@ export const de_ListStreamProcessorsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListStreamProcessorsResponse(data, context);
+  contents = _json(data);
   const response: ListStreamProcessorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4198,10 +4099,9 @@ const de_ListStreamProcessorsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4219,12 +4119,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4260,10 +4160,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4281,12 +4180,12 @@ export const de_PutProjectPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutProjectPolicyResponse(data, context);
+  contents = _json(data);
   const response: PutProjectPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4337,10 +4236,9 @@ const de_PutProjectPolicyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4363,7 +4261,7 @@ export const de_RecognizeCelebritiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4405,10 +4303,9 @@ const de_RecognizeCelebritiesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4431,7 +4328,7 @@ export const de_SearchFacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4467,10 +4364,9 @@ const de_SearchFacesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4493,7 +4389,7 @@ export const de_SearchFacesByImageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4538,10 +4434,9 @@ const de_SearchFacesByImageCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4559,12 +4454,12 @@ export const de_StartCelebrityRecognitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartCelebrityRecognitionResponse(data, context);
+  contents = _json(data);
   const response: StartCelebrityRecognitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4609,10 +4504,9 @@ const de_StartCelebrityRecognitionCommandError = async (
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4630,12 +4524,12 @@ export const de_StartContentModerationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartContentModerationResponse(data, context);
+  contents = _json(data);
   const response: StartContentModerationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4680,10 +4574,9 @@ const de_StartContentModerationCommandError = async (
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4701,12 +4594,12 @@ export const de_StartFaceDetectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartFaceDetectionResponse(data, context);
+  contents = _json(data);
   const response: StartFaceDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4751,10 +4644,9 @@ const de_StartFaceDetectionCommandError = async (
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4772,12 +4664,12 @@ export const de_StartFaceSearchCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartFaceSearchResponse(data, context);
+  contents = _json(data);
   const response: StartFaceSearchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4825,10 +4717,9 @@ const de_StartFaceSearchCommandError = async (
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4846,12 +4737,12 @@ export const de_StartLabelDetectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartLabelDetectionResponse(data, context);
+  contents = _json(data);
   const response: StartLabelDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4896,10 +4787,9 @@ const de_StartLabelDetectionCommandError = async (
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4917,12 +4807,12 @@ export const de_StartPersonTrackingCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartPersonTrackingResponse(data, context);
+  contents = _json(data);
   const response: StartPersonTrackingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4967,10 +4857,9 @@ const de_StartPersonTrackingCommandError = async (
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4988,12 +4877,12 @@ export const de_StartProjectVersionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartProjectVersionResponse(data, context);
+  contents = _json(data);
   const response: StartProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5035,10 +4924,9 @@ const de_StartProjectVersionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5056,12 +4944,12 @@ export const de_StartSegmentDetectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartSegmentDetectionResponse(data, context);
+  contents = _json(data);
   const response: StartSegmentDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5106,10 +4994,9 @@ const de_StartSegmentDetectionCommandError = async (
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5127,12 +5014,12 @@ export const de_StartStreamProcessorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartStreamProcessorResponse(data, context);
+  contents = _json(data);
   const response: StartStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5171,10 +5058,9 @@ const de_StartStreamProcessorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5192,12 +5078,12 @@ export const de_StartTextDetectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartTextDetectionResponse(data, context);
+  contents = _json(data);
   const response: StartTextDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5242,10 +5128,9 @@ const de_StartTextDetectionCommandError = async (
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5263,12 +5148,12 @@ export const de_StopProjectVersionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopProjectVersionResponse(data, context);
+  contents = _json(data);
   const response: StopProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5307,10 +5192,9 @@ const de_StopProjectVersionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5328,12 +5212,12 @@ export const de_StopStreamProcessorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopStreamProcessorResponse(data, context);
+  contents = _json(data);
   const response: StopStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5372,10 +5256,9 @@ const de_StopStreamProcessorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5393,12 +5276,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5437,10 +5320,9 @@ const de_TagResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5458,12 +5340,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5499,10 +5381,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5520,12 +5401,12 @@ export const de_UpdateDatasetEntriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDatasetEntriesResponse(data, context);
+  contents = _json(data);
   const response: UpdateDatasetEntriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5567,10 +5448,9 @@ const de_UpdateDatasetEntriesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5588,12 +5468,12 @@ export const de_UpdateStreamProcessorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateStreamProcessorResponse(data, context);
+  contents = _json(data);
   const response: UpdateStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5632,10 +5512,9 @@ const de_UpdateStreamProcessorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5649,7 +5528,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5665,7 +5544,7 @@ const de_HumanLoopQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<HumanLoopQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_HumanLoopQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new HumanLoopQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5681,7 +5560,7 @@ const de_IdempotentParameterMismatchExceptionRes = async (
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IdempotentParameterMismatchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IdempotentParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5697,7 +5576,7 @@ const de_ImageTooLargeExceptionRes = async (
   context: __SerdeContext
 ): Promise<ImageTooLargeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ImageTooLargeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5710,7 +5589,7 @@ const de_ImageTooLargeExceptionRes = async (
  */
 const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5726,7 +5605,7 @@ const de_InvalidImageFormatExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidImageFormatException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidImageFormatException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidImageFormatException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5742,7 +5621,7 @@ const de_InvalidPaginationTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPaginationTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPaginationTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPaginationTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5758,7 +5637,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5774,7 +5653,7 @@ const de_InvalidPolicyRevisionIdExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPolicyRevisionIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPolicyRevisionIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPolicyRevisionIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5790,7 +5669,7 @@ const de_InvalidS3ObjectExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidS3ObjectException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidS3ObjectException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidS3ObjectException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5806,7 +5685,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5822,7 +5701,7 @@ const de_MalformedPolicyDocumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MalformedPolicyDocumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5838,7 +5717,7 @@ const de_ProvisionedThroughputExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ProvisionedThroughputExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ProvisionedThroughputExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProvisionedThroughputExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5854,7 +5733,7 @@ const de_ResourceAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5870,7 +5749,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5886,7 +5765,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5902,7 +5781,7 @@ const de_ResourceNotReadyExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotReadyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotReadyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5918,7 +5797,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5934,7 +5813,7 @@ const de_SessionNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<SessionNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SessionNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SessionNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5947,7 +5826,7 @@ const de_SessionNotFoundExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5963,7 +5842,7 @@ const de_VideoTooLargeExceptionRes = async (
   context: __SerdeContext
 ): Promise<VideoTooLargeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_VideoTooLargeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new VideoTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5971,915 +5850,342 @@ const de_VideoTooLargeExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1Asset
- */
-const se_Asset = (input: Asset, context: __SerdeContext): any => {
-  return {
-    ...(input.GroundTruthManifest != null && {
-      GroundTruthManifest: se_GroundTruthManifest(input.GroundTruthManifest, context),
-    }),
-  };
-};
+// se_Asset omitted.
 
-/**
- * serializeAws_json1_1Assets
- */
-const se_Assets = (input: Asset[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Asset(entry, context);
-    });
-};
+// se_Assets omitted.
 
-/**
- * serializeAws_json1_1Attributes
- */
-const se_Attributes = (input: (Attribute | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Attributes omitted.
 
 /**
  * serializeAws_json1_1BlackFrame
  */
 const se_BlackFrame = (input: BlackFrame, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxPixelThreshold != null && { MaxPixelThreshold: __serializeFloat(input.MaxPixelThreshold) }),
-    ...(input.MinCoveragePercentage != null && {
-      MinCoveragePercentage: __serializeFloat(input.MinCoveragePercentage),
-    }),
-  };
+  return take(input, {
+    MaxPixelThreshold: (_) => __serializeFloat(_),
+    MinCoveragePercentage: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_json1_1BoundingBox
  */
 const se_BoundingBox = (input: BoundingBox, context: __SerdeContext): any => {
-  return {
-    ...(input.Height != null && { Height: __serializeFloat(input.Height) }),
-    ...(input.Left != null && { Left: __serializeFloat(input.Left) }),
-    ...(input.Top != null && { Top: __serializeFloat(input.Top) }),
-    ...(input.Width != null && { Width: __serializeFloat(input.Width) }),
-  };
+  return take(input, {
+    Height: (_) => __serializeFloat(_),
+    Left: (_) => __serializeFloat(_),
+    Top: (_) => __serializeFloat(_),
+    Width: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_json1_1CompareFacesRequest
  */
 const se_CompareFacesRequest = (input: CompareFacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.QualityFilter != null && { QualityFilter: input.QualityFilter }),
-    ...(input.SimilarityThreshold != null && { SimilarityThreshold: __serializeFloat(input.SimilarityThreshold) }),
-    ...(input.SourceImage != null && { SourceImage: se_Image(input.SourceImage, context) }),
-    ...(input.TargetImage != null && { TargetImage: se_Image(input.TargetImage, context) }),
-  };
+  return take(input, {
+    QualityFilter: [],
+    SimilarityThreshold: (_) => __serializeFloat(_),
+    SourceImage: (_) => se_Image(_, context),
+    TargetImage: (_) => se_Image(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1ConnectedHomeLabels
- */
-const se_ConnectedHomeLabels = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ConnectedHomeLabels omitted.
 
 /**
  * serializeAws_json1_1ConnectedHomeSettings
  */
 const se_ConnectedHomeSettings = (input: ConnectedHomeSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.Labels != null && { Labels: se_ConnectedHomeLabels(input.Labels, context) }),
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-  };
+  return take(input, {
+    Labels: (_) => _json(_),
+    MinConfidence: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_json1_1ConnectedHomeSettingsForUpdate
  */
 const se_ConnectedHomeSettingsForUpdate = (input: ConnectedHomeSettingsForUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Labels != null && { Labels: se_ConnectedHomeLabels(input.Labels, context) }),
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-  };
+  return take(input, {
+    Labels: (_) => _json(_),
+    MinConfidence: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_1ContentClassifiers
- */
-const se_ContentClassifiers = (input: (ContentClassifier | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ContentClassifiers omitted.
 
-/**
- * serializeAws_json1_1CopyProjectVersionRequest
- */
-const se_CopyProjectVersionRequest = (input: CopyProjectVersionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationProjectArn != null && { DestinationProjectArn: input.DestinationProjectArn }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
-    ...(input.SourceProjectArn != null && { SourceProjectArn: input.SourceProjectArn }),
-    ...(input.SourceProjectVersionArn != null && { SourceProjectVersionArn: input.SourceProjectVersionArn }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.VersionName != null && { VersionName: input.VersionName }),
-  };
-};
+// se_CopyProjectVersionRequest omitted.
 
-/**
- * serializeAws_json1_1CreateCollectionRequest
- */
-const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  };
-};
+// se_CreateCollectionRequest omitted.
 
-/**
- * serializeAws_json1_1CreateDatasetRequest
- */
-const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetSource != null && { DatasetSource: se_DatasetSource(input.DatasetSource, context) }),
-    ...(input.DatasetType != null && { DatasetType: input.DatasetType }),
-    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
-  };
-};
+// se_CreateDatasetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateFaceLivenessSessionRequest
- */
-const se_CreateFaceLivenessSessionRequest = (input: CreateFaceLivenessSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Settings != null && { Settings: se_CreateFaceLivenessSessionRequestSettings(input.Settings, context) }),
-  };
-};
+// se_CreateFaceLivenessSessionRequest omitted.
 
-/**
- * serializeAws_json1_1CreateFaceLivenessSessionRequestSettings
- */
-const se_CreateFaceLivenessSessionRequestSettings = (
-  input: CreateFaceLivenessSessionRequestSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuditImagesLimit != null && { AuditImagesLimit: input.AuditImagesLimit }),
-    ...(input.OutputConfig != null && { OutputConfig: se_LivenessOutputConfig(input.OutputConfig, context) }),
-  };
-};
+// se_CreateFaceLivenessSessionRequestSettings omitted.
 
-/**
- * serializeAws_json1_1CreateProjectRequest
- */
-const se_CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProjectName != null && { ProjectName: input.ProjectName }),
-  };
-};
+// se_CreateProjectRequest omitted.
 
-/**
- * serializeAws_json1_1CreateProjectVersionRequest
- */
-const se_CreateProjectVersionRequest = (input: CreateProjectVersionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
-    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.TestingData != null && { TestingData: se_TestingData(input.TestingData, context) }),
-    ...(input.TrainingData != null && { TrainingData: se_TrainingData(input.TrainingData, context) }),
-    ...(input.VersionName != null && { VersionName: input.VersionName }),
-  };
-};
+// se_CreateProjectVersionRequest omitted.
 
 /**
  * serializeAws_json1_1CreateStreamProcessorRequest
  */
 const se_CreateStreamProcessorRequest = (input: CreateStreamProcessorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSharingPreference != null && {
-      DataSharingPreference: se_StreamProcessorDataSharingPreference(input.DataSharingPreference, context),
-    }),
-    ...(input.Input != null && { Input: se_StreamProcessorInput(input.Input, context) }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_StreamProcessorNotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.Output != null && { Output: se_StreamProcessorOutput(input.Output, context) }),
-    ...(input.RegionsOfInterest != null && {
-      RegionsOfInterest: se_RegionsOfInterest(input.RegionsOfInterest, context),
-    }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.Settings != null && { Settings: se_StreamProcessorSettings(input.Settings, context) }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  };
+  return take(input, {
+    DataSharingPreference: (_) => _json(_),
+    Input: (_) => _json(_),
+    KmsKeyId: [],
+    Name: [],
+    NotificationChannel: (_) => _json(_),
+    Output: (_) => _json(_),
+    RegionsOfInterest: (_) => se_RegionsOfInterest(_, context),
+    RoleArn: [],
+    Settings: (_) => se_StreamProcessorSettings(_, context),
+    Tags: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1DatasetChanges
  */
 const se_DatasetChanges = (input: DatasetChanges, context: __SerdeContext): any => {
-  return {
-    ...(input.GroundTruth != null && { GroundTruth: context.base64Encoder(input.GroundTruth) }),
-  };
+  return take(input, {
+    GroundTruth: (_) => context.base64Encoder(_),
+  });
 };
 
-/**
- * serializeAws_json1_1DatasetLabels
- */
-const se_DatasetLabels = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DatasetLabels omitted.
 
-/**
- * serializeAws_json1_1DatasetSource
- */
-const se_DatasetSource = (input: DatasetSource, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-    ...(input.GroundTruthManifest != null && {
-      GroundTruthManifest: se_GroundTruthManifest(input.GroundTruthManifest, context),
-    }),
-  };
-};
+// se_DatasetSource omitted.
 
-/**
- * serializeAws_json1_1DeleteCollectionRequest
- */
-const se_DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-  };
-};
+// se_DeleteCollectionRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteDatasetRequest
- */
-const se_DeleteDatasetRequest = (input: DeleteDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-  };
-};
+// se_DeleteDatasetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteFacesRequest
- */
-const se_DeleteFacesRequest = (input: DeleteFacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-    ...(input.FaceIds != null && { FaceIds: se_FaceIdList(input.FaceIds, context) }),
-  };
-};
+// se_DeleteFacesRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteProjectPolicyRequest
- */
-const se_DeleteProjectPolicyRequest = (input: DeleteProjectPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
-    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
-  };
-};
+// se_DeleteProjectPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteProjectRequest
- */
-const se_DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
-  };
-};
+// se_DeleteProjectRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteProjectVersionRequest
- */
-const se_DeleteProjectVersionRequest = (input: DeleteProjectVersionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProjectVersionArn != null && { ProjectVersionArn: input.ProjectVersionArn }),
-  };
-};
+// se_DeleteProjectVersionRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteStreamProcessorRequest
- */
-const se_DeleteStreamProcessorRequest = (input: DeleteStreamProcessorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteStreamProcessorRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCollectionRequest
- */
-const se_DescribeCollectionRequest = (input: DescribeCollectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-  };
-};
+// se_DescribeCollectionRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeDatasetRequest
- */
-const se_DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-  };
-};
+// se_DescribeDatasetRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeProjectsRequest
- */
-const se_DescribeProjectsRequest = (input: DescribeProjectsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ProjectNames != null && { ProjectNames: se_ProjectNames(input.ProjectNames, context) }),
-  };
-};
+// se_DescribeProjectsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeProjectVersionsRequest
- */
-const se_DescribeProjectVersionsRequest = (input: DescribeProjectVersionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
-    ...(input.VersionNames != null && { VersionNames: se_VersionNames(input.VersionNames, context) }),
-  };
-};
+// se_DescribeProjectVersionsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeStreamProcessorRequest
- */
-const se_DescribeStreamProcessorRequest = (input: DescribeStreamProcessorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DescribeStreamProcessorRequest omitted.
 
 /**
  * serializeAws_json1_1DetectCustomLabelsRequest
  */
 const se_DetectCustomLabelsRequest = (input: DetectCustomLabelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-    ...(input.ProjectVersionArn != null && { ProjectVersionArn: input.ProjectVersionArn }),
-  };
+  return take(input, {
+    Image: (_) => se_Image(_, context),
+    MaxResults: [],
+    MinConfidence: (_) => __serializeFloat(_),
+    ProjectVersionArn: [],
+  });
 };
 
 /**
  * serializeAws_json1_1DetectFacesRequest
  */
 const se_DetectFacesRequest = (input: DetectFacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_Attributes(input.Attributes, context) }),
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-  };
+  return take(input, {
+    Attributes: (_) => _json(_),
+    Image: (_) => se_Image(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1DetectionFilter
  */
 const se_DetectionFilter = (input: DetectionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.MinBoundingBoxHeight != null && { MinBoundingBoxHeight: __serializeFloat(input.MinBoundingBoxHeight) }),
-    ...(input.MinBoundingBoxWidth != null && { MinBoundingBoxWidth: __serializeFloat(input.MinBoundingBoxWidth) }),
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-  };
+  return take(input, {
+    MinBoundingBoxHeight: (_) => __serializeFloat(_),
+    MinBoundingBoxWidth: (_) => __serializeFloat(_),
+    MinConfidence: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_1DetectLabelsFeatureList
- */
-const se_DetectLabelsFeatureList = (input: (DetectLabelsFeatureName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DetectLabelsFeatureList omitted.
 
-/**
- * serializeAws_json1_1DetectLabelsImagePropertiesSettings
- */
-const se_DetectLabelsImagePropertiesSettings = (
-  input: DetectLabelsImagePropertiesSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxDominantColors != null && { MaxDominantColors: input.MaxDominantColors }),
-  };
-};
+// se_DetectLabelsImagePropertiesSettings omitted.
 
 /**
  * serializeAws_json1_1DetectLabelsRequest
  */
 const se_DetectLabelsRequest = (input: DetectLabelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Features != null && { Features: se_DetectLabelsFeatureList(input.Features, context) }),
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-    ...(input.MaxLabels != null && { MaxLabels: input.MaxLabels }),
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-    ...(input.Settings != null && { Settings: se_DetectLabelsSettings(input.Settings, context) }),
-  };
+  return take(input, {
+    Features: (_) => _json(_),
+    Image: (_) => se_Image(_, context),
+    MaxLabels: [],
+    MinConfidence: (_) => __serializeFloat(_),
+    Settings: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1DetectLabelsSettings
- */
-const se_DetectLabelsSettings = (input: DetectLabelsSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.GeneralLabels != null && { GeneralLabels: se_GeneralLabelsSettings(input.GeneralLabels, context) }),
-    ...(input.ImageProperties != null && {
-      ImageProperties: se_DetectLabelsImagePropertiesSettings(input.ImageProperties, context),
-    }),
-  };
-};
+// se_DetectLabelsSettings omitted.
 
 /**
  * serializeAws_json1_1DetectModerationLabelsRequest
  */
 const se_DetectModerationLabelsRequest = (input: DetectModerationLabelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HumanLoopConfig != null && { HumanLoopConfig: se_HumanLoopConfig(input.HumanLoopConfig, context) }),
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-  };
+  return take(input, {
+    HumanLoopConfig: (_) => _json(_),
+    Image: (_) => se_Image(_, context),
+    MinConfidence: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_json1_1DetectProtectiveEquipmentRequest
  */
 const se_DetectProtectiveEquipmentRequest = (input: DetectProtectiveEquipmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-    ...(input.SummarizationAttributes != null && {
-      SummarizationAttributes: se_ProtectiveEquipmentSummarizationAttributes(input.SummarizationAttributes, context),
-    }),
-  };
+  return take(input, {
+    Image: (_) => se_Image(_, context),
+    SummarizationAttributes: (_) => se_ProtectiveEquipmentSummarizationAttributes(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1DetectTextFilters
  */
 const se_DetectTextFilters = (input: DetectTextFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.RegionsOfInterest != null && {
-      RegionsOfInterest: se_RegionsOfInterest(input.RegionsOfInterest, context),
-    }),
-    ...(input.WordFilter != null && { WordFilter: se_DetectionFilter(input.WordFilter, context) }),
-  };
+  return take(input, {
+    RegionsOfInterest: (_) => se_RegionsOfInterest(_, context),
+    WordFilter: (_) => se_DetectionFilter(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1DetectTextRequest
  */
 const se_DetectTextRequest = (input: DetectTextRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_DetectTextFilters(input.Filters, context) }),
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-  };
+  return take(input, {
+    Filters: (_) => se_DetectTextFilters(_, context),
+    Image: (_) => se_Image(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1DistributeDataset
- */
-const se_DistributeDataset = (input: DistributeDataset, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-  };
-};
+// se_DistributeDataset omitted.
 
-/**
- * serializeAws_json1_1DistributeDatasetEntriesRequest
- */
-const se_DistributeDatasetEntriesRequest = (input: DistributeDatasetEntriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Datasets != null && { Datasets: se_DistributeDatasetMetadataList(input.Datasets, context) }),
-  };
-};
+// se_DistributeDatasetEntriesRequest omitted.
 
-/**
- * serializeAws_json1_1DistributeDatasetMetadataList
- */
-const se_DistributeDatasetMetadataList = (input: DistributeDataset[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DistributeDataset(entry, context);
-    });
-};
+// se_DistributeDatasetMetadataList omitted.
 
-/**
- * serializeAws_json1_1FaceIdList
- */
-const se_FaceIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FaceIdList omitted.
 
 /**
  * serializeAws_json1_1FaceSearchSettings
  */
 const se_FaceSearchSettings = (input: FaceSearchSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-    ...(input.FaceMatchThreshold != null && { FaceMatchThreshold: __serializeFloat(input.FaceMatchThreshold) }),
-  };
+  return take(input, {
+    CollectionId: [],
+    FaceMatchThreshold: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_1GeneralLabelsFilterList
- */
-const se_GeneralLabelsFilterList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_GeneralLabelsFilterList omitted.
 
-/**
- * serializeAws_json1_1GeneralLabelsSettings
- */
-const se_GeneralLabelsSettings = (input: GeneralLabelsSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.LabelCategoryExclusionFilters != null && {
-      LabelCategoryExclusionFilters: se_GeneralLabelsFilterList(input.LabelCategoryExclusionFilters, context),
-    }),
-    ...(input.LabelCategoryInclusionFilters != null && {
-      LabelCategoryInclusionFilters: se_GeneralLabelsFilterList(input.LabelCategoryInclusionFilters, context),
-    }),
-    ...(input.LabelExclusionFilters != null && {
-      LabelExclusionFilters: se_GeneralLabelsFilterList(input.LabelExclusionFilters, context),
-    }),
-    ...(input.LabelInclusionFilters != null && {
-      LabelInclusionFilters: se_GeneralLabelsFilterList(input.LabelInclusionFilters, context),
-    }),
-  };
-};
+// se_GeneralLabelsSettings omitted.
 
-/**
- * serializeAws_json1_1GetCelebrityInfoRequest
- */
-const se_GetCelebrityInfoRequest = (input: GetCelebrityInfoRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_GetCelebrityInfoRequest omitted.
 
-/**
- * serializeAws_json1_1GetCelebrityRecognitionRequest
- */
-const se_GetCelebrityRecognitionRequest = (input: GetCelebrityRecognitionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-  };
-};
+// se_GetCelebrityRecognitionRequest omitted.
 
-/**
- * serializeAws_json1_1GetContentModerationRequest
- */
-const se_GetContentModerationRequest = (input: GetContentModerationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-  };
-};
+// se_GetContentModerationRequest omitted.
 
-/**
- * serializeAws_json1_1GetFaceDetectionRequest
- */
-const se_GetFaceDetectionRequest = (input: GetFaceDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetFaceDetectionRequest omitted.
 
-/**
- * serializeAws_json1_1GetFaceLivenessSessionResultsRequest
- */
-const se_GetFaceLivenessSessionResultsRequest = (
-  input: GetFaceLivenessSessionResultsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-  };
-};
+// se_GetFaceLivenessSessionResultsRequest omitted.
 
-/**
- * serializeAws_json1_1GetFaceSearchRequest
- */
-const se_GetFaceSearchRequest = (input: GetFaceSearchRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-  };
-};
+// se_GetFaceSearchRequest omitted.
 
-/**
- * serializeAws_json1_1GetLabelDetectionRequest
- */
-const se_GetLabelDetectionRequest = (input: GetLabelDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AggregateBy != null && { AggregateBy: input.AggregateBy }),
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-  };
-};
+// se_GetLabelDetectionRequest omitted.
 
-/**
- * serializeAws_json1_1GetPersonTrackingRequest
- */
-const se_GetPersonTrackingRequest = (input: GetPersonTrackingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-  };
-};
+// se_GetPersonTrackingRequest omitted.
 
-/**
- * serializeAws_json1_1GetSegmentDetectionRequest
- */
-const se_GetSegmentDetectionRequest = (input: GetSegmentDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetSegmentDetectionRequest omitted.
 
-/**
- * serializeAws_json1_1GetTextDetectionRequest
- */
-const se_GetTextDetectionRequest = (input: GetTextDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetTextDetectionRequest omitted.
 
-/**
- * serializeAws_json1_1GroundTruthManifest
- */
-const se_GroundTruthManifest = (input: GroundTruthManifest, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Object != null && { S3Object: se_S3Object(input.S3Object, context) }),
-  };
-};
+// se_GroundTruthManifest omitted.
 
-/**
- * serializeAws_json1_1HumanLoopConfig
- */
-const se_HumanLoopConfig = (input: HumanLoopConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAttributes != null && { DataAttributes: se_HumanLoopDataAttributes(input.DataAttributes, context) }),
-    ...(input.FlowDefinitionArn != null && { FlowDefinitionArn: input.FlowDefinitionArn }),
-    ...(input.HumanLoopName != null && { HumanLoopName: input.HumanLoopName }),
-  };
-};
+// se_HumanLoopConfig omitted.
 
-/**
- * serializeAws_json1_1HumanLoopDataAttributes
- */
-const se_HumanLoopDataAttributes = (input: HumanLoopDataAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentClassifiers != null && {
-      ContentClassifiers: se_ContentClassifiers(input.ContentClassifiers, context),
-    }),
-  };
-};
+// se_HumanLoopDataAttributes omitted.
 
 /**
  * serializeAws_json1_1Image
  */
 const se_Image = (input: Image, context: __SerdeContext): any => {
-  return {
-    ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
-    ...(input.S3Object != null && { S3Object: se_S3Object(input.S3Object, context) }),
-  };
+  return take(input, {
+    Bytes: (_) => context.base64Encoder(_),
+    S3Object: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1IndexFacesRequest
  */
 const se_IndexFacesRequest = (input: IndexFacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-    ...(input.DetectionAttributes != null && {
-      DetectionAttributes: se_Attributes(input.DetectionAttributes, context),
-    }),
-    ...(input.ExternalImageId != null && { ExternalImageId: input.ExternalImageId }),
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-    ...(input.MaxFaces != null && { MaxFaces: input.MaxFaces }),
-    ...(input.QualityFilter != null && { QualityFilter: input.QualityFilter }),
-  };
+  return take(input, {
+    CollectionId: [],
+    DetectionAttributes: (_) => _json(_),
+    ExternalImageId: [],
+    Image: (_) => se_Image(_, context),
+    MaxFaces: [],
+    QualityFilter: [],
+  });
 };
 
-/**
- * serializeAws_json1_1KinesisDataStream
- */
-const se_KinesisDataStream = (input: KinesisDataStream, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-  };
-};
+// se_KinesisDataStream omitted.
 
-/**
- * serializeAws_json1_1KinesisVideoStream
- */
-const se_KinesisVideoStream = (input: KinesisVideoStream, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-  };
-};
+// se_KinesisVideoStream omitted.
 
-/**
- * serializeAws_json1_1KinesisVideoStreamStartSelector
- */
-const se_KinesisVideoStreamStartSelector = (input: KinesisVideoStreamStartSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.FragmentNumber != null && { FragmentNumber: input.FragmentNumber }),
-    ...(input.ProducerTimestamp != null && { ProducerTimestamp: input.ProducerTimestamp }),
-  };
-};
+// se_KinesisVideoStreamStartSelector omitted.
 
-/**
- * serializeAws_json1_1LabelDetectionFeatureList
- */
-const se_LabelDetectionFeatureList = (input: (LabelDetectionFeatureName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LabelDetectionFeatureList omitted.
 
-/**
- * serializeAws_json1_1LabelDetectionSettings
- */
-const se_LabelDetectionSettings = (input: LabelDetectionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.GeneralLabels != null && { GeneralLabels: se_GeneralLabelsSettings(input.GeneralLabels, context) }),
-  };
-};
+// se_LabelDetectionSettings omitted.
 
-/**
- * serializeAws_json1_1ListCollectionsRequest
- */
-const se_ListCollectionsRequest = (input: ListCollectionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCollectionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListDatasetEntriesRequest
- */
-const se_ListDatasetEntriesRequest = (input: ListDatasetEntriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainsLabels != null && { ContainsLabels: se_DatasetLabels(input.ContainsLabels, context) }),
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-    ...(input.HasErrors != null && { HasErrors: input.HasErrors }),
-    ...(input.Labeled != null && { Labeled: input.Labeled }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SourceRefContains != null && { SourceRefContains: input.SourceRefContains }),
-  };
-};
+// se_ListDatasetEntriesRequest omitted.
 
-/**
- * serializeAws_json1_1ListDatasetLabelsRequest
- */
-const se_ListDatasetLabelsRequest = (input: ListDatasetLabelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDatasetLabelsRequest omitted.
 
-/**
- * serializeAws_json1_1ListFacesRequest
- */
-const se_ListFacesRequest = (input: ListFacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListFacesRequest omitted.
 
-/**
- * serializeAws_json1_1ListProjectPoliciesRequest
- */
-const se_ListProjectPoliciesRequest = (input: ListProjectPoliciesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
-  };
-};
+// se_ListProjectPoliciesRequest omitted.
 
-/**
- * serializeAws_json1_1ListStreamProcessorsRequest
- */
-const se_ListStreamProcessorsRequest = (input: ListStreamProcessorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListStreamProcessorsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1LivenessOutputConfig
- */
-const se_LivenessOutputConfig = (input: LivenessOutputConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
-  };
-};
+// se_LivenessOutputConfig omitted.
 
-/**
- * serializeAws_json1_1NotificationChannel
- */
-const se_NotificationChannel = (input: NotificationChannel, context: __SerdeContext): any => {
-  return {
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.SNSTopicArn != null && { SNSTopicArn: input.SNSTopicArn }),
-  };
-};
+// se_NotificationChannel omitted.
 
-/**
- * serializeAws_json1_1OutputConfig
- */
-const se_OutputConfig = (input: OutputConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
-  };
-};
+// se_OutputConfig omitted.
 
 /**
  * serializeAws_json1_1Point
  */
 const se_Point = (input: Point, context: __SerdeContext): any => {
-  return {
-    ...(input.X != null && { X: __serializeFloat(input.X) }),
-    ...(input.Y != null && { Y: __serializeFloat(input.Y) }),
-  };
+  return take(input, {
+    X: (_) => __serializeFloat(_),
+    Y: (_) => __serializeFloat(_),
+  });
 };
 
 /**
@@ -6893,16 +6199,7 @@ const se_Polygon = (input: Point[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_json1_1ProjectNames
- */
-const se_ProjectNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ProjectNames omitted.
 
 /**
  * serializeAws_json1_1ProtectiveEquipmentSummarizationAttributes
@@ -6911,54 +6208,33 @@ const se_ProtectiveEquipmentSummarizationAttributes = (
   input: ProtectiveEquipmentSummarizationAttributes,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-    ...(input.RequiredEquipmentTypes != null && {
-      RequiredEquipmentTypes: se_ProtectiveEquipmentTypes(input.RequiredEquipmentTypes, context),
-    }),
-  };
+  return take(input, {
+    MinConfidence: (_) => __serializeFloat(_),
+    RequiredEquipmentTypes: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1ProtectiveEquipmentTypes
- */
-const se_ProtectiveEquipmentTypes = (input: (ProtectiveEquipmentType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ProtectiveEquipmentTypes omitted.
 
-/**
- * serializeAws_json1_1PutProjectPolicyRequest
- */
-const se_PutProjectPolicyRequest = (input: PutProjectPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyDocument != null && { PolicyDocument: input.PolicyDocument }),
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
-    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
-  };
-};
+// se_PutProjectPolicyRequest omitted.
 
 /**
  * serializeAws_json1_1RecognizeCelebritiesRequest
  */
 const se_RecognizeCelebritiesRequest = (input: RecognizeCelebritiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-  };
+  return take(input, {
+    Image: (_) => se_Image(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1RegionOfInterest
  */
 const se_RegionOfInterest = (input: RegionOfInterest, context: __SerdeContext): any => {
-  return {
-    ...(input.BoundingBox != null && { BoundingBox: se_BoundingBox(input.BoundingBox, context) }),
-    ...(input.Polygon != null && { Polygon: se_Polygon(input.Polygon, context) }),
-  };
+  return take(input, {
+    BoundingBox: (_) => se_BoundingBox(_, context),
+    Polygon: (_) => se_Polygon(_, context),
+  });
 };
 
 /**
@@ -6972,571 +6248,252 @@ const se_RegionsOfInterest = (input: RegionOfInterest[], context: __SerdeContext
     });
 };
 
-/**
- * serializeAws_json1_1S3Destination
- */
-const se_S3Destination = (input: S3Destination, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.KeyPrefix != null && { KeyPrefix: input.KeyPrefix }),
-  };
-};
+// se_S3Destination omitted.
 
-/**
- * serializeAws_json1_1S3Object
- */
-const se_S3Object = (input: S3Object, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
+// se_S3Object omitted.
 
 /**
  * serializeAws_json1_1SearchFacesByImageRequest
  */
 const se_SearchFacesByImageRequest = (input: SearchFacesByImageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-    ...(input.FaceMatchThreshold != null && { FaceMatchThreshold: __serializeFloat(input.FaceMatchThreshold) }),
-    ...(input.Image != null && { Image: se_Image(input.Image, context) }),
-    ...(input.MaxFaces != null && { MaxFaces: input.MaxFaces }),
-    ...(input.QualityFilter != null && { QualityFilter: input.QualityFilter }),
-  };
+  return take(input, {
+    CollectionId: [],
+    FaceMatchThreshold: (_) => __serializeFloat(_),
+    Image: (_) => se_Image(_, context),
+    MaxFaces: [],
+    QualityFilter: [],
+  });
 };
 
 /**
  * serializeAws_json1_1SearchFacesRequest
  */
 const se_SearchFacesRequest = (input: SearchFacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-    ...(input.FaceId != null && { FaceId: input.FaceId }),
-    ...(input.FaceMatchThreshold != null && { FaceMatchThreshold: __serializeFloat(input.FaceMatchThreshold) }),
-    ...(input.MaxFaces != null && { MaxFaces: input.MaxFaces }),
-  };
+  return take(input, {
+    CollectionId: [],
+    FaceId: [],
+    FaceMatchThreshold: (_) => __serializeFloat(_),
+    MaxFaces: [],
+  });
 };
 
-/**
- * serializeAws_json1_1SegmentTypes
- */
-const se_SegmentTypes = (input: (SegmentType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SegmentTypes omitted.
 
-/**
- * serializeAws_json1_1StartCelebrityRecognitionRequest
- */
-const se_StartCelebrityRecognitionRequest = (input: StartCelebrityRecognitionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.Video != null && { Video: se_Video(input.Video, context) }),
-  };
-};
+// se_StartCelebrityRecognitionRequest omitted.
 
 /**
  * serializeAws_json1_1StartContentModerationRequest
  */
 const se_StartContentModerationRequest = (input: StartContentModerationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.Video != null && { Video: se_Video(input.Video, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: [],
+    JobTag: [],
+    MinConfidence: (_) => __serializeFloat(_),
+    NotificationChannel: (_) => _json(_),
+    Video: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1StartFaceDetectionRequest
- */
-const se_StartFaceDetectionRequest = (input: StartFaceDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.FaceAttributes != null && { FaceAttributes: input.FaceAttributes }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.Video != null && { Video: se_Video(input.Video, context) }),
-  };
-};
+// se_StartFaceDetectionRequest omitted.
 
 /**
  * serializeAws_json1_1StartFaceSearchRequest
  */
 const se_StartFaceSearchRequest = (input: StartFaceSearchRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
-    ...(input.FaceMatchThreshold != null && { FaceMatchThreshold: __serializeFloat(input.FaceMatchThreshold) }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.Video != null && { Video: se_Video(input.Video, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: [],
+    CollectionId: [],
+    FaceMatchThreshold: (_) => __serializeFloat(_),
+    JobTag: [],
+    NotificationChannel: (_) => _json(_),
+    Video: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartLabelDetectionRequest
  */
 const se_StartLabelDetectionRequest = (input: StartLabelDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Features != null && { Features: se_LabelDetectionFeatureList(input.Features, context) }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.Settings != null && { Settings: se_LabelDetectionSettings(input.Settings, context) }),
-    ...(input.Video != null && { Video: se_Video(input.Video, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: [],
+    Features: (_) => _json(_),
+    JobTag: [],
+    MinConfidence: (_) => __serializeFloat(_),
+    NotificationChannel: (_) => _json(_),
+    Settings: (_) => _json(_),
+    Video: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1StartPersonTrackingRequest
- */
-const se_StartPersonTrackingRequest = (input: StartPersonTrackingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.Video != null && { Video: se_Video(input.Video, context) }),
-  };
-};
+// se_StartPersonTrackingRequest omitted.
 
-/**
- * serializeAws_json1_1StartProjectVersionRequest
- */
-const se_StartProjectVersionRequest = (input: StartProjectVersionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxInferenceUnits != null && { MaxInferenceUnits: input.MaxInferenceUnits }),
-    ...(input.MinInferenceUnits != null && { MinInferenceUnits: input.MinInferenceUnits }),
-    ...(input.ProjectVersionArn != null && { ProjectVersionArn: input.ProjectVersionArn }),
-  };
-};
+// se_StartProjectVersionRequest omitted.
 
 /**
  * serializeAws_json1_1StartSegmentDetectionFilters
  */
 const se_StartSegmentDetectionFilters = (input: StartSegmentDetectionFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.ShotFilter != null && { ShotFilter: se_StartShotDetectionFilter(input.ShotFilter, context) }),
-    ...(input.TechnicalCueFilter != null && {
-      TechnicalCueFilter: se_StartTechnicalCueDetectionFilter(input.TechnicalCueFilter, context),
-    }),
-  };
+  return take(input, {
+    ShotFilter: (_) => se_StartShotDetectionFilter(_, context),
+    TechnicalCueFilter: (_) => se_StartTechnicalCueDetectionFilter(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1StartSegmentDetectionRequest
  */
 const se_StartSegmentDetectionRequest = (input: StartSegmentDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Filters != null && { Filters: se_StartSegmentDetectionFilters(input.Filters, context) }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.SegmentTypes != null && { SegmentTypes: se_SegmentTypes(input.SegmentTypes, context) }),
-    ...(input.Video != null && { Video: se_Video(input.Video, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: [],
+    Filters: (_) => se_StartSegmentDetectionFilters(_, context),
+    JobTag: [],
+    NotificationChannel: (_) => _json(_),
+    SegmentTypes: (_) => _json(_),
+    Video: (_) => _json(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartShotDetectionFilter
  */
 const se_StartShotDetectionFilter = (input: StartShotDetectionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.MinSegmentConfidence != null && { MinSegmentConfidence: __serializeFloat(input.MinSegmentConfidence) }),
-  };
+  return take(input, {
+    MinSegmentConfidence: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_1StartStreamProcessorRequest
- */
-const se_StartStreamProcessorRequest = (input: StartStreamProcessorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.StartSelector != null && {
-      StartSelector: se_StreamProcessingStartSelector(input.StartSelector, context),
-    }),
-    ...(input.StopSelector != null && { StopSelector: se_StreamProcessingStopSelector(input.StopSelector, context) }),
-  };
-};
+// se_StartStreamProcessorRequest omitted.
 
 /**
  * serializeAws_json1_1StartTechnicalCueDetectionFilter
  */
 const se_StartTechnicalCueDetectionFilter = (input: StartTechnicalCueDetectionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.BlackFrame != null && { BlackFrame: se_BlackFrame(input.BlackFrame, context) }),
-    ...(input.MinSegmentConfidence != null && { MinSegmentConfidence: __serializeFloat(input.MinSegmentConfidence) }),
-  };
+  return take(input, {
+    BlackFrame: (_) => se_BlackFrame(_, context),
+    MinSegmentConfidence: (_) => __serializeFloat(_),
+  });
 };
 
 /**
  * serializeAws_json1_1StartTextDetectionFilters
  */
 const se_StartTextDetectionFilters = (input: StartTextDetectionFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.RegionsOfInterest != null && {
-      RegionsOfInterest: se_RegionsOfInterest(input.RegionsOfInterest, context),
-    }),
-    ...(input.WordFilter != null && { WordFilter: se_DetectionFilter(input.WordFilter, context) }),
-  };
+  return take(input, {
+    RegionsOfInterest: (_) => se_RegionsOfInterest(_, context),
+    WordFilter: (_) => se_DetectionFilter(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1StartTextDetectionRequest
  */
 const se_StartTextDetectionRequest = (input: StartTextDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Filters != null && { Filters: se_StartTextDetectionFilters(input.Filters, context) }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.Video != null && { Video: se_Video(input.Video, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: [],
+    Filters: (_) => se_StartTextDetectionFilters(_, context),
+    JobTag: [],
+    NotificationChannel: (_) => _json(_),
+    Video: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_json1_1StopProjectVersionRequest
- */
-const se_StopProjectVersionRequest = (input: StopProjectVersionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProjectVersionArn != null && { ProjectVersionArn: input.ProjectVersionArn }),
-  };
-};
+// se_StopProjectVersionRequest omitted.
 
-/**
- * serializeAws_json1_1StopStreamProcessorRequest
- */
-const se_StopStreamProcessorRequest = (input: StopStreamProcessorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_StopStreamProcessorRequest omitted.
 
-/**
- * serializeAws_json1_1StreamProcessingStartSelector
- */
-const se_StreamProcessingStartSelector = (input: StreamProcessingStartSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.KVSStreamStartSelector != null && {
-      KVSStreamStartSelector: se_KinesisVideoStreamStartSelector(input.KVSStreamStartSelector, context),
-    }),
-  };
-};
+// se_StreamProcessingStartSelector omitted.
 
-/**
- * serializeAws_json1_1StreamProcessingStopSelector
- */
-const se_StreamProcessingStopSelector = (input: StreamProcessingStopSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxDurationInSeconds != null && { MaxDurationInSeconds: input.MaxDurationInSeconds }),
-  };
-};
+// se_StreamProcessingStopSelector omitted.
 
-/**
- * serializeAws_json1_1StreamProcessorDataSharingPreference
- */
-const se_StreamProcessorDataSharingPreference = (
-  input: StreamProcessorDataSharingPreference,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OptIn != null && { OptIn: input.OptIn }),
-  };
-};
+// se_StreamProcessorDataSharingPreference omitted.
 
-/**
- * serializeAws_json1_1StreamProcessorInput
- */
-const se_StreamProcessorInput = (input: StreamProcessorInput, context: __SerdeContext): any => {
-  return {
-    ...(input.KinesisVideoStream != null && {
-      KinesisVideoStream: se_KinesisVideoStream(input.KinesisVideoStream, context),
-    }),
-  };
-};
+// se_StreamProcessorInput omitted.
 
-/**
- * serializeAws_json1_1StreamProcessorNotificationChannel
- */
-const se_StreamProcessorNotificationChannel = (
-  input: StreamProcessorNotificationChannel,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SNSTopicArn != null && { SNSTopicArn: input.SNSTopicArn }),
-  };
-};
+// se_StreamProcessorNotificationChannel omitted.
 
-/**
- * serializeAws_json1_1StreamProcessorOutput
- */
-const se_StreamProcessorOutput = (input: StreamProcessorOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.KinesisDataStream != null && {
-      KinesisDataStream: se_KinesisDataStream(input.KinesisDataStream, context),
-    }),
-    ...(input.S3Destination != null && { S3Destination: se_S3Destination(input.S3Destination, context) }),
-  };
-};
+// se_StreamProcessorOutput omitted.
 
-/**
- * serializeAws_json1_1StreamProcessorParametersToDelete
- */
-const se_StreamProcessorParametersToDelete = (
-  input: (StreamProcessorParameterToDelete | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StreamProcessorParametersToDelete omitted.
 
 /**
  * serializeAws_json1_1StreamProcessorSettings
  */
 const se_StreamProcessorSettings = (input: StreamProcessorSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectedHome != null && { ConnectedHome: se_ConnectedHomeSettings(input.ConnectedHome, context) }),
-    ...(input.FaceSearch != null && { FaceSearch: se_FaceSearchSettings(input.FaceSearch, context) }),
-  };
+  return take(input, {
+    ConnectedHome: (_) => se_ConnectedHomeSettings(_, context),
+    FaceSearch: (_) => se_FaceSearchSettings(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1StreamProcessorSettingsForUpdate
  */
 const se_StreamProcessorSettingsForUpdate = (input: StreamProcessorSettingsForUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectedHomeForUpdate != null && {
-      ConnectedHomeForUpdate: se_ConnectedHomeSettingsForUpdate(input.ConnectedHomeForUpdate, context),
-    }),
-  };
+  return take(input, {
+    ConnectedHomeForUpdate: (_) => se_ConnectedHomeSettingsForUpdate(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1TestingData
- */
-const se_TestingData = (input: TestingData, context: __SerdeContext): any => {
-  return {
-    ...(input.Assets != null && { Assets: se_Assets(input.Assets, context) }),
-    ...(input.AutoCreate != null && { AutoCreate: input.AutoCreate }),
-  };
-};
+// se_TestingData omitted.
 
-/**
- * serializeAws_json1_1TrainingData
- */
-const se_TrainingData = (input: TrainingData, context: __SerdeContext): any => {
-  return {
-    ...(input.Assets != null && { Assets: se_Assets(input.Assets, context) }),
-  };
-};
+// se_TrainingData omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateDatasetEntriesRequest
  */
 const se_UpdateDatasetEntriesRequest = (input: UpdateDatasetEntriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Changes != null && { Changes: se_DatasetChanges(input.Changes, context) }),
-    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
-  };
+  return take(input, {
+    Changes: (_) => se_DatasetChanges(_, context),
+    DatasetArn: [],
+  });
 };
 
 /**
  * serializeAws_json1_1UpdateStreamProcessorRequest
  */
 const se_UpdateStreamProcessorRequest = (input: UpdateStreamProcessorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSharingPreferenceForUpdate != null && {
-      DataSharingPreferenceForUpdate: se_StreamProcessorDataSharingPreference(
-        input.DataSharingPreferenceForUpdate,
-        context
-      ),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParametersToDelete != null && {
-      ParametersToDelete: se_StreamProcessorParametersToDelete(input.ParametersToDelete, context),
-    }),
-    ...(input.RegionsOfInterestForUpdate != null && {
-      RegionsOfInterestForUpdate: se_RegionsOfInterest(input.RegionsOfInterestForUpdate, context),
-    }),
-    ...(input.SettingsForUpdate != null && {
-      SettingsForUpdate: se_StreamProcessorSettingsForUpdate(input.SettingsForUpdate, context),
-    }),
-  };
+  return take(input, {
+    DataSharingPreferenceForUpdate: (_) => _json(_),
+    Name: [],
+    ParametersToDelete: (_) => _json(_),
+    RegionsOfInterestForUpdate: (_) => se_RegionsOfInterest(_, context),
+    SettingsForUpdate: (_) => se_StreamProcessorSettingsForUpdate(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1VersionNames
- */
-const se_VersionNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VersionNames omitted.
 
-/**
- * serializeAws_json1_1Video
- */
-const se_Video = (input: Video, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Object != null && { S3Object: se_S3Object(input.S3Object, context) }),
-  };
-};
+// se_Video omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AgeRange
- */
-const de_AgeRange = (output: any, context: __SerdeContext): AgeRange => {
-  return {
-    High: __expectInt32(output.High),
-    Low: __expectInt32(output.Low),
-  } as any;
-};
+// de_AgeRange omitted.
 
-/**
- * deserializeAws_json1_1Asset
- */
-const de_Asset = (output: any, context: __SerdeContext): Asset => {
-  return {
-    GroundTruthManifest:
-      output.GroundTruthManifest != null ? de_GroundTruthManifest(output.GroundTruthManifest, context) : undefined,
-  } as any;
-};
+// de_Asset omitted.
 
-/**
- * deserializeAws_json1_1Assets
- */
-const de_Assets = (output: any, context: __SerdeContext): Asset[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Asset(entry, context);
-    });
-  return retVal;
-};
+// de_Assets omitted.
 
-/**
- * deserializeAws_json1_1AudioMetadata
- */
-const de_AudioMetadata = (output: any, context: __SerdeContext): AudioMetadata => {
-  return {
-    Codec: __expectString(output.Codec),
-    DurationMillis: __expectLong(output.DurationMillis),
-    NumberOfChannels: __expectLong(output.NumberOfChannels),
-    SampleRate: __expectLong(output.SampleRate),
-  } as any;
-};
+// de_AudioMetadata omitted.
 
-/**
- * deserializeAws_json1_1AudioMetadataList
- */
-const de_AudioMetadataList = (output: any, context: __SerdeContext): AudioMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AudioMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_AudioMetadataList omitted.
 
 /**
  * deserializeAws_json1_1AuditImage
  */
 const de_AuditImage = (output: any, context: __SerdeContext): AuditImage => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Bytes: output.Bytes != null ? context.base64Decoder(output.Bytes) : undefined,
-    S3Object: output.S3Object != null ? de_S3Object(output.S3Object, context) : undefined,
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Bytes: context.base64Decoder,
+    S3Object: _json,
+  }) as any;
 };
 
 /**
@@ -7546,9 +6503,6 @@ const de_AuditImages = (output: any, context: __SerdeContext): AuditImage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AuditImage(entry, context);
     });
   return retVal;
@@ -7558,10 +6512,10 @@ const de_AuditImages = (output: any, context: __SerdeContext): AuditImage[] => {
  * deserializeAws_json1_1Beard
  */
 const de_Beard = (output: any, context: __SerdeContext): Beard => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectBoolean(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -7571,9 +6525,6 @@ const de_BodyParts = (output: any, context: __SerdeContext): ProtectiveEquipment
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProtectiveEquipmentBodyPart(entry, context);
     });
   return retVal;
@@ -7583,41 +6534,41 @@ const de_BodyParts = (output: any, context: __SerdeContext): ProtectiveEquipment
  * deserializeAws_json1_1BoundingBox
  */
 const de_BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
-  return {
-    Height: __limitedParseFloat32(output.Height),
-    Left: __limitedParseFloat32(output.Left),
-    Top: __limitedParseFloat32(output.Top),
-    Width: __limitedParseFloat32(output.Width),
-  } as any;
+  return take(output, {
+    Height: __limitedParseFloat32,
+    Left: __limitedParseFloat32,
+    Top: __limitedParseFloat32,
+    Width: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Celebrity
  */
 const de_Celebrity = (output: any, context: __SerdeContext): Celebrity => {
-  return {
-    Face: output.Face != null ? de_ComparedFace(output.Face, context) : undefined,
-    Id: __expectString(output.Id),
-    KnownGender: output.KnownGender != null ? de_KnownGender(output.KnownGender, context) : undefined,
-    MatchConfidence: __limitedParseFloat32(output.MatchConfidence),
-    Name: __expectString(output.Name),
-    Urls: output.Urls != null ? de_Urls(output.Urls, context) : undefined,
-  } as any;
+  return take(output, {
+    Face: (_: any) => de_ComparedFace(_, context),
+    Id: __expectString,
+    KnownGender: _json,
+    MatchConfidence: __limitedParseFloat32,
+    Name: __expectString,
+    Urls: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CelebrityDetail
  */
 const de_CelebrityDetail = (output: any, context: __SerdeContext): CelebrityDetail => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Face: output.Face != null ? de_FaceDetail(output.Face, context) : undefined,
-    Id: __expectString(output.Id),
-    KnownGender: output.KnownGender != null ? de_KnownGender(output.KnownGender, context) : undefined,
-    Name: __expectString(output.Name),
-    Urls: output.Urls != null ? de_Urls(output.Urls, context) : undefined,
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Confidence: __limitedParseFloat32,
+    Face: (_: any) => de_FaceDetail(_, context),
+    Id: __expectString,
+    KnownGender: _json,
+    Name: __expectString,
+    Urls: _json,
+  }) as any;
 };
 
 /**
@@ -7627,9 +6578,6 @@ const de_CelebrityList = (output: any, context: __SerdeContext): Celebrity[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Celebrity(entry, context);
     });
   return retVal;
@@ -7639,10 +6587,10 @@ const de_CelebrityList = (output: any, context: __SerdeContext): Celebrity[] => 
  * deserializeAws_json1_1CelebrityRecognition
  */
 const de_CelebrityRecognition = (output: any, context: __SerdeContext): CelebrityRecognition => {
-  return {
-    Celebrity: output.Celebrity != null ? de_CelebrityDetail(output.Celebrity, context) : undefined,
-    Timestamp: __expectLong(output.Timestamp),
-  } as any;
+  return take(output, {
+    Celebrity: (_: any) => de_CelebrityDetail(_, context),
+    Timestamp: __expectLong,
+  }) as any;
 };
 
 /**
@@ -7652,42 +6600,26 @@ const de_CelebrityRecognitions = (output: any, context: __SerdeContext): Celebri
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CelebrityRecognition(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CollectionIdList
- */
-const de_CollectionIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CollectionIdList omitted.
 
 /**
  * deserializeAws_json1_1ComparedFace
  */
 const de_ComparedFace = (output: any, context: __SerdeContext): ComparedFace => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Emotions: output.Emotions != null ? de_Emotions(output.Emotions, context) : undefined,
-    Landmarks: output.Landmarks != null ? de_Landmarks(output.Landmarks, context) : undefined,
-    Pose: output.Pose != null ? de_Pose(output.Pose, context) : undefined,
-    Quality: output.Quality != null ? de_ImageQuality(output.Quality, context) : undefined,
-    Smile: output.Smile != null ? de_Smile(output.Smile, context) : undefined,
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Confidence: __limitedParseFloat32,
+    Emotions: (_: any) => de_Emotions(_, context),
+    Landmarks: (_: any) => de_Landmarks(_, context),
+    Pose: (_: any) => de_Pose(_, context),
+    Quality: (_: any) => de_ImageQuality(_, context),
+    Smile: (_: any) => de_Smile(_, context),
+  }) as any;
 };
 
 /**
@@ -7697,9 +6629,6 @@ const de_ComparedFaceList = (output: any, context: __SerdeContext): ComparedFace
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ComparedFace(entry, context);
     });
   return retVal;
@@ -7709,20 +6638,20 @@ const de_ComparedFaceList = (output: any, context: __SerdeContext): ComparedFace
  * deserializeAws_json1_1ComparedSourceImageFace
  */
 const de_ComparedSourceImageFace = (output: any, context: __SerdeContext): ComparedSourceImageFace => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Confidence: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CompareFacesMatch
  */
 const de_CompareFacesMatch = (output: any, context: __SerdeContext): CompareFacesMatch => {
-  return {
-    Face: output.Face != null ? de_ComparedFace(output.Face, context) : undefined,
-    Similarity: __limitedParseFloat32(output.Similarity),
-  } as any;
+  return take(output, {
+    Face: (_: any) => de_ComparedFace(_, context),
+    Similarity: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -7732,9 +6661,6 @@ const de_CompareFacesMatchList = (output: any, context: __SerdeContext): Compare
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CompareFacesMatch(entry, context);
     });
   return retVal;
@@ -7744,15 +6670,13 @@ const de_CompareFacesMatchList = (output: any, context: __SerdeContext): Compare
  * deserializeAws_json1_1CompareFacesResponse
  */
 const de_CompareFacesResponse = (output: any, context: __SerdeContext): CompareFacesResponse => {
-  return {
-    FaceMatches: output.FaceMatches != null ? de_CompareFacesMatchList(output.FaceMatches, context) : undefined,
-    SourceImageFace:
-      output.SourceImageFace != null ? de_ComparedSourceImageFace(output.SourceImageFace, context) : undefined,
-    SourceImageOrientationCorrection: __expectString(output.SourceImageOrientationCorrection),
-    TargetImageOrientationCorrection: __expectString(output.TargetImageOrientationCorrection),
-    UnmatchedFaces:
-      output.UnmatchedFaces != null ? de_CompareFacesUnmatchList(output.UnmatchedFaces, context) : undefined,
-  } as any;
+  return take(output, {
+    FaceMatches: (_: any) => de_CompareFacesMatchList(_, context),
+    SourceImageFace: (_: any) => de_ComparedSourceImageFace(_, context),
+    SourceImageOrientationCorrection: __expectString,
+    TargetImageOrientationCorrection: __expectString,
+    UnmatchedFaces: (_: any) => de_CompareFacesUnmatchList(_, context),
+  }) as any;
 };
 
 /**
@@ -7762,47 +6686,31 @@ const de_CompareFacesUnmatchList = (output: any, context: __SerdeContext): Compa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ComparedFace(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ConnectedHomeLabels
- */
-const de_ConnectedHomeLabels = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ConnectedHomeLabels omitted.
 
 /**
  * deserializeAws_json1_1ConnectedHomeSettings
  */
 const de_ConnectedHomeSettings = (output: any, context: __SerdeContext): ConnectedHomeSettings => {
-  return {
-    Labels: output.Labels != null ? de_ConnectedHomeLabels(output.Labels, context) : undefined,
-    MinConfidence: __limitedParseFloat32(output.MinConfidence),
-  } as any;
+  return take(output, {
+    Labels: _json,
+    MinConfidence: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ContentModerationDetection
  */
 const de_ContentModerationDetection = (output: any, context: __SerdeContext): ContentModerationDetection => {
-  return {
-    ModerationLabel: output.ModerationLabel != null ? de_ModerationLabel(output.ModerationLabel, context) : undefined,
-    Timestamp: __expectLong(output.Timestamp),
-  } as any;
+  return take(output, {
+    ModerationLabel: (_: any) => de_ModerationLabel(_, context),
+    Timestamp: __expectLong,
+  }) as any;
 };
 
 /**
@@ -7812,101 +6720,44 @@ const de_ContentModerationDetections = (output: any, context: __SerdeContext): C
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ContentModerationDetection(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CopyProjectVersionResponse
- */
-const de_CopyProjectVersionResponse = (output: any, context: __SerdeContext): CopyProjectVersionResponse => {
-  return {
-    ProjectVersionArn: __expectString(output.ProjectVersionArn),
-  } as any;
-};
+// de_CopyProjectVersionResponse omitted.
 
 /**
  * deserializeAws_json1_1CoversBodyPart
  */
 const de_CoversBodyPart = (output: any, context: __SerdeContext): CoversBodyPart => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectBoolean(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateCollectionResponse
- */
-const de_CreateCollectionResponse = (output: any, context: __SerdeContext): CreateCollectionResponse => {
-  return {
-    CollectionArn: __expectString(output.CollectionArn),
-    FaceModelVersion: __expectString(output.FaceModelVersion),
-    StatusCode: __expectInt32(output.StatusCode),
-  } as any;
-};
+// de_CreateCollectionResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateDatasetResponse
- */
-const de_CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
-  return {
-    DatasetArn: __expectString(output.DatasetArn),
-  } as any;
-};
+// de_CreateDatasetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateFaceLivenessSessionResponse
- */
-const de_CreateFaceLivenessSessionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateFaceLivenessSessionResponse => {
-  return {
-    SessionId: __expectString(output.SessionId),
-  } as any;
-};
+// de_CreateFaceLivenessSessionResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateProjectResponse
- */
-const de_CreateProjectResponse = (output: any, context: __SerdeContext): CreateProjectResponse => {
-  return {
-    ProjectArn: __expectString(output.ProjectArn),
-  } as any;
-};
+// de_CreateProjectResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateProjectVersionResponse
- */
-const de_CreateProjectVersionResponse = (output: any, context: __SerdeContext): CreateProjectVersionResponse => {
-  return {
-    ProjectVersionArn: __expectString(output.ProjectVersionArn),
-  } as any;
-};
+// de_CreateProjectVersionResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateStreamProcessorResponse
- */
-const de_CreateStreamProcessorResponse = (output: any, context: __SerdeContext): CreateStreamProcessorResponse => {
-  return {
-    StreamProcessorArn: __expectString(output.StreamProcessorArn),
-  } as any;
-};
+// de_CreateStreamProcessorResponse omitted.
 
 /**
  * deserializeAws_json1_1CustomLabel
  */
 const de_CustomLabel = (output: any, context: __SerdeContext): CustomLabel => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Geometry: (_: any) => de_Geometry(_, context),
+    Name: __expectString,
+  }) as any;
 };
 
 /**
@@ -7916,9 +6767,6 @@ const de_CustomLabels = (output: any, context: __SerdeContext): CustomLabel[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CustomLabel(entry, context);
     });
   return retVal;
@@ -7928,87 +6776,36 @@ const de_CustomLabels = (output: any, context: __SerdeContext): CustomLabel[] =>
  * deserializeAws_json1_1DatasetDescription
  */
 const de_DatasetDescription = (output: any, context: __SerdeContext): DatasetDescription => {
-  return {
-    CreationTimestamp:
-      output.CreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
-        : undefined,
-    DatasetStats: output.DatasetStats != null ? de_DatasetStats(output.DatasetStats, context) : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    StatusMessageCode: __expectString(output.StatusMessageCode),
-  } as any;
+  return take(output, {
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetStats: _json,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusMessage: __expectString,
+    StatusMessageCode: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DatasetEntries
- */
-const de_DatasetEntries = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DatasetEntries omitted.
 
-/**
- * deserializeAws_json1_1DatasetLabelDescription
- */
-const de_DatasetLabelDescription = (output: any, context: __SerdeContext): DatasetLabelDescription => {
-  return {
-    LabelName: __expectString(output.LabelName),
-    LabelStats: output.LabelStats != null ? de_DatasetLabelStats(output.LabelStats, context) : undefined,
-  } as any;
-};
+// de_DatasetLabelDescription omitted.
 
-/**
- * deserializeAws_json1_1DatasetLabelDescriptions
- */
-const de_DatasetLabelDescriptions = (output: any, context: __SerdeContext): DatasetLabelDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DatasetLabelDescription(entry, context);
-    });
-  return retVal;
-};
+// de_DatasetLabelDescriptions omitted.
 
-/**
- * deserializeAws_json1_1DatasetLabelStats
- */
-const de_DatasetLabelStats = (output: any, context: __SerdeContext): DatasetLabelStats => {
-  return {
-    BoundingBoxCount: __expectInt32(output.BoundingBoxCount),
-    EntryCount: __expectInt32(output.EntryCount),
-  } as any;
-};
+// de_DatasetLabelStats omitted.
 
 /**
  * deserializeAws_json1_1DatasetMetadata
  */
 const de_DatasetMetadata = (output: any, context: __SerdeContext): DatasetMetadata => {
-  return {
-    CreationTimestamp:
-      output.CreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
-        : undefined,
-    DatasetArn: __expectString(output.DatasetArn),
-    DatasetType: __expectString(output.DatasetType),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    StatusMessageCode: __expectString(output.StatusMessageCode),
-  } as any;
+  return take(output, {
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetArn: __expectString,
+    DatasetType: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    StatusMessageCode: __expectString,
+  }) as any;
 };
 
 /**
@@ -8018,255 +6815,173 @@ const de_DatasetMetadataList = (output: any, context: __SerdeContext): DatasetMe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DatasetMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DatasetStats
- */
-const de_DatasetStats = (output: any, context: __SerdeContext): DatasetStats => {
-  return {
-    ErrorEntries: __expectInt32(output.ErrorEntries),
-    LabeledEntries: __expectInt32(output.LabeledEntries),
-    TotalEntries: __expectInt32(output.TotalEntries),
-    TotalLabels: __expectInt32(output.TotalLabels),
-  } as any;
-};
+// de_DatasetStats omitted.
 
-/**
- * deserializeAws_json1_1DeleteCollectionResponse
- */
-const de_DeleteCollectionResponse = (output: any, context: __SerdeContext): DeleteCollectionResponse => {
-  return {
-    StatusCode: __expectInt32(output.StatusCode),
-  } as any;
-};
+// de_DeleteCollectionResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteDatasetResponse
- */
-const de_DeleteDatasetResponse = (output: any, context: __SerdeContext): DeleteDatasetResponse => {
-  return {} as any;
-};
+// de_DeleteDatasetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteFacesResponse
- */
-const de_DeleteFacesResponse = (output: any, context: __SerdeContext): DeleteFacesResponse => {
-  return {
-    DeletedFaces: output.DeletedFaces != null ? de_FaceIdList(output.DeletedFaces, context) : undefined,
-  } as any;
-};
+// de_DeleteFacesResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteProjectPolicyResponse
- */
-const de_DeleteProjectPolicyResponse = (output: any, context: __SerdeContext): DeleteProjectPolicyResponse => {
-  return {} as any;
-};
+// de_DeleteProjectPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteProjectResponse
- */
-const de_DeleteProjectResponse = (output: any, context: __SerdeContext): DeleteProjectResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DeleteProjectResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteProjectVersionResponse
- */
-const de_DeleteProjectVersionResponse = (output: any, context: __SerdeContext): DeleteProjectVersionResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DeleteProjectVersionResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteStreamProcessorResponse
- */
-const de_DeleteStreamProcessorResponse = (output: any, context: __SerdeContext): DeleteStreamProcessorResponse => {
-  return {} as any;
-};
+// de_DeleteStreamProcessorResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeCollectionResponse
  */
 const de_DescribeCollectionResponse = (output: any, context: __SerdeContext): DescribeCollectionResponse => {
-  return {
-    CollectionARN: __expectString(output.CollectionARN),
-    CreationTimestamp:
-      output.CreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
-        : undefined,
-    FaceCount: __expectLong(output.FaceCount),
-    FaceModelVersion: __expectString(output.FaceModelVersion),
-  } as any;
+  return take(output, {
+    CollectionARN: __expectString,
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FaceCount: __expectLong,
+    FaceModelVersion: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeDatasetResponse
  */
 const de_DescribeDatasetResponse = (output: any, context: __SerdeContext): DescribeDatasetResponse => {
-  return {
-    DatasetDescription:
-      output.DatasetDescription != null ? de_DatasetDescription(output.DatasetDescription, context) : undefined,
-  } as any;
+  return take(output, {
+    DatasetDescription: (_: any) => de_DatasetDescription(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeProjectsResponse
  */
 const de_DescribeProjectsResponse = (output: any, context: __SerdeContext): DescribeProjectsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ProjectDescriptions:
-      output.ProjectDescriptions != null ? de_ProjectDescriptions(output.ProjectDescriptions, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ProjectDescriptions: (_: any) => de_ProjectDescriptions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeProjectVersionsResponse
  */
 const de_DescribeProjectVersionsResponse = (output: any, context: __SerdeContext): DescribeProjectVersionsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ProjectVersionDescriptions:
-      output.ProjectVersionDescriptions != null
-        ? de_ProjectVersionDescriptions(output.ProjectVersionDescriptions, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ProjectVersionDescriptions: (_: any) => de_ProjectVersionDescriptions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeStreamProcessorResponse
  */
 const de_DescribeStreamProcessorResponse = (output: any, context: __SerdeContext): DescribeStreamProcessorResponse => {
-  return {
-    CreationTimestamp:
-      output.CreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
-        : undefined,
-    DataSharingPreference:
-      output.DataSharingPreference != null
-        ? de_StreamProcessorDataSharingPreference(output.DataSharingPreference, context)
-        : undefined,
-    Input: output.Input != null ? de_StreamProcessorInput(output.Input, context) : undefined,
-    KmsKeyId: __expectString(output.KmsKeyId),
-    LastUpdateTimestamp:
-      output.LastUpdateTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    NotificationChannel:
-      output.NotificationChannel != null
-        ? de_StreamProcessorNotificationChannel(output.NotificationChannel, context)
-        : undefined,
-    Output: output.Output != null ? de_StreamProcessorOutput(output.Output, context) : undefined,
-    RegionsOfInterest:
-      output.RegionsOfInterest != null ? de_RegionsOfInterest(output.RegionsOfInterest, context) : undefined,
-    RoleArn: __expectString(output.RoleArn),
-    Settings: output.Settings != null ? de_StreamProcessorSettings(output.Settings, context) : undefined,
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    StreamProcessorArn: __expectString(output.StreamProcessorArn),
-  } as any;
+  return take(output, {
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataSharingPreference: _json,
+    Input: _json,
+    KmsKeyId: __expectString,
+    LastUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NotificationChannel: _json,
+    Output: _json,
+    RegionsOfInterest: (_: any) => de_RegionsOfInterest(_, context),
+    RoleArn: __expectString,
+    Settings: (_: any) => de_StreamProcessorSettings(_, context),
+    Status: __expectString,
+    StatusMessage: __expectString,
+    StreamProcessorArn: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectCustomLabelsResponse
  */
 const de_DetectCustomLabelsResponse = (output: any, context: __SerdeContext): DetectCustomLabelsResponse => {
-  return {
-    CustomLabels: output.CustomLabels != null ? de_CustomLabels(output.CustomLabels, context) : undefined,
-  } as any;
+  return take(output, {
+    CustomLabels: (_: any) => de_CustomLabels(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectFacesResponse
  */
 const de_DetectFacesResponse = (output: any, context: __SerdeContext): DetectFacesResponse => {
-  return {
-    FaceDetails: output.FaceDetails != null ? de_FaceDetailList(output.FaceDetails, context) : undefined,
-    OrientationCorrection: __expectString(output.OrientationCorrection),
-  } as any;
+  return take(output, {
+    FaceDetails: (_: any) => de_FaceDetailList(_, context),
+    OrientationCorrection: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectLabelsImageBackground
  */
 const de_DetectLabelsImageBackground = (output: any, context: __SerdeContext): DetectLabelsImageBackground => {
-  return {
-    DominantColors: output.DominantColors != null ? de_DominantColors(output.DominantColors, context) : undefined,
-    Quality: output.Quality != null ? de_DetectLabelsImageQuality(output.Quality, context) : undefined,
-  } as any;
+  return take(output, {
+    DominantColors: (_: any) => de_DominantColors(_, context),
+    Quality: (_: any) => de_DetectLabelsImageQuality(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectLabelsImageForeground
  */
 const de_DetectLabelsImageForeground = (output: any, context: __SerdeContext): DetectLabelsImageForeground => {
-  return {
-    DominantColors: output.DominantColors != null ? de_DominantColors(output.DominantColors, context) : undefined,
-    Quality: output.Quality != null ? de_DetectLabelsImageQuality(output.Quality, context) : undefined,
-  } as any;
+  return take(output, {
+    DominantColors: (_: any) => de_DominantColors(_, context),
+    Quality: (_: any) => de_DetectLabelsImageQuality(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectLabelsImageProperties
  */
 const de_DetectLabelsImageProperties = (output: any, context: __SerdeContext): DetectLabelsImageProperties => {
-  return {
-    Background: output.Background != null ? de_DetectLabelsImageBackground(output.Background, context) : undefined,
-    DominantColors: output.DominantColors != null ? de_DominantColors(output.DominantColors, context) : undefined,
-    Foreground: output.Foreground != null ? de_DetectLabelsImageForeground(output.Foreground, context) : undefined,
-    Quality: output.Quality != null ? de_DetectLabelsImageQuality(output.Quality, context) : undefined,
-  } as any;
+  return take(output, {
+    Background: (_: any) => de_DetectLabelsImageBackground(_, context),
+    DominantColors: (_: any) => de_DominantColors(_, context),
+    Foreground: (_: any) => de_DetectLabelsImageForeground(_, context),
+    Quality: (_: any) => de_DetectLabelsImageQuality(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectLabelsImageQuality
  */
 const de_DetectLabelsImageQuality = (output: any, context: __SerdeContext): DetectLabelsImageQuality => {
-  return {
-    Brightness: __limitedParseFloat32(output.Brightness),
-    Contrast: __limitedParseFloat32(output.Contrast),
-    Sharpness: __limitedParseFloat32(output.Sharpness),
-  } as any;
+  return take(output, {
+    Brightness: __limitedParseFloat32,
+    Contrast: __limitedParseFloat32,
+    Sharpness: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectLabelsResponse
  */
 const de_DetectLabelsResponse = (output: any, context: __SerdeContext): DetectLabelsResponse => {
-  return {
-    ImageProperties:
-      output.ImageProperties != null ? de_DetectLabelsImageProperties(output.ImageProperties, context) : undefined,
-    LabelModelVersion: __expectString(output.LabelModelVersion),
-    Labels: output.Labels != null ? de_Labels(output.Labels, context) : undefined,
-    OrientationCorrection: __expectString(output.OrientationCorrection),
-  } as any;
+  return take(output, {
+    ImageProperties: (_: any) => de_DetectLabelsImageProperties(_, context),
+    LabelModelVersion: __expectString,
+    Labels: (_: any) => de_Labels(_, context),
+    OrientationCorrection: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectModerationLabelsResponse
  */
 const de_DetectModerationLabelsResponse = (output: any, context: __SerdeContext): DetectModerationLabelsResponse => {
-  return {
-    HumanLoopActivationOutput:
-      output.HumanLoopActivationOutput != null
-        ? de_HumanLoopActivationOutput(output.HumanLoopActivationOutput, context)
-        : undefined,
-    ModerationLabels:
-      output.ModerationLabels != null ? de_ModerationLabels(output.ModerationLabels, context) : undefined,
-    ModerationModelVersion: __expectString(output.ModerationModelVersion),
-  } as any;
+  return take(output, {
+    HumanLoopActivationOutput: (_: any) => de_HumanLoopActivationOutput(_, context),
+    ModerationLabels: (_: any) => de_ModerationLabels(_, context),
+    ModerationModelVersion: __expectString,
+  }) as any;
 };
 
 /**
@@ -8276,46 +6991,38 @@ const de_DetectProtectiveEquipmentResponse = (
   output: any,
   context: __SerdeContext
 ): DetectProtectiveEquipmentResponse => {
-  return {
-    Persons: output.Persons != null ? de_ProtectiveEquipmentPersons(output.Persons, context) : undefined,
-    ProtectiveEquipmentModelVersion: __expectString(output.ProtectiveEquipmentModelVersion),
-    Summary: output.Summary != null ? de_ProtectiveEquipmentSummary(output.Summary, context) : undefined,
-  } as any;
+  return take(output, {
+    Persons: (_: any) => de_ProtectiveEquipmentPersons(_, context),
+    ProtectiveEquipmentModelVersion: __expectString,
+    Summary: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectTextResponse
  */
 const de_DetectTextResponse = (output: any, context: __SerdeContext): DetectTextResponse => {
-  return {
-    TextDetections: output.TextDetections != null ? de_TextDetectionList(output.TextDetections, context) : undefined,
-    TextModelVersion: __expectString(output.TextModelVersion),
-  } as any;
+  return take(output, {
+    TextDetections: (_: any) => de_TextDetectionList(_, context),
+    TextModelVersion: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DistributeDatasetEntriesResponse
- */
-const de_DistributeDatasetEntriesResponse = (
-  output: any,
-  context: __SerdeContext
-): DistributeDatasetEntriesResponse => {
-  return {} as any;
-};
+// de_DistributeDatasetEntriesResponse omitted.
 
 /**
  * deserializeAws_json1_1DominantColor
  */
 const de_DominantColor = (output: any, context: __SerdeContext): DominantColor => {
-  return {
-    Blue: __expectInt32(output.Blue),
-    CSSColor: __expectString(output.CSSColor),
-    Green: __expectInt32(output.Green),
-    HexCode: __expectString(output.HexCode),
-    PixelPercent: __limitedParseFloat32(output.PixelPercent),
-    Red: __expectInt32(output.Red),
-    SimplifiedColor: __expectString(output.SimplifiedColor),
-  } as any;
+  return take(output, {
+    Blue: __expectInt32,
+    CSSColor: __expectString,
+    Green: __expectInt32,
+    HexCode: __expectString,
+    PixelPercent: __limitedParseFloat32,
+    Red: __expectInt32,
+    SimplifiedColor: __expectString,
+  }) as any;
 };
 
 /**
@@ -8325,9 +7032,6 @@ const de_DominantColors = (output: any, context: __SerdeContext): DominantColor[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DominantColor(entry, context);
     });
   return retVal;
@@ -8337,10 +7041,10 @@ const de_DominantColors = (output: any, context: __SerdeContext): DominantColor[
  * deserializeAws_json1_1Emotion
  */
 const de_Emotion = (output: any, context: __SerdeContext): Emotion => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -8350,9 +7054,6 @@ const de_Emotions = (output: any, context: __SerdeContext): Emotion[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Emotion(entry, context);
     });
   return retVal;
@@ -8362,12 +7063,12 @@ const de_Emotions = (output: any, context: __SerdeContext): Emotion[] => {
  * deserializeAws_json1_1EquipmentDetection
  */
 const de_EquipmentDetection = (output: any, context: __SerdeContext): EquipmentDetection => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    CoversBodyPart: output.CoversBodyPart != null ? de_CoversBodyPart(output.CoversBodyPart, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Confidence: __limitedParseFloat32,
+    CoversBodyPart: (_: any) => de_CoversBodyPart(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -8377,9 +7078,6 @@ const de_EquipmentDetections = (output: any, context: __SerdeContext): Equipment
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EquipmentDetection(entry, context);
     });
   return retVal;
@@ -8389,67 +7087,67 @@ const de_EquipmentDetections = (output: any, context: __SerdeContext): Equipment
  * deserializeAws_json1_1EvaluationResult
  */
 const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
-  return {
-    F1Score: __limitedParseFloat32(output.F1Score),
-    Summary: output.Summary != null ? de_Summary(output.Summary, context) : undefined,
-  } as any;
+  return take(output, {
+    F1Score: __limitedParseFloat32,
+    Summary: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Eyeglasses
  */
 const de_Eyeglasses = (output: any, context: __SerdeContext): Eyeglasses => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectBoolean(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1EyeOpen
  */
 const de_EyeOpen = (output: any, context: __SerdeContext): EyeOpen => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectBoolean(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Face
  */
 const de_Face = (output: any, context: __SerdeContext): Face => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    ExternalImageId: __expectString(output.ExternalImageId),
-    FaceId: __expectString(output.FaceId),
-    ImageId: __expectString(output.ImageId),
-    IndexFacesModelVersion: __expectString(output.IndexFacesModelVersion),
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Confidence: __limitedParseFloat32,
+    ExternalImageId: __expectString,
+    FaceId: __expectString,
+    ImageId: __expectString,
+    IndexFacesModelVersion: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1FaceDetail
  */
 const de_FaceDetail = (output: any, context: __SerdeContext): FaceDetail => {
-  return {
-    AgeRange: output.AgeRange != null ? de_AgeRange(output.AgeRange, context) : undefined,
-    Beard: output.Beard != null ? de_Beard(output.Beard, context) : undefined,
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Emotions: output.Emotions != null ? de_Emotions(output.Emotions, context) : undefined,
-    Eyeglasses: output.Eyeglasses != null ? de_Eyeglasses(output.Eyeglasses, context) : undefined,
-    EyesOpen: output.EyesOpen != null ? de_EyeOpen(output.EyesOpen, context) : undefined,
-    Gender: output.Gender != null ? de_Gender(output.Gender, context) : undefined,
-    Landmarks: output.Landmarks != null ? de_Landmarks(output.Landmarks, context) : undefined,
-    MouthOpen: output.MouthOpen != null ? de_MouthOpen(output.MouthOpen, context) : undefined,
-    Mustache: output.Mustache != null ? de_Mustache(output.Mustache, context) : undefined,
-    Pose: output.Pose != null ? de_Pose(output.Pose, context) : undefined,
-    Quality: output.Quality != null ? de_ImageQuality(output.Quality, context) : undefined,
-    Smile: output.Smile != null ? de_Smile(output.Smile, context) : undefined,
-    Sunglasses: output.Sunglasses != null ? de_Sunglasses(output.Sunglasses, context) : undefined,
-  } as any;
+  return take(output, {
+    AgeRange: _json,
+    Beard: (_: any) => de_Beard(_, context),
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Confidence: __limitedParseFloat32,
+    Emotions: (_: any) => de_Emotions(_, context),
+    Eyeglasses: (_: any) => de_Eyeglasses(_, context),
+    EyesOpen: (_: any) => de_EyeOpen(_, context),
+    Gender: (_: any) => de_Gender(_, context),
+    Landmarks: (_: any) => de_Landmarks(_, context),
+    MouthOpen: (_: any) => de_MouthOpen(_, context),
+    Mustache: (_: any) => de_Mustache(_, context),
+    Pose: (_: any) => de_Pose(_, context),
+    Quality: (_: any) => de_ImageQuality(_, context),
+    Smile: (_: any) => de_Smile(_, context),
+    Sunglasses: (_: any) => de_Sunglasses(_, context),
+  }) as any;
 };
 
 /**
@@ -8459,9 +7157,6 @@ const de_FaceDetailList = (output: any, context: __SerdeContext): FaceDetail[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FaceDetail(entry, context);
     });
   return retVal;
@@ -8471,10 +7166,10 @@ const de_FaceDetailList = (output: any, context: __SerdeContext): FaceDetail[] =
  * deserializeAws_json1_1FaceDetection
  */
 const de_FaceDetection = (output: any, context: __SerdeContext): FaceDetection => {
-  return {
-    Face: output.Face != null ? de_FaceDetail(output.Face, context) : undefined,
-    Timestamp: __expectLong(output.Timestamp),
-  } as any;
+  return take(output, {
+    Face: (_: any) => de_FaceDetail(_, context),
+    Timestamp: __expectLong,
+  }) as any;
 };
 
 /**
@@ -8484,28 +7179,12 @@ const de_FaceDetections = (output: any, context: __SerdeContext): FaceDetection[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FaceDetection(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1FaceIdList
- */
-const de_FaceIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FaceIdList omitted.
 
 /**
  * deserializeAws_json1_1FaceList
@@ -8514,9 +7193,6 @@ const de_FaceList = (output: any, context: __SerdeContext): Face[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Face(entry, context);
     });
   return retVal;
@@ -8526,10 +7202,10 @@ const de_FaceList = (output: any, context: __SerdeContext): Face[] => {
  * deserializeAws_json1_1FaceMatch
  */
 const de_FaceMatch = (output: any, context: __SerdeContext): FaceMatch => {
-  return {
-    Face: output.Face != null ? de_Face(output.Face, context) : undefined,
-    Similarity: __limitedParseFloat32(output.Similarity),
-  } as any;
+  return take(output, {
+    Face: (_: any) => de_Face(_, context),
+    Similarity: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -8539,37 +7215,21 @@ const de_FaceMatchList = (output: any, context: __SerdeContext): FaceMatch[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FaceMatch(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1FaceModelVersionList
- */
-const de_FaceModelVersionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FaceModelVersionList omitted.
 
 /**
  * deserializeAws_json1_1FaceRecord
  */
 const de_FaceRecord = (output: any, context: __SerdeContext): FaceRecord => {
-  return {
-    Face: output.Face != null ? de_Face(output.Face, context) : undefined,
-    FaceDetail: output.FaceDetail != null ? de_FaceDetail(output.FaceDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    Face: (_: any) => de_Face(_, context),
+    FaceDetail: (_: any) => de_FaceDetail(_, context),
+  }) as any;
 };
 
 /**
@@ -8579,9 +7239,6 @@ const de_FaceRecordList = (output: any, context: __SerdeContext): FaceRecord[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FaceRecord(entry, context);
     });
   return retVal;
@@ -8591,82 +7248,72 @@ const de_FaceRecordList = (output: any, context: __SerdeContext): FaceRecord[] =
  * deserializeAws_json1_1FaceSearchSettings
  */
 const de_FaceSearchSettings = (output: any, context: __SerdeContext): FaceSearchSettings => {
-  return {
-    CollectionId: __expectString(output.CollectionId),
-    FaceMatchThreshold: __limitedParseFloat32(output.FaceMatchThreshold),
-  } as any;
+  return take(output, {
+    CollectionId: __expectString,
+    FaceMatchThreshold: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Gender
  */
 const de_Gender = (output: any, context: __SerdeContext): Gender => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectString(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Geometry
  */
 const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Polygon: output.Polygon != null ? de_Polygon(output.Polygon, context) : undefined,
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Polygon: (_: any) => de_Polygon(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetCelebrityInfoResponse
- */
-const de_GetCelebrityInfoResponse = (output: any, context: __SerdeContext): GetCelebrityInfoResponse => {
-  return {
-    KnownGender: output.KnownGender != null ? de_KnownGender(output.KnownGender, context) : undefined,
-    Name: __expectString(output.Name),
-    Urls: output.Urls != null ? de_Urls(output.Urls, context) : undefined,
-  } as any;
-};
+// de_GetCelebrityInfoResponse omitted.
 
 /**
  * deserializeAws_json1_1GetCelebrityRecognitionResponse
  */
 const de_GetCelebrityRecognitionResponse = (output: any, context: __SerdeContext): GetCelebrityRecognitionResponse => {
-  return {
-    Celebrities: output.Celebrities != null ? de_CelebrityRecognitions(output.Celebrities, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    StatusMessage: __expectString(output.StatusMessage),
-    VideoMetadata: output.VideoMetadata != null ? de_VideoMetadata(output.VideoMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    Celebrities: (_: any) => de_CelebrityRecognitions(_, context),
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+    VideoMetadata: (_: any) => de_VideoMetadata(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetContentModerationResponse
  */
 const de_GetContentModerationResponse = (output: any, context: __SerdeContext): GetContentModerationResponse => {
-  return {
-    JobStatus: __expectString(output.JobStatus),
-    ModerationLabels:
-      output.ModerationLabels != null ? de_ContentModerationDetections(output.ModerationLabels, context) : undefined,
-    ModerationModelVersion: __expectString(output.ModerationModelVersion),
-    NextToken: __expectString(output.NextToken),
-    StatusMessage: __expectString(output.StatusMessage),
-    VideoMetadata: output.VideoMetadata != null ? de_VideoMetadata(output.VideoMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    JobStatus: __expectString,
+    ModerationLabels: (_: any) => de_ContentModerationDetections(_, context),
+    ModerationModelVersion: __expectString,
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+    VideoMetadata: (_: any) => de_VideoMetadata(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetFaceDetectionResponse
  */
 const de_GetFaceDetectionResponse = (output: any, context: __SerdeContext): GetFaceDetectionResponse => {
-  return {
-    Faces: output.Faces != null ? de_FaceDetections(output.Faces, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    StatusMessage: __expectString(output.StatusMessage),
-    VideoMetadata: output.VideoMetadata != null ? de_VideoMetadata(output.VideoMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    Faces: (_: any) => de_FaceDetections(_, context),
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+    VideoMetadata: (_: any) => de_VideoMetadata(_, context),
+  }) as any;
 };
 
 /**
@@ -8676,196 +7323,136 @@ const de_GetFaceLivenessSessionResultsResponse = (
   output: any,
   context: __SerdeContext
 ): GetFaceLivenessSessionResultsResponse => {
-  return {
-    AuditImages: output.AuditImages != null ? de_AuditImages(output.AuditImages, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    ReferenceImage: output.ReferenceImage != null ? de_AuditImage(output.ReferenceImage, context) : undefined,
-    SessionId: __expectString(output.SessionId),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AuditImages: (_: any) => de_AuditImages(_, context),
+    Confidence: __limitedParseFloat32,
+    ReferenceImage: (_: any) => de_AuditImage(_, context),
+    SessionId: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetFaceSearchResponse
  */
 const de_GetFaceSearchResponse = (output: any, context: __SerdeContext): GetFaceSearchResponse => {
-  return {
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    Persons: output.Persons != null ? de_PersonMatches(output.Persons, context) : undefined,
-    StatusMessage: __expectString(output.StatusMessage),
-    VideoMetadata: output.VideoMetadata != null ? de_VideoMetadata(output.VideoMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    Persons: (_: any) => de_PersonMatches(_, context),
+    StatusMessage: __expectString,
+    VideoMetadata: (_: any) => de_VideoMetadata(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetLabelDetectionResponse
  */
 const de_GetLabelDetectionResponse = (output: any, context: __SerdeContext): GetLabelDetectionResponse => {
-  return {
-    JobStatus: __expectString(output.JobStatus),
-    LabelModelVersion: __expectString(output.LabelModelVersion),
-    Labels: output.Labels != null ? de_LabelDetections(output.Labels, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    StatusMessage: __expectString(output.StatusMessage),
-    VideoMetadata: output.VideoMetadata != null ? de_VideoMetadata(output.VideoMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    JobStatus: __expectString,
+    LabelModelVersion: __expectString,
+    Labels: (_: any) => de_LabelDetections(_, context),
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+    VideoMetadata: (_: any) => de_VideoMetadata(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetPersonTrackingResponse
  */
 const de_GetPersonTrackingResponse = (output: any, context: __SerdeContext): GetPersonTrackingResponse => {
-  return {
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    Persons: output.Persons != null ? de_PersonDetections(output.Persons, context) : undefined,
-    StatusMessage: __expectString(output.StatusMessage),
-    VideoMetadata: output.VideoMetadata != null ? de_VideoMetadata(output.VideoMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    Persons: (_: any) => de_PersonDetections(_, context),
+    StatusMessage: __expectString,
+    VideoMetadata: (_: any) => de_VideoMetadata(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetSegmentDetectionResponse
  */
 const de_GetSegmentDetectionResponse = (output: any, context: __SerdeContext): GetSegmentDetectionResponse => {
-  return {
-    AudioMetadata: output.AudioMetadata != null ? de_AudioMetadataList(output.AudioMetadata, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    Segments: output.Segments != null ? de_SegmentDetections(output.Segments, context) : undefined,
-    SelectedSegmentTypes:
-      output.SelectedSegmentTypes != null ? de_SegmentTypesInfo(output.SelectedSegmentTypes, context) : undefined,
-    StatusMessage: __expectString(output.StatusMessage),
-    VideoMetadata: output.VideoMetadata != null ? de_VideoMetadataList(output.VideoMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    AudioMetadata: _json,
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    Segments: (_: any) => de_SegmentDetections(_, context),
+    SelectedSegmentTypes: _json,
+    StatusMessage: __expectString,
+    VideoMetadata: (_: any) => de_VideoMetadataList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetTextDetectionResponse
  */
 const de_GetTextDetectionResponse = (output: any, context: __SerdeContext): GetTextDetectionResponse => {
-  return {
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    StatusMessage: __expectString(output.StatusMessage),
-    TextDetections: output.TextDetections != null ? de_TextDetectionResults(output.TextDetections, context) : undefined,
-    TextModelVersion: __expectString(output.TextModelVersion),
-    VideoMetadata: output.VideoMetadata != null ? de_VideoMetadata(output.VideoMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+    TextDetections: (_: any) => de_TextDetectionResults(_, context),
+    TextModelVersion: __expectString,
+    VideoMetadata: (_: any) => de_VideoMetadata(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GroundTruthManifest
- */
-const de_GroundTruthManifest = (output: any, context: __SerdeContext): GroundTruthManifest => {
-  return {
-    S3Object: output.S3Object != null ? de_S3Object(output.S3Object, context) : undefined,
-  } as any;
-};
+// de_GroundTruthManifest omitted.
 
 /**
  * deserializeAws_json1_1HumanLoopActivationOutput
  */
 const de_HumanLoopActivationOutput = (output: any, context: __SerdeContext): HumanLoopActivationOutput => {
-  return {
-    HumanLoopActivationConditionsEvaluationResults:
-      output.HumanLoopActivationConditionsEvaluationResults != null
-        ? new __LazyJsonString(output.HumanLoopActivationConditionsEvaluationResults)
-        : undefined,
-    HumanLoopActivationReasons:
-      output.HumanLoopActivationReasons != null
-        ? de_HumanLoopActivationReasons(output.HumanLoopActivationReasons, context)
-        : undefined,
-    HumanLoopArn: __expectString(output.HumanLoopArn),
-  } as any;
+  return take(output, {
+    HumanLoopActivationConditionsEvaluationResults: (_: any) => new __LazyJsonString(_),
+    HumanLoopActivationReasons: _json,
+    HumanLoopArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1HumanLoopActivationReasons
- */
-const de_HumanLoopActivationReasons = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HumanLoopActivationReasons omitted.
 
-/**
- * deserializeAws_json1_1HumanLoopQuotaExceededException
- */
-const de_HumanLoopQuotaExceededException = (output: any, context: __SerdeContext): HumanLoopQuotaExceededException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-    QuotaCode: __expectString(output.QuotaCode),
-    ResourceType: __expectString(output.ResourceType),
-    ServiceCode: __expectString(output.ServiceCode),
-  } as any;
-};
+// de_HumanLoopQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_1IdempotentParameterMismatchException
- */
-const de_IdempotentParameterMismatchException = (
-  output: any,
-  context: __SerdeContext
-): IdempotentParameterMismatchException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_IdempotentParameterMismatchException omitted.
 
 /**
  * deserializeAws_json1_1ImageQuality
  */
 const de_ImageQuality = (output: any, context: __SerdeContext): ImageQuality => {
-  return {
-    Brightness: __limitedParseFloat32(output.Brightness),
-    Sharpness: __limitedParseFloat32(output.Sharpness),
-  } as any;
+  return take(output, {
+    Brightness: __limitedParseFloat32,
+    Sharpness: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ImageTooLargeException
- */
-const de_ImageTooLargeException = (output: any, context: __SerdeContext): ImageTooLargeException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ImageTooLargeException omitted.
 
 /**
  * deserializeAws_json1_1IndexFacesResponse
  */
 const de_IndexFacesResponse = (output: any, context: __SerdeContext): IndexFacesResponse => {
-  return {
-    FaceModelVersion: __expectString(output.FaceModelVersion),
-    FaceRecords: output.FaceRecords != null ? de_FaceRecordList(output.FaceRecords, context) : undefined,
-    OrientationCorrection: __expectString(output.OrientationCorrection),
-    UnindexedFaces: output.UnindexedFaces != null ? de_UnindexedFaces(output.UnindexedFaces, context) : undefined,
-  } as any;
+  return take(output, {
+    FaceModelVersion: __expectString,
+    FaceRecords: (_: any) => de_FaceRecordList(_, context),
+    OrientationCorrection: __expectString,
+    UnindexedFaces: (_: any) => de_UnindexedFaces(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Instance
  */
 const de_Instance = (output: any, context: __SerdeContext): Instance => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    DominantColors: output.DominantColors != null ? de_DominantColors(output.DominantColors, context) : undefined,
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Confidence: __limitedParseFloat32,
+    DominantColors: (_: any) => de_DominantColors(_, context),
+  }) as any;
 };
 
 /**
@@ -8875,183 +7462,62 @@ const de_Instances = (output: any, context: __SerdeContext): Instance[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Instance(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1InternalServerError
- */
-const de_InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerError omitted.
 
-/**
- * deserializeAws_json1_1InvalidImageFormatException
- */
-const de_InvalidImageFormatException = (output: any, context: __SerdeContext): InvalidImageFormatException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidImageFormatException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPaginationTokenException
- */
-const de_InvalidPaginationTokenException = (output: any, context: __SerdeContext): InvalidPaginationTokenException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidPaginationTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPolicyRevisionIdException
- */
-const de_InvalidPolicyRevisionIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPolicyRevisionIdException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidPolicyRevisionIdException omitted.
 
-/**
- * deserializeAws_json1_1InvalidS3ObjectException
- */
-const de_InvalidS3ObjectException = (output: any, context: __SerdeContext): InvalidS3ObjectException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidS3ObjectException omitted.
 
-/**
- * deserializeAws_json1_1KinesisDataStream
- */
-const de_KinesisDataStream = (output: any, context: __SerdeContext): KinesisDataStream => {
-  return {
-    Arn: __expectString(output.Arn),
-  } as any;
-};
+// de_KinesisDataStream omitted.
 
-/**
- * deserializeAws_json1_1KinesisVideoStream
- */
-const de_KinesisVideoStream = (output: any, context: __SerdeContext): KinesisVideoStream => {
-  return {
-    Arn: __expectString(output.Arn),
-  } as any;
-};
+// de_KinesisVideoStream omitted.
 
-/**
- * deserializeAws_json1_1KnownGender
- */
-const de_KnownGender = (output: any, context: __SerdeContext): KnownGender => {
-  return {
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_KnownGender omitted.
 
 /**
  * deserializeAws_json1_1Label
  */
 const de_Label = (output: any, context: __SerdeContext): Label => {
-  return {
-    Aliases: output.Aliases != null ? de_LabelAliases(output.Aliases, context) : undefined,
-    Categories: output.Categories != null ? de_LabelCategories(output.Categories, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Instances: output.Instances != null ? de_Instances(output.Instances, context) : undefined,
-    Name: __expectString(output.Name),
-    Parents: output.Parents != null ? de_Parents(output.Parents, context) : undefined,
-  } as any;
+  return take(output, {
+    Aliases: _json,
+    Categories: _json,
+    Confidence: __limitedParseFloat32,
+    Instances: (_: any) => de_Instances(_, context),
+    Name: __expectString,
+    Parents: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1LabelAlias
- */
-const de_LabelAlias = (output: any, context: __SerdeContext): LabelAlias => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_LabelAlias omitted.
 
-/**
- * deserializeAws_json1_1LabelAliases
- */
-const de_LabelAliases = (output: any, context: __SerdeContext): LabelAlias[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LabelAlias(entry, context);
-    });
-  return retVal;
-};
+// de_LabelAliases omitted.
 
-/**
- * deserializeAws_json1_1LabelCategories
- */
-const de_LabelCategories = (output: any, context: __SerdeContext): LabelCategory[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LabelCategory(entry, context);
-    });
-  return retVal;
-};
+// de_LabelCategories omitted.
 
-/**
- * deserializeAws_json1_1LabelCategory
- */
-const de_LabelCategory = (output: any, context: __SerdeContext): LabelCategory => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_LabelCategory omitted.
 
 /**
  * deserializeAws_json1_1LabelDetection
  */
 const de_LabelDetection = (output: any, context: __SerdeContext): LabelDetection => {
-  return {
-    DurationMillis: __expectLong(output.DurationMillis),
-    EndTimestampMillis: __expectLong(output.EndTimestampMillis),
-    Label: output.Label != null ? de_Label(output.Label, context) : undefined,
-    StartTimestampMillis: __expectLong(output.StartTimestampMillis),
-    Timestamp: __expectLong(output.Timestamp),
-  } as any;
+  return take(output, {
+    DurationMillis: __expectLong,
+    EndTimestampMillis: __expectLong,
+    Label: (_: any) => de_Label(_, context),
+    StartTimestampMillis: __expectLong,
+    Timestamp: __expectLong,
+  }) as any;
 };
 
 /**
@@ -9061,9 +7527,6 @@ const de_LabelDetections = (output: any, context: __SerdeContext): LabelDetectio
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LabelDetection(entry, context);
     });
   return retVal;
@@ -9076,9 +7539,6 @@ const de_Labels = (output: any, context: __SerdeContext): Label[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Label(entry, context);
     });
   return retVal;
@@ -9088,11 +7548,11 @@ const de_Labels = (output: any, context: __SerdeContext): Label[] => {
  * deserializeAws_json1_1Landmark
  */
 const de_Landmark = (output: any, context: __SerdeContext): Landmark => {
-  return {
-    Type: __expectString(output.Type),
-    X: __limitedParseFloat32(output.X),
-    Y: __limitedParseFloat32(output.Y),
-  } as any;
+  return take(output, {
+    Type: __expectString,
+    X: __limitedParseFloat32,
+    Y: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -9102,124 +7562,55 @@ const de_Landmarks = (output: any, context: __SerdeContext): Landmark[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Landmark(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListCollectionsResponse
- */
-const de_ListCollectionsResponse = (output: any, context: __SerdeContext): ListCollectionsResponse => {
-  return {
-    CollectionIds: output.CollectionIds != null ? de_CollectionIdList(output.CollectionIds, context) : undefined,
-    FaceModelVersions:
-      output.FaceModelVersions != null ? de_FaceModelVersionList(output.FaceModelVersions, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListCollectionsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListDatasetEntriesResponse
- */
-const de_ListDatasetEntriesResponse = (output: any, context: __SerdeContext): ListDatasetEntriesResponse => {
-  return {
-    DatasetEntries: output.DatasetEntries != null ? de_DatasetEntries(output.DatasetEntries, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListDatasetEntriesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListDatasetLabelsResponse
- */
-const de_ListDatasetLabelsResponse = (output: any, context: __SerdeContext): ListDatasetLabelsResponse => {
-  return {
-    DatasetLabelDescriptions:
-      output.DatasetLabelDescriptions != null
-        ? de_DatasetLabelDescriptions(output.DatasetLabelDescriptions, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListDatasetLabelsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListFacesResponse
  */
 const de_ListFacesResponse = (output: any, context: __SerdeContext): ListFacesResponse => {
-  return {
-    FaceModelVersion: __expectString(output.FaceModelVersion),
-    Faces: output.Faces != null ? de_FaceList(output.Faces, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    FaceModelVersion: __expectString,
+    Faces: (_: any) => de_FaceList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListProjectPoliciesResponse
  */
 const de_ListProjectPoliciesResponse = (output: any, context: __SerdeContext): ListProjectPoliciesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ProjectPolicies: output.ProjectPolicies != null ? de_ProjectPolicies(output.ProjectPolicies, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ProjectPolicies: (_: any) => de_ProjectPolicies(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListStreamProcessorsResponse
- */
-const de_ListStreamProcessorsResponse = (output: any, context: __SerdeContext): ListStreamProcessorsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    StreamProcessors:
-      output.StreamProcessors != null ? de_StreamProcessorList(output.StreamProcessors, context) : undefined,
-  } as any;
-};
+// de_ListStreamProcessorsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1MalformedPolicyDocumentException
- */
-const de_MalformedPolicyDocumentException = (
-  output: any,
-  context: __SerdeContext
-): MalformedPolicyDocumentException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_MalformedPolicyDocumentException omitted.
 
 /**
  * deserializeAws_json1_1ModerationLabel
  */
 const de_ModerationLabel = (output: any, context: __SerdeContext): ModerationLabel => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Name: __expectString(output.Name),
-    ParentName: __expectString(output.ParentName),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Name: __expectString,
+    ParentName: __expectString,
+  }) as any;
 };
 
 /**
@@ -9229,9 +7620,6 @@ const de_ModerationLabels = (output: any, context: __SerdeContext): ModerationLa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ModerationLabel(entry, context);
     });
   return retVal;
@@ -9241,75 +7629,47 @@ const de_ModerationLabels = (output: any, context: __SerdeContext): ModerationLa
  * deserializeAws_json1_1MouthOpen
  */
 const de_MouthOpen = (output: any, context: __SerdeContext): MouthOpen => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectBoolean(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Mustache
  */
 const de_Mustache = (output: any, context: __SerdeContext): Mustache => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectBoolean(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OutputConfig
- */
-const de_OutputConfig = (output: any, context: __SerdeContext): OutputConfig => {
-  return {
-    S3Bucket: __expectString(output.S3Bucket),
-    S3KeyPrefix: __expectString(output.S3KeyPrefix),
-  } as any;
-};
+// de_OutputConfig omitted.
 
-/**
- * deserializeAws_json1_1Parent
- */
-const de_Parent = (output: any, context: __SerdeContext): Parent => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Parent omitted.
 
-/**
- * deserializeAws_json1_1Parents
- */
-const de_Parents = (output: any, context: __SerdeContext): Parent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Parent(entry, context);
-    });
-  return retVal;
-};
+// de_Parents omitted.
 
 /**
  * deserializeAws_json1_1PersonDetail
  */
 const de_PersonDetail = (output: any, context: __SerdeContext): PersonDetail => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Face: output.Face != null ? de_FaceDetail(output.Face, context) : undefined,
-    Index: __expectLong(output.Index),
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Face: (_: any) => de_FaceDetail(_, context),
+    Index: __expectLong,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1PersonDetection
  */
 const de_PersonDetection = (output: any, context: __SerdeContext): PersonDetection => {
-  return {
-    Person: output.Person != null ? de_PersonDetail(output.Person, context) : undefined,
-    Timestamp: __expectLong(output.Timestamp),
-  } as any;
+  return take(output, {
+    Person: (_: any) => de_PersonDetail(_, context),
+    Timestamp: __expectLong,
+  }) as any;
 };
 
 /**
@@ -9319,9 +7679,6 @@ const de_PersonDetections = (output: any, context: __SerdeContext): PersonDetect
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PersonDetection(entry, context);
     });
   return retVal;
@@ -9331,11 +7688,11 @@ const de_PersonDetections = (output: any, context: __SerdeContext): PersonDetect
  * deserializeAws_json1_1PersonMatch
  */
 const de_PersonMatch = (output: any, context: __SerdeContext): PersonMatch => {
-  return {
-    FaceMatches: output.FaceMatches != null ? de_FaceMatchList(output.FaceMatches, context) : undefined,
-    Person: output.Person != null ? de_PersonDetail(output.Person, context) : undefined,
-    Timestamp: __expectLong(output.Timestamp),
-  } as any;
+  return take(output, {
+    FaceMatches: (_: any) => de_FaceMatchList(_, context),
+    Person: (_: any) => de_PersonDetail(_, context),
+    Timestamp: __expectLong,
+  }) as any;
 };
 
 /**
@@ -9345,9 +7702,6 @@ const de_PersonMatches = (output: any, context: __SerdeContext): PersonMatch[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PersonMatch(entry, context);
     });
   return retVal;
@@ -9357,10 +7711,10 @@ const de_PersonMatches = (output: any, context: __SerdeContext): PersonMatch[] =
  * deserializeAws_json1_1Point
  */
 const de_Point = (output: any, context: __SerdeContext): Point => {
-  return {
-    X: __limitedParseFloat32(output.X),
-    Y: __limitedParseFloat32(output.Y),
-  } as any;
+  return take(output, {
+    X: __limitedParseFloat32,
+    Y: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -9370,9 +7724,6 @@ const de_Polygon = (output: any, context: __SerdeContext): Point[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Point(entry, context);
     });
   return retVal;
@@ -9382,26 +7733,23 @@ const de_Polygon = (output: any, context: __SerdeContext): Point[] => {
  * deserializeAws_json1_1Pose
  */
 const de_Pose = (output: any, context: __SerdeContext): Pose => {
-  return {
-    Pitch: __limitedParseFloat32(output.Pitch),
-    Roll: __limitedParseFloat32(output.Roll),
-    Yaw: __limitedParseFloat32(output.Yaw),
-  } as any;
+  return take(output, {
+    Pitch: __limitedParseFloat32,
+    Roll: __limitedParseFloat32,
+    Yaw: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ProjectDescription
  */
 const de_ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
-  return {
-    CreationTimestamp:
-      output.CreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
-        : undefined,
-    Datasets: output.Datasets != null ? de_DatasetMetadataList(output.Datasets, context) : undefined,
-    ProjectArn: __expectString(output.ProjectArn),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Datasets: (_: any) => de_DatasetMetadataList(_, context),
+    ProjectArn: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -9411,9 +7759,6 @@ const de_ProjectDescriptions = (output: any, context: __SerdeContext): ProjectDe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProjectDescription(entry, context);
     });
   return retVal;
@@ -9426,9 +7771,6 @@ const de_ProjectPolicies = (output: any, context: __SerdeContext): ProjectPolicy
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProjectPolicy(entry, context);
     });
   return retVal;
@@ -9438,53 +7780,37 @@ const de_ProjectPolicies = (output: any, context: __SerdeContext): ProjectPolicy
  * deserializeAws_json1_1ProjectPolicy
  */
 const de_ProjectPolicy = (output: any, context: __SerdeContext): ProjectPolicy => {
-  return {
-    CreationTimestamp:
-      output.CreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    PolicyDocument: __expectString(output.PolicyDocument),
-    PolicyName: __expectString(output.PolicyName),
-    PolicyRevisionId: __expectString(output.PolicyRevisionId),
-    ProjectArn: __expectString(output.ProjectArn),
-  } as any;
+  return take(output, {
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PolicyDocument: __expectString,
+    PolicyName: __expectString,
+    PolicyRevisionId: __expectString,
+    ProjectArn: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ProjectVersionDescription
  */
 const de_ProjectVersionDescription = (output: any, context: __SerdeContext): ProjectVersionDescription => {
-  return {
-    BillableTrainingTimeInSeconds: __expectLong(output.BillableTrainingTimeInSeconds),
-    CreationTimestamp:
-      output.CreationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
-        : undefined,
-    EvaluationResult:
-      output.EvaluationResult != null ? de_EvaluationResult(output.EvaluationResult, context) : undefined,
-    KmsKeyId: __expectString(output.KmsKeyId),
-    ManifestSummary:
-      output.ManifestSummary != null ? de_GroundTruthManifest(output.ManifestSummary, context) : undefined,
-    MaxInferenceUnits: __expectInt32(output.MaxInferenceUnits),
-    MinInferenceUnits: __expectInt32(output.MinInferenceUnits),
-    OutputConfig: output.OutputConfig != null ? de_OutputConfig(output.OutputConfig, context) : undefined,
-    ProjectVersionArn: __expectString(output.ProjectVersionArn),
-    SourceProjectVersionArn: __expectString(output.SourceProjectVersionArn),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    TestingDataResult:
-      output.TestingDataResult != null ? de_TestingDataResult(output.TestingDataResult, context) : undefined,
-    TrainingDataResult:
-      output.TrainingDataResult != null ? de_TrainingDataResult(output.TrainingDataResult, context) : undefined,
-    TrainingEndTimestamp:
-      output.TrainingEndTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingEndTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    BillableTrainingTimeInSeconds: __expectLong,
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationResult: (_: any) => de_EvaluationResult(_, context),
+    KmsKeyId: __expectString,
+    ManifestSummary: _json,
+    MaxInferenceUnits: __expectInt32,
+    MinInferenceUnits: __expectInt32,
+    OutputConfig: _json,
+    ProjectVersionArn: __expectString,
+    SourceProjectVersionArn: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    TestingDataResult: _json,
+    TrainingDataResult: _json,
+    TrainingEndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -9494,9 +7820,6 @@ const de_ProjectVersionDescriptions = (output: any, context: __SerdeContext): Pr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProjectVersionDescription(entry, context);
     });
   return retVal;
@@ -9506,40 +7829,26 @@ const de_ProjectVersionDescriptions = (output: any, context: __SerdeContext): Pr
  * deserializeAws_json1_1ProtectiveEquipmentBodyPart
  */
 const de_ProtectiveEquipmentBodyPart = (output: any, context: __SerdeContext): ProtectiveEquipmentBodyPart => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    EquipmentDetections:
-      output.EquipmentDetections != null ? de_EquipmentDetections(output.EquipmentDetections, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    EquipmentDetections: (_: any) => de_EquipmentDetections(_, context),
+    Name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ProtectiveEquipmentPerson
  */
 const de_ProtectiveEquipmentPerson = (output: any, context: __SerdeContext): ProtectiveEquipmentPerson => {
-  return {
-    BodyParts: output.BodyParts != null ? de_BodyParts(output.BodyParts, context) : undefined,
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Id: __expectInt32(output.Id),
-  } as any;
+  return take(output, {
+    BodyParts: (_: any) => de_BodyParts(_, context),
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Confidence: __limitedParseFloat32,
+    Id: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ProtectiveEquipmentPersonIds
- */
-const de_ProtectiveEquipmentPersonIds = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_ProtectiveEquipmentPersonIds omitted.
 
 /**
  * deserializeAws_json1_1ProtectiveEquipmentPersons
@@ -9548,92 +7857,38 @@ const de_ProtectiveEquipmentPersons = (output: any, context: __SerdeContext): Pr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProtectiveEquipmentPerson(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ProtectiveEquipmentSummary
- */
-const de_ProtectiveEquipmentSummary = (output: any, context: __SerdeContext): ProtectiveEquipmentSummary => {
-  return {
-    PersonsIndeterminate:
-      output.PersonsIndeterminate != null
-        ? de_ProtectiveEquipmentPersonIds(output.PersonsIndeterminate, context)
-        : undefined,
-    PersonsWithRequiredEquipment:
-      output.PersonsWithRequiredEquipment != null
-        ? de_ProtectiveEquipmentPersonIds(output.PersonsWithRequiredEquipment, context)
-        : undefined,
-    PersonsWithoutRequiredEquipment:
-      output.PersonsWithoutRequiredEquipment != null
-        ? de_ProtectiveEquipmentPersonIds(output.PersonsWithoutRequiredEquipment, context)
-        : undefined,
-  } as any;
-};
+// de_ProtectiveEquipmentSummary omitted.
 
-/**
- * deserializeAws_json1_1ProvisionedThroughputExceededException
- */
-const de_ProvisionedThroughputExceededException = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedThroughputExceededException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ProvisionedThroughputExceededException omitted.
 
-/**
- * deserializeAws_json1_1PutProjectPolicyResponse
- */
-const de_PutProjectPolicyResponse = (output: any, context: __SerdeContext): PutProjectPolicyResponse => {
-  return {
-    PolicyRevisionId: __expectString(output.PolicyRevisionId),
-  } as any;
-};
+// de_PutProjectPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1Reasons
- */
-const de_Reasons = (output: any, context: __SerdeContext): (Reason | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Reasons omitted.
 
 /**
  * deserializeAws_json1_1RecognizeCelebritiesResponse
  */
 const de_RecognizeCelebritiesResponse = (output: any, context: __SerdeContext): RecognizeCelebritiesResponse => {
-  return {
-    CelebrityFaces: output.CelebrityFaces != null ? de_CelebrityList(output.CelebrityFaces, context) : undefined,
-    OrientationCorrection: __expectString(output.OrientationCorrection),
-    UnrecognizedFaces:
-      output.UnrecognizedFaces != null ? de_ComparedFaceList(output.UnrecognizedFaces, context) : undefined,
-  } as any;
+  return take(output, {
+    CelebrityFaces: (_: any) => de_CelebrityList(_, context),
+    OrientationCorrection: __expectString,
+    UnrecognizedFaces: (_: any) => de_ComparedFaceList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1RegionOfInterest
  */
 const de_RegionOfInterest = (output: any, context: __SerdeContext): RegionOfInterest => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Polygon: output.Polygon != null ? de_Polygon(output.Polygon, context) : undefined,
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Polygon: (_: any) => de_Polygon(_, context),
+  }) as any;
 };
 
 /**
@@ -9643,122 +7898,64 @@ const de_RegionsOfInterest = (output: any, context: __SerdeContext): RegionOfInt
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RegionOfInterest(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ResourceAlreadyExistsException
- */
-const de_ResourceAlreadyExistsException = (output: any, context: __SerdeContext): ResourceAlreadyExistsException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotReadyException
- */
-const de_ResourceNotReadyException = (output: any, context: __SerdeContext): ResourceNotReadyException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotReadyException omitted.
 
-/**
- * deserializeAws_json1_1S3Destination
- */
-const de_S3Destination = (output: any, context: __SerdeContext): S3Destination => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    KeyPrefix: __expectString(output.KeyPrefix),
-  } as any;
-};
+// de_S3Destination omitted.
 
-/**
- * deserializeAws_json1_1S3Object
- */
-const de_S3Object = (output: any, context: __SerdeContext): S3Object => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    Name: __expectString(output.Name),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_S3Object omitted.
 
 /**
  * deserializeAws_json1_1SearchFacesByImageResponse
  */
 const de_SearchFacesByImageResponse = (output: any, context: __SerdeContext): SearchFacesByImageResponse => {
-  return {
-    FaceMatches: output.FaceMatches != null ? de_FaceMatchList(output.FaceMatches, context) : undefined,
-    FaceModelVersion: __expectString(output.FaceModelVersion),
-    SearchedFaceBoundingBox:
-      output.SearchedFaceBoundingBox != null ? de_BoundingBox(output.SearchedFaceBoundingBox, context) : undefined,
-    SearchedFaceConfidence: __limitedParseFloat32(output.SearchedFaceConfidence),
-  } as any;
+  return take(output, {
+    FaceMatches: (_: any) => de_FaceMatchList(_, context),
+    FaceModelVersion: __expectString,
+    SearchedFaceBoundingBox: (_: any) => de_BoundingBox(_, context),
+    SearchedFaceConfidence: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SearchFacesResponse
  */
 const de_SearchFacesResponse = (output: any, context: __SerdeContext): SearchFacesResponse => {
-  return {
-    FaceMatches: output.FaceMatches != null ? de_FaceMatchList(output.FaceMatches, context) : undefined,
-    FaceModelVersion: __expectString(output.FaceModelVersion),
-    SearchedFaceId: __expectString(output.SearchedFaceId),
-  } as any;
+  return take(output, {
+    FaceMatches: (_: any) => de_FaceMatchList(_, context),
+    FaceModelVersion: __expectString,
+    SearchedFaceId: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SegmentDetection
  */
 const de_SegmentDetection = (output: any, context: __SerdeContext): SegmentDetection => {
-  return {
-    DurationFrames: __expectLong(output.DurationFrames),
-    DurationMillis: __expectLong(output.DurationMillis),
-    DurationSMPTE: __expectString(output.DurationSMPTE),
-    EndFrameNumber: __expectLong(output.EndFrameNumber),
-    EndTimecodeSMPTE: __expectString(output.EndTimecodeSMPTE),
-    EndTimestampMillis: __expectLong(output.EndTimestampMillis),
-    ShotSegment: output.ShotSegment != null ? de_ShotSegment(output.ShotSegment, context) : undefined,
-    StartFrameNumber: __expectLong(output.StartFrameNumber),
-    StartTimecodeSMPTE: __expectString(output.StartTimecodeSMPTE),
-    StartTimestampMillis: __expectLong(output.StartTimestampMillis),
-    TechnicalCueSegment:
-      output.TechnicalCueSegment != null ? de_TechnicalCueSegment(output.TechnicalCueSegment, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    DurationFrames: __expectLong,
+    DurationMillis: __expectLong,
+    DurationSMPTE: __expectString,
+    EndFrameNumber: __expectLong,
+    EndTimecodeSMPTE: __expectString,
+    EndTimestampMillis: __expectLong,
+    ShotSegment: (_: any) => de_ShotSegment(_, context),
+    StartFrameNumber: __expectLong,
+    StartTimecodeSMPTE: __expectString,
+    StartTimestampMillis: __expectLong,
+    TechnicalCueSegment: (_: any) => de_TechnicalCueSegment(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -9768,352 +7965,127 @@ const de_SegmentDetections = (output: any, context: __SerdeContext): SegmentDete
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SegmentDetection(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1SegmentTypeInfo
- */
-const de_SegmentTypeInfo = (output: any, context: __SerdeContext): SegmentTypeInfo => {
-  return {
-    ModelVersion: __expectString(output.ModelVersion),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_SegmentTypeInfo omitted.
 
-/**
- * deserializeAws_json1_1SegmentTypesInfo
- */
-const de_SegmentTypesInfo = (output: any, context: __SerdeContext): SegmentTypeInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SegmentTypeInfo(entry, context);
-    });
-  return retVal;
-};
+// de_SegmentTypesInfo omitted.
 
-/**
- * deserializeAws_json1_1ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_1SessionNotFoundException
- */
-const de_SessionNotFoundException = (output: any, context: __SerdeContext): SessionNotFoundException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_SessionNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1ShotSegment
  */
 const de_ShotSegment = (output: any, context: __SerdeContext): ShotSegment => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Index: __expectLong(output.Index),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Index: __expectLong,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Smile
  */
 const de_Smile = (output: any, context: __SerdeContext): Smile => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectBoolean(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1StartCelebrityRecognitionResponse
- */
-const de_StartCelebrityRecognitionResponse = (
-  output: any,
-  context: __SerdeContext
-): StartCelebrityRecognitionResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartCelebrityRecognitionResponse omitted.
 
-/**
- * deserializeAws_json1_1StartContentModerationResponse
- */
-const de_StartContentModerationResponse = (output: any, context: __SerdeContext): StartContentModerationResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartContentModerationResponse omitted.
 
-/**
- * deserializeAws_json1_1StartFaceDetectionResponse
- */
-const de_StartFaceDetectionResponse = (output: any, context: __SerdeContext): StartFaceDetectionResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartFaceDetectionResponse omitted.
 
-/**
- * deserializeAws_json1_1StartFaceSearchResponse
- */
-const de_StartFaceSearchResponse = (output: any, context: __SerdeContext): StartFaceSearchResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartFaceSearchResponse omitted.
 
-/**
- * deserializeAws_json1_1StartLabelDetectionResponse
- */
-const de_StartLabelDetectionResponse = (output: any, context: __SerdeContext): StartLabelDetectionResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartLabelDetectionResponse omitted.
 
-/**
- * deserializeAws_json1_1StartPersonTrackingResponse
- */
-const de_StartPersonTrackingResponse = (output: any, context: __SerdeContext): StartPersonTrackingResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartPersonTrackingResponse omitted.
 
-/**
- * deserializeAws_json1_1StartProjectVersionResponse
- */
-const de_StartProjectVersionResponse = (output: any, context: __SerdeContext): StartProjectVersionResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_StartProjectVersionResponse omitted.
 
-/**
- * deserializeAws_json1_1StartSegmentDetectionResponse
- */
-const de_StartSegmentDetectionResponse = (output: any, context: __SerdeContext): StartSegmentDetectionResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartSegmentDetectionResponse omitted.
 
-/**
- * deserializeAws_json1_1StartStreamProcessorResponse
- */
-const de_StartStreamProcessorResponse = (output: any, context: __SerdeContext): StartStreamProcessorResponse => {
-  return {
-    SessionId: __expectString(output.SessionId),
-  } as any;
-};
+// de_StartStreamProcessorResponse omitted.
 
-/**
- * deserializeAws_json1_1StartTextDetectionResponse
- */
-const de_StartTextDetectionResponse = (output: any, context: __SerdeContext): StartTextDetectionResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartTextDetectionResponse omitted.
 
-/**
- * deserializeAws_json1_1StopProjectVersionResponse
- */
-const de_StopProjectVersionResponse = (output: any, context: __SerdeContext): StopProjectVersionResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_StopProjectVersionResponse omitted.
 
-/**
- * deserializeAws_json1_1StopStreamProcessorResponse
- */
-const de_StopStreamProcessorResponse = (output: any, context: __SerdeContext): StopStreamProcessorResponse => {
-  return {} as any;
-};
+// de_StopStreamProcessorResponse omitted.
 
-/**
- * deserializeAws_json1_1StreamProcessor
- */
-const de_StreamProcessor = (output: any, context: __SerdeContext): StreamProcessor => {
-  return {
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_StreamProcessor omitted.
 
-/**
- * deserializeAws_json1_1StreamProcessorDataSharingPreference
- */
-const de_StreamProcessorDataSharingPreference = (
-  output: any,
-  context: __SerdeContext
-): StreamProcessorDataSharingPreference => {
-  return {
-    OptIn: __expectBoolean(output.OptIn),
-  } as any;
-};
+// de_StreamProcessorDataSharingPreference omitted.
 
-/**
- * deserializeAws_json1_1StreamProcessorInput
- */
-const de_StreamProcessorInput = (output: any, context: __SerdeContext): StreamProcessorInput => {
-  return {
-    KinesisVideoStream:
-      output.KinesisVideoStream != null ? de_KinesisVideoStream(output.KinesisVideoStream, context) : undefined,
-  } as any;
-};
+// de_StreamProcessorInput omitted.
 
-/**
- * deserializeAws_json1_1StreamProcessorList
- */
-const de_StreamProcessorList = (output: any, context: __SerdeContext): StreamProcessor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StreamProcessor(entry, context);
-    });
-  return retVal;
-};
+// de_StreamProcessorList omitted.
 
-/**
- * deserializeAws_json1_1StreamProcessorNotificationChannel
- */
-const de_StreamProcessorNotificationChannel = (
-  output: any,
-  context: __SerdeContext
-): StreamProcessorNotificationChannel => {
-  return {
-    SNSTopicArn: __expectString(output.SNSTopicArn),
-  } as any;
-};
+// de_StreamProcessorNotificationChannel omitted.
 
-/**
- * deserializeAws_json1_1StreamProcessorOutput
- */
-const de_StreamProcessorOutput = (output: any, context: __SerdeContext): StreamProcessorOutput => {
-  return {
-    KinesisDataStream:
-      output.KinesisDataStream != null ? de_KinesisDataStream(output.KinesisDataStream, context) : undefined,
-    S3Destination: output.S3Destination != null ? de_S3Destination(output.S3Destination, context) : undefined,
-  } as any;
-};
+// de_StreamProcessorOutput omitted.
 
 /**
  * deserializeAws_json1_1StreamProcessorSettings
  */
 const de_StreamProcessorSettings = (output: any, context: __SerdeContext): StreamProcessorSettings => {
-  return {
-    ConnectedHome: output.ConnectedHome != null ? de_ConnectedHomeSettings(output.ConnectedHome, context) : undefined,
-    FaceSearch: output.FaceSearch != null ? de_FaceSearchSettings(output.FaceSearch, context) : undefined,
-  } as any;
+  return take(output, {
+    ConnectedHome: (_: any) => de_ConnectedHomeSettings(_, context),
+    FaceSearch: (_: any) => de_FaceSearchSettings(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Summary
- */
-const de_Summary = (output: any, context: __SerdeContext): Summary => {
-  return {
-    S3Object: output.S3Object != null ? de_S3Object(output.S3Object, context) : undefined,
-  } as any;
-};
+// de_Summary omitted.
 
 /**
  * deserializeAws_json1_1Sunglasses
  */
 const de_Sunglasses = (output: any, context: __SerdeContext): Sunglasses => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectBoolean(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1TechnicalCueSegment
  */
 const de_TechnicalCueSegment = (output: any, context: __SerdeContext): TechnicalCueSegment => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1TestingData
- */
-const de_TestingData = (output: any, context: __SerdeContext): TestingData => {
-  return {
-    Assets: output.Assets != null ? de_Assets(output.Assets, context) : undefined,
-    AutoCreate: __expectBoolean(output.AutoCreate),
-  } as any;
-};
+// de_TestingData omitted.
 
-/**
- * deserializeAws_json1_1TestingDataResult
- */
-const de_TestingDataResult = (output: any, context: __SerdeContext): TestingDataResult => {
-  return {
-    Input: output.Input != null ? de_TestingData(output.Input, context) : undefined,
-    Output: output.Output != null ? de_TestingData(output.Output, context) : undefined,
-    Validation: output.Validation != null ? de_ValidationData(output.Validation, context) : undefined,
-  } as any;
-};
+// de_TestingDataResult omitted.
 
 /**
  * deserializeAws_json1_1TextDetection
  */
 const de_TextDetection = (output: any, context: __SerdeContext): TextDetection => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    DetectedText: __expectString(output.DetectedText),
-    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
-    Id: __expectInt32(output.Id),
-    ParentId: __expectInt32(output.ParentId),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    DetectedText: __expectString,
+    Geometry: (_: any) => de_Geometry(_, context),
+    Id: __expectInt32,
+    ParentId: __expectInt32,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -10123,9 +8095,6 @@ const de_TextDetectionList = (output: any, context: __SerdeContext): TextDetecti
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TextDetection(entry, context);
     });
   return retVal;
@@ -10135,10 +8104,10 @@ const de_TextDetectionList = (output: any, context: __SerdeContext): TextDetecti
  * deserializeAws_json1_1TextDetectionResult
  */
 const de_TextDetectionResult = (output: any, context: __SerdeContext): TextDetectionResult => {
-  return {
-    TextDetection: output.TextDetection != null ? de_TextDetection(output.TextDetection, context) : undefined,
-    Timestamp: __expectLong(output.Timestamp),
-  } as any;
+  return take(output, {
+    TextDetection: (_: any) => de_TextDetection(_, context),
+    Timestamp: __expectLong,
+  }) as any;
 };
 
 /**
@@ -10148,53 +8117,25 @@ const de_TextDetectionResults = (output: any, context: __SerdeContext): TextDete
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TextDetectionResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1TrainingData
- */
-const de_TrainingData = (output: any, context: __SerdeContext): TrainingData => {
-  return {
-    Assets: output.Assets != null ? de_Assets(output.Assets, context) : undefined,
-  } as any;
-};
+// de_TrainingData omitted.
 
-/**
- * deserializeAws_json1_1TrainingDataResult
- */
-const de_TrainingDataResult = (output: any, context: __SerdeContext): TrainingDataResult => {
-  return {
-    Input: output.Input != null ? de_TrainingData(output.Input, context) : undefined,
-    Output: output.Output != null ? de_TrainingData(output.Output, context) : undefined,
-    Validation: output.Validation != null ? de_ValidationData(output.Validation, context) : undefined,
-  } as any;
-};
+// de_TrainingDataResult omitted.
 
 /**
  * deserializeAws_json1_1UnindexedFace
  */
 const de_UnindexedFace = (output: any, context: __SerdeContext): UnindexedFace => {
-  return {
-    FaceDetail: output.FaceDetail != null ? de_FaceDetail(output.FaceDetail, context) : undefined,
-    Reasons: output.Reasons != null ? de_Reasons(output.Reasons, context) : undefined,
-  } as any;
+  return take(output, {
+    FaceDetail: (_: any) => de_FaceDetail(_, context),
+    Reasons: _json,
+  }) as any;
 };
 
 /**
@@ -10204,72 +8145,34 @@ const de_UnindexedFaces = (output: any, context: __SerdeContext): UnindexedFace[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UnindexedFace(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateDatasetEntriesResponse
- */
-const de_UpdateDatasetEntriesResponse = (output: any, context: __SerdeContext): UpdateDatasetEntriesResponse => {
-  return {} as any;
-};
+// de_UpdateDatasetEntriesResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateStreamProcessorResponse
- */
-const de_UpdateStreamProcessorResponse = (output: any, context: __SerdeContext): UpdateStreamProcessorResponse => {
-  return {} as any;
-};
+// de_UpdateStreamProcessorResponse omitted.
 
-/**
- * deserializeAws_json1_1Urls
- */
-const de_Urls = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Urls omitted.
 
-/**
- * deserializeAws_json1_1ValidationData
- */
-const de_ValidationData = (output: any, context: __SerdeContext): ValidationData => {
-  return {
-    Assets: output.Assets != null ? de_Assets(output.Assets, context) : undefined,
-  } as any;
-};
+// de_ValidationData omitted.
 
 /**
  * deserializeAws_json1_1VideoMetadata
  */
 const de_VideoMetadata = (output: any, context: __SerdeContext): VideoMetadata => {
-  return {
-    Codec: __expectString(output.Codec),
-    ColorRange: __expectString(output.ColorRange),
-    DurationMillis: __expectLong(output.DurationMillis),
-    Format: __expectString(output.Format),
-    FrameHeight: __expectLong(output.FrameHeight),
-    FrameRate: __limitedParseFloat32(output.FrameRate),
-    FrameWidth: __expectLong(output.FrameWidth),
-  } as any;
+  return take(output, {
+    Codec: __expectString,
+    ColorRange: __expectString,
+    DurationMillis: __expectLong,
+    Format: __expectString,
+    FrameHeight: __expectLong,
+    FrameRate: __limitedParseFloat32,
+    FrameWidth: __expectLong,
+  }) as any;
 };
 
 /**
@@ -10279,24 +8182,12 @@ const de_VideoMetadataList = (output: any, context: __SerdeContext): VideoMetada
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VideoMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1VideoTooLargeException
- */
-const de_VideoTooLargeException = (output: any, context: __SerdeContext): VideoTooLargeException => {
-  return {
-    Code: __expectString(output.Code),
-    Logref: __expectString(output.Logref),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_VideoTooLargeException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -10318,6 +8209,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

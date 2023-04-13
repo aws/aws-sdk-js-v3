@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
@@ -8,9 +9,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -106,30 +108,24 @@ import {
   CSVOutput,
   DataRetrievalPolicy,
   DataRetrievalRule,
-  DescribeVaultOutput,
   Encryption,
-  GlacierJobDescription,
   Grant,
   Grantee,
   InputSerialization,
   InsufficientCapacityException,
   InvalidParameterValueException,
-  InventoryRetrievalJobDescription,
   InventoryRetrievalJobInput,
   JobParameters,
   LimitExceededException,
   MissingParameterValueException,
   OutputLocation,
   OutputSerialization,
-  PartListElement,
   PolicyEnforcedException,
-  ProvisionedCapacityDescription,
   RequestTimeoutException,
   ResourceNotFoundException,
   S3Location,
   SelectParameters,
   ServiceUnavailableException,
-  UploadListElement,
   VaultAccessPolicy,
   VaultLockPolicy,
   VaultNotificationConfig,
@@ -207,9 +203,11 @@ export const se_AddTagsToVaultCommand = async (
     operation: [, "add"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -608,7 +606,7 @@ export const se_InitiateJobCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.jobParameters !== undefined) {
-    body = se_JobParameters(input.jobParameters, context);
+    body = _json(input.jobParameters);
   }
   if (body === undefined) {
     body = {};
@@ -672,7 +670,7 @@ export const se_InitiateVaultLockCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.policy !== undefined) {
-    body = se_VaultLockPolicy(input.policy, context);
+    body = _json(input.policy);
   }
   if (body === undefined) {
     body = {};
@@ -904,9 +902,11 @@ export const se_RemoveTagsFromVaultCommand = async (
     operation: [, "remove"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -934,9 +934,11 @@ export const se_SetDataRetrievalPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/policies/data-retrieval";
   resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy != null && { Policy: se_DataRetrievalPolicy(input.Policy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -966,7 +968,7 @@ export const se_SetVaultAccessPolicyCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.policy !== undefined) {
-    body = se_VaultAccessPolicy(input.policy, context);
+    body = _json(input.policy);
   }
   if (body === undefined) {
     body = {};
@@ -1001,7 +1003,7 @@ export const se_SetVaultNotificationsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.vaultNotificationConfig !== undefined) {
-    body = se_VaultNotificationConfig(input.vaultNotificationConfig, context);
+    body = _json(input.vaultNotificationConfig);
   }
   if (body === undefined) {
     body = {};
@@ -1128,10 +1130,9 @@ const de_AbortMultipartUploadCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1181,10 +1182,9 @@ const de_AbortVaultLockCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1237,10 +1237,9 @@ const de_AddTagsToVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1293,10 +1292,9 @@ const de_CompleteMultipartUploadCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1346,10 +1344,9 @@ const de_CompleteVaultLockCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1400,10 +1397,9 @@ const de_CreateVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1453,10 +1449,9 @@ const de_DeleteArchiveCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1506,10 +1501,9 @@ const de_DeleteVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1559,10 +1553,9 @@ const de_DeleteVaultAccessPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1612,10 +1605,9 @@ const de_DeleteVaultNotificationsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1635,72 +1627,30 @@ export const de_DescribeJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Action != null) {
-    contents.Action = __expectString(data.Action);
-  }
-  if (data.ArchiveId != null) {
-    contents.ArchiveId = __expectString(data.ArchiveId);
-  }
-  if (data.ArchiveSHA256TreeHash != null) {
-    contents.ArchiveSHA256TreeHash = __expectString(data.ArchiveSHA256TreeHash);
-  }
-  if (data.ArchiveSizeInBytes != null) {
-    contents.ArchiveSizeInBytes = __expectLong(data.ArchiveSizeInBytes);
-  }
-  if (data.Completed != null) {
-    contents.Completed = __expectBoolean(data.Completed);
-  }
-  if (data.CompletionDate != null) {
-    contents.CompletionDate = __expectString(data.CompletionDate);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectString(data.CreationDate);
-  }
-  if (data.InventoryRetrievalParameters != null) {
-    contents.InventoryRetrievalParameters = de_InventoryRetrievalJobDescription(
-      data.InventoryRetrievalParameters,
-      context
-    );
-  }
-  if (data.InventorySizeInBytes != null) {
-    contents.InventorySizeInBytes = __expectLong(data.InventorySizeInBytes);
-  }
-  if (data.JobDescription != null) {
-    contents.JobDescription = __expectString(data.JobDescription);
-  }
-  if (data.JobId != null) {
-    contents.JobId = __expectString(data.JobId);
-  }
-  if (data.JobOutputPath != null) {
-    contents.JobOutputPath = __expectString(data.JobOutputPath);
-  }
-  if (data.OutputLocation != null) {
-    contents.OutputLocation = de_OutputLocation(data.OutputLocation, context);
-  }
-  if (data.RetrievalByteRange != null) {
-    contents.RetrievalByteRange = __expectString(data.RetrievalByteRange);
-  }
-  if (data.SHA256TreeHash != null) {
-    contents.SHA256TreeHash = __expectString(data.SHA256TreeHash);
-  }
-  if (data.SNSTopic != null) {
-    contents.SNSTopic = __expectString(data.SNSTopic);
-  }
-  if (data.SelectParameters != null) {
-    contents.SelectParameters = de_SelectParameters(data.SelectParameters, context);
-  }
-  if (data.StatusCode != null) {
-    contents.StatusCode = __expectString(data.StatusCode);
-  }
-  if (data.StatusMessage != null) {
-    contents.StatusMessage = __expectString(data.StatusMessage);
-  }
-  if (data.Tier != null) {
-    contents.Tier = __expectString(data.Tier);
-  }
-  if (data.VaultARN != null) {
-    contents.VaultARN = __expectString(data.VaultARN);
-  }
+  const doc = take(data, {
+    Action: __expectString,
+    ArchiveId: __expectString,
+    ArchiveSHA256TreeHash: __expectString,
+    ArchiveSizeInBytes: __expectLong,
+    Completed: __expectBoolean,
+    CompletionDate: __expectString,
+    CreationDate: __expectString,
+    InventoryRetrievalParameters: _json,
+    InventorySizeInBytes: __expectLong,
+    JobDescription: __expectString,
+    JobId: __expectString,
+    JobOutputPath: __expectString,
+    OutputLocation: _json,
+    RetrievalByteRange: __expectString,
+    SHA256TreeHash: __expectString,
+    SNSTopic: __expectString,
+    SelectParameters: _json,
+    StatusCode: __expectString,
+    StatusMessage: __expectString,
+    Tier: __expectString,
+    VaultARN: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1731,10 +1681,9 @@ const de_DescribeJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1754,24 +1703,15 @@ export const de_DescribeVaultCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectString(data.CreationDate);
-  }
-  if (data.LastInventoryDate != null) {
-    contents.LastInventoryDate = __expectString(data.LastInventoryDate);
-  }
-  if (data.NumberOfArchives != null) {
-    contents.NumberOfArchives = __expectLong(data.NumberOfArchives);
-  }
-  if (data.SizeInBytes != null) {
-    contents.SizeInBytes = __expectLong(data.SizeInBytes);
-  }
-  if (data.VaultARN != null) {
-    contents.VaultARN = __expectString(data.VaultARN);
-  }
-  if (data.VaultName != null) {
-    contents.VaultName = __expectString(data.VaultName);
-  }
+  const doc = take(data, {
+    CreationDate: __expectString,
+    LastInventoryDate: __expectString,
+    NumberOfArchives: __expectLong,
+    SizeInBytes: __expectLong,
+    VaultARN: __expectString,
+    VaultName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1802,10 +1742,9 @@ const de_DescribeVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1825,9 +1764,10 @@ export const de_GetDataRetrievalPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = de_DataRetrievalPolicy(data.Policy, context);
-  }
+  const doc = take(data, {
+    Policy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1855,10 +1795,9 @@ const de_GetDataRetrievalPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1918,10 +1857,9 @@ const de_GetJobOutputCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1941,7 +1879,7 @@ export const de_GetVaultAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.policy = de_VaultAccessPolicy(data, context);
+  contents.policy = _json(data);
   return contents;
 };
 
@@ -1972,10 +1910,9 @@ const de_GetVaultAccessPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1995,18 +1932,13 @@ export const de_GetVaultLockCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectString(data.CreationDate);
-  }
-  if (data.ExpirationDate != null) {
-    contents.ExpirationDate = __expectString(data.ExpirationDate);
-  }
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    CreationDate: __expectString,
+    ExpirationDate: __expectString,
+    Policy: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2037,10 +1969,9 @@ const de_GetVaultLockCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2060,7 +1991,7 @@ export const de_GetVaultNotificationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.vaultNotificationConfig = de_VaultNotificationConfig(data, context);
+  contents.vaultNotificationConfig = _json(data);
   return contents;
 };
 
@@ -2091,10 +2022,9 @@ const de_GetVaultNotificationsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2153,10 +2083,9 @@ const de_InitiateJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2208,10 +2137,9 @@ const de_InitiateMultipartUploadCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2262,10 +2190,9 @@ const de_InitiateVaultLockCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2285,12 +2212,11 @@ export const de_ListJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.JobList != null) {
-    contents.JobList = de_JobList(data.JobList, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    JobList: _json,
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2321,10 +2247,9 @@ const de_ListJobsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2344,12 +2269,11 @@ export const de_ListMultipartUploadsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.UploadsList != null) {
-    contents.UploadsList = de_UploadsList(data.UploadsList, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    UploadsList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2380,10 +2304,9 @@ const de_ListMultipartUploadsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2403,27 +2326,16 @@ export const de_ListPartsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ArchiveDescription != null) {
-    contents.ArchiveDescription = __expectString(data.ArchiveDescription);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectString(data.CreationDate);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.MultipartUploadId != null) {
-    contents.MultipartUploadId = __expectString(data.MultipartUploadId);
-  }
-  if (data.PartSizeInBytes != null) {
-    contents.PartSizeInBytes = __expectLong(data.PartSizeInBytes);
-  }
-  if (data.Parts != null) {
-    contents.Parts = de_PartList(data.Parts, context);
-  }
-  if (data.VaultARN != null) {
-    contents.VaultARN = __expectString(data.VaultARN);
-  }
+  const doc = take(data, {
+    ArchiveDescription: __expectString,
+    CreationDate: __expectString,
+    Marker: __expectString,
+    MultipartUploadId: __expectString,
+    PartSizeInBytes: __expectLong,
+    Parts: _json,
+    VaultARN: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2454,10 +2366,9 @@ const de_ListPartsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2477,9 +2388,10 @@ export const de_ListProvisionedCapacityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProvisionedCapacityList != null) {
-    contents.ProvisionedCapacityList = de_ProvisionedCapacityList(data.ProvisionedCapacityList, context);
-  }
+  const doc = take(data, {
+    ProvisionedCapacityList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2507,10 +2419,9 @@ const de_ListProvisionedCapacityCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2530,9 +2441,10 @@ export const de_ListTagsForVaultCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2563,10 +2475,9 @@ const de_ListTagsForVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2586,12 +2497,11 @@ export const de_ListVaultsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.VaultList != null) {
-    contents.VaultList = de_VaultList(data.VaultList, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    VaultList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2622,10 +2532,9 @@ const de_ListVaultsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2676,10 +2585,9 @@ const de_PurchaseProvisionedCapacityCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2729,10 +2637,9 @@ const de_RemoveTagsFromVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2779,10 +2686,9 @@ const de_SetDataRetrievalPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2832,10 +2738,9 @@ const de_SetVaultAccessPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2885,10 +2790,9 @@ const de_SetVaultNotificationsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2944,10 +2848,9 @@ const de_UploadArchiveCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3001,16 +2904,15 @@ const de_UploadMultipartPartCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InsufficientCapacityExceptionRes
  */
@@ -3020,15 +2922,12 @@ const de_InsufficientCapacityExceptionRes = async (
 ): Promise<InsufficientCapacityException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InsufficientCapacityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3045,15 +2944,12 @@ const de_InvalidParameterValueExceptionRes = async (
 ): Promise<InvalidParameterValueException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3070,15 +2966,12 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3095,15 +2988,12 @@ const de_MissingParameterValueExceptionRes = async (
 ): Promise<MissingParameterValueException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MissingParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3120,15 +3010,12 @@ const de_PolicyEnforcedExceptionRes = async (
 ): Promise<PolicyEnforcedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PolicyEnforcedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3145,15 +3032,12 @@ const de_RequestTimeoutExceptionRes = async (
 ): Promise<RequestTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3170,15 +3054,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3195,15 +3076,12 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3211,676 +3089,111 @@ const de_ServiceUnavailableExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AccessControlPolicyList
- */
-const se_AccessControlPolicyList = (input: Grant[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Grant(entry, context);
-    });
-};
+// se_AccessControlPolicyList omitted.
 
-/**
- * serializeAws_restJson1CSVInput
- */
-const se_CSVInput = (input: CSVInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Comments != null && { Comments: input.Comments }),
-    ...(input.FieldDelimiter != null && { FieldDelimiter: input.FieldDelimiter }),
-    ...(input.FileHeaderInfo != null && { FileHeaderInfo: input.FileHeaderInfo }),
-    ...(input.QuoteCharacter != null && { QuoteCharacter: input.QuoteCharacter }),
-    ...(input.QuoteEscapeCharacter != null && { QuoteEscapeCharacter: input.QuoteEscapeCharacter }),
-    ...(input.RecordDelimiter != null && { RecordDelimiter: input.RecordDelimiter }),
-  };
-};
+// se_CSVInput omitted.
 
-/**
- * serializeAws_restJson1CSVOutput
- */
-const se_CSVOutput = (input: CSVOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.FieldDelimiter != null && { FieldDelimiter: input.FieldDelimiter }),
-    ...(input.QuoteCharacter != null && { QuoteCharacter: input.QuoteCharacter }),
-    ...(input.QuoteEscapeCharacter != null && { QuoteEscapeCharacter: input.QuoteEscapeCharacter }),
-    ...(input.QuoteFields != null && { QuoteFields: input.QuoteFields }),
-    ...(input.RecordDelimiter != null && { RecordDelimiter: input.RecordDelimiter }),
-  };
-};
+// se_CSVOutput omitted.
 
-/**
- * serializeAws_restJson1DataRetrievalPolicy
- */
-const se_DataRetrievalPolicy = (input: DataRetrievalPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.Rules != null && { Rules: se_DataRetrievalRulesList(input.Rules, context) }),
-  };
-};
+// se_DataRetrievalPolicy omitted.
 
-/**
- * serializeAws_restJson1DataRetrievalRule
- */
-const se_DataRetrievalRule = (input: DataRetrievalRule, context: __SerdeContext): any => {
-  return {
-    ...(input.BytesPerHour != null && { BytesPerHour: input.BytesPerHour }),
-    ...(input.Strategy != null && { Strategy: input.Strategy }),
-  };
-};
+// se_DataRetrievalRule omitted.
 
-/**
- * serializeAws_restJson1DataRetrievalRulesList
- */
-const se_DataRetrievalRulesList = (input: DataRetrievalRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DataRetrievalRule(entry, context);
-    });
-};
+// se_DataRetrievalRulesList omitted.
 
-/**
- * serializeAws_restJson1Encryption
- */
-const se_Encryption = (input: Encryption, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
-    ...(input.KMSContext != null && { KMSContext: input.KMSContext }),
-    ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
-  };
-};
+// se_Encryption omitted.
 
-/**
- * serializeAws_restJson1Grant
- */
-const se_Grant = (input: Grant, context: __SerdeContext): any => {
-  return {
-    ...(input.Grantee != null && { Grantee: se_Grantee(input.Grantee, context) }),
-    ...(input.Permission != null && { Permission: input.Permission }),
-  };
-};
+// se_Grant omitted.
 
-/**
- * serializeAws_restJson1Grantee
- */
-const se_Grantee = (input: Grantee, context: __SerdeContext): any => {
-  return {
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
-    ...(input.ID != null && { ID: input.ID }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.URI != null && { URI: input.URI }),
-  };
-};
+// se_Grantee omitted.
 
-/**
- * serializeAws_restJson1hashmap
- */
-const se_hashmap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_hashmap omitted.
 
-/**
- * serializeAws_restJson1InputSerialization
- */
-const se_InputSerialization = (input: InputSerialization, context: __SerdeContext): any => {
-  return {
-    ...(input.csv != null && { csv: se_CSVInput(input.csv, context) }),
-  };
-};
+// se_InputSerialization omitted.
 
-/**
- * serializeAws_restJson1InventoryRetrievalJobInput
- */
-const se_InventoryRetrievalJobInput = (input: InventoryRetrievalJobInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EndDate != null && { EndDate: input.EndDate }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.StartDate != null && { StartDate: input.StartDate }),
-  };
-};
+// se_InventoryRetrievalJobInput omitted.
 
-/**
- * serializeAws_restJson1JobParameters
- */
-const se_JobParameters = (input: JobParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.ArchiveId != null && { ArchiveId: input.ArchiveId }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.InventoryRetrievalParameters != null && {
-      InventoryRetrievalParameters: se_InventoryRetrievalJobInput(input.InventoryRetrievalParameters, context),
-    }),
-    ...(input.OutputLocation != null && { OutputLocation: se_OutputLocation(input.OutputLocation, context) }),
-    ...(input.RetrievalByteRange != null && { RetrievalByteRange: input.RetrievalByteRange }),
-    ...(input.SNSTopic != null && { SNSTopic: input.SNSTopic }),
-    ...(input.SelectParameters != null && { SelectParameters: se_SelectParameters(input.SelectParameters, context) }),
-    ...(input.Tier != null && { Tier: input.Tier }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_JobParameters omitted.
 
-/**
- * serializeAws_restJson1NotificationEventList
- */
-const se_NotificationEventList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NotificationEventList omitted.
 
-/**
- * serializeAws_restJson1OutputLocation
- */
-const se_OutputLocation = (input: OutputLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.S3 != null && { S3: se_S3Location(input.S3, context) }),
-  };
-};
+// se_OutputLocation omitted.
 
-/**
- * serializeAws_restJson1OutputSerialization
- */
-const se_OutputSerialization = (input: OutputSerialization, context: __SerdeContext): any => {
-  return {
-    ...(input.csv != null && { csv: se_CSVOutput(input.csv, context) }),
-  };
-};
+// se_OutputSerialization omitted.
 
-/**
- * serializeAws_restJson1S3Location
- */
-const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessControlList != null && {
-      AccessControlList: se_AccessControlPolicyList(input.AccessControlList, context),
-    }),
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.CannedACL != null && { CannedACL: input.CannedACL }),
-    ...(input.Encryption != null && { Encryption: se_Encryption(input.Encryption, context) }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.StorageClass != null && { StorageClass: input.StorageClass }),
-    ...(input.Tagging != null && { Tagging: se_hashmap(input.Tagging, context) }),
-    ...(input.UserMetadata != null && { UserMetadata: se_hashmap(input.UserMetadata, context) }),
-  };
-};
+// se_S3Location omitted.
 
-/**
- * serializeAws_restJson1SelectParameters
- */
-const se_SelectParameters = (input: SelectParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.Expression != null && { Expression: input.Expression }),
-    ...(input.ExpressionType != null && { ExpressionType: input.ExpressionType }),
-    ...(input.InputSerialization != null && {
-      InputSerialization: se_InputSerialization(input.InputSerialization, context),
-    }),
-    ...(input.OutputSerialization != null && {
-      OutputSerialization: se_OutputSerialization(input.OutputSerialization, context),
-    }),
-  };
-};
+// se_SelectParameters omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1VaultAccessPolicy
- */
-const se_VaultAccessPolicy = (input: VaultAccessPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.Policy != null && { Policy: input.Policy }),
-  };
-};
+// se_VaultAccessPolicy omitted.
 
-/**
- * serializeAws_restJson1VaultLockPolicy
- */
-const se_VaultLockPolicy = (input: VaultLockPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.Policy != null && { Policy: input.Policy }),
-  };
-};
+// se_VaultLockPolicy omitted.
 
-/**
- * serializeAws_restJson1VaultNotificationConfig
- */
-const se_VaultNotificationConfig = (input: VaultNotificationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Events != null && { Events: se_NotificationEventList(input.Events, context) }),
-    ...(input.SNSTopic != null && { SNSTopic: input.SNSTopic }),
-  };
-};
+// se_VaultNotificationConfig omitted.
 
-/**
- * deserializeAws_restJson1AccessControlPolicyList
- */
-const de_AccessControlPolicyList = (output: any, context: __SerdeContext): Grant[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Grant(entry, context);
-    });
-  return retVal;
-};
+// de_AccessControlPolicyList omitted.
 
-/**
- * deserializeAws_restJson1CSVInput
- */
-const de_CSVInput = (output: any, context: __SerdeContext): CSVInput => {
-  return {
-    Comments: __expectString(output.Comments),
-    FieldDelimiter: __expectString(output.FieldDelimiter),
-    FileHeaderInfo: __expectString(output.FileHeaderInfo),
-    QuoteCharacter: __expectString(output.QuoteCharacter),
-    QuoteEscapeCharacter: __expectString(output.QuoteEscapeCharacter),
-    RecordDelimiter: __expectString(output.RecordDelimiter),
-  } as any;
-};
+// de_CSVInput omitted.
 
-/**
- * deserializeAws_restJson1CSVOutput
- */
-const de_CSVOutput = (output: any, context: __SerdeContext): CSVOutput => {
-  return {
-    FieldDelimiter: __expectString(output.FieldDelimiter),
-    QuoteCharacter: __expectString(output.QuoteCharacter),
-    QuoteEscapeCharacter: __expectString(output.QuoteEscapeCharacter),
-    QuoteFields: __expectString(output.QuoteFields),
-    RecordDelimiter: __expectString(output.RecordDelimiter),
-  } as any;
-};
+// de_CSVOutput omitted.
 
-/**
- * deserializeAws_restJson1DataRetrievalPolicy
- */
-const de_DataRetrievalPolicy = (output: any, context: __SerdeContext): DataRetrievalPolicy => {
-  return {
-    Rules: output.Rules != null ? de_DataRetrievalRulesList(output.Rules, context) : undefined,
-  } as any;
-};
+// de_DataRetrievalPolicy omitted.
 
-/**
- * deserializeAws_restJson1DataRetrievalRule
- */
-const de_DataRetrievalRule = (output: any, context: __SerdeContext): DataRetrievalRule => {
-  return {
-    BytesPerHour: __expectLong(output.BytesPerHour),
-    Strategy: __expectString(output.Strategy),
-  } as any;
-};
+// de_DataRetrievalRule omitted.
 
-/**
- * deserializeAws_restJson1DataRetrievalRulesList
- */
-const de_DataRetrievalRulesList = (output: any, context: __SerdeContext): DataRetrievalRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataRetrievalRule(entry, context);
-    });
-  return retVal;
-};
+// de_DataRetrievalRulesList omitted.
 
-/**
- * deserializeAws_restJson1DescribeVaultOutput
- */
-const de_DescribeVaultOutput = (output: any, context: __SerdeContext): DescribeVaultOutput => {
-  return {
-    CreationDate: __expectString(output.CreationDate),
-    LastInventoryDate: __expectString(output.LastInventoryDate),
-    NumberOfArchives: __expectLong(output.NumberOfArchives),
-    SizeInBytes: __expectLong(output.SizeInBytes),
-    VaultARN: __expectString(output.VaultARN),
-    VaultName: __expectString(output.VaultName),
-  } as any;
-};
+// de_DescribeVaultOutput omitted.
 
-/**
- * deserializeAws_restJson1Encryption
- */
-const de_Encryption = (output: any, context: __SerdeContext): Encryption => {
-  return {
-    EncryptionType: __expectString(output.EncryptionType),
-    KMSContext: __expectString(output.KMSContext),
-    KMSKeyId: __expectString(output.KMSKeyId),
-  } as any;
-};
+// de_Encryption omitted.
 
-/**
- * deserializeAws_restJson1GlacierJobDescription
- */
-const de_GlacierJobDescription = (output: any, context: __SerdeContext): GlacierJobDescription => {
-  return {
-    Action: __expectString(output.Action),
-    ArchiveId: __expectString(output.ArchiveId),
-    ArchiveSHA256TreeHash: __expectString(output.ArchiveSHA256TreeHash),
-    ArchiveSizeInBytes: __expectLong(output.ArchiveSizeInBytes),
-    Completed: __expectBoolean(output.Completed),
-    CompletionDate: __expectString(output.CompletionDate),
-    CreationDate: __expectString(output.CreationDate),
-    InventoryRetrievalParameters:
-      output.InventoryRetrievalParameters != null
-        ? de_InventoryRetrievalJobDescription(output.InventoryRetrievalParameters, context)
-        : undefined,
-    InventorySizeInBytes: __expectLong(output.InventorySizeInBytes),
-    JobDescription: __expectString(output.JobDescription),
-    JobId: __expectString(output.JobId),
-    JobOutputPath: __expectString(output.JobOutputPath),
-    OutputLocation: output.OutputLocation != null ? de_OutputLocation(output.OutputLocation, context) : undefined,
-    RetrievalByteRange: __expectString(output.RetrievalByteRange),
-    SHA256TreeHash: __expectString(output.SHA256TreeHash),
-    SNSTopic: __expectString(output.SNSTopic),
-    SelectParameters:
-      output.SelectParameters != null ? de_SelectParameters(output.SelectParameters, context) : undefined,
-    StatusCode: __expectString(output.StatusCode),
-    StatusMessage: __expectString(output.StatusMessage),
-    Tier: __expectString(output.Tier),
-    VaultARN: __expectString(output.VaultARN),
-  } as any;
-};
+// de_GlacierJobDescription omitted.
 
-/**
- * deserializeAws_restJson1Grant
- */
-const de_Grant = (output: any, context: __SerdeContext): Grant => {
-  return {
-    Grantee: output.Grantee != null ? de_Grantee(output.Grantee, context) : undefined,
-    Permission: __expectString(output.Permission),
-  } as any;
-};
+// de_Grant omitted.
 
-/**
- * deserializeAws_restJson1Grantee
- */
-const de_Grantee = (output: any, context: __SerdeContext): Grantee => {
-  return {
-    DisplayName: __expectString(output.DisplayName),
-    EmailAddress: __expectString(output.EmailAddress),
-    ID: __expectString(output.ID),
-    Type: __expectString(output.Type),
-    URI: __expectString(output.URI),
-  } as any;
-};
+// de_Grantee omitted.
 
-/**
- * deserializeAws_restJson1hashmap
- */
-const de_hashmap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_hashmap omitted.
 
-/**
- * deserializeAws_restJson1InputSerialization
- */
-const de_InputSerialization = (output: any, context: __SerdeContext): InputSerialization => {
-  return {
-    csv: output.csv != null ? de_CSVInput(output.csv, context) : undefined,
-  } as any;
-};
+// de_InputSerialization omitted.
 
-/**
- * deserializeAws_restJson1InventoryRetrievalJobDescription
- */
-const de_InventoryRetrievalJobDescription = (
-  output: any,
-  context: __SerdeContext
-): InventoryRetrievalJobDescription => {
-  return {
-    EndDate: __expectString(output.EndDate),
-    Format: __expectString(output.Format),
-    Limit: __expectString(output.Limit),
-    Marker: __expectString(output.Marker),
-    StartDate: __expectString(output.StartDate),
-  } as any;
-};
+// de_InventoryRetrievalJobDescription omitted.
 
-/**
- * deserializeAws_restJson1JobList
- */
-const de_JobList = (output: any, context: __SerdeContext): GlacierJobDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GlacierJobDescription(entry, context);
-    });
-  return retVal;
-};
+// de_JobList omitted.
 
-/**
- * deserializeAws_restJson1NotificationEventList
- */
-const de_NotificationEventList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NotificationEventList omitted.
 
-/**
- * deserializeAws_restJson1OutputLocation
- */
-const de_OutputLocation = (output: any, context: __SerdeContext): OutputLocation => {
-  return {
-    S3: output.S3 != null ? de_S3Location(output.S3, context) : undefined,
-  } as any;
-};
+// de_OutputLocation omitted.
 
-/**
- * deserializeAws_restJson1OutputSerialization
- */
-const de_OutputSerialization = (output: any, context: __SerdeContext): OutputSerialization => {
-  return {
-    csv: output.csv != null ? de_CSVOutput(output.csv, context) : undefined,
-  } as any;
-};
+// de_OutputSerialization omitted.
 
-/**
- * deserializeAws_restJson1PartList
- */
-const de_PartList = (output: any, context: __SerdeContext): PartListElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PartListElement(entry, context);
-    });
-  return retVal;
-};
+// de_PartList omitted.
 
-/**
- * deserializeAws_restJson1PartListElement
- */
-const de_PartListElement = (output: any, context: __SerdeContext): PartListElement => {
-  return {
-    RangeInBytes: __expectString(output.RangeInBytes),
-    SHA256TreeHash: __expectString(output.SHA256TreeHash),
-  } as any;
-};
+// de_PartListElement omitted.
 
-/**
- * deserializeAws_restJson1ProvisionedCapacityDescription
- */
-const de_ProvisionedCapacityDescription = (output: any, context: __SerdeContext): ProvisionedCapacityDescription => {
-  return {
-    CapacityId: __expectString(output.CapacityId),
-    ExpirationDate: __expectString(output.ExpirationDate),
-    StartDate: __expectString(output.StartDate),
-  } as any;
-};
+// de_ProvisionedCapacityDescription omitted.
 
-/**
- * deserializeAws_restJson1ProvisionedCapacityList
- */
-const de_ProvisionedCapacityList = (output: any, context: __SerdeContext): ProvisionedCapacityDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProvisionedCapacityDescription(entry, context);
-    });
-  return retVal;
-};
+// de_ProvisionedCapacityList omitted.
 
-/**
- * deserializeAws_restJson1S3Location
- */
-const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
-  return {
-    AccessControlList:
-      output.AccessControlList != null ? de_AccessControlPolicyList(output.AccessControlList, context) : undefined,
-    BucketName: __expectString(output.BucketName),
-    CannedACL: __expectString(output.CannedACL),
-    Encryption: output.Encryption != null ? de_Encryption(output.Encryption, context) : undefined,
-    Prefix: __expectString(output.Prefix),
-    StorageClass: __expectString(output.StorageClass),
-    Tagging: output.Tagging != null ? de_hashmap(output.Tagging, context) : undefined,
-    UserMetadata: output.UserMetadata != null ? de_hashmap(output.UserMetadata, context) : undefined,
-  } as any;
-};
+// de_S3Location omitted.
 
-/**
- * deserializeAws_restJson1SelectParameters
- */
-const de_SelectParameters = (output: any, context: __SerdeContext): SelectParameters => {
-  return {
-    Expression: __expectString(output.Expression),
-    ExpressionType: __expectString(output.ExpressionType),
-    InputSerialization:
-      output.InputSerialization != null ? de_InputSerialization(output.InputSerialization, context) : undefined,
-    OutputSerialization:
-      output.OutputSerialization != null ? de_OutputSerialization(output.OutputSerialization, context) : undefined,
-  } as any;
-};
+// de_SelectParameters omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1UploadListElement
- */
-const de_UploadListElement = (output: any, context: __SerdeContext): UploadListElement => {
-  return {
-    ArchiveDescription: __expectString(output.ArchiveDescription),
-    CreationDate: __expectString(output.CreationDate),
-    MultipartUploadId: __expectString(output.MultipartUploadId),
-    PartSizeInBytes: __expectLong(output.PartSizeInBytes),
-    VaultARN: __expectString(output.VaultARN),
-  } as any;
-};
+// de_UploadListElement omitted.
 
-/**
- * deserializeAws_restJson1UploadsList
- */
-const de_UploadsList = (output: any, context: __SerdeContext): UploadListElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UploadListElement(entry, context);
-    });
-  return retVal;
-};
+// de_UploadsList omitted.
 
-/**
- * deserializeAws_restJson1VaultAccessPolicy
- */
-const de_VaultAccessPolicy = (output: any, context: __SerdeContext): VaultAccessPolicy => {
-  return {
-    Policy: __expectString(output.Policy),
-  } as any;
-};
+// de_VaultAccessPolicy omitted.
 
-/**
- * deserializeAws_restJson1VaultList
- */
-const de_VaultList = (output: any, context: __SerdeContext): DescribeVaultOutput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DescribeVaultOutput(entry, context);
-    });
-  return retVal;
-};
+// de_VaultList omitted.
 
-/**
- * deserializeAws_restJson1VaultNotificationConfig
- */
-const de_VaultNotificationConfig = (output: any, context: __SerdeContext): VaultNotificationConfig => {
-  return {
-    Events: output.Events != null ? de_NotificationEventList(output.Events, context) : undefined,
-    SNSTopic: __expectString(output.SNSTopic),
-  } as any;
-};
+// de_VaultNotificationConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

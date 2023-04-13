@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -121,15 +121,12 @@ import {
   LiveConnectorSourceConfiguration,
   MediaCapturePipeline,
   MediaCapturePipelineSourceConfiguration,
-  MediaCapturePipelineSummary,
   MediaConcatenationPipeline,
   MediaInsightsPipeline,
   MediaInsightsPipelineConfiguration,
   MediaInsightsPipelineConfigurationElement,
-  MediaInsightsPipelineConfigurationSummary,
   MediaLiveConnectorPipeline,
   MediaPipeline,
-  MediaPipelineSummary,
   MeetingEventsConcatenationConfiguration,
   NotFoundException,
   PostCallAnalyticsSettings,
@@ -174,17 +171,17 @@ export const se_CreateMediaCapturePipelineCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-capture-pipelines";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChimeSdkMeetingConfiguration != null && {
-      ChimeSdkMeetingConfiguration: se_ChimeSdkMeetingConfiguration(input.ChimeSdkMeetingConfiguration, context),
-    }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SinkArn != null && { SinkArn: input.SinkArn }),
-    ...(input.SinkType != null && { SinkType: input.SinkType }),
-    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
-    ...(input.SourceType != null && { SourceType: input.SourceType }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChimeSdkMeetingConfiguration: (_) => _json(_),
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      SinkArn: [],
+      SinkType: [],
+      SourceArn: [],
+      SourceType: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -210,12 +207,14 @@ export const se_CreateMediaConcatenationPipelineCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-concatenation-pipelines";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Sinks != null && { Sinks: se_ConcatenationSinkList(input.Sinks, context) }),
-    ...(input.Sources != null && { Sources: se_ConcatenationSourceList(input.Sources, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Sinks: (_) => _json(_),
+      Sources: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -241,34 +240,18 @@ export const se_CreateMediaInsightsPipelineCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipelines";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.KinesisVideoStreamRecordingSourceRuntimeConfiguration != null && {
-      KinesisVideoStreamRecordingSourceRuntimeConfiguration: se_KinesisVideoStreamRecordingSourceRuntimeConfiguration(
-        input.KinesisVideoStreamRecordingSourceRuntimeConfiguration,
-        context
-      ),
-    }),
-    ...(input.KinesisVideoStreamSourceRuntimeConfiguration != null && {
-      KinesisVideoStreamSourceRuntimeConfiguration: se_KinesisVideoStreamSourceRuntimeConfiguration(
-        input.KinesisVideoStreamSourceRuntimeConfiguration,
-        context
-      ),
-    }),
-    ...(input.MediaInsightsPipelineConfigurationArn != null && {
-      MediaInsightsPipelineConfigurationArn: input.MediaInsightsPipelineConfigurationArn,
-    }),
-    ...(input.MediaInsightsRuntimeMetadata != null && {
-      MediaInsightsRuntimeMetadata: se_MediaInsightsRuntimeMetadata(input.MediaInsightsRuntimeMetadata, context),
-    }),
-    ...(input.S3RecordingSinkRuntimeConfiguration != null && {
-      S3RecordingSinkRuntimeConfiguration: se_S3RecordingSinkRuntimeConfiguration(
-        input.S3RecordingSinkRuntimeConfiguration,
-        context
-      ),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      KinesisVideoStreamRecordingSourceRuntimeConfiguration: (_) =>
+        se_KinesisVideoStreamRecordingSourceRuntimeConfiguration(_, context),
+      KinesisVideoStreamSourceRuntimeConfiguration: (_) => _json(_),
+      MediaInsightsPipelineConfigurationArn: [],
+      MediaInsightsRuntimeMetadata: (_) => _json(_),
+      S3RecordingSinkRuntimeConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -294,18 +277,16 @@ export const se_CreateMediaInsightsPipelineConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipeline-configurations";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Elements != null && { Elements: se_MediaInsightsPipelineConfigurationElements(input.Elements, context) }),
-    ...(input.MediaInsightsPipelineConfigurationName != null && {
-      MediaInsightsPipelineConfigurationName: input.MediaInsightsPipelineConfigurationName,
-    }),
-    ...(input.RealTimeAlertConfiguration != null && {
-      RealTimeAlertConfiguration: se_RealTimeAlertConfiguration(input.RealTimeAlertConfiguration, context),
-    }),
-    ...(input.ResourceAccessRoleArn != null && { ResourceAccessRoleArn: input.ResourceAccessRoleArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Elements: (_) => _json(_),
+      MediaInsightsPipelineConfigurationName: [],
+      RealTimeAlertConfiguration: (_) => _json(_),
+      ResourceAccessRoleArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -331,12 +312,14 @@ export const se_CreateMediaLiveConnectorPipelineCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-live-connector-pipelines";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Sinks != null && { Sinks: se_LiveConnectorSinkList(input.Sinks, context) }),
-    ...(input.Sources != null && { Sources: se_LiveConnectorSourceList(input.Sources, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Sinks: (_) => _json(_),
+      Sources: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -649,10 +632,12 @@ export const se_TagResourceCommand = async (
     operation: [, "tag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -681,10 +666,12 @@ export const se_UntagResourceCommand = async (
     operation: [, "untag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -713,13 +700,13 @@ export const se_UpdateMediaInsightsPipelineConfigurationCommand = async (
     "/media-insights-pipeline-configurations/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Elements != null && { Elements: se_MediaInsightsPipelineConfigurationElements(input.Elements, context) }),
-    ...(input.RealTimeAlertConfiguration != null && {
-      RealTimeAlertConfiguration: se_RealTimeAlertConfiguration(input.RealTimeAlertConfiguration, context),
-    }),
-    ...(input.ResourceAccessRoleArn != null && { ResourceAccessRoleArn: input.ResourceAccessRoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Elements: (_) => _json(_),
+      RealTimeAlertConfiguration: (_) => _json(_),
+      ResourceAccessRoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -747,9 +734,11 @@ export const se_UpdateMediaInsightsPipelineStatusCommand = async (
     "/media-insights-pipeline-status/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.UpdateStatus != null && { UpdateStatus: input.UpdateStatus }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      UpdateStatus: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -775,9 +764,10 @@ export const de_CreateMediaCapturePipelineCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipeline != null) {
-    contents.MediaCapturePipeline = de_MediaCapturePipeline(data.MediaCapturePipeline, context);
-  }
+  const doc = take(data, {
+    MediaCapturePipeline: (_) => de_MediaCapturePipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -817,10 +807,9 @@ const de_CreateMediaCapturePipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -840,9 +829,10 @@ export const de_CreateMediaConcatenationPipelineCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaConcatenationPipeline != null) {
-    contents.MediaConcatenationPipeline = de_MediaConcatenationPipeline(data.MediaConcatenationPipeline, context);
-  }
+  const doc = take(data, {
+    MediaConcatenationPipeline: (_) => de_MediaConcatenationPipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -882,10 +872,9 @@ const de_CreateMediaConcatenationPipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -905,9 +894,10 @@ export const de_CreateMediaInsightsPipelineCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaInsightsPipeline != null) {
-    contents.MediaInsightsPipeline = de_MediaInsightsPipeline(data.MediaInsightsPipeline, context);
-  }
+  const doc = take(data, {
+    MediaInsightsPipeline: (_) => de_MediaInsightsPipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -950,10 +940,9 @@ const de_CreateMediaInsightsPipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -973,12 +962,10 @@ export const de_CreateMediaInsightsPipelineConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaInsightsPipelineConfiguration != null) {
-    contents.MediaInsightsPipelineConfiguration = de_MediaInsightsPipelineConfiguration(
-      data.MediaInsightsPipelineConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    MediaInsightsPipelineConfiguration: (_) => de_MediaInsightsPipelineConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1021,10 +1008,9 @@ const de_CreateMediaInsightsPipelineConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1044,9 +1030,10 @@ export const de_CreateMediaLiveConnectorPipelineCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaLiveConnectorPipeline != null) {
-    contents.MediaLiveConnectorPipeline = de_MediaLiveConnectorPipeline(data.MediaLiveConnectorPipeline, context);
-  }
+  const doc = take(data, {
+    MediaLiveConnectorPipeline: (_) => de_MediaLiveConnectorPipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1086,10 +1073,9 @@ const de_CreateMediaLiveConnectorPipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1148,10 +1134,9 @@ const de_DeleteMediaCapturePipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1213,10 +1198,9 @@ const de_DeleteMediaInsightsPipelineConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1275,10 +1259,9 @@ const de_DeleteMediaPipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1298,9 +1281,10 @@ export const de_GetMediaCapturePipelineCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipeline != null) {
-    contents.MediaCapturePipeline = de_MediaCapturePipeline(data.MediaCapturePipeline, context);
-  }
+  const doc = take(data, {
+    MediaCapturePipeline: (_) => de_MediaCapturePipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1340,10 +1324,9 @@ const de_GetMediaCapturePipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1363,12 +1346,10 @@ export const de_GetMediaInsightsPipelineConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaInsightsPipelineConfiguration != null) {
-    contents.MediaInsightsPipelineConfiguration = de_MediaInsightsPipelineConfiguration(
-      data.MediaInsightsPipelineConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    MediaInsightsPipelineConfiguration: (_) => de_MediaInsightsPipelineConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1408,10 +1389,9 @@ const de_GetMediaInsightsPipelineConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1431,9 +1411,10 @@ export const de_GetMediaPipelineCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaPipeline != null) {
-    contents.MediaPipeline = de_MediaPipeline(data.MediaPipeline, context);
-  }
+  const doc = take(data, {
+    MediaPipeline: (_) => de_MediaPipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1473,10 +1454,9 @@ const de_GetMediaPipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1496,12 +1476,11 @@ export const de_ListMediaCapturePipelinesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipelines != null) {
-    contents.MediaCapturePipelines = de_MediaCapturePipelineSummaryList(data.MediaCapturePipelines, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MediaCapturePipelines: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1541,10 +1520,9 @@ const de_ListMediaCapturePipelinesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1564,15 +1542,11 @@ export const de_ListMediaInsightsPipelineConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaInsightsPipelineConfigurations != null) {
-    contents.MediaInsightsPipelineConfigurations = de_MediaInsightsPipelineConfigurationSummaryList(
-      data.MediaInsightsPipelineConfigurations,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MediaInsightsPipelineConfigurations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1612,10 +1586,9 @@ const de_ListMediaInsightsPipelineConfigurationsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1635,12 +1608,11 @@ export const de_ListMediaPipelinesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaPipelines != null) {
-    contents.MediaPipelines = de_MediaPipelineList(data.MediaPipelines, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MediaPipelines: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1680,10 +1652,9 @@ const de_ListMediaPipelinesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1703,9 +1674,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1745,10 +1717,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1807,10 +1778,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1869,10 +1839,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1892,12 +1861,10 @@ export const de_UpdateMediaInsightsPipelineConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaInsightsPipelineConfiguration != null) {
-    contents.MediaInsightsPipelineConfiguration = de_MediaInsightsPipelineConfiguration(
-      data.MediaInsightsPipelineConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    MediaInsightsPipelineConfiguration: (_) => de_MediaInsightsPipelineConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1940,10 +1907,9 @@ const de_UpdateMediaInsightsPipelineConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2005,31 +1971,27 @@ const de_UpdateMediaInsightsPipelineStatusCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2043,15 +2005,12 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2065,15 +2024,12 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2087,15 +2043,12 @@ const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeConte
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2112,15 +2065,12 @@ const de_ResourceLimitExceededExceptionRes = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2137,15 +2087,12 @@ const de_ServiceFailureExceptionRes = async (
 ): Promise<ServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2162,15 +2109,12 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2187,15 +2131,12 @@ const de_ThrottledClientExceptionRes = async (
 ): Promise<ThrottledClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottledClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2212,15 +2153,12 @@ const de_UnauthorizedClientExceptionRes = async (
 ): Promise<UnauthorizedClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2228,395 +2166,71 @@ const de_UnauthorizedClientExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AmazonTranscribeCallAnalyticsProcessorConfiguration
- */
-const se_AmazonTranscribeCallAnalyticsProcessorConfiguration = (
-  input: AmazonTranscribeCallAnalyticsProcessorConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CallAnalyticsStreamCategories != null && {
-      CallAnalyticsStreamCategories: se_CategoryNameList(input.CallAnalyticsStreamCategories, context),
-    }),
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.ContentRedactionType != null && { ContentRedactionType: input.ContentRedactionType }),
-    ...(input.EnablePartialResultsStabilization != null && {
-      EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
-    }),
-    ...(input.FilterPartialResults != null && { FilterPartialResults: input.FilterPartialResults }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.PartialResultsStability != null && { PartialResultsStability: input.PartialResultsStability }),
-    ...(input.PiiEntityTypes != null && { PiiEntityTypes: input.PiiEntityTypes }),
-    ...(input.PostCallAnalyticsSettings != null && {
-      PostCallAnalyticsSettings: se_PostCallAnalyticsSettings(input.PostCallAnalyticsSettings, context),
-    }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_AmazonTranscribeCallAnalyticsProcessorConfiguration omitted.
 
-/**
- * serializeAws_restJson1AmazonTranscribeProcessorConfiguration
- */
-const se_AmazonTranscribeProcessorConfiguration = (
-  input: AmazonTranscribeProcessorConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.ContentRedactionType != null && { ContentRedactionType: input.ContentRedactionType }),
-    ...(input.EnablePartialResultsStabilization != null && {
-      EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
-    }),
-    ...(input.FilterPartialResults != null && { FilterPartialResults: input.FilterPartialResults }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.PartialResultsStability != null && { PartialResultsStability: input.PartialResultsStability }),
-    ...(input.PiiEntityTypes != null && { PiiEntityTypes: input.PiiEntityTypes }),
-    ...(input.ShowSpeakerLabel != null && { ShowSpeakerLabel: input.ShowSpeakerLabel }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_AmazonTranscribeProcessorConfiguration omitted.
 
-/**
- * serializeAws_restJson1ArtifactsConcatenationConfiguration
- */
-const se_ArtifactsConcatenationConfiguration = (
-  input: ArtifactsConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Audio != null && { Audio: se_AudioConcatenationConfiguration(input.Audio, context) }),
-    ...(input.CompositedVideo != null && {
-      CompositedVideo: se_CompositedVideoConcatenationConfiguration(input.CompositedVideo, context),
-    }),
-    ...(input.Content != null && { Content: se_ContentConcatenationConfiguration(input.Content, context) }),
-    ...(input.DataChannel != null && {
-      DataChannel: se_DataChannelConcatenationConfiguration(input.DataChannel, context),
-    }),
-    ...(input.MeetingEvents != null && {
-      MeetingEvents: se_MeetingEventsConcatenationConfiguration(input.MeetingEvents, context),
-    }),
-    ...(input.TranscriptionMessages != null && {
-      TranscriptionMessages: se_TranscriptionMessagesConcatenationConfiguration(input.TranscriptionMessages, context),
-    }),
-    ...(input.Video != null && { Video: se_VideoConcatenationConfiguration(input.Video, context) }),
-  };
-};
+// se_ArtifactsConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1ArtifactsConfiguration
- */
-const se_ArtifactsConfiguration = (input: ArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Audio != null && { Audio: se_AudioArtifactsConfiguration(input.Audio, context) }),
-    ...(input.CompositedVideo != null && {
-      CompositedVideo: se_CompositedVideoArtifactsConfiguration(input.CompositedVideo, context),
-    }),
-    ...(input.Content != null && { Content: se_ContentArtifactsConfiguration(input.Content, context) }),
-    ...(input.Video != null && { Video: se_VideoArtifactsConfiguration(input.Video, context) }),
-  };
-};
+// se_ArtifactsConfiguration omitted.
 
-/**
- * serializeAws_restJson1AttendeeIdList
- */
-const se_AttendeeIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AttendeeIdList omitted.
 
-/**
- * serializeAws_restJson1AudioArtifactsConfiguration
- */
-const se_AudioArtifactsConfiguration = (input: AudioArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-  };
-};
+// se_AudioArtifactsConfiguration omitted.
 
-/**
- * serializeAws_restJson1AudioConcatenationConfiguration
- */
-const se_AudioConcatenationConfiguration = (input: AudioConcatenationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_AudioConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1CategoryNameList
- */
-const se_CategoryNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CategoryNameList omitted.
 
-/**
- * serializeAws_restJson1ChannelDefinition
- */
-const se_ChannelDefinition = (input: ChannelDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelId != null && { ChannelId: input.ChannelId }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-  };
-};
+// se_ChannelDefinition omitted.
 
-/**
- * serializeAws_restJson1ChannelDefinitions
- */
-const se_ChannelDefinitions = (input: ChannelDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ChannelDefinition(entry, context);
-    });
-};
+// se_ChannelDefinitions omitted.
 
-/**
- * serializeAws_restJson1ChimeSdkMeetingConcatenationConfiguration
- */
-const se_ChimeSdkMeetingConcatenationConfiguration = (
-  input: ChimeSdkMeetingConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ArtifactsConfiguration != null && {
-      ArtifactsConfiguration: se_ArtifactsConcatenationConfiguration(input.ArtifactsConfiguration, context),
-    }),
-  };
-};
+// se_ChimeSdkMeetingConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1ChimeSdkMeetingConfiguration
- */
-const se_ChimeSdkMeetingConfiguration = (input: ChimeSdkMeetingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ArtifactsConfiguration != null && {
-      ArtifactsConfiguration: se_ArtifactsConfiguration(input.ArtifactsConfiguration, context),
-    }),
-    ...(input.SourceConfiguration != null && {
-      SourceConfiguration: se_SourceConfiguration(input.SourceConfiguration, context),
-    }),
-  };
-};
+// se_ChimeSdkMeetingConfiguration omitted.
 
-/**
- * serializeAws_restJson1ChimeSdkMeetingLiveConnectorConfiguration
- */
-const se_ChimeSdkMeetingLiveConnectorConfiguration = (
-  input: ChimeSdkMeetingLiveConnectorConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.CompositedVideo != null && {
-      CompositedVideo: se_CompositedVideoArtifactsConfiguration(input.CompositedVideo, context),
-    }),
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-    ...(input.SourceConfiguration != null && {
-      SourceConfiguration: se_SourceConfiguration(input.SourceConfiguration, context),
-    }),
-  };
-};
+// se_ChimeSdkMeetingLiveConnectorConfiguration omitted.
 
-/**
- * serializeAws_restJson1CompositedVideoArtifactsConfiguration
- */
-const se_CompositedVideoArtifactsConfiguration = (
-  input: CompositedVideoArtifactsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GridViewConfiguration != null && {
-      GridViewConfiguration: se_GridViewConfiguration(input.GridViewConfiguration, context),
-    }),
-    ...(input.Layout != null && { Layout: input.Layout }),
-    ...(input.Resolution != null && { Resolution: input.Resolution }),
-  };
-};
+// se_CompositedVideoArtifactsConfiguration omitted.
 
-/**
- * serializeAws_restJson1CompositedVideoConcatenationConfiguration
- */
-const se_CompositedVideoConcatenationConfiguration = (
-  input: CompositedVideoConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_CompositedVideoConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1ConcatenationSink
- */
-const se_ConcatenationSink = (input: ConcatenationSink, context: __SerdeContext): any => {
-  return {
-    ...(input.S3BucketSinkConfiguration != null && {
-      S3BucketSinkConfiguration: se_S3BucketSinkConfiguration(input.S3BucketSinkConfiguration, context),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ConcatenationSink omitted.
 
-/**
- * serializeAws_restJson1ConcatenationSinkList
- */
-const se_ConcatenationSinkList = (input: ConcatenationSink[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ConcatenationSink(entry, context);
-    });
-};
+// se_ConcatenationSinkList omitted.
 
-/**
- * serializeAws_restJson1ConcatenationSource
- */
-const se_ConcatenationSource = (input: ConcatenationSource, context: __SerdeContext): any => {
-  return {
-    ...(input.MediaCapturePipelineSourceConfiguration != null && {
-      MediaCapturePipelineSourceConfiguration: se_MediaCapturePipelineSourceConfiguration(
-        input.MediaCapturePipelineSourceConfiguration,
-        context
-      ),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ConcatenationSource omitted.
 
-/**
- * serializeAws_restJson1ConcatenationSourceList
- */
-const se_ConcatenationSourceList = (input: ConcatenationSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ConcatenationSource(entry, context);
-    });
-};
+// se_ConcatenationSourceList omitted.
 
-/**
- * serializeAws_restJson1ContentArtifactsConfiguration
- */
-const se_ContentArtifactsConfiguration = (input: ContentArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_ContentArtifactsConfiguration omitted.
 
-/**
- * serializeAws_restJson1ContentConcatenationConfiguration
- */
-const se_ContentConcatenationConfiguration = (
-  input: ContentConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_ContentConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1DataChannelConcatenationConfiguration
- */
-const se_DataChannelConcatenationConfiguration = (
-  input: DataChannelConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_DataChannelConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1ExternalUserIdList
- */
-const se_ExternalUserIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExternalUserIdList omitted.
 
 /**
  * serializeAws_restJson1FragmentSelector
  */
 const se_FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && { TimestampRange: se_TimestampRange(input.TimestampRange, context) }),
-  };
+  return take(input, {
+    FragmentSelectorType: [],
+    TimestampRange: (_) => se_TimestampRange(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1GridViewConfiguration
- */
-const se_GridViewConfiguration = (input: GridViewConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentShareLayout != null && { ContentShareLayout: input.ContentShareLayout }),
-    ...(input.PresenterOnlyConfiguration != null && {
-      PresenterOnlyConfiguration: se_PresenterOnlyConfiguration(input.PresenterOnlyConfiguration, context),
-    }),
-  };
-};
+// se_GridViewConfiguration omitted.
 
-/**
- * serializeAws_restJson1IssueDetectionConfiguration
- */
-const se_IssueDetectionConfiguration = (input: IssueDetectionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleName != null && { RuleName: input.RuleName }),
-  };
-};
+// se_IssueDetectionConfiguration omitted.
 
-/**
- * serializeAws_restJson1KeywordMatchConfiguration
- */
-const se_KeywordMatchConfiguration = (input: KeywordMatchConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Keywords != null && { Keywords: se_KeywordMatchWordList(input.Keywords, context) }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.RuleName != null && { RuleName: input.RuleName }),
-  };
-};
+// se_KeywordMatchConfiguration omitted.
 
-/**
- * serializeAws_restJson1KeywordMatchWordList
- */
-const se_KeywordMatchWordList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_KeywordMatchWordList omitted.
 
-/**
- * serializeAws_restJson1KinesisDataStreamSinkConfiguration
- */
-const se_KinesisDataStreamSinkConfiguration = (
-  input: KinesisDataStreamSinkConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InsightsTarget != null && { InsightsTarget: input.InsightsTarget }),
-  };
-};
+// se_KinesisDataStreamSinkConfiguration omitted.
 
 /**
  * serializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration
@@ -2625,906 +2239,161 @@ const se_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
   input: KinesisVideoStreamRecordingSourceRuntimeConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.FragmentSelector != null && { FragmentSelector: se_FragmentSelector(input.FragmentSelector, context) }),
-    ...(input.Streams != null && { Streams: se_RecordingStreamList(input.Streams, context) }),
-  };
+  return take(input, {
+    FragmentSelector: (_) => se_FragmentSelector(_, context),
+    Streams: (_) => _json(_),
+  });
 };
 
-/**
- * serializeAws_restJson1KinesisVideoStreamSourceRuntimeConfiguration
- */
-const se_KinesisVideoStreamSourceRuntimeConfiguration = (
-  input: KinesisVideoStreamSourceRuntimeConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MediaEncoding != null && { MediaEncoding: input.MediaEncoding }),
-    ...(input.MediaSampleRate != null && { MediaSampleRate: input.MediaSampleRate }),
-    ...(input.Streams != null && { Streams: se_Streams(input.Streams, context) }),
-  };
-};
+// se_KinesisVideoStreamSourceRuntimeConfiguration omitted.
 
-/**
- * serializeAws_restJson1LambdaFunctionSinkConfiguration
- */
-const se_LambdaFunctionSinkConfiguration = (input: LambdaFunctionSinkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.InsightsTarget != null && { InsightsTarget: input.InsightsTarget }),
-  };
-};
+// se_LambdaFunctionSinkConfiguration omitted.
 
-/**
- * serializeAws_restJson1LiveConnectorRTMPConfiguration
- */
-const se_LiveConnectorRTMPConfiguration = (input: LiveConnectorRTMPConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AudioChannels != null && { AudioChannels: input.AudioChannels }),
-    ...(input.AudioSampleRate != null && { AudioSampleRate: input.AudioSampleRate }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
+// se_LiveConnectorRTMPConfiguration omitted.
 
-/**
- * serializeAws_restJson1LiveConnectorSinkConfiguration
- */
-const se_LiveConnectorSinkConfiguration = (input: LiveConnectorSinkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.RTMPConfiguration != null && {
-      RTMPConfiguration: se_LiveConnectorRTMPConfiguration(input.RTMPConfiguration, context),
-    }),
-    ...(input.SinkType != null && { SinkType: input.SinkType }),
-  };
-};
+// se_LiveConnectorSinkConfiguration omitted.
 
-/**
- * serializeAws_restJson1LiveConnectorSinkList
- */
-const se_LiveConnectorSinkList = (input: LiveConnectorSinkConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LiveConnectorSinkConfiguration(entry, context);
-    });
-};
+// se_LiveConnectorSinkList omitted.
 
-/**
- * serializeAws_restJson1LiveConnectorSourceConfiguration
- */
-const se_LiveConnectorSourceConfiguration = (input: LiveConnectorSourceConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ChimeSdkMeetingLiveConnectorConfiguration != null && {
-      ChimeSdkMeetingLiveConnectorConfiguration: se_ChimeSdkMeetingLiveConnectorConfiguration(
-        input.ChimeSdkMeetingLiveConnectorConfiguration,
-        context
-      ),
-    }),
-    ...(input.SourceType != null && { SourceType: input.SourceType }),
-  };
-};
+// se_LiveConnectorSourceConfiguration omitted.
 
-/**
- * serializeAws_restJson1LiveConnectorSourceList
- */
-const se_LiveConnectorSourceList = (input: LiveConnectorSourceConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LiveConnectorSourceConfiguration(entry, context);
-    });
-};
+// se_LiveConnectorSourceList omitted.
 
-/**
- * serializeAws_restJson1MediaCapturePipelineSourceConfiguration
- */
-const se_MediaCapturePipelineSourceConfiguration = (
-  input: MediaCapturePipelineSourceConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ChimeSdkMeetingConfiguration != null && {
-      ChimeSdkMeetingConfiguration: se_ChimeSdkMeetingConcatenationConfiguration(
-        input.ChimeSdkMeetingConfiguration,
-        context
-      ),
-    }),
-    ...(input.MediaPipelineArn != null && { MediaPipelineArn: input.MediaPipelineArn }),
-  };
-};
+// se_MediaCapturePipelineSourceConfiguration omitted.
 
-/**
- * serializeAws_restJson1MediaInsightsPipelineConfigurationElement
- */
-const se_MediaInsightsPipelineConfigurationElement = (
-  input: MediaInsightsPipelineConfigurationElement,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AmazonTranscribeCallAnalyticsProcessorConfiguration != null && {
-      AmazonTranscribeCallAnalyticsProcessorConfiguration: se_AmazonTranscribeCallAnalyticsProcessorConfiguration(
-        input.AmazonTranscribeCallAnalyticsProcessorConfiguration,
-        context
-      ),
-    }),
-    ...(input.AmazonTranscribeProcessorConfiguration != null && {
-      AmazonTranscribeProcessorConfiguration: se_AmazonTranscribeProcessorConfiguration(
-        input.AmazonTranscribeProcessorConfiguration,
-        context
-      ),
-    }),
-    ...(input.KinesisDataStreamSinkConfiguration != null && {
-      KinesisDataStreamSinkConfiguration: se_KinesisDataStreamSinkConfiguration(
-        input.KinesisDataStreamSinkConfiguration,
-        context
-      ),
-    }),
-    ...(input.LambdaFunctionSinkConfiguration != null && {
-      LambdaFunctionSinkConfiguration: se_LambdaFunctionSinkConfiguration(
-        input.LambdaFunctionSinkConfiguration,
-        context
-      ),
-    }),
-    ...(input.S3RecordingSinkConfiguration != null && {
-      S3RecordingSinkConfiguration: se_S3RecordingSinkConfiguration(input.S3RecordingSinkConfiguration, context),
-    }),
-    ...(input.SnsTopicSinkConfiguration != null && {
-      SnsTopicSinkConfiguration: se_SnsTopicSinkConfiguration(input.SnsTopicSinkConfiguration, context),
-    }),
-    ...(input.SqsQueueSinkConfiguration != null && {
-      SqsQueueSinkConfiguration: se_SqsQueueSinkConfiguration(input.SqsQueueSinkConfiguration, context),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.VoiceAnalyticsProcessorConfiguration != null && {
-      VoiceAnalyticsProcessorConfiguration: se_VoiceAnalyticsProcessorConfiguration(
-        input.VoiceAnalyticsProcessorConfiguration,
-        context
-      ),
-    }),
-  };
-};
+// se_MediaInsightsPipelineConfigurationElement omitted.
 
-/**
- * serializeAws_restJson1MediaInsightsPipelineConfigurationElements
- */
-const se_MediaInsightsPipelineConfigurationElements = (
-  input: MediaInsightsPipelineConfigurationElement[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MediaInsightsPipelineConfigurationElement(entry, context);
-    });
-};
+// se_MediaInsightsPipelineConfigurationElements omitted.
 
-/**
- * serializeAws_restJson1MediaInsightsRuntimeMetadata
- */
-const se_MediaInsightsRuntimeMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_MediaInsightsRuntimeMetadata omitted.
 
-/**
- * serializeAws_restJson1MeetingEventsConcatenationConfiguration
- */
-const se_MeetingEventsConcatenationConfiguration = (
-  input: MeetingEventsConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_MeetingEventsConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1PostCallAnalyticsSettings
- */
-const se_PostCallAnalyticsSettings = (input: PostCallAnalyticsSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentRedactionOutput != null && { ContentRedactionOutput: input.ContentRedactionOutput }),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputLocation != null && { OutputLocation: input.OutputLocation }),
-  };
-};
+// se_PostCallAnalyticsSettings omitted.
 
-/**
- * serializeAws_restJson1PresenterOnlyConfiguration
- */
-const se_PresenterOnlyConfiguration = (input: PresenterOnlyConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.PresenterPosition != null && { PresenterPosition: input.PresenterPosition }),
-  };
-};
+// se_PresenterOnlyConfiguration omitted.
 
-/**
- * serializeAws_restJson1RealTimeAlertConfiguration
- */
-const se_RealTimeAlertConfiguration = (input: RealTimeAlertConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Disabled != null && { Disabled: input.Disabled }),
-    ...(input.Rules != null && { Rules: se_RealTimeAlertRuleList(input.Rules, context) }),
-  };
-};
+// se_RealTimeAlertConfiguration omitted.
 
-/**
- * serializeAws_restJson1RealTimeAlertRule
- */
-const se_RealTimeAlertRule = (input: RealTimeAlertRule, context: __SerdeContext): any => {
-  return {
-    ...(input.IssueDetectionConfiguration != null && {
-      IssueDetectionConfiguration: se_IssueDetectionConfiguration(input.IssueDetectionConfiguration, context),
-    }),
-    ...(input.KeywordMatchConfiguration != null && {
-      KeywordMatchConfiguration: se_KeywordMatchConfiguration(input.KeywordMatchConfiguration, context),
-    }),
-    ...(input.SentimentConfiguration != null && {
-      SentimentConfiguration: se_SentimentConfiguration(input.SentimentConfiguration, context),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_RealTimeAlertRule omitted.
 
-/**
- * serializeAws_restJson1RealTimeAlertRuleList
- */
-const se_RealTimeAlertRuleList = (input: RealTimeAlertRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RealTimeAlertRule(entry, context);
-    });
-};
+// se_RealTimeAlertRuleList omitted.
 
-/**
- * serializeAws_restJson1RecordingStreamConfiguration
- */
-const se_RecordingStreamConfiguration = (input: RecordingStreamConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
-  };
-};
+// se_RecordingStreamConfiguration omitted.
 
-/**
- * serializeAws_restJson1RecordingStreamList
- */
-const se_RecordingStreamList = (input: RecordingStreamConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RecordingStreamConfiguration(entry, context);
-    });
-};
+// se_RecordingStreamList omitted.
 
-/**
- * serializeAws_restJson1S3BucketSinkConfiguration
- */
-const se_S3BucketSinkConfiguration = (input: S3BucketSinkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Destination != null && { Destination: input.Destination }),
-  };
-};
+// se_S3BucketSinkConfiguration omitted.
 
-/**
- * serializeAws_restJson1S3RecordingSinkConfiguration
- */
-const se_S3RecordingSinkConfiguration = (input: S3RecordingSinkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Destination != null && { Destination: input.Destination }),
-  };
-};
+// se_S3RecordingSinkConfiguration omitted.
 
-/**
- * serializeAws_restJson1S3RecordingSinkRuntimeConfiguration
- */
-const se_S3RecordingSinkRuntimeConfiguration = (
-  input: S3RecordingSinkRuntimeConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Destination != null && { Destination: input.Destination }),
-    ...(input.RecordingFileFormat != null && { RecordingFileFormat: input.RecordingFileFormat }),
-  };
-};
+// se_S3RecordingSinkRuntimeConfiguration omitted.
 
-/**
- * serializeAws_restJson1SelectedVideoStreams
- */
-const se_SelectedVideoStreams = (input: SelectedVideoStreams, context: __SerdeContext): any => {
-  return {
-    ...(input.AttendeeIds != null && { AttendeeIds: se_AttendeeIdList(input.AttendeeIds, context) }),
-    ...(input.ExternalUserIds != null && { ExternalUserIds: se_ExternalUserIdList(input.ExternalUserIds, context) }),
-  };
-};
+// se_SelectedVideoStreams omitted.
 
-/**
- * serializeAws_restJson1SentimentConfiguration
- */
-const se_SentimentConfiguration = (input: SentimentConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleName != null && { RuleName: input.RuleName }),
-    ...(input.SentimentType != null && { SentimentType: input.SentimentType }),
-    ...(input.TimePeriod != null && { TimePeriod: input.TimePeriod }),
-  };
-};
+// se_SentimentConfiguration omitted.
 
-/**
- * serializeAws_restJson1SnsTopicSinkConfiguration
- */
-const se_SnsTopicSinkConfiguration = (input: SnsTopicSinkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.InsightsTarget != null && { InsightsTarget: input.InsightsTarget }),
-  };
-};
+// se_SnsTopicSinkConfiguration omitted.
 
-/**
- * serializeAws_restJson1SourceConfiguration
- */
-const se_SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.SelectedVideoStreams != null && {
-      SelectedVideoStreams: se_SelectedVideoStreams(input.SelectedVideoStreams, context),
-    }),
-  };
-};
+// se_SourceConfiguration omitted.
 
-/**
- * serializeAws_restJson1SqsQueueSinkConfiguration
- */
-const se_SqsQueueSinkConfiguration = (input: SqsQueueSinkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.InsightsTarget != null && { InsightsTarget: input.InsightsTarget }),
-  };
-};
+// se_SqsQueueSinkConfiguration omitted.
 
-/**
- * serializeAws_restJson1StreamChannelDefinition
- */
-const se_StreamChannelDefinition = (input: StreamChannelDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelDefinitions != null && {
-      ChannelDefinitions: se_ChannelDefinitions(input.ChannelDefinitions, context),
-    }),
-    ...(input.NumberOfChannels != null && { NumberOfChannels: input.NumberOfChannels }),
-  };
-};
+// se_StreamChannelDefinition omitted.
 
-/**
- * serializeAws_restJson1StreamConfiguration
- */
-const se_StreamConfiguration = (input: StreamConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.FragmentNumber != null && { FragmentNumber: input.FragmentNumber }),
-    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
-    ...(input.StreamChannelDefinition != null && {
-      StreamChannelDefinition: se_StreamChannelDefinition(input.StreamChannelDefinition, context),
-    }),
-  };
-};
+// se_StreamConfiguration omitted.
 
-/**
- * serializeAws_restJson1Streams
- */
-const se_Streams = (input: StreamConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StreamConfiguration(entry, context);
-    });
-};
+// se_Streams omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
 /**
  * serializeAws_restJson1TimestampRange
  */
 const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_restJson1TranscriptionMessagesConcatenationConfiguration
- */
-const se_TranscriptionMessagesConcatenationConfiguration = (
-  input: TranscriptionMessagesConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_TranscriptionMessagesConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1VideoArtifactsConfiguration
- */
-const se_VideoArtifactsConfiguration = (input: VideoArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_VideoArtifactsConfiguration omitted.
 
-/**
- * serializeAws_restJson1VideoConcatenationConfiguration
- */
-const se_VideoConcatenationConfiguration = (input: VideoConcatenationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_VideoConcatenationConfiguration omitted.
 
-/**
- * serializeAws_restJson1VoiceAnalyticsProcessorConfiguration
- */
-const se_VoiceAnalyticsProcessorConfiguration = (
-  input: VoiceAnalyticsProcessorConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SpeakerSearchStatus != null && { SpeakerSearchStatus: input.SpeakerSearchStatus }),
-    ...(input.VoiceToneAnalysisStatus != null && { VoiceToneAnalysisStatus: input.VoiceToneAnalysisStatus }),
-  };
-};
+// se_VoiceAnalyticsProcessorConfiguration omitted.
 
-/**
- * deserializeAws_restJson1AmazonTranscribeCallAnalyticsProcessorConfiguration
- */
-const de_AmazonTranscribeCallAnalyticsProcessorConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AmazonTranscribeCallAnalyticsProcessorConfiguration => {
-  return {
-    CallAnalyticsStreamCategories:
-      output.CallAnalyticsStreamCategories != null
-        ? de_CategoryNameList(output.CallAnalyticsStreamCategories, context)
-        : undefined,
-    ContentIdentificationType: __expectString(output.ContentIdentificationType),
-    ContentRedactionType: __expectString(output.ContentRedactionType),
-    EnablePartialResultsStabilization: __expectBoolean(output.EnablePartialResultsStabilization),
-    FilterPartialResults: __expectBoolean(output.FilterPartialResults),
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageModelName: __expectString(output.LanguageModelName),
-    PartialResultsStability: __expectString(output.PartialResultsStability),
-    PiiEntityTypes: __expectString(output.PiiEntityTypes),
-    PostCallAnalyticsSettings:
-      output.PostCallAnalyticsSettings != null
-        ? de_PostCallAnalyticsSettings(output.PostCallAnalyticsSettings, context)
-        : undefined,
-    VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
+// de_AmazonTranscribeCallAnalyticsProcessorConfiguration omitted.
 
-/**
- * deserializeAws_restJson1AmazonTranscribeProcessorConfiguration
- */
-const de_AmazonTranscribeProcessorConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AmazonTranscribeProcessorConfiguration => {
-  return {
-    ContentIdentificationType: __expectString(output.ContentIdentificationType),
-    ContentRedactionType: __expectString(output.ContentRedactionType),
-    EnablePartialResultsStabilization: __expectBoolean(output.EnablePartialResultsStabilization),
-    FilterPartialResults: __expectBoolean(output.FilterPartialResults),
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageModelName: __expectString(output.LanguageModelName),
-    PartialResultsStability: __expectString(output.PartialResultsStability),
-    PiiEntityTypes: __expectString(output.PiiEntityTypes),
-    ShowSpeakerLabel: __expectBoolean(output.ShowSpeakerLabel),
-    VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
+// de_AmazonTranscribeProcessorConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ArtifactsConcatenationConfiguration
- */
-const de_ArtifactsConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ArtifactsConcatenationConfiguration => {
-  return {
-    Audio: output.Audio != null ? de_AudioConcatenationConfiguration(output.Audio, context) : undefined,
-    CompositedVideo:
-      output.CompositedVideo != null
-        ? de_CompositedVideoConcatenationConfiguration(output.CompositedVideo, context)
-        : undefined,
-    Content: output.Content != null ? de_ContentConcatenationConfiguration(output.Content, context) : undefined,
-    DataChannel:
-      output.DataChannel != null ? de_DataChannelConcatenationConfiguration(output.DataChannel, context) : undefined,
-    MeetingEvents:
-      output.MeetingEvents != null
-        ? de_MeetingEventsConcatenationConfiguration(output.MeetingEvents, context)
-        : undefined,
-    TranscriptionMessages:
-      output.TranscriptionMessages != null
-        ? de_TranscriptionMessagesConcatenationConfiguration(output.TranscriptionMessages, context)
-        : undefined,
-    Video: output.Video != null ? de_VideoConcatenationConfiguration(output.Video, context) : undefined,
-  } as any;
-};
+// de_ArtifactsConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ArtifactsConfiguration
- */
-const de_ArtifactsConfiguration = (output: any, context: __SerdeContext): ArtifactsConfiguration => {
-  return {
-    Audio: output.Audio != null ? de_AudioArtifactsConfiguration(output.Audio, context) : undefined,
-    CompositedVideo:
-      output.CompositedVideo != null
-        ? de_CompositedVideoArtifactsConfiguration(output.CompositedVideo, context)
-        : undefined,
-    Content: output.Content != null ? de_ContentArtifactsConfiguration(output.Content, context) : undefined,
-    Video: output.Video != null ? de_VideoArtifactsConfiguration(output.Video, context) : undefined,
-  } as any;
-};
+// de_ArtifactsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1AttendeeIdList
- */
-const de_AttendeeIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AttendeeIdList omitted.
 
-/**
- * deserializeAws_restJson1AudioArtifactsConfiguration
- */
-const de_AudioArtifactsConfiguration = (output: any, context: __SerdeContext): AudioArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-  } as any;
-};
+// de_AudioArtifactsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1AudioConcatenationConfiguration
- */
-const de_AudioConcatenationConfiguration = (output: any, context: __SerdeContext): AudioConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_AudioConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1CategoryNameList
- */
-const de_CategoryNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CategoryNameList omitted.
 
-/**
- * deserializeAws_restJson1ChannelDefinition
- */
-const de_ChannelDefinition = (output: any, context: __SerdeContext): ChannelDefinition => {
-  return {
-    ChannelId: __expectInt32(output.ChannelId),
-    ParticipantRole: __expectString(output.ParticipantRole),
-  } as any;
-};
+// de_ChannelDefinition omitted.
 
-/**
- * deserializeAws_restJson1ChannelDefinitions
- */
-const de_ChannelDefinitions = (output: any, context: __SerdeContext): ChannelDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelDefinitions omitted.
 
-/**
- * deserializeAws_restJson1ChimeSdkMeetingConcatenationConfiguration
- */
-const de_ChimeSdkMeetingConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ChimeSdkMeetingConcatenationConfiguration => {
-  return {
-    ArtifactsConfiguration:
-      output.ArtifactsConfiguration != null
-        ? de_ArtifactsConcatenationConfiguration(output.ArtifactsConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_ChimeSdkMeetingConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ChimeSdkMeetingConfiguration
- */
-const de_ChimeSdkMeetingConfiguration = (output: any, context: __SerdeContext): ChimeSdkMeetingConfiguration => {
-  return {
-    ArtifactsConfiguration:
-      output.ArtifactsConfiguration != null
-        ? de_ArtifactsConfiguration(output.ArtifactsConfiguration, context)
-        : undefined,
-    SourceConfiguration:
-      output.SourceConfiguration != null ? de_SourceConfiguration(output.SourceConfiguration, context) : undefined,
-  } as any;
-};
+// de_ChimeSdkMeetingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ChimeSdkMeetingLiveConnectorConfiguration
- */
-const de_ChimeSdkMeetingLiveConnectorConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ChimeSdkMeetingLiveConnectorConfiguration => {
-  return {
-    Arn: __expectString(output.Arn),
-    CompositedVideo:
-      output.CompositedVideo != null
-        ? de_CompositedVideoArtifactsConfiguration(output.CompositedVideo, context)
-        : undefined,
-    MuxType: __expectString(output.MuxType),
-    SourceConfiguration:
-      output.SourceConfiguration != null ? de_SourceConfiguration(output.SourceConfiguration, context) : undefined,
-  } as any;
-};
+// de_ChimeSdkMeetingLiveConnectorConfiguration omitted.
 
-/**
- * deserializeAws_restJson1CompositedVideoArtifactsConfiguration
- */
-const de_CompositedVideoArtifactsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CompositedVideoArtifactsConfiguration => {
-  return {
-    GridViewConfiguration:
-      output.GridViewConfiguration != null
-        ? de_GridViewConfiguration(output.GridViewConfiguration, context)
-        : undefined,
-    Layout: __expectString(output.Layout),
-    Resolution: __expectString(output.Resolution),
-  } as any;
-};
+// de_CompositedVideoArtifactsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1CompositedVideoConcatenationConfiguration
- */
-const de_CompositedVideoConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CompositedVideoConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_CompositedVideoConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ConcatenationSink
- */
-const de_ConcatenationSink = (output: any, context: __SerdeContext): ConcatenationSink => {
-  return {
-    S3BucketSinkConfiguration:
-      output.S3BucketSinkConfiguration != null
-        ? de_S3BucketSinkConfiguration(output.S3BucketSinkConfiguration, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ConcatenationSink omitted.
 
-/**
- * deserializeAws_restJson1ConcatenationSinkList
- */
-const de_ConcatenationSinkList = (output: any, context: __SerdeContext): ConcatenationSink[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConcatenationSink(entry, context);
-    });
-  return retVal;
-};
+// de_ConcatenationSinkList omitted.
 
-/**
- * deserializeAws_restJson1ConcatenationSource
- */
-const de_ConcatenationSource = (output: any, context: __SerdeContext): ConcatenationSource => {
-  return {
-    MediaCapturePipelineSourceConfiguration:
-      output.MediaCapturePipelineSourceConfiguration != null
-        ? de_MediaCapturePipelineSourceConfiguration(output.MediaCapturePipelineSourceConfiguration, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ConcatenationSource omitted.
 
-/**
- * deserializeAws_restJson1ConcatenationSourceList
- */
-const de_ConcatenationSourceList = (output: any, context: __SerdeContext): ConcatenationSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConcatenationSource(entry, context);
-    });
-  return retVal;
-};
+// de_ConcatenationSourceList omitted.
 
-/**
- * deserializeAws_restJson1ContentArtifactsConfiguration
- */
-const de_ContentArtifactsConfiguration = (output: any, context: __SerdeContext): ContentArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_ContentArtifactsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ContentConcatenationConfiguration
- */
-const de_ContentConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ContentConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_ContentConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1DataChannelConcatenationConfiguration
- */
-const de_DataChannelConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DataChannelConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_DataChannelConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ExternalUserIdList
- */
-const de_ExternalUserIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ExternalUserIdList omitted.
 
 /**
  * deserializeAws_restJson1FragmentSelector
  */
 const de_FragmentSelector = (output: any, context: __SerdeContext): FragmentSelector => {
-  return {
-    FragmentSelectorType: __expectString(output.FragmentSelectorType),
-    TimestampRange: output.TimestampRange != null ? de_TimestampRange(output.TimestampRange, context) : undefined,
-  } as any;
+  return take(output, {
+    FragmentSelectorType: __expectString,
+    TimestampRange: (_: any) => de_TimestampRange(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1GridViewConfiguration
- */
-const de_GridViewConfiguration = (output: any, context: __SerdeContext): GridViewConfiguration => {
-  return {
-    ContentShareLayout: __expectString(output.ContentShareLayout),
-    PresenterOnlyConfiguration:
-      output.PresenterOnlyConfiguration != null
-        ? de_PresenterOnlyConfiguration(output.PresenterOnlyConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_GridViewConfiguration omitted.
 
-/**
- * deserializeAws_restJson1IssueDetectionConfiguration
- */
-const de_IssueDetectionConfiguration = (output: any, context: __SerdeContext): IssueDetectionConfiguration => {
-  return {
-    RuleName: __expectString(output.RuleName),
-  } as any;
-};
+// de_IssueDetectionConfiguration omitted.
 
-/**
- * deserializeAws_restJson1KeywordMatchConfiguration
- */
-const de_KeywordMatchConfiguration = (output: any, context: __SerdeContext): KeywordMatchConfiguration => {
-  return {
-    Keywords: output.Keywords != null ? de_KeywordMatchWordList(output.Keywords, context) : undefined,
-    Negate: __expectBoolean(output.Negate),
-    RuleName: __expectString(output.RuleName),
-  } as any;
-};
+// de_KeywordMatchConfiguration omitted.
 
-/**
- * deserializeAws_restJson1KeywordMatchWordList
- */
-const de_KeywordMatchWordList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_KeywordMatchWordList omitted.
 
-/**
- * deserializeAws_restJson1KinesisDataStreamSinkConfiguration
- */
-const de_KinesisDataStreamSinkConfiguration = (
-  output: any,
-  context: __SerdeContext
-): KinesisDataStreamSinkConfiguration => {
-  return {
-    InsightsTarget: __expectString(output.InsightsTarget),
-  } as any;
-};
+// de_KinesisDataStreamSinkConfiguration omitted.
 
 /**
  * deserializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration
@@ -3533,228 +2402,81 @@ const de_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
   output: any,
   context: __SerdeContext
 ): KinesisVideoStreamRecordingSourceRuntimeConfiguration => {
-  return {
-    FragmentSelector:
-      output.FragmentSelector != null ? de_FragmentSelector(output.FragmentSelector, context) : undefined,
-    Streams: output.Streams != null ? de_RecordingStreamList(output.Streams, context) : undefined,
-  } as any;
+  return take(output, {
+    FragmentSelector: (_: any) => de_FragmentSelector(_, context),
+    Streams: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1KinesisVideoStreamSourceRuntimeConfiguration
- */
-const de_KinesisVideoStreamSourceRuntimeConfiguration = (
-  output: any,
-  context: __SerdeContext
-): KinesisVideoStreamSourceRuntimeConfiguration => {
-  return {
-    MediaEncoding: __expectString(output.MediaEncoding),
-    MediaSampleRate: __expectInt32(output.MediaSampleRate),
-    Streams: output.Streams != null ? de_Streams(output.Streams, context) : undefined,
-  } as any;
-};
+// de_KinesisVideoStreamSourceRuntimeConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LambdaFunctionSinkConfiguration
- */
-const de_LambdaFunctionSinkConfiguration = (output: any, context: __SerdeContext): LambdaFunctionSinkConfiguration => {
-  return {
-    InsightsTarget: __expectString(output.InsightsTarget),
-  } as any;
-};
+// de_LambdaFunctionSinkConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LiveConnectorRTMPConfiguration
- */
-const de_LiveConnectorRTMPConfiguration = (output: any, context: __SerdeContext): LiveConnectorRTMPConfiguration => {
-  return {
-    AudioChannels: __expectString(output.AudioChannels),
-    AudioSampleRate: __expectString(output.AudioSampleRate),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_LiveConnectorRTMPConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LiveConnectorSinkConfiguration
- */
-const de_LiveConnectorSinkConfiguration = (output: any, context: __SerdeContext): LiveConnectorSinkConfiguration => {
-  return {
-    RTMPConfiguration:
-      output.RTMPConfiguration != null
-        ? de_LiveConnectorRTMPConfiguration(output.RTMPConfiguration, context)
-        : undefined,
-    SinkType: __expectString(output.SinkType),
-  } as any;
-};
+// de_LiveConnectorSinkConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LiveConnectorSinkList
- */
-const de_LiveConnectorSinkList = (output: any, context: __SerdeContext): LiveConnectorSinkConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LiveConnectorSinkConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_LiveConnectorSinkList omitted.
 
-/**
- * deserializeAws_restJson1LiveConnectorSourceConfiguration
- */
-const de_LiveConnectorSourceConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LiveConnectorSourceConfiguration => {
-  return {
-    ChimeSdkMeetingLiveConnectorConfiguration:
-      output.ChimeSdkMeetingLiveConnectorConfiguration != null
-        ? de_ChimeSdkMeetingLiveConnectorConfiguration(output.ChimeSdkMeetingLiveConnectorConfiguration, context)
-        : undefined,
-    SourceType: __expectString(output.SourceType),
-  } as any;
-};
+// de_LiveConnectorSourceConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LiveConnectorSourceList
- */
-const de_LiveConnectorSourceList = (output: any, context: __SerdeContext): LiveConnectorSourceConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LiveConnectorSourceConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_LiveConnectorSourceList omitted.
 
 /**
  * deserializeAws_restJson1MediaCapturePipeline
  */
 const de_MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCapturePipeline => {
-  return {
-    ChimeSdkMeetingConfiguration:
-      output.ChimeSdkMeetingConfiguration != null
-        ? de_ChimeSdkMeetingConfiguration(output.ChimeSdkMeetingConfiguration, context)
-        : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-    SinkArn: __expectString(output.SinkArn),
-    SinkType: __expectString(output.SinkType),
-    SourceArn: __expectString(output.SourceArn),
-    SourceType: __expectString(output.SourceType),
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    ChimeSdkMeetingConfiguration: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    SinkArn: __expectString,
+    SinkType: __expectString,
+    SourceArn: __expectString,
+    SourceType: __expectString,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1MediaCapturePipelineSourceConfiguration
- */
-const de_MediaCapturePipelineSourceConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MediaCapturePipelineSourceConfiguration => {
-  return {
-    ChimeSdkMeetingConfiguration:
-      output.ChimeSdkMeetingConfiguration != null
-        ? de_ChimeSdkMeetingConcatenationConfiguration(output.ChimeSdkMeetingConfiguration, context)
-        : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-  } as any;
-};
+// de_MediaCapturePipelineSourceConfiguration omitted.
 
-/**
- * deserializeAws_restJson1MediaCapturePipelineSummary
- */
-const de_MediaCapturePipelineSummary = (output: any, context: __SerdeContext): MediaCapturePipelineSummary => {
-  return {
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-  } as any;
-};
+// de_MediaCapturePipelineSummary omitted.
 
-/**
- * deserializeAws_restJson1MediaCapturePipelineSummaryList
- */
-const de_MediaCapturePipelineSummaryList = (output: any, context: __SerdeContext): MediaCapturePipelineSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MediaCapturePipelineSummary(entry, context);
-    });
-  return retVal;
-};
+// de_MediaCapturePipelineSummaryList omitted.
 
 /**
  * deserializeAws_restJson1MediaConcatenationPipeline
  */
 const de_MediaConcatenationPipeline = (output: any, context: __SerdeContext): MediaConcatenationPipeline => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-    Sinks: output.Sinks != null ? de_ConcatenationSinkList(output.Sinks, context) : undefined,
-    Sources: output.Sources != null ? de_ConcatenationSourceList(output.Sources, context) : undefined,
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    Sinks: _json,
+    Sources: _json,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MediaInsightsPipeline
  */
 const de_MediaInsightsPipeline = (output: any, context: __SerdeContext): MediaInsightsPipeline => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    KinesisVideoStreamRecordingSourceRuntimeConfiguration:
-      output.KinesisVideoStreamRecordingSourceRuntimeConfiguration != null
-        ? de_KinesisVideoStreamRecordingSourceRuntimeConfiguration(
-            output.KinesisVideoStreamRecordingSourceRuntimeConfiguration,
-            context
-          )
-        : undefined,
-    KinesisVideoStreamSourceRuntimeConfiguration:
-      output.KinesisVideoStreamSourceRuntimeConfiguration != null
-        ? de_KinesisVideoStreamSourceRuntimeConfiguration(output.KinesisVideoStreamSourceRuntimeConfiguration, context)
-        : undefined,
-    MediaInsightsPipelineConfigurationArn: __expectString(output.MediaInsightsPipelineConfigurationArn),
-    MediaInsightsRuntimeMetadata:
-      output.MediaInsightsRuntimeMetadata != null
-        ? de_MediaInsightsRuntimeMetadata(output.MediaInsightsRuntimeMetadata, context)
-        : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-    S3RecordingSinkRuntimeConfiguration:
-      output.S3RecordingSinkRuntimeConfiguration != null
-        ? de_S3RecordingSinkRuntimeConfiguration(output.S3RecordingSinkRuntimeConfiguration, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    KinesisVideoStreamRecordingSourceRuntimeConfiguration: (_: any) =>
+      de_KinesisVideoStreamRecordingSourceRuntimeConfiguration(_, context),
+    KinesisVideoStreamSourceRuntimeConfiguration: _json,
+    MediaInsightsPipelineConfigurationArn: __expectString,
+    MediaInsightsRuntimeMetadata: _json,
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    S3RecordingSinkRuntimeConfiguration: _json,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3764,514 +2486,118 @@ const de_MediaInsightsPipelineConfiguration = (
   output: any,
   context: __SerdeContext
 ): MediaInsightsPipelineConfiguration => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    Elements:
-      output.Elements != null ? de_MediaInsightsPipelineConfigurationElements(output.Elements, context) : undefined,
-    MediaInsightsPipelineConfigurationArn: __expectString(output.MediaInsightsPipelineConfigurationArn),
-    MediaInsightsPipelineConfigurationId: __expectString(output.MediaInsightsPipelineConfigurationId),
-    MediaInsightsPipelineConfigurationName: __expectString(output.MediaInsightsPipelineConfigurationName),
-    RealTimeAlertConfiguration:
-      output.RealTimeAlertConfiguration != null
-        ? de_RealTimeAlertConfiguration(output.RealTimeAlertConfiguration, context)
-        : undefined,
-    ResourceAccessRoleArn: __expectString(output.ResourceAccessRoleArn),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Elements: _json,
+    MediaInsightsPipelineConfigurationArn: __expectString,
+    MediaInsightsPipelineConfigurationId: __expectString,
+    MediaInsightsPipelineConfigurationName: __expectString,
+    RealTimeAlertConfiguration: _json,
+    ResourceAccessRoleArn: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1MediaInsightsPipelineConfigurationElement
- */
-const de_MediaInsightsPipelineConfigurationElement = (
-  output: any,
-  context: __SerdeContext
-): MediaInsightsPipelineConfigurationElement => {
-  return {
-    AmazonTranscribeCallAnalyticsProcessorConfiguration:
-      output.AmazonTranscribeCallAnalyticsProcessorConfiguration != null
-        ? de_AmazonTranscribeCallAnalyticsProcessorConfiguration(
-            output.AmazonTranscribeCallAnalyticsProcessorConfiguration,
-            context
-          )
-        : undefined,
-    AmazonTranscribeProcessorConfiguration:
-      output.AmazonTranscribeProcessorConfiguration != null
-        ? de_AmazonTranscribeProcessorConfiguration(output.AmazonTranscribeProcessorConfiguration, context)
-        : undefined,
-    KinesisDataStreamSinkConfiguration:
-      output.KinesisDataStreamSinkConfiguration != null
-        ? de_KinesisDataStreamSinkConfiguration(output.KinesisDataStreamSinkConfiguration, context)
-        : undefined,
-    LambdaFunctionSinkConfiguration:
-      output.LambdaFunctionSinkConfiguration != null
-        ? de_LambdaFunctionSinkConfiguration(output.LambdaFunctionSinkConfiguration, context)
-        : undefined,
-    S3RecordingSinkConfiguration:
-      output.S3RecordingSinkConfiguration != null
-        ? de_S3RecordingSinkConfiguration(output.S3RecordingSinkConfiguration, context)
-        : undefined,
-    SnsTopicSinkConfiguration:
-      output.SnsTopicSinkConfiguration != null
-        ? de_SnsTopicSinkConfiguration(output.SnsTopicSinkConfiguration, context)
-        : undefined,
-    SqsQueueSinkConfiguration:
-      output.SqsQueueSinkConfiguration != null
-        ? de_SqsQueueSinkConfiguration(output.SqsQueueSinkConfiguration, context)
-        : undefined,
-    Type: __expectString(output.Type),
-    VoiceAnalyticsProcessorConfiguration:
-      output.VoiceAnalyticsProcessorConfiguration != null
-        ? de_VoiceAnalyticsProcessorConfiguration(output.VoiceAnalyticsProcessorConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_MediaInsightsPipelineConfigurationElement omitted.
 
-/**
- * deserializeAws_restJson1MediaInsightsPipelineConfigurationElements
- */
-const de_MediaInsightsPipelineConfigurationElements = (
-  output: any,
-  context: __SerdeContext
-): MediaInsightsPipelineConfigurationElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MediaInsightsPipelineConfigurationElement(entry, context);
-    });
-  return retVal;
-};
+// de_MediaInsightsPipelineConfigurationElements omitted.
 
-/**
- * deserializeAws_restJson1MediaInsightsPipelineConfigurationSummary
- */
-const de_MediaInsightsPipelineConfigurationSummary = (
-  output: any,
-  context: __SerdeContext
-): MediaInsightsPipelineConfigurationSummary => {
-  return {
-    MediaInsightsPipelineConfigurationArn: __expectString(output.MediaInsightsPipelineConfigurationArn),
-    MediaInsightsPipelineConfigurationId: __expectString(output.MediaInsightsPipelineConfigurationId),
-    MediaInsightsPipelineConfigurationName: __expectString(output.MediaInsightsPipelineConfigurationName),
-  } as any;
-};
+// de_MediaInsightsPipelineConfigurationSummary omitted.
 
-/**
- * deserializeAws_restJson1MediaInsightsPipelineConfigurationSummaryList
- */
-const de_MediaInsightsPipelineConfigurationSummaryList = (
-  output: any,
-  context: __SerdeContext
-): MediaInsightsPipelineConfigurationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MediaInsightsPipelineConfigurationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_MediaInsightsPipelineConfigurationSummaryList omitted.
 
-/**
- * deserializeAws_restJson1MediaInsightsRuntimeMetadata
- */
-const de_MediaInsightsRuntimeMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_MediaInsightsRuntimeMetadata omitted.
 
 /**
  * deserializeAws_restJson1MediaLiveConnectorPipeline
  */
 const de_MediaLiveConnectorPipeline = (output: any, context: __SerdeContext): MediaLiveConnectorPipeline => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-    Sinks: output.Sinks != null ? de_LiveConnectorSinkList(output.Sinks, context) : undefined,
-    Sources: output.Sources != null ? de_LiveConnectorSourceList(output.Sources, context) : undefined,
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    Sinks: _json,
+    Sources: _json,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MediaPipeline
  */
 const de_MediaPipeline = (output: any, context: __SerdeContext): MediaPipeline => {
-  return {
-    MediaCapturePipeline:
-      output.MediaCapturePipeline != null ? de_MediaCapturePipeline(output.MediaCapturePipeline, context) : undefined,
-    MediaConcatenationPipeline:
-      output.MediaConcatenationPipeline != null
-        ? de_MediaConcatenationPipeline(output.MediaConcatenationPipeline, context)
-        : undefined,
-    MediaInsightsPipeline:
-      output.MediaInsightsPipeline != null
-        ? de_MediaInsightsPipeline(output.MediaInsightsPipeline, context)
-        : undefined,
-    MediaLiveConnectorPipeline:
-      output.MediaLiveConnectorPipeline != null
-        ? de_MediaLiveConnectorPipeline(output.MediaLiveConnectorPipeline, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    MediaCapturePipeline: (_: any) => de_MediaCapturePipeline(_, context),
+    MediaConcatenationPipeline: (_: any) => de_MediaConcatenationPipeline(_, context),
+    MediaInsightsPipeline: (_: any) => de_MediaInsightsPipeline(_, context),
+    MediaLiveConnectorPipeline: (_: any) => de_MediaLiveConnectorPipeline(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1MediaPipelineList
- */
-const de_MediaPipelineList = (output: any, context: __SerdeContext): MediaPipelineSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MediaPipelineSummary(entry, context);
-    });
-  return retVal;
-};
+// de_MediaPipelineList omitted.
 
-/**
- * deserializeAws_restJson1MediaPipelineSummary
- */
-const de_MediaPipelineSummary = (output: any, context: __SerdeContext): MediaPipelineSummary => {
-  return {
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-  } as any;
-};
+// de_MediaPipelineSummary omitted.
 
-/**
- * deserializeAws_restJson1MeetingEventsConcatenationConfiguration
- */
-const de_MeetingEventsConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MeetingEventsConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_MeetingEventsConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1PostCallAnalyticsSettings
- */
-const de_PostCallAnalyticsSettings = (output: any, context: __SerdeContext): PostCallAnalyticsSettings => {
-  return {
-    ContentRedactionOutput: __expectString(output.ContentRedactionOutput),
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    OutputEncryptionKMSKeyId: __expectString(output.OutputEncryptionKMSKeyId),
-    OutputLocation: __expectString(output.OutputLocation),
-  } as any;
-};
+// de_PostCallAnalyticsSettings omitted.
 
-/**
- * deserializeAws_restJson1PresenterOnlyConfiguration
- */
-const de_PresenterOnlyConfiguration = (output: any, context: __SerdeContext): PresenterOnlyConfiguration => {
-  return {
-    PresenterPosition: __expectString(output.PresenterPosition),
-  } as any;
-};
+// de_PresenterOnlyConfiguration omitted.
 
-/**
- * deserializeAws_restJson1RealTimeAlertConfiguration
- */
-const de_RealTimeAlertConfiguration = (output: any, context: __SerdeContext): RealTimeAlertConfiguration => {
-  return {
-    Disabled: __expectBoolean(output.Disabled),
-    Rules: output.Rules != null ? de_RealTimeAlertRuleList(output.Rules, context) : undefined,
-  } as any;
-};
+// de_RealTimeAlertConfiguration omitted.
 
-/**
- * deserializeAws_restJson1RealTimeAlertRule
- */
-const de_RealTimeAlertRule = (output: any, context: __SerdeContext): RealTimeAlertRule => {
-  return {
-    IssueDetectionConfiguration:
-      output.IssueDetectionConfiguration != null
-        ? de_IssueDetectionConfiguration(output.IssueDetectionConfiguration, context)
-        : undefined,
-    KeywordMatchConfiguration:
-      output.KeywordMatchConfiguration != null
-        ? de_KeywordMatchConfiguration(output.KeywordMatchConfiguration, context)
-        : undefined,
-    SentimentConfiguration:
-      output.SentimentConfiguration != null
-        ? de_SentimentConfiguration(output.SentimentConfiguration, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_RealTimeAlertRule omitted.
 
-/**
- * deserializeAws_restJson1RealTimeAlertRuleList
- */
-const de_RealTimeAlertRuleList = (output: any, context: __SerdeContext): RealTimeAlertRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RealTimeAlertRule(entry, context);
-    });
-  return retVal;
-};
+// de_RealTimeAlertRuleList omitted.
 
-/**
- * deserializeAws_restJson1RecordingStreamConfiguration
- */
-const de_RecordingStreamConfiguration = (output: any, context: __SerdeContext): RecordingStreamConfiguration => {
-  return {
-    StreamArn: __expectString(output.StreamArn),
-  } as any;
-};
+// de_RecordingStreamConfiguration omitted.
 
-/**
- * deserializeAws_restJson1RecordingStreamList
- */
-const de_RecordingStreamList = (output: any, context: __SerdeContext): RecordingStreamConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecordingStreamConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_RecordingStreamList omitted.
 
-/**
- * deserializeAws_restJson1S3BucketSinkConfiguration
- */
-const de_S3BucketSinkConfiguration = (output: any, context: __SerdeContext): S3BucketSinkConfiguration => {
-  return {
-    Destination: __expectString(output.Destination),
-  } as any;
-};
+// de_S3BucketSinkConfiguration omitted.
 
-/**
- * deserializeAws_restJson1S3RecordingSinkConfiguration
- */
-const de_S3RecordingSinkConfiguration = (output: any, context: __SerdeContext): S3RecordingSinkConfiguration => {
-  return {
-    Destination: __expectString(output.Destination),
-  } as any;
-};
+// de_S3RecordingSinkConfiguration omitted.
 
-/**
- * deserializeAws_restJson1S3RecordingSinkRuntimeConfiguration
- */
-const de_S3RecordingSinkRuntimeConfiguration = (
-  output: any,
-  context: __SerdeContext
-): S3RecordingSinkRuntimeConfiguration => {
-  return {
-    Destination: __expectString(output.Destination),
-    RecordingFileFormat: __expectString(output.RecordingFileFormat),
-  } as any;
-};
+// de_S3RecordingSinkRuntimeConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SelectedVideoStreams
- */
-const de_SelectedVideoStreams = (output: any, context: __SerdeContext): SelectedVideoStreams => {
-  return {
-    AttendeeIds: output.AttendeeIds != null ? de_AttendeeIdList(output.AttendeeIds, context) : undefined,
-    ExternalUserIds:
-      output.ExternalUserIds != null ? de_ExternalUserIdList(output.ExternalUserIds, context) : undefined,
-  } as any;
-};
+// de_SelectedVideoStreams omitted.
 
-/**
- * deserializeAws_restJson1SentimentConfiguration
- */
-const de_SentimentConfiguration = (output: any, context: __SerdeContext): SentimentConfiguration => {
-  return {
-    RuleName: __expectString(output.RuleName),
-    SentimentType: __expectString(output.SentimentType),
-    TimePeriod: __expectInt32(output.TimePeriod),
-  } as any;
-};
+// de_SentimentConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SnsTopicSinkConfiguration
- */
-const de_SnsTopicSinkConfiguration = (output: any, context: __SerdeContext): SnsTopicSinkConfiguration => {
-  return {
-    InsightsTarget: __expectString(output.InsightsTarget),
-  } as any;
-};
+// de_SnsTopicSinkConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SourceConfiguration
- */
-const de_SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
-  return {
-    SelectedVideoStreams:
-      output.SelectedVideoStreams != null ? de_SelectedVideoStreams(output.SelectedVideoStreams, context) : undefined,
-  } as any;
-};
+// de_SourceConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SqsQueueSinkConfiguration
- */
-const de_SqsQueueSinkConfiguration = (output: any, context: __SerdeContext): SqsQueueSinkConfiguration => {
-  return {
-    InsightsTarget: __expectString(output.InsightsTarget),
-  } as any;
-};
+// de_SqsQueueSinkConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StreamChannelDefinition
- */
-const de_StreamChannelDefinition = (output: any, context: __SerdeContext): StreamChannelDefinition => {
-  return {
-    ChannelDefinitions:
-      output.ChannelDefinitions != null ? de_ChannelDefinitions(output.ChannelDefinitions, context) : undefined,
-    NumberOfChannels: __expectInt32(output.NumberOfChannels),
-  } as any;
-};
+// de_StreamChannelDefinition omitted.
 
-/**
- * deserializeAws_restJson1StreamConfiguration
- */
-const de_StreamConfiguration = (output: any, context: __SerdeContext): StreamConfiguration => {
-  return {
-    FragmentNumber: __expectString(output.FragmentNumber),
-    StreamArn: __expectString(output.StreamArn),
-    StreamChannelDefinition:
-      output.StreamChannelDefinition != null
-        ? de_StreamChannelDefinition(output.StreamChannelDefinition, context)
-        : undefined,
-  } as any;
-};
+// de_StreamConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Streams
- */
-const de_Streams = (output: any, context: __SerdeContext): StreamConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StreamConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_Streams omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 /**
  * deserializeAws_restJson1TimestampRange
  */
 const de_TimestampRange = (output: any, context: __SerdeContext): TimestampRange => {
-  return {
-    EndTimestamp:
-      output.EndTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTimestamp)))
-        : undefined,
-    StartTimestamp:
-      output.StartTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    EndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TranscriptionMessagesConcatenationConfiguration
- */
-const de_TranscriptionMessagesConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): TranscriptionMessagesConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_TranscriptionMessagesConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1VideoArtifactsConfiguration
- */
-const de_VideoArtifactsConfiguration = (output: any, context: __SerdeContext): VideoArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_VideoArtifactsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1VideoConcatenationConfiguration
- */
-const de_VideoConcatenationConfiguration = (output: any, context: __SerdeContext): VideoConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_VideoConcatenationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1VoiceAnalyticsProcessorConfiguration
- */
-const de_VoiceAnalyticsProcessorConfiguration = (
-  output: any,
-  context: __SerdeContext
-): VoiceAnalyticsProcessorConfiguration => {
-  return {
-    SpeakerSearchStatus: __expectString(output.SpeakerSearchStatus),
-    VoiceToneAnalysisStatus: __expectString(output.VoiceToneAnalysisStatus),
-  } as any;
-};
+// de_VoiceAnalyticsProcessorConfiguration omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

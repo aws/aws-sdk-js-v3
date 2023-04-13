@@ -651,7 +651,7 @@ const se_SimpleScalarPropertiesInput = (input: SimpleScalarPropertiesInput, cont
  */
 const de_ComplexError = (output: any, context: __SerdeContext): ComplexError => {
   return take(output, {
-    Nested: (_) => de_ComplexNestedErrorData(_, context),
+    Nested: (_: any) => de_ComplexNestedErrorData(_, context),
     TopLevel: __expectString,
   }) as any;
 };
@@ -678,7 +678,7 @@ const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): Comple
  */
 const de_JsonUnionsOutput = (output: any, context: __SerdeContext): JsonUnionsOutput => {
   return take(output, {
-    contents: (_) => de_MyUnion(__expectUnion(_), context),
+    contents: (_: any) => de_MyUnion(__expectUnion(_), context),
   }) as any;
 };
 

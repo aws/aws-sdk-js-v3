@@ -13,7 +13,7 @@ import {
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3376,7 +3376,7 @@ export const de_AddRoleToDBClusterCommand = async (
   const response: AddRoleToDBClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3406,10 +3406,9 @@ const de_AddRoleToDBClusterCommandError = async (
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3429,7 +3428,7 @@ export const de_AddRoleToDBInstanceCommand = async (
   const response: AddRoleToDBInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3459,10 +3458,9 @@ const de_AddRoleToDBInstanceCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3485,7 +3483,7 @@ export const de_AddSourceIdentifierToSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3509,10 +3507,9 @@ const de_AddSourceIdentifierToSubscriptionCommandError = async (
       throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3532,7 +3529,7 @@ export const de_AddTagsToResourceCommand = async (
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3568,10 +3565,9 @@ const de_AddTagsToResourceCommandError = async (
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3594,7 +3590,7 @@ export const de_ApplyPendingMaintenanceActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3621,10 +3617,9 @@ const de_ApplyPendingMaintenanceActionCommandError = async (
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3647,7 +3642,7 @@ export const de_AuthorizeDBSecurityGroupIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3677,10 +3672,9 @@ const de_AuthorizeDBSecurityGroupIngressCommandError = async (
       throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3703,7 +3697,7 @@ export const de_BacktrackDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3727,10 +3721,9 @@ const de_BacktrackDBClusterCommandError = async (
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3753,7 +3746,7 @@ export const de_CancelExportTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3777,10 +3770,9 @@ const de_CancelExportTaskCommandError = async (
       throw await de_InvalidExportTaskStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3803,7 +3795,7 @@ export const de_CopyDBClusterParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3830,10 +3822,9 @@ const de_CopyDBClusterParameterGroupCommandError = async (
       throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3856,7 +3847,7 @@ export const de_CopyDBClusterSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3892,10 +3883,9 @@ const de_CopyDBClusterSnapshotCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3918,7 +3908,7 @@ export const de_CopyDBParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3945,10 +3935,9 @@ const de_CopyDBParameterGroupCommandError = async (
       throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3971,7 +3960,7 @@ export const de_CopyDBSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4007,10 +3996,9 @@ const de_CopyDBSnapshotCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4033,7 +4021,7 @@ export const de_CopyOptionGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4060,10 +4048,9 @@ const de_CopyOptionGroupCommandError = async (
       throw await de_OptionGroupQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4086,7 +4073,7 @@ export const de_CreateBlueGreenDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4137,10 +4124,9 @@ const de_CreateBlueGreenDeploymentCommandError = async (
       throw await de_SourceDatabaseNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4163,7 +4149,7 @@ export const de_CreateCustomDBEngineVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4196,10 +4182,9 @@ const de_CreateCustomDBEngineVersionCommandError = async (
       throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4222,7 +4207,7 @@ export const de_CreateDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4294,10 +4279,9 @@ const de_CreateDBClusterCommandError = async (
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4320,7 +4304,7 @@ export const de_CreateDBClusterEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4356,10 +4340,9 @@ const de_CreateDBClusterEndpointCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4382,7 +4365,7 @@ export const de_CreateDBClusterParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4406,10 +4389,9 @@ const de_CreateDBClusterParameterGroupCommandError = async (
       throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4432,7 +4414,7 @@ export const de_CreateDBClusterSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4465,10 +4447,9 @@ const de_CreateDBClusterSnapshotCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4491,7 +4472,7 @@ export const de_CreateDBInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4572,10 +4553,9 @@ const de_CreateDBInstanceCommandError = async (
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4598,7 +4578,7 @@ export const de_CreateDBInstanceReadReplicaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4682,10 +4662,9 @@ const de_CreateDBInstanceReadReplicaCommandError = async (
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4708,7 +4687,7 @@ export const de_CreateDBParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4732,10 +4711,9 @@ const de_CreateDBParameterGroupCommandError = async (
       throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4758,7 +4736,7 @@ export const de_CreateDBProxyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4785,10 +4763,9 @@ const de_CreateDBProxyCommandError = async (
       throw await de_InvalidSubnetRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4811,7 +4788,7 @@ export const de_CreateDBProxyEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4844,10 +4821,9 @@ const de_CreateDBProxyEndpointCommandError = async (
       throw await de_InvalidSubnetRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4870,7 +4846,7 @@ export const de_CreateDBSecurityGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4897,10 +4873,9 @@ const de_CreateDBSecurityGroupCommandError = async (
       throw await de_DBSecurityGroupQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4923,7 +4898,7 @@ export const de_CreateDBSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4953,10 +4928,9 @@ const de_CreateDBSnapshotCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4979,7 +4953,7 @@ export const de_CreateDBSubnetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5012,10 +4986,9 @@ const de_CreateDBSubnetGroupCommandError = async (
       throw await de_InvalidSubnetRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5038,7 +5011,7 @@ export const de_CreateEventSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5077,10 +5050,9 @@ const de_CreateEventSubscriptionCommandError = async (
       throw await de_SubscriptionCategoryNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5103,7 +5075,7 @@ export const de_CreateGlobalClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5133,10 +5105,9 @@ const de_CreateGlobalClusterCommandError = async (
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5159,7 +5130,7 @@ export const de_CreateOptionGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5183,10 +5154,9 @@ const de_CreateOptionGroupCommandError = async (
       throw await de_OptionGroupQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5209,7 +5179,7 @@ export const de_DeleteBlueGreenDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5233,10 +5203,9 @@ const de_DeleteBlueGreenDeploymentCommandError = async (
       throw await de_InvalidBlueGreenDeploymentStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5259,7 +5228,7 @@ export const de_DeleteCustomDBEngineVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5283,10 +5252,9 @@ const de_DeleteCustomDBEngineVersionCommandError = async (
       throw await de_InvalidCustomDBEngineVersionStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5309,7 +5277,7 @@ export const de_DeleteDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5342,10 +5310,9 @@ const de_DeleteDBClusterCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5368,7 +5335,7 @@ export const de_DeleteDBClusterEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5395,10 +5362,9 @@ const de_DeleteDBClusterEndpointCommandError = async (
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5418,7 +5384,7 @@ export const de_DeleteDBClusterParameterGroupCommand = async (
   const response: DeleteDBClusterParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5442,10 +5408,9 @@ const de_DeleteDBClusterParameterGroupCommandError = async (
       throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5468,7 +5433,7 @@ export const de_DeleteDBClusterSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5492,10 +5457,9 @@ const de_DeleteDBClusterSnapshotCommandError = async (
       throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5518,7 +5482,7 @@ export const de_DeleteDBInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5554,10 +5518,9 @@ const de_DeleteDBInstanceCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5580,7 +5543,7 @@ export const de_DeleteDBInstanceAutomatedBackupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5604,10 +5567,9 @@ const de_DeleteDBInstanceAutomatedBackupCommandError = async (
       throw await de_InvalidDBInstanceAutomatedBackupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5627,7 +5589,7 @@ export const de_DeleteDBParameterGroupCommand = async (
   const response: DeleteDBParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5651,10 +5613,9 @@ const de_DeleteDBParameterGroupCommandError = async (
       throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5677,7 +5638,7 @@ export const de_DeleteDBProxyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5701,10 +5662,9 @@ const de_DeleteDBProxyCommandError = async (
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5727,7 +5687,7 @@ export const de_DeleteDBProxyEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5751,10 +5711,9 @@ const de_DeleteDBProxyEndpointCommandError = async (
       throw await de_InvalidDBProxyEndpointStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5774,7 +5733,7 @@ export const de_DeleteDBSecurityGroupCommand = async (
   const response: DeleteDBSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5798,10 +5757,9 @@ const de_DeleteDBSecurityGroupCommandError = async (
       throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5824,7 +5782,7 @@ export const de_DeleteDBSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5848,10 +5806,9 @@ const de_DeleteDBSnapshotCommandError = async (
       throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5871,7 +5828,7 @@ export const de_DeleteDBSubnetGroupCommand = async (
   const response: DeleteDBSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5898,10 +5855,9 @@ const de_DeleteDBSubnetGroupCommandError = async (
       throw await de_InvalidDBSubnetStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5924,7 +5880,7 @@ export const de_DeleteEventSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5948,10 +5904,9 @@ const de_DeleteEventSubscriptionCommandError = async (
       throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5974,7 +5929,7 @@ export const de_DeleteGlobalClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5998,10 +5953,9 @@ const de_DeleteGlobalClusterCommandError = async (
       throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6021,7 +5975,7 @@ export const de_DeleteOptionGroupCommand = async (
   const response: DeleteOptionGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6045,10 +5999,9 @@ const de_DeleteOptionGroupCommandError = async (
       throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6071,7 +6024,7 @@ export const de_DeregisterDBProxyTargetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6101,10 +6054,9 @@ const de_DeregisterDBProxyTargetsCommandError = async (
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6127,7 +6079,7 @@ export const de_DescribeAccountAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6143,10 +6095,9 @@ const de_DescribeAccountAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6168,7 +6119,7 @@ export const de_DescribeBlueGreenDeploymentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6189,10 +6140,9 @@ const de_DescribeBlueGreenDeploymentsCommandError = async (
       throw await de_BlueGreenDeploymentNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6215,7 +6165,7 @@ export const de_DescribeCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6236,10 +6186,9 @@ const de_DescribeCertificatesCommandError = async (
       throw await de_CertificateNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6262,7 +6211,7 @@ export const de_DescribeDBClusterBacktracksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6286,10 +6235,9 @@ const de_DescribeDBClusterBacktracksCommandError = async (
       throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6312,7 +6260,7 @@ export const de_DescribeDBClusterEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6333,10 +6281,9 @@ const de_DescribeDBClusterEndpointsCommandError = async (
       throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6359,7 +6306,7 @@ export const de_DescribeDBClusterParameterGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6380,10 +6327,9 @@ const de_DescribeDBClusterParameterGroupsCommandError = async (
       throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6406,7 +6352,7 @@ export const de_DescribeDBClusterParametersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6427,10 +6373,9 @@ const de_DescribeDBClusterParametersCommandError = async (
       throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6453,7 +6398,7 @@ export const de_DescribeDBClustersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6474,10 +6419,9 @@ const de_DescribeDBClustersCommandError = async (
       throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6500,7 +6444,7 @@ export const de_DescribeDBClusterSnapshotAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6521,10 +6465,9 @@ const de_DescribeDBClusterSnapshotAttributesCommandError = async (
       throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6547,7 +6490,7 @@ export const de_DescribeDBClusterSnapshotsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6568,10 +6511,9 @@ const de_DescribeDBClusterSnapshotsCommandError = async (
       throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6594,7 +6536,7 @@ export const de_DescribeDBEngineVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6610,10 +6552,9 @@ const de_DescribeDBEngineVersionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -6635,7 +6576,7 @@ export const de_DescribeDBInstanceAutomatedBackupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6656,10 +6597,9 @@ const de_DescribeDBInstanceAutomatedBackupsCommandError = async (
       throw await de_DBInstanceAutomatedBackupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6682,7 +6622,7 @@ export const de_DescribeDBInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6703,10 +6643,9 @@ const de_DescribeDBInstancesCommandError = async (
       throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6729,7 +6668,7 @@ export const de_DescribeDBLogFilesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6750,10 +6689,9 @@ const de_DescribeDBLogFilesCommandError = async (
       throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6776,7 +6714,7 @@ export const de_DescribeDBParameterGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6797,10 +6735,9 @@ const de_DescribeDBParameterGroupsCommandError = async (
       throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6823,7 +6760,7 @@ export const de_DescribeDBParametersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6844,10 +6781,9 @@ const de_DescribeDBParametersCommandError = async (
       throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6870,7 +6806,7 @@ export const de_DescribeDBProxiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6891,10 +6827,9 @@ const de_DescribeDBProxiesCommandError = async (
       throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6917,7 +6852,7 @@ export const de_DescribeDBProxyEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6941,10 +6876,9 @@ const de_DescribeDBProxyEndpointsCommandError = async (
       throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6967,7 +6901,7 @@ export const de_DescribeDBProxyTargetGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6994,10 +6928,9 @@ const de_DescribeDBProxyTargetGroupsCommandError = async (
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7020,7 +6953,7 @@ export const de_DescribeDBProxyTargetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7050,10 +6983,9 @@ const de_DescribeDBProxyTargetsCommandError = async (
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7076,7 +7008,7 @@ export const de_DescribeDBSecurityGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7097,10 +7029,9 @@ const de_DescribeDBSecurityGroupsCommandError = async (
       throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7123,7 +7054,7 @@ export const de_DescribeDBSnapshotAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7144,10 +7075,9 @@ const de_DescribeDBSnapshotAttributesCommandError = async (
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7170,7 +7100,7 @@ export const de_DescribeDBSnapshotsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7191,10 +7121,9 @@ const de_DescribeDBSnapshotsCommandError = async (
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7217,7 +7146,7 @@ export const de_DescribeDBSubnetGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7238,10 +7167,9 @@ const de_DescribeDBSubnetGroupsCommandError = async (
       throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7267,7 +7195,7 @@ export const de_DescribeEngineDefaultClusterParametersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7283,10 +7211,9 @@ const de_DescribeEngineDefaultClusterParametersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7308,7 +7235,7 @@ export const de_DescribeEngineDefaultParametersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7324,10 +7251,9 @@ const de_DescribeEngineDefaultParametersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7349,7 +7275,7 @@ export const de_DescribeEventCategoriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7365,10 +7291,9 @@ const de_DescribeEventCategoriesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7390,7 +7315,7 @@ export const de_DescribeEventsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7406,10 +7331,9 @@ const de_DescribeEventsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7431,7 +7355,7 @@ export const de_DescribeEventSubscriptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7452,10 +7376,9 @@ const de_DescribeEventSubscriptionsCommandError = async (
       throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7478,7 +7401,7 @@ export const de_DescribeExportTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7499,10 +7422,9 @@ const de_DescribeExportTasksCommandError = async (
       throw await de_ExportTaskNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7525,7 +7447,7 @@ export const de_DescribeGlobalClustersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7546,10 +7468,9 @@ const de_DescribeGlobalClustersCommandError = async (
       throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7572,7 +7493,7 @@ export const de_DescribeOptionGroupOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7588,10 +7509,9 @@ const de_DescribeOptionGroupOptionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7613,7 +7533,7 @@ export const de_DescribeOptionGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7634,10 +7554,9 @@ const de_DescribeOptionGroupsCommandError = async (
       throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7660,7 +7579,7 @@ export const de_DescribeOrderableDBInstanceOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7676,10 +7595,9 @@ const de_DescribeOrderableDBInstanceOptionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7701,7 +7619,7 @@ export const de_DescribePendingMaintenanceActionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7722,10 +7640,9 @@ const de_DescribePendingMaintenanceActionsCommandError = async (
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7748,7 +7665,7 @@ export const de_DescribeReservedDBInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7769,10 +7686,9 @@ const de_DescribeReservedDBInstancesCommandError = async (
       throw await de_ReservedDBInstanceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7795,7 +7711,7 @@ export const de_DescribeReservedDBInstancesOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7816,10 +7732,9 @@ const de_DescribeReservedDBInstancesOfferingsCommandError = async (
       throw await de_ReservedDBInstancesOfferingNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7842,7 +7757,7 @@ export const de_DescribeSourceRegionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7858,10 +7773,9 @@ const de_DescribeSourceRegionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -7883,7 +7797,7 @@ export const de_DescribeValidDBInstanceModificationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7907,10 +7821,9 @@ const de_DescribeValidDBInstanceModificationsCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7933,7 +7846,7 @@ export const de_DownloadDBLogFilePortionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7957,10 +7870,9 @@ const de_DownloadDBLogFilePortionCommandError = async (
       throw await de_DBLogFileNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7983,7 +7895,7 @@ export const de_FailoverDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8010,10 +7922,9 @@ const de_FailoverDBClusterCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8036,7 +7947,7 @@ export const de_FailoverGlobalClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8066,10 +7977,9 @@ const de_FailoverGlobalClusterCommandError = async (
       throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8092,7 +8002,7 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8128,10 +8038,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8154,7 +8063,7 @@ export const de_ModifyActivityStreamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8181,10 +8090,9 @@ const de_ModifyActivityStreamCommandError = async (
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8207,7 +8115,7 @@ export const de_ModifyCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8228,10 +8136,9 @@ const de_ModifyCertificatesCommandError = async (
       throw await de_CertificateNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8254,7 +8161,7 @@ export const de_ModifyCurrentDBClusterCapacityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8281,10 +8188,9 @@ const de_ModifyCurrentDBClusterCapacityCommandError = async (
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8307,7 +8213,7 @@ export const de_ModifyCustomDBEngineVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8331,10 +8237,9 @@ const de_ModifyCustomDBEngineVersionCommandError = async (
       throw await de_InvalidCustomDBEngineVersionStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8357,7 +8262,7 @@ export const de_ModifyDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8414,10 +8319,9 @@ const de_ModifyDBClusterCommandError = async (
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8440,7 +8344,7 @@ export const de_ModifyDBClusterEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8473,10 +8377,9 @@ const de_ModifyDBClusterEndpointCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8499,7 +8402,7 @@ export const de_ModifyDBClusterParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8523,10 +8426,9 @@ const de_ModifyDBClusterParameterGroupCommandError = async (
       throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8549,7 +8451,7 @@ export const de_ModifyDBClusterSnapshotAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8576,10 +8478,9 @@ const de_ModifyDBClusterSnapshotAttributeCommandError = async (
       throw await de_SharedSnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8602,7 +8503,7 @@ export const de_ModifyDBInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8680,10 +8581,9 @@ const de_ModifyDBInstanceCommandError = async (
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8706,7 +8606,7 @@ export const de_ModifyDBParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8730,10 +8630,9 @@ const de_ModifyDBParameterGroupCommandError = async (
       throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8756,7 +8655,7 @@ export const de_ModifyDBProxyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8783,10 +8682,9 @@ const de_ModifyDBProxyCommandError = async (
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8809,7 +8707,7 @@ export const de_ModifyDBProxyEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8839,10 +8737,9 @@ const de_ModifyDBProxyEndpointCommandError = async (
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8865,7 +8762,7 @@ export const de_ModifyDBProxyTargetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8892,10 +8789,9 @@ const de_ModifyDBProxyTargetGroupCommandError = async (
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8918,7 +8814,7 @@ export const de_ModifyDBSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8939,10 +8835,9 @@ const de_ModifyDBSnapshotCommandError = async (
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8965,7 +8860,7 @@ export const de_ModifyDBSnapshotAttributeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8992,10 +8887,9 @@ const de_ModifyDBSnapshotAttributeCommandError = async (
       throw await de_SharedSnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9018,7 +8912,7 @@ export const de_ModifyDBSubnetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9051,10 +8945,9 @@ const de_ModifyDBSubnetGroupCommandError = async (
       throw await de_SubnetAlreadyInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9077,7 +8970,7 @@ export const de_ModifyEventSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9113,10 +9006,9 @@ const de_ModifyEventSubscriptionCommandError = async (
       throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9139,7 +9031,7 @@ export const de_ModifyGlobalClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9169,10 +9061,9 @@ const de_ModifyGlobalClusterCommandError = async (
       throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9195,7 +9086,7 @@ export const de_ModifyOptionGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9219,10 +9110,9 @@ const de_ModifyOptionGroupCommandError = async (
       throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9245,7 +9135,7 @@ export const de_PromoteReadReplicaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9269,10 +9159,9 @@ const de_PromoteReadReplicaCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9295,7 +9184,7 @@ export const de_PromoteReadReplicaDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9319,10 +9208,9 @@ const de_PromoteReadReplicaDBClusterCommandError = async (
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9345,7 +9233,7 @@ export const de_PurchaseReservedDBInstancesOfferingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9372,10 +9260,9 @@ const de_PurchaseReservedDBInstancesOfferingCommandError = async (
       throw await de_ReservedDBInstancesOfferingNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9398,7 +9285,7 @@ export const de_RebootDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9425,10 +9312,9 @@ const de_RebootDBClusterCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9451,7 +9337,7 @@ export const de_RebootDBInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9475,10 +9361,9 @@ const de_RebootDBInstanceCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9501,7 +9386,7 @@ export const de_RegisterDBProxyTargetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9546,10 +9431,9 @@ const de_RegisterDBProxyTargetsCommandError = async (
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9572,7 +9456,7 @@ export const de_RemoveFromGlobalClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9599,10 +9483,9 @@ const de_RemoveFromGlobalClusterCommandError = async (
       throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9622,7 +9505,7 @@ export const de_RemoveRoleFromDBClusterCommand = async (
   const response: RemoveRoleFromDBClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9649,10 +9532,9 @@ const de_RemoveRoleFromDBClusterCommandError = async (
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9672,7 +9554,7 @@ export const de_RemoveRoleFromDBInstanceCommand = async (
   const response: RemoveRoleFromDBInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9699,10 +9581,9 @@ const de_RemoveRoleFromDBInstanceCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9728,7 +9609,7 @@ export const de_RemoveSourceIdentifierFromSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9752,10 +9633,9 @@ const de_RemoveSourceIdentifierFromSubscriptionCommandError = async (
       throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9775,7 +9655,7 @@ export const de_RemoveTagsFromResourceCommand = async (
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9811,10 +9691,9 @@ const de_RemoveTagsFromResourceCommandError = async (
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9837,7 +9716,7 @@ export const de_ResetDBClusterParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9861,10 +9740,9 @@ const de_ResetDBClusterParameterGroupCommandError = async (
       throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9887,7 +9765,7 @@ export const de_ResetDBParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9911,10 +9789,9 @@ const de_ResetDBParameterGroupCommandError = async (
       throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9937,7 +9814,7 @@ export const de_RestoreDBClusterFromS3Command = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9997,10 +9874,9 @@ const de_RestoreDBClusterFromS3CommandError = async (
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10023,7 +9899,7 @@ export const de_RestoreDBClusterFromSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10095,10 +9971,9 @@ const de_RestoreDBClusterFromSnapshotCommandError = async (
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10121,7 +9996,7 @@ export const de_RestoreDBClusterToPointInTimeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10193,10 +10068,9 @@ const de_RestoreDBClusterToPointInTimeCommandError = async (
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10219,7 +10093,7 @@ export const de_RestoreDBInstanceFromDBSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10303,10 +10177,9 @@ const de_RestoreDBInstanceFromDBSnapshotCommandError = async (
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10329,7 +10202,7 @@ export const de_RestoreDBInstanceFromS3Command = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10401,10 +10274,9 @@ const de_RestoreDBInstanceFromS3CommandError = async (
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10427,7 +10299,7 @@ export const de_RestoreDBInstanceToPointInTimeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10514,10 +10386,9 @@ const de_RestoreDBInstanceToPointInTimeCommandError = async (
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10540,7 +10411,7 @@ export const de_RevokeDBSecurityGroupIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10567,10 +10438,9 @@ const de_RevokeDBSecurityGroupIngressCommandError = async (
       throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10593,7 +10463,7 @@ export const de_StartActivityStreamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10629,10 +10499,9 @@ const de_StartActivityStreamCommandError = async (
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10655,7 +10524,7 @@ export const de_StartDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10682,10 +10551,9 @@ const de_StartDBClusterCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10708,7 +10576,7 @@ export const de_StartDBInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10759,10 +10627,9 @@ const de_StartDBInstanceCommandError = async (
       throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10788,7 +10655,7 @@ export const de_StartDBInstanceAutomatedBackupsReplicationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10821,10 +10688,9 @@ const de_StartDBInstanceAutomatedBackupsReplicationCommandError = async (
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10847,7 +10713,7 @@ export const de_StartExportTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10895,10 +10761,9 @@ const de_StartExportTaskCommandError = async (
       throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10921,7 +10786,7 @@ export const de_StopActivityStreamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10954,10 +10819,9 @@ const de_StopActivityStreamCommandError = async (
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10980,7 +10844,7 @@ export const de_StopDBClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11007,10 +10871,9 @@ const de_StopDBClusterCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11033,7 +10896,7 @@ export const de_StopDBInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11066,10 +10929,9 @@ const de_StopDBInstanceCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11095,7 +10957,7 @@ export const de_StopDBInstanceAutomatedBackupsReplicationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11119,10 +10981,9 @@ const de_StopDBInstanceAutomatedBackupsReplicationCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11145,7 +11006,7 @@ export const de_SwitchoverBlueGreenDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11169,10 +11030,9 @@ const de_SwitchoverBlueGreenDeploymentCommandError = async (
       throw await de_InvalidBlueGreenDeploymentStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11195,7 +11055,7 @@ export const de_SwitchoverReadReplicaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11219,10 +11079,9 @@ const de_SwitchoverReadReplicaCommandError = async (
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -26579,6 +26438,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

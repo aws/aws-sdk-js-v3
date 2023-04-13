@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -207,212 +207,112 @@ import { UpdateXssMatchSetCommandInput, UpdateXssMatchSetCommandOutput } from ".
 import {
   ActivatedRule,
   AssociateWebACLRequest,
-  AssociateWebACLResponse,
   ByteMatchSet,
-  ByteMatchSetSummary,
   ByteMatchSetUpdate,
   ByteMatchTuple,
   CreateByteMatchSetRequest,
   CreateByteMatchSetResponse,
   CreateGeoMatchSetRequest,
-  CreateGeoMatchSetResponse,
   CreateIPSetRequest,
-  CreateIPSetResponse,
   CreateRateBasedRuleRequest,
-  CreateRateBasedRuleResponse,
   CreateRegexMatchSetRequest,
-  CreateRegexMatchSetResponse,
   CreateRegexPatternSetRequest,
-  CreateRegexPatternSetResponse,
   CreateRuleGroupRequest,
-  CreateRuleGroupResponse,
   CreateRuleRequest,
-  CreateRuleResponse,
   CreateSizeConstraintSetRequest,
-  CreateSizeConstraintSetResponse,
   CreateSqlInjectionMatchSetRequest,
-  CreateSqlInjectionMatchSetResponse,
   CreateWebACLMigrationStackRequest,
-  CreateWebACLMigrationStackResponse,
   CreateWebACLRequest,
-  CreateWebACLResponse,
   CreateXssMatchSetRequest,
-  CreateXssMatchSetResponse,
   DeleteByteMatchSetRequest,
-  DeleteByteMatchSetResponse,
   DeleteGeoMatchSetRequest,
-  DeleteGeoMatchSetResponse,
   DeleteIPSetRequest,
-  DeleteIPSetResponse,
   DeleteLoggingConfigurationRequest,
-  DeleteLoggingConfigurationResponse,
   DeletePermissionPolicyRequest,
-  DeletePermissionPolicyResponse,
   DeleteRateBasedRuleRequest,
-  DeleteRateBasedRuleResponse,
   DeleteRegexMatchSetRequest,
-  DeleteRegexMatchSetResponse,
   DeleteRegexPatternSetRequest,
-  DeleteRegexPatternSetResponse,
   DeleteRuleGroupRequest,
-  DeleteRuleGroupResponse,
   DeleteRuleRequest,
-  DeleteRuleResponse,
   DeleteSizeConstraintSetRequest,
-  DeleteSizeConstraintSetResponse,
   DeleteSqlInjectionMatchSetRequest,
-  DeleteSqlInjectionMatchSetResponse,
   DeleteWebACLRequest,
-  DeleteWebACLResponse,
   DeleteXssMatchSetRequest,
-  DeleteXssMatchSetResponse,
   DisassociateWebACLRequest,
-  DisassociateWebACLResponse,
   ExcludedRule,
   FieldToMatch,
   GeoMatchConstraint,
-  GeoMatchSet,
-  GeoMatchSetSummary,
   GeoMatchSetUpdate,
   GetByteMatchSetRequest,
   GetByteMatchSetResponse,
   GetChangeTokenRequest,
-  GetChangeTokenResponse,
   GetChangeTokenStatusRequest,
-  GetChangeTokenStatusResponse,
   GetGeoMatchSetRequest,
-  GetGeoMatchSetResponse,
   GetIPSetRequest,
-  GetIPSetResponse,
   GetLoggingConfigurationRequest,
-  GetLoggingConfigurationResponse,
   GetPermissionPolicyRequest,
-  GetPermissionPolicyResponse,
   GetRateBasedRuleManagedKeysRequest,
-  GetRateBasedRuleManagedKeysResponse,
   GetRateBasedRuleRequest,
-  GetRateBasedRuleResponse,
   GetRegexMatchSetRequest,
-  GetRegexMatchSetResponse,
   GetRegexPatternSetRequest,
-  GetRegexPatternSetResponse,
   GetRuleGroupRequest,
-  GetRuleGroupResponse,
   GetRuleRequest,
-  GetRuleResponse,
   GetSampledRequestsRequest,
   GetSampledRequestsResponse,
   GetSizeConstraintSetRequest,
-  GetSizeConstraintSetResponse,
   GetSqlInjectionMatchSetRequest,
-  GetSqlInjectionMatchSetResponse,
   GetWebACLForResourceRequest,
-  GetWebACLForResourceResponse,
   GetWebACLRequest,
-  GetWebACLResponse,
   GetXssMatchSetRequest,
-  GetXssMatchSetResponse,
-  HTTPHeader,
-  HTTPRequest,
-  IPSet,
   IPSetDescriptor,
-  IPSetSummary,
   IPSetUpdate,
   ListActivatedRulesInRuleGroupRequest,
-  ListActivatedRulesInRuleGroupResponse,
   ListByteMatchSetsRequest,
-  ListByteMatchSetsResponse,
   ListGeoMatchSetsRequest,
-  ListGeoMatchSetsResponse,
   ListIPSetsRequest,
-  ListIPSetsResponse,
   ListLoggingConfigurationsRequest,
-  ListLoggingConfigurationsResponse,
   ListRateBasedRulesRequest,
-  ListRateBasedRulesResponse,
   ListRegexMatchSetsRequest,
-  ListRegexMatchSetsResponse,
   ListRegexPatternSetsRequest,
-  ListRegexPatternSetsResponse,
   ListResourcesForWebACLRequest,
-  ListResourcesForWebACLResponse,
   ListRuleGroupsRequest,
-  ListRuleGroupsResponse,
   ListRulesRequest,
-  ListRulesResponse,
   ListSizeConstraintSetsRequest,
-  ListSizeConstraintSetsResponse,
   ListSqlInjectionMatchSetsRequest,
-  ListSqlInjectionMatchSetsResponse,
   ListSubscribedRuleGroupsRequest,
-  ListSubscribedRuleGroupsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListWebACLsRequest,
-  ListWebACLsResponse,
   ListXssMatchSetsRequest,
-  ListXssMatchSetsResponse,
   LoggingConfiguration,
   Predicate,
   PutLoggingConfigurationRequest,
-  PutLoggingConfigurationResponse,
   PutPermissionPolicyRequest,
-  PutPermissionPolicyResponse,
-  RateBasedRule,
-  RegexMatchSet,
-  RegexMatchSetSummary,
   RegexMatchSetUpdate,
   RegexMatchTuple,
-  RegexPatternSet,
-  RegexPatternSetSummary,
   RegexPatternSetUpdate,
-  Rule,
-  RuleGroup,
-  RuleGroupSummary,
   RuleGroupUpdate,
-  RuleSummary,
   RuleUpdate,
   SampledHTTPRequest,
   SizeConstraint,
-  SizeConstraintSet,
-  SizeConstraintSetSummary,
   SizeConstraintSetUpdate,
-  SqlInjectionMatchSet,
-  SqlInjectionMatchSetSummary,
   SqlInjectionMatchSetUpdate,
   SqlInjectionMatchTuple,
-  SubscribedRuleGroupSummary,
   Tag,
-  TagInfoForResource,
   TagResourceRequest,
-  TagResourceResponse,
   TimeWindow,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateByteMatchSetRequest,
-  UpdateByteMatchSetResponse,
   UpdateGeoMatchSetRequest,
-  UpdateGeoMatchSetResponse,
   UpdateIPSetRequest,
-  UpdateIPSetResponse,
   UpdateRateBasedRuleRequest,
-  UpdateRateBasedRuleResponse,
   UpdateRegexMatchSetRequest,
-  UpdateRegexMatchSetResponse,
   UpdateRegexPatternSetRequest,
-  UpdateRegexPatternSetResponse,
   UpdateRuleGroupRequest,
-  UpdateRuleGroupResponse,
   UpdateRuleRequest,
-  UpdateRuleResponse,
   UpdateSizeConstraintSetRequest,
-  UpdateSizeConstraintSetResponse,
   UpdateSqlInjectionMatchSetRequest,
-  UpdateSqlInjectionMatchSetResponse,
   UpdateWebACLRequest,
-  UpdateWebACLResponse,
   UpdateXssMatchSetRequest,
-  UpdateXssMatchSetResponse,
   WafAction,
   WAFBadRequestException,
   WAFDisallowedNameException,
@@ -435,11 +335,7 @@ import {
   WAFTagOperationException,
   WAFTagOperationInternalErrorException,
   WAFUnavailableEntityException,
-  WebACL,
-  WebACLSummary,
   WebACLUpdate,
-  XssMatchSet,
-  XssMatchSetSummary,
   XssMatchSetUpdate,
   XssMatchTuple,
 } from "../models/models_0";
@@ -454,7 +350,7 @@ export const se_AssociateWebACLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateWebACL");
   let body: any;
-  body = JSON.stringify(se_AssociateWebACLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -467,7 +363,7 @@ export const se_CreateByteMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateByteMatchSet");
   let body: any;
-  body = JSON.stringify(se_CreateByteMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -480,7 +376,7 @@ export const se_CreateGeoMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateGeoMatchSet");
   let body: any;
-  body = JSON.stringify(se_CreateGeoMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -493,7 +389,7 @@ export const se_CreateIPSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateIPSet");
   let body: any;
-  body = JSON.stringify(se_CreateIPSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -506,7 +402,7 @@ export const se_CreateRateBasedRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRateBasedRule");
   let body: any;
-  body = JSON.stringify(se_CreateRateBasedRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -519,7 +415,7 @@ export const se_CreateRegexMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRegexMatchSet");
   let body: any;
-  body = JSON.stringify(se_CreateRegexMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -532,7 +428,7 @@ export const se_CreateRegexPatternSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRegexPatternSet");
   let body: any;
-  body = JSON.stringify(se_CreateRegexPatternSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -545,7 +441,7 @@ export const se_CreateRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRule");
   let body: any;
-  body = JSON.stringify(se_CreateRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -558,7 +454,7 @@ export const se_CreateRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRuleGroup");
   let body: any;
-  body = JSON.stringify(se_CreateRuleGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -571,7 +467,7 @@ export const se_CreateSizeConstraintSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateSizeConstraintSet");
   let body: any;
-  body = JSON.stringify(se_CreateSizeConstraintSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -584,7 +480,7 @@ export const se_CreateSqlInjectionMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateSqlInjectionMatchSet");
   let body: any;
-  body = JSON.stringify(se_CreateSqlInjectionMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -597,7 +493,7 @@ export const se_CreateWebACLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWebACL");
   let body: any;
-  body = JSON.stringify(se_CreateWebACLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -610,7 +506,7 @@ export const se_CreateWebACLMigrationStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWebACLMigrationStack");
   let body: any;
-  body = JSON.stringify(se_CreateWebACLMigrationStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -623,7 +519,7 @@ export const se_CreateXssMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateXssMatchSet");
   let body: any;
-  body = JSON.stringify(se_CreateXssMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -636,7 +532,7 @@ export const se_DeleteByteMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteByteMatchSet");
   let body: any;
-  body = JSON.stringify(se_DeleteByteMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -649,7 +545,7 @@ export const se_DeleteGeoMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteGeoMatchSet");
   let body: any;
-  body = JSON.stringify(se_DeleteGeoMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -662,7 +558,7 @@ export const se_DeleteIPSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteIPSet");
   let body: any;
-  body = JSON.stringify(se_DeleteIPSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -675,7 +571,7 @@ export const se_DeleteLoggingConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLoggingConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteLoggingConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -688,7 +584,7 @@ export const se_DeletePermissionPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePermissionPolicy");
   let body: any;
-  body = JSON.stringify(se_DeletePermissionPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -701,7 +597,7 @@ export const se_DeleteRateBasedRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRateBasedRule");
   let body: any;
-  body = JSON.stringify(se_DeleteRateBasedRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -714,7 +610,7 @@ export const se_DeleteRegexMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRegexMatchSet");
   let body: any;
-  body = JSON.stringify(se_DeleteRegexMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -727,7 +623,7 @@ export const se_DeleteRegexPatternSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRegexPatternSet");
   let body: any;
-  body = JSON.stringify(se_DeleteRegexPatternSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -740,7 +636,7 @@ export const se_DeleteRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRule");
   let body: any;
-  body = JSON.stringify(se_DeleteRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -753,7 +649,7 @@ export const se_DeleteRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRuleGroup");
   let body: any;
-  body = JSON.stringify(se_DeleteRuleGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -766,7 +662,7 @@ export const se_DeleteSizeConstraintSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSizeConstraintSet");
   let body: any;
-  body = JSON.stringify(se_DeleteSizeConstraintSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -779,7 +675,7 @@ export const se_DeleteSqlInjectionMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSqlInjectionMatchSet");
   let body: any;
-  body = JSON.stringify(se_DeleteSqlInjectionMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -792,7 +688,7 @@ export const se_DeleteWebACLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteWebACL");
   let body: any;
-  body = JSON.stringify(se_DeleteWebACLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -805,7 +701,7 @@ export const se_DeleteXssMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteXssMatchSet");
   let body: any;
-  body = JSON.stringify(se_DeleteXssMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -818,7 +714,7 @@ export const se_DisassociateWebACLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateWebACL");
   let body: any;
-  body = JSON.stringify(se_DisassociateWebACLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -831,7 +727,7 @@ export const se_GetByteMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetByteMatchSet");
   let body: any;
-  body = JSON.stringify(se_GetByteMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -844,7 +740,7 @@ export const se_GetChangeTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetChangeToken");
   let body: any;
-  body = JSON.stringify(se_GetChangeTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -857,7 +753,7 @@ export const se_GetChangeTokenStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetChangeTokenStatus");
   let body: any;
-  body = JSON.stringify(se_GetChangeTokenStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -870,7 +766,7 @@ export const se_GetGeoMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetGeoMatchSet");
   let body: any;
-  body = JSON.stringify(se_GetGeoMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -883,7 +779,7 @@ export const se_GetIPSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetIPSet");
   let body: any;
-  body = JSON.stringify(se_GetIPSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -896,7 +792,7 @@ export const se_GetLoggingConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLoggingConfiguration");
   let body: any;
-  body = JSON.stringify(se_GetLoggingConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -909,7 +805,7 @@ export const se_GetPermissionPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPermissionPolicy");
   let body: any;
-  body = JSON.stringify(se_GetPermissionPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -922,7 +818,7 @@ export const se_GetRateBasedRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRateBasedRule");
   let body: any;
-  body = JSON.stringify(se_GetRateBasedRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -935,7 +831,7 @@ export const se_GetRateBasedRuleManagedKeysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRateBasedRuleManagedKeys");
   let body: any;
-  body = JSON.stringify(se_GetRateBasedRuleManagedKeysRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -948,7 +844,7 @@ export const se_GetRegexMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRegexMatchSet");
   let body: any;
-  body = JSON.stringify(se_GetRegexMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -961,7 +857,7 @@ export const se_GetRegexPatternSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRegexPatternSet");
   let body: any;
-  body = JSON.stringify(se_GetRegexPatternSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -974,7 +870,7 @@ export const se_GetRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRule");
   let body: any;
-  body = JSON.stringify(se_GetRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -987,7 +883,7 @@ export const se_GetRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRuleGroup");
   let body: any;
-  body = JSON.stringify(se_GetRuleGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1013,7 +909,7 @@ export const se_GetSizeConstraintSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSizeConstraintSet");
   let body: any;
-  body = JSON.stringify(se_GetSizeConstraintSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1026,7 +922,7 @@ export const se_GetSqlInjectionMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSqlInjectionMatchSet");
   let body: any;
-  body = JSON.stringify(se_GetSqlInjectionMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1039,7 +935,7 @@ export const se_GetWebACLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetWebACL");
   let body: any;
-  body = JSON.stringify(se_GetWebACLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1052,7 +948,7 @@ export const se_GetWebACLForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetWebACLForResource");
   let body: any;
-  body = JSON.stringify(se_GetWebACLForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1065,7 +961,7 @@ export const se_GetXssMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetXssMatchSet");
   let body: any;
-  body = JSON.stringify(se_GetXssMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1078,7 +974,7 @@ export const se_ListActivatedRulesInRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListActivatedRulesInRuleGroup");
   let body: any;
-  body = JSON.stringify(se_ListActivatedRulesInRuleGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1091,7 +987,7 @@ export const se_ListByteMatchSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListByteMatchSets");
   let body: any;
-  body = JSON.stringify(se_ListByteMatchSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1104,7 +1000,7 @@ export const se_ListGeoMatchSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListGeoMatchSets");
   let body: any;
-  body = JSON.stringify(se_ListGeoMatchSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1117,7 +1013,7 @@ export const se_ListIPSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListIPSets");
   let body: any;
-  body = JSON.stringify(se_ListIPSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1130,7 +1026,7 @@ export const se_ListLoggingConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLoggingConfigurations");
   let body: any;
-  body = JSON.stringify(se_ListLoggingConfigurationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1143,7 +1039,7 @@ export const se_ListRateBasedRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRateBasedRules");
   let body: any;
-  body = JSON.stringify(se_ListRateBasedRulesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1156,7 +1052,7 @@ export const se_ListRegexMatchSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRegexMatchSets");
   let body: any;
-  body = JSON.stringify(se_ListRegexMatchSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1169,7 +1065,7 @@ export const se_ListRegexPatternSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRegexPatternSets");
   let body: any;
-  body = JSON.stringify(se_ListRegexPatternSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1182,7 +1078,7 @@ export const se_ListResourcesForWebACLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListResourcesForWebACL");
   let body: any;
-  body = JSON.stringify(se_ListResourcesForWebACLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1195,7 +1091,7 @@ export const se_ListRuleGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRuleGroups");
   let body: any;
-  body = JSON.stringify(se_ListRuleGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1208,7 +1104,7 @@ export const se_ListRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRules");
   let body: any;
-  body = JSON.stringify(se_ListRulesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1221,7 +1117,7 @@ export const se_ListSizeConstraintSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSizeConstraintSets");
   let body: any;
-  body = JSON.stringify(se_ListSizeConstraintSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1234,7 +1130,7 @@ export const se_ListSqlInjectionMatchSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSqlInjectionMatchSets");
   let body: any;
-  body = JSON.stringify(se_ListSqlInjectionMatchSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1247,7 +1143,7 @@ export const se_ListSubscribedRuleGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSubscribedRuleGroups");
   let body: any;
-  body = JSON.stringify(se_ListSubscribedRuleGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1260,7 +1156,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1273,7 +1169,7 @@ export const se_ListWebACLsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWebACLs");
   let body: any;
-  body = JSON.stringify(se_ListWebACLsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1286,7 +1182,7 @@ export const se_ListXssMatchSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListXssMatchSets");
   let body: any;
-  body = JSON.stringify(se_ListXssMatchSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1299,7 +1195,7 @@ export const se_PutLoggingConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutLoggingConfiguration");
   let body: any;
-  body = JSON.stringify(se_PutLoggingConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1312,7 +1208,7 @@ export const se_PutPermissionPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutPermissionPolicy");
   let body: any;
-  body = JSON.stringify(se_PutPermissionPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1325,7 +1221,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1338,7 +1234,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1364,7 +1260,7 @@ export const se_UpdateGeoMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateGeoMatchSet");
   let body: any;
-  body = JSON.stringify(se_UpdateGeoMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1377,7 +1273,7 @@ export const se_UpdateIPSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateIPSet");
   let body: any;
-  body = JSON.stringify(se_UpdateIPSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1390,7 +1286,7 @@ export const se_UpdateRateBasedRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRateBasedRule");
   let body: any;
-  body = JSON.stringify(se_UpdateRateBasedRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1403,7 +1299,7 @@ export const se_UpdateRegexMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRegexMatchSet");
   let body: any;
-  body = JSON.stringify(se_UpdateRegexMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1416,7 +1312,7 @@ export const se_UpdateRegexPatternSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRegexPatternSet");
   let body: any;
-  body = JSON.stringify(se_UpdateRegexPatternSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1429,7 +1325,7 @@ export const se_UpdateRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRule");
   let body: any;
-  body = JSON.stringify(se_UpdateRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1442,7 +1338,7 @@ export const se_UpdateRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRuleGroup");
   let body: any;
-  body = JSON.stringify(se_UpdateRuleGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1455,7 +1351,7 @@ export const se_UpdateSizeConstraintSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateSizeConstraintSet");
   let body: any;
-  body = JSON.stringify(se_UpdateSizeConstraintSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1468,7 +1364,7 @@ export const se_UpdateSqlInjectionMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateSqlInjectionMatchSet");
   let body: any;
-  body = JSON.stringify(se_UpdateSqlInjectionMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1481,7 +1377,7 @@ export const se_UpdateWebACLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateWebACL");
   let body: any;
-  body = JSON.stringify(se_UpdateWebACLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1494,7 +1390,7 @@ export const se_UpdateXssMatchSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateXssMatchSet");
   let body: any;
-  body = JSON.stringify(se_UpdateXssMatchSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1510,12 +1406,12 @@ export const de_AssociateWebACLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateWebACLResponse(data, context);
+  contents = _json(data);
   const response: AssociateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1548,10 +1444,9 @@ const de_AssociateWebACLCommandError = async (
       throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1574,7 +1469,7 @@ export const de_CreateByteMatchSetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1610,10 +1505,9 @@ const de_CreateByteMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1631,12 +1525,12 @@ export const de_CreateGeoMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateGeoMatchSetResponse(data, context);
+  contents = _json(data);
   const response: CreateGeoMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1672,10 +1566,9 @@ const de_CreateGeoMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1693,12 +1586,12 @@ export const de_CreateIPSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateIPSetResponse(data, context);
+  contents = _json(data);
   const response: CreateIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1734,10 +1627,9 @@ const de_CreateIPSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1755,12 +1647,12 @@ export const de_CreateRateBasedRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateRateBasedRuleResponse(data, context);
+  contents = _json(data);
   const response: CreateRateBasedRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1802,10 +1694,9 @@ const de_CreateRateBasedRuleCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1823,12 +1714,12 @@ export const de_CreateRegexMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateRegexMatchSetResponse(data, context);
+  contents = _json(data);
   const response: CreateRegexMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1858,10 +1749,9 @@ const de_CreateRegexMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1879,12 +1769,12 @@ export const de_CreateRegexPatternSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateRegexPatternSetResponse(data, context);
+  contents = _json(data);
   const response: CreateRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1914,10 +1804,9 @@ const de_CreateRegexPatternSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1935,12 +1824,12 @@ export const de_CreateRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateRuleResponse(data, context);
+  contents = _json(data);
   const response: CreateRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1982,10 +1871,9 @@ const de_CreateRuleCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2003,12 +1891,12 @@ export const de_CreateRuleGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateRuleGroupResponse(data, context);
+  contents = _json(data);
   const response: CreateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2047,10 +1935,9 @@ const de_CreateRuleGroupCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2068,12 +1955,12 @@ export const de_CreateSizeConstraintSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateSizeConstraintSetResponse(data, context);
+  contents = _json(data);
   const response: CreateSizeConstraintSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2109,10 +1996,9 @@ const de_CreateSizeConstraintSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2130,12 +2016,12 @@ export const de_CreateSqlInjectionMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateSqlInjectionMatchSetResponse(data, context);
+  contents = _json(data);
   const response: CreateSqlInjectionMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2171,10 +2057,9 @@ const de_CreateSqlInjectionMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2192,12 +2077,12 @@ export const de_CreateWebACLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateWebACLResponse(data, context);
+  contents = _json(data);
   const response: CreateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2242,10 +2127,9 @@ const de_CreateWebACLCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2263,12 +2147,12 @@ export const de_CreateWebACLMigrationStackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateWebACLMigrationStackResponse(data, context);
+  contents = _json(data);
   const response: CreateWebACLMigrationStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2301,10 +2185,9 @@ const de_CreateWebACLMigrationStackCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2322,12 +2205,12 @@ export const de_CreateXssMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateXssMatchSetResponse(data, context);
+  contents = _json(data);
   const response: CreateXssMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2363,10 +2246,9 @@ const de_CreateXssMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2384,12 +2266,12 @@ export const de_DeleteByteMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteByteMatchSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteByteMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2425,10 +2307,9 @@ const de_DeleteByteMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2446,12 +2327,12 @@ export const de_DeleteGeoMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteGeoMatchSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteGeoMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2487,10 +2368,9 @@ const de_DeleteGeoMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2508,12 +2388,12 @@ export const de_DeleteIPSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteIPSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2549,10 +2429,9 @@ const de_DeleteIPSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2570,12 +2449,12 @@ export const de_DeleteLoggingConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteLoggingConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DeleteLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2602,10 +2481,9 @@ const de_DeleteLoggingConfigurationCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2623,12 +2501,12 @@ export const de_DeletePermissionPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeletePermissionPolicyResponse(data, context);
+  contents = _json(data);
   const response: DeletePermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2655,10 +2533,9 @@ const de_DeletePermissionPolicyCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2676,12 +2553,12 @@ export const de_DeleteRateBasedRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRateBasedRuleResponse(data, context);
+  contents = _json(data);
   const response: DeleteRateBasedRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2723,10 +2600,9 @@ const de_DeleteRateBasedRuleCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2744,12 +2620,12 @@ export const de_DeleteRegexMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRegexMatchSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteRegexMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2785,10 +2661,9 @@ const de_DeleteRegexMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2806,12 +2681,12 @@ export const de_DeleteRegexPatternSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRegexPatternSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2847,10 +2722,9 @@ const de_DeleteRegexPatternSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2868,12 +2742,12 @@ export const de_DeleteRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRuleResponse(data, context);
+  contents = _json(data);
   const response: DeleteRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2915,10 +2789,9 @@ const de_DeleteRuleCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2936,12 +2809,12 @@ export const de_DeleteRuleGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRuleGroupResponse(data, context);
+  contents = _json(data);
   const response: DeleteRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2983,10 +2856,9 @@ const de_DeleteRuleGroupCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3004,12 +2876,12 @@ export const de_DeleteSizeConstraintSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSizeConstraintSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteSizeConstraintSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3045,10 +2917,9 @@ const de_DeleteSizeConstraintSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3066,12 +2937,12 @@ export const de_DeleteSqlInjectionMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSqlInjectionMatchSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteSqlInjectionMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3107,10 +2978,9 @@ const de_DeleteSqlInjectionMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3128,12 +2998,12 @@ export const de_DeleteWebACLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteWebACLResponse(data, context);
+  contents = _json(data);
   const response: DeleteWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3175,10 +3045,9 @@ const de_DeleteWebACLCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3196,12 +3065,12 @@ export const de_DeleteXssMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteXssMatchSetResponse(data, context);
+  contents = _json(data);
   const response: DeleteXssMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3237,10 +3106,9 @@ const de_DeleteXssMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3258,12 +3126,12 @@ export const de_DisassociateWebACLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateWebACLResponse(data, context);
+  contents = _json(data);
   const response: DisassociateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3293,10 +3161,9 @@ const de_DisassociateWebACLCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3319,7 +3186,7 @@ export const de_GetByteMatchSetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3346,10 +3213,9 @@ const de_GetByteMatchSetCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3367,12 +3233,12 @@ export const de_GetChangeTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetChangeTokenResponse(data, context);
+  contents = _json(data);
   const response: GetChangeTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3393,10 +3259,9 @@ const de_GetChangeTokenCommandError = async (
       throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3414,12 +3279,12 @@ export const de_GetChangeTokenStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetChangeTokenStatusResponse(data, context);
+  contents = _json(data);
   const response: GetChangeTokenStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3443,10 +3308,9 @@ const de_GetChangeTokenStatusCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3464,12 +3328,12 @@ export const de_GetGeoMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetGeoMatchSetResponse(data, context);
+  contents = _json(data);
   const response: GetGeoMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3496,10 +3360,9 @@ const de_GetGeoMatchSetCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3517,12 +3380,12 @@ export const de_GetIPSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetIPSetResponse(data, context);
+  contents = _json(data);
   const response: GetIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3549,10 +3412,9 @@ const de_GetIPSetCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3570,12 +3432,12 @@ export const de_GetLoggingConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetLoggingConfigurationResponse(data, context);
+  contents = _json(data);
   const response: GetLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3599,10 +3461,9 @@ const de_GetLoggingConfigurationCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3620,12 +3481,12 @@ export const de_GetPermissionPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetPermissionPolicyResponse(data, context);
+  contents = _json(data);
   const response: GetPermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3649,10 +3510,9 @@ const de_GetPermissionPolicyCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3670,12 +3530,12 @@ export const de_GetRateBasedRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRateBasedRuleResponse(data, context);
+  contents = _json(data);
   const response: GetRateBasedRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3702,10 +3562,9 @@ const de_GetRateBasedRuleCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3723,12 +3582,12 @@ export const de_GetRateBasedRuleManagedKeysCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRateBasedRuleManagedKeysResponse(data, context);
+  contents = _json(data);
   const response: GetRateBasedRuleManagedKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3758,10 +3617,9 @@ const de_GetRateBasedRuleManagedKeysCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3779,12 +3637,12 @@ export const de_GetRegexMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRegexMatchSetResponse(data, context);
+  contents = _json(data);
   const response: GetRegexMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3811,10 +3669,9 @@ const de_GetRegexMatchSetCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3832,12 +3689,12 @@ export const de_GetRegexPatternSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRegexPatternSetResponse(data, context);
+  contents = _json(data);
   const response: GetRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3864,10 +3721,9 @@ const de_GetRegexPatternSetCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3885,12 +3741,12 @@ export const de_GetRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRuleResponse(data, context);
+  contents = _json(data);
   const response: GetRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3917,10 +3773,9 @@ const de_GetRuleCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3938,12 +3793,12 @@ export const de_GetRuleGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRuleGroupResponse(data, context);
+  contents = _json(data);
   const response: GetRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3967,10 +3822,9 @@ const de_GetRuleGroupCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3993,7 +3847,7 @@ export const de_GetSampledRequestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4017,10 +3871,9 @@ const de_GetSampledRequestsCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4038,12 +3891,12 @@ export const de_GetSizeConstraintSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSizeConstraintSetResponse(data, context);
+  contents = _json(data);
   const response: GetSizeConstraintSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4070,10 +3923,9 @@ const de_GetSizeConstraintSetCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4091,12 +3943,12 @@ export const de_GetSqlInjectionMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSqlInjectionMatchSetResponse(data, context);
+  contents = _json(data);
   const response: GetSqlInjectionMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4123,10 +3975,9 @@ const de_GetSqlInjectionMatchSetCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4144,12 +3995,12 @@ export const de_GetWebACLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetWebACLResponse(data, context);
+  contents = _json(data);
   const response: GetWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4176,10 +4027,9 @@ const de_GetWebACLCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4197,12 +4047,12 @@ export const de_GetWebACLForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetWebACLForResourceResponse(data, context);
+  contents = _json(data);
   const response: GetWebACLForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4235,10 +4085,9 @@ const de_GetWebACLForResourceCommandError = async (
       throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4256,12 +4105,12 @@ export const de_GetXssMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetXssMatchSetResponse(data, context);
+  contents = _json(data);
   const response: GetXssMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4288,10 +4137,9 @@ const de_GetXssMatchSetCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4309,12 +4157,12 @@ export const de_ListActivatedRulesInRuleGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListActivatedRulesInRuleGroupResponse(data, context);
+  contents = _json(data);
   const response: ListActivatedRulesInRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4341,10 +4189,9 @@ const de_ListActivatedRulesInRuleGroupCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4362,12 +4209,12 @@ export const de_ListByteMatchSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListByteMatchSetsResponse(data, context);
+  contents = _json(data);
   const response: ListByteMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4391,10 +4238,9 @@ const de_ListByteMatchSetsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4412,12 +4258,12 @@ export const de_ListGeoMatchSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListGeoMatchSetsResponse(data, context);
+  contents = _json(data);
   const response: ListGeoMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4441,10 +4287,9 @@ const de_ListGeoMatchSetsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4462,12 +4307,12 @@ export const de_ListIPSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListIPSetsResponse(data, context);
+  contents = _json(data);
   const response: ListIPSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4491,10 +4336,9 @@ const de_ListIPSetsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4512,12 +4356,12 @@ export const de_ListLoggingConfigurationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLoggingConfigurationsResponse(data, context);
+  contents = _json(data);
   const response: ListLoggingConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4544,10 +4388,9 @@ const de_ListLoggingConfigurationsCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4565,12 +4408,12 @@ export const de_ListRateBasedRulesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRateBasedRulesResponse(data, context);
+  contents = _json(data);
   const response: ListRateBasedRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4594,10 +4437,9 @@ const de_ListRateBasedRulesCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4615,12 +4457,12 @@ export const de_ListRegexMatchSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRegexMatchSetsResponse(data, context);
+  contents = _json(data);
   const response: ListRegexMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4644,10 +4486,9 @@ const de_ListRegexMatchSetsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4665,12 +4506,12 @@ export const de_ListRegexPatternSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRegexPatternSetsResponse(data, context);
+  contents = _json(data);
   const response: ListRegexPatternSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4694,10 +4535,9 @@ const de_ListRegexPatternSetsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4715,12 +4555,12 @@ export const de_ListResourcesForWebACLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListResourcesForWebACLResponse(data, context);
+  contents = _json(data);
   const response: ListResourcesForWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4750,10 +4590,9 @@ const de_ListResourcesForWebACLCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4771,12 +4610,12 @@ export const de_ListRuleGroupsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRuleGroupsResponse(data, context);
+  contents = _json(data);
   const response: ListRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4797,10 +4636,9 @@ const de_ListRuleGroupsCommandError = async (
       throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4818,12 +4656,12 @@ export const de_ListRulesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRulesResponse(data, context);
+  contents = _json(data);
   const response: ListRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4847,10 +4685,9 @@ const de_ListRulesCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4868,12 +4705,12 @@ export const de_ListSizeConstraintSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListSizeConstraintSetsResponse(data, context);
+  contents = _json(data);
   const response: ListSizeConstraintSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4897,10 +4734,9 @@ const de_ListSizeConstraintSetsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4918,12 +4754,12 @@ export const de_ListSqlInjectionMatchSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListSqlInjectionMatchSetsResponse(data, context);
+  contents = _json(data);
   const response: ListSqlInjectionMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4947,10 +4783,9 @@ const de_ListSqlInjectionMatchSetsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4968,12 +4803,12 @@ export const de_ListSubscribedRuleGroupsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListSubscribedRuleGroupsResponse(data, context);
+  contents = _json(data);
   const response: ListSubscribedRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4997,10 +4832,9 @@ const de_ListSubscribedRuleGroupsCommandError = async (
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5018,12 +4852,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5059,10 +4893,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5080,12 +4913,12 @@ export const de_ListWebACLsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListWebACLsResponse(data, context);
+  contents = _json(data);
   const response: ListWebACLsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5109,10 +4942,9 @@ const de_ListWebACLsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5130,12 +4962,12 @@ export const de_ListXssMatchSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListXssMatchSetsResponse(data, context);
+  contents = _json(data);
   const response: ListXssMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5159,10 +4991,9 @@ const de_ListXssMatchSetsCommandError = async (
       throw await de_WAFInvalidAccountExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5180,12 +5011,12 @@ export const de_PutLoggingConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutLoggingConfigurationResponse(data, context);
+  contents = _json(data);
   const response: PutLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5215,10 +5046,9 @@ const de_PutLoggingConfigurationCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5236,12 +5066,12 @@ export const de_PutPermissionPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutPermissionPolicyResponse(data, context);
+  contents = _json(data);
   const response: PutPermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5271,10 +5101,9 @@ const de_PutPermissionPolicyCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5292,12 +5121,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5336,10 +5165,9 @@ const de_TagResourceCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5357,12 +5185,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5398,10 +5226,9 @@ const de_UntagResourceCommandError = async (
       throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5419,12 +5246,12 @@ export const de_UpdateByteMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateByteMatchSetResponse(data, context);
+  contents = _json(data);
   const response: UpdateByteMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5466,10 +5293,9 @@ const de_UpdateByteMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5487,12 +5313,12 @@ export const de_UpdateGeoMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateGeoMatchSetResponse(data, context);
+  contents = _json(data);
   const response: UpdateGeoMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5537,10 +5363,9 @@ const de_UpdateGeoMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5558,12 +5383,12 @@ export const de_UpdateIPSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateIPSetResponse(data, context);
+  contents = _json(data);
   const response: UpdateIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5608,10 +5433,9 @@ const de_UpdateIPSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5629,12 +5453,12 @@ export const de_UpdateRateBasedRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRateBasedRuleResponse(data, context);
+  contents = _json(data);
   const response: UpdateRateBasedRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5679,10 +5503,9 @@ const de_UpdateRateBasedRuleCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5700,12 +5523,12 @@ export const de_UpdateRegexMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRegexMatchSetResponse(data, context);
+  contents = _json(data);
   const response: UpdateRegexMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5747,10 +5570,9 @@ const de_UpdateRegexMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5768,12 +5590,12 @@ export const de_UpdateRegexPatternSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRegexPatternSetResponse(data, context);
+  contents = _json(data);
   const response: UpdateRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5815,10 +5637,9 @@ const de_UpdateRegexPatternSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5836,12 +5657,12 @@ export const de_UpdateRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRuleResponse(data, context);
+  contents = _json(data);
   const response: UpdateRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5886,10 +5707,9 @@ const de_UpdateRuleCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5907,12 +5727,12 @@ export const de_UpdateRuleGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRuleGroupResponse(data, context);
+  contents = _json(data);
   const response: UpdateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5951,10 +5771,9 @@ const de_UpdateRuleGroupCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5972,12 +5791,12 @@ export const de_UpdateSizeConstraintSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateSizeConstraintSetResponse(data, context);
+  contents = _json(data);
   const response: UpdateSizeConstraintSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6022,10 +5841,9 @@ const de_UpdateSizeConstraintSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6043,12 +5861,12 @@ export const de_UpdateSqlInjectionMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateSqlInjectionMatchSetResponse(data, context);
+  contents = _json(data);
   const response: UpdateSqlInjectionMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6090,10 +5908,9 @@ const de_UpdateSqlInjectionMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6111,12 +5928,12 @@ export const de_UpdateWebACLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateWebACLResponse(data, context);
+  contents = _json(data);
   const response: UpdateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6164,10 +5981,9 @@ const de_UpdateWebACLCommandError = async (
       throw await de_WAFSubscriptionNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6185,12 +6001,12 @@ export const de_UpdateXssMatchSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateXssMatchSetResponse(data, context);
+  contents = _json(data);
   const response: UpdateXssMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6232,10 +6048,9 @@ const de_UpdateXssMatchSetCommandError = async (
       throw await de_WAFStaleDataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6249,7 +6064,7 @@ const de_WAFBadRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFBadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFBadRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFBadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6265,7 +6080,7 @@ const de_WAFDisallowedNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFDisallowedNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFDisallowedNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFDisallowedNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6281,7 +6096,7 @@ const de_WAFEntityMigrationExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFEntityMigrationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFEntityMigrationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFEntityMigrationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6297,7 +6112,7 @@ const de_WAFInternalErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFInternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFInternalErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFInternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6313,7 +6128,7 @@ const de_WAFInvalidAccountExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFInvalidAccountException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFInvalidAccountException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFInvalidAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6329,7 +6144,7 @@ const de_WAFInvalidOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFInvalidOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFInvalidOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFInvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6345,7 +6160,7 @@ const de_WAFInvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFInvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFInvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFInvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6361,7 +6176,7 @@ const de_WAFInvalidPermissionPolicyExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFInvalidPermissionPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFInvalidPermissionPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFInvalidPermissionPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6377,7 +6192,7 @@ const de_WAFInvalidRegexPatternExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFInvalidRegexPatternException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFInvalidRegexPatternException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFInvalidRegexPatternException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6393,7 +6208,7 @@ const de_WAFLimitsExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFLimitsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFLimitsExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFLimitsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6409,7 +6224,7 @@ const de_WAFNonEmptyEntityExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFNonEmptyEntityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFNonEmptyEntityException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFNonEmptyEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6425,7 +6240,7 @@ const de_WAFNonexistentContainerExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFNonexistentContainerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFNonexistentContainerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFNonexistentContainerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6441,7 +6256,7 @@ const de_WAFNonexistentItemExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFNonexistentItemException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFNonexistentItemException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFNonexistentItemException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6457,7 +6272,7 @@ const de_WAFReferencedItemExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFReferencedItemException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFReferencedItemException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFReferencedItemException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6473,7 +6288,7 @@ const de_WAFServiceLinkedRoleErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFServiceLinkedRoleErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFServiceLinkedRoleErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFServiceLinkedRoleErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6489,7 +6304,7 @@ const de_WAFStaleDataExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFStaleDataException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFStaleDataException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFStaleDataException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6505,7 +6320,7 @@ const de_WAFSubscriptionNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFSubscriptionNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFSubscriptionNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFSubscriptionNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6521,7 +6336,7 @@ const de_WAFTagOperationExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFTagOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFTagOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFTagOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6537,7 +6352,7 @@ const de_WAFTagOperationInternalErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFTagOperationInternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFTagOperationInternalErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFTagOperationInternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6553,7 +6368,7 @@ const de_WAFUnavailableEntityExceptionRes = async (
   context: __SerdeContext
 ): Promise<WAFUnavailableEntityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WAFUnavailableEntityException(body, context);
+  const deserialized: any = _json(body);
   const exception = new WAFUnavailableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6561,38 +6376,18 @@ const de_WAFUnavailableEntityExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1ActivatedRule
- */
-const se_ActivatedRule = (input: ActivatedRule, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: se_WafAction(input.Action, context) }),
-    ...(input.ExcludedRules != null && { ExcludedRules: se_ExcludedRules(input.ExcludedRules, context) }),
-    ...(input.OverrideAction != null && { OverrideAction: se_WafOverrideAction(input.OverrideAction, context) }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ActivatedRule omitted.
 
-/**
- * serializeAws_json1_1AssociateWebACLRequest
- */
-const se_AssociateWebACLRequest = (input: AssociateWebACLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.WebACLId != null && { WebACLId: input.WebACLId }),
-  };
-};
+// se_AssociateWebACLRequest omitted.
 
 /**
  * serializeAws_json1_1ByteMatchSetUpdate
  */
 const se_ByteMatchSetUpdate = (input: ByteMatchSetUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.ByteMatchTuple != null && { ByteMatchTuple: se_ByteMatchTuple(input.ByteMatchTuple, context) }),
-  };
+  return take(input, {
+    Action: [],
+    ByteMatchTuple: (_) => se_ByteMatchTuple(_, context),
+  });
 };
 
 /**
@@ -6610,1339 +6405,310 @@ const se_ByteMatchSetUpdates = (input: ByteMatchSetUpdate[], context: __SerdeCon
  * serializeAws_json1_1ByteMatchTuple
  */
 const se_ByteMatchTuple = (input: ByteMatchTuple, context: __SerdeContext): any => {
-  return {
-    ...(input.FieldToMatch != null && { FieldToMatch: se_FieldToMatch(input.FieldToMatch, context) }),
-    ...(input.PositionalConstraint != null && { PositionalConstraint: input.PositionalConstraint }),
-    ...(input.TargetString != null && { TargetString: context.base64Encoder(input.TargetString) }),
-    ...(input.TextTransformation != null && { TextTransformation: input.TextTransformation }),
-  };
+  return take(input, {
+    FieldToMatch: (_) => _json(_),
+    PositionalConstraint: [],
+    TargetString: (_) => context.base64Encoder(_),
+    TextTransformation: [],
+  });
 };
 
-/**
- * serializeAws_json1_1CreateByteMatchSetRequest
- */
-const se_CreateByteMatchSetRequest = (input: CreateByteMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreateByteMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateGeoMatchSetRequest
- */
-const se_CreateGeoMatchSetRequest = (input: CreateGeoMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreateGeoMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateIPSetRequest
- */
-const se_CreateIPSetRequest = (input: CreateIPSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreateIPSetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateRateBasedRuleRequest
- */
-const se_CreateRateBasedRuleRequest = (input: CreateRateBasedRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RateKey != null && { RateKey: input.RateKey }),
-    ...(input.RateLimit != null && { RateLimit: input.RateLimit }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateRateBasedRuleRequest omitted.
 
-/**
- * serializeAws_json1_1CreateRegexMatchSetRequest
- */
-const se_CreateRegexMatchSetRequest = (input: CreateRegexMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreateRegexMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateRegexPatternSetRequest
- */
-const se_CreateRegexPatternSetRequest = (input: CreateRegexPatternSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreateRegexPatternSetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateRuleGroupRequest
- */
-const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateRuleGroupRequest omitted.
 
-/**
- * serializeAws_json1_1CreateRuleRequest
- */
-const se_CreateRuleRequest = (input: CreateRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateRuleRequest omitted.
 
-/**
- * serializeAws_json1_1CreateSizeConstraintSetRequest
- */
-const se_CreateSizeConstraintSetRequest = (input: CreateSizeConstraintSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreateSizeConstraintSetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateSqlInjectionMatchSetRequest
- */
-const se_CreateSqlInjectionMatchSetRequest = (
-  input: CreateSqlInjectionMatchSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreateSqlInjectionMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateWebACLMigrationStackRequest
- */
-const se_CreateWebACLMigrationStackRequest = (
-  input: CreateWebACLMigrationStackRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IgnoreUnsupportedType != null && { IgnoreUnsupportedType: input.IgnoreUnsupportedType }),
-    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
-    ...(input.WebACLId != null && { WebACLId: input.WebACLId }),
-  };
-};
+// se_CreateWebACLMigrationStackRequest omitted.
 
-/**
- * serializeAws_json1_1CreateWebACLRequest
- */
-const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.DefaultAction != null && { DefaultAction: se_WafAction(input.DefaultAction, context) }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateWebACLRequest omitted.
 
-/**
- * serializeAws_json1_1CreateXssMatchSetRequest
- */
-const se_CreateXssMatchSetRequest = (input: CreateXssMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CreateXssMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteByteMatchSetRequest
- */
-const se_DeleteByteMatchSetRequest = (input: DeleteByteMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ByteMatchSetId != null && { ByteMatchSetId: input.ByteMatchSetId }),
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-  };
-};
+// se_DeleteByteMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteGeoMatchSetRequest
- */
-const se_DeleteGeoMatchSetRequest = (input: DeleteGeoMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.GeoMatchSetId != null && { GeoMatchSetId: input.GeoMatchSetId }),
-  };
-};
+// se_DeleteGeoMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteIPSetRequest
- */
-const se_DeleteIPSetRequest = (input: DeleteIPSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.IPSetId != null && { IPSetId: input.IPSetId }),
-  };
-};
+// se_DeleteIPSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteLoggingConfigurationRequest
- */
-const se_DeleteLoggingConfigurationRequest = (
-  input: DeleteLoggingConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DeleteLoggingConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1DeletePermissionPolicyRequest
- */
-const se_DeletePermissionPolicyRequest = (input: DeletePermissionPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DeletePermissionPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRateBasedRuleRequest
- */
-const se_DeleteRateBasedRuleRequest = (input: DeleteRateBasedRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-  };
-};
+// se_DeleteRateBasedRuleRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRegexMatchSetRequest
- */
-const se_DeleteRegexMatchSetRequest = (input: DeleteRegexMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RegexMatchSetId != null && { RegexMatchSetId: input.RegexMatchSetId }),
-  };
-};
+// se_DeleteRegexMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRegexPatternSetRequest
- */
-const se_DeleteRegexPatternSetRequest = (input: DeleteRegexPatternSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RegexPatternSetId != null && { RegexPatternSetId: input.RegexPatternSetId }),
-  };
-};
+// se_DeleteRegexPatternSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRuleGroupRequest
- */
-const se_DeleteRuleGroupRequest = (input: DeleteRuleGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RuleGroupId != null && { RuleGroupId: input.RuleGroupId }),
-  };
-};
+// se_DeleteRuleGroupRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRuleRequest
- */
-const se_DeleteRuleRequest = (input: DeleteRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-  };
-};
+// se_DeleteRuleRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteSizeConstraintSetRequest
- */
-const se_DeleteSizeConstraintSetRequest = (input: DeleteSizeConstraintSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.SizeConstraintSetId != null && { SizeConstraintSetId: input.SizeConstraintSetId }),
-  };
-};
+// se_DeleteSizeConstraintSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteSqlInjectionMatchSetRequest
- */
-const se_DeleteSqlInjectionMatchSetRequest = (
-  input: DeleteSqlInjectionMatchSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.SqlInjectionMatchSetId != null && { SqlInjectionMatchSetId: input.SqlInjectionMatchSetId }),
-  };
-};
+// se_DeleteSqlInjectionMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteWebACLRequest
- */
-const se_DeleteWebACLRequest = (input: DeleteWebACLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.WebACLId != null && { WebACLId: input.WebACLId }),
-  };
-};
+// se_DeleteWebACLRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteXssMatchSetRequest
- */
-const se_DeleteXssMatchSetRequest = (input: DeleteXssMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.XssMatchSetId != null && { XssMatchSetId: input.XssMatchSetId }),
-  };
-};
+// se_DeleteXssMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateWebACLRequest
- */
-const se_DisassociateWebACLRequest = (input: DisassociateWebACLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DisassociateWebACLRequest omitted.
 
-/**
- * serializeAws_json1_1ExcludedRule
- */
-const se_ExcludedRule = (input: ExcludedRule, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-  };
-};
+// se_ExcludedRule omitted.
 
-/**
- * serializeAws_json1_1ExcludedRules
- */
-const se_ExcludedRules = (input: ExcludedRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ExcludedRule(entry, context);
-    });
-};
+// se_ExcludedRules omitted.
 
-/**
- * serializeAws_json1_1FieldToMatch
- */
-const se_FieldToMatch = (input: FieldToMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.Data != null && { Data: input.Data }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_FieldToMatch omitted.
 
-/**
- * serializeAws_json1_1GeoMatchConstraint
- */
-const se_GeoMatchConstraint = (input: GeoMatchConstraint, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_GeoMatchConstraint omitted.
 
-/**
- * serializeAws_json1_1GeoMatchSetUpdate
- */
-const se_GeoMatchSetUpdate = (input: GeoMatchSetUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.GeoMatchConstraint != null && {
-      GeoMatchConstraint: se_GeoMatchConstraint(input.GeoMatchConstraint, context),
-    }),
-  };
-};
+// se_GeoMatchSetUpdate omitted.
 
-/**
- * serializeAws_json1_1GeoMatchSetUpdates
- */
-const se_GeoMatchSetUpdates = (input: GeoMatchSetUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_GeoMatchSetUpdate(entry, context);
-    });
-};
+// se_GeoMatchSetUpdates omitted.
 
-/**
- * serializeAws_json1_1GetByteMatchSetRequest
- */
-const se_GetByteMatchSetRequest = (input: GetByteMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ByteMatchSetId != null && { ByteMatchSetId: input.ByteMatchSetId }),
-  };
-};
+// se_GetByteMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetChangeTokenRequest
- */
-const se_GetChangeTokenRequest = (input: GetChangeTokenRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_GetChangeTokenRequest omitted.
 
-/**
- * serializeAws_json1_1GetChangeTokenStatusRequest
- */
-const se_GetChangeTokenStatusRequest = (input: GetChangeTokenStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-  };
-};
+// se_GetChangeTokenStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetGeoMatchSetRequest
- */
-const se_GetGeoMatchSetRequest = (input: GetGeoMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GeoMatchSetId != null && { GeoMatchSetId: input.GeoMatchSetId }),
-  };
-};
+// se_GetGeoMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetIPSetRequest
- */
-const se_GetIPSetRequest = (input: GetIPSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IPSetId != null && { IPSetId: input.IPSetId }),
-  };
-};
+// se_GetIPSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetLoggingConfigurationRequest
- */
-const se_GetLoggingConfigurationRequest = (input: GetLoggingConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_GetLoggingConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1GetPermissionPolicyRequest
- */
-const se_GetPermissionPolicyRequest = (input: GetPermissionPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_GetPermissionPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1GetRateBasedRuleManagedKeysRequest
- */
-const se_GetRateBasedRuleManagedKeysRequest = (
-  input: GetRateBasedRuleManagedKeysRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-  };
-};
+// se_GetRateBasedRuleManagedKeysRequest omitted.
 
-/**
- * serializeAws_json1_1GetRateBasedRuleRequest
- */
-const se_GetRateBasedRuleRequest = (input: GetRateBasedRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-  };
-};
+// se_GetRateBasedRuleRequest omitted.
 
-/**
- * serializeAws_json1_1GetRegexMatchSetRequest
- */
-const se_GetRegexMatchSetRequest = (input: GetRegexMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RegexMatchSetId != null && { RegexMatchSetId: input.RegexMatchSetId }),
-  };
-};
+// se_GetRegexMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetRegexPatternSetRequest
- */
-const se_GetRegexPatternSetRequest = (input: GetRegexPatternSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RegexPatternSetId != null && { RegexPatternSetId: input.RegexPatternSetId }),
-  };
-};
+// se_GetRegexPatternSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetRuleGroupRequest
- */
-const se_GetRuleGroupRequest = (input: GetRuleGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleGroupId != null && { RuleGroupId: input.RuleGroupId }),
-  };
-};
+// se_GetRuleGroupRequest omitted.
 
-/**
- * serializeAws_json1_1GetRuleRequest
- */
-const se_GetRuleRequest = (input: GetRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-  };
-};
+// se_GetRuleRequest omitted.
 
 /**
  * serializeAws_json1_1GetSampledRequestsRequest
  */
 const se_GetSampledRequestsRequest = (input: GetSampledRequestsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-    ...(input.TimeWindow != null && { TimeWindow: se_TimeWindow(input.TimeWindow, context) }),
-    ...(input.WebAclId != null && { WebAclId: input.WebAclId }),
-  };
+  return take(input, {
+    MaxItems: [],
+    RuleId: [],
+    TimeWindow: (_) => se_TimeWindow(_, context),
+    WebAclId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1GetSizeConstraintSetRequest
- */
-const se_GetSizeConstraintSetRequest = (input: GetSizeConstraintSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SizeConstraintSetId != null && { SizeConstraintSetId: input.SizeConstraintSetId }),
-  };
-};
+// se_GetSizeConstraintSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetSqlInjectionMatchSetRequest
- */
-const se_GetSqlInjectionMatchSetRequest = (input: GetSqlInjectionMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SqlInjectionMatchSetId != null && { SqlInjectionMatchSetId: input.SqlInjectionMatchSetId }),
-  };
-};
+// se_GetSqlInjectionMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1GetWebACLForResourceRequest
- */
-const se_GetWebACLForResourceRequest = (input: GetWebACLForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_GetWebACLForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1GetWebACLRequest
- */
-const se_GetWebACLRequest = (input: GetWebACLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.WebACLId != null && { WebACLId: input.WebACLId }),
-  };
-};
+// se_GetWebACLRequest omitted.
 
-/**
- * serializeAws_json1_1GetXssMatchSetRequest
- */
-const se_GetXssMatchSetRequest = (input: GetXssMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.XssMatchSetId != null && { XssMatchSetId: input.XssMatchSetId }),
-  };
-};
+// se_GetXssMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1IPSetDescriptor
- */
-const se_IPSetDescriptor = (input: IPSetDescriptor, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_IPSetDescriptor omitted.
 
-/**
- * serializeAws_json1_1IPSetUpdate
- */
-const se_IPSetUpdate = (input: IPSetUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.IPSetDescriptor != null && { IPSetDescriptor: se_IPSetDescriptor(input.IPSetDescriptor, context) }),
-  };
-};
+// se_IPSetUpdate omitted.
 
-/**
- * serializeAws_json1_1IPSetUpdates
- */
-const se_IPSetUpdates = (input: IPSetUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_IPSetUpdate(entry, context);
-    });
-};
+// se_IPSetUpdates omitted.
 
-/**
- * serializeAws_json1_1ListActivatedRulesInRuleGroupRequest
- */
-const se_ListActivatedRulesInRuleGroupRequest = (
-  input: ListActivatedRulesInRuleGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-    ...(input.RuleGroupId != null && { RuleGroupId: input.RuleGroupId }),
-  };
-};
+// se_ListActivatedRulesInRuleGroupRequest omitted.
 
-/**
- * serializeAws_json1_1ListByteMatchSetsRequest
- */
-const se_ListByteMatchSetsRequest = (input: ListByteMatchSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListByteMatchSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListGeoMatchSetsRequest
- */
-const se_ListGeoMatchSetsRequest = (input: ListGeoMatchSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListGeoMatchSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListIPSetsRequest
- */
-const se_ListIPSetsRequest = (input: ListIPSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListIPSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListLoggingConfigurationsRequest
- */
-const se_ListLoggingConfigurationsRequest = (input: ListLoggingConfigurationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListLoggingConfigurationsRequest omitted.
 
-/**
- * serializeAws_json1_1ListRateBasedRulesRequest
- */
-const se_ListRateBasedRulesRequest = (input: ListRateBasedRulesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListRateBasedRulesRequest omitted.
 
-/**
- * serializeAws_json1_1ListRegexMatchSetsRequest
- */
-const se_ListRegexMatchSetsRequest = (input: ListRegexMatchSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListRegexMatchSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListRegexPatternSetsRequest
- */
-const se_ListRegexPatternSetsRequest = (input: ListRegexPatternSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListRegexPatternSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListResourcesForWebACLRequest
- */
-const se_ListResourcesForWebACLRequest = (input: ListResourcesForWebACLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.WebACLId != null && { WebACLId: input.WebACLId }),
-  };
-};
+// se_ListResourcesForWebACLRequest omitted.
 
-/**
- * serializeAws_json1_1ListRuleGroupsRequest
- */
-const se_ListRuleGroupsRequest = (input: ListRuleGroupsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListRuleGroupsRequest omitted.
 
-/**
- * serializeAws_json1_1ListRulesRequest
- */
-const se_ListRulesRequest = (input: ListRulesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListRulesRequest omitted.
 
-/**
- * serializeAws_json1_1ListSizeConstraintSetsRequest
- */
-const se_ListSizeConstraintSetsRequest = (input: ListSizeConstraintSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListSizeConstraintSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListSqlInjectionMatchSetsRequest
- */
-const se_ListSqlInjectionMatchSetsRequest = (input: ListSqlInjectionMatchSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListSqlInjectionMatchSetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListSubscribedRuleGroupsRequest
- */
-const se_ListSubscribedRuleGroupsRequest = (input: ListSubscribedRuleGroupsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListSubscribedRuleGroupsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ListWebACLsRequest
- */
-const se_ListWebACLsRequest = (input: ListWebACLsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListWebACLsRequest omitted.
 
-/**
- * serializeAws_json1_1ListXssMatchSetsRequest
- */
-const se_ListXssMatchSetsRequest = (input: ListXssMatchSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextMarker != null && { NextMarker: input.NextMarker }),
-  };
-};
+// se_ListXssMatchSetsRequest omitted.
 
-/**
- * serializeAws_json1_1LogDestinationConfigs
- */
-const se_LogDestinationConfigs = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LogDestinationConfigs omitted.
 
-/**
- * serializeAws_json1_1LoggingConfiguration
- */
-const se_LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.LogDestinationConfigs != null && {
-      LogDestinationConfigs: se_LogDestinationConfigs(input.LogDestinationConfigs, context),
-    }),
-    ...(input.RedactedFields != null && { RedactedFields: se_RedactedFields(input.RedactedFields, context) }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_LoggingConfiguration omitted.
 
-/**
- * serializeAws_json1_1Predicate
- */
-const se_Predicate = (input: Predicate, context: __SerdeContext): any => {
-  return {
-    ...(input.DataId != null && { DataId: input.DataId }),
-    ...(input.Negated != null && { Negated: input.Negated }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_Predicate omitted.
 
-/**
- * serializeAws_json1_1PutLoggingConfigurationRequest
- */
-const se_PutLoggingConfigurationRequest = (input: PutLoggingConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LoggingConfiguration != null && {
-      LoggingConfiguration: se_LoggingConfiguration(input.LoggingConfiguration, context),
-    }),
-  };
-};
+// se_PutLoggingConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1PutPermissionPolicyRequest
- */
-const se_PutPermissionPolicyRequest = (input: PutPermissionPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_PutPermissionPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1RedactedFields
- */
-const se_RedactedFields = (input: FieldToMatch[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FieldToMatch(entry, context);
-    });
-};
+// se_RedactedFields omitted.
 
-/**
- * serializeAws_json1_1RegexMatchSetUpdate
- */
-const se_RegexMatchSetUpdate = (input: RegexMatchSetUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.RegexMatchTuple != null && { RegexMatchTuple: se_RegexMatchTuple(input.RegexMatchTuple, context) }),
-  };
-};
+// se_RegexMatchSetUpdate omitted.
 
-/**
- * serializeAws_json1_1RegexMatchSetUpdates
- */
-const se_RegexMatchSetUpdates = (input: RegexMatchSetUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RegexMatchSetUpdate(entry, context);
-    });
-};
+// se_RegexMatchSetUpdates omitted.
 
-/**
- * serializeAws_json1_1RegexMatchTuple
- */
-const se_RegexMatchTuple = (input: RegexMatchTuple, context: __SerdeContext): any => {
-  return {
-    ...(input.FieldToMatch != null && { FieldToMatch: se_FieldToMatch(input.FieldToMatch, context) }),
-    ...(input.RegexPatternSetId != null && { RegexPatternSetId: input.RegexPatternSetId }),
-    ...(input.TextTransformation != null && { TextTransformation: input.TextTransformation }),
-  };
-};
+// se_RegexMatchTuple omitted.
 
-/**
- * serializeAws_json1_1RegexPatternSetUpdate
- */
-const se_RegexPatternSetUpdate = (input: RegexPatternSetUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.RegexPatternString != null && { RegexPatternString: input.RegexPatternString }),
-  };
-};
+// se_RegexPatternSetUpdate omitted.
 
-/**
- * serializeAws_json1_1RegexPatternSetUpdates
- */
-const se_RegexPatternSetUpdates = (input: RegexPatternSetUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RegexPatternSetUpdate(entry, context);
-    });
-};
+// se_RegexPatternSetUpdates omitted.
 
-/**
- * serializeAws_json1_1RuleGroupUpdate
- */
-const se_RuleGroupUpdate = (input: RuleGroupUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.ActivatedRule != null && { ActivatedRule: se_ActivatedRule(input.ActivatedRule, context) }),
-  };
-};
+// se_RuleGroupUpdate omitted.
 
-/**
- * serializeAws_json1_1RuleGroupUpdates
- */
-const se_RuleGroupUpdates = (input: RuleGroupUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RuleGroupUpdate(entry, context);
-    });
-};
+// se_RuleGroupUpdates omitted.
 
-/**
- * serializeAws_json1_1RuleUpdate
- */
-const se_RuleUpdate = (input: RuleUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Predicate != null && { Predicate: se_Predicate(input.Predicate, context) }),
-  };
-};
+// se_RuleUpdate omitted.
 
-/**
- * serializeAws_json1_1RuleUpdates
- */
-const se_RuleUpdates = (input: RuleUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RuleUpdate(entry, context);
-    });
-};
+// se_RuleUpdates omitted.
 
-/**
- * serializeAws_json1_1SizeConstraint
- */
-const se_SizeConstraint = (input: SizeConstraint, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.FieldToMatch != null && { FieldToMatch: se_FieldToMatch(input.FieldToMatch, context) }),
-    ...(input.Size != null && { Size: input.Size }),
-    ...(input.TextTransformation != null && { TextTransformation: input.TextTransformation }),
-  };
-};
+// se_SizeConstraint omitted.
 
-/**
- * serializeAws_json1_1SizeConstraintSetUpdate
- */
-const se_SizeConstraintSetUpdate = (input: SizeConstraintSetUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.SizeConstraint != null && { SizeConstraint: se_SizeConstraint(input.SizeConstraint, context) }),
-  };
-};
+// se_SizeConstraintSetUpdate omitted.
 
-/**
- * serializeAws_json1_1SizeConstraintSetUpdates
- */
-const se_SizeConstraintSetUpdates = (input: SizeConstraintSetUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SizeConstraintSetUpdate(entry, context);
-    });
-};
+// se_SizeConstraintSetUpdates omitted.
 
-/**
- * serializeAws_json1_1SqlInjectionMatchSetUpdate
- */
-const se_SqlInjectionMatchSetUpdate = (input: SqlInjectionMatchSetUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.SqlInjectionMatchTuple != null && {
-      SqlInjectionMatchTuple: se_SqlInjectionMatchTuple(input.SqlInjectionMatchTuple, context),
-    }),
-  };
-};
+// se_SqlInjectionMatchSetUpdate omitted.
 
-/**
- * serializeAws_json1_1SqlInjectionMatchSetUpdates
- */
-const se_SqlInjectionMatchSetUpdates = (input: SqlInjectionMatchSetUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SqlInjectionMatchSetUpdate(entry, context);
-    });
-};
+// se_SqlInjectionMatchSetUpdates omitted.
 
-/**
- * serializeAws_json1_1SqlInjectionMatchTuple
- */
-const se_SqlInjectionMatchTuple = (input: SqlInjectionMatchTuple, context: __SerdeContext): any => {
-  return {
-    ...(input.FieldToMatch != null && { FieldToMatch: se_FieldToMatch(input.FieldToMatch, context) }),
-    ...(input.TextTransformation != null && { TextTransformation: input.TextTransformation }),
-  };
-};
+// se_SqlInjectionMatchTuple omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1TimeWindow
  */
 const se_TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateByteMatchSetRequest
  */
 const se_UpdateByteMatchSetRequest = (input: UpdateByteMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ByteMatchSetId != null && { ByteMatchSetId: input.ByteMatchSetId }),
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Updates != null && { Updates: se_ByteMatchSetUpdates(input.Updates, context) }),
-  };
+  return take(input, {
+    ByteMatchSetId: [],
+    ChangeToken: [],
+    Updates: (_) => se_ByteMatchSetUpdates(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateGeoMatchSetRequest
- */
-const se_UpdateGeoMatchSetRequest = (input: UpdateGeoMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.GeoMatchSetId != null && { GeoMatchSetId: input.GeoMatchSetId }),
-    ...(input.Updates != null && { Updates: se_GeoMatchSetUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateGeoMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateIPSetRequest
- */
-const se_UpdateIPSetRequest = (input: UpdateIPSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.IPSetId != null && { IPSetId: input.IPSetId }),
-    ...(input.Updates != null && { Updates: se_IPSetUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateIPSetRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateRateBasedRuleRequest
- */
-const se_UpdateRateBasedRuleRequest = (input: UpdateRateBasedRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RateLimit != null && { RateLimit: input.RateLimit }),
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-    ...(input.Updates != null && { Updates: se_RuleUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateRateBasedRuleRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateRegexMatchSetRequest
- */
-const se_UpdateRegexMatchSetRequest = (input: UpdateRegexMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RegexMatchSetId != null && { RegexMatchSetId: input.RegexMatchSetId }),
-    ...(input.Updates != null && { Updates: se_RegexMatchSetUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateRegexMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateRegexPatternSetRequest
- */
-const se_UpdateRegexPatternSetRequest = (input: UpdateRegexPatternSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RegexPatternSetId != null && { RegexPatternSetId: input.RegexPatternSetId }),
-    ...(input.Updates != null && { Updates: se_RegexPatternSetUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateRegexPatternSetRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateRuleGroupRequest
- */
-const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RuleGroupId != null && { RuleGroupId: input.RuleGroupId }),
-    ...(input.Updates != null && { Updates: se_RuleGroupUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateRuleGroupRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateRuleRequest
- */
-const se_UpdateRuleRequest = (input: UpdateRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.RuleId != null && { RuleId: input.RuleId }),
-    ...(input.Updates != null && { Updates: se_RuleUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateRuleRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateSizeConstraintSetRequest
- */
-const se_UpdateSizeConstraintSetRequest = (input: UpdateSizeConstraintSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.SizeConstraintSetId != null && { SizeConstraintSetId: input.SizeConstraintSetId }),
-    ...(input.Updates != null && { Updates: se_SizeConstraintSetUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateSizeConstraintSetRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateSqlInjectionMatchSetRequest
- */
-const se_UpdateSqlInjectionMatchSetRequest = (
-  input: UpdateSqlInjectionMatchSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.SqlInjectionMatchSetId != null && { SqlInjectionMatchSetId: input.SqlInjectionMatchSetId }),
-    ...(input.Updates != null && { Updates: se_SqlInjectionMatchSetUpdates(input.Updates, context) }),
-  };
-};
+// se_UpdateSqlInjectionMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateWebACLRequest
- */
-const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.DefaultAction != null && { DefaultAction: se_WafAction(input.DefaultAction, context) }),
-    ...(input.Updates != null && { Updates: se_WebACLUpdates(input.Updates, context) }),
-    ...(input.WebACLId != null && { WebACLId: input.WebACLId }),
-  };
-};
+// se_UpdateWebACLRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateXssMatchSetRequest
- */
-const se_UpdateXssMatchSetRequest = (input: UpdateXssMatchSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeToken != null && { ChangeToken: input.ChangeToken }),
-    ...(input.Updates != null && { Updates: se_XssMatchSetUpdates(input.Updates, context) }),
-    ...(input.XssMatchSetId != null && { XssMatchSetId: input.XssMatchSetId }),
-  };
-};
+// se_UpdateXssMatchSetRequest omitted.
 
-/**
- * serializeAws_json1_1WafAction
- */
-const se_WafAction = (input: WafAction, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_WafAction omitted.
 
-/**
- * serializeAws_json1_1WafOverrideAction
- */
-const se_WafOverrideAction = (input: WafOverrideAction, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_WafOverrideAction omitted.
 
-/**
- * serializeAws_json1_1WebACLUpdate
- */
-const se_WebACLUpdate = (input: WebACLUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.ActivatedRule != null && { ActivatedRule: se_ActivatedRule(input.ActivatedRule, context) }),
-  };
-};
+// se_WebACLUpdate omitted.
 
-/**
- * serializeAws_json1_1WebACLUpdates
- */
-const se_WebACLUpdates = (input: WebACLUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WebACLUpdate(entry, context);
-    });
-};
+// se_WebACLUpdates omitted.
 
-/**
- * serializeAws_json1_1XssMatchSetUpdate
- */
-const se_XssMatchSetUpdate = (input: XssMatchSetUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.XssMatchTuple != null && { XssMatchTuple: se_XssMatchTuple(input.XssMatchTuple, context) }),
-  };
-};
+// se_XssMatchSetUpdate omitted.
 
-/**
- * serializeAws_json1_1XssMatchSetUpdates
- */
-const se_XssMatchSetUpdates = (input: XssMatchSetUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_XssMatchSetUpdate(entry, context);
-    });
-};
+// se_XssMatchSetUpdates omitted.
 
-/**
- * serializeAws_json1_1XssMatchTuple
- */
-const se_XssMatchTuple = (input: XssMatchTuple, context: __SerdeContext): any => {
-  return {
-    ...(input.FieldToMatch != null && { FieldToMatch: se_FieldToMatch(input.FieldToMatch, context) }),
-    ...(input.TextTransformation != null && { TextTransformation: input.TextTransformation }),
-  };
-};
+// se_XssMatchTuple omitted.
 
-/**
- * deserializeAws_json1_1ActivatedRule
- */
-const de_ActivatedRule = (output: any, context: __SerdeContext): ActivatedRule => {
-  return {
-    Action: output.Action != null ? de_WafAction(output.Action, context) : undefined,
-    ExcludedRules: output.ExcludedRules != null ? de_ExcludedRules(output.ExcludedRules, context) : undefined,
-    OverrideAction: output.OverrideAction != null ? de_WafOverrideAction(output.OverrideAction, context) : undefined,
-    Priority: __expectInt32(output.Priority),
-    RuleId: __expectString(output.RuleId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ActivatedRule omitted.
 
-/**
- * deserializeAws_json1_1ActivatedRules
- */
-const de_ActivatedRules = (output: any, context: __SerdeContext): ActivatedRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ActivatedRule(entry, context);
-    });
-  return retVal;
-};
+// de_ActivatedRules omitted.
 
-/**
- * deserializeAws_json1_1AssociateWebACLResponse
- */
-const de_AssociateWebACLResponse = (output: any, context: __SerdeContext): AssociateWebACLResponse => {
-  return {} as any;
-};
+// de_AssociateWebACLResponse omitted.
 
 /**
  * deserializeAws_json1_1ByteMatchSet
  */
 const de_ByteMatchSet = (output: any, context: __SerdeContext): ByteMatchSet => {
-  return {
-    ByteMatchSetId: __expectString(output.ByteMatchSetId),
-    ByteMatchTuples: output.ByteMatchTuples != null ? de_ByteMatchTuples(output.ByteMatchTuples, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    ByteMatchSetId: __expectString,
+    ByteMatchTuples: (_: any) => de_ByteMatchTuples(_, context),
+    Name: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ByteMatchSetSummaries
- */
-const de_ByteMatchSetSummaries = (output: any, context: __SerdeContext): ByteMatchSetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ByteMatchSetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ByteMatchSetSummaries omitted.
 
-/**
- * deserializeAws_json1_1ByteMatchSetSummary
- */
-const de_ByteMatchSetSummary = (output: any, context: __SerdeContext): ByteMatchSetSummary => {
-  return {
-    ByteMatchSetId: __expectString(output.ByteMatchSetId),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ByteMatchSetSummary omitted.
 
 /**
  * deserializeAws_json1_1ByteMatchTuple
  */
 const de_ByteMatchTuple = (output: any, context: __SerdeContext): ByteMatchTuple => {
-  return {
-    FieldToMatch: output.FieldToMatch != null ? de_FieldToMatch(output.FieldToMatch, context) : undefined,
-    PositionalConstraint: __expectString(output.PositionalConstraint),
-    TargetString: output.TargetString != null ? context.base64Decoder(output.TargetString) : undefined,
-    TextTransformation: __expectString(output.TextTransformation),
-  } as any;
+  return take(output, {
+    FieldToMatch: _json,
+    PositionalConstraint: __expectString,
+    TargetString: context.base64Decoder,
+    TextTransformation: __expectString,
+  }) as any;
 };
 
 /**
@@ -7952,9 +6718,6 @@ const de_ByteMatchTuples = (output: any, context: __SerdeContext): ByteMatchTupl
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ByteMatchTuple(entry, context);
     });
   return retVal;
@@ -7964,1189 +6727,249 @@ const de_ByteMatchTuples = (output: any, context: __SerdeContext): ByteMatchTupl
  * deserializeAws_json1_1CreateByteMatchSetResponse
  */
 const de_CreateByteMatchSetResponse = (output: any, context: __SerdeContext): CreateByteMatchSetResponse => {
-  return {
-    ByteMatchSet: output.ByteMatchSet != null ? de_ByteMatchSet(output.ByteMatchSet, context) : undefined,
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
+  return take(output, {
+    ByteMatchSet: (_: any) => de_ByteMatchSet(_, context),
+    ChangeToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateGeoMatchSetResponse
- */
-const de_CreateGeoMatchSetResponse = (output: any, context: __SerdeContext): CreateGeoMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    GeoMatchSet: output.GeoMatchSet != null ? de_GeoMatchSet(output.GeoMatchSet, context) : undefined,
-  } as any;
-};
+// de_CreateGeoMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateIPSetResponse
- */
-const de_CreateIPSetResponse = (output: any, context: __SerdeContext): CreateIPSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    IPSet: output.IPSet != null ? de_IPSet(output.IPSet, context) : undefined,
-  } as any;
-};
+// de_CreateIPSetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateRateBasedRuleResponse
- */
-const de_CreateRateBasedRuleResponse = (output: any, context: __SerdeContext): CreateRateBasedRuleResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    Rule: output.Rule != null ? de_RateBasedRule(output.Rule, context) : undefined,
-  } as any;
-};
+// de_CreateRateBasedRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateRegexMatchSetResponse
- */
-const de_CreateRegexMatchSetResponse = (output: any, context: __SerdeContext): CreateRegexMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    RegexMatchSet: output.RegexMatchSet != null ? de_RegexMatchSet(output.RegexMatchSet, context) : undefined,
-  } as any;
-};
+// de_CreateRegexMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateRegexPatternSetResponse
- */
-const de_CreateRegexPatternSetResponse = (output: any, context: __SerdeContext): CreateRegexPatternSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    RegexPatternSet: output.RegexPatternSet != null ? de_RegexPatternSet(output.RegexPatternSet, context) : undefined,
-  } as any;
-};
+// de_CreateRegexPatternSetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateRuleGroupResponse
- */
-const de_CreateRuleGroupResponse = (output: any, context: __SerdeContext): CreateRuleGroupResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    RuleGroup: output.RuleGroup != null ? de_RuleGroup(output.RuleGroup, context) : undefined,
-  } as any;
-};
+// de_CreateRuleGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateRuleResponse
- */
-const de_CreateRuleResponse = (output: any, context: __SerdeContext): CreateRuleResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    Rule: output.Rule != null ? de_Rule(output.Rule, context) : undefined,
-  } as any;
-};
+// de_CreateRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateSizeConstraintSetResponse
- */
-const de_CreateSizeConstraintSetResponse = (output: any, context: __SerdeContext): CreateSizeConstraintSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    SizeConstraintSet:
-      output.SizeConstraintSet != null ? de_SizeConstraintSet(output.SizeConstraintSet, context) : undefined,
-  } as any;
-};
+// de_CreateSizeConstraintSetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateSqlInjectionMatchSetResponse
- */
-const de_CreateSqlInjectionMatchSetResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateSqlInjectionMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    SqlInjectionMatchSet:
-      output.SqlInjectionMatchSet != null ? de_SqlInjectionMatchSet(output.SqlInjectionMatchSet, context) : undefined,
-  } as any;
-};
+// de_CreateSqlInjectionMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateWebACLMigrationStackResponse
- */
-const de_CreateWebACLMigrationStackResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateWebACLMigrationStackResponse => {
-  return {
-    S3ObjectUrl: __expectString(output.S3ObjectUrl),
-  } as any;
-};
+// de_CreateWebACLMigrationStackResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateWebACLResponse
- */
-const de_CreateWebACLResponse = (output: any, context: __SerdeContext): CreateWebACLResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    WebACL: output.WebACL != null ? de_WebACL(output.WebACL, context) : undefined,
-  } as any;
-};
+// de_CreateWebACLResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateXssMatchSetResponse
- */
-const de_CreateXssMatchSetResponse = (output: any, context: __SerdeContext): CreateXssMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-    XssMatchSet: output.XssMatchSet != null ? de_XssMatchSet(output.XssMatchSet, context) : undefined,
-  } as any;
-};
+// de_CreateXssMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteByteMatchSetResponse
- */
-const de_DeleteByteMatchSetResponse = (output: any, context: __SerdeContext): DeleteByteMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteByteMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteGeoMatchSetResponse
- */
-const de_DeleteGeoMatchSetResponse = (output: any, context: __SerdeContext): DeleteGeoMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteGeoMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteIPSetResponse
- */
-const de_DeleteIPSetResponse = (output: any, context: __SerdeContext): DeleteIPSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteIPSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteLoggingConfigurationResponse
- */
-const de_DeleteLoggingConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteLoggingConfigurationResponse => {
-  return {} as any;
-};
+// de_DeleteLoggingConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeletePermissionPolicyResponse
- */
-const de_DeletePermissionPolicyResponse = (output: any, context: __SerdeContext): DeletePermissionPolicyResponse => {
-  return {} as any;
-};
+// de_DeletePermissionPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteRateBasedRuleResponse
- */
-const de_DeleteRateBasedRuleResponse = (output: any, context: __SerdeContext): DeleteRateBasedRuleResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteRateBasedRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteRegexMatchSetResponse
- */
-const de_DeleteRegexMatchSetResponse = (output: any, context: __SerdeContext): DeleteRegexMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteRegexMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteRegexPatternSetResponse
- */
-const de_DeleteRegexPatternSetResponse = (output: any, context: __SerdeContext): DeleteRegexPatternSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteRegexPatternSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteRuleGroupResponse
- */
-const de_DeleteRuleGroupResponse = (output: any, context: __SerdeContext): DeleteRuleGroupResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteRuleGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteRuleResponse
- */
-const de_DeleteRuleResponse = (output: any, context: __SerdeContext): DeleteRuleResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteSizeConstraintSetResponse
- */
-const de_DeleteSizeConstraintSetResponse = (output: any, context: __SerdeContext): DeleteSizeConstraintSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteSizeConstraintSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteSqlInjectionMatchSetResponse
- */
-const de_DeleteSqlInjectionMatchSetResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteSqlInjectionMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteSqlInjectionMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteWebACLResponse
- */
-const de_DeleteWebACLResponse = (output: any, context: __SerdeContext): DeleteWebACLResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteWebACLResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteXssMatchSetResponse
- */
-const de_DeleteXssMatchSetResponse = (output: any, context: __SerdeContext): DeleteXssMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_DeleteXssMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1DisassociateWebACLResponse
- */
-const de_DisassociateWebACLResponse = (output: any, context: __SerdeContext): DisassociateWebACLResponse => {
-  return {} as any;
-};
+// de_DisassociateWebACLResponse omitted.
 
-/**
- * deserializeAws_json1_1ExcludedRule
- */
-const de_ExcludedRule = (output: any, context: __SerdeContext): ExcludedRule => {
-  return {
-    RuleId: __expectString(output.RuleId),
-  } as any;
-};
+// de_ExcludedRule omitted.
 
-/**
- * deserializeAws_json1_1ExcludedRules
- */
-const de_ExcludedRules = (output: any, context: __SerdeContext): ExcludedRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExcludedRule(entry, context);
-    });
-  return retVal;
-};
+// de_ExcludedRules omitted.
 
-/**
- * deserializeAws_json1_1FieldToMatch
- */
-const de_FieldToMatch = (output: any, context: __SerdeContext): FieldToMatch => {
-  return {
-    Data: __expectString(output.Data),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_FieldToMatch omitted.
 
-/**
- * deserializeAws_json1_1GeoMatchConstraint
- */
-const de_GeoMatchConstraint = (output: any, context: __SerdeContext): GeoMatchConstraint => {
-  return {
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_GeoMatchConstraint omitted.
 
-/**
- * deserializeAws_json1_1GeoMatchConstraints
- */
-const de_GeoMatchConstraints = (output: any, context: __SerdeContext): GeoMatchConstraint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GeoMatchConstraint(entry, context);
-    });
-  return retVal;
-};
+// de_GeoMatchConstraints omitted.
 
-/**
- * deserializeAws_json1_1GeoMatchSet
- */
-const de_GeoMatchSet = (output: any, context: __SerdeContext): GeoMatchSet => {
-  return {
-    GeoMatchConstraints:
-      output.GeoMatchConstraints != null ? de_GeoMatchConstraints(output.GeoMatchConstraints, context) : undefined,
-    GeoMatchSetId: __expectString(output.GeoMatchSetId),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_GeoMatchSet omitted.
 
-/**
- * deserializeAws_json1_1GeoMatchSetSummaries
- */
-const de_GeoMatchSetSummaries = (output: any, context: __SerdeContext): GeoMatchSetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GeoMatchSetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_GeoMatchSetSummaries omitted.
 
-/**
- * deserializeAws_json1_1GeoMatchSetSummary
- */
-const de_GeoMatchSetSummary = (output: any, context: __SerdeContext): GeoMatchSetSummary => {
-  return {
-    GeoMatchSetId: __expectString(output.GeoMatchSetId),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_GeoMatchSetSummary omitted.
 
 /**
  * deserializeAws_json1_1GetByteMatchSetResponse
  */
 const de_GetByteMatchSetResponse = (output: any, context: __SerdeContext): GetByteMatchSetResponse => {
-  return {
-    ByteMatchSet: output.ByteMatchSet != null ? de_ByteMatchSet(output.ByteMatchSet, context) : undefined,
-  } as any;
+  return take(output, {
+    ByteMatchSet: (_: any) => de_ByteMatchSet(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetChangeTokenResponse
- */
-const de_GetChangeTokenResponse = (output: any, context: __SerdeContext): GetChangeTokenResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_GetChangeTokenResponse omitted.
 
-/**
- * deserializeAws_json1_1GetChangeTokenStatusResponse
- */
-const de_GetChangeTokenStatusResponse = (output: any, context: __SerdeContext): GetChangeTokenStatusResponse => {
-  return {
-    ChangeTokenStatus: __expectString(output.ChangeTokenStatus),
-  } as any;
-};
+// de_GetChangeTokenStatusResponse omitted.
 
-/**
- * deserializeAws_json1_1GetGeoMatchSetResponse
- */
-const de_GetGeoMatchSetResponse = (output: any, context: __SerdeContext): GetGeoMatchSetResponse => {
-  return {
-    GeoMatchSet: output.GeoMatchSet != null ? de_GeoMatchSet(output.GeoMatchSet, context) : undefined,
-  } as any;
-};
+// de_GetGeoMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GetIPSetResponse
- */
-const de_GetIPSetResponse = (output: any, context: __SerdeContext): GetIPSetResponse => {
-  return {
-    IPSet: output.IPSet != null ? de_IPSet(output.IPSet, context) : undefined,
-  } as any;
-};
+// de_GetIPSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GetLoggingConfigurationResponse
- */
-const de_GetLoggingConfigurationResponse = (output: any, context: __SerdeContext): GetLoggingConfigurationResponse => {
-  return {
-    LoggingConfiguration:
-      output.LoggingConfiguration != null ? de_LoggingConfiguration(output.LoggingConfiguration, context) : undefined,
-  } as any;
-};
+// de_GetLoggingConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1GetPermissionPolicyResponse
- */
-const de_GetPermissionPolicyResponse = (output: any, context: __SerdeContext): GetPermissionPolicyResponse => {
-  return {
-    Policy: __expectString(output.Policy),
-  } as any;
-};
+// de_GetPermissionPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRateBasedRuleManagedKeysResponse
- */
-const de_GetRateBasedRuleManagedKeysResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRateBasedRuleManagedKeysResponse => {
-  return {
-    ManagedKeys: output.ManagedKeys != null ? de_ManagedKeys(output.ManagedKeys, context) : undefined,
-    NextMarker: __expectString(output.NextMarker),
-  } as any;
-};
+// de_GetRateBasedRuleManagedKeysResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRateBasedRuleResponse
- */
-const de_GetRateBasedRuleResponse = (output: any, context: __SerdeContext): GetRateBasedRuleResponse => {
-  return {
-    Rule: output.Rule != null ? de_RateBasedRule(output.Rule, context) : undefined,
-  } as any;
-};
+// de_GetRateBasedRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRegexMatchSetResponse
- */
-const de_GetRegexMatchSetResponse = (output: any, context: __SerdeContext): GetRegexMatchSetResponse => {
-  return {
-    RegexMatchSet: output.RegexMatchSet != null ? de_RegexMatchSet(output.RegexMatchSet, context) : undefined,
-  } as any;
-};
+// de_GetRegexMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRegexPatternSetResponse
- */
-const de_GetRegexPatternSetResponse = (output: any, context: __SerdeContext): GetRegexPatternSetResponse => {
-  return {
-    RegexPatternSet: output.RegexPatternSet != null ? de_RegexPatternSet(output.RegexPatternSet, context) : undefined,
-  } as any;
-};
+// de_GetRegexPatternSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRuleGroupResponse
- */
-const de_GetRuleGroupResponse = (output: any, context: __SerdeContext): GetRuleGroupResponse => {
-  return {
-    RuleGroup: output.RuleGroup != null ? de_RuleGroup(output.RuleGroup, context) : undefined,
-  } as any;
-};
+// de_GetRuleGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRuleResponse
- */
-const de_GetRuleResponse = (output: any, context: __SerdeContext): GetRuleResponse => {
-  return {
-    Rule: output.Rule != null ? de_Rule(output.Rule, context) : undefined,
-  } as any;
-};
+// de_GetRuleResponse omitted.
 
 /**
  * deserializeAws_json1_1GetSampledRequestsResponse
  */
 const de_GetSampledRequestsResponse = (output: any, context: __SerdeContext): GetSampledRequestsResponse => {
-  return {
-    PopulationSize: __expectLong(output.PopulationSize),
-    SampledRequests:
-      output.SampledRequests != null ? de_SampledHTTPRequests(output.SampledRequests, context) : undefined,
-    TimeWindow: output.TimeWindow != null ? de_TimeWindow(output.TimeWindow, context) : undefined,
-  } as any;
+  return take(output, {
+    PopulationSize: __expectLong,
+    SampledRequests: (_: any) => de_SampledHTTPRequests(_, context),
+    TimeWindow: (_: any) => de_TimeWindow(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetSizeConstraintSetResponse
- */
-const de_GetSizeConstraintSetResponse = (output: any, context: __SerdeContext): GetSizeConstraintSetResponse => {
-  return {
-    SizeConstraintSet:
-      output.SizeConstraintSet != null ? de_SizeConstraintSet(output.SizeConstraintSet, context) : undefined,
-  } as any;
-};
+// de_GetSizeConstraintSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GetSqlInjectionMatchSetResponse
- */
-const de_GetSqlInjectionMatchSetResponse = (output: any, context: __SerdeContext): GetSqlInjectionMatchSetResponse => {
-  return {
-    SqlInjectionMatchSet:
-      output.SqlInjectionMatchSet != null ? de_SqlInjectionMatchSet(output.SqlInjectionMatchSet, context) : undefined,
-  } as any;
-};
+// de_GetSqlInjectionMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1GetWebACLForResourceResponse
- */
-const de_GetWebACLForResourceResponse = (output: any, context: __SerdeContext): GetWebACLForResourceResponse => {
-  return {
-    WebACLSummary: output.WebACLSummary != null ? de_WebACLSummary(output.WebACLSummary, context) : undefined,
-  } as any;
-};
+// de_GetWebACLForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1GetWebACLResponse
- */
-const de_GetWebACLResponse = (output: any, context: __SerdeContext): GetWebACLResponse => {
-  return {
-    WebACL: output.WebACL != null ? de_WebACL(output.WebACL, context) : undefined,
-  } as any;
-};
+// de_GetWebACLResponse omitted.
 
-/**
- * deserializeAws_json1_1GetXssMatchSetResponse
- */
-const de_GetXssMatchSetResponse = (output: any, context: __SerdeContext): GetXssMatchSetResponse => {
-  return {
-    XssMatchSet: output.XssMatchSet != null ? de_XssMatchSet(output.XssMatchSet, context) : undefined,
-  } as any;
-};
+// de_GetXssMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1HTTPHeader
- */
-const de_HTTPHeader = (output: any, context: __SerdeContext): HTTPHeader => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_HTTPHeader omitted.
 
-/**
- * deserializeAws_json1_1HTTPHeaders
- */
-const de_HTTPHeaders = (output: any, context: __SerdeContext): HTTPHeader[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HTTPHeader(entry, context);
-    });
-  return retVal;
-};
+// de_HTTPHeaders omitted.
 
-/**
- * deserializeAws_json1_1HTTPRequest
- */
-const de_HTTPRequest = (output: any, context: __SerdeContext): HTTPRequest => {
-  return {
-    ClientIP: __expectString(output.ClientIP),
-    Country: __expectString(output.Country),
-    HTTPVersion: __expectString(output.HTTPVersion),
-    Headers: output.Headers != null ? de_HTTPHeaders(output.Headers, context) : undefined,
-    Method: __expectString(output.Method),
-    URI: __expectString(output.URI),
-  } as any;
-};
+// de_HTTPRequest omitted.
 
-/**
- * deserializeAws_json1_1IPSet
- */
-const de_IPSet = (output: any, context: __SerdeContext): IPSet => {
-  return {
-    IPSetDescriptors:
-      output.IPSetDescriptors != null ? de_IPSetDescriptors(output.IPSetDescriptors, context) : undefined,
-    IPSetId: __expectString(output.IPSetId),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_IPSet omitted.
 
-/**
- * deserializeAws_json1_1IPSetDescriptor
- */
-const de_IPSetDescriptor = (output: any, context: __SerdeContext): IPSetDescriptor => {
-  return {
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_IPSetDescriptor omitted.
 
-/**
- * deserializeAws_json1_1IPSetDescriptors
- */
-const de_IPSetDescriptors = (output: any, context: __SerdeContext): IPSetDescriptor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IPSetDescriptor(entry, context);
-    });
-  return retVal;
-};
+// de_IPSetDescriptors omitted.
 
-/**
- * deserializeAws_json1_1IPSetSummaries
- */
-const de_IPSetSummaries = (output: any, context: __SerdeContext): IPSetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IPSetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_IPSetSummaries omitted.
 
-/**
- * deserializeAws_json1_1IPSetSummary
- */
-const de_IPSetSummary = (output: any, context: __SerdeContext): IPSetSummary => {
-  return {
-    IPSetId: __expectString(output.IPSetId),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_IPSetSummary omitted.
 
-/**
- * deserializeAws_json1_1ListActivatedRulesInRuleGroupResponse
- */
-const de_ListActivatedRulesInRuleGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): ListActivatedRulesInRuleGroupResponse => {
-  return {
-    ActivatedRules: output.ActivatedRules != null ? de_ActivatedRules(output.ActivatedRules, context) : undefined,
-    NextMarker: __expectString(output.NextMarker),
-  } as any;
-};
+// de_ListActivatedRulesInRuleGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1ListByteMatchSetsResponse
- */
-const de_ListByteMatchSetsResponse = (output: any, context: __SerdeContext): ListByteMatchSetsResponse => {
-  return {
-    ByteMatchSets: output.ByteMatchSets != null ? de_ByteMatchSetSummaries(output.ByteMatchSets, context) : undefined,
-    NextMarker: __expectString(output.NextMarker),
-  } as any;
-};
+// de_ListByteMatchSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListGeoMatchSetsResponse
- */
-const de_ListGeoMatchSetsResponse = (output: any, context: __SerdeContext): ListGeoMatchSetsResponse => {
-  return {
-    GeoMatchSets: output.GeoMatchSets != null ? de_GeoMatchSetSummaries(output.GeoMatchSets, context) : undefined,
-    NextMarker: __expectString(output.NextMarker),
-  } as any;
-};
+// de_ListGeoMatchSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListIPSetsResponse
- */
-const de_ListIPSetsResponse = (output: any, context: __SerdeContext): ListIPSetsResponse => {
-  return {
-    IPSets: output.IPSets != null ? de_IPSetSummaries(output.IPSets, context) : undefined,
-    NextMarker: __expectString(output.NextMarker),
-  } as any;
-};
+// de_ListIPSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListLoggingConfigurationsResponse
- */
-const de_ListLoggingConfigurationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListLoggingConfigurationsResponse => {
-  return {
-    LoggingConfigurations:
-      output.LoggingConfigurations != null
-        ? de_LoggingConfigurations(output.LoggingConfigurations, context)
-        : undefined,
-    NextMarker: __expectString(output.NextMarker),
-  } as any;
-};
+// de_ListLoggingConfigurationsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListRateBasedRulesResponse
- */
-const de_ListRateBasedRulesResponse = (output: any, context: __SerdeContext): ListRateBasedRulesResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    Rules: output.Rules != null ? de_RuleSummaries(output.Rules, context) : undefined,
-  } as any;
-};
+// de_ListRateBasedRulesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListRegexMatchSetsResponse
- */
-const de_ListRegexMatchSetsResponse = (output: any, context: __SerdeContext): ListRegexMatchSetsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    RegexMatchSets:
-      output.RegexMatchSets != null ? de_RegexMatchSetSummaries(output.RegexMatchSets, context) : undefined,
-  } as any;
-};
+// de_ListRegexMatchSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListRegexPatternSetsResponse
- */
-const de_ListRegexPatternSetsResponse = (output: any, context: __SerdeContext): ListRegexPatternSetsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    RegexPatternSets:
-      output.RegexPatternSets != null ? de_RegexPatternSetSummaries(output.RegexPatternSets, context) : undefined,
-  } as any;
-};
+// de_ListRegexPatternSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListResourcesForWebACLResponse
- */
-const de_ListResourcesForWebACLResponse = (output: any, context: __SerdeContext): ListResourcesForWebACLResponse => {
-  return {
-    ResourceArns: output.ResourceArns != null ? de_ResourceArns(output.ResourceArns, context) : undefined,
-  } as any;
-};
+// de_ListResourcesForWebACLResponse omitted.
 
-/**
- * deserializeAws_json1_1ListRuleGroupsResponse
- */
-const de_ListRuleGroupsResponse = (output: any, context: __SerdeContext): ListRuleGroupsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    RuleGroups: output.RuleGroups != null ? de_RuleGroupSummaries(output.RuleGroups, context) : undefined,
-  } as any;
-};
+// de_ListRuleGroupsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListRulesResponse
- */
-const de_ListRulesResponse = (output: any, context: __SerdeContext): ListRulesResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    Rules: output.Rules != null ? de_RuleSummaries(output.Rules, context) : undefined,
-  } as any;
-};
+// de_ListRulesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListSizeConstraintSetsResponse
- */
-const de_ListSizeConstraintSetsResponse = (output: any, context: __SerdeContext): ListSizeConstraintSetsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    SizeConstraintSets:
-      output.SizeConstraintSets != null ? de_SizeConstraintSetSummaries(output.SizeConstraintSets, context) : undefined,
-  } as any;
-};
+// de_ListSizeConstraintSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListSqlInjectionMatchSetsResponse
- */
-const de_ListSqlInjectionMatchSetsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSqlInjectionMatchSetsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    SqlInjectionMatchSets:
-      output.SqlInjectionMatchSets != null
-        ? de_SqlInjectionMatchSetSummaries(output.SqlInjectionMatchSets, context)
-        : undefined,
-  } as any;
-};
+// de_ListSqlInjectionMatchSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListSubscribedRuleGroupsResponse
- */
-const de_ListSubscribedRuleGroupsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSubscribedRuleGroupsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    RuleGroups: output.RuleGroups != null ? de_SubscribedRuleGroupSummaries(output.RuleGroups, context) : undefined,
-  } as any;
-};
+// de_ListSubscribedRuleGroupsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    TagInfoForResource:
-      output.TagInfoForResource != null ? de_TagInfoForResource(output.TagInfoForResource, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1ListWebACLsResponse
- */
-const de_ListWebACLsResponse = (output: any, context: __SerdeContext): ListWebACLsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    WebACLs: output.WebACLs != null ? de_WebACLSummaries(output.WebACLs, context) : undefined,
-  } as any;
-};
+// de_ListWebACLsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListXssMatchSetsResponse
- */
-const de_ListXssMatchSetsResponse = (output: any, context: __SerdeContext): ListXssMatchSetsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    XssMatchSets: output.XssMatchSets != null ? de_XssMatchSetSummaries(output.XssMatchSets, context) : undefined,
-  } as any;
-};
+// de_ListXssMatchSetsResponse omitted.
 
-/**
- * deserializeAws_json1_1LogDestinationConfigs
- */
-const de_LogDestinationConfigs = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LogDestinationConfigs omitted.
 
-/**
- * deserializeAws_json1_1LoggingConfiguration
- */
-const de_LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
-  return {
-    LogDestinationConfigs:
-      output.LogDestinationConfigs != null
-        ? de_LogDestinationConfigs(output.LogDestinationConfigs, context)
-        : undefined,
-    RedactedFields: output.RedactedFields != null ? de_RedactedFields(output.RedactedFields, context) : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
-};
+// de_LoggingConfiguration omitted.
 
-/**
- * deserializeAws_json1_1LoggingConfigurations
- */
-const de_LoggingConfigurations = (output: any, context: __SerdeContext): LoggingConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LoggingConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_LoggingConfigurations omitted.
 
-/**
- * deserializeAws_json1_1ManagedKeys
- */
-const de_ManagedKeys = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ManagedKeys omitted.
 
-/**
- * deserializeAws_json1_1Predicate
- */
-const de_Predicate = (output: any, context: __SerdeContext): Predicate => {
-  return {
-    DataId: __expectString(output.DataId),
-    Negated: __expectBoolean(output.Negated),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Predicate omitted.
 
-/**
- * deserializeAws_json1_1Predicates
- */
-const de_Predicates = (output: any, context: __SerdeContext): Predicate[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Predicate(entry, context);
-    });
-  return retVal;
-};
+// de_Predicates omitted.
 
-/**
- * deserializeAws_json1_1PutLoggingConfigurationResponse
- */
-const de_PutLoggingConfigurationResponse = (output: any, context: __SerdeContext): PutLoggingConfigurationResponse => {
-  return {
-    LoggingConfiguration:
-      output.LoggingConfiguration != null ? de_LoggingConfiguration(output.LoggingConfiguration, context) : undefined,
-  } as any;
-};
+// de_PutLoggingConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1PutPermissionPolicyResponse
- */
-const de_PutPermissionPolicyResponse = (output: any, context: __SerdeContext): PutPermissionPolicyResponse => {
-  return {} as any;
-};
+// de_PutPermissionPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1RateBasedRule
- */
-const de_RateBasedRule = (output: any, context: __SerdeContext): RateBasedRule => {
-  return {
-    MatchPredicates: output.MatchPredicates != null ? de_Predicates(output.MatchPredicates, context) : undefined,
-    MetricName: __expectString(output.MetricName),
-    Name: __expectString(output.Name),
-    RateKey: __expectString(output.RateKey),
-    RateLimit: __expectLong(output.RateLimit),
-    RuleId: __expectString(output.RuleId),
-  } as any;
-};
+// de_RateBasedRule omitted.
 
-/**
- * deserializeAws_json1_1RedactedFields
- */
-const de_RedactedFields = (output: any, context: __SerdeContext): FieldToMatch[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FieldToMatch(entry, context);
-    });
-  return retVal;
-};
+// de_RedactedFields omitted.
 
-/**
- * deserializeAws_json1_1RegexMatchSet
- */
-const de_RegexMatchSet = (output: any, context: __SerdeContext): RegexMatchSet => {
-  return {
-    Name: __expectString(output.Name),
-    RegexMatchSetId: __expectString(output.RegexMatchSetId),
-    RegexMatchTuples:
-      output.RegexMatchTuples != null ? de_RegexMatchTuples(output.RegexMatchTuples, context) : undefined,
-  } as any;
-};
+// de_RegexMatchSet omitted.
 
-/**
- * deserializeAws_json1_1RegexMatchSetSummaries
- */
-const de_RegexMatchSetSummaries = (output: any, context: __SerdeContext): RegexMatchSetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RegexMatchSetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RegexMatchSetSummaries omitted.
 
-/**
- * deserializeAws_json1_1RegexMatchSetSummary
- */
-const de_RegexMatchSetSummary = (output: any, context: __SerdeContext): RegexMatchSetSummary => {
-  return {
-    Name: __expectString(output.Name),
-    RegexMatchSetId: __expectString(output.RegexMatchSetId),
-  } as any;
-};
+// de_RegexMatchSetSummary omitted.
 
-/**
- * deserializeAws_json1_1RegexMatchTuple
- */
-const de_RegexMatchTuple = (output: any, context: __SerdeContext): RegexMatchTuple => {
-  return {
-    FieldToMatch: output.FieldToMatch != null ? de_FieldToMatch(output.FieldToMatch, context) : undefined,
-    RegexPatternSetId: __expectString(output.RegexPatternSetId),
-    TextTransformation: __expectString(output.TextTransformation),
-  } as any;
-};
+// de_RegexMatchTuple omitted.
 
-/**
- * deserializeAws_json1_1RegexMatchTuples
- */
-const de_RegexMatchTuples = (output: any, context: __SerdeContext): RegexMatchTuple[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RegexMatchTuple(entry, context);
-    });
-  return retVal;
-};
+// de_RegexMatchTuples omitted.
 
-/**
- * deserializeAws_json1_1RegexPatternSet
- */
-const de_RegexPatternSet = (output: any, context: __SerdeContext): RegexPatternSet => {
-  return {
-    Name: __expectString(output.Name),
-    RegexPatternSetId: __expectString(output.RegexPatternSetId),
-    RegexPatternStrings:
-      output.RegexPatternStrings != null ? de_RegexPatternStrings(output.RegexPatternStrings, context) : undefined,
-  } as any;
-};
+// de_RegexPatternSet omitted.
 
-/**
- * deserializeAws_json1_1RegexPatternSetSummaries
- */
-const de_RegexPatternSetSummaries = (output: any, context: __SerdeContext): RegexPatternSetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RegexPatternSetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RegexPatternSetSummaries omitted.
 
-/**
- * deserializeAws_json1_1RegexPatternSetSummary
- */
-const de_RegexPatternSetSummary = (output: any, context: __SerdeContext): RegexPatternSetSummary => {
-  return {
-    Name: __expectString(output.Name),
-    RegexPatternSetId: __expectString(output.RegexPatternSetId),
-  } as any;
-};
+// de_RegexPatternSetSummary omitted.
 
-/**
- * deserializeAws_json1_1RegexPatternStrings
- */
-const de_RegexPatternStrings = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RegexPatternStrings omitted.
 
-/**
- * deserializeAws_json1_1ResourceArns
- */
-const de_ResourceArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceArns omitted.
 
-/**
- * deserializeAws_json1_1Rule
- */
-const de_Rule = (output: any, context: __SerdeContext): Rule => {
-  return {
-    MetricName: __expectString(output.MetricName),
-    Name: __expectString(output.Name),
-    Predicates: output.Predicates != null ? de_Predicates(output.Predicates, context) : undefined,
-    RuleId: __expectString(output.RuleId),
-  } as any;
-};
+// de_Rule omitted.
 
-/**
- * deserializeAws_json1_1RuleGroup
- */
-const de_RuleGroup = (output: any, context: __SerdeContext): RuleGroup => {
-  return {
-    MetricName: __expectString(output.MetricName),
-    Name: __expectString(output.Name),
-    RuleGroupId: __expectString(output.RuleGroupId),
-  } as any;
-};
+// de_RuleGroup omitted.
 
-/**
- * deserializeAws_json1_1RuleGroupSummaries
- */
-const de_RuleGroupSummaries = (output: any, context: __SerdeContext): RuleGroupSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RuleGroupSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RuleGroupSummaries omitted.
 
-/**
- * deserializeAws_json1_1RuleGroupSummary
- */
-const de_RuleGroupSummary = (output: any, context: __SerdeContext): RuleGroupSummary => {
-  return {
-    Name: __expectString(output.Name),
-    RuleGroupId: __expectString(output.RuleGroupId),
-  } as any;
-};
+// de_RuleGroupSummary omitted.
 
-/**
- * deserializeAws_json1_1RuleSummaries
- */
-const de_RuleSummaries = (output: any, context: __SerdeContext): RuleSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RuleSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RuleSummaries omitted.
 
-/**
- * deserializeAws_json1_1RuleSummary
- */
-const de_RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
-  return {
-    Name: __expectString(output.Name),
-    RuleId: __expectString(output.RuleId),
-  } as any;
-};
+// de_RuleSummary omitted.
 
 /**
  * deserializeAws_json1_1SampledHTTPRequest
  */
 const de_SampledHTTPRequest = (output: any, context: __SerdeContext): SampledHTTPRequest => {
-  return {
-    Action: __expectString(output.Action),
-    Request: output.Request != null ? de_HTTPRequest(output.Request, context) : undefined,
-    RuleWithinRuleGroup: __expectString(output.RuleWithinRuleGroup),
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-    Weight: __expectLong(output.Weight),
-  } as any;
+  return take(output, {
+    Action: __expectString,
+    Request: _json,
+    RuleWithinRuleGroup: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Weight: __expectLong,
+  }) as any;
 };
 
 /**
@@ -9156,653 +6979,138 @@ const de_SampledHTTPRequests = (output: any, context: __SerdeContext): SampledHT
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SampledHTTPRequest(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1SizeConstraint
- */
-const de_SizeConstraint = (output: any, context: __SerdeContext): SizeConstraint => {
-  return {
-    ComparisonOperator: __expectString(output.ComparisonOperator),
-    FieldToMatch: output.FieldToMatch != null ? de_FieldToMatch(output.FieldToMatch, context) : undefined,
-    Size: __expectLong(output.Size),
-    TextTransformation: __expectString(output.TextTransformation),
-  } as any;
-};
+// de_SizeConstraint omitted.
 
-/**
- * deserializeAws_json1_1SizeConstraints
- */
-const de_SizeConstraints = (output: any, context: __SerdeContext): SizeConstraint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SizeConstraint(entry, context);
-    });
-  return retVal;
-};
+// de_SizeConstraints omitted.
 
-/**
- * deserializeAws_json1_1SizeConstraintSet
- */
-const de_SizeConstraintSet = (output: any, context: __SerdeContext): SizeConstraintSet => {
-  return {
-    Name: __expectString(output.Name),
-    SizeConstraintSetId: __expectString(output.SizeConstraintSetId),
-    SizeConstraints: output.SizeConstraints != null ? de_SizeConstraints(output.SizeConstraints, context) : undefined,
-  } as any;
-};
+// de_SizeConstraintSet omitted.
 
-/**
- * deserializeAws_json1_1SizeConstraintSetSummaries
- */
-const de_SizeConstraintSetSummaries = (output: any, context: __SerdeContext): SizeConstraintSetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SizeConstraintSetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_SizeConstraintSetSummaries omitted.
 
-/**
- * deserializeAws_json1_1SizeConstraintSetSummary
- */
-const de_SizeConstraintSetSummary = (output: any, context: __SerdeContext): SizeConstraintSetSummary => {
-  return {
-    Name: __expectString(output.Name),
-    SizeConstraintSetId: __expectString(output.SizeConstraintSetId),
-  } as any;
-};
+// de_SizeConstraintSetSummary omitted.
 
-/**
- * deserializeAws_json1_1SqlInjectionMatchSet
- */
-const de_SqlInjectionMatchSet = (output: any, context: __SerdeContext): SqlInjectionMatchSet => {
-  return {
-    Name: __expectString(output.Name),
-    SqlInjectionMatchSetId: __expectString(output.SqlInjectionMatchSetId),
-    SqlInjectionMatchTuples:
-      output.SqlInjectionMatchTuples != null
-        ? de_SqlInjectionMatchTuples(output.SqlInjectionMatchTuples, context)
-        : undefined,
-  } as any;
-};
+// de_SqlInjectionMatchSet omitted.
 
-/**
- * deserializeAws_json1_1SqlInjectionMatchSetSummaries
- */
-const de_SqlInjectionMatchSetSummaries = (output: any, context: __SerdeContext): SqlInjectionMatchSetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SqlInjectionMatchSetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_SqlInjectionMatchSetSummaries omitted.
 
-/**
- * deserializeAws_json1_1SqlInjectionMatchSetSummary
- */
-const de_SqlInjectionMatchSetSummary = (output: any, context: __SerdeContext): SqlInjectionMatchSetSummary => {
-  return {
-    Name: __expectString(output.Name),
-    SqlInjectionMatchSetId: __expectString(output.SqlInjectionMatchSetId),
-  } as any;
-};
+// de_SqlInjectionMatchSetSummary omitted.
 
-/**
- * deserializeAws_json1_1SqlInjectionMatchTuple
- */
-const de_SqlInjectionMatchTuple = (output: any, context: __SerdeContext): SqlInjectionMatchTuple => {
-  return {
-    FieldToMatch: output.FieldToMatch != null ? de_FieldToMatch(output.FieldToMatch, context) : undefined,
-    TextTransformation: __expectString(output.TextTransformation),
-  } as any;
-};
+// de_SqlInjectionMatchTuple omitted.
 
-/**
- * deserializeAws_json1_1SqlInjectionMatchTuples
- */
-const de_SqlInjectionMatchTuples = (output: any, context: __SerdeContext): SqlInjectionMatchTuple[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SqlInjectionMatchTuple(entry, context);
-    });
-  return retVal;
-};
+// de_SqlInjectionMatchTuples omitted.
 
-/**
- * deserializeAws_json1_1SubscribedRuleGroupSummaries
- */
-const de_SubscribedRuleGroupSummaries = (output: any, context: __SerdeContext): SubscribedRuleGroupSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SubscribedRuleGroupSummary(entry, context);
-    });
-  return retVal;
-};
+// de_SubscribedRuleGroupSummaries omitted.
 
-/**
- * deserializeAws_json1_1SubscribedRuleGroupSummary
- */
-const de_SubscribedRuleGroupSummary = (output: any, context: __SerdeContext): SubscribedRuleGroupSummary => {
-  return {
-    MetricName: __expectString(output.MetricName),
-    Name: __expectString(output.Name),
-    RuleGroupId: __expectString(output.RuleGroupId),
-  } as any;
-};
+// de_SubscribedRuleGroupSummary omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagInfoForResource
- */
-const de_TagInfoForResource = (output: any, context: __SerdeContext): TagInfoForResource => {
-  return {
-    ResourceARN: __expectString(output.ResourceARN),
-    TagList: output.TagList != null ? de_TagList(output.TagList, context) : undefined,
-  } as any;
-};
+// de_TagInfoForResource omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1TimeWindow
  */
 const de_TimeWindow = (output: any, context: __SerdeContext): TimeWindow => {
-  return {
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateByteMatchSetResponse
- */
-const de_UpdateByteMatchSetResponse = (output: any, context: __SerdeContext): UpdateByteMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateByteMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateGeoMatchSetResponse
- */
-const de_UpdateGeoMatchSetResponse = (output: any, context: __SerdeContext): UpdateGeoMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateGeoMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateIPSetResponse
- */
-const de_UpdateIPSetResponse = (output: any, context: __SerdeContext): UpdateIPSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateIPSetResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateRateBasedRuleResponse
- */
-const de_UpdateRateBasedRuleResponse = (output: any, context: __SerdeContext): UpdateRateBasedRuleResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateRateBasedRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateRegexMatchSetResponse
- */
-const de_UpdateRegexMatchSetResponse = (output: any, context: __SerdeContext): UpdateRegexMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateRegexMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateRegexPatternSetResponse
- */
-const de_UpdateRegexPatternSetResponse = (output: any, context: __SerdeContext): UpdateRegexPatternSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateRegexPatternSetResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateRuleGroupResponse
- */
-const de_UpdateRuleGroupResponse = (output: any, context: __SerdeContext): UpdateRuleGroupResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateRuleGroupResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateRuleResponse
- */
-const de_UpdateRuleResponse = (output: any, context: __SerdeContext): UpdateRuleResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateSizeConstraintSetResponse
- */
-const de_UpdateSizeConstraintSetResponse = (output: any, context: __SerdeContext): UpdateSizeConstraintSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateSizeConstraintSetResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateSqlInjectionMatchSetResponse
- */
-const de_UpdateSqlInjectionMatchSetResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSqlInjectionMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateSqlInjectionMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateWebACLResponse
- */
-const de_UpdateWebACLResponse = (output: any, context: __SerdeContext): UpdateWebACLResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateWebACLResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateXssMatchSetResponse
- */
-const de_UpdateXssMatchSetResponse = (output: any, context: __SerdeContext): UpdateXssMatchSetResponse => {
-  return {
-    ChangeToken: __expectString(output.ChangeToken),
-  } as any;
-};
+// de_UpdateXssMatchSetResponse omitted.
 
-/**
- * deserializeAws_json1_1WafAction
- */
-const de_WafAction = (output: any, context: __SerdeContext): WafAction => {
-  return {
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_WafAction omitted.
 
-/**
- * deserializeAws_json1_1WAFBadRequestException
- */
-const de_WAFBadRequestException = (output: any, context: __SerdeContext): WAFBadRequestException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFBadRequestException omitted.
 
-/**
- * deserializeAws_json1_1WAFDisallowedNameException
- */
-const de_WAFDisallowedNameException = (output: any, context: __SerdeContext): WAFDisallowedNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFDisallowedNameException omitted.
 
-/**
- * deserializeAws_json1_1WAFEntityMigrationException
- */
-const de_WAFEntityMigrationException = (output: any, context: __SerdeContext): WAFEntityMigrationException => {
-  return {
-    MigrationErrorReason: __expectString(output.MigrationErrorReason),
-    MigrationErrorType: __expectString(output.MigrationErrorType),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFEntityMigrationException omitted.
 
-/**
- * deserializeAws_json1_1WAFInternalErrorException
- */
-const de_WAFInternalErrorException = (output: any, context: __SerdeContext): WAFInternalErrorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFInternalErrorException omitted.
 
-/**
- * deserializeAws_json1_1WAFInvalidAccountException
- */
-const de_WAFInvalidAccountException = (output: any, context: __SerdeContext): WAFInvalidAccountException => {
-  return {} as any;
-};
+// de_WAFInvalidAccountException omitted.
 
-/**
- * deserializeAws_json1_1WAFInvalidOperationException
- */
-const de_WAFInvalidOperationException = (output: any, context: __SerdeContext): WAFInvalidOperationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFInvalidOperationException omitted.
 
-/**
- * deserializeAws_json1_1WAFInvalidParameterException
- */
-const de_WAFInvalidParameterException = (output: any, context: __SerdeContext): WAFInvalidParameterException => {
-  return {
-    field: __expectString(output.field),
-    parameter: __expectString(output.parameter),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_WAFInvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1WAFInvalidPermissionPolicyException
- */
-const de_WAFInvalidPermissionPolicyException = (
-  output: any,
-  context: __SerdeContext
-): WAFInvalidPermissionPolicyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFInvalidPermissionPolicyException omitted.
 
-/**
- * deserializeAws_json1_1WAFInvalidRegexPatternException
- */
-const de_WAFInvalidRegexPatternException = (output: any, context: __SerdeContext): WAFInvalidRegexPatternException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFInvalidRegexPatternException omitted.
 
-/**
- * deserializeAws_json1_1WAFLimitsExceededException
- */
-const de_WAFLimitsExceededException = (output: any, context: __SerdeContext): WAFLimitsExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFLimitsExceededException omitted.
 
-/**
- * deserializeAws_json1_1WAFNonEmptyEntityException
- */
-const de_WAFNonEmptyEntityException = (output: any, context: __SerdeContext): WAFNonEmptyEntityException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFNonEmptyEntityException omitted.
 
-/**
- * deserializeAws_json1_1WAFNonexistentContainerException
- */
-const de_WAFNonexistentContainerException = (
-  output: any,
-  context: __SerdeContext
-): WAFNonexistentContainerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFNonexistentContainerException omitted.
 
-/**
- * deserializeAws_json1_1WAFNonexistentItemException
- */
-const de_WAFNonexistentItemException = (output: any, context: __SerdeContext): WAFNonexistentItemException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFNonexistentItemException omitted.
 
-/**
- * deserializeAws_json1_1WafOverrideAction
- */
-const de_WafOverrideAction = (output: any, context: __SerdeContext): WafOverrideAction => {
-  return {
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_WafOverrideAction omitted.
 
-/**
- * deserializeAws_json1_1WAFReferencedItemException
- */
-const de_WAFReferencedItemException = (output: any, context: __SerdeContext): WAFReferencedItemException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFReferencedItemException omitted.
 
-/**
- * deserializeAws_json1_1WAFServiceLinkedRoleErrorException
- */
-const de_WAFServiceLinkedRoleErrorException = (
-  output: any,
-  context: __SerdeContext
-): WAFServiceLinkedRoleErrorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFServiceLinkedRoleErrorException omitted.
 
-/**
- * deserializeAws_json1_1WAFStaleDataException
- */
-const de_WAFStaleDataException = (output: any, context: __SerdeContext): WAFStaleDataException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFStaleDataException omitted.
 
-/**
- * deserializeAws_json1_1WAFSubscriptionNotFoundException
- */
-const de_WAFSubscriptionNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): WAFSubscriptionNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFSubscriptionNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1WAFTagOperationException
- */
-const de_WAFTagOperationException = (output: any, context: __SerdeContext): WAFTagOperationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFTagOperationException omitted.
 
-/**
- * deserializeAws_json1_1WAFTagOperationInternalErrorException
- */
-const de_WAFTagOperationInternalErrorException = (
-  output: any,
-  context: __SerdeContext
-): WAFTagOperationInternalErrorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFTagOperationInternalErrorException omitted.
 
-/**
- * deserializeAws_json1_1WAFUnavailableEntityException
- */
-const de_WAFUnavailableEntityException = (output: any, context: __SerdeContext): WAFUnavailableEntityException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WAFUnavailableEntityException omitted.
 
-/**
- * deserializeAws_json1_1WebACL
- */
-const de_WebACL = (output: any, context: __SerdeContext): WebACL => {
-  return {
-    DefaultAction: output.DefaultAction != null ? de_WafAction(output.DefaultAction, context) : undefined,
-    MetricName: __expectString(output.MetricName),
-    Name: __expectString(output.Name),
-    Rules: output.Rules != null ? de_ActivatedRules(output.Rules, context) : undefined,
-    WebACLArn: __expectString(output.WebACLArn),
-    WebACLId: __expectString(output.WebACLId),
-  } as any;
-};
+// de_WebACL omitted.
 
-/**
- * deserializeAws_json1_1WebACLSummaries
- */
-const de_WebACLSummaries = (output: any, context: __SerdeContext): WebACLSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WebACLSummary(entry, context);
-    });
-  return retVal;
-};
+// de_WebACLSummaries omitted.
 
-/**
- * deserializeAws_json1_1WebACLSummary
- */
-const de_WebACLSummary = (output: any, context: __SerdeContext): WebACLSummary => {
-  return {
-    Name: __expectString(output.Name),
-    WebACLId: __expectString(output.WebACLId),
-  } as any;
-};
+// de_WebACLSummary omitted.
 
-/**
- * deserializeAws_json1_1XssMatchSet
- */
-const de_XssMatchSet = (output: any, context: __SerdeContext): XssMatchSet => {
-  return {
-    Name: __expectString(output.Name),
-    XssMatchSetId: __expectString(output.XssMatchSetId),
-    XssMatchTuples: output.XssMatchTuples != null ? de_XssMatchTuples(output.XssMatchTuples, context) : undefined,
-  } as any;
-};
+// de_XssMatchSet omitted.
 
-/**
- * deserializeAws_json1_1XssMatchSetSummaries
- */
-const de_XssMatchSetSummaries = (output: any, context: __SerdeContext): XssMatchSetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_XssMatchSetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_XssMatchSetSummaries omitted.
 
-/**
- * deserializeAws_json1_1XssMatchSetSummary
- */
-const de_XssMatchSetSummary = (output: any, context: __SerdeContext): XssMatchSetSummary => {
-  return {
-    Name: __expectString(output.Name),
-    XssMatchSetId: __expectString(output.XssMatchSetId),
-  } as any;
-};
+// de_XssMatchSetSummary omitted.
 
-/**
- * deserializeAws_json1_1XssMatchTuple
- */
-const de_XssMatchTuple = (output: any, context: __SerdeContext): XssMatchTuple => {
-  return {
-    FieldToMatch: output.FieldToMatch != null ? de_FieldToMatch(output.FieldToMatch, context) : undefined,
-    TextTransformation: __expectString(output.TextTransformation),
-  } as any;
-};
+// de_XssMatchTuple omitted.
 
-/**
- * deserializeAws_json1_1XssMatchTuples
- */
-const de_XssMatchTuples = (output: any, context: __SerdeContext): XssMatchTuple[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_XssMatchTuple(entry, context);
-    });
-  return retVal;
-};
+// de_XssMatchTuples omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -9824,6 +7132,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

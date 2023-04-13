@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -9,10 +10,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -134,34 +136,19 @@ import { UpdateRepositoryCommandInput, UpdateRepositoryCommandOutput } from "../
 import { CodeartifactServiceException as __BaseException } from "../models/CodeartifactServiceException";
 import {
   AccessDeniedException,
-  AssetSummary,
   ConflictException,
   DomainDescription,
-  DomainEntryPoint,
   DomainSummary,
-  HashAlgorithm,
   InternalServerException,
-  LicenseInfo,
-  PackageDependency,
-  PackageDescription,
-  PackageOriginConfiguration,
   PackageOriginRestrictions,
-  PackageSummary,
   PackageVersionDescription,
-  PackageVersionError,
-  PackageVersionOrigin,
-  PackageVersionSummary,
   RepositoryDescription,
-  RepositoryExternalConnectionInfo,
   RepositorySummary,
   ResourceNotFoundException,
-  ResourcePolicy,
   ServiceQuotaExceededException,
-  SuccessfulPackageVersionInfo,
   Tag,
   ThrottlingException,
   UpstreamRepository,
-  UpstreamRepositoryInfo,
   ValidationException,
 } from "../models/models_0";
 
@@ -218,14 +205,14 @@ export const se_CopyPackageVersionsCommand = async (
     package: [, __expectNonNull(input.package!, `package`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.allowOverwrite != null && { allowOverwrite: input.allowOverwrite }),
-    ...(input.includeFromUpstream != null && { includeFromUpstream: input.includeFromUpstream }),
-    ...(input.versionRevisions != null && {
-      versionRevisions: se_PackageVersionRevisionMap(input.versionRevisions, context),
-    }),
-    ...(input.versions != null && { versions: se_PackageVersionList(input.versions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      allowOverwrite: [],
+      includeFromUpstream: [],
+      versionRevisions: (_) => _json(_),
+      versions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -254,10 +241,12 @@ export const se_CreateDomainCommand = async (
     domain: [, __expectNonNull(input.domain!, `domain`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      encryptionKey: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -288,11 +277,13 @@ export const se_CreateRepositoryCommand = async (
     repository: [, __expectNonNull(input.repository!, `repository`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.upstreams != null && { upstreams: se_UpstreamRepositoryList(input.upstreams, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      tags: (_) => _json(_),
+      upstreams: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -414,10 +405,12 @@ export const se_DeletePackageVersionsCommand = async (
     package: [, __expectNonNull(input.package!, `package`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.expectedStatus != null && { expectedStatus: input.expectedStatus }),
-    ...(input.versions != null && { versions: se_PackageVersionList(input.versions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      expectedStatus: [],
+      versions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -658,13 +651,13 @@ export const se_DisposePackageVersionsCommand = async (
     package: [, __expectNonNull(input.package!, `package`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.expectedStatus != null && { expectedStatus: input.expectedStatus }),
-    ...(input.versionRevisions != null && {
-      versionRevisions: se_PackageVersionRevisionMap(input.versionRevisions, context),
-    }),
-    ...(input.versions != null && { versions: se_PackageVersionList(input.versions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      expectedStatus: [],
+      versionRevisions: (_) => _json(_),
+      versions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -874,10 +867,12 @@ export const se_ListDomainsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domains";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1170,12 +1165,14 @@ export const se_PutDomainPermissionsPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.domainOwner != null && { domainOwner: input.domainOwner }),
-    ...(input.policyDocument != null && { policyDocument: input.policyDocument }),
-    ...(input.policyRevision != null && { policyRevision: input.policyRevision }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      domain: [],
+      domainOwner: [],
+      policyDocument: [],
+      policyRevision: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1208,9 +1205,11 @@ export const se_PutPackageOriginConfigurationCommand = async (
     package: [, __expectNonNull(input.package!, `package`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.restrictions != null && { restrictions: se_PackageOriginRestrictions(input.restrictions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      restrictions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1242,10 +1241,12 @@ export const se_PutRepositoryPermissionsPolicyCommand = async (
     repository: [, __expectNonNull(input.repository!, `repository`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.policyDocument != null && { policyDocument: input.policyDocument }),
-    ...(input.policyRevision != null && { policyRevision: input.policyRevision }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      policyDocument: [],
+      policyRevision: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1274,9 +1275,11 @@ export const se_TagResourceCommand = async (
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1305,9 +1308,11 @@ export const se_UntagResourceCommand = async (
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1342,14 +1347,14 @@ export const se_UpdatePackageVersionsStatusCommand = async (
     package: [, __expectNonNull(input.package!, `package`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.expectedStatus != null && { expectedStatus: input.expectedStatus }),
-    ...(input.targetStatus != null && { targetStatus: input.targetStatus }),
-    ...(input.versionRevisions != null && {
-      versionRevisions: se_PackageVersionRevisionMap(input.versionRevisions, context),
-    }),
-    ...(input.versions != null && { versions: se_PackageVersionList(input.versions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      expectedStatus: [],
+      targetStatus: [],
+      versionRevisions: (_) => _json(_),
+      versions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1380,10 +1385,12 @@ export const se_UpdateRepositoryCommand = async (
     repository: [, __expectNonNull(input.repository!, `repository`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.upstreams != null && { upstreams: se_UpstreamRepositoryList(input.upstreams, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      upstreams: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1410,9 +1417,10 @@ export const de_AssociateExternalConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.repository != null) {
-    contents.repository = de_RepositoryDescription(data.repository, context);
-  }
+  const doc = take(data, {
+    repository: (_) => de_RepositoryDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1452,10 +1460,9 @@ const de_AssociateExternalConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1475,12 +1482,11 @@ export const de_CopyPackageVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedVersions != null) {
-    contents.failedVersions = de_PackageVersionErrorMap(data.failedVersions, context);
-  }
-  if (data.successfulVersions != null) {
-    contents.successfulVersions = de_SuccessfulPackageVersionInfoMap(data.successfulVersions, context);
-  }
+  const doc = take(data, {
+    failedVersions: _json,
+    successfulVersions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1520,10 +1526,9 @@ const de_CopyPackageVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1543,9 +1548,10 @@ export const de_CreateDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domain != null) {
-    contents.domain = de_DomainDescription(data.domain, context);
-  }
+  const doc = take(data, {
+    domain: (_) => de_DomainDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1585,10 +1591,9 @@ const de_CreateDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1608,9 +1613,10 @@ export const de_CreateRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.repository != null) {
-    contents.repository = de_RepositoryDescription(data.repository, context);
-  }
+  const doc = take(data, {
+    repository: (_) => de_RepositoryDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1650,10 +1656,9 @@ const de_CreateRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1673,9 +1678,10 @@ export const de_DeleteDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domain != null) {
-    contents.domain = de_DomainDescription(data.domain, context);
-  }
+  const doc = take(data, {
+    domain: (_) => de_DomainDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1709,10 +1715,9 @@ const de_DeleteDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1732,9 +1737,10 @@ export const de_DeleteDomainPermissionsPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResourcePolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1771,10 +1777,9 @@ const de_DeleteDomainPermissionsPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1794,9 +1799,10 @@ export const de_DeletePackageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deletedPackage != null) {
-    contents.deletedPackage = de_PackageSummary(data.deletedPackage, context);
-  }
+  const doc = take(data, {
+    deletedPackage: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1833,10 +1839,9 @@ const de_DeletePackageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1856,12 +1861,11 @@ export const de_DeletePackageVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedVersions != null) {
-    contents.failedVersions = de_PackageVersionErrorMap(data.failedVersions, context);
-  }
-  if (data.successfulVersions != null) {
-    contents.successfulVersions = de_SuccessfulPackageVersionInfoMap(data.successfulVersions, context);
-  }
+  const doc = take(data, {
+    failedVersions: _json,
+    successfulVersions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1898,10 +1902,9 @@ const de_DeletePackageVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1921,9 +1924,10 @@ export const de_DeleteRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.repository != null) {
-    contents.repository = de_RepositoryDescription(data.repository, context);
-  }
+  const doc = take(data, {
+    repository: (_) => de_RepositoryDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1960,10 +1964,9 @@ const de_DeleteRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1983,9 +1986,10 @@ export const de_DeleteRepositoryPermissionsPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResourcePolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2022,10 +2026,9 @@ const de_DeleteRepositoryPermissionsPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2045,9 +2048,10 @@ export const de_DescribeDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domain != null) {
-    contents.domain = de_DomainDescription(data.domain, context);
-  }
+  const doc = take(data, {
+    domain: (_) => de_DomainDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2081,10 +2085,9 @@ const de_DescribeDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2104,9 +2107,10 @@ export const de_DescribePackageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.package != null) {
-    contents.package = de_PackageDescription(data.package, context);
-  }
+  const doc = take(data, {
+    package: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2140,10 +2144,9 @@ const de_DescribePackageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2163,9 +2166,10 @@ export const de_DescribePackageVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.packageVersion != null) {
-    contents.packageVersion = de_PackageVersionDescription(data.packageVersion, context);
-  }
+  const doc = take(data, {
+    packageVersion: (_) => de_PackageVersionDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2202,10 +2206,9 @@ const de_DescribePackageVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2225,9 +2228,10 @@ export const de_DescribeRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.repository != null) {
-    contents.repository = de_RepositoryDescription(data.repository, context);
-  }
+  const doc = take(data, {
+    repository: (_) => de_RepositoryDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2261,10 +2265,9 @@ const de_DescribeRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2284,9 +2287,10 @@ export const de_DisassociateExternalConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.repository != null) {
-    contents.repository = de_RepositoryDescription(data.repository, context);
-  }
+  const doc = take(data, {
+    repository: (_) => de_RepositoryDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2326,10 +2330,9 @@ const de_DisassociateExternalConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2349,12 +2352,11 @@ export const de_DisposePackageVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedVersions != null) {
-    contents.failedVersions = de_PackageVersionErrorMap(data.failedVersions, context);
-  }
-  if (data.successfulVersions != null) {
-    contents.successfulVersions = de_SuccessfulPackageVersionInfoMap(data.successfulVersions, context);
-  }
+  const doc = take(data, {
+    failedVersions: _json,
+    successfulVersions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2391,10 +2393,9 @@ const de_DisposePackageVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2414,12 +2415,11 @@ export const de_GetAuthorizationTokenCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authorizationToken != null) {
-    contents.authorizationToken = __expectString(data.authorizationToken);
-  }
-  if (data.expiration != null) {
-    contents.expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expiration)));
-  }
+  const doc = take(data, {
+    authorizationToken: __expectString,
+    expiration: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2453,10 +2453,9 @@ const de_GetAuthorizationTokenCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2476,9 +2475,10 @@ export const de_GetDomainPermissionsPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResourcePolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2512,10 +2512,9 @@ const de_GetDomainPermissionsPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2576,10 +2575,9 @@ const de_GetPackageVersionAssetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2599,24 +2597,15 @@ export const de_GetPackageVersionReadmeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.format != null) {
-    contents.format = __expectString(data.format);
-  }
-  if (data.namespace != null) {
-    contents.namespace = __expectString(data.namespace);
-  }
-  if (data.package != null) {
-    contents.package = __expectString(data.package);
-  }
-  if (data.readme != null) {
-    contents.readme = __expectString(data.readme);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.versionRevision != null) {
-    contents.versionRevision = __expectString(data.versionRevision);
-  }
+  const doc = take(data, {
+    format: __expectString,
+    namespace: __expectString,
+    package: __expectString,
+    readme: __expectString,
+    version: __expectString,
+    versionRevision: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2650,10 +2639,9 @@ const de_GetPackageVersionReadmeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2673,9 +2661,10 @@ export const de_GetRepositoryEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.repositoryEndpoint != null) {
-    contents.repositoryEndpoint = __expectString(data.repositoryEndpoint);
-  }
+  const doc = take(data, {
+    repositoryEndpoint: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2709,10 +2698,9 @@ const de_GetRepositoryEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2732,9 +2720,10 @@ export const de_GetRepositoryPermissionsPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResourcePolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2768,10 +2757,9 @@ const de_GetRepositoryPermissionsPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2791,12 +2779,11 @@ export const de_ListDomainsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domains != null) {
-    contents.domains = de_DomainSummaryList(data.domains, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    domains: (_) => de_DomainSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2827,10 +2814,9 @@ const de_ListDomainsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2850,12 +2836,11 @@ export const de_ListPackagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.packages != null) {
-    contents.packages = de_PackageSummaryList(data.packages, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    packages: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2889,10 +2874,9 @@ const de_ListPackagesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2912,27 +2896,16 @@ export const de_ListPackageVersionAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assets != null) {
-    contents.assets = de_AssetSummaryList(data.assets, context);
-  }
-  if (data.format != null) {
-    contents.format = __expectString(data.format);
-  }
-  if (data.namespace != null) {
-    contents.namespace = __expectString(data.namespace);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.package != null) {
-    contents.package = __expectString(data.package);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.versionRevision != null) {
-    contents.versionRevision = __expectString(data.versionRevision);
-  }
+  const doc = take(data, {
+    assets: _json,
+    format: __expectString,
+    namespace: __expectString,
+    nextToken: __expectString,
+    package: __expectString,
+    version: __expectString,
+    versionRevision: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2966,10 +2939,9 @@ const de_ListPackageVersionAssetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2989,27 +2961,16 @@ export const de_ListPackageVersionDependenciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dependencies != null) {
-    contents.dependencies = de_PackageDependencyList(data.dependencies, context);
-  }
-  if (data.format != null) {
-    contents.format = __expectString(data.format);
-  }
-  if (data.namespace != null) {
-    contents.namespace = __expectString(data.namespace);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.package != null) {
-    contents.package = __expectString(data.package);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.versionRevision != null) {
-    contents.versionRevision = __expectString(data.versionRevision);
-  }
+  const doc = take(data, {
+    dependencies: _json,
+    format: __expectString,
+    namespace: __expectString,
+    nextToken: __expectString,
+    package: __expectString,
+    version: __expectString,
+    versionRevision: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3043,10 +3004,9 @@ const de_ListPackageVersionDependenciesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3066,24 +3026,15 @@ export const de_ListPackageVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.defaultDisplayVersion != null) {
-    contents.defaultDisplayVersion = __expectString(data.defaultDisplayVersion);
-  }
-  if (data.format != null) {
-    contents.format = __expectString(data.format);
-  }
-  if (data.namespace != null) {
-    contents.namespace = __expectString(data.namespace);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.package != null) {
-    contents.package = __expectString(data.package);
-  }
-  if (data.versions != null) {
-    contents.versions = de_PackageVersionSummaryList(data.versions, context);
-  }
+  const doc = take(data, {
+    defaultDisplayVersion: __expectString,
+    format: __expectString,
+    namespace: __expectString,
+    nextToken: __expectString,
+    package: __expectString,
+    versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3117,10 +3068,9 @@ const de_ListPackageVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3140,12 +3090,11 @@ export const de_ListRepositoriesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.repositories != null) {
-    contents.repositories = de_RepositorySummaryList(data.repositories, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    repositories: (_) => de_RepositorySummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3176,10 +3125,9 @@ const de_ListRepositoriesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3199,12 +3147,11 @@ export const de_ListRepositoriesInDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.repositories != null) {
-    contents.repositories = de_RepositorySummaryList(data.repositories, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    repositories: (_) => de_RepositorySummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3238,10 +3185,9 @@ const de_ListRepositoriesInDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3261,9 +3207,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagList(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3294,10 +3241,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3317,27 +3263,16 @@ export const de_PublishPackageVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.asset != null) {
-    contents.asset = de_AssetSummary(data.asset, context);
-  }
-  if (data.format != null) {
-    contents.format = __expectString(data.format);
-  }
-  if (data.namespace != null) {
-    contents.namespace = __expectString(data.namespace);
-  }
-  if (data.package != null) {
-    contents.package = __expectString(data.package);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.version != null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.versionRevision != null) {
-    contents.versionRevision = __expectString(data.versionRevision);
-  }
+  const doc = take(data, {
+    asset: _json,
+    format: __expectString,
+    namespace: __expectString,
+    package: __expectString,
+    status: __expectString,
+    version: __expectString,
+    versionRevision: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3377,10 +3312,9 @@ const de_PublishPackageVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3400,9 +3334,10 @@ export const de_PutDomainPermissionsPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResourcePolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3442,10 +3377,9 @@ const de_PutDomainPermissionsPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3465,9 +3399,10 @@ export const de_PutPackageOriginConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.originConfiguration != null) {
-    contents.originConfiguration = de_PackageOriginConfiguration(data.originConfiguration, context);
-  }
+  const doc = take(data, {
+    originConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3501,10 +3436,9 @@ const de_PutPackageOriginConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3524,9 +3458,10 @@ export const de_PutRepositoryPermissionsPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResourcePolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3566,10 +3501,9 @@ const de_PutRepositoryPermissionsPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3622,10 +3556,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3675,10 +3608,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3698,12 +3630,11 @@ export const de_UpdatePackageVersionsStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedVersions != null) {
-    contents.failedVersions = de_PackageVersionErrorMap(data.failedVersions, context);
-  }
-  if (data.successfulVersions != null) {
-    contents.successfulVersions = de_SuccessfulPackageVersionInfoMap(data.successfulVersions, context);
-  }
+  const doc = take(data, {
+    failedVersions: _json,
+    successfulVersions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3740,10 +3671,9 @@ const de_UpdatePackageVersionsStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3763,9 +3693,10 @@ export const de_UpdateRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.repository != null) {
-    contents.repository = de_RepositoryDescription(data.repository, context);
-  }
+  const doc = take(data, {
+    repository: (_) => de_RepositoryDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3805,16 +3736,15 @@ const de_UpdateRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3824,9 +3754,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3840,15 +3771,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3865,9 +3793,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3884,15 +3813,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3909,15 +3835,12 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3936,9 +3859,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3952,12 +3876,11 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3965,176 +3888,59 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1PackageOriginRestrictions
- */
-const se_PackageOriginRestrictions = (input: PackageOriginRestrictions, context: __SerdeContext): any => {
-  return {
-    ...(input.publish != null && { publish: input.publish }),
-    ...(input.upstream != null && { upstream: input.upstream }),
-  };
-};
+// se_PackageOriginRestrictions omitted.
 
-/**
- * serializeAws_restJson1PackageVersionList
- */
-const se_PackageVersionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PackageVersionList omitted.
 
-/**
- * serializeAws_restJson1PackageVersionRevisionMap
- */
-const se_PackageVersionRevisionMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_PackageVersionRevisionMap omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_restJson1UpstreamRepository
- */
-const se_UpstreamRepository = (input: UpstreamRepository, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_UpstreamRepository omitted.
 
-/**
- * serializeAws_restJson1UpstreamRepositoryList
- */
-const se_UpstreamRepositoryList = (input: UpstreamRepository[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpstreamRepository(entry, context);
-    });
-};
+// se_UpstreamRepositoryList omitted.
 
-/**
- * deserializeAws_restJson1AssetHashes
- */
-const de_AssetHashes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [HashAlgorithm | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_AssetHashes omitted.
 
-/**
- * deserializeAws_restJson1AssetSummary
- */
-const de_AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
-  return {
-    hashes: output.hashes != null ? de_AssetHashes(output.hashes, context) : undefined,
-    name: __expectString(output.name),
-    size: __expectLong(output.size),
-  } as any;
-};
+// de_AssetSummary omitted.
 
-/**
- * deserializeAws_restJson1AssetSummaryList
- */
-const de_AssetSummaryList = (output: any, context: __SerdeContext): AssetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AssetSummaryList omitted.
 
 /**
  * deserializeAws_restJson1DomainDescription
  */
 const de_DomainDescription = (output: any, context: __SerdeContext): DomainDescription => {
-  return {
-    arn: __expectString(output.arn),
-    assetSizeBytes: __expectLong(output.assetSizeBytes),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    encryptionKey: __expectString(output.encryptionKey),
-    name: __expectString(output.name),
-    owner: __expectString(output.owner),
-    repositoryCount: __expectInt32(output.repositoryCount),
-    s3BucketArn: __expectString(output.s3BucketArn),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    assetSizeBytes: __expectLong,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionKey: __expectString,
+    name: __expectString,
+    owner: __expectString,
+    repositoryCount: __expectInt32,
+    s3BucketArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DomainEntryPoint
- */
-const de_DomainEntryPoint = (output: any, context: __SerdeContext): DomainEntryPoint => {
-  return {
-    externalConnectionName: __expectString(output.externalConnectionName),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_DomainEntryPoint omitted.
 
 /**
  * deserializeAws_restJson1DomainSummary
  */
 const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    encryptionKey: __expectString(output.encryptionKey),
-    name: __expectString(output.name),
-    owner: __expectString(output.owner),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionKey: __expectString,
+    name: __expectString,
+    owner: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4144,286 +3950,94 @@ const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LicenseInfo
- */
-const de_LicenseInfo = (output: any, context: __SerdeContext): LicenseInfo => {
-  return {
-    name: __expectString(output.name),
-    url: __expectString(output.url),
-  } as any;
-};
+// de_LicenseInfo omitted.
 
-/**
- * deserializeAws_restJson1LicenseInfoList
- */
-const de_LicenseInfoList = (output: any, context: __SerdeContext): LicenseInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LicenseInfo(entry, context);
-    });
-  return retVal;
-};
+// de_LicenseInfoList omitted.
 
-/**
- * deserializeAws_restJson1PackageDependency
- */
-const de_PackageDependency = (output: any, context: __SerdeContext): PackageDependency => {
-  return {
-    dependencyType: __expectString(output.dependencyType),
-    namespace: __expectString(output.namespace),
-    package: __expectString(output.package),
-    versionRequirement: __expectString(output.versionRequirement),
-  } as any;
-};
+// de_PackageDependency omitted.
 
-/**
- * deserializeAws_restJson1PackageDependencyList
- */
-const de_PackageDependencyList = (output: any, context: __SerdeContext): PackageDependency[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PackageDependency(entry, context);
-    });
-  return retVal;
-};
+// de_PackageDependencyList omitted.
 
-/**
- * deserializeAws_restJson1PackageDescription
- */
-const de_PackageDescription = (output: any, context: __SerdeContext): PackageDescription => {
-  return {
-    format: __expectString(output.format),
-    name: __expectString(output.name),
-    namespace: __expectString(output.namespace),
-    originConfiguration:
-      output.originConfiguration != null
-        ? de_PackageOriginConfiguration(output.originConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_PackageDescription omitted.
 
-/**
- * deserializeAws_restJson1PackageOriginConfiguration
- */
-const de_PackageOriginConfiguration = (output: any, context: __SerdeContext): PackageOriginConfiguration => {
-  return {
-    restrictions: output.restrictions != null ? de_PackageOriginRestrictions(output.restrictions, context) : undefined,
-  } as any;
-};
+// de_PackageOriginConfiguration omitted.
 
-/**
- * deserializeAws_restJson1PackageOriginRestrictions
- */
-const de_PackageOriginRestrictions = (output: any, context: __SerdeContext): PackageOriginRestrictions => {
-  return {
-    publish: __expectString(output.publish),
-    upstream: __expectString(output.upstream),
-  } as any;
-};
+// de_PackageOriginRestrictions omitted.
 
-/**
- * deserializeAws_restJson1PackageSummary
- */
-const de_PackageSummary = (output: any, context: __SerdeContext): PackageSummary => {
-  return {
-    format: __expectString(output.format),
-    namespace: __expectString(output.namespace),
-    originConfiguration:
-      output.originConfiguration != null
-        ? de_PackageOriginConfiguration(output.originConfiguration, context)
-        : undefined,
-    package: __expectString(output.package),
-  } as any;
-};
+// de_PackageSummary omitted.
 
-/**
- * deserializeAws_restJson1PackageSummaryList
- */
-const de_PackageSummaryList = (output: any, context: __SerdeContext): PackageSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PackageSummary(entry, context);
-    });
-  return retVal;
-};
+// de_PackageSummaryList omitted.
 
 /**
  * deserializeAws_restJson1PackageVersionDescription
  */
 const de_PackageVersionDescription = (output: any, context: __SerdeContext): PackageVersionDescription => {
-  return {
-    displayName: __expectString(output.displayName),
-    format: __expectString(output.format),
-    homePage: __expectString(output.homePage),
-    licenses: output.licenses != null ? de_LicenseInfoList(output.licenses, context) : undefined,
-    namespace: __expectString(output.namespace),
-    origin: output.origin != null ? de_PackageVersionOrigin(output.origin, context) : undefined,
-    packageName: __expectString(output.packageName),
-    publishedTime:
-      output.publishedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.publishedTime)))
-        : undefined,
-    revision: __expectString(output.revision),
-    sourceCodeRepository: __expectString(output.sourceCodeRepository),
-    status: __expectString(output.status),
-    summary: __expectString(output.summary),
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    displayName: __expectString,
+    format: __expectString,
+    homePage: __expectString,
+    licenses: _json,
+    namespace: __expectString,
+    origin: _json,
+    packageName: __expectString,
+    publishedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    revision: __expectString,
+    sourceCodeRepository: __expectString,
+    status: __expectString,
+    summary: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1PackageVersionError
- */
-const de_PackageVersionError = (output: any, context: __SerdeContext): PackageVersionError => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_PackageVersionError omitted.
 
-/**
- * deserializeAws_restJson1PackageVersionErrorMap
- */
-const de_PackageVersionErrorMap = (output: any, context: __SerdeContext): Record<string, PackageVersionError> => {
-  return Object.entries(output).reduce((acc: Record<string, PackageVersionError>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_PackageVersionError(value, context);
-    return acc;
-  }, {});
-};
+// de_PackageVersionErrorMap omitted.
 
-/**
- * deserializeAws_restJson1PackageVersionOrigin
- */
-const de_PackageVersionOrigin = (output: any, context: __SerdeContext): PackageVersionOrigin => {
-  return {
-    domainEntryPoint:
-      output.domainEntryPoint != null ? de_DomainEntryPoint(output.domainEntryPoint, context) : undefined,
-    originType: __expectString(output.originType),
-  } as any;
-};
+// de_PackageVersionOrigin omitted.
 
-/**
- * deserializeAws_restJson1PackageVersionSummary
- */
-const de_PackageVersionSummary = (output: any, context: __SerdeContext): PackageVersionSummary => {
-  return {
-    origin: output.origin != null ? de_PackageVersionOrigin(output.origin, context) : undefined,
-    revision: __expectString(output.revision),
-    status: __expectString(output.status),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_PackageVersionSummary omitted.
 
-/**
- * deserializeAws_restJson1PackageVersionSummaryList
- */
-const de_PackageVersionSummaryList = (output: any, context: __SerdeContext): PackageVersionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PackageVersionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_PackageVersionSummaryList omitted.
 
 /**
  * deserializeAws_restJson1RepositoryDescription
  */
 const de_RepositoryDescription = (output: any, context: __SerdeContext): RepositoryDescription => {
-  return {
-    administratorAccount: __expectString(output.administratorAccount),
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    domainName: __expectString(output.domainName),
-    domainOwner: __expectString(output.domainOwner),
-    externalConnections:
-      output.externalConnections != null
-        ? de_RepositoryExternalConnectionInfoList(output.externalConnections, context)
-        : undefined,
-    name: __expectString(output.name),
-    upstreams: output.upstreams != null ? de_UpstreamRepositoryInfoList(output.upstreams, context) : undefined,
-  } as any;
+  return take(output, {
+    administratorAccount: __expectString,
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    domainName: __expectString,
+    domainOwner: __expectString,
+    externalConnections: _json,
+    name: __expectString,
+    upstreams: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RepositoryExternalConnectionInfo
- */
-const de_RepositoryExternalConnectionInfo = (
-  output: any,
-  context: __SerdeContext
-): RepositoryExternalConnectionInfo => {
-  return {
-    externalConnectionName: __expectString(output.externalConnectionName),
-    packageFormat: __expectString(output.packageFormat),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_RepositoryExternalConnectionInfo omitted.
 
-/**
- * deserializeAws_restJson1RepositoryExternalConnectionInfoList
- */
-const de_RepositoryExternalConnectionInfoList = (
-  output: any,
-  context: __SerdeContext
-): RepositoryExternalConnectionInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RepositoryExternalConnectionInfo(entry, context);
-    });
-  return retVal;
-};
+// de_RepositoryExternalConnectionInfoList omitted.
 
 /**
  * deserializeAws_restJson1RepositorySummary
  */
 const de_RepositorySummary = (output: any, context: __SerdeContext): RepositorySummary => {
-  return {
-    administratorAccount: __expectString(output.administratorAccount),
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    domainName: __expectString(output.domainName),
-    domainOwner: __expectString(output.domainOwner),
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    administratorAccount: __expectString,
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    domainName: __expectString,
+    domainOwner: __expectString,
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -4433,102 +4047,24 @@ const de_RepositorySummaryList = (output: any, context: __SerdeContext): Reposit
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RepositorySummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ResourcePolicy
- */
-const de_ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
-  return {
-    document: __expectString(output.document),
-    resourceArn: __expectString(output.resourceArn),
-    revision: __expectString(output.revision),
-  } as any;
-};
+// de_ResourcePolicy omitted.
 
-/**
- * deserializeAws_restJson1SuccessfulPackageVersionInfo
- */
-const de_SuccessfulPackageVersionInfo = (output: any, context: __SerdeContext): SuccessfulPackageVersionInfo => {
-  return {
-    revision: __expectString(output.revision),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_SuccessfulPackageVersionInfo omitted.
 
-/**
- * deserializeAws_restJson1SuccessfulPackageVersionInfoMap
- */
-const de_SuccessfulPackageVersionInfoMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, SuccessfulPackageVersionInfo> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, SuccessfulPackageVersionInfo>, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_SuccessfulPackageVersionInfo(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_SuccessfulPackageVersionInfoMap omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_restJson1UpstreamRepositoryInfo
- */
-const de_UpstreamRepositoryInfo = (output: any, context: __SerdeContext): UpstreamRepositoryInfo => {
-  return {
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_UpstreamRepositoryInfo omitted.
 
-/**
- * deserializeAws_restJson1UpstreamRepositoryInfoList
- */
-const de_UpstreamRepositoryInfoList = (output: any, context: __SerdeContext): UpstreamRepositoryInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UpstreamRepositoryInfo(entry, context);
-    });
-  return retVal;
-};
+// de_UpstreamRepositoryInfoList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -118,7 +119,6 @@ import {
 import { IoTThingsGraphServiceException as __BaseException } from "../models/IoTThingsGraphServiceException";
 import {
   AssociateEntityToThingRequest,
-  AssociateEntityToThingResponse,
   CreateFlowTemplateRequest,
   CreateFlowTemplateResponse,
   CreateSystemInstanceRequest,
@@ -127,24 +127,15 @@ import {
   CreateSystemTemplateResponse,
   DefinitionDocument,
   DeleteFlowTemplateRequest,
-  DeleteFlowTemplateResponse,
   DeleteNamespaceRequest,
-  DeleteNamespaceResponse,
   DeleteSystemInstanceRequest,
-  DeleteSystemInstanceResponse,
   DeleteSystemTemplateRequest,
-  DeleteSystemTemplateResponse,
-  DependencyRevision,
   DeploySystemInstanceRequest,
   DeploySystemInstanceResponse,
   DeprecateFlowTemplateRequest,
-  DeprecateFlowTemplateResponse,
   DeprecateSystemTemplateRequest,
-  DeprecateSystemTemplateResponse,
   DescribeNamespaceRequest,
-  DescribeNamespaceResponse,
   DissociateEntityFromThingRequest,
-  DissociateEntityFromThingResponse,
   EntityDescription,
   EntityFilter,
   EntityType,
@@ -160,7 +151,6 @@ import {
   GetFlowTemplateRevisionsRequest,
   GetFlowTemplateRevisionsResponse,
   GetNamespaceDeletionStatusRequest,
-  GetNamespaceDeletionStatusResponse,
   GetSystemInstanceRequest,
   GetSystemInstanceResponse,
   GetSystemTemplateRequest,
@@ -175,7 +165,6 @@ import {
   ListFlowExecutionMessagesRequest,
   ListFlowExecutionMessagesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   MetricsConfiguration,
   ResourceAlreadyExistsException,
   ResourceInUseException,
@@ -191,7 +180,6 @@ import {
   SearchSystemTemplatesRequest,
   SearchSystemTemplatesResponse,
   SearchThingsRequest,
-  SearchThingsResponse,
   SystemInstanceDescription,
   SystemInstanceFilter,
   SystemInstanceSummary,
@@ -200,19 +188,15 @@ import {
   SystemTemplateSummary,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
-  Thing,
   ThrottlingException,
   UndeploySystemInstanceRequest,
   UndeploySystemInstanceResponse,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateFlowTemplateRequest,
   UpdateFlowTemplateResponse,
   UpdateSystemTemplateRequest,
   UpdateSystemTemplateResponse,
   UploadEntityDefinitionsRequest,
-  UploadEntityDefinitionsResponse,
 } from "../models/models_0";
 
 /**
@@ -224,7 +208,7 @@ export const se_AssociateEntityToThingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateEntityToThing");
   let body: any;
-  body = JSON.stringify(se_AssociateEntityToThingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -237,7 +221,7 @@ export const se_CreateFlowTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateFlowTemplate");
   let body: any;
-  body = JSON.stringify(se_CreateFlowTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -250,7 +234,7 @@ export const se_CreateSystemInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateSystemInstance");
   let body: any;
-  body = JSON.stringify(se_CreateSystemInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -263,7 +247,7 @@ export const se_CreateSystemTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateSystemTemplate");
   let body: any;
-  body = JSON.stringify(se_CreateSystemTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -276,7 +260,7 @@ export const se_DeleteFlowTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFlowTemplate");
   let body: any;
-  body = JSON.stringify(se_DeleteFlowTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -289,7 +273,7 @@ export const se_DeleteNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteNamespace");
   let body: any;
-  body = JSON.stringify(se_DeleteNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -302,7 +286,7 @@ export const se_DeleteSystemInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSystemInstance");
   let body: any;
-  body = JSON.stringify(se_DeleteSystemInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -315,7 +299,7 @@ export const se_DeleteSystemTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSystemTemplate");
   let body: any;
-  body = JSON.stringify(se_DeleteSystemTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -328,7 +312,7 @@ export const se_DeploySystemInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeploySystemInstance");
   let body: any;
-  body = JSON.stringify(se_DeploySystemInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -341,7 +325,7 @@ export const se_DeprecateFlowTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeprecateFlowTemplate");
   let body: any;
-  body = JSON.stringify(se_DeprecateFlowTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -354,7 +338,7 @@ export const se_DeprecateSystemTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeprecateSystemTemplate");
   let body: any;
-  body = JSON.stringify(se_DeprecateSystemTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -367,7 +351,7 @@ export const se_DescribeNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeNamespace");
   let body: any;
-  body = JSON.stringify(se_DescribeNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -380,7 +364,7 @@ export const se_DissociateEntityFromThingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DissociateEntityFromThing");
   let body: any;
-  body = JSON.stringify(se_DissociateEntityFromThingRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -393,7 +377,7 @@ export const se_GetEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEntities");
   let body: any;
-  body = JSON.stringify(se_GetEntitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -406,7 +390,7 @@ export const se_GetFlowTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFlowTemplate");
   let body: any;
-  body = JSON.stringify(se_GetFlowTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -419,7 +403,7 @@ export const se_GetFlowTemplateRevisionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFlowTemplateRevisions");
   let body: any;
-  body = JSON.stringify(se_GetFlowTemplateRevisionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -432,7 +416,7 @@ export const se_GetNamespaceDeletionStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetNamespaceDeletionStatus");
   let body: any;
-  body = JSON.stringify(se_GetNamespaceDeletionStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -445,7 +429,7 @@ export const se_GetSystemInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSystemInstance");
   let body: any;
-  body = JSON.stringify(se_GetSystemInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -458,7 +442,7 @@ export const se_GetSystemTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSystemTemplate");
   let body: any;
-  body = JSON.stringify(se_GetSystemTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -471,7 +455,7 @@ export const se_GetSystemTemplateRevisionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSystemTemplateRevisions");
   let body: any;
-  body = JSON.stringify(se_GetSystemTemplateRevisionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -484,7 +468,7 @@ export const se_GetUploadStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUploadStatus");
   let body: any;
-  body = JSON.stringify(se_GetUploadStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -497,7 +481,7 @@ export const se_ListFlowExecutionMessagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFlowExecutionMessages");
   let body: any;
-  body = JSON.stringify(se_ListFlowExecutionMessagesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -510,7 +494,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -523,7 +507,7 @@ export const se_SearchEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SearchEntities");
   let body: any;
-  body = JSON.stringify(se_SearchEntitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -549,7 +533,7 @@ export const se_SearchFlowTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SearchFlowTemplates");
   let body: any;
-  body = JSON.stringify(se_SearchFlowTemplatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -562,7 +546,7 @@ export const se_SearchSystemInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SearchSystemInstances");
   let body: any;
-  body = JSON.stringify(se_SearchSystemInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -575,7 +559,7 @@ export const se_SearchSystemTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SearchSystemTemplates");
   let body: any;
-  body = JSON.stringify(se_SearchSystemTemplatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -588,7 +572,7 @@ export const se_SearchThingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SearchThings");
   let body: any;
-  body = JSON.stringify(se_SearchThingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -601,7 +585,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -614,7 +598,7 @@ export const se_UndeploySystemInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UndeploySystemInstance");
   let body: any;
-  body = JSON.stringify(se_UndeploySystemInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -627,7 +611,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -640,7 +624,7 @@ export const se_UpdateFlowTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateFlowTemplate");
   let body: any;
-  body = JSON.stringify(se_UpdateFlowTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -653,7 +637,7 @@ export const se_UpdateSystemTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateSystemTemplate");
   let body: any;
-  body = JSON.stringify(se_UpdateSystemTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -666,7 +650,7 @@ export const se_UploadEntityDefinitionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UploadEntityDefinitions");
   let body: any;
-  body = JSON.stringify(se_UploadEntityDefinitionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -682,12 +666,12 @@ export const de_AssociateEntityToThingCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateEntityToThingResponse(data, context);
+  contents = _json(data);
   const response: AssociateEntityToThingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -717,10 +701,9 @@ const de_AssociateEntityToThingCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -743,7 +726,7 @@ export const de_CreateFlowTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -776,10 +759,9 @@ const de_CreateFlowTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -802,7 +784,7 @@ export const de_CreateSystemInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -835,10 +817,9 @@ const de_CreateSystemInstanceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -861,7 +842,7 @@ export const de_CreateSystemTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -891,10 +872,9 @@ const de_CreateSystemTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -912,12 +892,12 @@ export const de_DeleteFlowTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteFlowTemplateResponse(data, context);
+  contents = _json(data);
   const response: DeleteFlowTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -947,10 +927,9 @@ const de_DeleteFlowTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -968,12 +947,12 @@ export const de_DeleteNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteNamespaceResponse(data, context);
+  contents = _json(data);
   const response: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -997,10 +976,9 @@ const de_DeleteNamespaceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1018,12 +996,12 @@ export const de_DeleteSystemInstanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSystemInstanceResponse(data, context);
+  contents = _json(data);
   const response: DeleteSystemInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1053,10 +1031,9 @@ const de_DeleteSystemInstanceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1074,12 +1051,12 @@ export const de_DeleteSystemTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSystemTemplateResponse(data, context);
+  contents = _json(data);
   const response: DeleteSystemTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1109,10 +1086,9 @@ const de_DeleteSystemTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1135,7 +1111,7 @@ export const de_DeploySystemInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1168,10 +1144,9 @@ const de_DeploySystemInstanceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1189,12 +1164,12 @@ export const de_DeprecateFlowTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeprecateFlowTemplateResponse(data, context);
+  contents = _json(data);
   const response: DeprecateFlowTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1224,10 +1199,9 @@ const de_DeprecateFlowTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1245,12 +1219,12 @@ export const de_DeprecateSystemTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeprecateSystemTemplateResponse(data, context);
+  contents = _json(data);
   const response: DeprecateSystemTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1280,10 +1254,9 @@ const de_DeprecateSystemTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1301,12 +1274,12 @@ export const de_DescribeNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeNamespaceResponse(data, context);
+  contents = _json(data);
   const response: DescribeNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1336,10 +1309,9 @@ const de_DescribeNamespaceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1357,12 +1329,12 @@ export const de_DissociateEntityFromThingCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DissociateEntityFromThingResponse(data, context);
+  contents = _json(data);
   const response: DissociateEntityFromThingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1392,10 +1364,9 @@ const de_DissociateEntityFromThingCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1418,7 +1389,7 @@ export const de_GetEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1448,10 +1419,9 @@ const de_GetEntitiesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1474,7 +1444,7 @@ export const de_GetFlowTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1504,10 +1474,9 @@ const de_GetFlowTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1530,7 +1499,7 @@ export const de_GetFlowTemplateRevisionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1560,10 +1529,9 @@ const de_GetFlowTemplateRevisionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1581,12 +1549,12 @@ export const de_GetNamespaceDeletionStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetNamespaceDeletionStatusResponse(data, context);
+  contents = _json(data);
   const response: GetNamespaceDeletionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1613,10 +1581,9 @@ const de_GetNamespaceDeletionStatusCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1639,7 +1606,7 @@ export const de_GetSystemInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1669,10 +1636,9 @@ const de_GetSystemInstanceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1695,7 +1661,7 @@ export const de_GetSystemTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1725,10 +1691,9 @@ const de_GetSystemTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1751,7 +1716,7 @@ export const de_GetSystemTemplateRevisionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1781,10 +1746,9 @@ const de_GetSystemTemplateRevisionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1807,7 +1771,7 @@ export const de_GetUploadStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1837,10 +1801,9 @@ const de_GetUploadStatusCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1863,7 +1826,7 @@ export const de_ListFlowExecutionMessagesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1893,10 +1856,9 @@ const de_ListFlowExecutionMessagesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1914,12 +1876,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1949,10 +1911,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1975,7 +1936,7 @@ export const de_SearchEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2002,10 +1963,9 @@ const de_SearchEntitiesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2028,7 +1988,7 @@ export const de_SearchFlowExecutionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2058,10 +2018,9 @@ const de_SearchFlowExecutionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2084,7 +2043,7 @@ export const de_SearchFlowTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2111,10 +2070,9 @@ const de_SearchFlowTemplatesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2137,7 +2095,7 @@ export const de_SearchSystemInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2164,10 +2122,9 @@ const de_SearchSystemInstancesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2190,7 +2147,7 @@ export const de_SearchSystemTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2217,10 +2174,9 @@ const de_SearchSystemTemplatesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2238,12 +2194,12 @@ export const de_SearchThingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SearchThingsResponse(data, context);
+  contents = _json(data);
   const response: SearchThingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2273,10 +2229,9 @@ const de_SearchThingsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2294,12 +2249,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2329,10 +2284,9 @@ const de_TagResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2355,7 +2309,7 @@ export const de_UndeploySystemInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2388,10 +2342,9 @@ const de_UndeploySystemInstanceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2409,12 +2362,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2444,10 +2397,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2470,7 +2422,7 @@ export const de_UpdateFlowTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2500,10 +2452,9 @@ const de_UpdateFlowTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2526,7 +2477,7 @@ export const de_UpdateSystemTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2556,10 +2507,9 @@ const de_UpdateSystemTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2577,12 +2527,12 @@ export const de_UploadEntityDefinitionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UploadEntityDefinitionsResponse(data, context);
+  contents = _json(data);
   const response: UploadEntityDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2609,10 +2559,9 @@ const de_UploadEntityDefinitionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2626,7 +2575,7 @@ const de_InternalFailureExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalFailureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2642,7 +2591,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2658,7 +2607,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2674,7 +2623,7 @@ const de_ResourceAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2690,7 +2639,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2706,7 +2655,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2719,7 +2668,7 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2727,734 +2676,198 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AssociateEntityToThingRequest
- */
-const se_AssociateEntityToThingRequest = (input: AssociateEntityToThingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.entityId != null && { entityId: input.entityId }),
-    ...(input.namespaceVersion != null && { namespaceVersion: input.namespaceVersion }),
-    ...(input.thingName != null && { thingName: input.thingName }),
-  };
-};
+// se_AssociateEntityToThingRequest omitted.
 
-/**
- * serializeAws_json1_1CreateFlowTemplateRequest
- */
-const se_CreateFlowTemplateRequest = (input: CreateFlowTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.compatibleNamespaceVersion != null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
-    ...(input.definition != null && { definition: se_DefinitionDocument(input.definition, context) }),
-  };
-};
+// se_CreateFlowTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1CreateSystemInstanceRequest
- */
-const se_CreateSystemInstanceRequest = (input: CreateSystemInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.definition != null && { definition: se_DefinitionDocument(input.definition, context) }),
-    ...(input.flowActionsRoleArn != null && { flowActionsRoleArn: input.flowActionsRoleArn }),
-    ...(input.greengrassGroupName != null && { greengrassGroupName: input.greengrassGroupName }),
-    ...(input.metricsConfiguration != null && {
-      metricsConfiguration: se_MetricsConfiguration(input.metricsConfiguration, context),
-    }),
-    ...(input.s3BucketName != null && { s3BucketName: input.s3BucketName }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.target != null && { target: input.target }),
-  };
-};
+// se_CreateSystemInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1CreateSystemTemplateRequest
- */
-const se_CreateSystemTemplateRequest = (input: CreateSystemTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.compatibleNamespaceVersion != null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
-    ...(input.definition != null && { definition: se_DefinitionDocument(input.definition, context) }),
-  };
-};
+// se_CreateSystemTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1DefinitionDocument
- */
-const se_DefinitionDocument = (input: DefinitionDocument, context: __SerdeContext): any => {
-  return {
-    ...(input.language != null && { language: input.language }),
-    ...(input.text != null && { text: input.text }),
-  };
-};
+// se_DefinitionDocument omitted.
 
-/**
- * serializeAws_json1_1DeleteFlowTemplateRequest
- */
-const se_DeleteFlowTemplateRequest = (input: DeleteFlowTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeleteFlowTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteNamespaceRequest
- */
-const se_DeleteNamespaceRequest = (input: DeleteNamespaceRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_DeleteNamespaceRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteSystemInstanceRequest
- */
-const se_DeleteSystemInstanceRequest = (input: DeleteSystemInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeleteSystemInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteSystemTemplateRequest
- */
-const se_DeleteSystemTemplateRequest = (input: DeleteSystemTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeleteSystemTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1DeploySystemInstanceRequest
- */
-const se_DeploySystemInstanceRequest = (input: DeploySystemInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeploySystemInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1DeprecateFlowTemplateRequest
- */
-const se_DeprecateFlowTemplateRequest = (input: DeprecateFlowTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeprecateFlowTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1DeprecateSystemTemplateRequest
- */
-const se_DeprecateSystemTemplateRequest = (input: DeprecateSystemTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeprecateSystemTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeNamespaceRequest
- */
-const se_DescribeNamespaceRequest = (input: DescribeNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-  };
-};
+// se_DescribeNamespaceRequest omitted.
 
-/**
- * serializeAws_json1_1DissociateEntityFromThingRequest
- */
-const se_DissociateEntityFromThingRequest = (input: DissociateEntityFromThingRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.entityType != null && { entityType: input.entityType }),
-    ...(input.thingName != null && { thingName: input.thingName }),
-  };
-};
+// se_DissociateEntityFromThingRequest omitted.
 
-/**
- * serializeAws_json1_1EntityFilter
- */
-const se_EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: se_EntityFilterValues(input.value, context) }),
-  };
-};
+// se_EntityFilter omitted.
 
-/**
- * serializeAws_json1_1EntityFilters
- */
-const se_EntityFilters = (input: EntityFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EntityFilter(entry, context);
-    });
-};
+// se_EntityFilters omitted.
 
-/**
- * serializeAws_json1_1EntityFilterValues
- */
-const se_EntityFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EntityFilterValues omitted.
 
-/**
- * serializeAws_json1_1EntityTypes
- */
-const se_EntityTypes = (input: (EntityType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EntityTypes omitted.
 
-/**
- * serializeAws_json1_1FlowTemplateFilter
- */
-const se_FlowTemplateFilter = (input: FlowTemplateFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: se_FlowTemplateFilterValues(input.value, context) }),
-  };
-};
+// se_FlowTemplateFilter omitted.
 
-/**
- * serializeAws_json1_1FlowTemplateFilters
- */
-const se_FlowTemplateFilters = (input: FlowTemplateFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FlowTemplateFilter(entry, context);
-    });
-};
+// se_FlowTemplateFilters omitted.
 
-/**
- * serializeAws_json1_1FlowTemplateFilterValues
- */
-const se_FlowTemplateFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FlowTemplateFilterValues omitted.
 
-/**
- * serializeAws_json1_1GetEntitiesRequest
- */
-const se_GetEntitiesRequest = (input: GetEntitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ids != null && { ids: se_Urns(input.ids, context) }),
-    ...(input.namespaceVersion != null && { namespaceVersion: input.namespaceVersion }),
-  };
-};
+// se_GetEntitiesRequest omitted.
 
-/**
- * serializeAws_json1_1GetFlowTemplateRequest
- */
-const se_GetFlowTemplateRequest = (input: GetFlowTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.revisionNumber != null && { revisionNumber: input.revisionNumber }),
-  };
-};
+// se_GetFlowTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1GetFlowTemplateRevisionsRequest
- */
-const se_GetFlowTemplateRevisionsRequest = (input: GetFlowTemplateRevisionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_GetFlowTemplateRevisionsRequest omitted.
 
-/**
- * serializeAws_json1_1GetNamespaceDeletionStatusRequest
- */
-const se_GetNamespaceDeletionStatusRequest = (
-  input: GetNamespaceDeletionStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_GetNamespaceDeletionStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetSystemInstanceRequest
- */
-const se_GetSystemInstanceRequest = (input: GetSystemInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_GetSystemInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1GetSystemTemplateRequest
- */
-const se_GetSystemTemplateRequest = (input: GetSystemTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.revisionNumber != null && { revisionNumber: input.revisionNumber }),
-  };
-};
+// se_GetSystemTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1GetSystemTemplateRevisionsRequest
- */
-const se_GetSystemTemplateRevisionsRequest = (
-  input: GetSystemTemplateRevisionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_GetSystemTemplateRevisionsRequest omitted.
 
-/**
- * serializeAws_json1_1GetUploadStatusRequest
- */
-const se_GetUploadStatusRequest = (input: GetUploadStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  };
-};
+// se_GetUploadStatusRequest omitted.
 
-/**
- * serializeAws_json1_1ListFlowExecutionMessagesRequest
- */
-const se_ListFlowExecutionMessagesRequest = (input: ListFlowExecutionMessagesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.flowExecutionId != null && { flowExecutionId: input.flowExecutionId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListFlowExecutionMessagesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1MetricsConfiguration
- */
-const se_MetricsConfiguration = (input: MetricsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.cloudMetricEnabled != null && { cloudMetricEnabled: input.cloudMetricEnabled }),
-    ...(input.metricRuleRoleArn != null && { metricRuleRoleArn: input.metricRuleRoleArn }),
-  };
-};
+// se_MetricsConfiguration omitted.
 
-/**
- * serializeAws_json1_1SearchEntitiesRequest
- */
-const se_SearchEntitiesRequest = (input: SearchEntitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.entityTypes != null && { entityTypes: se_EntityTypes(input.entityTypes, context) }),
-    ...(input.filters != null && { filters: se_EntityFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.namespaceVersion != null && { namespaceVersion: input.namespaceVersion }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_SearchEntitiesRequest omitted.
 
 /**
  * serializeAws_json1_1SearchFlowExecutionsRequest
  */
 const se_SearchFlowExecutionsRequest = (input: SearchFlowExecutionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.flowExecutionId != null && { flowExecutionId: input.flowExecutionId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.systemInstanceId != null && { systemInstanceId: input.systemInstanceId }),
-  };
+  return take(input, {
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    flowExecutionId: [],
+    maxResults: [],
+    nextToken: [],
+    startTime: (_) => Math.round(_.getTime() / 1000),
+    systemInstanceId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1SearchFlowTemplatesRequest
- */
-const se_SearchFlowTemplatesRequest = (input: SearchFlowTemplatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filters != null && { filters: se_FlowTemplateFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_SearchFlowTemplatesRequest omitted.
 
-/**
- * serializeAws_json1_1SearchSystemInstancesRequest
- */
-const se_SearchSystemInstancesRequest = (input: SearchSystemInstancesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filters != null && { filters: se_SystemInstanceFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_SearchSystemInstancesRequest omitted.
 
-/**
- * serializeAws_json1_1SearchSystemTemplatesRequest
- */
-const se_SearchSystemTemplatesRequest = (input: SearchSystemTemplatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filters != null && { filters: se_SystemTemplateFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_SearchSystemTemplatesRequest omitted.
 
-/**
- * serializeAws_json1_1SearchThingsRequest
- */
-const se_SearchThingsRequest = (input: SearchThingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.entityId != null && { entityId: input.entityId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.namespaceVersion != null && { namespaceVersion: input.namespaceVersion }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_SearchThingsRequest omitted.
 
-/**
- * serializeAws_json1_1SystemInstanceFilter
- */
-const se_SystemInstanceFilter = (input: SystemInstanceFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: se_SystemInstanceFilterValues(input.value, context) }),
-  };
-};
+// se_SystemInstanceFilter omitted.
 
-/**
- * serializeAws_json1_1SystemInstanceFilters
- */
-const se_SystemInstanceFilters = (input: SystemInstanceFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SystemInstanceFilter(entry, context);
-    });
-};
+// se_SystemInstanceFilters omitted.
 
-/**
- * serializeAws_json1_1SystemInstanceFilterValues
- */
-const se_SystemInstanceFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SystemInstanceFilterValues omitted.
 
-/**
- * serializeAws_json1_1SystemTemplateFilter
- */
-const se_SystemTemplateFilter = (input: SystemTemplateFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: se_SystemTemplateFilterValues(input.value, context) }),
-  };
-};
+// se_SystemTemplateFilter omitted.
 
-/**
- * serializeAws_json1_1SystemTemplateFilters
- */
-const se_SystemTemplateFilters = (input: SystemTemplateFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SystemTemplateFilter(entry, context);
-    });
-};
+// se_SystemTemplateFilters omitted.
 
-/**
- * serializeAws_json1_1SystemTemplateFilterValues
- */
-const se_SystemTemplateFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SystemTemplateFilterValues omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UndeploySystemInstanceRequest
- */
-const se_UndeploySystemInstanceRequest = (input: UndeploySystemInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_UndeploySystemInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateFlowTemplateRequest
- */
-const se_UpdateFlowTemplateRequest = (input: UpdateFlowTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.compatibleNamespaceVersion != null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
-    ...(input.definition != null && { definition: se_DefinitionDocument(input.definition, context) }),
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_UpdateFlowTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateSystemTemplateRequest
- */
-const se_UpdateSystemTemplateRequest = (input: UpdateSystemTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.compatibleNamespaceVersion != null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
-    ...(input.definition != null && { definition: se_DefinitionDocument(input.definition, context) }),
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_UpdateSystemTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1UploadEntityDefinitionsRequest
- */
-const se_UploadEntityDefinitionsRequest = (input: UploadEntityDefinitionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.deprecateExistingEntities != null && { deprecateExistingEntities: input.deprecateExistingEntities }),
-    ...(input.document != null && { document: se_DefinitionDocument(input.document, context) }),
-    ...(input.syncWithPublicNamespace != null && { syncWithPublicNamespace: input.syncWithPublicNamespace }),
-  };
-};
+// se_UploadEntityDefinitionsRequest omitted.
 
-/**
- * serializeAws_json1_1Urns
- */
-const se_Urns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Urns omitted.
 
-/**
- * deserializeAws_json1_1AssociateEntityToThingResponse
- */
-const de_AssociateEntityToThingResponse = (output: any, context: __SerdeContext): AssociateEntityToThingResponse => {
-  return {} as any;
-};
+// de_AssociateEntityToThingResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateFlowTemplateResponse
  */
 const de_CreateFlowTemplateResponse = (output: any, context: __SerdeContext): CreateFlowTemplateResponse => {
-  return {
-    summary: output.summary != null ? de_FlowTemplateSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    summary: (_: any) => de_FlowTemplateSummary(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateSystemInstanceResponse
  */
 const de_CreateSystemInstanceResponse = (output: any, context: __SerdeContext): CreateSystemInstanceResponse => {
-  return {
-    summary: output.summary != null ? de_SystemInstanceSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    summary: (_: any) => de_SystemInstanceSummary(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateSystemTemplateResponse
  */
 const de_CreateSystemTemplateResponse = (output: any, context: __SerdeContext): CreateSystemTemplateResponse => {
-  return {
-    summary: output.summary != null ? de_SystemTemplateSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    summary: (_: any) => de_SystemTemplateSummary(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DefinitionDocument
- */
-const de_DefinitionDocument = (output: any, context: __SerdeContext): DefinitionDocument => {
-  return {
-    language: __expectString(output.language),
-    text: __expectString(output.text),
-  } as any;
-};
+// de_DefinitionDocument omitted.
 
-/**
- * deserializeAws_json1_1DeleteFlowTemplateResponse
- */
-const de_DeleteFlowTemplateResponse = (output: any, context: __SerdeContext): DeleteFlowTemplateResponse => {
-  return {} as any;
-};
+// de_DeleteFlowTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteNamespaceResponse
- */
-const de_DeleteNamespaceResponse = (output: any, context: __SerdeContext): DeleteNamespaceResponse => {
-  return {
-    namespaceArn: __expectString(output.namespaceArn),
-    namespaceName: __expectString(output.namespaceName),
-  } as any;
-};
+// de_DeleteNamespaceResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteSystemInstanceResponse
- */
-const de_DeleteSystemInstanceResponse = (output: any, context: __SerdeContext): DeleteSystemInstanceResponse => {
-  return {} as any;
-};
+// de_DeleteSystemInstanceResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteSystemTemplateResponse
- */
-const de_DeleteSystemTemplateResponse = (output: any, context: __SerdeContext): DeleteSystemTemplateResponse => {
-  return {} as any;
-};
+// de_DeleteSystemTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1DependencyRevision
- */
-const de_DependencyRevision = (output: any, context: __SerdeContext): DependencyRevision => {
-  return {
-    id: __expectString(output.id),
-    revisionNumber: __expectLong(output.revisionNumber),
-  } as any;
-};
+// de_DependencyRevision omitted.
 
-/**
- * deserializeAws_json1_1DependencyRevisions
- */
-const de_DependencyRevisions = (output: any, context: __SerdeContext): DependencyRevision[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DependencyRevision(entry, context);
-    });
-  return retVal;
-};
+// de_DependencyRevisions omitted.
 
 /**
  * deserializeAws_json1_1DeploySystemInstanceResponse
  */
 const de_DeploySystemInstanceResponse = (output: any, context: __SerdeContext): DeploySystemInstanceResponse => {
-  return {
-    greengrassDeploymentId: __expectString(output.greengrassDeploymentId),
-    summary: output.summary != null ? de_SystemInstanceSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    greengrassDeploymentId: __expectString,
+    summary: (_: any) => de_SystemInstanceSummary(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeprecateFlowTemplateResponse
- */
-const de_DeprecateFlowTemplateResponse = (output: any, context: __SerdeContext): DeprecateFlowTemplateResponse => {
-  return {} as any;
-};
+// de_DeprecateFlowTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1DeprecateSystemTemplateResponse
- */
-const de_DeprecateSystemTemplateResponse = (output: any, context: __SerdeContext): DeprecateSystemTemplateResponse => {
-  return {} as any;
-};
+// de_DeprecateSystemTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeNamespaceResponse
- */
-const de_DescribeNamespaceResponse = (output: any, context: __SerdeContext): DescribeNamespaceResponse => {
-  return {
-    namespaceArn: __expectString(output.namespaceArn),
-    namespaceName: __expectString(output.namespaceName),
-    namespaceVersion: __expectLong(output.namespaceVersion),
-    trackingNamespaceName: __expectString(output.trackingNamespaceName),
-    trackingNamespaceVersion: __expectLong(output.trackingNamespaceVersion),
-  } as any;
-};
+// de_DescribeNamespaceResponse omitted.
 
-/**
- * deserializeAws_json1_1DissociateEntityFromThingResponse
- */
-const de_DissociateEntityFromThingResponse = (
-  output: any,
-  context: __SerdeContext
-): DissociateEntityFromThingResponse => {
-  return {} as any;
-};
+// de_DissociateEntityFromThingResponse omitted.
 
 /**
  * deserializeAws_json1_1EntityDescription
  */
 const de_EntityDescription = (output: any, context: __SerdeContext): EntityDescription => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    definition: output.definition != null ? de_DefinitionDocument(output.definition, context) : undefined,
-    id: __expectString(output.id),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    definition: _json,
+    id: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3464,9 +2877,6 @@ const de_EntityDescriptions = (output: any, context: __SerdeContext): EntityDesc
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EntityDescription(entry, context);
     });
   return retVal;
@@ -3476,13 +2886,12 @@ const de_EntityDescriptions = (output: any, context: __SerdeContext): EntityDesc
  * deserializeAws_json1_1FlowExecutionMessage
  */
 const de_FlowExecutionMessage = (output: any, context: __SerdeContext): FlowExecutionMessage => {
-  return {
-    eventType: __expectString(output.eventType),
-    messageId: __expectString(output.messageId),
-    payload: __expectString(output.payload),
-    timestamp:
-      output.timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp))) : undefined,
-  } as any;
+  return take(output, {
+    eventType: __expectString,
+    messageId: __expectString,
+    payload: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -3492,9 +2901,6 @@ const de_FlowExecutionMessages = (output: any, context: __SerdeContext): FlowExe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FlowExecutionMessage(entry, context);
     });
   return retVal;
@@ -3507,9 +2913,6 @@ const de_FlowExecutionSummaries = (output: any, context: __SerdeContext): FlowEx
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FlowExecutionSummary(entry, context);
     });
   return retVal;
@@ -3519,27 +2922,25 @@ const de_FlowExecutionSummaries = (output: any, context: __SerdeContext): FlowEx
  * deserializeAws_json1_1FlowExecutionSummary
  */
 const de_FlowExecutionSummary = (output: any, context: __SerdeContext): FlowExecutionSummary => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    flowExecutionId: __expectString(output.flowExecutionId),
-    flowTemplateId: __expectString(output.flowTemplateId),
-    status: __expectString(output.status),
-    systemInstanceId: __expectString(output.systemInstanceId),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    flowExecutionId: __expectString,
+    flowTemplateId: __expectString,
+    status: __expectString,
+    systemInstanceId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1FlowTemplateDescription
  */
 const de_FlowTemplateDescription = (output: any, context: __SerdeContext): FlowTemplateDescription => {
-  return {
-    definition: output.definition != null ? de_DefinitionDocument(output.definition, context) : undefined,
-    summary: output.summary != null ? de_FlowTemplateSummary(output.summary, context) : undefined,
-    validatedNamespaceVersion: __expectLong(output.validatedNamespaceVersion),
-  } as any;
+  return take(output, {
+    definition: _json,
+    summary: (_: any) => de_FlowTemplateSummary(_, context),
+    validatedNamespaceVersion: __expectLong,
+  }) as any;
 };
 
 /**
@@ -3549,9 +2950,6 @@ const de_FlowTemplateSummaries = (output: any, context: __SerdeContext): FlowTem
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FlowTemplateSummary(entry, context);
     });
   return retVal;
@@ -3561,31 +2959,30 @@ const de_FlowTemplateSummaries = (output: any, context: __SerdeContext): FlowTem
  * deserializeAws_json1_1FlowTemplateSummary
  */
 const de_FlowTemplateSummary = (output: any, context: __SerdeContext): FlowTemplateSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    id: __expectString(output.id),
-    revisionNumber: __expectLong(output.revisionNumber),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    revisionNumber: __expectLong,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetEntitiesResponse
  */
 const de_GetEntitiesResponse = (output: any, context: __SerdeContext): GetEntitiesResponse => {
-  return {
-    descriptions: output.descriptions != null ? de_EntityDescriptions(output.descriptions, context) : undefined,
-  } as any;
+  return take(output, {
+    descriptions: (_: any) => de_EntityDescriptions(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetFlowTemplateResponse
  */
 const de_GetFlowTemplateResponse = (output: any, context: __SerdeContext): GetFlowTemplateResponse => {
-  return {
-    description: output.description != null ? de_FlowTemplateDescription(output.description, context) : undefined,
-  } as any;
+  return take(output, {
+    description: (_: any) => de_FlowTemplateDescription(_, context),
+  }) as any;
 };
 
 /**
@@ -3595,44 +2992,30 @@ const de_GetFlowTemplateRevisionsResponse = (
   output: any,
   context: __SerdeContext
 ): GetFlowTemplateRevisionsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_FlowTemplateSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_FlowTemplateSummaries(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetNamespaceDeletionStatusResponse
- */
-const de_GetNamespaceDeletionStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): GetNamespaceDeletionStatusResponse => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    namespaceArn: __expectString(output.namespaceArn),
-    namespaceName: __expectString(output.namespaceName),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_GetNamespaceDeletionStatusResponse omitted.
 
 /**
  * deserializeAws_json1_1GetSystemInstanceResponse
  */
 const de_GetSystemInstanceResponse = (output: any, context: __SerdeContext): GetSystemInstanceResponse => {
-  return {
-    description: output.description != null ? de_SystemInstanceDescription(output.description, context) : undefined,
-  } as any;
+  return take(output, {
+    description: (_: any) => de_SystemInstanceDescription(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetSystemTemplateResponse
  */
 const de_GetSystemTemplateResponse = (output: any, context: __SerdeContext): GetSystemTemplateResponse => {
-  return {
-    description: output.description != null ? de_SystemTemplateDescription(output.description, context) : undefined,
-  } as any;
+  return take(output, {
+    description: (_: any) => de_SystemTemplateDescription(_, context),
+  }) as any;
 };
 
 /**
@@ -3642,56 +3025,32 @@ const de_GetSystemTemplateRevisionsResponse = (
   output: any,
   context: __SerdeContext
 ): GetSystemTemplateRevisionsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_SystemTemplateSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_SystemTemplateSummaries(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetUploadStatusResponse
  */
 const de_GetUploadStatusResponse = (output: any, context: __SerdeContext): GetUploadStatusResponse => {
-  return {
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    failureReason: output.failureReason != null ? de_StringList(output.failureReason, context) : undefined,
-    namespaceArn: __expectString(output.namespaceArn),
-    namespaceName: __expectString(output.namespaceName),
-    namespaceVersion: __expectLong(output.namespaceVersion),
-    uploadId: __expectString(output.uploadId),
-    uploadStatus: __expectString(output.uploadStatus),
-  } as any;
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: _json,
+    namespaceArn: __expectString,
+    namespaceName: __expectString,
+    namespaceVersion: __expectLong,
+    uploadId: __expectString,
+    uploadStatus: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InternalFailureException
- */
-const de_InternalFailureException = (output: any, context: __SerdeContext): InternalFailureException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalFailureException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListFlowExecutionMessagesResponse
@@ -3700,151 +3059,89 @@ const de_ListFlowExecutionMessagesResponse = (
   output: any,
   context: __SerdeContext
 ): ListFlowExecutionMessagesResponse => {
-  return {
-    messages: output.messages != null ? de_FlowExecutionMessages(output.messages, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    messages: (_: any) => de_FlowExecutionMessages(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1MetricsConfiguration
- */
-const de_MetricsConfiguration = (output: any, context: __SerdeContext): MetricsConfiguration => {
-  return {
-    cloudMetricEnabled: __expectBoolean(output.cloudMetricEnabled),
-    metricRuleRoleArn: __expectString(output.metricRuleRoleArn),
-  } as any;
-};
+// de_MetricsConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ResourceAlreadyExistsException
- */
-const de_ResourceAlreadyExistsException = (output: any, context: __SerdeContext): ResourceAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1SearchEntitiesResponse
  */
 const de_SearchEntitiesResponse = (output: any, context: __SerdeContext): SearchEntitiesResponse => {
-  return {
-    descriptions: output.descriptions != null ? de_EntityDescriptions(output.descriptions, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    descriptions: (_: any) => de_EntityDescriptions(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SearchFlowExecutionsResponse
  */
 const de_SearchFlowExecutionsResponse = (output: any, context: __SerdeContext): SearchFlowExecutionsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_FlowExecutionSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_FlowExecutionSummaries(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SearchFlowTemplatesResponse
  */
 const de_SearchFlowTemplatesResponse = (output: any, context: __SerdeContext): SearchFlowTemplatesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_FlowTemplateSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_FlowTemplateSummaries(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SearchSystemInstancesResponse
  */
 const de_SearchSystemInstancesResponse = (output: any, context: __SerdeContext): SearchSystemInstancesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_SystemInstanceSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_SystemInstanceSummaries(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SearchSystemTemplatesResponse
  */
 const de_SearchSystemTemplatesResponse = (output: any, context: __SerdeContext): SearchSystemTemplatesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    summaries: output.summaries != null ? de_SystemTemplateSummaries(output.summaries, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    summaries: (_: any) => de_SystemTemplateSummaries(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SearchThingsResponse
- */
-const de_SearchThingsResponse = (output: any, context: __SerdeContext): SearchThingsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    things: output.things != null ? de_Things(output.things, context) : undefined,
-  } as any;
-};
+// de_SearchThingsResponse omitted.
 
-/**
- * deserializeAws_json1_1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
 /**
  * deserializeAws_json1_1SystemInstanceDescription
  */
 const de_SystemInstanceDescription = (output: any, context: __SerdeContext): SystemInstanceDescription => {
-  return {
-    definition: output.definition != null ? de_DefinitionDocument(output.definition, context) : undefined,
-    flowActionsRoleArn: __expectString(output.flowActionsRoleArn),
-    metricsConfiguration:
-      output.metricsConfiguration != null ? de_MetricsConfiguration(output.metricsConfiguration, context) : undefined,
-    s3BucketName: __expectString(output.s3BucketName),
-    summary: output.summary != null ? de_SystemInstanceSummary(output.summary, context) : undefined,
-    validatedDependencyRevisions:
-      output.validatedDependencyRevisions != null
-        ? de_DependencyRevisions(output.validatedDependencyRevisions, context)
-        : undefined,
-    validatedNamespaceVersion: __expectLong(output.validatedNamespaceVersion),
-  } as any;
+  return take(output, {
+    definition: _json,
+    flowActionsRoleArn: __expectString,
+    metricsConfiguration: _json,
+    s3BucketName: __expectString,
+    summary: (_: any) => de_SystemInstanceSummary(_, context),
+    validatedDependencyRevisions: _json,
+    validatedNamespaceVersion: __expectLong,
+  }) as any;
 };
 
 /**
@@ -3854,9 +3151,6 @@ const de_SystemInstanceSummaries = (output: any, context: __SerdeContext): Syste
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SystemInstanceSummary(entry, context);
     });
   return retVal;
@@ -3866,30 +3160,28 @@ const de_SystemInstanceSummaries = (output: any, context: __SerdeContext): Syste
  * deserializeAws_json1_1SystemInstanceSummary
  */
 const de_SystemInstanceSummary = (output: any, context: __SerdeContext): SystemInstanceSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    greengrassGroupId: __expectString(output.greengrassGroupId),
-    greengrassGroupName: __expectString(output.greengrassGroupName),
-    greengrassGroupVersionId: __expectString(output.greengrassGroupVersionId),
-    id: __expectString(output.id),
-    status: __expectString(output.status),
-    target: __expectString(output.target),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    greengrassGroupId: __expectString,
+    greengrassGroupName: __expectString,
+    greengrassGroupVersionId: __expectString,
+    id: __expectString,
+    status: __expectString,
+    target: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SystemTemplateDescription
  */
 const de_SystemTemplateDescription = (output: any, context: __SerdeContext): SystemTemplateDescription => {
-  return {
-    definition: output.definition != null ? de_DefinitionDocument(output.definition, context) : undefined,
-    summary: output.summary != null ? de_SystemTemplateSummary(output.summary, context) : undefined,
-    validatedNamespaceVersion: __expectLong(output.validatedNamespaceVersion),
-  } as any;
+  return take(output, {
+    definition: _json,
+    summary: (_: any) => de_SystemTemplateSummary(_, context),
+    validatedNamespaceVersion: __expectLong,
+  }) as any;
 };
 
 /**
@@ -3899,9 +3191,6 @@ const de_SystemTemplateSummaries = (output: any, context: __SerdeContext): Syste
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SystemTemplateSummary(entry, context);
     });
   return retVal;
@@ -3911,123 +3200,56 @@ const de_SystemTemplateSummaries = (output: any, context: __SerdeContext): Syste
  * deserializeAws_json1_1SystemTemplateSummary
  */
 const de_SystemTemplateSummary = (output: any, context: __SerdeContext): SystemTemplateSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    id: __expectString(output.id),
-    revisionNumber: __expectLong(output.revisionNumber),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    revisionNumber: __expectLong,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1Thing
- */
-const de_Thing = (output: any, context: __SerdeContext): Thing => {
-  return {
-    thingArn: __expectString(output.thingArn),
-    thingName: __expectString(output.thingName),
-  } as any;
-};
+// de_Thing omitted.
 
-/**
- * deserializeAws_json1_1Things
- */
-const de_Things = (output: any, context: __SerdeContext): Thing[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Thing(entry, context);
-    });
-  return retVal;
-};
+// de_Things omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
 /**
  * deserializeAws_json1_1UndeploySystemInstanceResponse
  */
 const de_UndeploySystemInstanceResponse = (output: any, context: __SerdeContext): UndeploySystemInstanceResponse => {
-  return {
-    summary: output.summary != null ? de_SystemInstanceSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    summary: (_: any) => de_SystemInstanceSummary(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateFlowTemplateResponse
  */
 const de_UpdateFlowTemplateResponse = (output: any, context: __SerdeContext): UpdateFlowTemplateResponse => {
-  return {
-    summary: output.summary != null ? de_FlowTemplateSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    summary: (_: any) => de_FlowTemplateSummary(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateSystemTemplateResponse
  */
 const de_UpdateSystemTemplateResponse = (output: any, context: __SerdeContext): UpdateSystemTemplateResponse => {
-  return {
-    summary: output.summary != null ? de_SystemTemplateSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    summary: (_: any) => de_SystemTemplateSummary(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UploadEntityDefinitionsResponse
- */
-const de_UploadEntityDefinitionsResponse = (output: any, context: __SerdeContext): UploadEntityDefinitionsResponse => {
-  return {
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
+// de_UploadEntityDefinitionsResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -4049,6 +3271,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

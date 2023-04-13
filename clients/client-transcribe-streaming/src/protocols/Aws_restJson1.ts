@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseBoolean as __parseBoolean,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -43,12 +44,10 @@ import {
   CallAnalyticsTranscriptResultStream,
   CategoryEvent,
   ChannelDefinition,
-  CharacterOffsets,
   ConfigurationEvent,
   ConflictException,
   Entity,
   InternalFailureException,
-  IssueDetected,
   Item,
   LanguageWithScore,
   LimitExceededException,
@@ -59,11 +58,9 @@ import {
   MedicalTranscript,
   MedicalTranscriptEvent,
   MedicalTranscriptResultStream,
-  PointsOfInterest,
   PostCallAnalyticsSettings,
   Result,
   ServiceUnavailableException,
-  TimestampRange,
   Transcript,
   TranscriptEvent,
   TranscriptResultStream,
@@ -300,10 +297,9 @@ const de_StartCallAnalyticsStreamTranscriptionCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -381,10 +377,9 @@ const de_StartMedicalStreamTranscriptionCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -478,25 +473,25 @@ const de_StartStreamTranscriptionCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -510,9 +505,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -529,9 +525,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -548,9 +545,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -567,9 +565,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -608,7 +607,7 @@ const se_ConfigurationEvent_event = (input: ConfigurationEvent, context: __Serde
     ":content-type": { type: "string", value: "application/json" },
   };
   let body = new Uint8Array();
-  body = se_ConfigurationEvent(input, context);
+  body = _json(input);
   body = context.utf8Decoder(JSON.stringify(body));
   return { headers, body };
 };
@@ -759,7 +758,7 @@ const de_BadRequestException_event = async (output: any, context: __SerdeContext
 const de_CategoryEvent_event = async (output: any, context: __SerdeContext): Promise<CategoryEvent> => {
   const contents: CategoryEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, de_CategoryEvent(data, context));
+  Object.assign(contents, _json(data));
   return contents;
 };
 const de_ConflictException_event = async (output: any, context: __SerdeContext): Promise<ConflictException> => {
@@ -820,62 +819,23 @@ const de_UtteranceEvent_event = async (output: any, context: __SerdeContext): Pr
   Object.assign(contents, de_UtteranceEvent(data, context));
   return contents;
 };
-/**
- * serializeAws_restJson1ChannelDefinition
- */
-const se_ChannelDefinition = (input: ChannelDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelId != null && { ChannelId: input.ChannelId }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-  };
-};
+// se_ChannelDefinition omitted.
 
-/**
- * serializeAws_restJson1ChannelDefinitions
- */
-const se_ChannelDefinitions = (input: ChannelDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ChannelDefinition(entry, context);
-    });
-};
+// se_ChannelDefinitions omitted.
 
-/**
- * serializeAws_restJson1ConfigurationEvent
- */
-const se_ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelDefinitions != null && {
-      ChannelDefinitions: se_ChannelDefinitions(input.ChannelDefinitions, context),
-    }),
-    ...(input.PostCallAnalyticsSettings != null && {
-      PostCallAnalyticsSettings: se_PostCallAnalyticsSettings(input.PostCallAnalyticsSettings, context),
-    }),
-  };
-};
+// se_ConfigurationEvent omitted.
 
-/**
- * serializeAws_restJson1PostCallAnalyticsSettings
- */
-const se_PostCallAnalyticsSettings = (input: PostCallAnalyticsSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentRedactionOutput != null && { ContentRedactionOutput: input.ContentRedactionOutput }),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputLocation != null && { OutputLocation: input.OutputLocation }),
-  };
-};
+// se_PostCallAnalyticsSettings omitted.
 
 /**
  * deserializeAws_restJson1Alternative
  */
 const de_Alternative = (output: any, context: __SerdeContext): Alternative => {
-  return {
-    Entities: output.Entities != null ? de_EntityList(output.Entities, context) : undefined,
-    Items: output.Items != null ? de_ItemList(output.Items, context) : undefined,
-    Transcript: __expectString(output.Transcript),
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_EntityList(_, context),
+    Items: (_: any) => de_ItemList(_, context),
+    Transcript: __expectString,
+  }) as any;
 };
 
 /**
@@ -885,9 +845,6 @@ const de_AlternativeList = (output: any, context: __SerdeContext): Alternative[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Alternative(entry, context);
     });
   return retVal;
@@ -897,14 +854,14 @@ const de_AlternativeList = (output: any, context: __SerdeContext): Alternative[]
  * deserializeAws_restJson1CallAnalyticsEntity
  */
 const de_CallAnalyticsEntity = (output: any, context: __SerdeContext): CallAnalyticsEntity => {
-  return {
-    BeginOffsetMillis: __expectLong(output.BeginOffsetMillis),
-    Category: __expectString(output.Category),
-    Confidence: __limitedParseDouble(output.Confidence),
-    Content: __expectString(output.Content),
-    EndOffsetMillis: __expectLong(output.EndOffsetMillis),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    BeginOffsetMillis: __expectLong,
+    Category: __expectString,
+    Confidence: __limitedParseDouble,
+    Content: __expectString,
+    EndOffsetMillis: __expectLong,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -914,9 +871,6 @@ const de_CallAnalyticsEntityList = (output: any, context: __SerdeContext): CallA
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CallAnalyticsEntity(entry, context);
     });
   return retVal;
@@ -926,15 +880,15 @@ const de_CallAnalyticsEntityList = (output: any, context: __SerdeContext): CallA
  * deserializeAws_restJson1CallAnalyticsItem
  */
 const de_CallAnalyticsItem = (output: any, context: __SerdeContext): CallAnalyticsItem => {
-  return {
-    BeginOffsetMillis: __expectLong(output.BeginOffsetMillis),
-    Confidence: __limitedParseDouble(output.Confidence),
-    Content: __expectString(output.Content),
-    EndOffsetMillis: __expectLong(output.EndOffsetMillis),
-    Stable: __expectBoolean(output.Stable),
-    Type: __expectString(output.Type),
-    VocabularyFilterMatch: __expectBoolean(output.VocabularyFilterMatch),
-  } as any;
+  return take(output, {
+    BeginOffsetMillis: __expectLong,
+    Confidence: __limitedParseDouble,
+    Content: __expectString,
+    EndOffsetMillis: __expectLong,
+    Stable: __expectBoolean,
+    Type: __expectString,
+    VocabularyFilterMatch: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -944,47 +898,27 @@ const de_CallAnalyticsItemList = (output: any, context: __SerdeContext): CallAna
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CallAnalyticsItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CategoryEvent
- */
-const de_CategoryEvent = (output: any, context: __SerdeContext): CategoryEvent => {
-  return {
-    MatchedCategories: output.MatchedCategories != null ? de_StringList(output.MatchedCategories, context) : undefined,
-    MatchedDetails:
-      output.MatchedDetails != null ? de_MatchedCategoryDetails(output.MatchedDetails, context) : undefined,
-  } as any;
-};
+// de_CategoryEvent omitted.
 
-/**
- * deserializeAws_restJson1CharacterOffsets
- */
-const de_CharacterOffsets = (output: any, context: __SerdeContext): CharacterOffsets => {
-  return {
-    Begin: __expectInt32(output.Begin),
-    End: __expectInt32(output.End),
-  } as any;
-};
+// de_CharacterOffsets omitted.
 
 /**
  * deserializeAws_restJson1Entity
  */
 const de_Entity = (output: any, context: __SerdeContext): Entity => {
-  return {
-    Category: __expectString(output.Category),
-    Confidence: __limitedParseDouble(output.Confidence),
-    Content: __expectString(output.Content),
-    EndTime: __limitedParseDouble(output.EndTime),
-    StartTime: __limitedParseDouble(output.StartTime),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Category: __expectString,
+    Confidence: __limitedParseDouble,
+    Content: __expectString,
+    EndTime: __limitedParseDouble,
+    StartTime: __limitedParseDouble,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -994,53 +928,29 @@ const de_EntityList = (output: any, context: __SerdeContext): Entity[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Entity(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1IssueDetected
- */
-const de_IssueDetected = (output: any, context: __SerdeContext): IssueDetected => {
-  return {
-    CharacterOffsets:
-      output.CharacterOffsets != null ? de_CharacterOffsets(output.CharacterOffsets, context) : undefined,
-  } as any;
-};
+// de_IssueDetected omitted.
 
-/**
- * deserializeAws_restJson1IssuesDetected
- */
-const de_IssuesDetected = (output: any, context: __SerdeContext): IssueDetected[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IssueDetected(entry, context);
-    });
-  return retVal;
-};
+// de_IssuesDetected omitted.
 
 /**
  * deserializeAws_restJson1Item
  */
 const de_Item = (output: any, context: __SerdeContext): Item => {
-  return {
-    Confidence: __limitedParseDouble(output.Confidence),
-    Content: __expectString(output.Content),
-    EndTime: __limitedParseDouble(output.EndTime),
-    Speaker: __expectString(output.Speaker),
-    Stable: __expectBoolean(output.Stable),
-    StartTime: __limitedParseDouble(output.StartTime),
-    Type: __expectString(output.Type),
-    VocabularyFilterMatch: __expectBoolean(output.VocabularyFilterMatch),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseDouble,
+    Content: __expectString,
+    EndTime: __limitedParseDouble,
+    Speaker: __expectString,
+    Stable: __expectBoolean,
+    StartTime: __limitedParseDouble,
+    Type: __expectString,
+    VocabularyFilterMatch: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -1050,9 +960,6 @@ const de_ItemList = (output: any, context: __SerdeContext): Item[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Item(entry, context);
     });
   return retVal;
@@ -1065,9 +972,6 @@ const de_LanguageIdentification = (output: any, context: __SerdeContext): Langua
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LanguageWithScore(entry, context);
     });
   return retVal;
@@ -1077,34 +981,23 @@ const de_LanguageIdentification = (output: any, context: __SerdeContext): Langua
  * deserializeAws_restJson1LanguageWithScore
  */
 const de_LanguageWithScore = (output: any, context: __SerdeContext): LanguageWithScore => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    Score: __limitedParseDouble(output.Score),
-  } as any;
+  return take(output, {
+    LanguageCode: __expectString,
+    Score: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1MatchedCategoryDetails
- */
-const de_MatchedCategoryDetails = (output: any, context: __SerdeContext): Record<string, PointsOfInterest> => {
-  return Object.entries(output).reduce((acc: Record<string, PointsOfInterest>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_PointsOfInterest(value, context);
-    return acc;
-  }, {});
-};
+// de_MatchedCategoryDetails omitted.
 
 /**
  * deserializeAws_restJson1MedicalAlternative
  */
 const de_MedicalAlternative = (output: any, context: __SerdeContext): MedicalAlternative => {
-  return {
-    Entities: output.Entities != null ? de_MedicalEntityList(output.Entities, context) : undefined,
-    Items: output.Items != null ? de_MedicalItemList(output.Items, context) : undefined,
-    Transcript: __expectString(output.Transcript),
-  } as any;
+  return take(output, {
+    Entities: (_: any) => de_MedicalEntityList(_, context),
+    Items: (_: any) => de_MedicalItemList(_, context),
+    Transcript: __expectString,
+  }) as any;
 };
 
 /**
@@ -1114,9 +1007,6 @@ const de_MedicalAlternativeList = (output: any, context: __SerdeContext): Medica
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MedicalAlternative(entry, context);
     });
   return retVal;
@@ -1126,13 +1016,13 @@ const de_MedicalAlternativeList = (output: any, context: __SerdeContext): Medica
  * deserializeAws_restJson1MedicalEntity
  */
 const de_MedicalEntity = (output: any, context: __SerdeContext): MedicalEntity => {
-  return {
-    Category: __expectString(output.Category),
-    Confidence: __limitedParseDouble(output.Confidence),
-    Content: __expectString(output.Content),
-    EndTime: __limitedParseDouble(output.EndTime),
-    StartTime: __limitedParseDouble(output.StartTime),
-  } as any;
+  return take(output, {
+    Category: __expectString,
+    Confidence: __limitedParseDouble,
+    Content: __expectString,
+    EndTime: __limitedParseDouble,
+    StartTime: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -1142,9 +1032,6 @@ const de_MedicalEntityList = (output: any, context: __SerdeContext): MedicalEnti
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MedicalEntity(entry, context);
     });
   return retVal;
@@ -1154,14 +1041,14 @@ const de_MedicalEntityList = (output: any, context: __SerdeContext): MedicalEnti
  * deserializeAws_restJson1MedicalItem
  */
 const de_MedicalItem = (output: any, context: __SerdeContext): MedicalItem => {
-  return {
-    Confidence: __limitedParseDouble(output.Confidence),
-    Content: __expectString(output.Content),
-    EndTime: __limitedParseDouble(output.EndTime),
-    Speaker: __expectString(output.Speaker),
-    StartTime: __limitedParseDouble(output.StartTime),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseDouble,
+    Content: __expectString,
+    EndTime: __limitedParseDouble,
+    Speaker: __expectString,
+    StartTime: __limitedParseDouble,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -1171,9 +1058,6 @@ const de_MedicalItemList = (output: any, context: __SerdeContext): MedicalItem[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MedicalItem(entry, context);
     });
   return retVal;
@@ -1183,14 +1067,14 @@ const de_MedicalItemList = (output: any, context: __SerdeContext): MedicalItem[]
  * deserializeAws_restJson1MedicalResult
  */
 const de_MedicalResult = (output: any, context: __SerdeContext): MedicalResult => {
-  return {
-    Alternatives: output.Alternatives != null ? de_MedicalAlternativeList(output.Alternatives, context) : undefined,
-    ChannelId: __expectString(output.ChannelId),
-    EndTime: __limitedParseDouble(output.EndTime),
-    IsPartial: __expectBoolean(output.IsPartial),
-    ResultId: __expectString(output.ResultId),
-    StartTime: __limitedParseDouble(output.StartTime),
-  } as any;
+  return take(output, {
+    Alternatives: (_: any) => de_MedicalAlternativeList(_, context),
+    ChannelId: __expectString,
+    EndTime: __limitedParseDouble,
+    IsPartial: __expectBoolean,
+    ResultId: __expectString,
+    StartTime: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -1200,9 +1084,6 @@ const de_MedicalResultList = (output: any, context: __SerdeContext): MedicalResu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MedicalResult(entry, context);
     });
   return retVal;
@@ -1212,46 +1093,36 @@ const de_MedicalResultList = (output: any, context: __SerdeContext): MedicalResu
  * deserializeAws_restJson1MedicalTranscript
  */
 const de_MedicalTranscript = (output: any, context: __SerdeContext): MedicalTranscript => {
-  return {
-    Results: output.Results != null ? de_MedicalResultList(output.Results, context) : undefined,
-  } as any;
+  return take(output, {
+    Results: (_: any) => de_MedicalResultList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1MedicalTranscriptEvent
  */
 const de_MedicalTranscriptEvent = (output: any, context: __SerdeContext): MedicalTranscriptEvent => {
-  return {
-    Transcript: output.Transcript != null ? de_MedicalTranscript(output.Transcript, context) : undefined,
-  } as any;
+  return take(output, {
+    Transcript: (_: any) => de_MedicalTranscript(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1PointsOfInterest
- */
-const de_PointsOfInterest = (output: any, context: __SerdeContext): PointsOfInterest => {
-  return {
-    TimestampRanges: output.TimestampRanges != null ? de_TimestampRanges(output.TimestampRanges, context) : undefined,
-  } as any;
-};
+// de_PointsOfInterest omitted.
 
 /**
  * deserializeAws_restJson1Result
  */
 const de_Result = (output: any, context: __SerdeContext): Result => {
-  return {
-    Alternatives: output.Alternatives != null ? de_AlternativeList(output.Alternatives, context) : undefined,
-    ChannelId: __expectString(output.ChannelId),
-    EndTime: __limitedParseDouble(output.EndTime),
-    IsPartial: __expectBoolean(output.IsPartial),
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageIdentification:
-      output.LanguageIdentification != null
-        ? de_LanguageIdentification(output.LanguageIdentification, context)
-        : undefined,
-    ResultId: __expectString(output.ResultId),
-    StartTime: __limitedParseDouble(output.StartTime),
-  } as any;
+  return take(output, {
+    Alternatives: (_: any) => de_AlternativeList(_, context),
+    ChannelId: __expectString,
+    EndTime: __limitedParseDouble,
+    IsPartial: __expectBoolean,
+    LanguageCode: __expectString,
+    LanguageIdentification: (_: any) => de_LanguageIdentification(_, context),
+    ResultId: __expectString,
+    StartTime: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -1261,88 +1132,51 @@ const de_ResultList = (output: any, context: __SerdeContext): Result[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Result(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1TimestampRange
- */
-const de_TimestampRange = (output: any, context: __SerdeContext): TimestampRange => {
-  return {
-    BeginOffsetMillis: __expectLong(output.BeginOffsetMillis),
-    EndOffsetMillis: __expectLong(output.EndOffsetMillis),
-  } as any;
-};
+// de_TimestampRange omitted.
 
-/**
- * deserializeAws_restJson1TimestampRanges
- */
-const de_TimestampRanges = (output: any, context: __SerdeContext): TimestampRange[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TimestampRange(entry, context);
-    });
-  return retVal;
-};
+// de_TimestampRanges omitted.
 
 /**
  * deserializeAws_restJson1Transcript
  */
 const de_Transcript = (output: any, context: __SerdeContext): Transcript => {
-  return {
-    Results: output.Results != null ? de_ResultList(output.Results, context) : undefined,
-  } as any;
+  return take(output, {
+    Results: (_: any) => de_ResultList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1TranscriptEvent
  */
 const de_TranscriptEvent = (output: any, context: __SerdeContext): TranscriptEvent => {
-  return {
-    Transcript: output.Transcript != null ? de_Transcript(output.Transcript, context) : undefined,
-  } as any;
+  return take(output, {
+    Transcript: (_: any) => de_Transcript(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1UtteranceEvent
  */
 const de_UtteranceEvent = (output: any, context: __SerdeContext): UtteranceEvent => {
-  return {
-    BeginOffsetMillis: __expectLong(output.BeginOffsetMillis),
-    EndOffsetMillis: __expectLong(output.EndOffsetMillis),
-    Entities: output.Entities != null ? de_CallAnalyticsEntityList(output.Entities, context) : undefined,
-    IsPartial: __expectBoolean(output.IsPartial),
-    IssuesDetected: output.IssuesDetected != null ? de_IssuesDetected(output.IssuesDetected, context) : undefined,
-    Items: output.Items != null ? de_CallAnalyticsItemList(output.Items, context) : undefined,
-    ParticipantRole: __expectString(output.ParticipantRole),
-    Sentiment: __expectString(output.Sentiment),
-    Transcript: __expectString(output.Transcript),
-    UtteranceId: __expectString(output.UtteranceId),
-  } as any;
+  return take(output, {
+    BeginOffsetMillis: __expectLong,
+    EndOffsetMillis: __expectLong,
+    Entities: (_: any) => de_CallAnalyticsEntityList(_, context),
+    IsPartial: __expectBoolean,
+    IssuesDetected: _json,
+    Items: (_: any) => de_CallAnalyticsItemList(_, context),
+    ParticipantRole: __expectString,
+    Sentiment: __expectString,
+    Transcript: __expectString,
+    UtteranceId: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

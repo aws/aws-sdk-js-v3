@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -51,16 +53,18 @@ export const se_CreateTokenCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/token";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientId != null && { clientId: input.clientId }),
-    ...(input.clientSecret != null && { clientSecret: input.clientSecret }),
-    ...(input.code != null && { code: input.code }),
-    ...(input.deviceCode != null && { deviceCode: input.deviceCode }),
-    ...(input.grantType != null && { grantType: input.grantType }),
-    ...(input.redirectUri != null && { redirectUri: input.redirectUri }),
-    ...(input.refreshToken != null && { refreshToken: input.refreshToken }),
-    ...(input.scope != null && { scope: se_Scopes(input.scope, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientId: [],
+      clientSecret: [],
+      code: [],
+      deviceCode: [],
+      grantType: [],
+      redirectUri: [],
+      refreshToken: [],
+      scope: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -85,11 +89,13 @@ export const se_RegisterClientCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/client/register";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientName != null && { clientName: input.clientName }),
-    ...(input.clientType != null && { clientType: input.clientType }),
-    ...(input.scopes != null && { scopes: se_Scopes(input.scopes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientName: [],
+      clientType: [],
+      scopes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -114,11 +120,13 @@ export const se_StartDeviceAuthorizationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device_authorization";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientId != null && { clientId: input.clientId }),
-    ...(input.clientSecret != null && { clientSecret: input.clientSecret }),
-    ...(input.startUrl != null && { startUrl: input.startUrl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientId: [],
+      clientSecret: [],
+      startUrl: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -144,21 +152,14 @@ export const de_CreateTokenCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessToken != null) {
-    contents.accessToken = __expectString(data.accessToken);
-  }
-  if (data.expiresIn != null) {
-    contents.expiresIn = __expectInt32(data.expiresIn);
-  }
-  if (data.idToken != null) {
-    contents.idToken = __expectString(data.idToken);
-  }
-  if (data.refreshToken != null) {
-    contents.refreshToken = __expectString(data.refreshToken);
-  }
-  if (data.tokenType != null) {
-    contents.tokenType = __expectString(data.tokenType);
-  }
+  const doc = take(data, {
+    accessToken: __expectString,
+    expiresIn: __expectInt32,
+    idToken: __expectString,
+    refreshToken: __expectString,
+    tokenType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -210,10 +211,9 @@ const de_CreateTokenCommandError = async (
       throw await de_UnsupportedGrantTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -233,24 +233,15 @@ export const de_RegisterClientCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.authorizationEndpoint != null) {
-    contents.authorizationEndpoint = __expectString(data.authorizationEndpoint);
-  }
-  if (data.clientId != null) {
-    contents.clientId = __expectString(data.clientId);
-  }
-  if (data.clientIdIssuedAt != null) {
-    contents.clientIdIssuedAt = __expectLong(data.clientIdIssuedAt);
-  }
-  if (data.clientSecret != null) {
-    contents.clientSecret = __expectString(data.clientSecret);
-  }
-  if (data.clientSecretExpiresAt != null) {
-    contents.clientSecretExpiresAt = __expectLong(data.clientSecretExpiresAt);
-  }
-  if (data.tokenEndpoint != null) {
-    contents.tokenEndpoint = __expectString(data.tokenEndpoint);
-  }
+  const doc = take(data, {
+    authorizationEndpoint: __expectString,
+    clientId: __expectString,
+    clientIdIssuedAt: __expectLong,
+    clientSecret: __expectString,
+    clientSecretExpiresAt: __expectLong,
+    tokenEndpoint: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -281,10 +272,9 @@ const de_RegisterClientCommandError = async (
       throw await de_InvalidScopeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -304,24 +294,15 @@ export const de_StartDeviceAuthorizationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deviceCode != null) {
-    contents.deviceCode = __expectString(data.deviceCode);
-  }
-  if (data.expiresIn != null) {
-    contents.expiresIn = __expectInt32(data.expiresIn);
-  }
-  if (data.interval != null) {
-    contents.interval = __expectInt32(data.interval);
-  }
-  if (data.userCode != null) {
-    contents.userCode = __expectString(data.userCode);
-  }
-  if (data.verificationUri != null) {
-    contents.verificationUri = __expectString(data.verificationUri);
-  }
-  if (data.verificationUriComplete != null) {
-    contents.verificationUriComplete = __expectString(data.verificationUriComplete);
-  }
+  const doc = take(data, {
+    deviceCode: __expectString,
+    expiresIn: __expectInt32,
+    interval: __expectInt32,
+    userCode: __expectString,
+    verificationUri: __expectString,
+    verificationUriComplete: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -355,16 +336,15 @@ const de_StartDeviceAuthorizationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -374,12 +354,11 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -396,12 +375,11 @@ const de_AuthorizationPendingExceptionRes = async (
 ): Promise<AuthorizationPendingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AuthorizationPendingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -418,12 +396,11 @@ const de_ExpiredTokenExceptionRes = async (
 ): Promise<ExpiredTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ExpiredTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -440,12 +417,11 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -462,12 +438,11 @@ const de_InvalidClientExceptionRes = async (
 ): Promise<InvalidClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -484,12 +459,11 @@ const de_InvalidClientMetadataExceptionRes = async (
 ): Promise<InvalidClientMetadataException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidClientMetadataException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -506,12 +480,11 @@ const de_InvalidGrantExceptionRes = async (
 ): Promise<InvalidGrantException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidGrantException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -528,12 +501,11 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -550,12 +522,11 @@ const de_InvalidScopeExceptionRes = async (
 ): Promise<InvalidScopeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidScopeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -569,12 +540,11 @@ const de_InvalidScopeExceptionRes = async (
 const de_SlowDownExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<SlowDownException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SlowDownException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -591,12 +561,11 @@ const de_UnauthorizedClientExceptionRes = async (
 ): Promise<UnauthorizedClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -613,12 +582,11 @@ const de_UnsupportedGrantTypeExceptionRes = async (
 ): Promise<UnsupportedGrantTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.error != null) {
-    contents.error = __expectString(data.error);
-  }
-  if (data.error_description != null) {
-    contents.error_description = __expectString(data.error_description);
-  }
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedGrantTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -626,16 +594,7 @@ const de_UnsupportedGrantTypeExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Scopes
- */
-const se_Scopes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Scopes omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

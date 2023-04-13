@@ -11,7 +11,7 @@ import {
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1595,7 +1595,7 @@ export const de_AddTagsToResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1649,10 +1649,9 @@ const de_AddTagsToResourceCommandError = async (
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1675,7 +1674,7 @@ export const de_AuthorizeCacheSecurityGroupIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1708,10 +1707,9 @@ const de_AuthorizeCacheSecurityGroupIngressCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1734,7 +1732,7 @@ export const de_BatchApplyUpdateActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1758,10 +1756,9 @@ const de_BatchApplyUpdateActionCommandError = async (
       throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1784,7 +1781,7 @@ export const de_BatchStopUpdateActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1808,10 +1805,9 @@ const de_BatchStopUpdateActionCommandError = async (
       throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1834,7 +1830,7 @@ export const de_CompleteMigrationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1861,10 +1857,9 @@ const de_CompleteMigrationCommandError = async (
       throw await de_ReplicationGroupNotUnderMigrationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1887,7 +1882,7 @@ export const de_CopySnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1926,10 +1921,9 @@ const de_CopySnapshotCommandError = async (
       throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1952,7 +1946,7 @@ export const de_CreateCacheClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2012,10 +2006,9 @@ const de_CreateCacheClusterCommandError = async (
       throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2038,7 +2031,7 @@ export const de_CreateCacheParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2074,10 +2067,9 @@ const de_CreateCacheParameterGroupCommandError = async (
       throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2100,7 +2092,7 @@ export const de_CreateCacheSecurityGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2133,10 +2125,9 @@ const de_CreateCacheSecurityGroupCommandError = async (
       throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2159,7 +2150,7 @@ export const de_CreateCacheSubnetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2195,10 +2186,9 @@ const de_CreateCacheSubnetGroupCommandError = async (
       throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2221,7 +2211,7 @@ export const de_CreateGlobalReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2254,10 +2244,9 @@ const de_CreateGlobalReplicationGroupCommandError = async (
       throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2280,7 +2269,7 @@ export const de_CreateReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2355,10 +2344,9 @@ const de_CreateReplicationGroupCommandError = async (
       throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2381,7 +2369,7 @@ export const de_CreateSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2429,10 +2417,9 @@ const de_CreateSnapshotCommandError = async (
       throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2455,7 +2442,7 @@ export const de_CreateUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2494,10 +2481,9 @@ const de_CreateUserCommandError = async (
       throw await de_UserQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2520,7 +2506,7 @@ export const de_CreateUserGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2562,10 +2548,9 @@ const de_CreateUserGroupCommandError = async (
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2591,7 +2576,7 @@ export const de_DecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2621,10 +2606,9 @@ const de_DecreaseNodeGroupsInGlobalReplicationGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2647,7 +2631,7 @@ export const de_DecreaseReplicaCountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2701,10 +2685,9 @@ const de_DecreaseReplicaCountCommandError = async (
       throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2727,7 +2710,7 @@ export const de_DeleteCacheClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2766,10 +2749,9 @@ const de_DeleteCacheClusterCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2789,7 +2771,7 @@ export const de_DeleteCacheParameterGroupCommand = async (
   const response: DeleteCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2819,10 +2801,9 @@ const de_DeleteCacheParameterGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2842,7 +2823,7 @@ export const de_DeleteCacheSecurityGroupCommand = async (
   const response: DeleteCacheSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2872,10 +2853,9 @@ const de_DeleteCacheSecurityGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2895,7 +2875,7 @@ export const de_DeleteCacheSubnetGroupCommand = async (
   const response: DeleteCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2919,10 +2899,9 @@ const de_DeleteCacheSubnetGroupCommandError = async (
       throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2945,7 +2924,7 @@ export const de_DeleteGlobalReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2972,10 +2951,9 @@ const de_DeleteGlobalReplicationGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2998,7 +2976,7 @@ export const de_DeleteReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3037,10 +3015,9 @@ const de_DeleteReplicationGroupCommandError = async (
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3063,7 +3040,7 @@ export const de_DeleteSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3093,10 +3070,9 @@ const de_DeleteSnapshotCommandError = async (
       throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3119,7 +3095,7 @@ export const de_DeleteUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3152,10 +3128,9 @@ const de_DeleteUserCommandError = async (
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3178,7 +3153,7 @@ export const de_DeleteUserGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3208,10 +3183,9 @@ const de_DeleteUserGroupCommandError = async (
       throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3234,7 +3208,7 @@ export const de_DescribeCacheClustersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3261,10 +3235,9 @@ const de_DescribeCacheClustersCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3287,7 +3260,7 @@ export const de_DescribeCacheEngineVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3303,10 +3276,9 @@ const de_DescribeCacheEngineVersionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3328,7 +3300,7 @@ export const de_DescribeCacheParameterGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3355,10 +3327,9 @@ const de_DescribeCacheParameterGroupsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3381,7 +3352,7 @@ export const de_DescribeCacheParametersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3408,10 +3379,9 @@ const de_DescribeCacheParametersCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3434,7 +3404,7 @@ export const de_DescribeCacheSecurityGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3461,10 +3431,9 @@ const de_DescribeCacheSecurityGroupsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3487,7 +3456,7 @@ export const de_DescribeCacheSubnetGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3508,10 +3477,9 @@ const de_DescribeCacheSubnetGroupsCommandError = async (
       throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3534,7 +3502,7 @@ export const de_DescribeEngineDefaultParametersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3558,10 +3526,9 @@ const de_DescribeEngineDefaultParametersCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3584,7 +3551,7 @@ export const de_DescribeEventsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3608,10 +3575,9 @@ const de_DescribeEventsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3634,7 +3600,7 @@ export const de_DescribeGlobalReplicationGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3661,10 +3627,9 @@ const de_DescribeGlobalReplicationGroupsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3687,7 +3652,7 @@ export const de_DescribeReplicationGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3714,10 +3679,9 @@ const de_DescribeReplicationGroupsCommandError = async (
       throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3740,7 +3704,7 @@ export const de_DescribeReservedCacheNodesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3767,10 +3731,9 @@ const de_DescribeReservedCacheNodesCommandError = async (
       throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3793,7 +3756,7 @@ export const de_DescribeReservedCacheNodesOfferingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3820,10 +3783,9 @@ const de_DescribeReservedCacheNodesOfferingsCommandError = async (
       throw await de_ReservedCacheNodesOfferingNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3846,7 +3808,7 @@ export const de_DescribeServiceUpdatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3873,10 +3835,9 @@ const de_DescribeServiceUpdatesCommandError = async (
       throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3899,7 +3860,7 @@ export const de_DescribeSnapshotsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3929,10 +3890,9 @@ const de_DescribeSnapshotsCommandError = async (
       throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3955,7 +3915,7 @@ export const de_DescribeUpdateActionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3979,10 +3939,9 @@ const de_DescribeUpdateActionsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4005,7 +3964,7 @@ export const de_DescribeUserGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4032,10 +3991,9 @@ const de_DescribeUserGroupsCommandError = async (
       throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4058,7 +4016,7 @@ export const de_DescribeUsersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4085,10 +4043,9 @@ const de_DescribeUsersCommandError = async (
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4111,7 +4068,7 @@ export const de_DisassociateGlobalReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4141,10 +4098,9 @@ const de_DisassociateGlobalReplicationGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4167,7 +4123,7 @@ export const de_FailoverGlobalReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4197,10 +4153,9 @@ const de_FailoverGlobalReplicationGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4226,7 +4181,7 @@ export const de_IncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4253,10 +4208,9 @@ const de_IncreaseNodeGroupsInGlobalReplicationGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4279,7 +4233,7 @@ export const de_IncreaseReplicaCountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4333,10 +4287,9 @@ const de_IncreaseReplicaCountCommandError = async (
       throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4359,7 +4312,7 @@ export const de_ListAllowedNodeTypeModificationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4389,10 +4342,9 @@ const de_ListAllowedNodeTypeModificationsCommandError = async (
       throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4415,7 +4367,7 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4466,10 +4418,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4492,7 +4443,7 @@ export const de_ModifyCacheClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4543,10 +4494,9 @@ const de_ModifyCacheClusterCommandError = async (
       throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4569,7 +4519,7 @@ export const de_ModifyCacheParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4602,10 +4552,9 @@ const de_ModifyCacheParameterGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4628,7 +4577,7 @@ export const de_ModifyCacheSubnetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4661,10 +4610,9 @@ const de_ModifyCacheSubnetGroupCommandError = async (
       throw await de_SubnetNotAllowedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4687,7 +4635,7 @@ export const de_ModifyGlobalReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4714,10 +4662,9 @@ const de_ModifyGlobalReplicationGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4740,7 +4687,7 @@ export const de_ModifyReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4806,10 +4753,9 @@ const de_ModifyReplicationGroupCommandError = async (
       throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4835,7 +4781,7 @@ export const de_ModifyReplicationGroupShardConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4883,10 +4829,9 @@ const de_ModifyReplicationGroupShardConfigurationCommandError = async (
       throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4909,7 +4854,7 @@ export const de_ModifyUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4942,10 +4887,9 @@ const de_ModifyUserCommandError = async (
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4968,7 +4912,7 @@ export const de_ModifyUserGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5010,10 +4954,9 @@ const de_ModifyUserGroupCommandError = async (
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5036,7 +4979,7 @@ export const de_PurchaseReservedCacheNodesOfferingCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5072,10 +5015,9 @@ const de_PurchaseReservedCacheNodesOfferingCommandError = async (
       throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5101,7 +5043,7 @@ export const de_RebalanceSlotsInGlobalReplicationGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5128,10 +5070,9 @@ const de_RebalanceSlotsInGlobalReplicationGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5154,7 +5095,7 @@ export const de_RebootCacheClusterCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5178,10 +5119,9 @@ const de_RebootCacheClusterCommandError = async (
       throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5204,7 +5144,7 @@ export const de_RemoveTagsFromResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5258,10 +5198,9 @@ const de_RemoveTagsFromResourceCommandError = async (
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5284,7 +5223,7 @@ export const de_ResetCacheParameterGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5317,10 +5256,9 @@ const de_ResetCacheParameterGroupCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5343,7 +5281,7 @@ export const de_RevokeCacheSecurityGroupIngressCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5376,10 +5314,9 @@ const de_RevokeCacheSecurityGroupIngressCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5402,7 +5339,7 @@ export const de_StartMigrationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5432,10 +5369,9 @@ const de_StartMigrationCommandError = async (
       throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5458,7 +5394,7 @@ export const de_TestFailoverCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5503,10 +5439,9 @@ const de_TestFailoverCommandError = async (
       throw await de_TestFailoverNotAvailableFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13366,6 +13301,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

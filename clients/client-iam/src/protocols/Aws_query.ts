@@ -10,7 +10,7 @@ import {
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3415,7 +3415,7 @@ export const de_AddClientIDToOpenIDConnectProviderCommand = async (
   const response: AddClientIDToOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3445,10 +3445,9 @@ const de_AddClientIDToOpenIDConnectProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3468,7 +3467,7 @@ export const de_AddRoleToInstanceProfileCommand = async (
   const response: AddRoleToInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3501,10 +3500,9 @@ const de_AddRoleToInstanceProfileCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3524,7 +3522,7 @@ export const de_AddUserToGroupCommand = async (
   const response: AddUserToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3551,10 +3549,9 @@ const de_AddUserToGroupCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3574,7 +3571,7 @@ export const de_AttachGroupPolicyCommand = async (
   const response: AttachGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3607,10 +3604,9 @@ const de_AttachGroupPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3630,7 +3626,7 @@ export const de_AttachRolePolicyCommand = async (
   const response: AttachRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3666,10 +3662,9 @@ const de_AttachRolePolicyCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3689,7 +3684,7 @@ export const de_AttachUserPolicyCommand = async (
   const response: AttachUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3722,10 +3717,9 @@ const de_AttachUserPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3745,7 +3739,7 @@ export const de_ChangePasswordCommand = async (
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3781,10 +3775,9 @@ const de_ChangePasswordCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3807,7 +3800,7 @@ export const de_CreateAccessKeyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3834,10 +3827,9 @@ const de_CreateAccessKeyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3857,7 +3849,7 @@ export const de_CreateAccountAliasCommand = async (
   const response: CreateAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3884,10 +3876,9 @@ const de_CreateAccountAliasCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3910,7 +3901,7 @@ export const de_CreateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3940,10 +3931,9 @@ const de_CreateGroupCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3966,7 +3956,7 @@ export const de_CreateInstanceProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3999,10 +3989,9 @@ const de_CreateInstanceProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4025,7 +4014,7 @@ export const de_CreateLoginProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4058,10 +4047,9 @@ const de_CreateLoginProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4084,7 +4072,7 @@ export const de_CreateOpenIDConnectProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4117,10 +4105,9 @@ const de_CreateOpenIDConnectProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4143,7 +4130,7 @@ export const de_CreatePolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4179,10 +4166,9 @@ const de_CreatePolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4205,7 +4191,7 @@ export const de_CreatePolicyVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4238,10 +4224,9 @@ const de_CreatePolicyVersionCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4264,7 +4249,7 @@ export const de_CreateRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4300,10 +4285,9 @@ const de_CreateRoleCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4326,7 +4310,7 @@ export const de_CreateSAMLProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4359,10 +4343,9 @@ const de_CreateSAMLProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4385,7 +4368,7 @@ export const de_CreateServiceLinkedRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4415,10 +4398,9 @@ const de_CreateServiceLinkedRoleCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4441,7 +4423,7 @@ export const de_CreateServiceSpecificCredentialCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4468,10 +4450,9 @@ const de_CreateServiceSpecificCredentialCommandError = async (
       throw await de_ServiceNotSupportedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4494,7 +4475,7 @@ export const de_CreateUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4530,10 +4511,9 @@ const de_CreateUserCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4556,7 +4536,7 @@ export const de_CreateVirtualMFADeviceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4589,10 +4569,9 @@ const de_CreateVirtualMFADeviceCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4612,7 +4591,7 @@ export const de_DeactivateMFADeviceCommand = async (
   const response: DeactivateMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4642,10 +4621,9 @@ const de_DeactivateMFADeviceCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4665,7 +4643,7 @@ export const de_DeleteAccessKeyCommand = async (
   const response: DeleteAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4692,10 +4670,9 @@ const de_DeleteAccessKeyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4715,7 +4692,7 @@ export const de_DeleteAccountAliasCommand = async (
   const response: DeleteAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4742,10 +4719,9 @@ const de_DeleteAccountAliasCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4765,7 +4741,7 @@ export const de_DeleteAccountPasswordPolicyCommand = async (
   const response: DeleteAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4792,10 +4768,9 @@ const de_DeleteAccountPasswordPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4815,7 +4790,7 @@ export const de_DeleteGroupCommand = async (
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4845,10 +4820,9 @@ const de_DeleteGroupCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4868,7 +4842,7 @@ export const de_DeleteGroupPolicyCommand = async (
   const response: DeleteGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4895,10 +4869,9 @@ const de_DeleteGroupPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4918,7 +4891,7 @@ export const de_DeleteInstanceProfileCommand = async (
   const response: DeleteInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4948,10 +4921,9 @@ const de_DeleteInstanceProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4971,7 +4943,7 @@ export const de_DeleteLoginProfileCommand = async (
   const response: DeleteLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5001,10 +4973,9 @@ const de_DeleteLoginProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5024,7 +4995,7 @@ export const de_DeleteOpenIDConnectProviderCommand = async (
   const response: DeleteOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5051,10 +5022,9 @@ const de_DeleteOpenIDConnectProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5074,7 +5044,7 @@ export const de_DeletePolicyCommand = async (
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5107,10 +5077,9 @@ const de_DeletePolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5130,7 +5099,7 @@ export const de_DeletePolicyVersionCommand = async (
   const response: DeletePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5163,10 +5132,9 @@ const de_DeletePolicyVersionCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5186,7 +5154,7 @@ export const de_DeleteRoleCommand = async (
   const response: DeleteRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5222,10 +5190,9 @@ const de_DeleteRoleCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5245,7 +5212,7 @@ export const de_DeleteRolePermissionsBoundaryCommand = async (
   const response: DeleteRolePermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5272,10 +5239,9 @@ const de_DeleteRolePermissionsBoundaryCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5295,7 +5261,7 @@ export const de_DeleteRolePolicyCommand = async (
   const response: DeleteRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5325,10 +5291,9 @@ const de_DeleteRolePolicyCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5348,7 +5313,7 @@ export const de_DeleteSAMLProviderCommand = async (
   const response: DeleteSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5378,10 +5343,9 @@ const de_DeleteSAMLProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5401,7 +5365,7 @@ export const de_DeleteServerCertificateCommand = async (
   const response: DeleteServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5431,10 +5395,9 @@ const de_DeleteServerCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5457,7 +5420,7 @@ export const de_DeleteServiceLinkedRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5484,10 +5447,9 @@ const de_DeleteServiceLinkedRoleCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5507,7 +5469,7 @@ export const de_DeleteServiceSpecificCredentialCommand = async (
   const response: DeleteServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5528,10 +5490,9 @@ const de_DeleteServiceSpecificCredentialCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5551,7 +5512,7 @@ export const de_DeleteSigningCertificateCommand = async (
   const response: DeleteSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5578,10 +5539,9 @@ const de_DeleteSigningCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5601,7 +5561,7 @@ export const de_DeleteSSHPublicKeyCommand = async (
   const response: DeleteSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5622,10 +5582,9 @@ const de_DeleteSSHPublicKeyCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5645,7 +5604,7 @@ export const de_DeleteUserCommand = async (
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5678,10 +5637,9 @@ const de_DeleteUserCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5701,7 +5659,7 @@ export const de_DeleteUserPermissionsBoundaryCommand = async (
   const response: DeleteUserPermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5725,10 +5683,9 @@ const de_DeleteUserPermissionsBoundaryCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5748,7 +5705,7 @@ export const de_DeleteUserPolicyCommand = async (
   const response: DeleteUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5775,10 +5732,9 @@ const de_DeleteUserPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5798,7 +5754,7 @@ export const de_DeleteVirtualMFADeviceCommand = async (
   const response: DeleteVirtualMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5828,10 +5784,9 @@ const de_DeleteVirtualMFADeviceCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5851,7 +5806,7 @@ export const de_DetachGroupPolicyCommand = async (
   const response: DetachGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5881,10 +5836,9 @@ const de_DetachGroupPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5904,7 +5858,7 @@ export const de_DetachRolePolicyCommand = async (
   const response: DetachRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5937,10 +5891,9 @@ const de_DetachRolePolicyCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5960,7 +5913,7 @@ export const de_DetachUserPolicyCommand = async (
   const response: DetachUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5990,10 +5943,9 @@ const de_DetachUserPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6013,7 +5965,7 @@ export const de_EnableMFADeviceCommand = async (
   const response: EnableMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6049,10 +6001,9 @@ const de_EnableMFADeviceCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6075,7 +6026,7 @@ export const de_GenerateCredentialReportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6099,10 +6050,9 @@ const de_GenerateCredentialReportCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6125,7 +6075,7 @@ export const de_GenerateOrganizationsAccessReportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6146,10 +6096,9 @@ const de_GenerateOrganizationsAccessReportCommandError = async (
       throw await de_ReportGenerationLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6172,7 +6121,7 @@ export const de_GenerateServiceLastAccessedDetailsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6196,10 +6145,9 @@ const de_GenerateServiceLastAccessedDetailsCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6222,7 +6170,7 @@ export const de_GetAccessKeyLastUsedCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6243,10 +6191,9 @@ const de_GetAccessKeyLastUsedCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6269,7 +6216,7 @@ export const de_GetAccountAuthorizationDetailsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6290,10 +6237,9 @@ const de_GetAccountAuthorizationDetailsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6316,7 +6262,7 @@ export const de_GetAccountPasswordPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6340,10 +6286,9 @@ const de_GetAccountPasswordPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6366,7 +6311,7 @@ export const de_GetAccountSummaryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6387,10 +6332,9 @@ const de_GetAccountSummaryCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6413,7 +6357,7 @@ export const de_GetContextKeysForCustomPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6434,10 +6378,9 @@ const de_GetContextKeysForCustomPolicyCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6460,7 +6403,7 @@ export const de_GetContextKeysForPrincipalPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6484,10 +6427,9 @@ const de_GetContextKeysForPrincipalPolicyCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6510,7 +6452,7 @@ export const de_GetCredentialReportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6540,10 +6482,9 @@ const de_GetCredentialReportCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6566,7 +6507,7 @@ export const de_GetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6590,10 +6531,9 @@ const de_GetGroupCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6616,7 +6556,7 @@ export const de_GetGroupPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6640,10 +6580,9 @@ const de_GetGroupPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6666,7 +6605,7 @@ export const de_GetInstanceProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6690,10 +6629,9 @@ const de_GetInstanceProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6716,7 +6654,7 @@ export const de_GetLoginProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6740,10 +6678,9 @@ const de_GetLoginProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6766,7 +6703,7 @@ export const de_GetOpenIDConnectProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6793,10 +6730,9 @@ const de_GetOpenIDConnectProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6819,7 +6755,7 @@ export const de_GetOrganizationsAccessReportCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6840,10 +6776,9 @@ const de_GetOrganizationsAccessReportCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6866,7 +6801,7 @@ export const de_GetPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6893,10 +6828,9 @@ const de_GetPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6919,7 +6853,7 @@ export const de_GetPolicyVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6946,10 +6880,9 @@ const de_GetPolicyVersionCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6972,7 +6905,7 @@ export const de_GetRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6996,10 +6929,9 @@ const de_GetRoleCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7022,7 +6954,7 @@ export const de_GetRolePolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7046,10 +6978,9 @@ const de_GetRolePolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7072,7 +7003,7 @@ export const de_GetSAMLProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7099,10 +7030,9 @@ const de_GetSAMLProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7125,7 +7055,7 @@ export const de_GetServerCertificateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7149,10 +7079,9 @@ const de_GetServerCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7175,7 +7104,7 @@ export const de_GetServiceLastAccessedDetailsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7199,10 +7128,9 @@ const de_GetServiceLastAccessedDetailsCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7228,7 +7156,7 @@ export const de_GetServiceLastAccessedDetailsWithEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7252,10 +7180,9 @@ const de_GetServiceLastAccessedDetailsWithEntitiesCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7278,7 +7205,7 @@ export const de_GetServiceLinkedRoleDeletionStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7305,10 +7232,9 @@ const de_GetServiceLinkedRoleDeletionStatusCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7331,7 +7257,7 @@ export const de_GetSSHPublicKeyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7355,10 +7281,9 @@ const de_GetSSHPublicKeyCommandError = async (
       throw await de_UnrecognizedPublicKeyEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7381,7 +7306,7 @@ export const de_GetUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7405,10 +7330,9 @@ const de_GetUserCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7431,7 +7355,7 @@ export const de_GetUserPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7455,10 +7379,9 @@ const de_GetUserPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7481,7 +7404,7 @@ export const de_ListAccessKeysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7505,10 +7428,9 @@ const de_ListAccessKeysCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7531,7 +7453,7 @@ export const de_ListAccountAliasesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7552,10 +7474,9 @@ const de_ListAccountAliasesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7578,7 +7499,7 @@ export const de_ListAttachedGroupPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7605,10 +7526,9 @@ const de_ListAttachedGroupPoliciesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7631,7 +7551,7 @@ export const de_ListAttachedRolePoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7658,10 +7578,9 @@ const de_ListAttachedRolePoliciesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7684,7 +7603,7 @@ export const de_ListAttachedUserPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7711,10 +7630,9 @@ const de_ListAttachedUserPoliciesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7737,7 +7655,7 @@ export const de_ListEntitiesForPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7764,10 +7682,9 @@ const de_ListEntitiesForPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7790,7 +7707,7 @@ export const de_ListGroupPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7814,10 +7731,9 @@ const de_ListGroupPoliciesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7840,7 +7756,7 @@ export const de_ListGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7861,10 +7777,9 @@ const de_ListGroupsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7887,7 +7802,7 @@ export const de_ListGroupsForUserCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7911,10 +7826,9 @@ const de_ListGroupsForUserCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7937,7 +7851,7 @@ export const de_ListInstanceProfilesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7958,10 +7872,9 @@ const de_ListInstanceProfilesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7984,7 +7897,7 @@ export const de_ListInstanceProfilesForRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8008,10 +7921,9 @@ const de_ListInstanceProfilesForRoleCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8034,7 +7946,7 @@ export const de_ListInstanceProfileTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8058,10 +7970,9 @@ const de_ListInstanceProfileTagsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8084,7 +7995,7 @@ export const de_ListMFADevicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8108,10 +8019,9 @@ const de_ListMFADevicesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8134,7 +8044,7 @@ export const de_ListMFADeviceTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8161,10 +8071,9 @@ const de_ListMFADeviceTagsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8187,7 +8096,7 @@ export const de_ListOpenIDConnectProvidersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8208,10 +8117,9 @@ const de_ListOpenIDConnectProvidersCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8234,7 +8142,7 @@ export const de_ListOpenIDConnectProviderTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8261,10 +8169,9 @@ const de_ListOpenIDConnectProviderTagsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8287,7 +8194,7 @@ export const de_ListPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8308,10 +8215,9 @@ const de_ListPoliciesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8334,7 +8240,7 @@ export const de_ListPoliciesGrantingServiceAccessCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8358,10 +8264,9 @@ const de_ListPoliciesGrantingServiceAccessCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8384,7 +8289,7 @@ export const de_ListPolicyTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8411,10 +8316,9 @@ const de_ListPolicyTagsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8437,7 +8341,7 @@ export const de_ListPolicyVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8464,10 +8368,9 @@ const de_ListPolicyVersionsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8490,7 +8393,7 @@ export const de_ListRolePoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8514,10 +8417,9 @@ const de_ListRolePoliciesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8540,7 +8442,7 @@ export const de_ListRolesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8561,10 +8463,9 @@ const de_ListRolesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8587,7 +8488,7 @@ export const de_ListRoleTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8611,10 +8512,9 @@ const de_ListRoleTagsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8637,7 +8537,7 @@ export const de_ListSAMLProvidersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8658,10 +8558,9 @@ const de_ListSAMLProvidersCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8684,7 +8583,7 @@ export const de_ListSAMLProviderTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8711,10 +8610,9 @@ const de_ListSAMLProviderTagsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8737,7 +8635,7 @@ export const de_ListServerCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8758,10 +8656,9 @@ const de_ListServerCertificatesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8784,7 +8681,7 @@ export const de_ListServerCertificateTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8808,10 +8705,9 @@ const de_ListServerCertificateTagsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8834,7 +8730,7 @@ export const de_ListServiceSpecificCredentialsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8858,10 +8754,9 @@ const de_ListServiceSpecificCredentialsCommandError = async (
       throw await de_ServiceNotSupportedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8884,7 +8779,7 @@ export const de_ListSigningCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8908,10 +8803,9 @@ const de_ListSigningCertificatesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8934,7 +8828,7 @@ export const de_ListSSHPublicKeysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8955,10 +8849,9 @@ const de_ListSSHPublicKeysCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8981,7 +8874,7 @@ export const de_ListUserPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9005,10 +8898,9 @@ const de_ListUserPoliciesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9031,7 +8923,7 @@ export const de_ListUsersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9052,10 +8944,9 @@ const de_ListUsersCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9078,7 +8969,7 @@ export const de_ListUserTagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9102,10 +8993,9 @@ const de_ListUserTagsCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9128,7 +9018,7 @@ export const de_ListVirtualMFADevicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9144,10 +9034,9 @@ const de_ListVirtualMFADevicesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -9166,7 +9055,7 @@ export const de_PutGroupPolicyCommand = async (
   const response: PutGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9196,10 +9085,9 @@ const de_PutGroupPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9219,7 +9107,7 @@ export const de_PutRolePermissionsBoundaryCommand = async (
   const response: PutRolePermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9252,10 +9140,9 @@ const de_PutRolePermissionsBoundaryCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9275,7 +9162,7 @@ export const de_PutRolePolicyCommand = async (
   const response: PutRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9308,10 +9195,9 @@ const de_PutRolePolicyCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9331,7 +9217,7 @@ export const de_PutUserPermissionsBoundaryCommand = async (
   const response: PutUserPermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9361,10 +9247,9 @@ const de_PutUserPermissionsBoundaryCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9384,7 +9269,7 @@ export const de_PutUserPolicyCommand = async (
   const response: PutUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9414,10 +9299,9 @@ const de_PutUserPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9437,7 +9321,7 @@ export const de_RemoveClientIDFromOpenIDConnectProviderCommand = async (
   const response: RemoveClientIDFromOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9464,10 +9348,9 @@ const de_RemoveClientIDFromOpenIDConnectProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9487,7 +9370,7 @@ export const de_RemoveRoleFromInstanceProfileCommand = async (
   const response: RemoveRoleFromInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9517,10 +9400,9 @@ const de_RemoveRoleFromInstanceProfileCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9540,7 +9422,7 @@ export const de_RemoveUserFromGroupCommand = async (
   const response: RemoveUserFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9567,10 +9449,9 @@ const de_RemoveUserFromGroupCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9593,7 +9474,7 @@ export const de_ResetServiceSpecificCredentialCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9614,10 +9495,9 @@ const de_ResetServiceSpecificCredentialCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9637,7 +9517,7 @@ export const de_ResyncMFADeviceCommand = async (
   const response: ResyncMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9667,10 +9547,9 @@ const de_ResyncMFADeviceCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9690,7 +9569,7 @@ export const de_SetDefaultPolicyVersionCommand = async (
   const response: SetDefaultPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9720,10 +9599,9 @@ const de_SetDefaultPolicyVersionCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9743,7 +9621,7 @@ export const de_SetSecurityTokenServicePreferencesCommand = async (
   const response: SetSecurityTokenServicePreferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9764,10 +9642,9 @@ const de_SetSecurityTokenServicePreferencesCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9790,7 +9667,7 @@ export const de_SimulateCustomPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9814,10 +9691,9 @@ const de_SimulateCustomPolicyCommandError = async (
       throw await de_PolicyEvaluationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9840,7 +9716,7 @@ export const de_SimulatePrincipalPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9867,10 +9743,9 @@ const de_SimulatePrincipalPolicyCommandError = async (
       throw await de_PolicyEvaluationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9890,7 +9765,7 @@ export const de_TagInstanceProfileCommand = async (
   const response: TagInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9923,10 +9798,9 @@ const de_TagInstanceProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9946,7 +9820,7 @@ export const de_TagMFADeviceCommand = async (
   const response: TagMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -9979,10 +9853,9 @@ const de_TagMFADeviceCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10002,7 +9875,7 @@ export const de_TagOpenIDConnectProviderCommand = async (
   const response: TagOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10035,10 +9908,9 @@ const de_TagOpenIDConnectProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10058,7 +9930,7 @@ export const de_TagPolicyCommand = async (
   const response: TagPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10091,10 +9963,9 @@ const de_TagPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10114,7 +9985,7 @@ export const de_TagRoleCommand = async (
   const response: TagRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10147,10 +10018,9 @@ const de_TagRoleCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10170,7 +10040,7 @@ export const de_TagSAMLProviderCommand = async (
   const response: TagSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10203,10 +10073,9 @@ const de_TagSAMLProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10226,7 +10095,7 @@ export const de_TagServerCertificateCommand = async (
   const response: TagServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10259,10 +10128,9 @@ const de_TagServerCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10282,7 +10150,7 @@ export const de_TagUserCommand = async (
   const response: TagUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10315,10 +10183,9 @@ const de_TagUserCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10338,7 +10205,7 @@ export const de_UntagInstanceProfileCommand = async (
   const response: UntagInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10368,10 +10235,9 @@ const de_UntagInstanceProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10391,7 +10257,7 @@ export const de_UntagMFADeviceCommand = async (
   const response: UntagMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10421,10 +10287,9 @@ const de_UntagMFADeviceCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10444,7 +10309,7 @@ export const de_UntagOpenIDConnectProviderCommand = async (
   const response: UntagOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10474,10 +10339,9 @@ const de_UntagOpenIDConnectProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10497,7 +10361,7 @@ export const de_UntagPolicyCommand = async (
   const response: UntagPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10527,10 +10391,9 @@ const de_UntagPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10550,7 +10413,7 @@ export const de_UntagRoleCommand = async (
   const response: UntagRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10577,10 +10440,9 @@ const de_UntagRoleCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10600,7 +10462,7 @@ export const de_UntagSAMLProviderCommand = async (
   const response: UntagSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10630,10 +10492,9 @@ const de_UntagSAMLProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10653,7 +10514,7 @@ export const de_UntagServerCertificateCommand = async (
   const response: UntagServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10683,10 +10544,9 @@ const de_UntagServerCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10706,7 +10566,7 @@ export const de_UntagUserCommand = async (
   const response: UntagUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10733,10 +10593,9 @@ const de_UntagUserCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10756,7 +10615,7 @@ export const de_UpdateAccessKeyCommand = async (
   const response: UpdateAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10783,10 +10642,9 @@ const de_UpdateAccessKeyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10806,7 +10664,7 @@ export const de_UpdateAccountPasswordPolicyCommand = async (
   const response: UpdateAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10836,10 +10694,9 @@ const de_UpdateAccountPasswordPolicyCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10859,7 +10716,7 @@ export const de_UpdateAssumeRolePolicyCommand = async (
   const response: UpdateAssumeRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10892,10 +10749,9 @@ const de_UpdateAssumeRolePolicyCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10915,7 +10771,7 @@ export const de_UpdateGroupCommand = async (
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -10945,10 +10801,9 @@ const de_UpdateGroupCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10968,7 +10823,7 @@ export const de_UpdateLoginProfileCommand = async (
   const response: UpdateLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11001,10 +10856,9 @@ const de_UpdateLoginProfileCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11024,7 +10878,7 @@ export const de_UpdateOpenIDConnectProviderThumbprintCommand = async (
   const response: UpdateOpenIDConnectProviderThumbprintCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11051,10 +10905,9 @@ const de_UpdateOpenIDConnectProviderThumbprintCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11077,7 +10930,7 @@ export const de_UpdateRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11104,10 +10957,9 @@ const de_UpdateRoleCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11130,7 +10982,7 @@ export const de_UpdateRoleDescriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11157,10 +11009,9 @@ const de_UpdateRoleDescriptionCommandError = async (
       throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11183,7 +11034,7 @@ export const de_UpdateSAMLProviderCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11213,10 +11064,9 @@ const de_UpdateSAMLProviderCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11236,7 +11086,7 @@ export const de_UpdateServerCertificateCommand = async (
   const response: UpdateServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11266,10 +11116,9 @@ const de_UpdateServerCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11289,7 +11138,7 @@ export const de_UpdateServiceSpecificCredentialCommand = async (
   const response: UpdateServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11310,10 +11159,9 @@ const de_UpdateServiceSpecificCredentialCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11333,7 +11181,7 @@ export const de_UpdateSigningCertificateCommand = async (
   const response: UpdateSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11360,10 +11208,9 @@ const de_UpdateSigningCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11383,7 +11230,7 @@ export const de_UpdateSSHPublicKeyCommand = async (
   const response: UpdateSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11404,10 +11251,9 @@ const de_UpdateSSHPublicKeyCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11427,7 +11273,7 @@ export const de_UpdateUserCommand = async (
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11463,10 +11309,9 @@ const de_UpdateUserCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11489,7 +11334,7 @@ export const de_UploadServerCertificateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11528,10 +11373,9 @@ const de_UploadServerCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11554,7 +11398,7 @@ export const de_UploadSigningCertificateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11593,10 +11437,9 @@ const de_UploadSigningCertificateCommandError = async (
       throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11619,7 +11462,7 @@ export const de_UploadSSHPublicKeyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -11652,10 +11495,9 @@ const de_UploadSSHPublicKeyCommandError = async (
       throw await de_UnrecognizedPublicKeyEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18691,6 +18533,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

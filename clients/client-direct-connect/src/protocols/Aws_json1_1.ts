@@ -1,15 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -219,75 +220,48 @@ import {
 import { DirectConnectServiceException as __BaseException } from "../models/DirectConnectServiceException";
 import {
   AcceptDirectConnectGatewayAssociationProposalRequest,
-  AcceptDirectConnectGatewayAssociationProposalResult,
   AllocateConnectionOnInterconnectRequest,
   AllocateHostedConnectionRequest,
   AllocatePrivateVirtualInterfaceRequest,
   AllocatePublicVirtualInterfaceRequest,
   AllocateTransitVirtualInterfaceRequest,
-  AllocateTransitVirtualInterfaceResult,
   AssociateConnectionWithLagRequest,
-  AssociatedGateway,
   AssociateHostedConnectionRequest,
   AssociateMacSecKeyRequest,
-  AssociateMacSecKeyResponse,
   AssociateVirtualInterfaceRequest,
-  BGPPeer,
   ConfirmConnectionRequest,
-  ConfirmConnectionResponse,
   ConfirmCustomerAgreementRequest,
-  ConfirmCustomerAgreementResponse,
   ConfirmPrivateVirtualInterfaceRequest,
-  ConfirmPrivateVirtualInterfaceResponse,
   ConfirmPublicVirtualInterfaceRequest,
-  ConfirmPublicVirtualInterfaceResponse,
   ConfirmTransitVirtualInterfaceRequest,
-  ConfirmTransitVirtualInterfaceResponse,
   Connection,
   Connections,
   CreateBGPPeerRequest,
-  CreateBGPPeerResponse,
   CreateConnectionRequest,
   CreateDirectConnectGatewayAssociationProposalRequest,
-  CreateDirectConnectGatewayAssociationProposalResult,
   CreateDirectConnectGatewayAssociationRequest,
-  CreateDirectConnectGatewayAssociationResult,
   CreateDirectConnectGatewayRequest,
-  CreateDirectConnectGatewayResult,
   CreateInterconnectRequest,
   CreateLagRequest,
   CreatePrivateVirtualInterfaceRequest,
   CreatePublicVirtualInterfaceRequest,
   CreateTransitVirtualInterfaceRequest,
-  CreateTransitVirtualInterfaceResult,
-  CustomerAgreement,
   DeleteBGPPeerRequest,
-  DeleteBGPPeerResponse,
   DeleteConnectionRequest,
   DeleteDirectConnectGatewayAssociationProposalRequest,
-  DeleteDirectConnectGatewayAssociationProposalResult,
   DeleteDirectConnectGatewayAssociationRequest,
-  DeleteDirectConnectGatewayAssociationResult,
   DeleteDirectConnectGatewayRequest,
-  DeleteDirectConnectGatewayResult,
   DeleteInterconnectRequest,
-  DeleteInterconnectResponse,
   DeleteLagRequest,
   DeleteVirtualInterfaceRequest,
-  DeleteVirtualInterfaceResponse,
   DescribeConnectionLoaRequest,
   DescribeConnectionLoaResponse,
   DescribeConnectionsOnInterconnectRequest,
   DescribeConnectionsRequest,
-  DescribeCustomerMetadataResponse,
   DescribeDirectConnectGatewayAssociationProposalsRequest,
-  DescribeDirectConnectGatewayAssociationProposalsResult,
   DescribeDirectConnectGatewayAssociationsRequest,
-  DescribeDirectConnectGatewayAssociationsResult,
   DescribeDirectConnectGatewayAttachmentsRequest,
-  DescribeDirectConnectGatewayAttachmentsResult,
   DescribeDirectConnectGatewaysRequest,
-  DescribeDirectConnectGatewaysResult,
   DescribeHostedConnectionsRequest,
   DescribeInterconnectLoaRequest,
   DescribeInterconnectLoaResponse,
@@ -295,19 +269,12 @@ import {
   DescribeLagsRequest,
   DescribeLoaRequest,
   DescribeRouterConfigurationRequest,
-  DescribeRouterConfigurationResponse,
   DescribeTagsRequest,
-  DescribeTagsResponse,
   DescribeVirtualInterfacesRequest,
   DirectConnectClientException,
-  DirectConnectGateway,
-  DirectConnectGatewayAssociation,
-  DirectConnectGatewayAssociationProposal,
-  DirectConnectGatewayAttachment,
   DirectConnectServerException,
   DisassociateConnectionFromLagRequest,
   DisassociateMacSecKeyRequest,
-  DisassociateMacSecKeyResponse,
   DuplicateTagKeysException,
   Interconnect,
   Interconnects,
@@ -316,9 +283,6 @@ import {
   ListVirtualInterfaceTestHistoryRequest,
   ListVirtualInterfaceTestHistoryResponse,
   Loa,
-  Location,
-  Locations,
-  MacSecKey,
   NewBGPPeer,
   NewPrivateVirtualInterface,
   NewPrivateVirtualInterfaceAllocation,
@@ -326,30 +290,20 @@ import {
   NewPublicVirtualInterfaceAllocation,
   NewTransitVirtualInterface,
   NewTransitVirtualInterfaceAllocation,
-  ResourceTag,
   RouteFilterPrefix,
-  RouterType,
   StartBgpFailoverTestRequest,
   StartBgpFailoverTestResponse,
   StopBgpFailoverTestRequest,
   StopBgpFailoverTestResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TooManyTagsException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateConnectionRequest,
   UpdateDirectConnectGatewayAssociationRequest,
-  UpdateDirectConnectGatewayAssociationResult,
   UpdateDirectConnectGatewayRequest,
-  UpdateDirectConnectGatewayResponse,
   UpdateLagRequest,
   UpdateVirtualInterfaceAttributesRequest,
-  VirtualGateway,
-  VirtualGateways,
-  VirtualInterface,
-  VirtualInterfaces,
   VirtualInterfaceTestHistory,
 } from "../models/models_0";
 
@@ -362,7 +316,7 @@ export const se_AcceptDirectConnectGatewayAssociationProposalCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptDirectConnectGatewayAssociationProposal");
   let body: any;
-  body = JSON.stringify(se_AcceptDirectConnectGatewayAssociationProposalRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -375,7 +329,7 @@ export const se_AllocateConnectionOnInterconnectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AllocateConnectionOnInterconnect");
   let body: any;
-  body = JSON.stringify(se_AllocateConnectionOnInterconnectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -388,7 +342,7 @@ export const se_AllocateHostedConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AllocateHostedConnection");
   let body: any;
-  body = JSON.stringify(se_AllocateHostedConnectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -401,7 +355,7 @@ export const se_AllocatePrivateVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AllocatePrivateVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_AllocatePrivateVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -414,7 +368,7 @@ export const se_AllocatePublicVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AllocatePublicVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_AllocatePublicVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -427,7 +381,7 @@ export const se_AllocateTransitVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AllocateTransitVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_AllocateTransitVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -440,7 +394,7 @@ export const se_AssociateConnectionWithLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateConnectionWithLag");
   let body: any;
-  body = JSON.stringify(se_AssociateConnectionWithLagRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -453,7 +407,7 @@ export const se_AssociateHostedConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateHostedConnection");
   let body: any;
-  body = JSON.stringify(se_AssociateHostedConnectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -466,7 +420,7 @@ export const se_AssociateMacSecKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateMacSecKey");
   let body: any;
-  body = JSON.stringify(se_AssociateMacSecKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -479,7 +433,7 @@ export const se_AssociateVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_AssociateVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -492,7 +446,7 @@ export const se_ConfirmConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConfirmConnection");
   let body: any;
-  body = JSON.stringify(se_ConfirmConnectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -505,7 +459,7 @@ export const se_ConfirmCustomerAgreementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConfirmCustomerAgreement");
   let body: any;
-  body = JSON.stringify(se_ConfirmCustomerAgreementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -518,7 +472,7 @@ export const se_ConfirmPrivateVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConfirmPrivateVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_ConfirmPrivateVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -531,7 +485,7 @@ export const se_ConfirmPublicVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConfirmPublicVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_ConfirmPublicVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -544,7 +498,7 @@ export const se_ConfirmTransitVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConfirmTransitVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_ConfirmTransitVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -557,7 +511,7 @@ export const se_CreateBGPPeerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateBGPPeer");
   let body: any;
-  body = JSON.stringify(se_CreateBGPPeerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -570,7 +524,7 @@ export const se_CreateConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateConnection");
   let body: any;
-  body = JSON.stringify(se_CreateConnectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -583,7 +537,7 @@ export const se_CreateDirectConnectGatewayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDirectConnectGateway");
   let body: any;
-  body = JSON.stringify(se_CreateDirectConnectGatewayRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -596,7 +550,7 @@ export const se_CreateDirectConnectGatewayAssociationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDirectConnectGatewayAssociation");
   let body: any;
-  body = JSON.stringify(se_CreateDirectConnectGatewayAssociationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -609,7 +563,7 @@ export const se_CreateDirectConnectGatewayAssociationProposalCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDirectConnectGatewayAssociationProposal");
   let body: any;
-  body = JSON.stringify(se_CreateDirectConnectGatewayAssociationProposalRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -622,7 +576,7 @@ export const se_CreateInterconnectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateInterconnect");
   let body: any;
-  body = JSON.stringify(se_CreateInterconnectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -635,7 +589,7 @@ export const se_CreateLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLag");
   let body: any;
-  body = JSON.stringify(se_CreateLagRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -648,7 +602,7 @@ export const se_CreatePrivateVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePrivateVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_CreatePrivateVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -661,7 +615,7 @@ export const se_CreatePublicVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePublicVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_CreatePublicVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -674,7 +628,7 @@ export const se_CreateTransitVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTransitVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_CreateTransitVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -687,7 +641,7 @@ export const se_DeleteBGPPeerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBGPPeer");
   let body: any;
-  body = JSON.stringify(se_DeleteBGPPeerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -700,7 +654,7 @@ export const se_DeleteConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConnection");
   let body: any;
-  body = JSON.stringify(se_DeleteConnectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -713,7 +667,7 @@ export const se_DeleteDirectConnectGatewayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDirectConnectGateway");
   let body: any;
-  body = JSON.stringify(se_DeleteDirectConnectGatewayRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -726,7 +680,7 @@ export const se_DeleteDirectConnectGatewayAssociationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDirectConnectGatewayAssociation");
   let body: any;
-  body = JSON.stringify(se_DeleteDirectConnectGatewayAssociationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -739,7 +693,7 @@ export const se_DeleteDirectConnectGatewayAssociationProposalCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDirectConnectGatewayAssociationProposal");
   let body: any;
-  body = JSON.stringify(se_DeleteDirectConnectGatewayAssociationProposalRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -752,7 +706,7 @@ export const se_DeleteInterconnectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteInterconnect");
   let body: any;
-  body = JSON.stringify(se_DeleteInterconnectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -765,7 +719,7 @@ export const se_DeleteLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLag");
   let body: any;
-  body = JSON.stringify(se_DeleteLagRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -778,7 +732,7 @@ export const se_DeleteVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteVirtualInterface");
   let body: any;
-  body = JSON.stringify(se_DeleteVirtualInterfaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -791,7 +745,7 @@ export const se_DescribeConnectionLoaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConnectionLoa");
   let body: any;
-  body = JSON.stringify(se_DescribeConnectionLoaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -804,7 +758,7 @@ export const se_DescribeConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConnections");
   let body: any;
-  body = JSON.stringify(se_DescribeConnectionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -817,7 +771,7 @@ export const se_DescribeConnectionsOnInterconnectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConnectionsOnInterconnect");
   let body: any;
-  body = JSON.stringify(se_DescribeConnectionsOnInterconnectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -842,7 +796,7 @@ export const se_DescribeDirectConnectGatewayAssociationProposalsCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDirectConnectGatewayAssociationProposals");
   let body: any;
-  body = JSON.stringify(se_DescribeDirectConnectGatewayAssociationProposalsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -855,7 +809,7 @@ export const se_DescribeDirectConnectGatewayAssociationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDirectConnectGatewayAssociations");
   let body: any;
-  body = JSON.stringify(se_DescribeDirectConnectGatewayAssociationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -868,7 +822,7 @@ export const se_DescribeDirectConnectGatewayAttachmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDirectConnectGatewayAttachments");
   let body: any;
-  body = JSON.stringify(se_DescribeDirectConnectGatewayAttachmentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -881,7 +835,7 @@ export const se_DescribeDirectConnectGatewaysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDirectConnectGateways");
   let body: any;
-  body = JSON.stringify(se_DescribeDirectConnectGatewaysRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -894,7 +848,7 @@ export const se_DescribeHostedConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeHostedConnections");
   let body: any;
-  body = JSON.stringify(se_DescribeHostedConnectionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -907,7 +861,7 @@ export const se_DescribeInterconnectLoaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeInterconnectLoa");
   let body: any;
-  body = JSON.stringify(se_DescribeInterconnectLoaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -920,7 +874,7 @@ export const se_DescribeInterconnectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeInterconnects");
   let body: any;
-  body = JSON.stringify(se_DescribeInterconnectsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -933,7 +887,7 @@ export const se_DescribeLagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLags");
   let body: any;
-  body = JSON.stringify(se_DescribeLagsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -946,7 +900,7 @@ export const se_DescribeLoaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLoa");
   let body: any;
-  body = JSON.stringify(se_DescribeLoaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -971,7 +925,7 @@ export const se_DescribeRouterConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRouterConfiguration");
   let body: any;
-  body = JSON.stringify(se_DescribeRouterConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -984,7 +938,7 @@ export const se_DescribeTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTags");
   let body: any;
-  body = JSON.stringify(se_DescribeTagsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1009,7 +963,7 @@ export const se_DescribeVirtualInterfacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeVirtualInterfaces");
   let body: any;
-  body = JSON.stringify(se_DescribeVirtualInterfacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1022,7 +976,7 @@ export const se_DisassociateConnectionFromLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateConnectionFromLag");
   let body: any;
-  body = JSON.stringify(se_DisassociateConnectionFromLagRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1035,7 +989,7 @@ export const se_DisassociateMacSecKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateMacSecKey");
   let body: any;
-  body = JSON.stringify(se_DisassociateMacSecKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1048,7 +1002,7 @@ export const se_ListVirtualInterfaceTestHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVirtualInterfaceTestHistory");
   let body: any;
-  body = JSON.stringify(se_ListVirtualInterfaceTestHistoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1061,7 +1015,7 @@ export const se_StartBgpFailoverTestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartBgpFailoverTest");
   let body: any;
-  body = JSON.stringify(se_StartBgpFailoverTestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1074,7 +1028,7 @@ export const se_StopBgpFailoverTestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopBgpFailoverTest");
   let body: any;
-  body = JSON.stringify(se_StopBgpFailoverTestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1087,7 +1041,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1100,7 +1054,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1113,7 +1067,7 @@ export const se_UpdateConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateConnection");
   let body: any;
-  body = JSON.stringify(se_UpdateConnectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1126,7 +1080,7 @@ export const se_UpdateDirectConnectGatewayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDirectConnectGateway");
   let body: any;
-  body = JSON.stringify(se_UpdateDirectConnectGatewayRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1139,7 +1093,7 @@ export const se_UpdateDirectConnectGatewayAssociationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDirectConnectGatewayAssociation");
   let body: any;
-  body = JSON.stringify(se_UpdateDirectConnectGatewayAssociationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1152,7 +1106,7 @@ export const se_UpdateLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateLag");
   let body: any;
-  body = JSON.stringify(se_UpdateLagRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1165,7 +1119,7 @@ export const se_UpdateVirtualInterfaceAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateVirtualInterfaceAttributes");
   let body: any;
-  body = JSON.stringify(se_UpdateVirtualInterfaceAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1181,12 +1135,12 @@ export const de_AcceptDirectConnectGatewayAssociationProposalCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AcceptDirectConnectGatewayAssociationProposalResult(data, context);
+  contents = _json(data);
   const response: AcceptDirectConnectGatewayAssociationProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1210,10 +1164,9 @@ const de_AcceptDirectConnectGatewayAssociationProposalCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1236,7 +1189,7 @@ export const de_AllocateConnectionOnInterconnectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1260,10 +1213,9 @@ const de_AllocateConnectionOnInterconnectCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1286,7 +1238,7 @@ export const de_AllocateHostedConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1316,10 +1268,9 @@ const de_AllocateHostedConnectionCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1337,12 +1288,12 @@ export const de_AllocatePrivateVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VirtualInterface(data, context);
+  contents = _json(data);
   const response: AllocatePrivateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1372,10 +1323,9 @@ const de_AllocatePrivateVirtualInterfaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1393,12 +1343,12 @@ export const de_AllocatePublicVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VirtualInterface(data, context);
+  contents = _json(data);
   const response: AllocatePublicVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1428,10 +1378,9 @@ const de_AllocatePublicVirtualInterfaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1449,12 +1398,12 @@ export const de_AllocateTransitVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AllocateTransitVirtualInterfaceResult(data, context);
+  contents = _json(data);
   const response: AllocateTransitVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1484,10 +1433,9 @@ const de_AllocateTransitVirtualInterfaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1510,7 +1458,7 @@ export const de_AssociateConnectionWithLagCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1534,10 +1482,9 @@ const de_AssociateConnectionWithLagCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1560,7 +1507,7 @@ export const de_AssociateHostedConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1584,10 +1531,9 @@ const de_AssociateHostedConnectionCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1605,12 +1551,12 @@ export const de_AssociateMacSecKeyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateMacSecKeyResponse(data, context);
+  contents = _json(data);
   const response: AssociateMacSecKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1634,10 +1580,9 @@ const de_AssociateMacSecKeyCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1655,12 +1600,12 @@ export const de_AssociateVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VirtualInterface(data, context);
+  contents = _json(data);
   const response: AssociateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1684,10 +1629,9 @@ const de_AssociateVirtualInterfaceCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1705,12 +1649,12 @@ export const de_ConfirmConnectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConfirmConnectionResponse(data, context);
+  contents = _json(data);
   const response: ConfirmConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1734,10 +1678,9 @@ const de_ConfirmConnectionCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1755,12 +1698,12 @@ export const de_ConfirmCustomerAgreementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConfirmCustomerAgreementResponse(data, context);
+  contents = _json(data);
   const response: ConfirmCustomerAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1784,10 +1727,9 @@ const de_ConfirmCustomerAgreementCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1805,12 +1747,12 @@ export const de_ConfirmPrivateVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConfirmPrivateVirtualInterfaceResponse(data, context);
+  contents = _json(data);
   const response: ConfirmPrivateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1834,10 +1776,9 @@ const de_ConfirmPrivateVirtualInterfaceCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1855,12 +1796,12 @@ export const de_ConfirmPublicVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConfirmPublicVirtualInterfaceResponse(data, context);
+  contents = _json(data);
   const response: ConfirmPublicVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1884,10 +1825,9 @@ const de_ConfirmPublicVirtualInterfaceCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1905,12 +1845,12 @@ export const de_ConfirmTransitVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ConfirmTransitVirtualInterfaceResponse(data, context);
+  contents = _json(data);
   const response: ConfirmTransitVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1934,10 +1874,9 @@ const de_ConfirmTransitVirtualInterfaceCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1955,12 +1894,12 @@ export const de_CreateBGPPeerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateBGPPeerResponse(data, context);
+  contents = _json(data);
   const response: CreateBGPPeerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1984,10 +1923,9 @@ const de_CreateBGPPeerCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2010,7 +1948,7 @@ export const de_CreateConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2040,10 +1978,9 @@ const de_CreateConnectionCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2061,12 +1998,12 @@ export const de_CreateDirectConnectGatewayCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDirectConnectGatewayResult(data, context);
+  contents = _json(data);
   const response: CreateDirectConnectGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2090,10 +2027,9 @@ const de_CreateDirectConnectGatewayCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2111,12 +2047,12 @@ export const de_CreateDirectConnectGatewayAssociationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDirectConnectGatewayAssociationResult(data, context);
+  contents = _json(data);
   const response: CreateDirectConnectGatewayAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2140,10 +2076,9 @@ const de_CreateDirectConnectGatewayAssociationCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2161,12 +2096,12 @@ export const de_CreateDirectConnectGatewayAssociationProposalCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDirectConnectGatewayAssociationProposalResult(data, context);
+  contents = _json(data);
   const response: CreateDirectConnectGatewayAssociationProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2190,10 +2125,9 @@ const de_CreateDirectConnectGatewayAssociationProposalCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2216,7 +2150,7 @@ export const de_CreateInterconnectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2246,10 +2180,9 @@ const de_CreateInterconnectCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2272,7 +2205,7 @@ export const de_CreateLagCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2302,10 +2235,9 @@ const de_CreateLagCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2323,12 +2255,12 @@ export const de_CreatePrivateVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VirtualInterface(data, context);
+  contents = _json(data);
   const response: CreatePrivateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2358,10 +2290,9 @@ const de_CreatePrivateVirtualInterfaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2379,12 +2310,12 @@ export const de_CreatePublicVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VirtualInterface(data, context);
+  contents = _json(data);
   const response: CreatePublicVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2414,10 +2345,9 @@ const de_CreatePublicVirtualInterfaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2435,12 +2365,12 @@ export const de_CreateTransitVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateTransitVirtualInterfaceResult(data, context);
+  contents = _json(data);
   const response: CreateTransitVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2470,10 +2400,9 @@ const de_CreateTransitVirtualInterfaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2491,12 +2420,12 @@ export const de_DeleteBGPPeerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteBGPPeerResponse(data, context);
+  contents = _json(data);
   const response: DeleteBGPPeerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2520,10 +2449,9 @@ const de_DeleteBGPPeerCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2546,7 +2474,7 @@ export const de_DeleteConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2570,10 +2498,9 @@ const de_DeleteConnectionCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2591,12 +2518,12 @@ export const de_DeleteDirectConnectGatewayCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDirectConnectGatewayResult(data, context);
+  contents = _json(data);
   const response: DeleteDirectConnectGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2620,10 +2547,9 @@ const de_DeleteDirectConnectGatewayCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2641,12 +2567,12 @@ export const de_DeleteDirectConnectGatewayAssociationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDirectConnectGatewayAssociationResult(data, context);
+  contents = _json(data);
   const response: DeleteDirectConnectGatewayAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2670,10 +2596,9 @@ const de_DeleteDirectConnectGatewayAssociationCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2691,12 +2616,12 @@ export const de_DeleteDirectConnectGatewayAssociationProposalCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDirectConnectGatewayAssociationProposalResult(data, context);
+  contents = _json(data);
   const response: DeleteDirectConnectGatewayAssociationProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2720,10 +2645,9 @@ const de_DeleteDirectConnectGatewayAssociationProposalCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2741,12 +2665,12 @@ export const de_DeleteInterconnectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteInterconnectResponse(data, context);
+  contents = _json(data);
   const response: DeleteInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2770,10 +2694,9 @@ const de_DeleteInterconnectCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2796,7 +2719,7 @@ export const de_DeleteLagCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2820,10 +2743,9 @@ const de_DeleteLagCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2841,12 +2763,12 @@ export const de_DeleteVirtualInterfaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteVirtualInterfaceResponse(data, context);
+  contents = _json(data);
   const response: DeleteVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2870,10 +2792,9 @@ const de_DeleteVirtualInterfaceCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2896,7 +2817,7 @@ export const de_DescribeConnectionLoaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2920,10 +2841,9 @@ const de_DescribeConnectionLoaCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2946,7 +2866,7 @@ export const de_DescribeConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2970,10 +2890,9 @@ const de_DescribeConnectionsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2996,7 +2915,7 @@ export const de_DescribeConnectionsOnInterconnectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3020,10 +2939,9 @@ const de_DescribeConnectionsOnInterconnectCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3041,12 +2959,12 @@ export const de_DescribeCustomerMetadataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeCustomerMetadataResponse(data, context);
+  contents = _json(data);
   const response: DescribeCustomerMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3070,10 +2988,9 @@ const de_DescribeCustomerMetadataCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3091,12 +3008,12 @@ export const de_DescribeDirectConnectGatewayAssociationProposalsCommand = async 
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeDirectConnectGatewayAssociationProposalsResult(data, context);
+  contents = _json(data);
   const response: DescribeDirectConnectGatewayAssociationProposalsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3120,10 +3037,9 @@ const de_DescribeDirectConnectGatewayAssociationProposalsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3141,12 +3057,12 @@ export const de_DescribeDirectConnectGatewayAssociationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeDirectConnectGatewayAssociationsResult(data, context);
+  contents = _json(data);
   const response: DescribeDirectConnectGatewayAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3170,10 +3086,9 @@ const de_DescribeDirectConnectGatewayAssociationsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3191,12 +3106,12 @@ export const de_DescribeDirectConnectGatewayAttachmentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeDirectConnectGatewayAttachmentsResult(data, context);
+  contents = _json(data);
   const response: DescribeDirectConnectGatewayAttachmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3220,10 +3135,9 @@ const de_DescribeDirectConnectGatewayAttachmentsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3241,12 +3155,12 @@ export const de_DescribeDirectConnectGatewaysCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeDirectConnectGatewaysResult(data, context);
+  contents = _json(data);
   const response: DescribeDirectConnectGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3270,10 +3184,9 @@ const de_DescribeDirectConnectGatewaysCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3296,7 +3209,7 @@ export const de_DescribeHostedConnectionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3320,10 +3233,9 @@ const de_DescribeHostedConnectionsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3346,7 +3258,7 @@ export const de_DescribeInterconnectLoaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3370,10 +3282,9 @@ const de_DescribeInterconnectLoaCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3396,7 +3307,7 @@ export const de_DescribeInterconnectsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3420,10 +3331,9 @@ const de_DescribeInterconnectsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3446,7 +3356,7 @@ export const de_DescribeLagsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3470,10 +3380,9 @@ const de_DescribeLagsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3496,7 +3405,7 @@ export const de_DescribeLoaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3520,10 +3429,9 @@ const de_DescribeLoaCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3541,12 +3449,12 @@ export const de_DescribeLocationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_Locations(data, context);
+  contents = _json(data);
   const response: DescribeLocationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3570,10 +3478,9 @@ const de_DescribeLocationsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3591,12 +3498,12 @@ export const de_DescribeRouterConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeRouterConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DescribeRouterConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3620,10 +3527,9 @@ const de_DescribeRouterConfigurationCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3641,12 +3547,12 @@ export const de_DescribeTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeTagsResponse(data, context);
+  contents = _json(data);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3670,10 +3576,9 @@ const de_DescribeTagsCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3691,12 +3596,12 @@ export const de_DescribeVirtualGatewaysCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VirtualGateways(data, context);
+  contents = _json(data);
   const response: DescribeVirtualGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3720,10 +3625,9 @@ const de_DescribeVirtualGatewaysCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3741,12 +3645,12 @@ export const de_DescribeVirtualInterfacesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VirtualInterfaces(data, context);
+  contents = _json(data);
   const response: DescribeVirtualInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3770,10 +3674,9 @@ const de_DescribeVirtualInterfacesCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3796,7 +3699,7 @@ export const de_DisassociateConnectionFromLagCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3820,10 +3723,9 @@ const de_DisassociateConnectionFromLagCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3841,12 +3743,12 @@ export const de_DisassociateMacSecKeyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateMacSecKeyResponse(data, context);
+  contents = _json(data);
   const response: DisassociateMacSecKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3870,10 +3772,9 @@ const de_DisassociateMacSecKeyCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3896,7 +3797,7 @@ export const de_ListVirtualInterfaceTestHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3920,10 +3821,9 @@ const de_ListVirtualInterfaceTestHistoryCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3946,7 +3846,7 @@ export const de_StartBgpFailoverTestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3970,10 +3870,9 @@ const de_StartBgpFailoverTestCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3996,7 +3895,7 @@ export const de_StopBgpFailoverTestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4020,10 +3919,9 @@ const de_StopBgpFailoverTestCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4041,12 +3939,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4076,10 +3974,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4097,12 +3994,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4126,10 +4023,9 @@ const de_UntagResourceCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4152,7 +4048,7 @@ export const de_UpdateConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4176,10 +4072,9 @@ const de_UpdateConnectionCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4197,12 +4092,12 @@ export const de_UpdateDirectConnectGatewayCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDirectConnectGatewayResponse(data, context);
+  contents = _json(data);
   const response: UpdateDirectConnectGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4226,10 +4121,9 @@ const de_UpdateDirectConnectGatewayCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4247,12 +4141,12 @@ export const de_UpdateDirectConnectGatewayAssociationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDirectConnectGatewayAssociationResult(data, context);
+  contents = _json(data);
   const response: UpdateDirectConnectGatewayAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4276,10 +4170,9 @@ const de_UpdateDirectConnectGatewayAssociationCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4302,7 +4195,7 @@ export const de_UpdateLagCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4326,10 +4219,9 @@ const de_UpdateLagCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4347,12 +4239,12 @@ export const de_UpdateVirtualInterfaceAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_VirtualInterface(data, context);
+  contents = _json(data);
   const response: UpdateVirtualInterfaceAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4376,10 +4268,9 @@ const de_UpdateVirtualInterfaceAttributesCommandError = async (
       throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4393,7 +4284,7 @@ const de_DirectConnectClientExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectConnectClientException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectConnectClientException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectConnectClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4409,7 +4300,7 @@ const de_DirectConnectServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectConnectServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectConnectServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectConnectServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4425,7 +4316,7 @@ const de_DuplicateTagKeysExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateTagKeysException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateTagKeysException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateTagKeysException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4441,7 +4332,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4449,1235 +4340,212 @@ const de_TooManyTagsExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalRequest
- */
-const se_AcceptDirectConnectGatewayAssociationProposalRequest = (
-  input: AcceptDirectConnectGatewayAssociationProposalRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.associatedGatewayOwnerAccount != null && {
-      associatedGatewayOwnerAccount: input.associatedGatewayOwnerAccount,
-    }),
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.overrideAllowedPrefixesToDirectConnectGateway != null && {
-      overrideAllowedPrefixesToDirectConnectGateway: se_RouteFilterPrefixList(
-        input.overrideAllowedPrefixesToDirectConnectGateway,
-        context
-      ),
-    }),
-    ...(input.proposalId != null && { proposalId: input.proposalId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AllocateConnectionOnInterconnectRequest
- */
-const se_AllocateConnectionOnInterconnectRequest = (
-  input: AllocateConnectionOnInterconnectRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.bandwidth != null && { bandwidth: input.bandwidth }),
-    ...(input.connectionName != null && { connectionName: input.connectionName }),
-    ...(input.interconnectId != null && { interconnectId: input.interconnectId }),
-    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-    ...(input.vlan != null && { vlan: input.vlan }),
-  };
-};
-
-/**
- * serializeAws_json1_1AllocateHostedConnectionRequest
- */
-const se_AllocateHostedConnectionRequest = (input: AllocateHostedConnectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.bandwidth != null && { bandwidth: input.bandwidth }),
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.connectionName != null && { connectionName: input.connectionName }),
-    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.vlan != null && { vlan: input.vlan }),
-  };
-};
-
-/**
- * serializeAws_json1_1AllocatePrivateVirtualInterfaceRequest
- */
-const se_AllocatePrivateVirtualInterfaceRequest = (
-  input: AllocatePrivateVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.newPrivateVirtualInterfaceAllocation != null && {
-      newPrivateVirtualInterfaceAllocation: se_NewPrivateVirtualInterfaceAllocation(
-        input.newPrivateVirtualInterfaceAllocation,
-        context
-      ),
-    }),
-    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-  };
-};
-
-/**
- * serializeAws_json1_1AllocatePublicVirtualInterfaceRequest
- */
-const se_AllocatePublicVirtualInterfaceRequest = (
-  input: AllocatePublicVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.newPublicVirtualInterfaceAllocation != null && {
-      newPublicVirtualInterfaceAllocation: se_NewPublicVirtualInterfaceAllocation(
-        input.newPublicVirtualInterfaceAllocation,
-        context
-      ),
-    }),
-    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-  };
-};
-
-/**
- * serializeAws_json1_1AllocateTransitVirtualInterfaceRequest
- */
-const se_AllocateTransitVirtualInterfaceRequest = (
-  input: AllocateTransitVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.newTransitVirtualInterfaceAllocation != null && {
-      newTransitVirtualInterfaceAllocation: se_NewTransitVirtualInterfaceAllocation(
-        input.newTransitVirtualInterfaceAllocation,
-        context
-      ),
-    }),
-    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-  };
-};
-
-/**
- * serializeAws_json1_1AssociateConnectionWithLagRequest
- */
-const se_AssociateConnectionWithLagRequest = (
-  input: AssociateConnectionWithLagRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.lagId != null && { lagId: input.lagId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AssociateHostedConnectionRequest
- */
-const se_AssociateHostedConnectionRequest = (input: AssociateHostedConnectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.parentConnectionId != null && { parentConnectionId: input.parentConnectionId }),
-  };
-};
-
-/**
- * serializeAws_json1_1AssociateMacSecKeyRequest
- */
-const se_AssociateMacSecKeyRequest = (input: AssociateMacSecKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.cak != null && { cak: input.cak }),
-    ...(input.ckn != null && { ckn: input.ckn }),
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.secretARN != null && { secretARN: input.secretARN }),
-  };
-};
-
-/**
- * serializeAws_json1_1AssociateVirtualInterfaceRequest
- */
-const se_AssociateVirtualInterfaceRequest = (input: AssociateVirtualInterfaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1BGPPeerIdList
- */
-const se_BGPPeerIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConfirmConnectionRequest
- */
-const se_ConfirmConnectionRequest = (input: ConfirmConnectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfirmCustomerAgreementRequest
- */
-const se_ConfirmCustomerAgreementRequest = (input: ConfirmCustomerAgreementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.agreementName != null && { agreementName: input.agreementName }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfirmPrivateVirtualInterfaceRequest
- */
-const se_ConfirmPrivateVirtualInterfaceRequest = (
-  input: ConfirmPrivateVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.virtualGatewayId != null && { virtualGatewayId: input.virtualGatewayId }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfirmPublicVirtualInterfaceRequest
- */
-const se_ConfirmPublicVirtualInterfaceRequest = (
-  input: ConfirmPublicVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfirmTransitVirtualInterfaceRequest
- */
-const se_ConfirmTransitVirtualInterfaceRequest = (
-  input: ConfirmTransitVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateBGPPeerRequest
- */
-const se_CreateBGPPeerRequest = (input: CreateBGPPeerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.newBGPPeer != null && { newBGPPeer: se_NewBGPPeer(input.newBGPPeer, context) }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateConnectionRequest
- */
-const se_CreateConnectionRequest = (input: CreateConnectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.bandwidth != null && { bandwidth: input.bandwidth }),
-    ...(input.connectionName != null && { connectionName: input.connectionName }),
-    ...(input.lagId != null && { lagId: input.lagId }),
-    ...(input.location != null && { location: input.location }),
-    ...(input.providerName != null && { providerName: input.providerName }),
-    ...(input.requestMACSec != null && { requestMACSec: input.requestMACSec }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalRequest
- */
-const se_CreateDirectConnectGatewayAssociationProposalRequest = (
-  input: CreateDirectConnectGatewayAssociationProposalRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.addAllowedPrefixesToDirectConnectGateway != null && {
-      addAllowedPrefixesToDirectConnectGateway: se_RouteFilterPrefixList(
-        input.addAllowedPrefixesToDirectConnectGateway,
-        context
-      ),
-    }),
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.directConnectGatewayOwnerAccount != null && {
-      directConnectGatewayOwnerAccount: input.directConnectGatewayOwnerAccount,
-    }),
-    ...(input.gatewayId != null && { gatewayId: input.gatewayId }),
-    ...(input.removeAllowedPrefixesToDirectConnectGateway != null && {
-      removeAllowedPrefixesToDirectConnectGateway: se_RouteFilterPrefixList(
-        input.removeAllowedPrefixesToDirectConnectGateway,
-        context
-      ),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateDirectConnectGatewayAssociationRequest
- */
-const se_CreateDirectConnectGatewayAssociationRequest = (
-  input: CreateDirectConnectGatewayAssociationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.addAllowedPrefixesToDirectConnectGateway != null && {
-      addAllowedPrefixesToDirectConnectGateway: se_RouteFilterPrefixList(
-        input.addAllowedPrefixesToDirectConnectGateway,
-        context
-      ),
-    }),
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.gatewayId != null && { gatewayId: input.gatewayId }),
-    ...(input.virtualGatewayId != null && { virtualGatewayId: input.virtualGatewayId }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateDirectConnectGatewayRequest
- */
-const se_CreateDirectConnectGatewayRequest = (
-  input: CreateDirectConnectGatewayRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.amazonSideAsn != null && { amazonSideAsn: input.amazonSideAsn }),
-    ...(input.directConnectGatewayName != null && { directConnectGatewayName: input.directConnectGatewayName }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateInterconnectRequest
- */
-const se_CreateInterconnectRequest = (input: CreateInterconnectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.bandwidth != null && { bandwidth: input.bandwidth }),
-    ...(input.interconnectName != null && { interconnectName: input.interconnectName }),
-    ...(input.lagId != null && { lagId: input.lagId }),
-    ...(input.location != null && { location: input.location }),
-    ...(input.providerName != null && { providerName: input.providerName }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateLagRequest
- */
-const se_CreateLagRequest = (input: CreateLagRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.childConnectionTags != null && { childConnectionTags: se_TagList(input.childConnectionTags, context) }),
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.connectionsBandwidth != null && { connectionsBandwidth: input.connectionsBandwidth }),
-    ...(input.lagName != null && { lagName: input.lagName }),
-    ...(input.location != null && { location: input.location }),
-    ...(input.numberOfConnections != null && { numberOfConnections: input.numberOfConnections }),
-    ...(input.providerName != null && { providerName: input.providerName }),
-    ...(input.requestMACSec != null && { requestMACSec: input.requestMACSec }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreatePrivateVirtualInterfaceRequest
- */
-const se_CreatePrivateVirtualInterfaceRequest = (
-  input: CreatePrivateVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.newPrivateVirtualInterface != null && {
-      newPrivateVirtualInterface: se_NewPrivateVirtualInterface(input.newPrivateVirtualInterface, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreatePublicVirtualInterfaceRequest
- */
-const se_CreatePublicVirtualInterfaceRequest = (
-  input: CreatePublicVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.newPublicVirtualInterface != null && {
-      newPublicVirtualInterface: se_NewPublicVirtualInterface(input.newPublicVirtualInterface, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1CreateTransitVirtualInterfaceRequest
- */
-const se_CreateTransitVirtualInterfaceRequest = (
-  input: CreateTransitVirtualInterfaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.newTransitVirtualInterface != null && {
-      newTransitVirtualInterface: se_NewTransitVirtualInterface(input.newTransitVirtualInterface, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteBGPPeerRequest
- */
-const se_DeleteBGPPeerRequest = (input: DeleteBGPPeerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.asn != null && { asn: input.asn }),
-    ...(input.bgpPeerId != null && { bgpPeerId: input.bgpPeerId }),
-    ...(input.customerAddress != null && { customerAddress: input.customerAddress }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteConnectionRequest
- */
-const se_DeleteConnectionRequest = (input: DeleteConnectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalRequest
- */
-const se_DeleteDirectConnectGatewayAssociationProposalRequest = (
-  input: DeleteDirectConnectGatewayAssociationProposalRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.proposalId != null && { proposalId: input.proposalId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteDirectConnectGatewayAssociationRequest
- */
-const se_DeleteDirectConnectGatewayAssociationRequest = (
-  input: DeleteDirectConnectGatewayAssociationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.associationId != null && { associationId: input.associationId }),
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.virtualGatewayId != null && { virtualGatewayId: input.virtualGatewayId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteDirectConnectGatewayRequest
- */
-const se_DeleteDirectConnectGatewayRequest = (
-  input: DeleteDirectConnectGatewayRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteInterconnectRequest
- */
-const se_DeleteInterconnectRequest = (input: DeleteInterconnectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.interconnectId != null && { interconnectId: input.interconnectId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteLagRequest
- */
-const se_DeleteLagRequest = (input: DeleteLagRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.lagId != null && { lagId: input.lagId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteVirtualInterfaceRequest
- */
-const se_DeleteVirtualInterfaceRequest = (input: DeleteVirtualInterfaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConnectionLoaRequest
- */
-const se_DescribeConnectionLoaRequest = (input: DescribeConnectionLoaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.loaContentType != null && { loaContentType: input.loaContentType }),
-    ...(input.providerName != null && { providerName: input.providerName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConnectionsOnInterconnectRequest
- */
-const se_DescribeConnectionsOnInterconnectRequest = (
-  input: DescribeConnectionsOnInterconnectRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.interconnectId != null && { interconnectId: input.interconnectId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConnectionsRequest
- */
-const se_DescribeConnectionsRequest = (input: DescribeConnectionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsRequest
- */
-const se_DescribeDirectConnectGatewayAssociationProposalsRequest = (
-  input: DescribeDirectConnectGatewayAssociationProposalsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.associatedGatewayId != null && { associatedGatewayId: input.associatedGatewayId }),
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.proposalId != null && { proposalId: input.proposalId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeDirectConnectGatewayAssociationsRequest
- */
-const se_DescribeDirectConnectGatewayAssociationsRequest = (
-  input: DescribeDirectConnectGatewayAssociationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.associatedGatewayId != null && { associatedGatewayId: input.associatedGatewayId }),
-    ...(input.associationId != null && { associationId: input.associationId }),
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.virtualGatewayId != null && { virtualGatewayId: input.virtualGatewayId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsRequest
- */
-const se_DescribeDirectConnectGatewayAttachmentsRequest = (
-  input: DescribeDirectConnectGatewayAttachmentsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeDirectConnectGatewaysRequest
- */
-const se_DescribeDirectConnectGatewaysRequest = (
-  input: DescribeDirectConnectGatewaysRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeHostedConnectionsRequest
- */
-const se_DescribeHostedConnectionsRequest = (input: DescribeHostedConnectionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeInterconnectLoaRequest
- */
-const se_DescribeInterconnectLoaRequest = (input: DescribeInterconnectLoaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.interconnectId != null && { interconnectId: input.interconnectId }),
-    ...(input.loaContentType != null && { loaContentType: input.loaContentType }),
-    ...(input.providerName != null && { providerName: input.providerName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeInterconnectsRequest
- */
-const se_DescribeInterconnectsRequest = (input: DescribeInterconnectsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.interconnectId != null && { interconnectId: input.interconnectId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeLagsRequest
- */
-const se_DescribeLagsRequest = (input: DescribeLagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.lagId != null && { lagId: input.lagId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeLoaRequest
- */
-const se_DescribeLoaRequest = (input: DescribeLoaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.loaContentType != null && { loaContentType: input.loaContentType }),
-    ...(input.providerName != null && { providerName: input.providerName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeRouterConfigurationRequest
- */
-const se_DescribeRouterConfigurationRequest = (
-  input: DescribeRouterConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.routerTypeIdentifier != null && { routerTypeIdentifier: input.routerTypeIdentifier }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeTagsRequest
- */
-const se_DescribeTagsRequest = (input: DescribeTagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArns != null && { resourceArns: se_ResourceArnList(input.resourceArns, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeVirtualInterfacesRequest
- */
-const se_DescribeVirtualInterfacesRequest = (input: DescribeVirtualInterfacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DisassociateConnectionFromLagRequest
- */
-const se_DisassociateConnectionFromLagRequest = (
-  input: DisassociateConnectionFromLagRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.lagId != null && { lagId: input.lagId }),
-  };
-};
-
-/**
- * serializeAws_json1_1DisassociateMacSecKeyRequest
- */
-const se_DisassociateMacSecKeyRequest = (input: DisassociateMacSecKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.secretARN != null && { secretARN: input.secretARN }),
-  };
-};
-
-/**
- * serializeAws_json1_1ListVirtualInterfaceTestHistoryRequest
- */
-const se_ListVirtualInterfaceTestHistoryRequest = (
-  input: ListVirtualInterfaceTestHistoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.bgpPeers != null && { bgpPeers: se_BGPPeerIdList(input.bgpPeers, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.testId != null && { testId: input.testId }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1NewBGPPeer
- */
-const se_NewBGPPeer = (input: NewBGPPeer, context: __SerdeContext): any => {
-  return {
-    ...(input.addressFamily != null && { addressFamily: input.addressFamily }),
-    ...(input.amazonAddress != null && { amazonAddress: input.amazonAddress }),
-    ...(input.asn != null && { asn: input.asn }),
-    ...(input.authKey != null && { authKey: input.authKey }),
-    ...(input.customerAddress != null && { customerAddress: input.customerAddress }),
-  };
-};
-
-/**
- * serializeAws_json1_1NewPrivateVirtualInterface
- */
-const se_NewPrivateVirtualInterface = (input: NewPrivateVirtualInterface, context: __SerdeContext): any => {
-  return {
-    ...(input.addressFamily != null && { addressFamily: input.addressFamily }),
-    ...(input.amazonAddress != null && { amazonAddress: input.amazonAddress }),
-    ...(input.asn != null && { asn: input.asn }),
-    ...(input.authKey != null && { authKey: input.authKey }),
-    ...(input.customerAddress != null && { customerAddress: input.customerAddress }),
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.enableSiteLink != null && { enableSiteLink: input.enableSiteLink }),
-    ...(input.mtu != null && { mtu: input.mtu }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualGatewayId != null && { virtualGatewayId: input.virtualGatewayId }),
-    ...(input.virtualInterfaceName != null && { virtualInterfaceName: input.virtualInterfaceName }),
-    ...(input.vlan != null && { vlan: input.vlan }),
-  };
-};
-
-/**
- * serializeAws_json1_1NewPrivateVirtualInterfaceAllocation
- */
-const se_NewPrivateVirtualInterfaceAllocation = (
-  input: NewPrivateVirtualInterfaceAllocation,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.addressFamily != null && { addressFamily: input.addressFamily }),
-    ...(input.amazonAddress != null && { amazonAddress: input.amazonAddress }),
-    ...(input.asn != null && { asn: input.asn }),
-    ...(input.authKey != null && { authKey: input.authKey }),
-    ...(input.customerAddress != null && { customerAddress: input.customerAddress }),
-    ...(input.mtu != null && { mtu: input.mtu }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualInterfaceName != null && { virtualInterfaceName: input.virtualInterfaceName }),
-    ...(input.vlan != null && { vlan: input.vlan }),
-  };
-};
-
-/**
- * serializeAws_json1_1NewPublicVirtualInterface
- */
-const se_NewPublicVirtualInterface = (input: NewPublicVirtualInterface, context: __SerdeContext): any => {
-  return {
-    ...(input.addressFamily != null && { addressFamily: input.addressFamily }),
-    ...(input.amazonAddress != null && { amazonAddress: input.amazonAddress }),
-    ...(input.asn != null && { asn: input.asn }),
-    ...(input.authKey != null && { authKey: input.authKey }),
-    ...(input.customerAddress != null && { customerAddress: input.customerAddress }),
-    ...(input.routeFilterPrefixes != null && {
-      routeFilterPrefixes: se_RouteFilterPrefixList(input.routeFilterPrefixes, context),
-    }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualInterfaceName != null && { virtualInterfaceName: input.virtualInterfaceName }),
-    ...(input.vlan != null && { vlan: input.vlan }),
-  };
-};
-
-/**
- * serializeAws_json1_1NewPublicVirtualInterfaceAllocation
- */
-const se_NewPublicVirtualInterfaceAllocation = (
-  input: NewPublicVirtualInterfaceAllocation,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.addressFamily != null && { addressFamily: input.addressFamily }),
-    ...(input.amazonAddress != null && { amazonAddress: input.amazonAddress }),
-    ...(input.asn != null && { asn: input.asn }),
-    ...(input.authKey != null && { authKey: input.authKey }),
-    ...(input.customerAddress != null && { customerAddress: input.customerAddress }),
-    ...(input.routeFilterPrefixes != null && {
-      routeFilterPrefixes: se_RouteFilterPrefixList(input.routeFilterPrefixes, context),
-    }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualInterfaceName != null && { virtualInterfaceName: input.virtualInterfaceName }),
-    ...(input.vlan != null && { vlan: input.vlan }),
-  };
-};
-
-/**
- * serializeAws_json1_1NewTransitVirtualInterface
- */
-const se_NewTransitVirtualInterface = (input: NewTransitVirtualInterface, context: __SerdeContext): any => {
-  return {
-    ...(input.addressFamily != null && { addressFamily: input.addressFamily }),
-    ...(input.amazonAddress != null && { amazonAddress: input.amazonAddress }),
-    ...(input.asn != null && { asn: input.asn }),
-    ...(input.authKey != null && { authKey: input.authKey }),
-    ...(input.customerAddress != null && { customerAddress: input.customerAddress }),
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.enableSiteLink != null && { enableSiteLink: input.enableSiteLink }),
-    ...(input.mtu != null && { mtu: input.mtu }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualInterfaceName != null && { virtualInterfaceName: input.virtualInterfaceName }),
-    ...(input.vlan != null && { vlan: input.vlan }),
-  };
-};
-
-/**
- * serializeAws_json1_1NewTransitVirtualInterfaceAllocation
- */
-const se_NewTransitVirtualInterfaceAllocation = (
-  input: NewTransitVirtualInterfaceAllocation,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.addressFamily != null && { addressFamily: input.addressFamily }),
-    ...(input.amazonAddress != null && { amazonAddress: input.amazonAddress }),
-    ...(input.asn != null && { asn: input.asn }),
-    ...(input.authKey != null && { authKey: input.authKey }),
-    ...(input.customerAddress != null && { customerAddress: input.customerAddress }),
-    ...(input.mtu != null && { mtu: input.mtu }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualInterfaceName != null && { virtualInterfaceName: input.virtualInterfaceName }),
-    ...(input.vlan != null && { vlan: input.vlan }),
-  };
-};
-
-/**
- * serializeAws_json1_1ResourceArnList
- */
-const se_ResourceArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1RouteFilterPrefix
- */
-const se_RouteFilterPrefix = (input: RouteFilterPrefix, context: __SerdeContext): any => {
-  return {
-    ...(input.cidr != null && { cidr: input.cidr }),
-  };
-};
-
-/**
- * serializeAws_json1_1RouteFilterPrefixList
- */
-const se_RouteFilterPrefixList = (input: RouteFilterPrefix[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RouteFilterPrefix(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1StartBgpFailoverTestRequest
- */
-const se_StartBgpFailoverTestRequest = (input: StartBgpFailoverTestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.bgpPeers != null && { bgpPeers: se_BGPPeerIdList(input.bgpPeers, context) }),
-    ...(input.testDurationInMinutes != null && { testDurationInMinutes: input.testDurationInMinutes }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1StopBgpFailoverTestRequest
- */
-const se_StopBgpFailoverTestRequest = (input: StopBgpFailoverTestRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-  };
-};
-
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateConnectionRequest
- */
-const se_UpdateConnectionRequest = (input: UpdateConnectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionId != null && { connectionId: input.connectionId }),
-    ...(input.connectionName != null && { connectionName: input.connectionName }),
-    ...(input.encryptionMode != null && { encryptionMode: input.encryptionMode }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest
- */
-const se_UpdateDirectConnectGatewayAssociationRequest = (
-  input: UpdateDirectConnectGatewayAssociationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.addAllowedPrefixesToDirectConnectGateway != null && {
-      addAllowedPrefixesToDirectConnectGateway: se_RouteFilterPrefixList(
-        input.addAllowedPrefixesToDirectConnectGateway,
-        context
-      ),
-    }),
-    ...(input.associationId != null && { associationId: input.associationId }),
-    ...(input.removeAllowedPrefixesToDirectConnectGateway != null && {
-      removeAllowedPrefixesToDirectConnectGateway: se_RouteFilterPrefixList(
-        input.removeAllowedPrefixesToDirectConnectGateway,
-        context
-      ),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateDirectConnectGatewayRequest
- */
-const se_UpdateDirectConnectGatewayRequest = (
-  input: UpdateDirectConnectGatewayRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.directConnectGatewayId != null && { directConnectGatewayId: input.directConnectGatewayId }),
-    ...(input.newDirectConnectGatewayName != null && {
-      newDirectConnectGatewayName: input.newDirectConnectGatewayName,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateLagRequest
- */
-const se_UpdateLagRequest = (input: UpdateLagRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.encryptionMode != null && { encryptionMode: input.encryptionMode }),
-    ...(input.lagId != null && { lagId: input.lagId }),
-    ...(input.lagName != null && { lagName: input.lagName }),
-    ...(input.minimumLinks != null && { minimumLinks: input.minimumLinks }),
-  };
-};
-
-/**
- * serializeAws_json1_1UpdateVirtualInterfaceAttributesRequest
- */
-const se_UpdateVirtualInterfaceAttributesRequest = (
-  input: UpdateVirtualInterfaceAttributesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.enableSiteLink != null && { enableSiteLink: input.enableSiteLink }),
-    ...(input.mtu != null && { mtu: input.mtu }),
-    ...(input.virtualInterfaceId != null && { virtualInterfaceId: input.virtualInterfaceId }),
-    ...(input.virtualInterfaceName != null && { virtualInterfaceName: input.virtualInterfaceName }),
-  };
-};
-
-/**
- * deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalResult
- */
-const de_AcceptDirectConnectGatewayAssociationProposalResult = (
-  output: any,
-  context: __SerdeContext
-): AcceptDirectConnectGatewayAssociationProposalResult => {
-  return {
-    directConnectGatewayAssociation:
-      output.directConnectGatewayAssociation != null
-        ? de_DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
-        : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1AgreementList
- */
-const de_AgreementList = (output: any, context: __SerdeContext): CustomerAgreement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CustomerAgreement(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_json1_1AllocateTransitVirtualInterfaceResult
- */
-const de_AllocateTransitVirtualInterfaceResult = (
-  output: any,
-  context: __SerdeContext
-): AllocateTransitVirtualInterfaceResult => {
-  return {
-    virtualInterface:
-      output.virtualInterface != null ? de_VirtualInterface(output.virtualInterface, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1AssociatedGateway
- */
-const de_AssociatedGateway = (output: any, context: __SerdeContext): AssociatedGateway => {
-  return {
-    id: __expectString(output.id),
-    ownerAccount: __expectString(output.ownerAccount),
-    region: __expectString(output.region),
-    type: __expectString(output.type),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1AssociateMacSecKeyResponse
- */
-const de_AssociateMacSecKeyResponse = (output: any, context: __SerdeContext): AssociateMacSecKeyResponse => {
-  return {
-    connectionId: __expectString(output.connectionId),
-    macSecKeys: output.macSecKeys != null ? de_MacSecKeyList(output.macSecKeys, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1AvailableMacSecPortSpeeds
- */
-const de_AvailableMacSecPortSpeeds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_json1_1AvailablePortSpeeds
- */
-const de_AvailablePortSpeeds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_json1_1BGPPeer
- */
-const de_BGPPeer = (output: any, context: __SerdeContext): BGPPeer => {
-  return {
-    addressFamily: __expectString(output.addressFamily),
-    amazonAddress: __expectString(output.amazonAddress),
-    asn: __expectInt32(output.asn),
-    authKey: __expectString(output.authKey),
-    awsDeviceV2: __expectString(output.awsDeviceV2),
-    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
-    bgpPeerId: __expectString(output.bgpPeerId),
-    bgpPeerState: __expectString(output.bgpPeerState),
-    bgpStatus: __expectString(output.bgpStatus),
-    customerAddress: __expectString(output.customerAddress),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1BGPPeerIdList
- */
-const de_BGPPeerIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_json1_1BGPPeerList
- */
-const de_BGPPeerList = (output: any, context: __SerdeContext): BGPPeer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BGPPeer(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_json1_1ConfirmConnectionResponse
- */
-const de_ConfirmConnectionResponse = (output: any, context: __SerdeContext): ConfirmConnectionResponse => {
-  return {
-    connectionState: __expectString(output.connectionState),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1ConfirmCustomerAgreementResponse
- */
-const de_ConfirmCustomerAgreementResponse = (
-  output: any,
-  context: __SerdeContext
-): ConfirmCustomerAgreementResponse => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1ConfirmPrivateVirtualInterfaceResponse
- */
-const de_ConfirmPrivateVirtualInterfaceResponse = (
-  output: any,
-  context: __SerdeContext
-): ConfirmPrivateVirtualInterfaceResponse => {
-  return {
-    virtualInterfaceState: __expectString(output.virtualInterfaceState),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1ConfirmPublicVirtualInterfaceResponse
- */
-const de_ConfirmPublicVirtualInterfaceResponse = (
-  output: any,
-  context: __SerdeContext
-): ConfirmPublicVirtualInterfaceResponse => {
-  return {
-    virtualInterfaceState: __expectString(output.virtualInterfaceState),
-  } as any;
-};
-
-/**
- * deserializeAws_json1_1ConfirmTransitVirtualInterfaceResponse
- */
-const de_ConfirmTransitVirtualInterfaceResponse = (
-  output: any,
-  context: __SerdeContext
-): ConfirmTransitVirtualInterfaceResponse => {
-  return {
-    virtualInterfaceState: __expectString(output.virtualInterfaceState),
-  } as any;
-};
+// se_AcceptDirectConnectGatewayAssociationProposalRequest omitted.
+
+// se_AllocateConnectionOnInterconnectRequest omitted.
+
+// se_AllocateHostedConnectionRequest omitted.
+
+// se_AllocatePrivateVirtualInterfaceRequest omitted.
+
+// se_AllocatePublicVirtualInterfaceRequest omitted.
+
+// se_AllocateTransitVirtualInterfaceRequest omitted.
+
+// se_AssociateConnectionWithLagRequest omitted.
+
+// se_AssociateHostedConnectionRequest omitted.
+
+// se_AssociateMacSecKeyRequest omitted.
+
+// se_AssociateVirtualInterfaceRequest omitted.
+
+// se_BGPPeerIdList omitted.
+
+// se_ConfirmConnectionRequest omitted.
+
+// se_ConfirmCustomerAgreementRequest omitted.
+
+// se_ConfirmPrivateVirtualInterfaceRequest omitted.
+
+// se_ConfirmPublicVirtualInterfaceRequest omitted.
+
+// se_ConfirmTransitVirtualInterfaceRequest omitted.
+
+// se_CreateBGPPeerRequest omitted.
+
+// se_CreateConnectionRequest omitted.
+
+// se_CreateDirectConnectGatewayAssociationProposalRequest omitted.
+
+// se_CreateDirectConnectGatewayAssociationRequest omitted.
+
+// se_CreateDirectConnectGatewayRequest omitted.
+
+// se_CreateInterconnectRequest omitted.
+
+// se_CreateLagRequest omitted.
+
+// se_CreatePrivateVirtualInterfaceRequest omitted.
+
+// se_CreatePublicVirtualInterfaceRequest omitted.
+
+// se_CreateTransitVirtualInterfaceRequest omitted.
+
+// se_DeleteBGPPeerRequest omitted.
+
+// se_DeleteConnectionRequest omitted.
+
+// se_DeleteDirectConnectGatewayAssociationProposalRequest omitted.
+
+// se_DeleteDirectConnectGatewayAssociationRequest omitted.
+
+// se_DeleteDirectConnectGatewayRequest omitted.
+
+// se_DeleteInterconnectRequest omitted.
+
+// se_DeleteLagRequest omitted.
+
+// se_DeleteVirtualInterfaceRequest omitted.
+
+// se_DescribeConnectionLoaRequest omitted.
+
+// se_DescribeConnectionsOnInterconnectRequest omitted.
+
+// se_DescribeConnectionsRequest omitted.
+
+// se_DescribeDirectConnectGatewayAssociationProposalsRequest omitted.
+
+// se_DescribeDirectConnectGatewayAssociationsRequest omitted.
+
+// se_DescribeDirectConnectGatewayAttachmentsRequest omitted.
+
+// se_DescribeDirectConnectGatewaysRequest omitted.
+
+// se_DescribeHostedConnectionsRequest omitted.
+
+// se_DescribeInterconnectLoaRequest omitted.
+
+// se_DescribeInterconnectsRequest omitted.
+
+// se_DescribeLagsRequest omitted.
+
+// se_DescribeLoaRequest omitted.
+
+// se_DescribeRouterConfigurationRequest omitted.
+
+// se_DescribeTagsRequest omitted.
+
+// se_DescribeVirtualInterfacesRequest omitted.
+
+// se_DisassociateConnectionFromLagRequest omitted.
+
+// se_DisassociateMacSecKeyRequest omitted.
+
+// se_ListVirtualInterfaceTestHistoryRequest omitted.
+
+// se_NewBGPPeer omitted.
+
+// se_NewPrivateVirtualInterface omitted.
+
+// se_NewPrivateVirtualInterfaceAllocation omitted.
+
+// se_NewPublicVirtualInterface omitted.
+
+// se_NewPublicVirtualInterfaceAllocation omitted.
+
+// se_NewTransitVirtualInterface omitted.
+
+// se_NewTransitVirtualInterfaceAllocation omitted.
+
+// se_ResourceArnList omitted.
+
+// se_RouteFilterPrefix omitted.
+
+// se_RouteFilterPrefixList omitted.
+
+// se_StartBgpFailoverTestRequest omitted.
+
+// se_StopBgpFailoverTestRequest omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateConnectionRequest omitted.
+
+// se_UpdateDirectConnectGatewayAssociationRequest omitted.
+
+// se_UpdateDirectConnectGatewayRequest omitted.
+
+// se_UpdateLagRequest omitted.
+
+// se_UpdateVirtualInterfaceAttributesRequest omitted.
+
+// de_AcceptDirectConnectGatewayAssociationProposalResult omitted.
+
+// de_AgreementList omitted.
+
+// de_AllocateTransitVirtualInterfaceResult omitted.
+
+// de_AssociatedGateway omitted.
+
+// de_AssociateMacSecKeyResponse omitted.
+
+// de_AvailableMacSecPortSpeeds omitted.
+
+// de_AvailablePortSpeeds omitted.
+
+// de_BGPPeer omitted.
+
+// de_BGPPeerIdList omitted.
+
+// de_BGPPeerList omitted.
+
+// de_ConfirmConnectionResponse omitted.
+
+// de_ConfirmCustomerAgreementResponse omitted.
+
+// de_ConfirmPrivateVirtualInterfaceResponse omitted.
+
+// de_ConfirmPublicVirtualInterfaceResponse omitted.
+
+// de_ConfirmTransitVirtualInterfaceResponse omitted.
 
 /**
  * deserializeAws_json1_1Connection
  */
 const de_Connection = (output: any, context: __SerdeContext): Connection => {
-  return {
-    awsDevice: __expectString(output.awsDevice),
-    awsDeviceV2: __expectString(output.awsDeviceV2),
-    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
-    bandwidth: __expectString(output.bandwidth),
-    connectionId: __expectString(output.connectionId),
-    connectionName: __expectString(output.connectionName),
-    connectionState: __expectString(output.connectionState),
-    encryptionMode: __expectString(output.encryptionMode),
-    hasLogicalRedundancy: __expectString(output.hasLogicalRedundancy),
-    jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
-    lagId: __expectString(output.lagId),
-    loaIssueTime:
-      output.loaIssueTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.loaIssueTime)))
-        : undefined,
-    location: __expectString(output.location),
-    macSecCapable: __expectBoolean(output.macSecCapable),
-    macSecKeys: output.macSecKeys != null ? de_MacSecKeyList(output.macSecKeys, context) : undefined,
-    ownerAccount: __expectString(output.ownerAccount),
-    partnerName: __expectString(output.partnerName),
-    portEncryptionStatus: __expectString(output.portEncryptionStatus),
-    providerName: __expectString(output.providerName),
-    region: __expectString(output.region),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-    vlan: __expectInt32(output.vlan),
-  } as any;
+  return take(output, {
+    awsDevice: __expectString,
+    awsDeviceV2: __expectString,
+    awsLogicalDeviceId: __expectString,
+    bandwidth: __expectString,
+    connectionId: __expectString,
+    connectionName: __expectString,
+    connectionState: __expectString,
+    encryptionMode: __expectString,
+    hasLogicalRedundancy: __expectString,
+    jumboFrameCapable: __expectBoolean,
+    lagId: __expectString,
+    loaIssueTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    location: __expectString,
+    macSecCapable: __expectBoolean,
+    macSecKeys: _json,
+    ownerAccount: __expectString,
+    partnerName: __expectString,
+    portEncryptionStatus: __expectString,
+    providerName: __expectString,
+    region: __expectString,
+    tags: _json,
+    vlan: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -5687,9 +4555,6 @@ const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Connection(entry, context);
     });
   return retVal;
@@ -5699,483 +4564,112 @@ const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] =
  * deserializeAws_json1_1Connections
  */
 const de_Connections = (output: any, context: __SerdeContext): Connections => {
-  return {
-    connections: output.connections != null ? de_ConnectionList(output.connections, context) : undefined,
-  } as any;
+  return take(output, {
+    connections: (_: any) => de_ConnectionList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateBGPPeerResponse
- */
-const de_CreateBGPPeerResponse = (output: any, context: __SerdeContext): CreateBGPPeerResponse => {
-  return {
-    virtualInterface:
-      output.virtualInterface != null ? de_VirtualInterface(output.virtualInterface, context) : undefined,
-  } as any;
-};
+// de_CreateBGPPeerResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalResult
- */
-const de_CreateDirectConnectGatewayAssociationProposalResult = (
-  output: any,
-  context: __SerdeContext
-): CreateDirectConnectGatewayAssociationProposalResult => {
-  return {
-    directConnectGatewayAssociationProposal:
-      output.directConnectGatewayAssociationProposal != null
-        ? de_DirectConnectGatewayAssociationProposal(output.directConnectGatewayAssociationProposal, context)
-        : undefined,
-  } as any;
-};
+// de_CreateDirectConnectGatewayAssociationProposalResult omitted.
 
-/**
- * deserializeAws_json1_1CreateDirectConnectGatewayAssociationResult
- */
-const de_CreateDirectConnectGatewayAssociationResult = (
-  output: any,
-  context: __SerdeContext
-): CreateDirectConnectGatewayAssociationResult => {
-  return {
-    directConnectGatewayAssociation:
-      output.directConnectGatewayAssociation != null
-        ? de_DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
-        : undefined,
-  } as any;
-};
+// de_CreateDirectConnectGatewayAssociationResult omitted.
 
-/**
- * deserializeAws_json1_1CreateDirectConnectGatewayResult
- */
-const de_CreateDirectConnectGatewayResult = (
-  output: any,
-  context: __SerdeContext
-): CreateDirectConnectGatewayResult => {
-  return {
-    directConnectGateway:
-      output.directConnectGateway != null ? de_DirectConnectGateway(output.directConnectGateway, context) : undefined,
-  } as any;
-};
+// de_CreateDirectConnectGatewayResult omitted.
 
-/**
- * deserializeAws_json1_1CreateTransitVirtualInterfaceResult
- */
-const de_CreateTransitVirtualInterfaceResult = (
-  output: any,
-  context: __SerdeContext
-): CreateTransitVirtualInterfaceResult => {
-  return {
-    virtualInterface:
-      output.virtualInterface != null ? de_VirtualInterface(output.virtualInterface, context) : undefined,
-  } as any;
-};
+// de_CreateTransitVirtualInterfaceResult omitted.
 
-/**
- * deserializeAws_json1_1CustomerAgreement
- */
-const de_CustomerAgreement = (output: any, context: __SerdeContext): CustomerAgreement => {
-  return {
-    agreementName: __expectString(output.agreementName),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_CustomerAgreement omitted.
 
-/**
- * deserializeAws_json1_1DeleteBGPPeerResponse
- */
-const de_DeleteBGPPeerResponse = (output: any, context: __SerdeContext): DeleteBGPPeerResponse => {
-  return {
-    virtualInterface:
-      output.virtualInterface != null ? de_VirtualInterface(output.virtualInterface, context) : undefined,
-  } as any;
-};
+// de_DeleteBGPPeerResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalResult
- */
-const de_DeleteDirectConnectGatewayAssociationProposalResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteDirectConnectGatewayAssociationProposalResult => {
-  return {
-    directConnectGatewayAssociationProposal:
-      output.directConnectGatewayAssociationProposal != null
-        ? de_DirectConnectGatewayAssociationProposal(output.directConnectGatewayAssociationProposal, context)
-        : undefined,
-  } as any;
-};
+// de_DeleteDirectConnectGatewayAssociationProposalResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteDirectConnectGatewayAssociationResult
- */
-const de_DeleteDirectConnectGatewayAssociationResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteDirectConnectGatewayAssociationResult => {
-  return {
-    directConnectGatewayAssociation:
-      output.directConnectGatewayAssociation != null
-        ? de_DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
-        : undefined,
-  } as any;
-};
+// de_DeleteDirectConnectGatewayAssociationResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteDirectConnectGatewayResult
- */
-const de_DeleteDirectConnectGatewayResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteDirectConnectGatewayResult => {
-  return {
-    directConnectGateway:
-      output.directConnectGateway != null ? de_DirectConnectGateway(output.directConnectGateway, context) : undefined,
-  } as any;
-};
+// de_DeleteDirectConnectGatewayResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteInterconnectResponse
- */
-const de_DeleteInterconnectResponse = (output: any, context: __SerdeContext): DeleteInterconnectResponse => {
-  return {
-    interconnectState: __expectString(output.interconnectState),
-  } as any;
-};
+// de_DeleteInterconnectResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteVirtualInterfaceResponse
- */
-const de_DeleteVirtualInterfaceResponse = (output: any, context: __SerdeContext): DeleteVirtualInterfaceResponse => {
-  return {
-    virtualInterfaceState: __expectString(output.virtualInterfaceState),
-  } as any;
-};
+// de_DeleteVirtualInterfaceResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeConnectionLoaResponse
  */
 const de_DescribeConnectionLoaResponse = (output: any, context: __SerdeContext): DescribeConnectionLoaResponse => {
-  return {
-    loa: output.loa != null ? de_Loa(output.loa, context) : undefined,
-  } as any;
+  return take(output, {
+    loa: (_: any) => de_Loa(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeCustomerMetadataResponse
- */
-const de_DescribeCustomerMetadataResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCustomerMetadataResponse => {
-  return {
-    agreements: output.agreements != null ? de_AgreementList(output.agreements, context) : undefined,
-    nniPartnerType: __expectString(output.nniPartnerType),
-  } as any;
-};
+// de_DescribeCustomerMetadataResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsResult
- */
-const de_DescribeDirectConnectGatewayAssociationProposalsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeDirectConnectGatewayAssociationProposalsResult => {
-  return {
-    directConnectGatewayAssociationProposals:
-      output.directConnectGatewayAssociationProposals != null
-        ? de_DirectConnectGatewayAssociationProposalList(output.directConnectGatewayAssociationProposals, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeDirectConnectGatewayAssociationProposalsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsResult
- */
-const de_DescribeDirectConnectGatewayAssociationsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeDirectConnectGatewayAssociationsResult => {
-  return {
-    directConnectGatewayAssociations:
-      output.directConnectGatewayAssociations != null
-        ? de_DirectConnectGatewayAssociationList(output.directConnectGatewayAssociations, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeDirectConnectGatewayAssociationsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsResult
- */
-const de_DescribeDirectConnectGatewayAttachmentsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeDirectConnectGatewayAttachmentsResult => {
-  return {
-    directConnectGatewayAttachments:
-      output.directConnectGatewayAttachments != null
-        ? de_DirectConnectGatewayAttachmentList(output.directConnectGatewayAttachments, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeDirectConnectGatewayAttachmentsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeDirectConnectGatewaysResult
- */
-const de_DescribeDirectConnectGatewaysResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeDirectConnectGatewaysResult => {
-  return {
-    directConnectGateways:
-      output.directConnectGateways != null
-        ? de_DirectConnectGatewayList(output.directConnectGateways, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeDirectConnectGatewaysResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeInterconnectLoaResponse
  */
 const de_DescribeInterconnectLoaResponse = (output: any, context: __SerdeContext): DescribeInterconnectLoaResponse => {
-  return {
-    loa: output.loa != null ? de_Loa(output.loa, context) : undefined,
-  } as any;
+  return take(output, {
+    loa: (_: any) => de_Loa(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeRouterConfigurationResponse
- */
-const de_DescribeRouterConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeRouterConfigurationResponse => {
-  return {
-    customerRouterConfig: __expectString(output.customerRouterConfig),
-    router: output.router != null ? de_RouterType(output.router, context) : undefined,
-    virtualInterfaceId: __expectString(output.virtualInterfaceId),
-    virtualInterfaceName: __expectString(output.virtualInterfaceName),
-  } as any;
-};
+// de_DescribeRouterConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeTagsResponse
- */
-const de_DescribeTagsResponse = (output: any, context: __SerdeContext): DescribeTagsResponse => {
-  return {
-    resourceTags: output.resourceTags != null ? de_ResourceTagList(output.resourceTags, context) : undefined,
-  } as any;
-};
+// de_DescribeTagsResponse omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectClientException
- */
-const de_DirectConnectClientException = (output: any, context: __SerdeContext): DirectConnectClientException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DirectConnectClientException omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectGateway
- */
-const de_DirectConnectGateway = (output: any, context: __SerdeContext): DirectConnectGateway => {
-  return {
-    amazonSideAsn: __expectLong(output.amazonSideAsn),
-    directConnectGatewayId: __expectString(output.directConnectGatewayId),
-    directConnectGatewayName: __expectString(output.directConnectGatewayName),
-    directConnectGatewayState: __expectString(output.directConnectGatewayState),
-    ownerAccount: __expectString(output.ownerAccount),
-    stateChangeError: __expectString(output.stateChangeError),
-  } as any;
-};
+// de_DirectConnectGateway omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectGatewayAssociation
- */
-const de_DirectConnectGatewayAssociation = (output: any, context: __SerdeContext): DirectConnectGatewayAssociation => {
-  return {
-    allowedPrefixesToDirectConnectGateway:
-      output.allowedPrefixesToDirectConnectGateway != null
-        ? de_RouteFilterPrefixList(output.allowedPrefixesToDirectConnectGateway, context)
-        : undefined,
-    associatedGateway:
-      output.associatedGateway != null ? de_AssociatedGateway(output.associatedGateway, context) : undefined,
-    associationId: __expectString(output.associationId),
-    associationState: __expectString(output.associationState),
-    directConnectGatewayId: __expectString(output.directConnectGatewayId),
-    directConnectGatewayOwnerAccount: __expectString(output.directConnectGatewayOwnerAccount),
-    stateChangeError: __expectString(output.stateChangeError),
-    virtualGatewayId: __expectString(output.virtualGatewayId),
-    virtualGatewayOwnerAccount: __expectString(output.virtualGatewayOwnerAccount),
-    virtualGatewayRegion: __expectString(output.virtualGatewayRegion),
-  } as any;
-};
+// de_DirectConnectGatewayAssociation omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectGatewayAssociationList
- */
-const de_DirectConnectGatewayAssociationList = (
-  output: any,
-  context: __SerdeContext
-): DirectConnectGatewayAssociation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DirectConnectGatewayAssociation(entry, context);
-    });
-  return retVal;
-};
+// de_DirectConnectGatewayAssociationList omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectGatewayAssociationProposal
- */
-const de_DirectConnectGatewayAssociationProposal = (
-  output: any,
-  context: __SerdeContext
-): DirectConnectGatewayAssociationProposal => {
-  return {
-    associatedGateway:
-      output.associatedGateway != null ? de_AssociatedGateway(output.associatedGateway, context) : undefined,
-    directConnectGatewayId: __expectString(output.directConnectGatewayId),
-    directConnectGatewayOwnerAccount: __expectString(output.directConnectGatewayOwnerAccount),
-    existingAllowedPrefixesToDirectConnectGateway:
-      output.existingAllowedPrefixesToDirectConnectGateway != null
-        ? de_RouteFilterPrefixList(output.existingAllowedPrefixesToDirectConnectGateway, context)
-        : undefined,
-    proposalId: __expectString(output.proposalId),
-    proposalState: __expectString(output.proposalState),
-    requestedAllowedPrefixesToDirectConnectGateway:
-      output.requestedAllowedPrefixesToDirectConnectGateway != null
-        ? de_RouteFilterPrefixList(output.requestedAllowedPrefixesToDirectConnectGateway, context)
-        : undefined,
-  } as any;
-};
+// de_DirectConnectGatewayAssociationProposal omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectGatewayAssociationProposalList
- */
-const de_DirectConnectGatewayAssociationProposalList = (
-  output: any,
-  context: __SerdeContext
-): DirectConnectGatewayAssociationProposal[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DirectConnectGatewayAssociationProposal(entry, context);
-    });
-  return retVal;
-};
+// de_DirectConnectGatewayAssociationProposalList omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectGatewayAttachment
- */
-const de_DirectConnectGatewayAttachment = (output: any, context: __SerdeContext): DirectConnectGatewayAttachment => {
-  return {
-    attachmentState: __expectString(output.attachmentState),
-    attachmentType: __expectString(output.attachmentType),
-    directConnectGatewayId: __expectString(output.directConnectGatewayId),
-    stateChangeError: __expectString(output.stateChangeError),
-    virtualInterfaceId: __expectString(output.virtualInterfaceId),
-    virtualInterfaceOwnerAccount: __expectString(output.virtualInterfaceOwnerAccount),
-    virtualInterfaceRegion: __expectString(output.virtualInterfaceRegion),
-  } as any;
-};
+// de_DirectConnectGatewayAttachment omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectGatewayAttachmentList
- */
-const de_DirectConnectGatewayAttachmentList = (
-  output: any,
-  context: __SerdeContext
-): DirectConnectGatewayAttachment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DirectConnectGatewayAttachment(entry, context);
-    });
-  return retVal;
-};
+// de_DirectConnectGatewayAttachmentList omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectGatewayList
- */
-const de_DirectConnectGatewayList = (output: any, context: __SerdeContext): DirectConnectGateway[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DirectConnectGateway(entry, context);
-    });
-  return retVal;
-};
+// de_DirectConnectGatewayList omitted.
 
-/**
- * deserializeAws_json1_1DirectConnectServerException
- */
-const de_DirectConnectServerException = (output: any, context: __SerdeContext): DirectConnectServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DirectConnectServerException omitted.
 
-/**
- * deserializeAws_json1_1DisassociateMacSecKeyResponse
- */
-const de_DisassociateMacSecKeyResponse = (output: any, context: __SerdeContext): DisassociateMacSecKeyResponse => {
-  return {
-    connectionId: __expectString(output.connectionId),
-    macSecKeys: output.macSecKeys != null ? de_MacSecKeyList(output.macSecKeys, context) : undefined,
-  } as any;
-};
+// de_DisassociateMacSecKeyResponse omitted.
 
-/**
- * deserializeAws_json1_1DuplicateTagKeysException
- */
-const de_DuplicateTagKeysException = (output: any, context: __SerdeContext): DuplicateTagKeysException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DuplicateTagKeysException omitted.
 
 /**
  * deserializeAws_json1_1Interconnect
  */
 const de_Interconnect = (output: any, context: __SerdeContext): Interconnect => {
-  return {
-    awsDevice: __expectString(output.awsDevice),
-    awsDeviceV2: __expectString(output.awsDeviceV2),
-    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
-    bandwidth: __expectString(output.bandwidth),
-    hasLogicalRedundancy: __expectString(output.hasLogicalRedundancy),
-    interconnectId: __expectString(output.interconnectId),
-    interconnectName: __expectString(output.interconnectName),
-    interconnectState: __expectString(output.interconnectState),
-    jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
-    lagId: __expectString(output.lagId),
-    loaIssueTime:
-      output.loaIssueTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.loaIssueTime)))
-        : undefined,
-    location: __expectString(output.location),
-    providerName: __expectString(output.providerName),
-    region: __expectString(output.region),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    awsDevice: __expectString,
+    awsDeviceV2: __expectString,
+    awsLogicalDeviceId: __expectString,
+    bandwidth: __expectString,
+    hasLogicalRedundancy: __expectString,
+    interconnectId: __expectString,
+    interconnectName: __expectString,
+    interconnectState: __expectString,
+    jumboFrameCapable: __expectBoolean,
+    lagId: __expectString,
+    loaIssueTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    location: __expectString,
+    providerName: __expectString,
+    region: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 /**
@@ -6185,9 +4679,6 @@ const de_InterconnectList = (output: any, context: __SerdeContext): Interconnect
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Interconnect(entry, context);
     });
   return retVal;
@@ -6197,38 +4688,38 @@ const de_InterconnectList = (output: any, context: __SerdeContext): Interconnect
  * deserializeAws_json1_1Interconnects
  */
 const de_Interconnects = (output: any, context: __SerdeContext): Interconnects => {
-  return {
-    interconnects: output.interconnects != null ? de_InterconnectList(output.interconnects, context) : undefined,
-  } as any;
+  return take(output, {
+    interconnects: (_: any) => de_InterconnectList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Lag
  */
 const de_Lag = (output: any, context: __SerdeContext): Lag => {
-  return {
-    allowsHostedConnections: __expectBoolean(output.allowsHostedConnections),
-    awsDevice: __expectString(output.awsDevice),
-    awsDeviceV2: __expectString(output.awsDeviceV2),
-    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
-    connections: output.connections != null ? de_ConnectionList(output.connections, context) : undefined,
-    connectionsBandwidth: __expectString(output.connectionsBandwidth),
-    encryptionMode: __expectString(output.encryptionMode),
-    hasLogicalRedundancy: __expectString(output.hasLogicalRedundancy),
-    jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
-    lagId: __expectString(output.lagId),
-    lagName: __expectString(output.lagName),
-    lagState: __expectString(output.lagState),
-    location: __expectString(output.location),
-    macSecCapable: __expectBoolean(output.macSecCapable),
-    macSecKeys: output.macSecKeys != null ? de_MacSecKeyList(output.macSecKeys, context) : undefined,
-    minimumLinks: __expectInt32(output.minimumLinks),
-    numberOfConnections: __expectInt32(output.numberOfConnections),
-    ownerAccount: __expectString(output.ownerAccount),
-    providerName: __expectString(output.providerName),
-    region: __expectString(output.region),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    allowsHostedConnections: __expectBoolean,
+    awsDevice: __expectString,
+    awsDeviceV2: __expectString,
+    awsLogicalDeviceId: __expectString,
+    connections: (_: any) => de_ConnectionList(_, context),
+    connectionsBandwidth: __expectString,
+    encryptionMode: __expectString,
+    hasLogicalRedundancy: __expectString,
+    jumboFrameCapable: __expectBoolean,
+    lagId: __expectString,
+    lagName: __expectString,
+    lagState: __expectString,
+    location: __expectString,
+    macSecCapable: __expectBoolean,
+    macSecKeys: _json,
+    minimumLinks: __expectInt32,
+    numberOfConnections: __expectInt32,
+    ownerAccount: __expectString,
+    providerName: __expectString,
+    region: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 /**
@@ -6238,9 +4729,6 @@ const de_LagList = (output: any, context: __SerdeContext): Lag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Lag(entry, context);
     });
   return retVal;
@@ -6250,9 +4738,9 @@ const de_LagList = (output: any, context: __SerdeContext): Lag[] => {
  * deserializeAws_json1_1Lags
  */
 const de_Lags = (output: any, context: __SerdeContext): Lags => {
-  return {
-    lags: output.lags != null ? de_LagList(output.lags, context) : undefined,
-  } as any;
+  return take(output, {
+    lags: (_: any) => de_LagList(_, context),
+  }) as any;
 };
 
 /**
@@ -6262,384 +4750,102 @@ const de_ListVirtualInterfaceTestHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): ListVirtualInterfaceTestHistoryResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    virtualInterfaceTestHistory:
-      output.virtualInterfaceTestHistory != null
-        ? de_VirtualInterfaceTestHistoryList(output.virtualInterfaceTestHistory, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    virtualInterfaceTestHistory: (_: any) => de_VirtualInterfaceTestHistoryList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Loa
  */
 const de_Loa = (output: any, context: __SerdeContext): Loa => {
-  return {
-    loaContent: output.loaContent != null ? context.base64Decoder(output.loaContent) : undefined,
-    loaContentType: __expectString(output.loaContentType),
-  } as any;
+  return take(output, {
+    loaContent: context.base64Decoder,
+    loaContentType: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Location
- */
-const de_Location = (output: any, context: __SerdeContext): Location => {
-  return {
-    availableMacSecPortSpeeds:
-      output.availableMacSecPortSpeeds != null
-        ? de_AvailableMacSecPortSpeeds(output.availableMacSecPortSpeeds, context)
-        : undefined,
-    availablePortSpeeds:
-      output.availablePortSpeeds != null ? de_AvailablePortSpeeds(output.availablePortSpeeds, context) : undefined,
-    availableProviders:
-      output.availableProviders != null ? de_ProviderList(output.availableProviders, context) : undefined,
-    locationCode: __expectString(output.locationCode),
-    locationName: __expectString(output.locationName),
-    region: __expectString(output.region),
-  } as any;
-};
+// de_Location omitted.
 
-/**
- * deserializeAws_json1_1LocationList
- */
-const de_LocationList = (output: any, context: __SerdeContext): Location[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Location(entry, context);
-    });
-  return retVal;
-};
+// de_LocationList omitted.
 
-/**
- * deserializeAws_json1_1Locations
- */
-const de_Locations = (output: any, context: __SerdeContext): Locations => {
-  return {
-    locations: output.locations != null ? de_LocationList(output.locations, context) : undefined,
-  } as any;
-};
+// de_Locations omitted.
 
-/**
- * deserializeAws_json1_1MacSecKey
- */
-const de_MacSecKey = (output: any, context: __SerdeContext): MacSecKey => {
-  return {
-    ckn: __expectString(output.ckn),
-    secretARN: __expectString(output.secretARN),
-    startOn: __expectString(output.startOn),
-    state: __expectString(output.state),
-  } as any;
-};
+// de_MacSecKey omitted.
 
-/**
- * deserializeAws_json1_1MacSecKeyList
- */
-const de_MacSecKeyList = (output: any, context: __SerdeContext): MacSecKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MacSecKey(entry, context);
-    });
-  return retVal;
-};
+// de_MacSecKeyList omitted.
 
-/**
- * deserializeAws_json1_1ProviderList
- */
-const de_ProviderList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ProviderList omitted.
 
-/**
- * deserializeAws_json1_1ResourceTag
- */
-const de_ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
-  return {
-    resourceArn: __expectString(output.resourceArn),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_ResourceTag omitted.
 
-/**
- * deserializeAws_json1_1ResourceTagList
- */
-const de_ResourceTagList = (output: any, context: __SerdeContext): ResourceTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceTag(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceTagList omitted.
 
-/**
- * deserializeAws_json1_1RouteFilterPrefix
- */
-const de_RouteFilterPrefix = (output: any, context: __SerdeContext): RouteFilterPrefix => {
-  return {
-    cidr: __expectString(output.cidr),
-  } as any;
-};
+// de_RouteFilterPrefix omitted.
 
-/**
- * deserializeAws_json1_1RouteFilterPrefixList
- */
-const de_RouteFilterPrefixList = (output: any, context: __SerdeContext): RouteFilterPrefix[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RouteFilterPrefix(entry, context);
-    });
-  return retVal;
-};
+// de_RouteFilterPrefixList omitted.
 
-/**
- * deserializeAws_json1_1RouterType
- */
-const de_RouterType = (output: any, context: __SerdeContext): RouterType => {
-  return {
-    platform: __expectString(output.platform),
-    routerTypeIdentifier: __expectString(output.routerTypeIdentifier),
-    software: __expectString(output.software),
-    vendor: __expectString(output.vendor),
-    xsltTemplateName: __expectString(output.xsltTemplateName),
-    xsltTemplateNameForMacSec: __expectString(output.xsltTemplateNameForMacSec),
-  } as any;
-};
+// de_RouterType omitted.
 
 /**
  * deserializeAws_json1_1StartBgpFailoverTestResponse
  */
 const de_StartBgpFailoverTestResponse = (output: any, context: __SerdeContext): StartBgpFailoverTestResponse => {
-  return {
-    virtualInterfaceTest:
-      output.virtualInterfaceTest != null
-        ? de_VirtualInterfaceTestHistory(output.virtualInterfaceTest, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    virtualInterfaceTest: (_: any) => de_VirtualInterfaceTestHistory(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1StopBgpFailoverTestResponse
  */
 const de_StopBgpFailoverTestResponse = (output: any, context: __SerdeContext): StopBgpFailoverTestResponse => {
-  return {
-    virtualInterfaceTest:
-      output.virtualInterfaceTest != null
-        ? de_VirtualInterfaceTestHistory(output.virtualInterfaceTest, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    virtualInterfaceTest: (_: any) => de_VirtualInterfaceTestHistory(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult
- */
-const de_UpdateDirectConnectGatewayAssociationResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateDirectConnectGatewayAssociationResult => {
-  return {
-    directConnectGatewayAssociation:
-      output.directConnectGatewayAssociation != null
-        ? de_DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
-        : undefined,
-  } as any;
-};
+// de_UpdateDirectConnectGatewayAssociationResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateDirectConnectGatewayResponse
- */
-const de_UpdateDirectConnectGatewayResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateDirectConnectGatewayResponse => {
-  return {
-    directConnectGateway:
-      output.directConnectGateway != null ? de_DirectConnectGateway(output.directConnectGateway, context) : undefined,
-  } as any;
-};
+// de_UpdateDirectConnectGatewayResponse omitted.
 
-/**
- * deserializeAws_json1_1VirtualGateway
- */
-const de_VirtualGateway = (output: any, context: __SerdeContext): VirtualGateway => {
-  return {
-    virtualGatewayId: __expectString(output.virtualGatewayId),
-    virtualGatewayState: __expectString(output.virtualGatewayState),
-  } as any;
-};
+// de_VirtualGateway omitted.
 
-/**
- * deserializeAws_json1_1VirtualGatewayList
- */
-const de_VirtualGatewayList = (output: any, context: __SerdeContext): VirtualGateway[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VirtualGateway(entry, context);
-    });
-  return retVal;
-};
+// de_VirtualGatewayList omitted.
 
-/**
- * deserializeAws_json1_1VirtualGateways
- */
-const de_VirtualGateways = (output: any, context: __SerdeContext): VirtualGateways => {
-  return {
-    virtualGateways:
-      output.virtualGateways != null ? de_VirtualGatewayList(output.virtualGateways, context) : undefined,
-  } as any;
-};
+// de_VirtualGateways omitted.
 
-/**
- * deserializeAws_json1_1VirtualInterface
- */
-const de_VirtualInterface = (output: any, context: __SerdeContext): VirtualInterface => {
-  return {
-    addressFamily: __expectString(output.addressFamily),
-    amazonAddress: __expectString(output.amazonAddress),
-    amazonSideAsn: __expectLong(output.amazonSideAsn),
-    asn: __expectInt32(output.asn),
-    authKey: __expectString(output.authKey),
-    awsDeviceV2: __expectString(output.awsDeviceV2),
-    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
-    bgpPeers: output.bgpPeers != null ? de_BGPPeerList(output.bgpPeers, context) : undefined,
-    connectionId: __expectString(output.connectionId),
-    customerAddress: __expectString(output.customerAddress),
-    customerRouterConfig: __expectString(output.customerRouterConfig),
-    directConnectGatewayId: __expectString(output.directConnectGatewayId),
-    jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
-    location: __expectString(output.location),
-    mtu: __expectInt32(output.mtu),
-    ownerAccount: __expectString(output.ownerAccount),
-    region: __expectString(output.region),
-    routeFilterPrefixes:
-      output.routeFilterPrefixes != null ? de_RouteFilterPrefixList(output.routeFilterPrefixes, context) : undefined,
-    siteLinkEnabled: __expectBoolean(output.siteLinkEnabled),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-    virtualGatewayId: __expectString(output.virtualGatewayId),
-    virtualInterfaceId: __expectString(output.virtualInterfaceId),
-    virtualInterfaceName: __expectString(output.virtualInterfaceName),
-    virtualInterfaceState: __expectString(output.virtualInterfaceState),
-    virtualInterfaceType: __expectString(output.virtualInterfaceType),
-    vlan: __expectInt32(output.vlan),
-  } as any;
-};
+// de_VirtualInterface omitted.
 
-/**
- * deserializeAws_json1_1VirtualInterfaceList
- */
-const de_VirtualInterfaceList = (output: any, context: __SerdeContext): VirtualInterface[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VirtualInterface(entry, context);
-    });
-  return retVal;
-};
+// de_VirtualInterfaceList omitted.
 
-/**
- * deserializeAws_json1_1VirtualInterfaces
- */
-const de_VirtualInterfaces = (output: any, context: __SerdeContext): VirtualInterfaces => {
-  return {
-    virtualInterfaces:
-      output.virtualInterfaces != null ? de_VirtualInterfaceList(output.virtualInterfaces, context) : undefined,
-  } as any;
-};
+// de_VirtualInterfaces omitted.
 
 /**
  * deserializeAws_json1_1VirtualInterfaceTestHistory
  */
 const de_VirtualInterfaceTestHistory = (output: any, context: __SerdeContext): VirtualInterfaceTestHistory => {
-  return {
-    bgpPeers: output.bgpPeers != null ? de_BGPPeerIdList(output.bgpPeers, context) : undefined,
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    ownerAccount: __expectString(output.ownerAccount),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    status: __expectString(output.status),
-    testDurationInMinutes: __expectInt32(output.testDurationInMinutes),
-    testId: __expectString(output.testId),
-    virtualInterfaceId: __expectString(output.virtualInterfaceId),
-  } as any;
+  return take(output, {
+    bgpPeers: _json,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ownerAccount: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    testDurationInMinutes: __expectInt32,
+    testId: __expectString,
+    virtualInterfaceId: __expectString,
+  }) as any;
 };
 
 /**
@@ -6649,9 +4855,6 @@ const de_VirtualInterfaceTestHistoryList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VirtualInterfaceTestHistory(entry, context);
     });
   return retVal;
@@ -6677,6 +4880,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

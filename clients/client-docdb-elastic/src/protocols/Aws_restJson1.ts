@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -50,17 +51,12 @@ import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../comman
 import { DocDBElasticServiceException as __BaseException } from "../models/DocDBElasticServiceException";
 import {
   AccessDeniedException,
-  Cluster,
-  ClusterInList,
-  ClusterSnapshot,
-  ClusterSnapshotInList,
   ConflictException,
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 
 /**
@@ -76,22 +72,22 @@ export const se_CreateClusterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster";
   let body: any;
-  body = JSON.stringify({
-    ...(input.adminUserName != null && { adminUserName: input.adminUserName }),
-    ...(input.adminUserPassword != null && { adminUserPassword: input.adminUserPassword }),
-    ...(input.authType != null && { authType: input.authType }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.clusterName != null && { clusterName: input.clusterName }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.preferredMaintenanceWindow != null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
-    ...(input.shardCapacity != null && { shardCapacity: input.shardCapacity }),
-    ...(input.shardCount != null && { shardCount: input.shardCount }),
-    ...(input.subnetIds != null && { subnetIds: se_StringList(input.subnetIds, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.vpcSecurityGroupIds != null && {
-      vpcSecurityGroupIds: se_StringList(input.vpcSecurityGroupIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      adminUserName: [],
+      adminUserPassword: [],
+      authType: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clusterName: [],
+      kmsKeyId: [],
+      preferredMaintenanceWindow: [],
+      shardCapacity: [],
+      shardCount: [],
+      subnetIds: (_) => _json(_),
+      tags: (_) => _json(_),
+      vpcSecurityGroupIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -116,11 +112,13 @@ export const se_CreateClusterSnapshotCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-snapshot";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clusterArn != null && { clusterArn: input.clusterArn }),
-    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clusterArn: [],
+      snapshotName: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -319,15 +317,15 @@ export const se_RestoreClusterFromSnapshotCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-snapshot/{snapshotArn}/restore";
   resolvedPath = __resolvedPath(resolvedPath, input, "snapshotArn", () => input.snapshotArn!, "{snapshotArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clusterName != null && { clusterName: input.clusterName }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.subnetIds != null && { subnetIds: se_StringList(input.subnetIds, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.vpcSecurityGroupIds != null && {
-      vpcSecurityGroupIds: se_StringList(input.vpcSecurityGroupIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clusterName: [],
+      kmsKeyId: [],
+      subnetIds: (_) => _json(_),
+      tags: (_) => _json(_),
+      vpcSecurityGroupIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -353,9 +351,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -411,18 +411,18 @@ export const se_UpdateClusterCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster/{clusterArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterArn", () => input.clusterArn!, "{clusterArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.adminUserPassword != null && { adminUserPassword: input.adminUserPassword }),
-    ...(input.authType != null && { authType: input.authType }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.preferredMaintenanceWindow != null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
-    ...(input.shardCapacity != null && { shardCapacity: input.shardCapacity }),
-    ...(input.shardCount != null && { shardCount: input.shardCount }),
-    ...(input.subnetIds != null && { subnetIds: se_StringList(input.subnetIds, context) }),
-    ...(input.vpcSecurityGroupIds != null && {
-      vpcSecurityGroupIds: se_StringList(input.vpcSecurityGroupIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      adminUserPassword: [],
+      authType: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      preferredMaintenanceWindow: [],
+      shardCapacity: [],
+      shardCount: [],
+      subnetIds: (_) => _json(_),
+      vpcSecurityGroupIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -448,9 +448,10 @@ export const de_CreateClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -487,10 +488,9 @@ const de_CreateClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -510,9 +510,10 @@ export const de_CreateClusterSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.snapshot != null) {
-    contents.snapshot = de_ClusterSnapshot(data.snapshot, context);
-  }
+  const doc = take(data, {
+    snapshot: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -552,10 +553,9 @@ const de_CreateClusterSnapshotCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -575,9 +575,10 @@ export const de_DeleteClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -614,10 +615,9 @@ const de_DeleteClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -637,9 +637,10 @@ export const de_DeleteClusterSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.snapshot != null) {
-    contents.snapshot = de_ClusterSnapshot(data.snapshot, context);
-  }
+  const doc = take(data, {
+    snapshot: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -676,10 +677,9 @@ const de_DeleteClusterSnapshotCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -699,9 +699,10 @@ export const de_GetClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -735,10 +736,9 @@ const de_GetClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -758,9 +758,10 @@ export const de_GetClusterSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.snapshot != null) {
-    contents.snapshot = de_ClusterSnapshot(data.snapshot, context);
-  }
+  const doc = take(data, {
+    snapshot: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -794,10 +795,9 @@ const de_GetClusterSnapshotCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -817,12 +817,11 @@ export const de_ListClustersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusters != null) {
-    contents.clusters = de_ClusterList(data.clusters, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    clusters: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -853,10 +852,9 @@ const de_ListClustersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -876,12 +874,11 @@ export const de_ListClusterSnapshotsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.snapshots != null) {
-    contents.snapshots = de_ClusterSnapshotList(data.snapshots, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    snapshots: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -912,10 +909,9 @@ const de_ListClusterSnapshotsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -935,9 +931,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -968,10 +965,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -991,9 +987,10 @@ export const de_RestoreClusterFromSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1033,10 +1030,9 @@ const de_RestoreClusterFromSnapshotCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1086,10 +1082,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1139,10 +1134,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1162,9 +1156,10 @@ export const de_UpdateClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1201,16 +1196,15 @@ const de_UpdateClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1220,9 +1214,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1236,15 +1231,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1261,9 +1253,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1280,15 +1273,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1305,9 +1295,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1326,9 +1317,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1342,15 +1334,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1358,177 +1347,29 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1Cluster
- */
-const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
-  return {
-    adminUserName: __expectString(output.adminUserName),
-    authType: __expectString(output.authType),
-    clusterArn: __expectString(output.clusterArn),
-    clusterEndpoint: __expectString(output.clusterEndpoint),
-    clusterName: __expectString(output.clusterName),
-    createTime: __expectString(output.createTime),
-    kmsKeyId: __expectString(output.kmsKeyId),
-    preferredMaintenanceWindow: __expectString(output.preferredMaintenanceWindow),
-    shardCapacity: __expectInt32(output.shardCapacity),
-    shardCount: __expectInt32(output.shardCount),
-    status: __expectString(output.status),
-    subnetIds: output.subnetIds != null ? de_StringList(output.subnetIds, context) : undefined,
-    vpcSecurityGroupIds:
-      output.vpcSecurityGroupIds != null ? de_StringList(output.vpcSecurityGroupIds, context) : undefined,
-  } as any;
-};
+// de_Cluster omitted.
 
-/**
- * deserializeAws_restJson1ClusterInList
- */
-const de_ClusterInList = (output: any, context: __SerdeContext): ClusterInList => {
-  return {
-    clusterArn: __expectString(output.clusterArn),
-    clusterName: __expectString(output.clusterName),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_ClusterInList omitted.
 
-/**
- * deserializeAws_restJson1ClusterList
- */
-const de_ClusterList = (output: any, context: __SerdeContext): ClusterInList[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ClusterInList(entry, context);
-    });
-  return retVal;
-};
+// de_ClusterList omitted.
 
-/**
- * deserializeAws_restJson1ClusterSnapshot
- */
-const de_ClusterSnapshot = (output: any, context: __SerdeContext): ClusterSnapshot => {
-  return {
-    adminUserName: __expectString(output.adminUserName),
-    clusterArn: __expectString(output.clusterArn),
-    clusterCreationTime: __expectString(output.clusterCreationTime),
-    kmsKeyId: __expectString(output.kmsKeyId),
-    snapshotArn: __expectString(output.snapshotArn),
-    snapshotCreationTime: __expectString(output.snapshotCreationTime),
-    snapshotName: __expectString(output.snapshotName),
-    status: __expectString(output.status),
-    subnetIds: output.subnetIds != null ? de_StringList(output.subnetIds, context) : undefined,
-    vpcSecurityGroupIds:
-      output.vpcSecurityGroupIds != null ? de_StringList(output.vpcSecurityGroupIds, context) : undefined,
-  } as any;
-};
+// de_ClusterSnapshot omitted.
 
-/**
- * deserializeAws_restJson1ClusterSnapshotInList
- */
-const de_ClusterSnapshotInList = (output: any, context: __SerdeContext): ClusterSnapshotInList => {
-  return {
-    clusterArn: __expectString(output.clusterArn),
-    snapshotArn: __expectString(output.snapshotArn),
-    snapshotCreationTime: __expectString(output.snapshotCreationTime),
-    snapshotName: __expectString(output.snapshotName),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_ClusterSnapshotInList omitted.
 
-/**
- * deserializeAws_restJson1ClusterSnapshotList
- */
-const de_ClusterSnapshotList = (output: any, context: __SerdeContext): ClusterSnapshotInList[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ClusterSnapshotInList(entry, context);
-    });
-  return retVal;
-};
+// de_ClusterSnapshotList omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,20 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -134,7 +133,6 @@ import {
   GatewayRouteHostnameRewrite,
   GatewayRouteRef,
   GatewayRouteSpec,
-  GatewayRouteStatus,
   GatewayRouteTarget,
   GatewayRouteVirtualService,
   GrpcGatewayRoute,
@@ -187,7 +185,6 @@ import {
   MeshRef,
   MeshServiceDiscovery,
   MeshSpec,
-  MeshStatus,
   NotFoundException,
   OutlierDetection,
   PortMapping,
@@ -197,7 +194,6 @@ import {
   RouteData,
   RouteRef,
   RouteSpec,
-  RouteStatus,
   ServiceDiscovery,
   ServiceUnavailableException,
   SubjectAlternativeNameMatchers,
@@ -239,7 +235,6 @@ import {
   VirtualGatewayPortMapping,
   VirtualGatewayRef,
   VirtualGatewaySpec,
-  VirtualGatewayStatus,
   VirtualGatewayTlsValidationContext,
   VirtualGatewayTlsValidationContextAcmTrust,
   VirtualGatewayTlsValidationContextFileTrust,
@@ -253,20 +248,17 @@ import {
   VirtualNodeRef,
   VirtualNodeServiceProvider,
   VirtualNodeSpec,
-  VirtualNodeStatus,
   VirtualNodeTcpConnectionPool,
   VirtualRouterData,
   VirtualRouterListener,
   VirtualRouterRef,
   VirtualRouterServiceProvider,
   VirtualRouterSpec,
-  VirtualRouterStatus,
   VirtualServiceBackend,
   VirtualServiceData,
   VirtualServiceProvider,
   VirtualServiceRef,
   VirtualServiceSpec,
-  VirtualServiceStatus,
   WeightedTarget,
 } from "../models/models_0";
 
@@ -297,12 +289,14 @@ export const se_CreateGatewayRouteCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.gatewayRouteName != null && { gatewayRouteName: input.gatewayRouteName }),
-    ...(input.spec != null && { spec: se_GatewayRouteSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      gatewayRouteName: [],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -328,12 +322,14 @@ export const se_CreateMeshCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.meshName != null && { meshName: input.meshName }),
-    ...(input.spec != null && { spec: se_MeshSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      meshName: [],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -372,12 +368,14 @@ export const se_CreateRouteCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.routeName != null && { routeName: input.routeName }),
-    ...(input.spec != null && { spec: se_RouteSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      routeName: [],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -409,12 +407,14 @@ export const se_CreateVirtualGatewayCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_VirtualGatewaySpec(input.spec, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualGatewayName != null && { virtualGatewayName: input.virtualGatewayName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+      virtualGatewayName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -445,12 +445,14 @@ export const se_CreateVirtualNodeCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_VirtualNodeSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualNodeName != null && { virtualNodeName: input.virtualNodeName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+      virtualNodeName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -482,12 +484,14 @@ export const se_CreateVirtualRouterCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_VirtualRouterSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualRouterName != null && { virtualRouterName: input.virtualRouterName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+      virtualRouterName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -519,12 +523,14 @@ export const se_CreateVirtualServiceCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_VirtualServiceSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.virtualServiceName != null && { virtualServiceName: input.virtualServiceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+      virtualServiceName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1323,9 +1329,11 @@ export const se_TagResourceCommand = async (
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1354,9 +1362,11 @@ export const se_UntagResourceCommand = async (
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1404,10 +1414,12 @@ export const se_UpdateGatewayRouteCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_GatewayRouteSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1435,10 +1447,12 @@ export const se_UpdateMeshCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_MeshSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1478,10 +1492,12 @@ export const se_UpdateRouteCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_RouteSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1521,10 +1537,12 @@ export const se_UpdateVirtualGatewayCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_VirtualGatewaySpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1564,10 +1582,12 @@ export const se_UpdateVirtualNodeCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_VirtualNodeSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1607,10 +1627,12 @@ export const se_UpdateVirtualRouterCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_VirtualRouterSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1650,10 +1672,12 @@ export const se_UpdateVirtualServiceCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: se_VirtualServiceSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1723,10 +1747,9 @@ const de_CreateGatewayRouteCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1789,10 +1812,9 @@ const de_CreateMeshCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1855,10 +1877,9 @@ const de_CreateRouteCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1921,10 +1942,9 @@ const de_CreateVirtualGatewayCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1987,10 +2007,9 @@ const de_CreateVirtualNodeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2053,10 +2072,9 @@ const de_CreateVirtualRouterCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2119,10 +2137,9 @@ const de_CreateVirtualServiceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2182,10 +2199,9 @@ const de_DeleteGatewayRouteCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2245,10 +2261,9 @@ const de_DeleteMeshCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2308,10 +2323,9 @@ const de_DeleteRouteCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2371,10 +2385,9 @@ const de_DeleteVirtualGatewayCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2434,10 +2447,9 @@ const de_DeleteVirtualNodeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2497,10 +2509,9 @@ const de_DeleteVirtualRouterCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2560,10 +2571,9 @@ const de_DeleteVirtualServiceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2620,10 +2630,9 @@ const de_DescribeGatewayRouteCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2680,10 +2689,9 @@ const de_DescribeMeshCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2740,10 +2748,9 @@ const de_DescribeRouteCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2800,10 +2807,9 @@ const de_DescribeVirtualGatewayCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2860,10 +2866,9 @@ const de_DescribeVirtualNodeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2920,10 +2925,9 @@ const de_DescribeVirtualRouterCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2980,10 +2984,9 @@ const de_DescribeVirtualServiceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3003,12 +3006,11 @@ export const de_ListGatewayRoutesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gatewayRoutes != null) {
-    contents.gatewayRoutes = de_GatewayRouteList(data.gatewayRoutes, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    gatewayRoutes: (_) => de_GatewayRouteList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3045,10 +3047,9 @@ const de_ListGatewayRoutesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3068,12 +3069,11 @@ export const de_ListMeshesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.meshes != null) {
-    contents.meshes = de_MeshList(data.meshes, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    meshes: (_) => de_MeshList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3110,10 +3110,9 @@ const de_ListMeshesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3133,12 +3132,11 @@ export const de_ListRoutesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.routes != null) {
-    contents.routes = de_RouteList(data.routes, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    routes: (_) => de_RouteList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3175,10 +3173,9 @@ const de_ListRoutesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3198,12 +3195,11 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagList(data.tags, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3240,10 +3236,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3263,12 +3258,11 @@ export const de_ListVirtualGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualGateways != null) {
-    contents.virtualGateways = de_VirtualGatewayList(data.virtualGateways, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualGateways: (_) => de_VirtualGatewayList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3305,10 +3299,9 @@ const de_ListVirtualGatewaysCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3328,12 +3321,11 @@ export const de_ListVirtualNodesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualNodes != null) {
-    contents.virtualNodes = de_VirtualNodeList(data.virtualNodes, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualNodes: (_) => de_VirtualNodeList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3370,10 +3362,9 @@ const de_ListVirtualNodesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3393,12 +3384,11 @@ export const de_ListVirtualRoutersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualRouters != null) {
-    contents.virtualRouters = de_VirtualRouterList(data.virtualRouters, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualRouters: (_) => de_VirtualRouterList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3435,10 +3425,9 @@ const de_ListVirtualRoutersCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3458,12 +3447,11 @@ export const de_ListVirtualServicesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualServices != null) {
-    contents.virtualServices = de_VirtualServiceList(data.virtualServices, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualServices: (_) => de_VirtualServiceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3500,10 +3488,9 @@ const de_ListVirtualServicesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3562,10 +3549,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3621,10 +3607,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3687,10 +3672,9 @@ const de_UpdateGatewayRouteCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3750,10 +3734,9 @@ const de_UpdateMeshCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3816,10 +3799,9 @@ const de_UpdateRouteCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3882,10 +3864,9 @@ const de_UpdateVirtualGatewayCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3948,10 +3929,9 @@ const de_UpdateVirtualNodeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4014,10 +3994,9 @@ const de_UpdateVirtualRouterCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4080,25 +4059,25 @@ const de_UpdateVirtualServiceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4112,9 +4091,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4128,9 +4108,10 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4147,9 +4128,10 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4166,9 +4148,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4182,9 +4165,10 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4201,9 +4185,10 @@ const de_ResourceInUseExceptionRes = async (
 ): Promise<ResourceInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4220,9 +4205,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4239,9 +4225,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4258,9 +4245,10 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4268,1781 +4256,335 @@ const de_TooManyTagsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AccessLog
- */
-const se_AccessLog = (input: AccessLog, context: __SerdeContext): any => {
-  return AccessLog.visit(input, {
-    file: (value) => ({ file: se_FileAccessLog(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1AwsCloudMapInstanceAttribute
- */
-const se_AwsCloudMapInstanceAttribute = (input: AwsCloudMapInstanceAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_restJson1AwsCloudMapInstanceAttributes
- */
-const se_AwsCloudMapInstanceAttributes = (input: AwsCloudMapInstanceAttribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AwsCloudMapInstanceAttribute(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1AwsCloudMapServiceDiscovery
- */
-const se_AwsCloudMapServiceDiscovery = (input: AwsCloudMapServiceDiscovery, context: __SerdeContext): any => {
-  return {
-    ...(input.attributes != null && { attributes: se_AwsCloudMapInstanceAttributes(input.attributes, context) }),
-    ...(input.ipPreference != null && { ipPreference: input.ipPreference }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_restJson1Backend
- */
-const se_Backend = (input: Backend, context: __SerdeContext): any => {
-  return Backend.visit(input, {
-    virtualService: (value) => ({ virtualService: se_VirtualServiceBackend(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1BackendDefaults
- */
-const se_BackendDefaults = (input: BackendDefaults, context: __SerdeContext): any => {
-  return {
-    ...(input.clientPolicy != null && { clientPolicy: se_ClientPolicy(input.clientPolicy, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1Backends
- */
-const se_Backends = (input: Backend[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Backend(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1CertificateAuthorityArns
- */
-const se_CertificateAuthorityArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1ClientPolicy
- */
-const se_ClientPolicy = (input: ClientPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.tls != null && { tls: se_ClientPolicyTls(input.tls, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1ClientPolicyTls
- */
-const se_ClientPolicyTls = (input: ClientPolicyTls, context: __SerdeContext): any => {
-  return {
-    ...(input.certificate != null && { certificate: se_ClientTlsCertificate(input.certificate, context) }),
-    ...(input.enforce != null && { enforce: input.enforce }),
-    ...(input.ports != null && { ports: se_PortSet(input.ports, context) }),
-    ...(input.validation != null && { validation: se_TlsValidationContext(input.validation, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1ClientTlsCertificate
- */
-const se_ClientTlsCertificate = (input: ClientTlsCertificate, context: __SerdeContext): any => {
-  return ClientTlsCertificate.visit(input, {
-    file: (value) => ({ file: se_ListenerTlsFileCertificate(value, context) }),
-    sds: (value) => ({ sds: se_ListenerTlsSdsCertificate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1DnsServiceDiscovery
- */
-const se_DnsServiceDiscovery = (input: DnsServiceDiscovery, context: __SerdeContext): any => {
-  return {
-    ...(input.hostname != null && { hostname: input.hostname }),
-    ...(input.ipPreference != null && { ipPreference: input.ipPreference }),
-    ...(input.responseType != null && { responseType: input.responseType }),
-  };
-};
-
-/**
- * serializeAws_restJson1Duration
- */
-const se_Duration = (input: Duration, context: __SerdeContext): any => {
-  return {
-    ...(input.unit != null && { unit: input.unit }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_restJson1EgressFilter
- */
-const se_EgressFilter = (input: EgressFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.type != null && { type: input.type }),
-  };
-};
-
-/**
- * serializeAws_restJson1FileAccessLog
- */
-const se_FileAccessLog = (input: FileAccessLog, context: __SerdeContext): any => {
-  return {
-    ...(input.format != null && { format: se_LoggingFormat(input.format, context) }),
-    ...(input.path != null && { path: input.path }),
-  };
-};
-
-/**
- * serializeAws_restJson1GatewayRouteHostnameMatch
- */
-const se_GatewayRouteHostnameMatch = (input: GatewayRouteHostnameMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.exact != null && { exact: input.exact }),
-    ...(input.suffix != null && { suffix: input.suffix }),
-  };
-};
-
-/**
- * serializeAws_restJson1GatewayRouteHostnameRewrite
- */
-const se_GatewayRouteHostnameRewrite = (input: GatewayRouteHostnameRewrite, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultTargetHostname != null && { defaultTargetHostname: input.defaultTargetHostname }),
-  };
-};
-
-/**
- * serializeAws_restJson1GatewayRouteSpec
- */
-const se_GatewayRouteSpec = (input: GatewayRouteSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.grpcRoute != null && { grpcRoute: se_GrpcGatewayRoute(input.grpcRoute, context) }),
-    ...(input.http2Route != null && { http2Route: se_HttpGatewayRoute(input.http2Route, context) }),
-    ...(input.httpRoute != null && { httpRoute: se_HttpGatewayRoute(input.httpRoute, context) }),
-    ...(input.priority != null && { priority: input.priority }),
-  };
-};
-
-/**
- * serializeAws_restJson1GatewayRouteTarget
- */
-const se_GatewayRouteTarget = (input: GatewayRouteTarget, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-    ...(input.virtualService != null && {
-      virtualService: se_GatewayRouteVirtualService(input.virtualService, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1GatewayRouteVirtualService
- */
-const se_GatewayRouteVirtualService = (input: GatewayRouteVirtualService, context: __SerdeContext): any => {
-  return {
-    ...(input.virtualServiceName != null && { virtualServiceName: input.virtualServiceName }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcGatewayRoute
- */
-const se_GrpcGatewayRoute = (input: GrpcGatewayRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: se_GrpcGatewayRouteAction(input.action, context) }),
-    ...(input.match != null && { match: se_GrpcGatewayRouteMatch(input.match, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcGatewayRouteAction
- */
-const se_GrpcGatewayRouteAction = (input: GrpcGatewayRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.rewrite != null && { rewrite: se_GrpcGatewayRouteRewrite(input.rewrite, context) }),
-    ...(input.target != null && { target: se_GatewayRouteTarget(input.target, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcGatewayRouteMatch
- */
-const se_GrpcGatewayRouteMatch = (input: GrpcGatewayRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.hostname != null && { hostname: se_GatewayRouteHostnameMatch(input.hostname, context) }),
-    ...(input.metadata != null && { metadata: se_GrpcGatewayRouteMetadataList(input.metadata, context) }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcGatewayRouteMetadata
- */
-const se_GrpcGatewayRouteMetadata = (input: GrpcGatewayRouteMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.invert != null && { invert: input.invert }),
-    ...(input.match != null && { match: se_GrpcMetadataMatchMethod(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcGatewayRouteMetadataList
- */
-const se_GrpcGatewayRouteMetadataList = (input: GrpcGatewayRouteMetadata[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_GrpcGatewayRouteMetadata(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1GrpcGatewayRouteRewrite
- */
-const se_GrpcGatewayRouteRewrite = (input: GrpcGatewayRouteRewrite, context: __SerdeContext): any => {
-  return {
-    ...(input.hostname != null && { hostname: se_GatewayRouteHostnameRewrite(input.hostname, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcMetadataMatchMethod
- */
-const se_GrpcMetadataMatchMethod = (input: GrpcMetadataMatchMethod, context: __SerdeContext): any => {
-  return GrpcMetadataMatchMethod.visit(input, {
-    exact: (value) => ({ exact: value }),
-    prefix: (value) => ({ prefix: value }),
-    range: (value) => ({ range: se_MatchRange(value, context) }),
-    regex: (value) => ({ regex: value }),
-    suffix: (value) => ({ suffix: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1GrpcRetryPolicy
- */
-const se_GrpcRetryPolicy = (input: GrpcRetryPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.grpcRetryEvents != null && { grpcRetryEvents: se_GrpcRetryPolicyEvents(input.grpcRetryEvents, context) }),
-    ...(input.httpRetryEvents != null && { httpRetryEvents: se_HttpRetryPolicyEvents(input.httpRetryEvents, context) }),
-    ...(input.maxRetries != null && { maxRetries: input.maxRetries }),
-    ...(input.perRetryTimeout != null && { perRetryTimeout: se_Duration(input.perRetryTimeout, context) }),
-    ...(input.tcpRetryEvents != null && { tcpRetryEvents: se_TcpRetryPolicyEvents(input.tcpRetryEvents, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcRetryPolicyEvents
- */
-const se_GrpcRetryPolicyEvents = (input: (GrpcRetryPolicyEvent | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1GrpcRoute
- */
-const se_GrpcRoute = (input: GrpcRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: se_GrpcRouteAction(input.action, context) }),
-    ...(input.match != null && { match: se_GrpcRouteMatch(input.match, context) }),
-    ...(input.retryPolicy != null && { retryPolicy: se_GrpcRetryPolicy(input.retryPolicy, context) }),
-    ...(input.timeout != null && { timeout: se_GrpcTimeout(input.timeout, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcRouteAction
- */
-const se_GrpcRouteAction = (input: GrpcRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.weightedTargets != null && { weightedTargets: se_WeightedTargets(input.weightedTargets, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcRouteMatch
- */
-const se_GrpcRouteMatch = (input: GrpcRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.metadata != null && { metadata: se_GrpcRouteMetadataList(input.metadata, context) }),
-    ...(input.methodName != null && { methodName: input.methodName }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcRouteMetadata
- */
-const se_GrpcRouteMetadata = (input: GrpcRouteMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.invert != null && { invert: input.invert }),
-    ...(input.match != null && { match: se_GrpcRouteMetadataMatchMethod(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_restJson1GrpcRouteMetadataList
- */
-const se_GrpcRouteMetadataList = (input: GrpcRouteMetadata[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_GrpcRouteMetadata(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1GrpcRouteMetadataMatchMethod
- */
-const se_GrpcRouteMetadataMatchMethod = (input: GrpcRouteMetadataMatchMethod, context: __SerdeContext): any => {
-  return GrpcRouteMetadataMatchMethod.visit(input, {
-    exact: (value) => ({ exact: value }),
-    prefix: (value) => ({ prefix: value }),
-    range: (value) => ({ range: se_MatchRange(value, context) }),
-    regex: (value) => ({ regex: value }),
-    suffix: (value) => ({ suffix: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1GrpcTimeout
- */
-const se_GrpcTimeout = (input: GrpcTimeout, context: __SerdeContext): any => {
-  return {
-    ...(input.idle != null && { idle: se_Duration(input.idle, context) }),
-    ...(input.perRequest != null && { perRequest: se_Duration(input.perRequest, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1HeaderMatchMethod
- */
-const se_HeaderMatchMethod = (input: HeaderMatchMethod, context: __SerdeContext): any => {
-  return HeaderMatchMethod.visit(input, {
-    exact: (value) => ({ exact: value }),
-    prefix: (value) => ({ prefix: value }),
-    range: (value) => ({ range: se_MatchRange(value, context) }),
-    regex: (value) => ({ regex: value }),
-    suffix: (value) => ({ suffix: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1HealthCheckPolicy
- */
-const se_HealthCheckPolicy = (input: HealthCheckPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.healthyThreshold != null && { healthyThreshold: input.healthyThreshold }),
-    ...(input.intervalMillis != null && { intervalMillis: input.intervalMillis }),
-    ...(input.path != null && { path: input.path }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-    ...(input.timeoutMillis != null && { timeoutMillis: input.timeoutMillis }),
-    ...(input.unhealthyThreshold != null && { unhealthyThreshold: input.unhealthyThreshold }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpGatewayRoute
- */
-const se_HttpGatewayRoute = (input: HttpGatewayRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: se_HttpGatewayRouteAction(input.action, context) }),
-    ...(input.match != null && { match: se_HttpGatewayRouteMatch(input.match, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpGatewayRouteAction
- */
-const se_HttpGatewayRouteAction = (input: HttpGatewayRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.rewrite != null && { rewrite: se_HttpGatewayRouteRewrite(input.rewrite, context) }),
-    ...(input.target != null && { target: se_GatewayRouteTarget(input.target, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpGatewayRouteHeader
- */
-const se_HttpGatewayRouteHeader = (input: HttpGatewayRouteHeader, context: __SerdeContext): any => {
-  return {
-    ...(input.invert != null && { invert: input.invert }),
-    ...(input.match != null && { match: se_HeaderMatchMethod(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpGatewayRouteHeaders
- */
-const se_HttpGatewayRouteHeaders = (input: HttpGatewayRouteHeader[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HttpGatewayRouteHeader(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1HttpGatewayRouteMatch
- */
-const se_HttpGatewayRouteMatch = (input: HttpGatewayRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.headers != null && { headers: se_HttpGatewayRouteHeaders(input.headers, context) }),
-    ...(input.hostname != null && { hostname: se_GatewayRouteHostnameMatch(input.hostname, context) }),
-    ...(input.method != null && { method: input.method }),
-    ...(input.path != null && { path: se_HttpPathMatch(input.path, context) }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-    ...(input.queryParameters != null && { queryParameters: se_HttpQueryParameters(input.queryParameters, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpGatewayRoutePathRewrite
- */
-const se_HttpGatewayRoutePathRewrite = (input: HttpGatewayRoutePathRewrite, context: __SerdeContext): any => {
-  return {
-    ...(input.exact != null && { exact: input.exact }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpGatewayRoutePrefixRewrite
- */
-const se_HttpGatewayRoutePrefixRewrite = (input: HttpGatewayRoutePrefixRewrite, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultPrefix != null && { defaultPrefix: input.defaultPrefix }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpGatewayRouteRewrite
- */
-const se_HttpGatewayRouteRewrite = (input: HttpGatewayRouteRewrite, context: __SerdeContext): any => {
-  return {
-    ...(input.hostname != null && { hostname: se_GatewayRouteHostnameRewrite(input.hostname, context) }),
-    ...(input.path != null && { path: se_HttpGatewayRoutePathRewrite(input.path, context) }),
-    ...(input.prefix != null && { prefix: se_HttpGatewayRoutePrefixRewrite(input.prefix, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpPathMatch
- */
-const se_HttpPathMatch = (input: HttpPathMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.exact != null && { exact: input.exact }),
-    ...(input.regex != null && { regex: input.regex }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpQueryParameter
- */
-const se_HttpQueryParameter = (input: HttpQueryParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.match != null && { match: se_QueryParameterMatch(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpQueryParameters
- */
-const se_HttpQueryParameters = (input: HttpQueryParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HttpQueryParameter(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1HttpRetryPolicy
- */
-const se_HttpRetryPolicy = (input: HttpRetryPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.httpRetryEvents != null && { httpRetryEvents: se_HttpRetryPolicyEvents(input.httpRetryEvents, context) }),
-    ...(input.maxRetries != null && { maxRetries: input.maxRetries }),
-    ...(input.perRetryTimeout != null && { perRetryTimeout: se_Duration(input.perRetryTimeout, context) }),
-    ...(input.tcpRetryEvents != null && { tcpRetryEvents: se_TcpRetryPolicyEvents(input.tcpRetryEvents, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpRetryPolicyEvents
- */
-const se_HttpRetryPolicyEvents = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1HttpRoute
- */
-const se_HttpRoute = (input: HttpRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: se_HttpRouteAction(input.action, context) }),
-    ...(input.match != null && { match: se_HttpRouteMatch(input.match, context) }),
-    ...(input.retryPolicy != null && { retryPolicy: se_HttpRetryPolicy(input.retryPolicy, context) }),
-    ...(input.timeout != null && { timeout: se_HttpTimeout(input.timeout, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpRouteAction
- */
-const se_HttpRouteAction = (input: HttpRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.weightedTargets != null && { weightedTargets: se_WeightedTargets(input.weightedTargets, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpRouteHeader
- */
-const se_HttpRouteHeader = (input: HttpRouteHeader, context: __SerdeContext): any => {
-  return {
-    ...(input.invert != null && { invert: input.invert }),
-    ...(input.match != null && { match: se_HeaderMatchMethod(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpRouteHeaders
- */
-const se_HttpRouteHeaders = (input: HttpRouteHeader[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HttpRouteHeader(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1HttpRouteMatch
- */
-const se_HttpRouteMatch = (input: HttpRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.headers != null && { headers: se_HttpRouteHeaders(input.headers, context) }),
-    ...(input.method != null && { method: input.method }),
-    ...(input.path != null && { path: se_HttpPathMatch(input.path, context) }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-    ...(input.queryParameters != null && { queryParameters: se_HttpQueryParameters(input.queryParameters, context) }),
-    ...(input.scheme != null && { scheme: input.scheme }),
-  };
-};
-
-/**
- * serializeAws_restJson1HttpTimeout
- */
-const se_HttpTimeout = (input: HttpTimeout, context: __SerdeContext): any => {
-  return {
-    ...(input.idle != null && { idle: se_Duration(input.idle, context) }),
-    ...(input.perRequest != null && { perRequest: se_Duration(input.perRequest, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1JsonFormat
- */
-const se_JsonFormat = (input: JsonFormatRef[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_JsonFormatRef(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1JsonFormatRef
- */
-const se_JsonFormatRef = (input: JsonFormatRef, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_restJson1Listener
- */
-const se_Listener = (input: Listener, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionPool != null && {
-      connectionPool: se_VirtualNodeConnectionPool(input.connectionPool, context),
-    }),
-    ...(input.healthCheck != null && { healthCheck: se_HealthCheckPolicy(input.healthCheck, context) }),
-    ...(input.outlierDetection != null && { outlierDetection: se_OutlierDetection(input.outlierDetection, context) }),
-    ...(input.portMapping != null && { portMapping: se_PortMapping(input.portMapping, context) }),
-    ...(input.timeout != null && { timeout: se_ListenerTimeout(input.timeout, context) }),
-    ...(input.tls != null && { tls: se_ListenerTls(input.tls, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1Listeners
- */
-const se_Listeners = (input: Listener[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Listener(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1ListenerTimeout
- */
-const se_ListenerTimeout = (input: ListenerTimeout, context: __SerdeContext): any => {
-  return ListenerTimeout.visit(input, {
-    grpc: (value) => ({ grpc: se_GrpcTimeout(value, context) }),
-    http: (value) => ({ http: se_HttpTimeout(value, context) }),
-    http2: (value) => ({ http2: se_HttpTimeout(value, context) }),
-    tcp: (value) => ({ tcp: se_TcpTimeout(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1ListenerTls
- */
-const se_ListenerTls = (input: ListenerTls, context: __SerdeContext): any => {
-  return {
-    ...(input.certificate != null && { certificate: se_ListenerTlsCertificate(input.certificate, context) }),
-    ...(input.mode != null && { mode: input.mode }),
-    ...(input.validation != null && { validation: se_ListenerTlsValidationContext(input.validation, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1ListenerTlsAcmCertificate
- */
-const se_ListenerTlsAcmCertificate = (input: ListenerTlsAcmCertificate, context: __SerdeContext): any => {
-  return {
-    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
-  };
-};
-
-/**
- * serializeAws_restJson1ListenerTlsCertificate
- */
-const se_ListenerTlsCertificate = (input: ListenerTlsCertificate, context: __SerdeContext): any => {
-  return ListenerTlsCertificate.visit(input, {
-    acm: (value) => ({ acm: se_ListenerTlsAcmCertificate(value, context) }),
-    file: (value) => ({ file: se_ListenerTlsFileCertificate(value, context) }),
-    sds: (value) => ({ sds: se_ListenerTlsSdsCertificate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1ListenerTlsFileCertificate
- */
-const se_ListenerTlsFileCertificate = (input: ListenerTlsFileCertificate, context: __SerdeContext): any => {
-  return {
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-    ...(input.privateKey != null && { privateKey: input.privateKey }),
-  };
-};
-
-/**
- * serializeAws_restJson1ListenerTlsSdsCertificate
- */
-const se_ListenerTlsSdsCertificate = (input: ListenerTlsSdsCertificate, context: __SerdeContext): any => {
-  return {
-    ...(input.secretName != null && { secretName: input.secretName }),
-  };
-};
-
-/**
- * serializeAws_restJson1ListenerTlsValidationContext
- */
-const se_ListenerTlsValidationContext = (input: ListenerTlsValidationContext, context: __SerdeContext): any => {
-  return {
-    ...(input.subjectAlternativeNames != null && {
-      subjectAlternativeNames: se_SubjectAlternativeNames(input.subjectAlternativeNames, context),
-    }),
-    ...(input.trust != null && { trust: se_ListenerTlsValidationContextTrust(input.trust, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1ListenerTlsValidationContextTrust
- */
-const se_ListenerTlsValidationContextTrust = (
-  input: ListenerTlsValidationContextTrust,
-  context: __SerdeContext
-): any => {
-  return ListenerTlsValidationContextTrust.visit(input, {
-    file: (value) => ({ file: se_TlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: se_TlsValidationContextSdsTrust(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1Logging
- */
-const se_Logging = (input: Logging, context: __SerdeContext): any => {
-  return {
-    ...(input.accessLog != null && { accessLog: se_AccessLog(input.accessLog, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1LoggingFormat
- */
-const se_LoggingFormat = (input: LoggingFormat, context: __SerdeContext): any => {
-  return LoggingFormat.visit(input, {
-    json: (value) => ({ json: se_JsonFormat(value, context) }),
-    text: (value) => ({ text: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1MatchRange
- */
-const se_MatchRange = (input: MatchRange, context: __SerdeContext): any => {
-  return {
-    ...(input.end != null && { end: input.end }),
-    ...(input.start != null && { start: input.start }),
-  };
-};
-
-/**
- * serializeAws_restJson1MeshServiceDiscovery
- */
-const se_MeshServiceDiscovery = (input: MeshServiceDiscovery, context: __SerdeContext): any => {
-  return {
-    ...(input.ipPreference != null && { ipPreference: input.ipPreference }),
-  };
-};
-
-/**
- * serializeAws_restJson1MeshSpec
- */
-const se_MeshSpec = (input: MeshSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.egressFilter != null && { egressFilter: se_EgressFilter(input.egressFilter, context) }),
-    ...(input.serviceDiscovery != null && {
-      serviceDiscovery: se_MeshServiceDiscovery(input.serviceDiscovery, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1OutlierDetection
- */
-const se_OutlierDetection = (input: OutlierDetection, context: __SerdeContext): any => {
-  return {
-    ...(input.baseEjectionDuration != null && {
-      baseEjectionDuration: se_Duration(input.baseEjectionDuration, context),
-    }),
-    ...(input.interval != null && { interval: se_Duration(input.interval, context) }),
-    ...(input.maxEjectionPercent != null && { maxEjectionPercent: input.maxEjectionPercent }),
-    ...(input.maxServerErrors != null && { maxServerErrors: input.maxServerErrors }),
-  };
-};
-
-/**
- * serializeAws_restJson1PortMapping
- */
-const se_PortMapping = (input: PortMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-  };
-};
-
-/**
- * serializeAws_restJson1PortSet
- */
-const se_PortSet = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1QueryParameterMatch
- */
-const se_QueryParameterMatch = (input: QueryParameterMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.exact != null && { exact: input.exact }),
-  };
-};
-
-/**
- * serializeAws_restJson1RouteSpec
- */
-const se_RouteSpec = (input: RouteSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.grpcRoute != null && { grpcRoute: se_GrpcRoute(input.grpcRoute, context) }),
-    ...(input.http2Route != null && { http2Route: se_HttpRoute(input.http2Route, context) }),
-    ...(input.httpRoute != null && { httpRoute: se_HttpRoute(input.httpRoute, context) }),
-    ...(input.priority != null && { priority: input.priority }),
-    ...(input.tcpRoute != null && { tcpRoute: se_TcpRoute(input.tcpRoute, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1ServiceDiscovery
- */
-const se_ServiceDiscovery = (input: ServiceDiscovery, context: __SerdeContext): any => {
-  return ServiceDiscovery.visit(input, {
-    awsCloudMap: (value) => ({ awsCloudMap: se_AwsCloudMapServiceDiscovery(value, context) }),
-    dns: (value) => ({ dns: se_DnsServiceDiscovery(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1SubjectAlternativeNameList
- */
-const se_SubjectAlternativeNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1SubjectAlternativeNameMatchers
- */
-const se_SubjectAlternativeNameMatchers = (input: SubjectAlternativeNameMatchers, context: __SerdeContext): any => {
-  return {
-    ...(input.exact != null && { exact: se_SubjectAlternativeNameList(input.exact, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1SubjectAlternativeNames
- */
-const se_SubjectAlternativeNames = (input: SubjectAlternativeNames, context: __SerdeContext): any => {
-  return {
-    ...(input.match != null && { match: se_SubjectAlternativeNameMatchers(input.match, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: TagRef[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TagRef(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1TagRef
- */
-const se_TagRef = (input: TagRef, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-/**
- * serializeAws_restJson1TcpRetryPolicyEvents
- */
-const se_TcpRetryPolicyEvents = (input: (TcpRetryPolicyEvent | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1TcpRoute
- */
-const se_TcpRoute = (input: TcpRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: se_TcpRouteAction(input.action, context) }),
-    ...(input.match != null && { match: se_TcpRouteMatch(input.match, context) }),
-    ...(input.timeout != null && { timeout: se_TcpTimeout(input.timeout, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1TcpRouteAction
- */
-const se_TcpRouteAction = (input: TcpRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.weightedTargets != null && { weightedTargets: se_WeightedTargets(input.weightedTargets, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1TcpRouteMatch
- */
-const se_TcpRouteMatch = (input: TcpRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-  };
-};
-
-/**
- * serializeAws_restJson1TcpTimeout
- */
-const se_TcpTimeout = (input: TcpTimeout, context: __SerdeContext): any => {
-  return {
-    ...(input.idle != null && { idle: se_Duration(input.idle, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1TlsValidationContext
- */
-const se_TlsValidationContext = (input: TlsValidationContext, context: __SerdeContext): any => {
-  return {
-    ...(input.subjectAlternativeNames != null && {
-      subjectAlternativeNames: se_SubjectAlternativeNames(input.subjectAlternativeNames, context),
-    }),
-    ...(input.trust != null && { trust: se_TlsValidationContextTrust(input.trust, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1TlsValidationContextAcmTrust
- */
-const se_TlsValidationContextAcmTrust = (input: TlsValidationContextAcmTrust, context: __SerdeContext): any => {
-  return {
-    ...(input.certificateAuthorityArns != null && {
-      certificateAuthorityArns: se_CertificateAuthorityArns(input.certificateAuthorityArns, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1TlsValidationContextFileTrust
- */
-const se_TlsValidationContextFileTrust = (input: TlsValidationContextFileTrust, context: __SerdeContext): any => {
-  return {
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-  };
-};
-
-/**
- * serializeAws_restJson1TlsValidationContextSdsTrust
- */
-const se_TlsValidationContextSdsTrust = (input: TlsValidationContextSdsTrust, context: __SerdeContext): any => {
-  return {
-    ...(input.secretName != null && { secretName: input.secretName }),
-  };
-};
-
-/**
- * serializeAws_restJson1TlsValidationContextTrust
- */
-const se_TlsValidationContextTrust = (input: TlsValidationContextTrust, context: __SerdeContext): any => {
-  return TlsValidationContextTrust.visit(input, {
-    acm: (value) => ({ acm: se_TlsValidationContextAcmTrust(value, context) }),
-    file: (value) => ({ file: se_TlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: se_TlsValidationContextSdsTrust(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayAccessLog
- */
-const se_VirtualGatewayAccessLog = (input: VirtualGatewayAccessLog, context: __SerdeContext): any => {
-  return VirtualGatewayAccessLog.visit(input, {
-    file: (value) => ({ file: se_VirtualGatewayFileAccessLog(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayBackendDefaults
- */
-const se_VirtualGatewayBackendDefaults = (input: VirtualGatewayBackendDefaults, context: __SerdeContext): any => {
-  return {
-    ...(input.clientPolicy != null && { clientPolicy: se_VirtualGatewayClientPolicy(input.clientPolicy, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayCertificateAuthorityArns
- */
-const se_VirtualGatewayCertificateAuthorityArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayClientPolicy
- */
-const se_VirtualGatewayClientPolicy = (input: VirtualGatewayClientPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.tls != null && { tls: se_VirtualGatewayClientPolicyTls(input.tls, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayClientPolicyTls
- */
-const se_VirtualGatewayClientPolicyTls = (input: VirtualGatewayClientPolicyTls, context: __SerdeContext): any => {
-  return {
-    ...(input.certificate != null && {
-      certificate: se_VirtualGatewayClientTlsCertificate(input.certificate, context),
-    }),
-    ...(input.enforce != null && { enforce: input.enforce }),
-    ...(input.ports != null && { ports: se_PortSet(input.ports, context) }),
-    ...(input.validation != null && { validation: se_VirtualGatewayTlsValidationContext(input.validation, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayClientTlsCertificate
- */
-const se_VirtualGatewayClientTlsCertificate = (
-  input: VirtualGatewayClientTlsCertificate,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayClientTlsCertificate.visit(input, {
-    file: (value) => ({ file: se_VirtualGatewayListenerTlsFileCertificate(value, context) }),
-    sds: (value) => ({ sds: se_VirtualGatewayListenerTlsSdsCertificate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayConnectionPool
- */
-const se_VirtualGatewayConnectionPool = (input: VirtualGatewayConnectionPool, context: __SerdeContext): any => {
-  return VirtualGatewayConnectionPool.visit(input, {
-    grpc: (value) => ({ grpc: se_VirtualGatewayGrpcConnectionPool(value, context) }),
-    http: (value) => ({ http: se_VirtualGatewayHttpConnectionPool(value, context) }),
-    http2: (value) => ({ http2: se_VirtualGatewayHttp2ConnectionPool(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayFileAccessLog
- */
-const se_VirtualGatewayFileAccessLog = (input: VirtualGatewayFileAccessLog, context: __SerdeContext): any => {
-  return {
-    ...(input.format != null && { format: se_LoggingFormat(input.format, context) }),
-    ...(input.path != null && { path: input.path }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayGrpcConnectionPool
- */
-const se_VirtualGatewayGrpcConnectionPool = (input: VirtualGatewayGrpcConnectionPool, context: __SerdeContext): any => {
-  return {
-    ...(input.maxRequests != null && { maxRequests: input.maxRequests }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayHealthCheckPolicy
- */
-const se_VirtualGatewayHealthCheckPolicy = (input: VirtualGatewayHealthCheckPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.healthyThreshold != null && { healthyThreshold: input.healthyThreshold }),
-    ...(input.intervalMillis != null && { intervalMillis: input.intervalMillis }),
-    ...(input.path != null && { path: input.path }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-    ...(input.timeoutMillis != null && { timeoutMillis: input.timeoutMillis }),
-    ...(input.unhealthyThreshold != null && { unhealthyThreshold: input.unhealthyThreshold }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayHttp2ConnectionPool
- */
-const se_VirtualGatewayHttp2ConnectionPool = (
-  input: VirtualGatewayHttp2ConnectionPool,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxRequests != null && { maxRequests: input.maxRequests }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayHttpConnectionPool
- */
-const se_VirtualGatewayHttpConnectionPool = (input: VirtualGatewayHttpConnectionPool, context: __SerdeContext): any => {
-  return {
-    ...(input.maxConnections != null && { maxConnections: input.maxConnections }),
-    ...(input.maxPendingRequests != null && { maxPendingRequests: input.maxPendingRequests }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListener
- */
-const se_VirtualGatewayListener = (input: VirtualGatewayListener, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionPool != null && {
-      connectionPool: se_VirtualGatewayConnectionPool(input.connectionPool, context),
-    }),
-    ...(input.healthCheck != null && { healthCheck: se_VirtualGatewayHealthCheckPolicy(input.healthCheck, context) }),
-    ...(input.portMapping != null && { portMapping: se_VirtualGatewayPortMapping(input.portMapping, context) }),
-    ...(input.tls != null && { tls: se_VirtualGatewayListenerTls(input.tls, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListeners
- */
-const se_VirtualGatewayListeners = (input: VirtualGatewayListener[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_VirtualGatewayListener(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListenerTls
- */
-const se_VirtualGatewayListenerTls = (input: VirtualGatewayListenerTls, context: __SerdeContext): any => {
-  return {
-    ...(input.certificate != null && {
-      certificate: se_VirtualGatewayListenerTlsCertificate(input.certificate, context),
-    }),
-    ...(input.mode != null && { mode: input.mode }),
-    ...(input.validation != null && {
-      validation: se_VirtualGatewayListenerTlsValidationContext(input.validation, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate
- */
-const se_VirtualGatewayListenerTlsAcmCertificate = (
-  input: VirtualGatewayListenerTlsAcmCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListenerTlsCertificate
- */
-const se_VirtualGatewayListenerTlsCertificate = (
-  input: VirtualGatewayListenerTlsCertificate,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayListenerTlsCertificate.visit(input, {
-    acm: (value) => ({ acm: se_VirtualGatewayListenerTlsAcmCertificate(value, context) }),
-    file: (value) => ({ file: se_VirtualGatewayListenerTlsFileCertificate(value, context) }),
-    sds: (value) => ({ sds: se_VirtualGatewayListenerTlsSdsCertificate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate
- */
-const se_VirtualGatewayListenerTlsFileCertificate = (
-  input: VirtualGatewayListenerTlsFileCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-    ...(input.privateKey != null && { privateKey: input.privateKey }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate
- */
-const se_VirtualGatewayListenerTlsSdsCertificate = (
-  input: VirtualGatewayListenerTlsSdsCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.secretName != null && { secretName: input.secretName }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListenerTlsValidationContext
- */
-const se_VirtualGatewayListenerTlsValidationContext = (
-  input: VirtualGatewayListenerTlsValidationContext,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.subjectAlternativeNames != null && {
-      subjectAlternativeNames: se_SubjectAlternativeNames(input.subjectAlternativeNames, context),
-    }),
-    ...(input.trust != null && { trust: se_VirtualGatewayListenerTlsValidationContextTrust(input.trust, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust
- */
-const se_VirtualGatewayListenerTlsValidationContextTrust = (
-  input: VirtualGatewayListenerTlsValidationContextTrust,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayListenerTlsValidationContextTrust.visit(input, {
-    file: (value) => ({ file: se_VirtualGatewayTlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: se_VirtualGatewayTlsValidationContextSdsTrust(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayLogging
- */
-const se_VirtualGatewayLogging = (input: VirtualGatewayLogging, context: __SerdeContext): any => {
-  return {
-    ...(input.accessLog != null && { accessLog: se_VirtualGatewayAccessLog(input.accessLog, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayPortMapping
- */
-const se_VirtualGatewayPortMapping = (input: VirtualGatewayPortMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewaySpec
- */
-const se_VirtualGatewaySpec = (input: VirtualGatewaySpec, context: __SerdeContext): any => {
-  return {
-    ...(input.backendDefaults != null && {
-      backendDefaults: se_VirtualGatewayBackendDefaults(input.backendDefaults, context),
-    }),
-    ...(input.listeners != null && { listeners: se_VirtualGatewayListeners(input.listeners, context) }),
-    ...(input.logging != null && { logging: se_VirtualGatewayLogging(input.logging, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayTlsValidationContext
- */
-const se_VirtualGatewayTlsValidationContext = (
-  input: VirtualGatewayTlsValidationContext,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.subjectAlternativeNames != null && {
-      subjectAlternativeNames: se_SubjectAlternativeNames(input.subjectAlternativeNames, context),
-    }),
-    ...(input.trust != null && { trust: se_VirtualGatewayTlsValidationContextTrust(input.trust, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust
- */
-const se_VirtualGatewayTlsValidationContextAcmTrust = (
-  input: VirtualGatewayTlsValidationContextAcmTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateAuthorityArns != null && {
-      certificateAuthorityArns: se_VirtualGatewayCertificateAuthorityArns(input.certificateAuthorityArns, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust
- */
-const se_VirtualGatewayTlsValidationContextFileTrust = (
-  input: VirtualGatewayTlsValidationContextFileTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust
- */
-const se_VirtualGatewayTlsValidationContextSdsTrust = (
-  input: VirtualGatewayTlsValidationContextSdsTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.secretName != null && { secretName: input.secretName }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualGatewayTlsValidationContextTrust
- */
-const se_VirtualGatewayTlsValidationContextTrust = (
-  input: VirtualGatewayTlsValidationContextTrust,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayTlsValidationContextTrust.visit(input, {
-    acm: (value) => ({ acm: se_VirtualGatewayTlsValidationContextAcmTrust(value, context) }),
-    file: (value) => ({ file: se_VirtualGatewayTlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: se_VirtualGatewayTlsValidationContextSdsTrust(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualNodeConnectionPool
- */
-const se_VirtualNodeConnectionPool = (input: VirtualNodeConnectionPool, context: __SerdeContext): any => {
-  return VirtualNodeConnectionPool.visit(input, {
-    grpc: (value) => ({ grpc: se_VirtualNodeGrpcConnectionPool(value, context) }),
-    http: (value) => ({ http: se_VirtualNodeHttpConnectionPool(value, context) }),
-    http2: (value) => ({ http2: se_VirtualNodeHttp2ConnectionPool(value, context) }),
-    tcp: (value) => ({ tcp: se_VirtualNodeTcpConnectionPool(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualNodeGrpcConnectionPool
- */
-const se_VirtualNodeGrpcConnectionPool = (input: VirtualNodeGrpcConnectionPool, context: __SerdeContext): any => {
-  return {
-    ...(input.maxRequests != null && { maxRequests: input.maxRequests }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualNodeHttp2ConnectionPool
- */
-const se_VirtualNodeHttp2ConnectionPool = (input: VirtualNodeHttp2ConnectionPool, context: __SerdeContext): any => {
-  return {
-    ...(input.maxRequests != null && { maxRequests: input.maxRequests }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualNodeHttpConnectionPool
- */
-const se_VirtualNodeHttpConnectionPool = (input: VirtualNodeHttpConnectionPool, context: __SerdeContext): any => {
-  return {
-    ...(input.maxConnections != null && { maxConnections: input.maxConnections }),
-    ...(input.maxPendingRequests != null && { maxPendingRequests: input.maxPendingRequests }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualNodeServiceProvider
- */
-const se_VirtualNodeServiceProvider = (input: VirtualNodeServiceProvider, context: __SerdeContext): any => {
-  return {
-    ...(input.virtualNodeName != null && { virtualNodeName: input.virtualNodeName }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualNodeSpec
- */
-const se_VirtualNodeSpec = (input: VirtualNodeSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.backendDefaults != null && { backendDefaults: se_BackendDefaults(input.backendDefaults, context) }),
-    ...(input.backends != null && { backends: se_Backends(input.backends, context) }),
-    ...(input.listeners != null && { listeners: se_Listeners(input.listeners, context) }),
-    ...(input.logging != null && { logging: se_Logging(input.logging, context) }),
-    ...(input.serviceDiscovery != null && { serviceDiscovery: se_ServiceDiscovery(input.serviceDiscovery, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualNodeTcpConnectionPool
- */
-const se_VirtualNodeTcpConnectionPool = (input: VirtualNodeTcpConnectionPool, context: __SerdeContext): any => {
-  return {
-    ...(input.maxConnections != null && { maxConnections: input.maxConnections }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualRouterListener
- */
-const se_VirtualRouterListener = (input: VirtualRouterListener, context: __SerdeContext): any => {
-  return {
-    ...(input.portMapping != null && { portMapping: se_PortMapping(input.portMapping, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualRouterListeners
- */
-const se_VirtualRouterListeners = (input: VirtualRouterListener[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_VirtualRouterListener(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1VirtualRouterServiceProvider
- */
-const se_VirtualRouterServiceProvider = (input: VirtualRouterServiceProvider, context: __SerdeContext): any => {
-  return {
-    ...(input.virtualRouterName != null && { virtualRouterName: input.virtualRouterName }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualRouterSpec
- */
-const se_VirtualRouterSpec = (input: VirtualRouterSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.listeners != null && { listeners: se_VirtualRouterListeners(input.listeners, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualServiceBackend
- */
-const se_VirtualServiceBackend = (input: VirtualServiceBackend, context: __SerdeContext): any => {
-  return {
-    ...(input.clientPolicy != null && { clientPolicy: se_ClientPolicy(input.clientPolicy, context) }),
-    ...(input.virtualServiceName != null && { virtualServiceName: input.virtualServiceName }),
-  };
-};
-
-/**
- * serializeAws_restJson1VirtualServiceProvider
- */
-const se_VirtualServiceProvider = (input: VirtualServiceProvider, context: __SerdeContext): any => {
-  return VirtualServiceProvider.visit(input, {
-    virtualNode: (value) => ({ virtualNode: se_VirtualNodeServiceProvider(value, context) }),
-    virtualRouter: (value) => ({ virtualRouter: se_VirtualRouterServiceProvider(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-/**
- * serializeAws_restJson1VirtualServiceSpec
- */
-const se_VirtualServiceSpec = (input: VirtualServiceSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.provider != null && { provider: se_VirtualServiceProvider(input.provider, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1WeightedTarget
- */
-const se_WeightedTarget = (input: WeightedTarget, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-    ...(input.virtualNode != null && { virtualNode: input.virtualNode }),
-    ...(input.weight != null && { weight: input.weight }),
-  };
-};
-
-/**
- * serializeAws_restJson1WeightedTargets
- */
-const se_WeightedTargets = (input: WeightedTarget[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WeightedTarget(entry, context);
-    });
-};
-
-/**
- * deserializeAws_restJson1AccessLog
- */
-const de_AccessLog = (output: any, context: __SerdeContext): AccessLog => {
-  if (output.file != null) {
-    return {
-      file: de_FileAccessLog(output.file, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-/**
- * deserializeAws_restJson1AwsCloudMapInstanceAttribute
- */
-const de_AwsCloudMapInstanceAttribute = (output: any, context: __SerdeContext): AwsCloudMapInstanceAttribute => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1AwsCloudMapInstanceAttributes
- */
-const de_AwsCloudMapInstanceAttributes = (output: any, context: __SerdeContext): AwsCloudMapInstanceAttribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AwsCloudMapInstanceAttribute(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1AwsCloudMapServiceDiscovery
- */
-const de_AwsCloudMapServiceDiscovery = (output: any, context: __SerdeContext): AwsCloudMapServiceDiscovery => {
-  return {
-    attributes: output.attributes != null ? de_AwsCloudMapInstanceAttributes(output.attributes, context) : undefined,
-    ipPreference: __expectString(output.ipPreference),
-    namespaceName: __expectString(output.namespaceName),
-    serviceName: __expectString(output.serviceName),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1Backend
- */
-const de_Backend = (output: any, context: __SerdeContext): Backend => {
-  if (output.virtualService != null) {
-    return {
-      virtualService: de_VirtualServiceBackend(output.virtualService, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-/**
- * deserializeAws_restJson1BackendDefaults
- */
-const de_BackendDefaults = (output: any, context: __SerdeContext): BackendDefaults => {
-  return {
-    clientPolicy: output.clientPolicy != null ? de_ClientPolicy(output.clientPolicy, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1Backends
- */
-const de_Backends = (output: any, context: __SerdeContext): Backend[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Backend(__expectUnion(entry), context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1CertificateAuthorityArns
- */
-const de_CertificateAuthorityArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1ClientPolicy
- */
-const de_ClientPolicy = (output: any, context: __SerdeContext): ClientPolicy => {
-  return {
-    tls: output.tls != null ? de_ClientPolicyTls(output.tls, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1ClientPolicyTls
- */
-const de_ClientPolicyTls = (output: any, context: __SerdeContext): ClientPolicyTls => {
-  return {
-    certificate:
-      output.certificate != null ? de_ClientTlsCertificate(__expectUnion(output.certificate), context) : undefined,
-    enforce: __expectBoolean(output.enforce),
-    ports: output.ports != null ? de_PortSet(output.ports, context) : undefined,
-    validation: output.validation != null ? de_TlsValidationContext(output.validation, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1ClientTlsCertificate
- */
-const de_ClientTlsCertificate = (output: any, context: __SerdeContext): ClientTlsCertificate => {
-  if (output.file != null) {
-    return {
-      file: de_ListenerTlsFileCertificate(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: de_ListenerTlsSdsCertificate(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-/**
- * deserializeAws_restJson1DnsServiceDiscovery
- */
-const de_DnsServiceDiscovery = (output: any, context: __SerdeContext): DnsServiceDiscovery => {
-  return {
-    hostname: __expectString(output.hostname),
-    ipPreference: __expectString(output.ipPreference),
-    responseType: __expectString(output.responseType),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1Duration
- */
-const de_Duration = (output: any, context: __SerdeContext): Duration => {
-  return {
-    unit: __expectString(output.unit),
-    value: __expectLong(output.value),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1EgressFilter
- */
-const de_EgressFilter = (output: any, context: __SerdeContext): EgressFilter => {
-  return {
-    type: __expectString(output.type),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1FileAccessLog
- */
-const de_FileAccessLog = (output: any, context: __SerdeContext): FileAccessLog => {
-  return {
-    format: output.format != null ? de_LoggingFormat(__expectUnion(output.format), context) : undefined,
-    path: __expectString(output.path),
-  } as any;
-};
+// se_AccessLog omitted.
+
+// se_AwsCloudMapInstanceAttribute omitted.
+
+// se_AwsCloudMapInstanceAttributes omitted.
+
+// se_AwsCloudMapServiceDiscovery omitted.
+
+// se_Backend omitted.
+
+// se_BackendDefaults omitted.
+
+// se_Backends omitted.
+
+// se_CertificateAuthorityArns omitted.
+
+// se_ClientPolicy omitted.
+
+// se_ClientPolicyTls omitted.
+
+// se_ClientTlsCertificate omitted.
+
+// se_DnsServiceDiscovery omitted.
+
+// se_Duration omitted.
+
+// se_EgressFilter omitted.
+
+// se_FileAccessLog omitted.
+
+// se_GatewayRouteHostnameMatch omitted.
+
+// se_GatewayRouteHostnameRewrite omitted.
+
+// se_GatewayRouteSpec omitted.
+
+// se_GatewayRouteTarget omitted.
+
+// se_GatewayRouteVirtualService omitted.
+
+// se_GrpcGatewayRoute omitted.
+
+// se_GrpcGatewayRouteAction omitted.
+
+// se_GrpcGatewayRouteMatch omitted.
+
+// se_GrpcGatewayRouteMetadata omitted.
+
+// se_GrpcGatewayRouteMetadataList omitted.
+
+// se_GrpcGatewayRouteRewrite omitted.
+
+// se_GrpcMetadataMatchMethod omitted.
+
+// se_GrpcRetryPolicy omitted.
+
+// se_GrpcRetryPolicyEvents omitted.
+
+// se_GrpcRoute omitted.
+
+// se_GrpcRouteAction omitted.
+
+// se_GrpcRouteMatch omitted.
+
+// se_GrpcRouteMetadata omitted.
+
+// se_GrpcRouteMetadataList omitted.
+
+// se_GrpcRouteMetadataMatchMethod omitted.
+
+// se_GrpcTimeout omitted.
+
+// se_HeaderMatchMethod omitted.
+
+// se_HealthCheckPolicy omitted.
+
+// se_HttpGatewayRoute omitted.
+
+// se_HttpGatewayRouteAction omitted.
+
+// se_HttpGatewayRouteHeader omitted.
+
+// se_HttpGatewayRouteHeaders omitted.
+
+// se_HttpGatewayRouteMatch omitted.
+
+// se_HttpGatewayRoutePathRewrite omitted.
+
+// se_HttpGatewayRoutePrefixRewrite omitted.
+
+// se_HttpGatewayRouteRewrite omitted.
+
+// se_HttpPathMatch omitted.
+
+// se_HttpQueryParameter omitted.
+
+// se_HttpQueryParameters omitted.
+
+// se_HttpRetryPolicy omitted.
+
+// se_HttpRetryPolicyEvents omitted.
+
+// se_HttpRoute omitted.
+
+// se_HttpRouteAction omitted.
+
+// se_HttpRouteHeader omitted.
+
+// se_HttpRouteHeaders omitted.
+
+// se_HttpRouteMatch omitted.
+
+// se_HttpTimeout omitted.
+
+// se_JsonFormat omitted.
+
+// se_JsonFormatRef omitted.
+
+// se_Listener omitted.
+
+// se_Listeners omitted.
+
+// se_ListenerTimeout omitted.
+
+// se_ListenerTls omitted.
+
+// se_ListenerTlsAcmCertificate omitted.
+
+// se_ListenerTlsCertificate omitted.
+
+// se_ListenerTlsFileCertificate omitted.
+
+// se_ListenerTlsSdsCertificate omitted.
+
+// se_ListenerTlsValidationContext omitted.
+
+// se_ListenerTlsValidationContextTrust omitted.
+
+// se_Logging omitted.
+
+// se_LoggingFormat omitted.
+
+// se_MatchRange omitted.
+
+// se_MeshServiceDiscovery omitted.
+
+// se_MeshSpec omitted.
+
+// se_OutlierDetection omitted.
+
+// se_PortMapping omitted.
+
+// se_PortSet omitted.
+
+// se_QueryParameterMatch omitted.
+
+// se_RouteSpec omitted.
+
+// se_ServiceDiscovery omitted.
+
+// se_SubjectAlternativeNameList omitted.
+
+// se_SubjectAlternativeNameMatchers omitted.
+
+// se_SubjectAlternativeNames omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagRef omitted.
+
+// se_TcpRetryPolicyEvents omitted.
+
+// se_TcpRoute omitted.
+
+// se_TcpRouteAction omitted.
+
+// se_TcpRouteMatch omitted.
+
+// se_TcpTimeout omitted.
+
+// se_TlsValidationContext omitted.
+
+// se_TlsValidationContextAcmTrust omitted.
+
+// se_TlsValidationContextFileTrust omitted.
+
+// se_TlsValidationContextSdsTrust omitted.
+
+// se_TlsValidationContextTrust omitted.
+
+// se_VirtualGatewayAccessLog omitted.
+
+// se_VirtualGatewayBackendDefaults omitted.
+
+// se_VirtualGatewayCertificateAuthorityArns omitted.
+
+// se_VirtualGatewayClientPolicy omitted.
+
+// se_VirtualGatewayClientPolicyTls omitted.
+
+// se_VirtualGatewayClientTlsCertificate omitted.
+
+// se_VirtualGatewayConnectionPool omitted.
+
+// se_VirtualGatewayFileAccessLog omitted.
+
+// se_VirtualGatewayGrpcConnectionPool omitted.
+
+// se_VirtualGatewayHealthCheckPolicy omitted.
+
+// se_VirtualGatewayHttp2ConnectionPool omitted.
+
+// se_VirtualGatewayHttpConnectionPool omitted.
+
+// se_VirtualGatewayListener omitted.
+
+// se_VirtualGatewayListeners omitted.
+
+// se_VirtualGatewayListenerTls omitted.
+
+// se_VirtualGatewayListenerTlsAcmCertificate omitted.
+
+// se_VirtualGatewayListenerTlsCertificate omitted.
+
+// se_VirtualGatewayListenerTlsFileCertificate omitted.
+
+// se_VirtualGatewayListenerTlsSdsCertificate omitted.
+
+// se_VirtualGatewayListenerTlsValidationContext omitted.
+
+// se_VirtualGatewayListenerTlsValidationContextTrust omitted.
+
+// se_VirtualGatewayLogging omitted.
+
+// se_VirtualGatewayPortMapping omitted.
+
+// se_VirtualGatewaySpec omitted.
+
+// se_VirtualGatewayTlsValidationContext omitted.
+
+// se_VirtualGatewayTlsValidationContextAcmTrust omitted.
+
+// se_VirtualGatewayTlsValidationContextFileTrust omitted.
+
+// se_VirtualGatewayTlsValidationContextSdsTrust omitted.
+
+// se_VirtualGatewayTlsValidationContextTrust omitted.
+
+// se_VirtualNodeConnectionPool omitted.
+
+// se_VirtualNodeGrpcConnectionPool omitted.
+
+// se_VirtualNodeHttp2ConnectionPool omitted.
+
+// se_VirtualNodeHttpConnectionPool omitted.
+
+// se_VirtualNodeServiceProvider omitted.
+
+// se_VirtualNodeSpec omitted.
+
+// se_VirtualNodeTcpConnectionPool omitted.
+
+// se_VirtualRouterListener omitted.
+
+// se_VirtualRouterListeners omitted.
+
+// se_VirtualRouterServiceProvider omitted.
+
+// se_VirtualRouterSpec omitted.
+
+// se_VirtualServiceBackend omitted.
+
+// se_VirtualServiceProvider omitted.
+
+// se_VirtualServiceSpec omitted.
+
+// se_WeightedTarget omitted.
+
+// se_WeightedTargets omitted.
+
+// de_AccessLog omitted.
+
+// de_AwsCloudMapInstanceAttribute omitted.
+
+// de_AwsCloudMapInstanceAttributes omitted.
+
+// de_AwsCloudMapServiceDiscovery omitted.
+
+// de_Backend omitted.
+
+// de_BackendDefaults omitted.
+
+// de_Backends omitted.
+
+// de_CertificateAuthorityArns omitted.
+
+// de_ClientPolicy omitted.
+
+// de_ClientPolicyTls omitted.
+
+// de_ClientTlsCertificate omitted.
+
+// de_DnsServiceDiscovery omitted.
+
+// de_Duration omitted.
+
+// de_EgressFilter omitted.
+
+// de_FileAccessLog omitted.
 
 /**
  * deserializeAws_restJson1GatewayRouteData
  */
 const de_GatewayRouteData = (output: any, context: __SerdeContext): GatewayRouteData => {
-  return {
-    gatewayRouteName: __expectString(output.gatewayRouteName),
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? de_ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? de_GatewayRouteSpec(output.spec, context) : undefined,
-    status: output.status != null ? de_GatewayRouteStatus(output.status, context) : undefined,
-    virtualGatewayName: __expectString(output.virtualGatewayName),
-  } as any;
+  return take(output, {
+    gatewayRouteName: __expectString,
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualGatewayName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1GatewayRouteHostnameMatch
- */
-const de_GatewayRouteHostnameMatch = (output: any, context: __SerdeContext): GatewayRouteHostnameMatch => {
-  return {
-    exact: __expectString(output.exact),
-    suffix: __expectString(output.suffix),
-  } as any;
-};
+// de_GatewayRouteHostnameMatch omitted.
 
-/**
- * deserializeAws_restJson1GatewayRouteHostnameRewrite
- */
-const de_GatewayRouteHostnameRewrite = (output: any, context: __SerdeContext): GatewayRouteHostnameRewrite => {
-  return {
-    defaultTargetHostname: __expectString(output.defaultTargetHostname),
-  } as any;
-};
+// de_GatewayRouteHostnameRewrite omitted.
 
 /**
  * deserializeAws_restJson1GatewayRouteList
@@ -6051,9 +4593,6 @@ const de_GatewayRouteList = (output: any, context: __SerdeContext): GatewayRoute
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_GatewayRouteRef(entry, context);
     });
   return retVal;
@@ -6063,770 +4602,141 @@ const de_GatewayRouteList = (output: any, context: __SerdeContext): GatewayRoute
  * deserializeAws_restJson1GatewayRouteRef
  */
 const de_GatewayRouteRef = (output: any, context: __SerdeContext): GatewayRouteRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    gatewayRouteName: __expectString(output.gatewayRouteName),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualGatewayName: __expectString(output.virtualGatewayName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    gatewayRouteName: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualGatewayName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1GatewayRouteSpec
- */
-const de_GatewayRouteSpec = (output: any, context: __SerdeContext): GatewayRouteSpec => {
-  return {
-    grpcRoute: output.grpcRoute != null ? de_GrpcGatewayRoute(output.grpcRoute, context) : undefined,
-    http2Route: output.http2Route != null ? de_HttpGatewayRoute(output.http2Route, context) : undefined,
-    httpRoute: output.httpRoute != null ? de_HttpGatewayRoute(output.httpRoute, context) : undefined,
-    priority: __expectInt32(output.priority),
-  } as any;
-};
+// de_GatewayRouteSpec omitted.
 
-/**
- * deserializeAws_restJson1GatewayRouteStatus
- */
-const de_GatewayRouteStatus = (output: any, context: __SerdeContext): GatewayRouteStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_GatewayRouteStatus omitted.
 
-/**
- * deserializeAws_restJson1GatewayRouteTarget
- */
-const de_GatewayRouteTarget = (output: any, context: __SerdeContext): GatewayRouteTarget => {
-  return {
-    port: __expectInt32(output.port),
-    virtualService:
-      output.virtualService != null ? de_GatewayRouteVirtualService(output.virtualService, context) : undefined,
-  } as any;
-};
+// de_GatewayRouteTarget omitted.
 
-/**
- * deserializeAws_restJson1GatewayRouteVirtualService
- */
-const de_GatewayRouteVirtualService = (output: any, context: __SerdeContext): GatewayRouteVirtualService => {
-  return {
-    virtualServiceName: __expectString(output.virtualServiceName),
-  } as any;
-};
+// de_GatewayRouteVirtualService omitted.
 
-/**
- * deserializeAws_restJson1GrpcGatewayRoute
- */
-const de_GrpcGatewayRoute = (output: any, context: __SerdeContext): GrpcGatewayRoute => {
-  return {
-    action: output.action != null ? de_GrpcGatewayRouteAction(output.action, context) : undefined,
-    match: output.match != null ? de_GrpcGatewayRouteMatch(output.match, context) : undefined,
-  } as any;
-};
+// de_GrpcGatewayRoute omitted.
 
-/**
- * deserializeAws_restJson1GrpcGatewayRouteAction
- */
-const de_GrpcGatewayRouteAction = (output: any, context: __SerdeContext): GrpcGatewayRouteAction => {
-  return {
-    rewrite: output.rewrite != null ? de_GrpcGatewayRouteRewrite(output.rewrite, context) : undefined,
-    target: output.target != null ? de_GatewayRouteTarget(output.target, context) : undefined,
-  } as any;
-};
+// de_GrpcGatewayRouteAction omitted.
 
-/**
- * deserializeAws_restJson1GrpcGatewayRouteMatch
- */
-const de_GrpcGatewayRouteMatch = (output: any, context: __SerdeContext): GrpcGatewayRouteMatch => {
-  return {
-    hostname: output.hostname != null ? de_GatewayRouteHostnameMatch(output.hostname, context) : undefined,
-    metadata: output.metadata != null ? de_GrpcGatewayRouteMetadataList(output.metadata, context) : undefined,
-    port: __expectInt32(output.port),
-    serviceName: __expectString(output.serviceName),
-  } as any;
-};
+// de_GrpcGatewayRouteMatch omitted.
 
-/**
- * deserializeAws_restJson1GrpcGatewayRouteMetadata
- */
-const de_GrpcGatewayRouteMetadata = (output: any, context: __SerdeContext): GrpcGatewayRouteMetadata => {
-  return {
-    invert: __expectBoolean(output.invert),
-    match: output.match != null ? de_GrpcMetadataMatchMethod(__expectUnion(output.match), context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_GrpcGatewayRouteMetadata omitted.
 
-/**
- * deserializeAws_restJson1GrpcGatewayRouteMetadataList
- */
-const de_GrpcGatewayRouteMetadataList = (output: any, context: __SerdeContext): GrpcGatewayRouteMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GrpcGatewayRouteMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_GrpcGatewayRouteMetadataList omitted.
 
-/**
- * deserializeAws_restJson1GrpcGatewayRouteRewrite
- */
-const de_GrpcGatewayRouteRewrite = (output: any, context: __SerdeContext): GrpcGatewayRouteRewrite => {
-  return {
-    hostname: output.hostname != null ? de_GatewayRouteHostnameRewrite(output.hostname, context) : undefined,
-  } as any;
-};
+// de_GrpcGatewayRouteRewrite omitted.
 
-/**
- * deserializeAws_restJson1GrpcMetadataMatchMethod
- */
-const de_GrpcMetadataMatchMethod = (output: any, context: __SerdeContext): GrpcMetadataMatchMethod => {
-  if (__expectString(output.exact) !== undefined) {
-    return { exact: __expectString(output.exact) as any };
-  }
-  if (__expectString(output.prefix) !== undefined) {
-    return { prefix: __expectString(output.prefix) as any };
-  }
-  if (output.range != null) {
-    return {
-      range: de_MatchRange(output.range, context),
-    };
-  }
-  if (__expectString(output.regex) !== undefined) {
-    return { regex: __expectString(output.regex) as any };
-  }
-  if (__expectString(output.suffix) !== undefined) {
-    return { suffix: __expectString(output.suffix) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_GrpcMetadataMatchMethod omitted.
 
-/**
- * deserializeAws_restJson1GrpcRetryPolicy
- */
-const de_GrpcRetryPolicy = (output: any, context: __SerdeContext): GrpcRetryPolicy => {
-  return {
-    grpcRetryEvents:
-      output.grpcRetryEvents != null ? de_GrpcRetryPolicyEvents(output.grpcRetryEvents, context) : undefined,
-    httpRetryEvents:
-      output.httpRetryEvents != null ? de_HttpRetryPolicyEvents(output.httpRetryEvents, context) : undefined,
-    maxRetries: __expectLong(output.maxRetries),
-    perRetryTimeout: output.perRetryTimeout != null ? de_Duration(output.perRetryTimeout, context) : undefined,
-    tcpRetryEvents: output.tcpRetryEvents != null ? de_TcpRetryPolicyEvents(output.tcpRetryEvents, context) : undefined,
-  } as any;
-};
+// de_GrpcRetryPolicy omitted.
 
-/**
- * deserializeAws_restJson1GrpcRetryPolicyEvents
- */
-const de_GrpcRetryPolicyEvents = (output: any, context: __SerdeContext): (GrpcRetryPolicyEvent | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_GrpcRetryPolicyEvents omitted.
 
-/**
- * deserializeAws_restJson1GrpcRoute
- */
-const de_GrpcRoute = (output: any, context: __SerdeContext): GrpcRoute => {
-  return {
-    action: output.action != null ? de_GrpcRouteAction(output.action, context) : undefined,
-    match: output.match != null ? de_GrpcRouteMatch(output.match, context) : undefined,
-    retryPolicy: output.retryPolicy != null ? de_GrpcRetryPolicy(output.retryPolicy, context) : undefined,
-    timeout: output.timeout != null ? de_GrpcTimeout(output.timeout, context) : undefined,
-  } as any;
-};
+// de_GrpcRoute omitted.
 
-/**
- * deserializeAws_restJson1GrpcRouteAction
- */
-const de_GrpcRouteAction = (output: any, context: __SerdeContext): GrpcRouteAction => {
-  return {
-    weightedTargets: output.weightedTargets != null ? de_WeightedTargets(output.weightedTargets, context) : undefined,
-  } as any;
-};
+// de_GrpcRouteAction omitted.
 
-/**
- * deserializeAws_restJson1GrpcRouteMatch
- */
-const de_GrpcRouteMatch = (output: any, context: __SerdeContext): GrpcRouteMatch => {
-  return {
-    metadata: output.metadata != null ? de_GrpcRouteMetadataList(output.metadata, context) : undefined,
-    methodName: __expectString(output.methodName),
-    port: __expectInt32(output.port),
-    serviceName: __expectString(output.serviceName),
-  } as any;
-};
+// de_GrpcRouteMatch omitted.
 
-/**
- * deserializeAws_restJson1GrpcRouteMetadata
- */
-const de_GrpcRouteMetadata = (output: any, context: __SerdeContext): GrpcRouteMetadata => {
-  return {
-    invert: __expectBoolean(output.invert),
-    match: output.match != null ? de_GrpcRouteMetadataMatchMethod(__expectUnion(output.match), context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_GrpcRouteMetadata omitted.
 
-/**
- * deserializeAws_restJson1GrpcRouteMetadataList
- */
-const de_GrpcRouteMetadataList = (output: any, context: __SerdeContext): GrpcRouteMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GrpcRouteMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_GrpcRouteMetadataList omitted.
 
-/**
- * deserializeAws_restJson1GrpcRouteMetadataMatchMethod
- */
-const de_GrpcRouteMetadataMatchMethod = (output: any, context: __SerdeContext): GrpcRouteMetadataMatchMethod => {
-  if (__expectString(output.exact) !== undefined) {
-    return { exact: __expectString(output.exact) as any };
-  }
-  if (__expectString(output.prefix) !== undefined) {
-    return { prefix: __expectString(output.prefix) as any };
-  }
-  if (output.range != null) {
-    return {
-      range: de_MatchRange(output.range, context),
-    };
-  }
-  if (__expectString(output.regex) !== undefined) {
-    return { regex: __expectString(output.regex) as any };
-  }
-  if (__expectString(output.suffix) !== undefined) {
-    return { suffix: __expectString(output.suffix) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_GrpcRouteMetadataMatchMethod omitted.
 
-/**
- * deserializeAws_restJson1GrpcTimeout
- */
-const de_GrpcTimeout = (output: any, context: __SerdeContext): GrpcTimeout => {
-  return {
-    idle: output.idle != null ? de_Duration(output.idle, context) : undefined,
-    perRequest: output.perRequest != null ? de_Duration(output.perRequest, context) : undefined,
-  } as any;
-};
+// de_GrpcTimeout omitted.
 
-/**
- * deserializeAws_restJson1HeaderMatchMethod
- */
-const de_HeaderMatchMethod = (output: any, context: __SerdeContext): HeaderMatchMethod => {
-  if (__expectString(output.exact) !== undefined) {
-    return { exact: __expectString(output.exact) as any };
-  }
-  if (__expectString(output.prefix) !== undefined) {
-    return { prefix: __expectString(output.prefix) as any };
-  }
-  if (output.range != null) {
-    return {
-      range: de_MatchRange(output.range, context),
-    };
-  }
-  if (__expectString(output.regex) !== undefined) {
-    return { regex: __expectString(output.regex) as any };
-  }
-  if (__expectString(output.suffix) !== undefined) {
-    return { suffix: __expectString(output.suffix) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_HeaderMatchMethod omitted.
 
-/**
- * deserializeAws_restJson1HealthCheckPolicy
- */
-const de_HealthCheckPolicy = (output: any, context: __SerdeContext): HealthCheckPolicy => {
-  return {
-    healthyThreshold: __expectInt32(output.healthyThreshold),
-    intervalMillis: __expectLong(output.intervalMillis),
-    path: __expectString(output.path),
-    port: __expectInt32(output.port),
-    protocol: __expectString(output.protocol),
-    timeoutMillis: __expectLong(output.timeoutMillis),
-    unhealthyThreshold: __expectInt32(output.unhealthyThreshold),
-  } as any;
-};
+// de_HealthCheckPolicy omitted.
 
-/**
- * deserializeAws_restJson1HttpGatewayRoute
- */
-const de_HttpGatewayRoute = (output: any, context: __SerdeContext): HttpGatewayRoute => {
-  return {
-    action: output.action != null ? de_HttpGatewayRouteAction(output.action, context) : undefined,
-    match: output.match != null ? de_HttpGatewayRouteMatch(output.match, context) : undefined,
-  } as any;
-};
+// de_HttpGatewayRoute omitted.
 
-/**
- * deserializeAws_restJson1HttpGatewayRouteAction
- */
-const de_HttpGatewayRouteAction = (output: any, context: __SerdeContext): HttpGatewayRouteAction => {
-  return {
-    rewrite: output.rewrite != null ? de_HttpGatewayRouteRewrite(output.rewrite, context) : undefined,
-    target: output.target != null ? de_GatewayRouteTarget(output.target, context) : undefined,
-  } as any;
-};
+// de_HttpGatewayRouteAction omitted.
 
-/**
- * deserializeAws_restJson1HttpGatewayRouteHeader
- */
-const de_HttpGatewayRouteHeader = (output: any, context: __SerdeContext): HttpGatewayRouteHeader => {
-  return {
-    invert: __expectBoolean(output.invert),
-    match: output.match != null ? de_HeaderMatchMethod(__expectUnion(output.match), context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_HttpGatewayRouteHeader omitted.
 
-/**
- * deserializeAws_restJson1HttpGatewayRouteHeaders
- */
-const de_HttpGatewayRouteHeaders = (output: any, context: __SerdeContext): HttpGatewayRouteHeader[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HttpGatewayRouteHeader(entry, context);
-    });
-  return retVal;
-};
+// de_HttpGatewayRouteHeaders omitted.
 
-/**
- * deserializeAws_restJson1HttpGatewayRouteMatch
- */
-const de_HttpGatewayRouteMatch = (output: any, context: __SerdeContext): HttpGatewayRouteMatch => {
-  return {
-    headers: output.headers != null ? de_HttpGatewayRouteHeaders(output.headers, context) : undefined,
-    hostname: output.hostname != null ? de_GatewayRouteHostnameMatch(output.hostname, context) : undefined,
-    method: __expectString(output.method),
-    path: output.path != null ? de_HttpPathMatch(output.path, context) : undefined,
-    port: __expectInt32(output.port),
-    prefix: __expectString(output.prefix),
-    queryParameters:
-      output.queryParameters != null ? de_HttpQueryParameters(output.queryParameters, context) : undefined,
-  } as any;
-};
+// de_HttpGatewayRouteMatch omitted.
 
-/**
- * deserializeAws_restJson1HttpGatewayRoutePathRewrite
- */
-const de_HttpGatewayRoutePathRewrite = (output: any, context: __SerdeContext): HttpGatewayRoutePathRewrite => {
-  return {
-    exact: __expectString(output.exact),
-  } as any;
-};
+// de_HttpGatewayRoutePathRewrite omitted.
 
-/**
- * deserializeAws_restJson1HttpGatewayRoutePrefixRewrite
- */
-const de_HttpGatewayRoutePrefixRewrite = (output: any, context: __SerdeContext): HttpGatewayRoutePrefixRewrite => {
-  return {
-    defaultPrefix: __expectString(output.defaultPrefix),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_HttpGatewayRoutePrefixRewrite omitted.
 
-/**
- * deserializeAws_restJson1HttpGatewayRouteRewrite
- */
-const de_HttpGatewayRouteRewrite = (output: any, context: __SerdeContext): HttpGatewayRouteRewrite => {
-  return {
-    hostname: output.hostname != null ? de_GatewayRouteHostnameRewrite(output.hostname, context) : undefined,
-    path: output.path != null ? de_HttpGatewayRoutePathRewrite(output.path, context) : undefined,
-    prefix: output.prefix != null ? de_HttpGatewayRoutePrefixRewrite(output.prefix, context) : undefined,
-  } as any;
-};
+// de_HttpGatewayRouteRewrite omitted.
 
-/**
- * deserializeAws_restJson1HttpPathMatch
- */
-const de_HttpPathMatch = (output: any, context: __SerdeContext): HttpPathMatch => {
-  return {
-    exact: __expectString(output.exact),
-    regex: __expectString(output.regex),
-  } as any;
-};
+// de_HttpPathMatch omitted.
 
-/**
- * deserializeAws_restJson1HttpQueryParameter
- */
-const de_HttpQueryParameter = (output: any, context: __SerdeContext): HttpQueryParameter => {
-  return {
-    match: output.match != null ? de_QueryParameterMatch(output.match, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_HttpQueryParameter omitted.
 
-/**
- * deserializeAws_restJson1HttpQueryParameters
- */
-const de_HttpQueryParameters = (output: any, context: __SerdeContext): HttpQueryParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HttpQueryParameter(entry, context);
-    });
-  return retVal;
-};
+// de_HttpQueryParameters omitted.
 
-/**
- * deserializeAws_restJson1HttpRetryPolicy
- */
-const de_HttpRetryPolicy = (output: any, context: __SerdeContext): HttpRetryPolicy => {
-  return {
-    httpRetryEvents:
-      output.httpRetryEvents != null ? de_HttpRetryPolicyEvents(output.httpRetryEvents, context) : undefined,
-    maxRetries: __expectLong(output.maxRetries),
-    perRetryTimeout: output.perRetryTimeout != null ? de_Duration(output.perRetryTimeout, context) : undefined,
-    tcpRetryEvents: output.tcpRetryEvents != null ? de_TcpRetryPolicyEvents(output.tcpRetryEvents, context) : undefined,
-  } as any;
-};
+// de_HttpRetryPolicy omitted.
 
-/**
- * deserializeAws_restJson1HttpRetryPolicyEvents
- */
-const de_HttpRetryPolicyEvents = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HttpRetryPolicyEvents omitted.
 
-/**
- * deserializeAws_restJson1HttpRoute
- */
-const de_HttpRoute = (output: any, context: __SerdeContext): HttpRoute => {
-  return {
-    action: output.action != null ? de_HttpRouteAction(output.action, context) : undefined,
-    match: output.match != null ? de_HttpRouteMatch(output.match, context) : undefined,
-    retryPolicy: output.retryPolicy != null ? de_HttpRetryPolicy(output.retryPolicy, context) : undefined,
-    timeout: output.timeout != null ? de_HttpTimeout(output.timeout, context) : undefined,
-  } as any;
-};
+// de_HttpRoute omitted.
 
-/**
- * deserializeAws_restJson1HttpRouteAction
- */
-const de_HttpRouteAction = (output: any, context: __SerdeContext): HttpRouteAction => {
-  return {
-    weightedTargets: output.weightedTargets != null ? de_WeightedTargets(output.weightedTargets, context) : undefined,
-  } as any;
-};
+// de_HttpRouteAction omitted.
 
-/**
- * deserializeAws_restJson1HttpRouteHeader
- */
-const de_HttpRouteHeader = (output: any, context: __SerdeContext): HttpRouteHeader => {
-  return {
-    invert: __expectBoolean(output.invert),
-    match: output.match != null ? de_HeaderMatchMethod(__expectUnion(output.match), context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_HttpRouteHeader omitted.
 
-/**
- * deserializeAws_restJson1HttpRouteHeaders
- */
-const de_HttpRouteHeaders = (output: any, context: __SerdeContext): HttpRouteHeader[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HttpRouteHeader(entry, context);
-    });
-  return retVal;
-};
+// de_HttpRouteHeaders omitted.
 
-/**
- * deserializeAws_restJson1HttpRouteMatch
- */
-const de_HttpRouteMatch = (output: any, context: __SerdeContext): HttpRouteMatch => {
-  return {
-    headers: output.headers != null ? de_HttpRouteHeaders(output.headers, context) : undefined,
-    method: __expectString(output.method),
-    path: output.path != null ? de_HttpPathMatch(output.path, context) : undefined,
-    port: __expectInt32(output.port),
-    prefix: __expectString(output.prefix),
-    queryParameters:
-      output.queryParameters != null ? de_HttpQueryParameters(output.queryParameters, context) : undefined,
-    scheme: __expectString(output.scheme),
-  } as any;
-};
+// de_HttpRouteMatch omitted.
 
-/**
- * deserializeAws_restJson1HttpTimeout
- */
-const de_HttpTimeout = (output: any, context: __SerdeContext): HttpTimeout => {
-  return {
-    idle: output.idle != null ? de_Duration(output.idle, context) : undefined,
-    perRequest: output.perRequest != null ? de_Duration(output.perRequest, context) : undefined,
-  } as any;
-};
+// de_HttpTimeout omitted.
 
-/**
- * deserializeAws_restJson1JsonFormat
- */
-const de_JsonFormat = (output: any, context: __SerdeContext): JsonFormatRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_JsonFormatRef(entry, context);
-    });
-  return retVal;
-};
+// de_JsonFormat omitted.
 
-/**
- * deserializeAws_restJson1JsonFormatRef
- */
-const de_JsonFormatRef = (output: any, context: __SerdeContext): JsonFormatRef => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_JsonFormatRef omitted.
 
-/**
- * deserializeAws_restJson1Listener
- */
-const de_Listener = (output: any, context: __SerdeContext): Listener => {
-  return {
-    connectionPool:
-      output.connectionPool != null
-        ? de_VirtualNodeConnectionPool(__expectUnion(output.connectionPool), context)
-        : undefined,
-    healthCheck: output.healthCheck != null ? de_HealthCheckPolicy(output.healthCheck, context) : undefined,
-    outlierDetection:
-      output.outlierDetection != null ? de_OutlierDetection(output.outlierDetection, context) : undefined,
-    portMapping: output.portMapping != null ? de_PortMapping(output.portMapping, context) : undefined,
-    timeout: output.timeout != null ? de_ListenerTimeout(__expectUnion(output.timeout), context) : undefined,
-    tls: output.tls != null ? de_ListenerTls(output.tls, context) : undefined,
-  } as any;
-};
+// de_Listener omitted.
 
-/**
- * deserializeAws_restJson1Listeners
- */
-const de_Listeners = (output: any, context: __SerdeContext): Listener[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Listener(entry, context);
-    });
-  return retVal;
-};
+// de_Listeners omitted.
 
-/**
- * deserializeAws_restJson1ListenerTimeout
- */
-const de_ListenerTimeout = (output: any, context: __SerdeContext): ListenerTimeout => {
-  if (output.grpc != null) {
-    return {
-      grpc: de_GrpcTimeout(output.grpc, context),
-    };
-  }
-  if (output.http != null) {
-    return {
-      http: de_HttpTimeout(output.http, context),
-    };
-  }
-  if (output.http2 != null) {
-    return {
-      http2: de_HttpTimeout(output.http2, context),
-    };
-  }
-  if (output.tcp != null) {
-    return {
-      tcp: de_TcpTimeout(output.tcp, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ListenerTimeout omitted.
 
-/**
- * deserializeAws_restJson1ListenerTls
- */
-const de_ListenerTls = (output: any, context: __SerdeContext): ListenerTls => {
-  return {
-    certificate:
-      output.certificate != null ? de_ListenerTlsCertificate(__expectUnion(output.certificate), context) : undefined,
-    mode: __expectString(output.mode),
-    validation: output.validation != null ? de_ListenerTlsValidationContext(output.validation, context) : undefined,
-  } as any;
-};
+// de_ListenerTls omitted.
 
-/**
- * deserializeAws_restJson1ListenerTlsAcmCertificate
- */
-const de_ListenerTlsAcmCertificate = (output: any, context: __SerdeContext): ListenerTlsAcmCertificate => {
-  return {
-    certificateArn: __expectString(output.certificateArn),
-  } as any;
-};
+// de_ListenerTlsAcmCertificate omitted.
 
-/**
- * deserializeAws_restJson1ListenerTlsCertificate
- */
-const de_ListenerTlsCertificate = (output: any, context: __SerdeContext): ListenerTlsCertificate => {
-  if (output.acm != null) {
-    return {
-      acm: de_ListenerTlsAcmCertificate(output.acm, context),
-    };
-  }
-  if (output.file != null) {
-    return {
-      file: de_ListenerTlsFileCertificate(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: de_ListenerTlsSdsCertificate(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ListenerTlsCertificate omitted.
 
-/**
- * deserializeAws_restJson1ListenerTlsFileCertificate
- */
-const de_ListenerTlsFileCertificate = (output: any, context: __SerdeContext): ListenerTlsFileCertificate => {
-  return {
-    certificateChain: __expectString(output.certificateChain),
-    privateKey: __expectString(output.privateKey),
-  } as any;
-};
+// de_ListenerTlsFileCertificate omitted.
 
-/**
- * deserializeAws_restJson1ListenerTlsSdsCertificate
- */
-const de_ListenerTlsSdsCertificate = (output: any, context: __SerdeContext): ListenerTlsSdsCertificate => {
-  return {
-    secretName: __expectString(output.secretName),
-  } as any;
-};
+// de_ListenerTlsSdsCertificate omitted.
 
-/**
- * deserializeAws_restJson1ListenerTlsValidationContext
- */
-const de_ListenerTlsValidationContext = (output: any, context: __SerdeContext): ListenerTlsValidationContext => {
-  return {
-    subjectAlternativeNames:
-      output.subjectAlternativeNames != null
-        ? de_SubjectAlternativeNames(output.subjectAlternativeNames, context)
-        : undefined,
-    trust:
-      output.trust != null ? de_ListenerTlsValidationContextTrust(__expectUnion(output.trust), context) : undefined,
-  } as any;
-};
+// de_ListenerTlsValidationContext omitted.
 
-/**
- * deserializeAws_restJson1ListenerTlsValidationContextTrust
- */
-const de_ListenerTlsValidationContextTrust = (
-  output: any,
-  context: __SerdeContext
-): ListenerTlsValidationContextTrust => {
-  if (output.file != null) {
-    return {
-      file: de_TlsValidationContextFileTrust(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: de_TlsValidationContextSdsTrust(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ListenerTlsValidationContextTrust omitted.
 
-/**
- * deserializeAws_restJson1Logging
- */
-const de_Logging = (output: any, context: __SerdeContext): Logging => {
-  return {
-    accessLog: output.accessLog != null ? de_AccessLog(__expectUnion(output.accessLog), context) : undefined,
-  } as any;
-};
+// de_Logging omitted.
 
-/**
- * deserializeAws_restJson1LoggingFormat
- */
-const de_LoggingFormat = (output: any, context: __SerdeContext): LoggingFormat => {
-  if (output.json != null) {
-    return {
-      json: de_JsonFormat(output.json, context),
-    };
-  }
-  if (__expectString(output.text) !== undefined) {
-    return { text: __expectString(output.text) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_LoggingFormat omitted.
 
-/**
- * deserializeAws_restJson1MatchRange
- */
-const de_MatchRange = (output: any, context: __SerdeContext): MatchRange => {
-  return {
-    end: __expectLong(output.end),
-    start: __expectLong(output.start),
-  } as any;
-};
+// de_MatchRange omitted.
 
 /**
  * deserializeAws_restJson1MeshData
  */
 const de_MeshData = (output: any, context: __SerdeContext): MeshData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? de_ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? de_MeshSpec(output.spec, context) : undefined,
-    status: output.status != null ? de_MeshStatus(output.status, context) : undefined,
-  } as any;
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+  }) as any;
 };
 
 /**
@@ -6836,9 +4746,6 @@ const de_MeshList = (output: any, context: __SerdeContext): MeshRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MeshRef(entry, context);
     });
   return retVal;
@@ -6848,128 +4755,58 @@ const de_MeshList = (output: any, context: __SerdeContext): MeshRef[] => {
  * deserializeAws_restJson1MeshRef
  */
 const de_MeshRef = (output: any, context: __SerdeContext): MeshRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1MeshServiceDiscovery
- */
-const de_MeshServiceDiscovery = (output: any, context: __SerdeContext): MeshServiceDiscovery => {
-  return {
-    ipPreference: __expectString(output.ipPreference),
-  } as any;
-};
+// de_MeshServiceDiscovery omitted.
 
-/**
- * deserializeAws_restJson1MeshSpec
- */
-const de_MeshSpec = (output: any, context: __SerdeContext): MeshSpec => {
-  return {
-    egressFilter: output.egressFilter != null ? de_EgressFilter(output.egressFilter, context) : undefined,
-    serviceDiscovery:
-      output.serviceDiscovery != null ? de_MeshServiceDiscovery(output.serviceDiscovery, context) : undefined,
-  } as any;
-};
+// de_MeshSpec omitted.
 
-/**
- * deserializeAws_restJson1MeshStatus
- */
-const de_MeshStatus = (output: any, context: __SerdeContext): MeshStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_MeshStatus omitted.
 
-/**
- * deserializeAws_restJson1OutlierDetection
- */
-const de_OutlierDetection = (output: any, context: __SerdeContext): OutlierDetection => {
-  return {
-    baseEjectionDuration:
-      output.baseEjectionDuration != null ? de_Duration(output.baseEjectionDuration, context) : undefined,
-    interval: output.interval != null ? de_Duration(output.interval, context) : undefined,
-    maxEjectionPercent: __expectInt32(output.maxEjectionPercent),
-    maxServerErrors: __expectLong(output.maxServerErrors),
-  } as any;
-};
+// de_OutlierDetection omitted.
 
-/**
- * deserializeAws_restJson1PortMapping
- */
-const de_PortMapping = (output: any, context: __SerdeContext): PortMapping => {
-  return {
-    port: __expectInt32(output.port),
-    protocol: __expectString(output.protocol),
-  } as any;
-};
+// de_PortMapping omitted.
 
-/**
- * deserializeAws_restJson1PortSet
- */
-const de_PortSet = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_PortSet omitted.
 
-/**
- * deserializeAws_restJson1QueryParameterMatch
- */
-const de_QueryParameterMatch = (output: any, context: __SerdeContext): QueryParameterMatch => {
-  return {
-    exact: __expectString(output.exact),
-  } as any;
-};
+// de_QueryParameterMatch omitted.
 
 /**
  * deserializeAws_restJson1ResourceMetadata
  */
 const de_ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    uid: __expectString(output.uid),
-    version: __expectLong(output.version),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    uid: __expectString,
+    version: __expectLong,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RouteData
  */
 const de_RouteData = (output: any, context: __SerdeContext): RouteData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? de_ResourceMetadata(output.metadata, context) : undefined,
-    routeName: __expectString(output.routeName),
-    spec: output.spec != null ? de_RouteSpec(output.spec, context) : undefined,
-    status: output.status != null ? de_RouteStatus(output.status, context) : undefined,
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    routeName: __expectString,
+    spec: _json,
+    status: _json,
+    virtualRouterName: __expectString,
+  }) as any;
 };
 
 /**
@@ -6979,9 +4816,6 @@ const de_RouteList = (output: any, context: __SerdeContext): RouteRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RouteRef(entry, context);
     });
   return retVal;
@@ -6991,415 +4825,91 @@ const de_RouteList = (output: any, context: __SerdeContext): RouteRef[] => {
  * deserializeAws_restJson1RouteRef
  */
 const de_RouteRef = (output: any, context: __SerdeContext): RouteRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    routeName: __expectString(output.routeName),
-    version: __expectLong(output.version),
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    routeName: __expectString,
+    version: __expectLong,
+    virtualRouterName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RouteSpec
- */
-const de_RouteSpec = (output: any, context: __SerdeContext): RouteSpec => {
-  return {
-    grpcRoute: output.grpcRoute != null ? de_GrpcRoute(output.grpcRoute, context) : undefined,
-    http2Route: output.http2Route != null ? de_HttpRoute(output.http2Route, context) : undefined,
-    httpRoute: output.httpRoute != null ? de_HttpRoute(output.httpRoute, context) : undefined,
-    priority: __expectInt32(output.priority),
-    tcpRoute: output.tcpRoute != null ? de_TcpRoute(output.tcpRoute, context) : undefined,
-  } as any;
-};
+// de_RouteSpec omitted.
 
-/**
- * deserializeAws_restJson1RouteStatus
- */
-const de_RouteStatus = (output: any, context: __SerdeContext): RouteStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_RouteStatus omitted.
 
-/**
- * deserializeAws_restJson1ServiceDiscovery
- */
-const de_ServiceDiscovery = (output: any, context: __SerdeContext): ServiceDiscovery => {
-  if (output.awsCloudMap != null) {
-    return {
-      awsCloudMap: de_AwsCloudMapServiceDiscovery(output.awsCloudMap, context),
-    };
-  }
-  if (output.dns != null) {
-    return {
-      dns: de_DnsServiceDiscovery(output.dns, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ServiceDiscovery omitted.
 
-/**
- * deserializeAws_restJson1SubjectAlternativeNameList
- */
-const de_SubjectAlternativeNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubjectAlternativeNameList omitted.
 
-/**
- * deserializeAws_restJson1SubjectAlternativeNameMatchers
- */
-const de_SubjectAlternativeNameMatchers = (output: any, context: __SerdeContext): SubjectAlternativeNameMatchers => {
-  return {
-    exact: output.exact != null ? de_SubjectAlternativeNameList(output.exact, context) : undefined,
-  } as any;
-};
+// de_SubjectAlternativeNameMatchers omitted.
 
-/**
- * deserializeAws_restJson1SubjectAlternativeNames
- */
-const de_SubjectAlternativeNames = (output: any, context: __SerdeContext): SubjectAlternativeNames => {
-  return {
-    match: output.match != null ? de_SubjectAlternativeNameMatchers(output.match, context) : undefined,
-  } as any;
-};
+// de_SubjectAlternativeNames omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): TagRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TagRef(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_restJson1TagRef
- */
-const de_TagRef = (output: any, context: __SerdeContext): TagRef => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_TagRef omitted.
 
-/**
- * deserializeAws_restJson1TcpRetryPolicyEvents
- */
-const de_TcpRetryPolicyEvents = (output: any, context: __SerdeContext): (TcpRetryPolicyEvent | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TcpRetryPolicyEvents omitted.
 
-/**
- * deserializeAws_restJson1TcpRoute
- */
-const de_TcpRoute = (output: any, context: __SerdeContext): TcpRoute => {
-  return {
-    action: output.action != null ? de_TcpRouteAction(output.action, context) : undefined,
-    match: output.match != null ? de_TcpRouteMatch(output.match, context) : undefined,
-    timeout: output.timeout != null ? de_TcpTimeout(output.timeout, context) : undefined,
-  } as any;
-};
+// de_TcpRoute omitted.
 
-/**
- * deserializeAws_restJson1TcpRouteAction
- */
-const de_TcpRouteAction = (output: any, context: __SerdeContext): TcpRouteAction => {
-  return {
-    weightedTargets: output.weightedTargets != null ? de_WeightedTargets(output.weightedTargets, context) : undefined,
-  } as any;
-};
+// de_TcpRouteAction omitted.
 
-/**
- * deserializeAws_restJson1TcpRouteMatch
- */
-const de_TcpRouteMatch = (output: any, context: __SerdeContext): TcpRouteMatch => {
-  return {
-    port: __expectInt32(output.port),
-  } as any;
-};
+// de_TcpRouteMatch omitted.
 
-/**
- * deserializeAws_restJson1TcpTimeout
- */
-const de_TcpTimeout = (output: any, context: __SerdeContext): TcpTimeout => {
-  return {
-    idle: output.idle != null ? de_Duration(output.idle, context) : undefined,
-  } as any;
-};
+// de_TcpTimeout omitted.
 
-/**
- * deserializeAws_restJson1TlsValidationContext
- */
-const de_TlsValidationContext = (output: any, context: __SerdeContext): TlsValidationContext => {
-  return {
-    subjectAlternativeNames:
-      output.subjectAlternativeNames != null
-        ? de_SubjectAlternativeNames(output.subjectAlternativeNames, context)
-        : undefined,
-    trust: output.trust != null ? de_TlsValidationContextTrust(__expectUnion(output.trust), context) : undefined,
-  } as any;
-};
+// de_TlsValidationContext omitted.
 
-/**
- * deserializeAws_restJson1TlsValidationContextAcmTrust
- */
-const de_TlsValidationContextAcmTrust = (output: any, context: __SerdeContext): TlsValidationContextAcmTrust => {
-  return {
-    certificateAuthorityArns:
-      output.certificateAuthorityArns != null
-        ? de_CertificateAuthorityArns(output.certificateAuthorityArns, context)
-        : undefined,
-  } as any;
-};
+// de_TlsValidationContextAcmTrust omitted.
 
-/**
- * deserializeAws_restJson1TlsValidationContextFileTrust
- */
-const de_TlsValidationContextFileTrust = (output: any, context: __SerdeContext): TlsValidationContextFileTrust => {
-  return {
-    certificateChain: __expectString(output.certificateChain),
-  } as any;
-};
+// de_TlsValidationContextFileTrust omitted.
 
-/**
- * deserializeAws_restJson1TlsValidationContextSdsTrust
- */
-const de_TlsValidationContextSdsTrust = (output: any, context: __SerdeContext): TlsValidationContextSdsTrust => {
-  return {
-    secretName: __expectString(output.secretName),
-  } as any;
-};
+// de_TlsValidationContextSdsTrust omitted.
 
-/**
- * deserializeAws_restJson1TlsValidationContextTrust
- */
-const de_TlsValidationContextTrust = (output: any, context: __SerdeContext): TlsValidationContextTrust => {
-  if (output.acm != null) {
-    return {
-      acm: de_TlsValidationContextAcmTrust(output.acm, context),
-    };
-  }
-  if (output.file != null) {
-    return {
-      file: de_TlsValidationContextFileTrust(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: de_TlsValidationContextSdsTrust(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_TlsValidationContextTrust omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayAccessLog
- */
-const de_VirtualGatewayAccessLog = (output: any, context: __SerdeContext): VirtualGatewayAccessLog => {
-  if (output.file != null) {
-    return {
-      file: de_VirtualGatewayFileAccessLog(output.file, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualGatewayAccessLog omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayBackendDefaults
- */
-const de_VirtualGatewayBackendDefaults = (output: any, context: __SerdeContext): VirtualGatewayBackendDefaults => {
-  return {
-    clientPolicy: output.clientPolicy != null ? de_VirtualGatewayClientPolicy(output.clientPolicy, context) : undefined,
-  } as any;
-};
+// de_VirtualGatewayBackendDefaults omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayCertificateAuthorityArns
- */
-const de_VirtualGatewayCertificateAuthorityArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_VirtualGatewayCertificateAuthorityArns omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayClientPolicy
- */
-const de_VirtualGatewayClientPolicy = (output: any, context: __SerdeContext): VirtualGatewayClientPolicy => {
-  return {
-    tls: output.tls != null ? de_VirtualGatewayClientPolicyTls(output.tls, context) : undefined,
-  } as any;
-};
+// de_VirtualGatewayClientPolicy omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayClientPolicyTls
- */
-const de_VirtualGatewayClientPolicyTls = (output: any, context: __SerdeContext): VirtualGatewayClientPolicyTls => {
-  return {
-    certificate:
-      output.certificate != null
-        ? de_VirtualGatewayClientTlsCertificate(__expectUnion(output.certificate), context)
-        : undefined,
-    enforce: __expectBoolean(output.enforce),
-    ports: output.ports != null ? de_PortSet(output.ports, context) : undefined,
-    validation:
-      output.validation != null ? de_VirtualGatewayTlsValidationContext(output.validation, context) : undefined,
-  } as any;
-};
+// de_VirtualGatewayClientPolicyTls omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayClientTlsCertificate
- */
-const de_VirtualGatewayClientTlsCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayClientTlsCertificate => {
-  if (output.file != null) {
-    return {
-      file: de_VirtualGatewayListenerTlsFileCertificate(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: de_VirtualGatewayListenerTlsSdsCertificate(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualGatewayClientTlsCertificate omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayConnectionPool
- */
-const de_VirtualGatewayConnectionPool = (output: any, context: __SerdeContext): VirtualGatewayConnectionPool => {
-  if (output.grpc != null) {
-    return {
-      grpc: de_VirtualGatewayGrpcConnectionPool(output.grpc, context),
-    };
-  }
-  if (output.http != null) {
-    return {
-      http: de_VirtualGatewayHttpConnectionPool(output.http, context),
-    };
-  }
-  if (output.http2 != null) {
-    return {
-      http2: de_VirtualGatewayHttp2ConnectionPool(output.http2, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualGatewayConnectionPool omitted.
 
 /**
  * deserializeAws_restJson1VirtualGatewayData
  */
 const de_VirtualGatewayData = (output: any, context: __SerdeContext): VirtualGatewayData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? de_ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? de_VirtualGatewaySpec(output.spec, context) : undefined,
-    status: output.status != null ? de_VirtualGatewayStatus(output.status, context) : undefined,
-    virtualGatewayName: __expectString(output.virtualGatewayName),
-  } as any;
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualGatewayName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1VirtualGatewayFileAccessLog
- */
-const de_VirtualGatewayFileAccessLog = (output: any, context: __SerdeContext): VirtualGatewayFileAccessLog => {
-  return {
-    format: output.format != null ? de_LoggingFormat(__expectUnion(output.format), context) : undefined,
-    path: __expectString(output.path),
-  } as any;
-};
+// de_VirtualGatewayFileAccessLog omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayGrpcConnectionPool
- */
-const de_VirtualGatewayGrpcConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayGrpcConnectionPool => {
-  return {
-    maxRequests: __expectInt32(output.maxRequests),
-  } as any;
-};
+// de_VirtualGatewayGrpcConnectionPool omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayHealthCheckPolicy
- */
-const de_VirtualGatewayHealthCheckPolicy = (output: any, context: __SerdeContext): VirtualGatewayHealthCheckPolicy => {
-  return {
-    healthyThreshold: __expectInt32(output.healthyThreshold),
-    intervalMillis: __expectLong(output.intervalMillis),
-    path: __expectString(output.path),
-    port: __expectInt32(output.port),
-    protocol: __expectString(output.protocol),
-    timeoutMillis: __expectLong(output.timeoutMillis),
-    unhealthyThreshold: __expectInt32(output.unhealthyThreshold),
-  } as any;
-};
+// de_VirtualGatewayHealthCheckPolicy omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayHttp2ConnectionPool
- */
-const de_VirtualGatewayHttp2ConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayHttp2ConnectionPool => {
-  return {
-    maxRequests: __expectInt32(output.maxRequests),
-  } as any;
-};
+// de_VirtualGatewayHttp2ConnectionPool omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayHttpConnectionPool
- */
-const de_VirtualGatewayHttpConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayHttpConnectionPool => {
-  return {
-    maxConnections: __expectInt32(output.maxConnections),
-    maxPendingRequests: __expectInt32(output.maxPendingRequests),
-  } as any;
-};
+// de_VirtualGatewayHttpConnectionPool omitted.
 
 /**
  * deserializeAws_restJson1VirtualGatewayList
@@ -7408,372 +4918,83 @@ const de_VirtualGatewayList = (output: any, context: __SerdeContext): VirtualGat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VirtualGatewayRef(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1VirtualGatewayListener
- */
-const de_VirtualGatewayListener = (output: any, context: __SerdeContext): VirtualGatewayListener => {
-  return {
-    connectionPool:
-      output.connectionPool != null
-        ? de_VirtualGatewayConnectionPool(__expectUnion(output.connectionPool), context)
-        : undefined,
-    healthCheck:
-      output.healthCheck != null ? de_VirtualGatewayHealthCheckPolicy(output.healthCheck, context) : undefined,
-    portMapping: output.portMapping != null ? de_VirtualGatewayPortMapping(output.portMapping, context) : undefined,
-    tls: output.tls != null ? de_VirtualGatewayListenerTls(output.tls, context) : undefined,
-  } as any;
-};
+// de_VirtualGatewayListener omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayListeners
- */
-const de_VirtualGatewayListeners = (output: any, context: __SerdeContext): VirtualGatewayListener[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VirtualGatewayListener(entry, context);
-    });
-  return retVal;
-};
+// de_VirtualGatewayListeners omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayListenerTls
- */
-const de_VirtualGatewayListenerTls = (output: any, context: __SerdeContext): VirtualGatewayListenerTls => {
-  return {
-    certificate:
-      output.certificate != null
-        ? de_VirtualGatewayListenerTlsCertificate(__expectUnion(output.certificate), context)
-        : undefined,
-    mode: __expectString(output.mode),
-    validation:
-      output.validation != null ? de_VirtualGatewayListenerTlsValidationContext(output.validation, context) : undefined,
-  } as any;
-};
+// de_VirtualGatewayListenerTls omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate
- */
-const de_VirtualGatewayListenerTlsAcmCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsAcmCertificate => {
-  return {
-    certificateArn: __expectString(output.certificateArn),
-  } as any;
-};
+// de_VirtualGatewayListenerTlsAcmCertificate omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayListenerTlsCertificate
- */
-const de_VirtualGatewayListenerTlsCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsCertificate => {
-  if (output.acm != null) {
-    return {
-      acm: de_VirtualGatewayListenerTlsAcmCertificate(output.acm, context),
-    };
-  }
-  if (output.file != null) {
-    return {
-      file: de_VirtualGatewayListenerTlsFileCertificate(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: de_VirtualGatewayListenerTlsSdsCertificate(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualGatewayListenerTlsCertificate omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate
- */
-const de_VirtualGatewayListenerTlsFileCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsFileCertificate => {
-  return {
-    certificateChain: __expectString(output.certificateChain),
-    privateKey: __expectString(output.privateKey),
-  } as any;
-};
+// de_VirtualGatewayListenerTlsFileCertificate omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate
- */
-const de_VirtualGatewayListenerTlsSdsCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsSdsCertificate => {
-  return {
-    secretName: __expectString(output.secretName),
-  } as any;
-};
+// de_VirtualGatewayListenerTlsSdsCertificate omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayListenerTlsValidationContext
- */
-const de_VirtualGatewayListenerTlsValidationContext = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsValidationContext => {
-  return {
-    subjectAlternativeNames:
-      output.subjectAlternativeNames != null
-        ? de_SubjectAlternativeNames(output.subjectAlternativeNames, context)
-        : undefined,
-    trust:
-      output.trust != null
-        ? de_VirtualGatewayListenerTlsValidationContextTrust(__expectUnion(output.trust), context)
-        : undefined,
-  } as any;
-};
+// de_VirtualGatewayListenerTlsValidationContext omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust
- */
-const de_VirtualGatewayListenerTlsValidationContextTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsValidationContextTrust => {
-  if (output.file != null) {
-    return {
-      file: de_VirtualGatewayTlsValidationContextFileTrust(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: de_VirtualGatewayTlsValidationContextSdsTrust(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualGatewayListenerTlsValidationContextTrust omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayLogging
- */
-const de_VirtualGatewayLogging = (output: any, context: __SerdeContext): VirtualGatewayLogging => {
-  return {
-    accessLog:
-      output.accessLog != null ? de_VirtualGatewayAccessLog(__expectUnion(output.accessLog), context) : undefined,
-  } as any;
-};
+// de_VirtualGatewayLogging omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayPortMapping
- */
-const de_VirtualGatewayPortMapping = (output: any, context: __SerdeContext): VirtualGatewayPortMapping => {
-  return {
-    port: __expectInt32(output.port),
-    protocol: __expectString(output.protocol),
-  } as any;
-};
+// de_VirtualGatewayPortMapping omitted.
 
 /**
  * deserializeAws_restJson1VirtualGatewayRef
  */
 const de_VirtualGatewayRef = (output: any, context: __SerdeContext): VirtualGatewayRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualGatewayName: __expectString(output.virtualGatewayName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualGatewayName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1VirtualGatewaySpec
- */
-const de_VirtualGatewaySpec = (output: any, context: __SerdeContext): VirtualGatewaySpec => {
-  return {
-    backendDefaults:
-      output.backendDefaults != null ? de_VirtualGatewayBackendDefaults(output.backendDefaults, context) : undefined,
-    listeners: output.listeners != null ? de_VirtualGatewayListeners(output.listeners, context) : undefined,
-    logging: output.logging != null ? de_VirtualGatewayLogging(output.logging, context) : undefined,
-  } as any;
-};
+// de_VirtualGatewaySpec omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayStatus
- */
-const de_VirtualGatewayStatus = (output: any, context: __SerdeContext): VirtualGatewayStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_VirtualGatewayStatus omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayTlsValidationContext
- */
-const de_VirtualGatewayTlsValidationContext = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContext => {
-  return {
-    subjectAlternativeNames:
-      output.subjectAlternativeNames != null
-        ? de_SubjectAlternativeNames(output.subjectAlternativeNames, context)
-        : undefined,
-    trust:
-      output.trust != null
-        ? de_VirtualGatewayTlsValidationContextTrust(__expectUnion(output.trust), context)
-        : undefined,
-  } as any;
-};
+// de_VirtualGatewayTlsValidationContext omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust
- */
-const de_VirtualGatewayTlsValidationContextAcmTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContextAcmTrust => {
-  return {
-    certificateAuthorityArns:
-      output.certificateAuthorityArns != null
-        ? de_VirtualGatewayCertificateAuthorityArns(output.certificateAuthorityArns, context)
-        : undefined,
-  } as any;
-};
+// de_VirtualGatewayTlsValidationContextAcmTrust omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust
- */
-const de_VirtualGatewayTlsValidationContextFileTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContextFileTrust => {
-  return {
-    certificateChain: __expectString(output.certificateChain),
-  } as any;
-};
+// de_VirtualGatewayTlsValidationContextFileTrust omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust
- */
-const de_VirtualGatewayTlsValidationContextSdsTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContextSdsTrust => {
-  return {
-    secretName: __expectString(output.secretName),
-  } as any;
-};
+// de_VirtualGatewayTlsValidationContextSdsTrust omitted.
 
-/**
- * deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust
- */
-const de_VirtualGatewayTlsValidationContextTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContextTrust => {
-  if (output.acm != null) {
-    return {
-      acm: de_VirtualGatewayTlsValidationContextAcmTrust(output.acm, context),
-    };
-  }
-  if (output.file != null) {
-    return {
-      file: de_VirtualGatewayTlsValidationContextFileTrust(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: de_VirtualGatewayTlsValidationContextSdsTrust(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualGatewayTlsValidationContextTrust omitted.
 
-/**
- * deserializeAws_restJson1VirtualNodeConnectionPool
- */
-const de_VirtualNodeConnectionPool = (output: any, context: __SerdeContext): VirtualNodeConnectionPool => {
-  if (output.grpc != null) {
-    return {
-      grpc: de_VirtualNodeGrpcConnectionPool(output.grpc, context),
-    };
-  }
-  if (output.http != null) {
-    return {
-      http: de_VirtualNodeHttpConnectionPool(output.http, context),
-    };
-  }
-  if (output.http2 != null) {
-    return {
-      http2: de_VirtualNodeHttp2ConnectionPool(output.http2, context),
-    };
-  }
-  if (output.tcp != null) {
-    return {
-      tcp: de_VirtualNodeTcpConnectionPool(output.tcp, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualNodeConnectionPool omitted.
 
 /**
  * deserializeAws_restJson1VirtualNodeData
  */
 const de_VirtualNodeData = (output: any, context: __SerdeContext): VirtualNodeData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? de_ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? de_VirtualNodeSpec(output.spec, context) : undefined,
-    status: output.status != null ? de_VirtualNodeStatus(output.status, context) : undefined,
-    virtualNodeName: __expectString(output.virtualNodeName),
-  } as any;
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualNodeName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1VirtualNodeGrpcConnectionPool
- */
-const de_VirtualNodeGrpcConnectionPool = (output: any, context: __SerdeContext): VirtualNodeGrpcConnectionPool => {
-  return {
-    maxRequests: __expectInt32(output.maxRequests),
-  } as any;
-};
+// de_VirtualNodeGrpcConnectionPool omitted.
 
-/**
- * deserializeAws_restJson1VirtualNodeHttp2ConnectionPool
- */
-const de_VirtualNodeHttp2ConnectionPool = (output: any, context: __SerdeContext): VirtualNodeHttp2ConnectionPool => {
-  return {
-    maxRequests: __expectInt32(output.maxRequests),
-  } as any;
-};
+// de_VirtualNodeHttp2ConnectionPool omitted.
 
-/**
- * deserializeAws_restJson1VirtualNodeHttpConnectionPool
- */
-const de_VirtualNodeHttpConnectionPool = (output: any, context: __SerdeContext): VirtualNodeHttpConnectionPool => {
-  return {
-    maxConnections: __expectInt32(output.maxConnections),
-    maxPendingRequests: __expectInt32(output.maxPendingRequests),
-  } as any;
-};
+// de_VirtualNodeHttpConnectionPool omitted.
 
 /**
  * deserializeAws_restJson1VirtualNodeList
@@ -7782,9 +5003,6 @@ const de_VirtualNodeList = (output: any, context: __SerdeContext): VirtualNodeRe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VirtualNodeRef(entry, context);
     });
   return retVal;
@@ -7794,76 +5012,37 @@ const de_VirtualNodeList = (output: any, context: __SerdeContext): VirtualNodeRe
  * deserializeAws_restJson1VirtualNodeRef
  */
 const de_VirtualNodeRef = (output: any, context: __SerdeContext): VirtualNodeRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualNodeName: __expectString(output.virtualNodeName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualNodeName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1VirtualNodeServiceProvider
- */
-const de_VirtualNodeServiceProvider = (output: any, context: __SerdeContext): VirtualNodeServiceProvider => {
-  return {
-    virtualNodeName: __expectString(output.virtualNodeName),
-  } as any;
-};
+// de_VirtualNodeServiceProvider omitted.
 
-/**
- * deserializeAws_restJson1VirtualNodeSpec
- */
-const de_VirtualNodeSpec = (output: any, context: __SerdeContext): VirtualNodeSpec => {
-  return {
-    backendDefaults: output.backendDefaults != null ? de_BackendDefaults(output.backendDefaults, context) : undefined,
-    backends: output.backends != null ? de_Backends(output.backends, context) : undefined,
-    listeners: output.listeners != null ? de_Listeners(output.listeners, context) : undefined,
-    logging: output.logging != null ? de_Logging(output.logging, context) : undefined,
-    serviceDiscovery:
-      output.serviceDiscovery != null
-        ? de_ServiceDiscovery(__expectUnion(output.serviceDiscovery), context)
-        : undefined,
-  } as any;
-};
+// de_VirtualNodeSpec omitted.
 
-/**
- * deserializeAws_restJson1VirtualNodeStatus
- */
-const de_VirtualNodeStatus = (output: any, context: __SerdeContext): VirtualNodeStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_VirtualNodeStatus omitted.
 
-/**
- * deserializeAws_restJson1VirtualNodeTcpConnectionPool
- */
-const de_VirtualNodeTcpConnectionPool = (output: any, context: __SerdeContext): VirtualNodeTcpConnectionPool => {
-  return {
-    maxConnections: __expectInt32(output.maxConnections),
-  } as any;
-};
+// de_VirtualNodeTcpConnectionPool omitted.
 
 /**
  * deserializeAws_restJson1VirtualRouterData
  */
 const de_VirtualRouterData = (output: any, context: __SerdeContext): VirtualRouterData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? de_ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? de_VirtualRouterSpec(output.spec, context) : undefined,
-    status: output.status != null ? de_VirtualRouterStatus(output.status, context) : undefined,
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualRouterName: __expectString,
+  }) as any;
 };
 
 /**
@@ -7873,106 +5052,50 @@ const de_VirtualRouterList = (output: any, context: __SerdeContext): VirtualRout
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VirtualRouterRef(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1VirtualRouterListener
- */
-const de_VirtualRouterListener = (output: any, context: __SerdeContext): VirtualRouterListener => {
-  return {
-    portMapping: output.portMapping != null ? de_PortMapping(output.portMapping, context) : undefined,
-  } as any;
-};
+// de_VirtualRouterListener omitted.
 
-/**
- * deserializeAws_restJson1VirtualRouterListeners
- */
-const de_VirtualRouterListeners = (output: any, context: __SerdeContext): VirtualRouterListener[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VirtualRouterListener(entry, context);
-    });
-  return retVal;
-};
+// de_VirtualRouterListeners omitted.
 
 /**
  * deserializeAws_restJson1VirtualRouterRef
  */
 const de_VirtualRouterRef = (output: any, context: __SerdeContext): VirtualRouterRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualRouterName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1VirtualRouterServiceProvider
- */
-const de_VirtualRouterServiceProvider = (output: any, context: __SerdeContext): VirtualRouterServiceProvider => {
-  return {
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
-};
+// de_VirtualRouterServiceProvider omitted.
 
-/**
- * deserializeAws_restJson1VirtualRouterSpec
- */
-const de_VirtualRouterSpec = (output: any, context: __SerdeContext): VirtualRouterSpec => {
-  return {
-    listeners: output.listeners != null ? de_VirtualRouterListeners(output.listeners, context) : undefined,
-  } as any;
-};
+// de_VirtualRouterSpec omitted.
 
-/**
- * deserializeAws_restJson1VirtualRouterStatus
- */
-const de_VirtualRouterStatus = (output: any, context: __SerdeContext): VirtualRouterStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_VirtualRouterStatus omitted.
 
-/**
- * deserializeAws_restJson1VirtualServiceBackend
- */
-const de_VirtualServiceBackend = (output: any, context: __SerdeContext): VirtualServiceBackend => {
-  return {
-    clientPolicy: output.clientPolicy != null ? de_ClientPolicy(output.clientPolicy, context) : undefined,
-    virtualServiceName: __expectString(output.virtualServiceName),
-  } as any;
-};
+// de_VirtualServiceBackend omitted.
 
 /**
  * deserializeAws_restJson1VirtualServiceData
  */
 const de_VirtualServiceData = (output: any, context: __SerdeContext): VirtualServiceData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? de_ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? de_VirtualServiceSpec(output.spec, context) : undefined,
-    status: output.status != null ? de_VirtualServiceStatus(output.status, context) : undefined,
-    virtualServiceName: __expectString(output.virtualServiceName),
-  } as any;
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualServiceName: __expectString,
+  }) as any;
 };
 
 /**
@@ -7982,94 +5105,36 @@ const de_VirtualServiceList = (output: any, context: __SerdeContext): VirtualSer
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VirtualServiceRef(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1VirtualServiceProvider
- */
-const de_VirtualServiceProvider = (output: any, context: __SerdeContext): VirtualServiceProvider => {
-  if (output.virtualNode != null) {
-    return {
-      virtualNode: de_VirtualNodeServiceProvider(output.virtualNode, context),
-    };
-  }
-  if (output.virtualRouter != null) {
-    return {
-      virtualRouter: de_VirtualRouterServiceProvider(output.virtualRouter, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualServiceProvider omitted.
 
 /**
  * deserializeAws_restJson1VirtualServiceRef
  */
 const de_VirtualServiceRef = (output: any, context: __SerdeContext): VirtualServiceRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualServiceName: __expectString(output.virtualServiceName),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualServiceName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1VirtualServiceSpec
- */
-const de_VirtualServiceSpec = (output: any, context: __SerdeContext): VirtualServiceSpec => {
-  return {
-    provider: output.provider != null ? de_VirtualServiceProvider(__expectUnion(output.provider), context) : undefined,
-  } as any;
-};
+// de_VirtualServiceSpec omitted.
 
-/**
- * deserializeAws_restJson1VirtualServiceStatus
- */
-const de_VirtualServiceStatus = (output: any, context: __SerdeContext): VirtualServiceStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_VirtualServiceStatus omitted.
 
-/**
- * deserializeAws_restJson1WeightedTarget
- */
-const de_WeightedTarget = (output: any, context: __SerdeContext): WeightedTarget => {
-  return {
-    port: __expectInt32(output.port),
-    virtualNode: __expectString(output.virtualNode),
-    weight: __expectInt32(output.weight),
-  } as any;
-};
+// de_WeightedTarget omitted.
 
-/**
- * deserializeAws_restJson1WeightedTargets
- */
-const de_WeightedTargets = (output: any, context: __SerdeContext): WeightedTarget[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WeightedTarget(entry, context);
-    });
-  return retVal;
-};
+// de_WeightedTargets omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

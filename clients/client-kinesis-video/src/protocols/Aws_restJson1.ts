@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -109,14 +110,12 @@ import {
   DeletionConfig,
   DeviceStreamLimitExceededException,
   EdgeConfig,
-  FormatConfigKey,
   ImageGenerationConfiguration,
   ImageGenerationDestinationConfig,
   InvalidArgumentException,
   InvalidDeviceException,
   InvalidResourceFormatException,
   LocalSizeConfig,
-  MappedResourceConfigurationListItem,
   MediaSourceConfig,
   MediaStorageConfiguration,
   NoDataRetentionException,
@@ -124,7 +123,6 @@ import {
   NotificationConfiguration,
   NotificationDestinationConfig,
   RecorderConfig,
-  ResourceEndpointListItem,
   ResourceInUseException,
   ResourceNotFoundException,
   ScheduleConfig,
@@ -153,14 +151,14 @@ export const se_CreateSignalingChannelCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSignalingChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelName != null && { ChannelName: input.ChannelName }),
-    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
-    ...(input.SingleMasterConfiguration != null && {
-      SingleMasterConfiguration: se_SingleMasterConfiguration(input.SingleMasterConfiguration, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagOnCreateList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelName: [],
+      ChannelType: [],
+      SingleMasterConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -185,14 +183,16 @@ export const se_CreateStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DataRetentionInHours != null && { DataRetentionInHours: input.DataRetentionInHours }),
-    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.MediaType != null && { MediaType: input.MediaType }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.Tags != null && { Tags: se_ResourceTags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DataRetentionInHours: [],
+      DeviceName: [],
+      KmsKeyId: [],
+      MediaType: [],
+      StreamName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -218,10 +218,12 @@ export const se_DeleteSignalingChannelCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteSignalingChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN != null && { ChannelARN: input.ChannelARN }),
-    ...(input.CurrentVersion != null && { CurrentVersion: input.CurrentVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      CurrentVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -246,10 +248,12 @@ export const se_DeleteStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion != null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CurrentVersion: [],
+      StreamARN: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -275,10 +279,12 @@ export const se_DescribeEdgeConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeEdgeConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -304,10 +310,12 @@ export const se_DescribeImageGenerationConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeImageGenerationConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -333,12 +341,14 @@ export const se_DescribeMappedResourceConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeMappedResourceConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -364,10 +374,12 @@ export const se_DescribeMediaStorageConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeMediaStorageConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN != null && { ChannelARN: input.ChannelARN }),
-    ...(input.ChannelName != null && { ChannelName: input.ChannelName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      ChannelName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -393,10 +405,12 @@ export const se_DescribeNotificationConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeNotificationConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -422,10 +436,12 @@ export const se_DescribeSignalingChannelCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSignalingChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN != null && { ChannelARN: input.ChannelARN }),
-    ...(input.ChannelName != null && { ChannelName: input.ChannelName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      ChannelName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -450,10 +466,12 @@ export const se_DescribeStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -478,11 +496,13 @@ export const se_GetDataEndpointCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getDataEndpoint";
   let body: any;
-  body = JSON.stringify({
-    ...(input.APIName != null && { APIName: input.APIName }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      APIName: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -508,15 +528,12 @@ export const se_GetSignalingChannelEndpointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getSignalingChannelEndpoint";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN != null && { ChannelARN: input.ChannelARN }),
-    ...(input.SingleMasterChannelEndpointConfiguration != null && {
-      SingleMasterChannelEndpointConfiguration: se_SingleMasterChannelEndpointConfiguration(
-        input.SingleMasterChannelEndpointConfiguration,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      SingleMasterChannelEndpointConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -541,13 +558,13 @@ export const se_ListSignalingChannelsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSignalingChannels";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelNameCondition != null && {
-      ChannelNameCondition: se_ChannelNameCondition(input.ChannelNameCondition, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelNameCondition: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -572,13 +589,13 @@ export const se_ListStreamsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listStreams";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StreamNameCondition != null && {
-      StreamNameCondition: se_StreamNameCondition(input.StreamNameCondition, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      StreamNameCondition: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -603,10 +620,12 @@ export const se_ListTagsForResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      ResourceARN: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -631,11 +650,13 @@ export const se_ListTagsForStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listTagsForStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -661,11 +682,13 @@ export const se_StartEdgeConfigurationUpdateCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/startEdgeConfigurationUpdate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EdgeConfig != null && { EdgeConfig: se_EdgeConfig(input.EdgeConfig, context) }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EdgeConfig: (_) => _json(_),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -690,10 +713,12 @@ export const se_TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -718,11 +743,13 @@ export const se_TagStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.Tags != null && { Tags: se_ResourceTags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -747,10 +774,12 @@ export const se_UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeyList != null && { TagKeyList: se_TagKeyList(input.TagKeyList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeyList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -775,11 +804,13 @@ export const se_UntagStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.TagKeyList != null && { TagKeyList: se_TagKeyList(input.TagKeyList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+      TagKeyList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -804,13 +835,15 @@ export const se_UpdateDataRetentionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDataRetention";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion != null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.DataRetentionChangeInHours != null && { DataRetentionChangeInHours: input.DataRetentionChangeInHours }),
-    ...(input.Operation != null && { Operation: input.Operation }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CurrentVersion: [],
+      DataRetentionChangeInHours: [],
+      Operation: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -836,13 +869,13 @@ export const se_UpdateImageGenerationConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateImageGenerationConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ImageGenerationConfiguration != null && {
-      ImageGenerationConfiguration: se_ImageGenerationConfiguration(input.ImageGenerationConfiguration, context),
-    }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ImageGenerationConfiguration: (_) => _json(_),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -868,12 +901,12 @@ export const se_UpdateMediaStorageConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateMediaStorageConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN != null && { ChannelARN: input.ChannelARN }),
-    ...(input.MediaStorageConfiguration != null && {
-      MediaStorageConfiguration: se_MediaStorageConfiguration(input.MediaStorageConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      MediaStorageConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -899,13 +932,13 @@ export const se_UpdateNotificationConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateNotificationConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NotificationConfiguration != null && {
-      NotificationConfiguration: se_NotificationConfiguration(input.NotificationConfiguration, context),
-    }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NotificationConfiguration: (_) => _json(_),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -931,13 +964,13 @@ export const se_UpdateSignalingChannelCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateSignalingChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN != null && { ChannelARN: input.ChannelARN }),
-    ...(input.CurrentVersion != null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.SingleMasterConfiguration != null && {
-      SingleMasterConfiguration: se_SingleMasterConfiguration(input.SingleMasterConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      CurrentVersion: [],
+      SingleMasterConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -962,13 +995,15 @@ export const se_UpdateStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion != null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-    ...(input.MediaType != null && { MediaType: input.MediaType }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CurrentVersion: [],
+      DeviceName: [],
+      MediaType: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -994,9 +1029,10 @@ export const de_CreateSignalingChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelARN != null) {
-    contents.ChannelARN = __expectString(data.ChannelARN);
-  }
+  const doc = take(data, {
+    ChannelARN: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1033,10 +1069,9 @@ const de_CreateSignalingChannelCommandError = async (
       throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1056,9 +1091,10 @@ export const de_CreateStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamARN != null) {
-    contents.StreamARN = __expectString(data.StreamARN);
-  }
+  const doc = take(data, {
+    StreamARN: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1098,10 +1134,9 @@ const de_CreateStreamCommandError = async (
       throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1157,10 +1192,9 @@ const de_DeleteSignalingChannelCommandError = async (
       throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1216,10 +1250,9 @@ const de_DeleteStreamCommandError = async (
       throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1239,27 +1272,16 @@ export const de_DescribeEdgeConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.EdgeConfig != null) {
-    contents.EdgeConfig = de_EdgeConfig(data.EdgeConfig, context);
-  }
-  if (data.FailedStatusDetails != null) {
-    contents.FailedStatusDetails = __expectString(data.FailedStatusDetails);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.StreamARN != null) {
-    contents.StreamARN = __expectString(data.StreamARN);
-  }
-  if (data.StreamName != null) {
-    contents.StreamName = __expectString(data.StreamName);
-  }
-  if (data.SyncStatus != null) {
-    contents.SyncStatus = __expectString(data.SyncStatus);
-  }
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EdgeConfig: _json,
+    FailedStatusDetails: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    SyncStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1293,10 +1315,9 @@ const de_DescribeEdgeConfigurationCommandError = async (
       throw await de_StreamEdgeConfigurationNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1316,9 +1337,10 @@ export const de_DescribeImageGenerationConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ImageGenerationConfiguration != null) {
-    contents.ImageGenerationConfiguration = de_ImageGenerationConfiguration(data.ImageGenerationConfiguration, context);
-  }
+  const doc = take(data, {
+    ImageGenerationConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1349,10 +1371,9 @@ const de_DescribeImageGenerationConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1372,15 +1393,11 @@ export const de_DescribeMappedResourceConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MappedResourceConfigurationList != null) {
-    contents.MappedResourceConfigurationList = de_MappedResourceConfigurationList(
-      data.MappedResourceConfigurationList,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MappedResourceConfigurationList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1411,10 +1428,9 @@ const de_DescribeMappedResourceConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1434,9 +1450,10 @@ export const de_DescribeMediaStorageConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaStorageConfiguration != null) {
-    contents.MediaStorageConfiguration = de_MediaStorageConfiguration(data.MediaStorageConfiguration, context);
-  }
+  const doc = take(data, {
+    MediaStorageConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1467,10 +1484,9 @@ const de_DescribeMediaStorageConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1490,9 +1506,10 @@ export const de_DescribeNotificationConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NotificationConfiguration != null) {
-    contents.NotificationConfiguration = de_NotificationConfiguration(data.NotificationConfiguration, context);
-  }
+  const doc = take(data, {
+    NotificationConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1523,10 +1540,9 @@ const de_DescribeNotificationConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1546,9 +1562,10 @@ export const de_DescribeSignalingChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelInfo != null) {
-    contents.ChannelInfo = de_ChannelInfo(data.ChannelInfo, context);
-  }
+  const doc = take(data, {
+    ChannelInfo: (_) => de_ChannelInfo(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1579,10 +1596,9 @@ const de_DescribeSignalingChannelCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1602,9 +1618,10 @@ export const de_DescribeStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamInfo != null) {
-    contents.StreamInfo = de_StreamInfo(data.StreamInfo, context);
-  }
+  const doc = take(data, {
+    StreamInfo: (_) => de_StreamInfo(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1635,10 +1652,9 @@ const de_DescribeStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1658,9 +1674,10 @@ export const de_GetDataEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataEndpoint != null) {
-    contents.DataEndpoint = __expectString(data.DataEndpoint);
-  }
+  const doc = take(data, {
+    DataEndpoint: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1691,10 +1708,9 @@ const de_GetDataEndpointCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1714,9 +1730,10 @@ export const de_GetSignalingChannelEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceEndpointList != null) {
-    contents.ResourceEndpointList = de_ResourceEndpointList(data.ResourceEndpointList, context);
-  }
+  const doc = take(data, {
+    ResourceEndpointList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1750,10 +1767,9 @@ const de_GetSignalingChannelEndpointCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1773,12 +1789,11 @@ export const de_ListSignalingChannelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelInfoList != null) {
-    contents.ChannelInfoList = de_ChannelInfoList(data.ChannelInfoList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelInfoList: (_) => de_ChannelInfoList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1806,10 +1821,9 @@ const de_ListSignalingChannelsCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1829,12 +1843,11 @@ export const de_ListStreamsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.StreamInfoList != null) {
-    contents.StreamInfoList = de_StreamInfoList(data.StreamInfoList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    StreamInfoList: (_) => de_StreamInfoList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1859,10 +1872,9 @@ const de_ListStreamsCommandError = async (
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1882,12 +1894,11 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_ResourceTags(data.Tags, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1918,10 +1929,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1941,12 +1951,11 @@ export const de_ListTagsForStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_ResourceTags(data.Tags, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1980,10 +1989,9 @@ const de_ListTagsForStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2003,27 +2011,16 @@ export const de_StartEdgeConfigurationUpdateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.EdgeConfig != null) {
-    contents.EdgeConfig = de_EdgeConfig(data.EdgeConfig, context);
-  }
-  if (data.FailedStatusDetails != null) {
-    contents.FailedStatusDetails = __expectString(data.FailedStatusDetails);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.StreamARN != null) {
-    contents.StreamARN = __expectString(data.StreamARN);
-  }
-  if (data.StreamName != null) {
-    contents.StreamName = __expectString(data.StreamName);
-  }
-  if (data.SyncStatus != null) {
-    contents.SyncStatus = __expectString(data.SyncStatus);
-  }
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EdgeConfig: _json,
+    FailedStatusDetails: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    SyncStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2060,10 +2057,9 @@ const de_StartEdgeConfigurationUpdateCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2116,10 +2112,9 @@ const de_TagResourceCommandError = async (
       throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2175,10 +2170,9 @@ const de_TagStreamCommandError = async (
       throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2228,10 +2222,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2284,10 +2277,9 @@ const de_UntagStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2343,10 +2335,9 @@ const de_UpdateDataRetentionCommandError = async (
       throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2402,10 +2393,9 @@ const de_UpdateImageGenerationConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2461,10 +2451,9 @@ const de_UpdateMediaStorageConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2520,10 +2509,9 @@ const de_UpdateNotificationConfigurationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2579,10 +2567,9 @@ const de_UpdateSignalingChannelCommandError = async (
       throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2638,16 +2625,15 @@ const de_UpdateStreamCommandError = async (
       throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2657,9 +2643,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2676,9 +2663,10 @@ const de_AccountChannelLimitExceededExceptionRes = async (
 ): Promise<AccountChannelLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccountChannelLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2695,9 +2683,10 @@ const de_AccountStreamLimitExceededExceptionRes = async (
 ): Promise<AccountStreamLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccountStreamLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2714,9 +2703,10 @@ const de_ClientLimitExceededExceptionRes = async (
 ): Promise<ClientLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ClientLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2733,9 +2723,10 @@ const de_DeviceStreamLimitExceededExceptionRes = async (
 ): Promise<DeviceStreamLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DeviceStreamLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2752,9 +2743,10 @@ const de_InvalidArgumentExceptionRes = async (
 ): Promise<InvalidArgumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2771,9 +2763,10 @@ const de_InvalidDeviceExceptionRes = async (
 ): Promise<InvalidDeviceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidDeviceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2790,9 +2783,10 @@ const de_InvalidResourceFormatExceptionRes = async (
 ): Promise<InvalidResourceFormatException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidResourceFormatException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2809,9 +2803,10 @@ const de_NoDataRetentionExceptionRes = async (
 ): Promise<NoDataRetentionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NoDataRetentionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2828,9 +2823,10 @@ const de_NotAuthorizedExceptionRes = async (
 ): Promise<NotAuthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2847,9 +2843,10 @@ const de_ResourceInUseExceptionRes = async (
 ): Promise<ResourceInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2866,9 +2863,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2885,9 +2883,10 @@ const de_StreamEdgeConfigurationNotFoundExceptionRes = async (
 ): Promise<StreamEdgeConfigurationNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StreamEdgeConfigurationNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2904,9 +2903,10 @@ const de_TagsPerResourceExceededLimitExceptionRes = async (
 ): Promise<TagsPerResourceExceededLimitException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TagsPerResourceExceededLimitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2923,9 +2923,10 @@ const de_VersionMismatchExceptionRes = async (
 ): Promise<VersionMismatchException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new VersionMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2933,280 +2934,65 @@ const de_VersionMismatchExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ChannelNameCondition
- */
-const se_ChannelNameCondition = (input: ChannelNameCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.ComparisonValue != null && { ComparisonValue: input.ComparisonValue }),
-  };
-};
+// se_ChannelNameCondition omitted.
 
-/**
- * serializeAws_restJson1DeletionConfig
- */
-const se_DeletionConfig = (input: DeletionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DeleteAfterUpload != null && { DeleteAfterUpload: input.DeleteAfterUpload }),
-    ...(input.EdgeRetentionInHours != null && { EdgeRetentionInHours: input.EdgeRetentionInHours }),
-    ...(input.LocalSizeConfig != null && { LocalSizeConfig: se_LocalSizeConfig(input.LocalSizeConfig, context) }),
-  };
-};
+// se_DeletionConfig omitted.
 
-/**
- * serializeAws_restJson1EdgeConfig
- */
-const se_EdgeConfig = (input: EdgeConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DeletionConfig != null && { DeletionConfig: se_DeletionConfig(input.DeletionConfig, context) }),
-    ...(input.HubDeviceArn != null && { HubDeviceArn: input.HubDeviceArn }),
-    ...(input.RecorderConfig != null && { RecorderConfig: se_RecorderConfig(input.RecorderConfig, context) }),
-    ...(input.UploaderConfig != null && { UploaderConfig: se_UploaderConfig(input.UploaderConfig, context) }),
-  };
-};
+// se_EdgeConfig omitted.
 
-/**
- * serializeAws_restJson1FormatConfig
- */
-const se_FormatConfig = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [FormatConfigKey | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_FormatConfig omitted.
 
-/**
- * serializeAws_restJson1ImageGenerationConfiguration
- */
-const se_ImageGenerationConfiguration = (input: ImageGenerationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationConfig != null && {
-      DestinationConfig: se_ImageGenerationDestinationConfig(input.DestinationConfig, context),
-    }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.FormatConfig != null && { FormatConfig: se_FormatConfig(input.FormatConfig, context) }),
-    ...(input.HeightPixels != null && { HeightPixels: input.HeightPixels }),
-    ...(input.ImageSelectorType != null && { ImageSelectorType: input.ImageSelectorType }),
-    ...(input.SamplingInterval != null && { SamplingInterval: input.SamplingInterval }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.WidthPixels != null && { WidthPixels: input.WidthPixels }),
-  };
-};
+// se_ImageGenerationConfiguration omitted.
 
-/**
- * serializeAws_restJson1ImageGenerationDestinationConfig
- */
-const se_ImageGenerationDestinationConfig = (input: ImageGenerationDestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationRegion != null && { DestinationRegion: input.DestinationRegion }),
-    ...(input.Uri != null && { Uri: input.Uri }),
-  };
-};
+// se_ImageGenerationDestinationConfig omitted.
 
-/**
- * serializeAws_restJson1ListOfProtocols
- */
-const se_ListOfProtocols = (input: (ChannelProtocol | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfProtocols omitted.
 
-/**
- * serializeAws_restJson1LocalSizeConfig
- */
-const se_LocalSizeConfig = (input: LocalSizeConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxLocalMediaSizeInMB != null && { MaxLocalMediaSizeInMB: input.MaxLocalMediaSizeInMB }),
-    ...(input.StrategyOnFullSize != null && { StrategyOnFullSize: input.StrategyOnFullSize }),
-  };
-};
+// se_LocalSizeConfig omitted.
 
-/**
- * serializeAws_restJson1MediaSourceConfig
- */
-const se_MediaSourceConfig = (input: MediaSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MediaUriSecretArn != null && { MediaUriSecretArn: input.MediaUriSecretArn }),
-    ...(input.MediaUriType != null && { MediaUriType: input.MediaUriType }),
-  };
-};
+// se_MediaSourceConfig omitted.
 
-/**
- * serializeAws_restJson1MediaStorageConfiguration
- */
-const se_MediaStorageConfiguration = (input: MediaStorageConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-  };
-};
+// se_MediaStorageConfiguration omitted.
 
-/**
- * serializeAws_restJson1NotificationConfiguration
- */
-const se_NotificationConfiguration = (input: NotificationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationConfig != null && {
-      DestinationConfig: se_NotificationDestinationConfig(input.DestinationConfig, context),
-    }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_NotificationConfiguration omitted.
 
-/**
- * serializeAws_restJson1NotificationDestinationConfig
- */
-const se_NotificationDestinationConfig = (input: NotificationDestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Uri != null && { Uri: input.Uri }),
-  };
-};
+// se_NotificationDestinationConfig omitted.
 
-/**
- * serializeAws_restJson1RecorderConfig
- */
-const se_RecorderConfig = (input: RecorderConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MediaSourceConfig != null && {
-      MediaSourceConfig: se_MediaSourceConfig(input.MediaSourceConfig, context),
-    }),
-    ...(input.ScheduleConfig != null && { ScheduleConfig: se_ScheduleConfig(input.ScheduleConfig, context) }),
-  };
-};
+// se_RecorderConfig omitted.
 
-/**
- * serializeAws_restJson1ResourceTags
- */
-const se_ResourceTags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ResourceTags omitted.
 
-/**
- * serializeAws_restJson1ScheduleConfig
- */
-const se_ScheduleConfig = (input: ScheduleConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
-  };
-};
+// se_ScheduleConfig omitted.
 
-/**
- * serializeAws_restJson1SingleMasterChannelEndpointConfiguration
- */
-const se_SingleMasterChannelEndpointConfiguration = (
-  input: SingleMasterChannelEndpointConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Protocols != null && { Protocols: se_ListOfProtocols(input.Protocols, context) }),
-    ...(input.Role != null && { Role: input.Role }),
-  };
-};
+// se_SingleMasterChannelEndpointConfiguration omitted.
 
-/**
- * serializeAws_restJson1SingleMasterConfiguration
- */
-const se_SingleMasterConfiguration = (input: SingleMasterConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageTtlSeconds != null && { MessageTtlSeconds: input.MessageTtlSeconds }),
-  };
-};
+// se_SingleMasterConfiguration omitted.
 
-/**
- * serializeAws_restJson1StreamNameCondition
- */
-const se_StreamNameCondition = (input: StreamNameCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.ComparisonValue != null && { ComparisonValue: input.ComparisonValue }),
-  };
-};
+// se_StreamNameCondition omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_restJson1TagOnCreateList
- */
-const se_TagOnCreateList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagOnCreateList omitted.
 
-/**
- * serializeAws_restJson1UploaderConfig
- */
-const se_UploaderConfig = (input: UploaderConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ScheduleConfig != null && { ScheduleConfig: se_ScheduleConfig(input.ScheduleConfig, context) }),
-  };
-};
+// se_UploaderConfig omitted.
 
 /**
  * deserializeAws_restJson1ChannelInfo
  */
 const de_ChannelInfo = (output: any, context: __SerdeContext): ChannelInfo => {
-  return {
-    ChannelARN: __expectString(output.ChannelARN),
-    ChannelName: __expectString(output.ChannelName),
-    ChannelStatus: __expectString(output.ChannelStatus),
-    ChannelType: __expectString(output.ChannelType),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    SingleMasterConfiguration:
-      output.SingleMasterConfiguration != null
-        ? de_SingleMasterConfiguration(output.SingleMasterConfiguration, context)
-        : undefined,
-    Version: __expectString(output.Version),
-  } as any;
+  return take(output, {
+    ChannelARN: __expectString,
+    ChannelName: __expectString,
+    ChannelStatus: __expectString,
+    ChannelType: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SingleMasterConfiguration: _json,
+    Version: __expectString,
+  }) as any;
 };
 
 /**
@@ -3216,251 +3002,62 @@ const de_ChannelInfoList = (output: any, context: __SerdeContext): ChannelInfo[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelInfo(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DeletionConfig
- */
-const de_DeletionConfig = (output: any, context: __SerdeContext): DeletionConfig => {
-  return {
-    DeleteAfterUpload: __expectBoolean(output.DeleteAfterUpload),
-    EdgeRetentionInHours: __expectInt32(output.EdgeRetentionInHours),
-    LocalSizeConfig: output.LocalSizeConfig != null ? de_LocalSizeConfig(output.LocalSizeConfig, context) : undefined,
-  } as any;
-};
+// de_DeletionConfig omitted.
 
-/**
- * deserializeAws_restJson1EdgeConfig
- */
-const de_EdgeConfig = (output: any, context: __SerdeContext): EdgeConfig => {
-  return {
-    DeletionConfig: output.DeletionConfig != null ? de_DeletionConfig(output.DeletionConfig, context) : undefined,
-    HubDeviceArn: __expectString(output.HubDeviceArn),
-    RecorderConfig: output.RecorderConfig != null ? de_RecorderConfig(output.RecorderConfig, context) : undefined,
-    UploaderConfig: output.UploaderConfig != null ? de_UploaderConfig(output.UploaderConfig, context) : undefined,
-  } as any;
-};
+// de_EdgeConfig omitted.
 
-/**
- * deserializeAws_restJson1FormatConfig
- */
-const de_FormatConfig = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [FormatConfigKey | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_FormatConfig omitted.
 
-/**
- * deserializeAws_restJson1ImageGenerationConfiguration
- */
-const de_ImageGenerationConfiguration = (output: any, context: __SerdeContext): ImageGenerationConfiguration => {
-  return {
-    DestinationConfig:
-      output.DestinationConfig != null
-        ? de_ImageGenerationDestinationConfig(output.DestinationConfig, context)
-        : undefined,
-    Format: __expectString(output.Format),
-    FormatConfig: output.FormatConfig != null ? de_FormatConfig(output.FormatConfig, context) : undefined,
-    HeightPixels: __expectInt32(output.HeightPixels),
-    ImageSelectorType: __expectString(output.ImageSelectorType),
-    SamplingInterval: __expectInt32(output.SamplingInterval),
-    Status: __expectString(output.Status),
-    WidthPixels: __expectInt32(output.WidthPixels),
-  } as any;
-};
+// de_ImageGenerationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ImageGenerationDestinationConfig
- */
-const de_ImageGenerationDestinationConfig = (
-  output: any,
-  context: __SerdeContext
-): ImageGenerationDestinationConfig => {
-  return {
-    DestinationRegion: __expectString(output.DestinationRegion),
-    Uri: __expectString(output.Uri),
-  } as any;
-};
+// de_ImageGenerationDestinationConfig omitted.
 
-/**
- * deserializeAws_restJson1LocalSizeConfig
- */
-const de_LocalSizeConfig = (output: any, context: __SerdeContext): LocalSizeConfig => {
-  return {
-    MaxLocalMediaSizeInMB: __expectInt32(output.MaxLocalMediaSizeInMB),
-    StrategyOnFullSize: __expectString(output.StrategyOnFullSize),
-  } as any;
-};
+// de_LocalSizeConfig omitted.
 
-/**
- * deserializeAws_restJson1MappedResourceConfigurationList
- */
-const de_MappedResourceConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): MappedResourceConfigurationListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MappedResourceConfigurationListItem(entry, context);
-    });
-  return retVal;
-};
+// de_MappedResourceConfigurationList omitted.
 
-/**
- * deserializeAws_restJson1MappedResourceConfigurationListItem
- */
-const de_MappedResourceConfigurationListItem = (
-  output: any,
-  context: __SerdeContext
-): MappedResourceConfigurationListItem => {
-  return {
-    ARN: __expectString(output.ARN),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_MappedResourceConfigurationListItem omitted.
 
-/**
- * deserializeAws_restJson1MediaSourceConfig
- */
-const de_MediaSourceConfig = (output: any, context: __SerdeContext): MediaSourceConfig => {
-  return {
-    MediaUriSecretArn: __expectString(output.MediaUriSecretArn),
-    MediaUriType: __expectString(output.MediaUriType),
-  } as any;
-};
+// de_MediaSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1MediaStorageConfiguration
- */
-const de_MediaStorageConfiguration = (output: any, context: __SerdeContext): MediaStorageConfiguration => {
-  return {
-    Status: __expectString(output.Status),
-    StreamARN: __expectString(output.StreamARN),
-  } as any;
-};
+// de_MediaStorageConfiguration omitted.
 
-/**
- * deserializeAws_restJson1NotificationConfiguration
- */
-const de_NotificationConfiguration = (output: any, context: __SerdeContext): NotificationConfiguration => {
-  return {
-    DestinationConfig:
-      output.DestinationConfig != null
-        ? de_NotificationDestinationConfig(output.DestinationConfig, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_NotificationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1NotificationDestinationConfig
- */
-const de_NotificationDestinationConfig = (output: any, context: __SerdeContext): NotificationDestinationConfig => {
-  return {
-    Uri: __expectString(output.Uri),
-  } as any;
-};
+// de_NotificationDestinationConfig omitted.
 
-/**
- * deserializeAws_restJson1RecorderConfig
- */
-const de_RecorderConfig = (output: any, context: __SerdeContext): RecorderConfig => {
-  return {
-    MediaSourceConfig:
-      output.MediaSourceConfig != null ? de_MediaSourceConfig(output.MediaSourceConfig, context) : undefined,
-    ScheduleConfig: output.ScheduleConfig != null ? de_ScheduleConfig(output.ScheduleConfig, context) : undefined,
-  } as any;
-};
+// de_RecorderConfig omitted.
 
-/**
- * deserializeAws_restJson1ResourceEndpointList
- */
-const de_ResourceEndpointList = (output: any, context: __SerdeContext): ResourceEndpointListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceEndpointListItem(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceEndpointList omitted.
 
-/**
- * deserializeAws_restJson1ResourceEndpointListItem
- */
-const de_ResourceEndpointListItem = (output: any, context: __SerdeContext): ResourceEndpointListItem => {
-  return {
-    Protocol: __expectString(output.Protocol),
-    ResourceEndpoint: __expectString(output.ResourceEndpoint),
-  } as any;
-};
+// de_ResourceEndpointListItem omitted.
 
-/**
- * deserializeAws_restJson1ResourceTags
- */
-const de_ResourceTags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ResourceTags omitted.
 
-/**
- * deserializeAws_restJson1ScheduleConfig
- */
-const de_ScheduleConfig = (output: any, context: __SerdeContext): ScheduleConfig => {
-  return {
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-    ScheduleExpression: __expectString(output.ScheduleExpression),
-  } as any;
-};
+// de_ScheduleConfig omitted.
 
-/**
- * deserializeAws_restJson1SingleMasterConfiguration
- */
-const de_SingleMasterConfiguration = (output: any, context: __SerdeContext): SingleMasterConfiguration => {
-  return {
-    MessageTtlSeconds: __expectInt32(output.MessageTtlSeconds),
-  } as any;
-};
+// de_SingleMasterConfiguration omitted.
 
 /**
  * deserializeAws_restJson1StreamInfo
  */
 const de_StreamInfo = (output: any, context: __SerdeContext): StreamInfo => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataRetentionInHours: __expectInt32(output.DataRetentionInHours),
-    DeviceName: __expectString(output.DeviceName),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    MediaType: __expectString(output.MediaType),
-    Status: __expectString(output.Status),
-    StreamARN: __expectString(output.StreamARN),
-    StreamName: __expectString(output.StreamName),
-    Version: __expectString(output.Version),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataRetentionInHours: __expectInt32,
+    DeviceName: __expectString,
+    KmsKeyId: __expectString,
+    MediaType: __expectString,
+    Status: __expectString,
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    Version: __expectString,
+  }) as any;
 };
 
 /**
@@ -3470,22 +3067,12 @@ const de_StreamInfoList = (output: any, context: __SerdeContext): StreamInfo[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StreamInfo(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1UploaderConfig
- */
-const de_UploaderConfig = (output: any, context: __SerdeContext): UploaderConfig => {
-  return {
-    ScheduleConfig: output.ScheduleConfig != null ? de_ScheduleConfig(output.ScheduleConfig, context) : undefined,
-  } as any;
-};
+// de_UploaderConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

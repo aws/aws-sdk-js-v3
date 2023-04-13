@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -57,52 +58,34 @@ import {
   CreateContainerInput,
   CreateContainerOutput,
   DeleteContainerInput,
-  DeleteContainerOutput,
   DeleteContainerPolicyInput,
-  DeleteContainerPolicyOutput,
   DeleteCorsPolicyInput,
-  DeleteCorsPolicyOutput,
   DeleteLifecyclePolicyInput,
-  DeleteLifecyclePolicyOutput,
   DeleteMetricPolicyInput,
-  DeleteMetricPolicyOutput,
   DescribeContainerInput,
   DescribeContainerOutput,
   GetContainerPolicyInput,
-  GetContainerPolicyOutput,
   GetCorsPolicyInput,
-  GetCorsPolicyOutput,
   GetLifecyclePolicyInput,
-  GetLifecyclePolicyOutput,
   GetMetricPolicyInput,
-  GetMetricPolicyOutput,
   InternalServerError,
   LimitExceededException,
   ListContainersInput,
   ListContainersOutput,
   ListTagsForResourceInput,
-  ListTagsForResourceOutput,
   MethodName,
   MetricPolicy,
   MetricPolicyRule,
   PolicyNotFoundException,
   PutContainerPolicyInput,
-  PutContainerPolicyOutput,
   PutCorsPolicyInput,
-  PutCorsPolicyOutput,
   PutLifecyclePolicyInput,
-  PutLifecyclePolicyOutput,
   PutMetricPolicyInput,
-  PutMetricPolicyOutput,
   StartAccessLoggingInput,
-  StartAccessLoggingOutput,
   StopAccessLoggingInput,
-  StopAccessLoggingOutput,
   Tag,
   TagResourceInput,
-  TagResourceOutput,
   UntagResourceInput,
-  UntagResourceOutput,
 } from "../models/models_0";
 
 /**
@@ -114,7 +97,7 @@ export const se_CreateContainerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateContainer");
   let body: any;
-  body = JSON.stringify(se_CreateContainerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -127,7 +110,7 @@ export const se_DeleteContainerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteContainer");
   let body: any;
-  body = JSON.stringify(se_DeleteContainerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -140,7 +123,7 @@ export const se_DeleteContainerPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteContainerPolicy");
   let body: any;
-  body = JSON.stringify(se_DeleteContainerPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -153,7 +136,7 @@ export const se_DeleteCorsPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCorsPolicy");
   let body: any;
-  body = JSON.stringify(se_DeleteCorsPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -166,7 +149,7 @@ export const se_DeleteLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLifecyclePolicy");
   let body: any;
-  body = JSON.stringify(se_DeleteLifecyclePolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -179,7 +162,7 @@ export const se_DeleteMetricPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteMetricPolicy");
   let body: any;
-  body = JSON.stringify(se_DeleteMetricPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -192,7 +175,7 @@ export const se_DescribeContainerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeContainer");
   let body: any;
-  body = JSON.stringify(se_DescribeContainerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -205,7 +188,7 @@ export const se_GetContainerPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetContainerPolicy");
   let body: any;
-  body = JSON.stringify(se_GetContainerPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -218,7 +201,7 @@ export const se_GetCorsPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCorsPolicy");
   let body: any;
-  body = JSON.stringify(se_GetCorsPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -231,7 +214,7 @@ export const se_GetLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLifecyclePolicy");
   let body: any;
-  body = JSON.stringify(se_GetLifecyclePolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -244,7 +227,7 @@ export const se_GetMetricPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetMetricPolicy");
   let body: any;
-  body = JSON.stringify(se_GetMetricPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -257,7 +240,7 @@ export const se_ListContainersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListContainers");
   let body: any;
-  body = JSON.stringify(se_ListContainersInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -270,7 +253,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -283,7 +266,7 @@ export const se_PutContainerPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutContainerPolicy");
   let body: any;
-  body = JSON.stringify(se_PutContainerPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -296,7 +279,7 @@ export const se_PutCorsPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutCorsPolicy");
   let body: any;
-  body = JSON.stringify(se_PutCorsPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -309,7 +292,7 @@ export const se_PutLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutLifecyclePolicy");
   let body: any;
-  body = JSON.stringify(se_PutLifecyclePolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -322,7 +305,7 @@ export const se_PutMetricPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutMetricPolicy");
   let body: any;
-  body = JSON.stringify(se_PutMetricPolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -335,7 +318,7 @@ export const se_StartAccessLoggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartAccessLogging");
   let body: any;
-  body = JSON.stringify(se_StartAccessLoggingInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -348,7 +331,7 @@ export const se_StopAccessLoggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopAccessLogging");
   let body: any;
-  body = JSON.stringify(se_StopAccessLoggingInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -361,7 +344,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -374,7 +357,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -395,7 +378,7 @@ export const de_CreateContainerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -422,10 +405,9 @@ const de_CreateContainerCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -443,12 +425,12 @@ export const de_DeleteContainerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteContainerOutput(data, context);
+  contents = _json(data);
   const response: DeleteContainerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -475,10 +457,9 @@ const de_DeleteContainerCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -496,12 +477,12 @@ export const de_DeleteContainerPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteContainerPolicyOutput(data, context);
+  contents = _json(data);
   const response: DeleteContainerPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -531,10 +512,9 @@ const de_DeleteContainerPolicyCommandError = async (
       throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -552,12 +532,12 @@ export const de_DeleteCorsPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteCorsPolicyOutput(data, context);
+  contents = _json(data);
   const response: DeleteCorsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -587,10 +567,9 @@ const de_DeleteCorsPolicyCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -608,12 +587,12 @@ export const de_DeleteLifecyclePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteLifecyclePolicyOutput(data, context);
+  contents = _json(data);
   const response: DeleteLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -643,10 +622,9 @@ const de_DeleteLifecyclePolicyCommandError = async (
       throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -664,12 +642,12 @@ export const de_DeleteMetricPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteMetricPolicyOutput(data, context);
+  contents = _json(data);
   const response: DeleteMetricPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -699,10 +677,9 @@ const de_DeleteMetricPolicyCommandError = async (
       throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -725,7 +702,7 @@ export const de_DescribeContainerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -749,10 +726,9 @@ const de_DescribeContainerCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -770,12 +746,12 @@ export const de_GetContainerPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetContainerPolicyOutput(data, context);
+  contents = _json(data);
   const response: GetContainerPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -805,10 +781,9 @@ const de_GetContainerPolicyCommandError = async (
       throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -826,12 +801,12 @@ export const de_GetCorsPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCorsPolicyOutput(data, context);
+  contents = _json(data);
   const response: GetCorsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -861,10 +836,9 @@ const de_GetCorsPolicyCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -882,12 +856,12 @@ export const de_GetLifecyclePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetLifecyclePolicyOutput(data, context);
+  contents = _json(data);
   const response: GetLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -917,10 +891,9 @@ const de_GetLifecyclePolicyCommandError = async (
       throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -938,12 +911,12 @@ export const de_GetMetricPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetMetricPolicyOutput(data, context);
+  contents = _json(data);
   const response: GetMetricPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -973,10 +946,9 @@ const de_GetMetricPolicyCommandError = async (
       throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -999,7 +971,7 @@ export const de_ListContainersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1020,10 +992,9 @@ const de_ListContainersCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1041,12 +1012,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1073,10 +1044,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1094,12 +1064,12 @@ export const de_PutContainerPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutContainerPolicyOutput(data, context);
+  contents = _json(data);
   const response: PutContainerPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1126,10 +1096,9 @@ const de_PutContainerPolicyCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1147,12 +1116,12 @@ export const de_PutCorsPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutCorsPolicyOutput(data, context);
+  contents = _json(data);
   const response: PutCorsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1179,10 +1148,9 @@ const de_PutCorsPolicyCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1200,12 +1168,12 @@ export const de_PutLifecyclePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutLifecyclePolicyOutput(data, context);
+  contents = _json(data);
   const response: PutLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1232,10 +1200,9 @@ const de_PutLifecyclePolicyCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1253,12 +1220,12 @@ export const de_PutMetricPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutMetricPolicyOutput(data, context);
+  contents = _json(data);
   const response: PutMetricPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1285,10 +1252,9 @@ const de_PutMetricPolicyCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1306,12 +1272,12 @@ export const de_StartAccessLoggingCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartAccessLoggingOutput(data, context);
+  contents = _json(data);
   const response: StartAccessLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1338,10 +1304,9 @@ const de_StartAccessLoggingCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1359,12 +1324,12 @@ export const de_StopAccessLoggingCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopAccessLoggingOutput(data, context);
+  contents = _json(data);
   const response: StopAccessLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1391,10 +1356,9 @@ const de_StopAccessLoggingCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1412,12 +1376,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceOutput(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1444,10 +1408,9 @@ const de_TagResourceCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1465,12 +1428,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceOutput(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1497,10 +1460,9 @@ const de_UntagResourceCommandError = async (
       throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1514,7 +1476,7 @@ const de_ContainerInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ContainerInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ContainerInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ContainerInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1530,7 +1492,7 @@ const de_ContainerNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ContainerNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ContainerNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ContainerNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1546,7 +1508,7 @@ const de_CorsPolicyNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<CorsPolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CorsPolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CorsPolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1559,7 +1521,7 @@ const de_CorsPolicyNotFoundExceptionRes = async (
  */
 const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1575,7 +1537,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1591,7 +1553,7 @@ const de_PolicyNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1599,406 +1561,93 @@ const de_PolicyNotFoundExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AllowedHeaders
- */
-const se_AllowedHeaders = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AllowedHeaders omitted.
 
-/**
- * serializeAws_json1_1AllowedMethods
- */
-const se_AllowedMethods = (input: (MethodName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AllowedMethods omitted.
 
-/**
- * serializeAws_json1_1AllowedOrigins
- */
-const se_AllowedOrigins = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AllowedOrigins omitted.
 
-/**
- * serializeAws_json1_1CorsPolicy
- */
-const se_CorsPolicy = (input: CorsRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CorsRule(entry, context);
-    });
-};
+// se_CorsPolicy omitted.
 
-/**
- * serializeAws_json1_1CorsRule
- */
-const se_CorsRule = (input: CorsRule, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowedHeaders != null && { AllowedHeaders: se_AllowedHeaders(input.AllowedHeaders, context) }),
-    ...(input.AllowedMethods != null && { AllowedMethods: se_AllowedMethods(input.AllowedMethods, context) }),
-    ...(input.AllowedOrigins != null && { AllowedOrigins: se_AllowedOrigins(input.AllowedOrigins, context) }),
-    ...(input.ExposeHeaders != null && { ExposeHeaders: se_ExposeHeaders(input.ExposeHeaders, context) }),
-    ...(input.MaxAgeSeconds != null && { MaxAgeSeconds: input.MaxAgeSeconds }),
-  };
-};
+// se_CorsRule omitted.
 
-/**
- * serializeAws_json1_1CreateContainerInput
- */
-const se_CreateContainerInput = (input: CreateContainerInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateContainerInput omitted.
 
-/**
- * serializeAws_json1_1DeleteContainerInput
- */
-const se_DeleteContainerInput = (input: DeleteContainerInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_DeleteContainerInput omitted.
 
-/**
- * serializeAws_json1_1DeleteContainerPolicyInput
- */
-const se_DeleteContainerPolicyInput = (input: DeleteContainerPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_DeleteContainerPolicyInput omitted.
 
-/**
- * serializeAws_json1_1DeleteCorsPolicyInput
- */
-const se_DeleteCorsPolicyInput = (input: DeleteCorsPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_DeleteCorsPolicyInput omitted.
 
-/**
- * serializeAws_json1_1DeleteLifecyclePolicyInput
- */
-const se_DeleteLifecyclePolicyInput = (input: DeleteLifecyclePolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_DeleteLifecyclePolicyInput omitted.
 
-/**
- * serializeAws_json1_1DeleteMetricPolicyInput
- */
-const se_DeleteMetricPolicyInput = (input: DeleteMetricPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_DeleteMetricPolicyInput omitted.
 
-/**
- * serializeAws_json1_1DescribeContainerInput
- */
-const se_DescribeContainerInput = (input: DescribeContainerInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_DescribeContainerInput omitted.
 
-/**
- * serializeAws_json1_1ExposeHeaders
- */
-const se_ExposeHeaders = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExposeHeaders omitted.
 
-/**
- * serializeAws_json1_1GetContainerPolicyInput
- */
-const se_GetContainerPolicyInput = (input: GetContainerPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_GetContainerPolicyInput omitted.
 
-/**
- * serializeAws_json1_1GetCorsPolicyInput
- */
-const se_GetCorsPolicyInput = (input: GetCorsPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_GetCorsPolicyInput omitted.
 
-/**
- * serializeAws_json1_1GetLifecyclePolicyInput
- */
-const se_GetLifecyclePolicyInput = (input: GetLifecyclePolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_GetLifecyclePolicyInput omitted.
 
-/**
- * serializeAws_json1_1GetMetricPolicyInput
- */
-const se_GetMetricPolicyInput = (input: GetMetricPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_GetMetricPolicyInput omitted.
 
-/**
- * serializeAws_json1_1ListContainersInput
- */
-const se_ListContainersInput = (input: ListContainersInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListContainersInput omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceInput
- */
-const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Resource != null && { Resource: input.Resource }),
-  };
-};
+// se_ListTagsForResourceInput omitted.
 
-/**
- * serializeAws_json1_1MetricPolicy
- */
-const se_MetricPolicy = (input: MetricPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerLevelMetrics != null && { ContainerLevelMetrics: input.ContainerLevelMetrics }),
-    ...(input.MetricPolicyRules != null && {
-      MetricPolicyRules: se_MetricPolicyRules(input.MetricPolicyRules, context),
-    }),
-  };
-};
+// se_MetricPolicy omitted.
 
-/**
- * serializeAws_json1_1MetricPolicyRule
- */
-const se_MetricPolicyRule = (input: MetricPolicyRule, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectGroup != null && { ObjectGroup: input.ObjectGroup }),
-    ...(input.ObjectGroupName != null && { ObjectGroupName: input.ObjectGroupName }),
-  };
-};
+// se_MetricPolicyRule omitted.
 
-/**
- * serializeAws_json1_1MetricPolicyRules
- */
-const se_MetricPolicyRules = (input: MetricPolicyRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MetricPolicyRule(entry, context);
-    });
-};
+// se_MetricPolicyRules omitted.
 
-/**
- * serializeAws_json1_1PutContainerPolicyInput
- */
-const se_PutContainerPolicyInput = (input: PutContainerPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-  };
-};
+// se_PutContainerPolicyInput omitted.
 
-/**
- * serializeAws_json1_1PutCorsPolicyInput
- */
-const se_PutCorsPolicyInput = (input: PutCorsPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-    ...(input.CorsPolicy != null && { CorsPolicy: se_CorsPolicy(input.CorsPolicy, context) }),
-  };
-};
+// se_PutCorsPolicyInput omitted.
 
-/**
- * serializeAws_json1_1PutLifecyclePolicyInput
- */
-const se_PutLifecyclePolicyInput = (input: PutLifecyclePolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-    ...(input.LifecyclePolicy != null && { LifecyclePolicy: input.LifecyclePolicy }),
-  };
-};
+// se_PutLifecyclePolicyInput omitted.
 
-/**
- * serializeAws_json1_1PutMetricPolicyInput
- */
-const se_PutMetricPolicyInput = (input: PutMetricPolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-    ...(input.MetricPolicy != null && { MetricPolicy: se_MetricPolicy(input.MetricPolicy, context) }),
-  };
-};
+// se_PutMetricPolicyInput omitted.
 
-/**
- * serializeAws_json1_1StartAccessLoggingInput
- */
-const se_StartAccessLoggingInput = (input: StartAccessLoggingInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_StartAccessLoggingInput omitted.
 
-/**
- * serializeAws_json1_1StopAccessLoggingInput
- */
-const se_StopAccessLoggingInput = (input: StopAccessLoggingInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
-  };
-};
+// se_StopAccessLoggingInput omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceInput
- */
-const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Resource != null && { Resource: input.Resource }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceInput omitted.
 
-/**
- * serializeAws_json1_1UntagResourceInput
- */
-const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Resource != null && { Resource: input.Resource }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceInput omitted.
 
-/**
- * deserializeAws_json1_1AllowedHeaders
- */
-const de_AllowedHeaders = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AllowedHeaders omitted.
 
-/**
- * deserializeAws_json1_1AllowedMethods
- */
-const de_AllowedMethods = (output: any, context: __SerdeContext): (MethodName | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AllowedMethods omitted.
 
-/**
- * deserializeAws_json1_1AllowedOrigins
- */
-const de_AllowedOrigins = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AllowedOrigins omitted.
 
 /**
  * deserializeAws_json1_1Container
  */
 const de_Container = (output: any, context: __SerdeContext): Container => {
-  return {
-    ARN: __expectString(output.ARN),
-    AccessLoggingEnabled: __expectBoolean(output.AccessLoggingEnabled),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Endpoint: __expectString(output.Endpoint),
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    AccessLoggingEnabled: __expectBoolean,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Endpoint: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ContainerInUseException
- */
-const de_ContainerInUseException = (output: any, context: __SerdeContext): ContainerInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ContainerInUseException omitted.
 
 /**
  * deserializeAws_json1_1ContainerList
@@ -2007,326 +1656,100 @@ const de_ContainerList = (output: any, context: __SerdeContext): Container[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Container(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ContainerNotFoundException
- */
-const de_ContainerNotFoundException = (output: any, context: __SerdeContext): ContainerNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ContainerNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1CorsPolicy
- */
-const de_CorsPolicy = (output: any, context: __SerdeContext): CorsRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CorsRule(entry, context);
-    });
-  return retVal;
-};
+// de_CorsPolicy omitted.
 
-/**
- * deserializeAws_json1_1CorsPolicyNotFoundException
- */
-const de_CorsPolicyNotFoundException = (output: any, context: __SerdeContext): CorsPolicyNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_CorsPolicyNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1CorsRule
- */
-const de_CorsRule = (output: any, context: __SerdeContext): CorsRule => {
-  return {
-    AllowedHeaders: output.AllowedHeaders != null ? de_AllowedHeaders(output.AllowedHeaders, context) : undefined,
-    AllowedMethods: output.AllowedMethods != null ? de_AllowedMethods(output.AllowedMethods, context) : undefined,
-    AllowedOrigins: output.AllowedOrigins != null ? de_AllowedOrigins(output.AllowedOrigins, context) : undefined,
-    ExposeHeaders: output.ExposeHeaders != null ? de_ExposeHeaders(output.ExposeHeaders, context) : undefined,
-    MaxAgeSeconds: __expectInt32(output.MaxAgeSeconds),
-  } as any;
-};
+// de_CorsRule omitted.
 
 /**
  * deserializeAws_json1_1CreateContainerOutput
  */
 const de_CreateContainerOutput = (output: any, context: __SerdeContext): CreateContainerOutput => {
-  return {
-    Container: output.Container != null ? de_Container(output.Container, context) : undefined,
-  } as any;
+  return take(output, {
+    Container: (_: any) => de_Container(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteContainerOutput
- */
-const de_DeleteContainerOutput = (output: any, context: __SerdeContext): DeleteContainerOutput => {
-  return {} as any;
-};
+// de_DeleteContainerOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteContainerPolicyOutput
- */
-const de_DeleteContainerPolicyOutput = (output: any, context: __SerdeContext): DeleteContainerPolicyOutput => {
-  return {} as any;
-};
+// de_DeleteContainerPolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteCorsPolicyOutput
- */
-const de_DeleteCorsPolicyOutput = (output: any, context: __SerdeContext): DeleteCorsPolicyOutput => {
-  return {} as any;
-};
+// de_DeleteCorsPolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteLifecyclePolicyOutput
- */
-const de_DeleteLifecyclePolicyOutput = (output: any, context: __SerdeContext): DeleteLifecyclePolicyOutput => {
-  return {} as any;
-};
+// de_DeleteLifecyclePolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteMetricPolicyOutput
- */
-const de_DeleteMetricPolicyOutput = (output: any, context: __SerdeContext): DeleteMetricPolicyOutput => {
-  return {} as any;
-};
+// de_DeleteMetricPolicyOutput omitted.
 
 /**
  * deserializeAws_json1_1DescribeContainerOutput
  */
 const de_DescribeContainerOutput = (output: any, context: __SerdeContext): DescribeContainerOutput => {
-  return {
-    Container: output.Container != null ? de_Container(output.Container, context) : undefined,
-  } as any;
+  return take(output, {
+    Container: (_: any) => de_Container(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ExposeHeaders
- */
-const de_ExposeHeaders = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ExposeHeaders omitted.
 
-/**
- * deserializeAws_json1_1GetContainerPolicyOutput
- */
-const de_GetContainerPolicyOutput = (output: any, context: __SerdeContext): GetContainerPolicyOutput => {
-  return {
-    Policy: __expectString(output.Policy),
-  } as any;
-};
+// de_GetContainerPolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1GetCorsPolicyOutput
- */
-const de_GetCorsPolicyOutput = (output: any, context: __SerdeContext): GetCorsPolicyOutput => {
-  return {
-    CorsPolicy: output.CorsPolicy != null ? de_CorsPolicy(output.CorsPolicy, context) : undefined,
-  } as any;
-};
+// de_GetCorsPolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1GetLifecyclePolicyOutput
- */
-const de_GetLifecyclePolicyOutput = (output: any, context: __SerdeContext): GetLifecyclePolicyOutput => {
-  return {
-    LifecyclePolicy: __expectString(output.LifecyclePolicy),
-  } as any;
-};
+// de_GetLifecyclePolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1GetMetricPolicyOutput
- */
-const de_GetMetricPolicyOutput = (output: any, context: __SerdeContext): GetMetricPolicyOutput => {
-  return {
-    MetricPolicy: output.MetricPolicy != null ? de_MetricPolicy(output.MetricPolicy, context) : undefined,
-  } as any;
-};
+// de_GetMetricPolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1InternalServerError
- */
-const de_InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerError omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListContainersOutput
  */
 const de_ListContainersOutput = (output: any, context: __SerdeContext): ListContainersOutput => {
-  return {
-    Containers: output.Containers != null ? de_ContainerList(output.Containers, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Containers: (_: any) => de_ContainerList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceOutput
- */
-const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1MetricPolicy
- */
-const de_MetricPolicy = (output: any, context: __SerdeContext): MetricPolicy => {
-  return {
-    ContainerLevelMetrics: __expectString(output.ContainerLevelMetrics),
-    MetricPolicyRules:
-      output.MetricPolicyRules != null ? de_MetricPolicyRules(output.MetricPolicyRules, context) : undefined,
-  } as any;
-};
+// de_MetricPolicy omitted.
 
-/**
- * deserializeAws_json1_1MetricPolicyRule
- */
-const de_MetricPolicyRule = (output: any, context: __SerdeContext): MetricPolicyRule => {
-  return {
-    ObjectGroup: __expectString(output.ObjectGroup),
-    ObjectGroupName: __expectString(output.ObjectGroupName),
-  } as any;
-};
+// de_MetricPolicyRule omitted.
 
-/**
- * deserializeAws_json1_1MetricPolicyRules
- */
-const de_MetricPolicyRules = (output: any, context: __SerdeContext): MetricPolicyRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MetricPolicyRule(entry, context);
-    });
-  return retVal;
-};
+// de_MetricPolicyRules omitted.
 
-/**
- * deserializeAws_json1_1PolicyNotFoundException
- */
-const de_PolicyNotFoundException = (output: any, context: __SerdeContext): PolicyNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1PutContainerPolicyOutput
- */
-const de_PutContainerPolicyOutput = (output: any, context: __SerdeContext): PutContainerPolicyOutput => {
-  return {} as any;
-};
+// de_PutContainerPolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1PutCorsPolicyOutput
- */
-const de_PutCorsPolicyOutput = (output: any, context: __SerdeContext): PutCorsPolicyOutput => {
-  return {} as any;
-};
+// de_PutCorsPolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1PutLifecyclePolicyOutput
- */
-const de_PutLifecyclePolicyOutput = (output: any, context: __SerdeContext): PutLifecyclePolicyOutput => {
-  return {} as any;
-};
+// de_PutLifecyclePolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1PutMetricPolicyOutput
- */
-const de_PutMetricPolicyOutput = (output: any, context: __SerdeContext): PutMetricPolicyOutput => {
-  return {} as any;
-};
+// de_PutMetricPolicyOutput omitted.
 
-/**
- * deserializeAws_json1_1StartAccessLoggingOutput
- */
-const de_StartAccessLoggingOutput = (output: any, context: __SerdeContext): StartAccessLoggingOutput => {
-  return {} as any;
-};
+// de_StartAccessLoggingOutput omitted.
 
-/**
- * deserializeAws_json1_1StopAccessLoggingOutput
- */
-const de_StopAccessLoggingOutput = (output: any, context: __SerdeContext): StopAccessLoggingOutput => {
-  return {} as any;
-};
+// de_StopAccessLoggingOutput omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceOutput
- */
-const de_TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  return {} as any;
-};
+// de_TagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceOutput
- */
-const de_UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  return {} as any;
-};
+// de_UntagResourceOutput omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2348,6 +1771,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
